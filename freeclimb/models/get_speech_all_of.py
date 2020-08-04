@@ -46,7 +46,7 @@ class GetSpeechAllOf(object):
         'sensitivity_level': 'float',
         'speech_complete_timeout_ms': 'int',
         'speech_incomplete_timeout_ms': 'int',
-        'enforce_pci': 'bool'
+        'privacy_mode': 'bool'
     }
 
     attribute_map = {
@@ -62,10 +62,10 @@ class GetSpeechAllOf(object):
         'sensitivity_level': 'sensitivityLevel',
         'speech_complete_timeout_ms': 'speechCompleteTimeoutMs',
         'speech_incomplete_timeout_ms': 'speechIncompleteTimeoutMs',
-        'enforce_pci': 'enforcePCI'
+        'privacy_mode': 'privacyMode'
     }
 
-    def __init__(self, action_url=None, grammar_type=None, grammar_file=None, grammar_rule=None, play_beep=None, prompts=None, no_input_timeout_ms=None, recognition_timeout_ms=None, confidence_threshold=None, sensitivity_level=None, speech_complete_timeout_ms=None, speech_incomplete_timeout_ms=None, enforce_pci=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, action_url=None, grammar_type=None, grammar_file=None, grammar_rule=None, play_beep=None, prompts=None, no_input_timeout_ms=None, recognition_timeout_ms=None, confidence_threshold=None, sensitivity_level=None, speech_complete_timeout_ms=None, speech_incomplete_timeout_ms=None, privacy_mode=None, local_vars_configuration=None):  # noqa: E501
         """GetSpeechAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -83,7 +83,7 @@ class GetSpeechAllOf(object):
         self._sensitivity_level = None
         self._speech_complete_timeout_ms = None
         self._speech_incomplete_timeout_ms = None
-        self._enforce_pci = None
+        self._privacy_mode = None
         self.discriminator = None
 
         self.action_url = action_url
@@ -108,8 +108,8 @@ class GetSpeechAllOf(object):
             self.speech_complete_timeout_ms = speech_complete_timeout_ms
         if speech_incomplete_timeout_ms is not None:
             self.speech_incomplete_timeout_ms = speech_incomplete_timeout_ms
-        if enforce_pci is not None:
-            self.enforce_pci = enforce_pci
+        if privacy_mode is not None:
+            self.privacy_mode = privacy_mode
 
     @property
     def action_url(self):
@@ -392,27 +392,27 @@ class GetSpeechAllOf(object):
         self._speech_incomplete_timeout_ms = speech_incomplete_timeout_ms
 
     @property
-    def enforce_pci(self):
-        """Gets the enforce_pci of this GetSpeechAllOf.  # noqa: E501
+    def privacy_mode(self):
+        """Gets the privacy_mode of this GetSpeechAllOf.  # noqa: E501
 
-        Parameter enforcePCI will not log the `text` as required by PCI compliance.  # noqa: E501
+        Parameter privacyMode will not log the `text` as required by PCI compliance.  # noqa: E501
 
-        :return: The enforce_pci of this GetSpeechAllOf.  # noqa: E501
+        :return: The privacy_mode of this GetSpeechAllOf.  # noqa: E501
         :rtype: bool
         """
-        return self._enforce_pci
+        return self._privacy_mode
 
-    @enforce_pci.setter
-    def enforce_pci(self, enforce_pci):
-        """Sets the enforce_pci of this GetSpeechAllOf.
+    @privacy_mode.setter
+    def privacy_mode(self, privacy_mode):
+        """Sets the privacy_mode of this GetSpeechAllOf.
 
-        Parameter enforcePCI will not log the `text` as required by PCI compliance.  # noqa: E501
+        Parameter privacyMode will not log the `text` as required by PCI compliance.  # noqa: E501
 
-        :param enforce_pci: The enforce_pci of this GetSpeechAllOf.  # noqa: E501
+        :param privacy_mode: The privacy_mode of this GetSpeechAllOf.  # noqa: E501
         :type: bool
         """
 
-        self._enforce_pci = enforce_pci
+        self._privacy_mode = privacy_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -420,7 +420,6 @@ class GetSpeechAllOf(object):
 
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
-            attr = self.to_camel_case(attr)
             if isinstance(value, list):
                 result[attr] = list(map(
                     lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
@@ -434,8 +433,6 @@ class GetSpeechAllOf(object):
                     if hasattr(item[1], "to_dict") else item,
                     value.items()
                 ))
-            elif value is None:
-                continue
             else:
                 result[attr] = value
 
@@ -462,7 +459,3 @@ class GetSpeechAllOf(object):
             return True
 
         return self.to_dict() != other.to_dict()
-
-    def to_camel_case(self, snake_str):
-        components = snake_str.split('_')
-        return components[0] + ''.join(x.title() for x in components[1:])

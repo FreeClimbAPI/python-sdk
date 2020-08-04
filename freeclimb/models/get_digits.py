@@ -41,7 +41,8 @@ class GetDigits(object):
         'initial_timeout_ms': 'str',
         'max_digits': 'int',
         'min_digits': 'int',
-        'prompts': 'list[PerclCommand]'
+        'prompts': 'list[PerclCommand]',
+        'privacy_mode': 'bool'
     }
 
     attribute_map = {
@@ -52,10 +53,11 @@ class GetDigits(object):
         'initial_timeout_ms': 'initialTimeoutMs',
         'max_digits': 'maxDigits',
         'min_digits': 'minDigits',
-        'prompts': 'prompts'
+        'prompts': 'prompts',
+        'privacy_mode': 'privacyMode'
     }
 
-    def __init__(self, action_url=None, digit_timeout_ms=None, finish_on_key=None, flush_buffer=None, initial_timeout_ms=None, max_digits=None, min_digits=None, prompts=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, action_url=None, digit_timeout_ms=None, finish_on_key=None, flush_buffer=None, initial_timeout_ms=None, max_digits=None, min_digits=None, prompts=None, privacy_mode=None, local_vars_configuration=None):  # noqa: E501
         """GetDigits - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +71,7 @@ class GetDigits(object):
         self._max_digits = None
         self._min_digits = None
         self._prompts = None
+        self._privacy_mode = None
         self.discriminator = None
 
         self.action_url = action_url
@@ -86,6 +89,8 @@ class GetDigits(object):
             self.min_digits = min_digits
         if prompts is not None:
             self.prompts = prompts
+        if privacy_mode is not None:
+            self.privacy_mode = privacy_mode
 
     @property
     def action_url(self):
@@ -273,13 +278,35 @@ class GetDigits(object):
 
         self._prompts = prompts
 
+    @property
+    def privacy_mode(self):
+        """Gets the privacy_mode of this GetDigits.  # noqa: E501
+
+        Parameter `privacyMode` will not log the `text` as required by PCI compliance.  # noqa: E501
+
+        :return: The privacy_mode of this GetDigits.  # noqa: E501
+        :rtype: bool
+        """
+        return self._privacy_mode
+
+    @privacy_mode.setter
+    def privacy_mode(self, privacy_mode):
+        """Sets the privacy_mode of this GetDigits.
+
+        Parameter `privacyMode` will not log the `text` as required by PCI compliance.  # noqa: E501
+
+        :param privacy_mode: The privacy_mode of this GetDigits.  # noqa: E501
+        :type: bool
+        """
+
+        self._privacy_mode = privacy_mode
+
     def to_dict(self):
         """Returns the model properties as a dict"""
         result = {}
 
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
-            attr = self.to_camel_case(attr)
             if isinstance(value, list):
                 result[attr] = list(map(
                     lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
@@ -293,8 +320,6 @@ class GetDigits(object):
                     if hasattr(item[1], "to_dict") else item,
                     value.items()
                 ))
-            elif value is None:
-                continue
             else:
                 result[attr] = value
 
@@ -321,7 +346,3 @@ class GetDigits(object):
             return True
 
         return self.to_dict() != other.to_dict()
-
-    def to_camel_case(self, snake_str):
-        components = snake_str.split('_')
-        return components[0] + ''.join(x.title() for x in components[1:])

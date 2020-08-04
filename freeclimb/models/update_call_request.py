@@ -89,7 +89,6 @@ class UpdateCallRequest(object):
 
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
-            attr = self.to_camel_case(attr)
             if isinstance(value, list):
                 result[attr] = list(map(
                     lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
@@ -103,8 +102,6 @@ class UpdateCallRequest(object):
                     if hasattr(item[1], "to_dict") else item,
                     value.items()
                 ))
-            elif value is None:
-                continue
             else:
                 result[attr] = value
 
@@ -131,7 +128,3 @@ class UpdateCallRequest(object):
             return True
 
         return self.to_dict() != other.to_dict()
-
-    def to_camel_case(self, snake_str):
-        components = snake_str.split('_')
-        return components[0] + ''.join(x.title() for x in components[1:])

@@ -38,7 +38,7 @@ class SayAllOf(object):
         'language': 'str',
         'loop': 'int',
         'conference_id': 'str',
-        'enforce_pci': 'bool'
+        'privacy_mode': 'bool'
     }
 
     attribute_map = {
@@ -46,10 +46,10 @@ class SayAllOf(object):
         'language': 'language',
         'loop': 'loop',
         'conference_id': 'conferenceId',
-        'enforce_pci': 'enforcePCI'
+        'privacy_mode': 'privacyMode'
     }
 
-    def __init__(self, text=None, language=None, loop=None, conference_id=None, enforce_pci=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, text=None, language=None, loop=None, conference_id=None, privacy_mode=None, local_vars_configuration=None):  # noqa: E501
         """SayAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,7 +59,7 @@ class SayAllOf(object):
         self._language = None
         self._loop = None
         self._conference_id = None
-        self._enforce_pci = None
+        self._privacy_mode = None
         self.discriminator = None
 
         self.text = text
@@ -69,8 +69,8 @@ class SayAllOf(object):
             self.loop = loop
         if conference_id is not None:
             self.conference_id = conference_id
-        if enforce_pci is not None:
-            self.enforce_pci = enforce_pci
+        if privacy_mode is not None:
+            self.privacy_mode = privacy_mode
 
     @property
     def text(self):
@@ -167,27 +167,27 @@ class SayAllOf(object):
         self._conference_id = conference_id
 
     @property
-    def enforce_pci(self):
-        """Gets the enforce_pci of this SayAllOf.  # noqa: E501
+    def privacy_mode(self):
+        """Gets the privacy_mode of this SayAllOf.  # noqa: E501
 
-        Parameter `enforcePCI` will not log the `text` as required by PCI compliance.  # noqa: E501
+        Parameter `privacyMode` will not log the `text` as required by PCI compliance.  # noqa: E501
 
-        :return: The enforce_pci of this SayAllOf.  # noqa: E501
+        :return: The privacy_mode of this SayAllOf.  # noqa: E501
         :rtype: bool
         """
-        return self._enforce_pci
+        return self._privacy_mode
 
-    @enforce_pci.setter
-    def enforce_pci(self, enforce_pci):
-        """Sets the enforce_pci of this SayAllOf.
+    @privacy_mode.setter
+    def privacy_mode(self, privacy_mode):
+        """Sets the privacy_mode of this SayAllOf.
 
-        Parameter `enforcePCI` will not log the `text` as required by PCI compliance.  # noqa: E501
+        Parameter `privacyMode` will not log the `text` as required by PCI compliance.  # noqa: E501
 
-        :param enforce_pci: The enforce_pci of this SayAllOf.  # noqa: E501
+        :param privacy_mode: The privacy_mode of this SayAllOf.  # noqa: E501
         :type: bool
         """
 
-        self._enforce_pci = enforce_pci
+        self._privacy_mode = privacy_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -195,7 +195,6 @@ class SayAllOf(object):
 
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
-            attr = self.to_camel_case(attr)
             if isinstance(value, list):
                 result[attr] = list(map(
                     lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
@@ -209,8 +208,6 @@ class SayAllOf(object):
                     if hasattr(item[1], "to_dict") else item,
                     value.items()
                 ))
-            elif value is None:
-                continue
             else:
                 result[attr] = value
 
@@ -237,7 +234,3 @@ class SayAllOf(object):
             return True
 
         return self.to_dict() != other.to_dict()
-
-    def to_camel_case(self, snake_str):
-        components = snake_str.split('_')
-        return components[0] + ''.join(x.title() for x in components[1:])

@@ -36,16 +36,18 @@ class PlayAllOf(object):
     openapi_types = {
         'file': 'str',
         'loop': 'int',
-        'conference_id': 'str'
+        'conference_id': 'str',
+        'privacy_mode': 'bool'
     }
 
     attribute_map = {
         'file': 'file',
         'loop': 'loop',
-        'conference_id': 'conferenceId'
+        'conference_id': 'conferenceId',
+        'privacy_mode': 'privacyMode'
     }
 
-    def __init__(self, file=None, loop=None, conference_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, file=None, loop=None, conference_id=None, privacy_mode=None, local_vars_configuration=None):  # noqa: E501
         """PlayAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -54,6 +56,7 @@ class PlayAllOf(object):
         self._file = None
         self._loop = None
         self._conference_id = None
+        self._privacy_mode = None
         self.discriminator = None
 
         self.file = file
@@ -61,6 +64,8 @@ class PlayAllOf(object):
             self.loop = loop
         if conference_id is not None:
             self.conference_id = conference_id
+        if privacy_mode is not None:
+            self.privacy_mode = privacy_mode
 
     @property
     def file(self):
@@ -133,13 +138,35 @@ class PlayAllOf(object):
 
         self._conference_id = conference_id
 
+    @property
+    def privacy_mode(self):
+        """Gets the privacy_mode of this PlayAllOf.  # noqa: E501
+
+        Parameter `privacyMode` will not log the `text` as required by PCI compliance.  # noqa: E501
+
+        :return: The privacy_mode of this PlayAllOf.  # noqa: E501
+        :rtype: bool
+        """
+        return self._privacy_mode
+
+    @privacy_mode.setter
+    def privacy_mode(self, privacy_mode):
+        """Sets the privacy_mode of this PlayAllOf.
+
+        Parameter `privacyMode` will not log the `text` as required by PCI compliance.  # noqa: E501
+
+        :param privacy_mode: The privacy_mode of this PlayAllOf.  # noqa: E501
+        :type: bool
+        """
+
+        self._privacy_mode = privacy_mode
+
     def to_dict(self):
         """Returns the model properties as a dict"""
         result = {}
 
         for attr, _ in six.iteritems(self.openapi_types):
             value = getattr(self, attr)
-            attr = self.to_camel_case(attr)
             if isinstance(value, list):
                 result[attr] = list(map(
                     lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
@@ -153,8 +180,6 @@ class PlayAllOf(object):
                     if hasattr(item[1], "to_dict") else item,
                     value.items()
                 ))
-            elif value is None:
-                continue
             else:
                 result[attr] = value
 
@@ -181,7 +206,3 @@ class PlayAllOf(object):
             return True
 
         return self.to_dict() != other.to_dict()
-
-    def to_camel_case(self, snake_str):
-        components = snake_str.split('_')
-        return components[0] + ''.join(x.title() for x in components[1:])
