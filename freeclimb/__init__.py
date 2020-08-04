@@ -128,3 +128,33 @@ from freeclimb.models.update_call_request import UpdateCallRequest
 from freeclimb.models.update_conference_participant_request import UpdateConferenceParticipantRequest
 from freeclimb.models.update_conference_request import UpdateConferenceRequest
 
+
+import json
+
+def serialize_command_list(percl_list):
+    percl_array = []
+    for command in percl_list:
+        class_name = type(command).__name__
+        if hasattr(command, 'prompts'):
+            percl_command = {
+                class_name: serialize_prompts_command(command)
+            }
+        else:
+            percl_command = {
+                class_name: command.to_dict()
+            }
+        percl_array.append(percl_command)
+    return percl_array
+
+
+def serialize_prompts_command(command):
+    prompts = command.prompts
+    command.prompts = None
+    percl_dict = command.to_dict()
+    percl_dict['prompts'] = serialize_command_list(prompts)
+    return percl_dict
+    
+
+
+def percl_to_json(percl_script):
+    return json.dumps(serialize_command_list(percl_script.commands))

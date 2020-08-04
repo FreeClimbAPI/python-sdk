@@ -13,7 +13,7 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "FreeClimb"
+NAME = "freeclimb"
 VERSION = "2.0.2"
 # To install the library, run the following
 #

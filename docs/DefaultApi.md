@@ -4,6 +4,7 @@ All URIs are relative to *https://www.freeclimb.com/apiserver*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**get_an_account**](DefaultApi.md#get_an_account) | **GET** /Accounts/{accountId} | Get an Account
 [**buy_a_phone_number**](DefaultApi.md#buy_a_phone_number) | **POST** /Accounts/{accountId}/IncomingPhoneNumbers | Buy a Phone Number
 [**create_a_conference**](DefaultApi.md#create_a_conference) | **POST** /Accounts/{accountId}/Conferences | Create a Conference
 [**create_a_queue**](DefaultApi.md#create_a_queue) | **POST** /Accounts/{accountId}/Queues | Create a Queue
@@ -21,7 +22,6 @@ Method | HTTP request | Description
 [**get_a_participant**](DefaultApi.md#get_a_participant) | **GET** /Accounts/{accountId}/Conferences/{conferenceId}/Participants/{callId} | Get a Participant
 [**get_a_queue**](DefaultApi.md#get_a_queue) | **GET** /Accounts/{accountId}/Queues/{queueId} | Get a Queue
 [**get_a_recording**](DefaultApi.md#get_a_recording) | **GET** /Accounts/{accountId}/Recordings/{recordingId} | Get a Recording
-[**get_an_account**](DefaultApi.md#get_an_account) | **GET** /Accounts/{accountId} | Get an Account
 [**get_an_application**](DefaultApi.md#get_an_application) | **GET** /Accounts/{accountId}/Applications/{applicationId} | Get an Application
 [**get_an_incoming_number**](DefaultApi.md#get_an_incoming_number) | **GET** /Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId} | Get an Incoming Number
 [**get_an_sms_message**](DefaultApi.md#get_an_sms_message) | **GET** /Accounts/{accountId}/Messages/{messageId} | Get an SMS Message
@@ -52,6 +52,64 @@ Method | HTTP request | Description
 [**update_an_incoming_number**](DefaultApi.md#update_an_incoming_number) | **POST** /Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId} | Update an Incoming Number
 
 
+# **get_an_account**
+> AccountResult get_an_account()
+
+Get an Account
+
+### Example
+
+* Basic Authentication (fc):
+```python
+from __future__ import print_function
+import time
+import freeclimb
+from freeclimb.rest import ApiException
+from pprint import pprint
+configuration = freeclimb.Configuration()
+# Configure HTTP basic authorization: fc
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
+
+# Defining host is optional and default to https://www.freeclimb.com/apiserver
+configuration.host = "https://www.freeclimb.com/apiserver"
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = freeclimb.DefaultApi(api_client)
+    
+    try:
+        # Get an Account
+        api_response = api_instance.get_an_account()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->get_an_account: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AccountResult**](AccountResult.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Account Details |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **buy_a_phone_number**
 > IncomingNumberResult buy_a_phone_number(buy_incoming_number_request)
 
@@ -68,8 +126,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -130,8 +188,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -192,8 +250,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -254,8 +312,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -316,8 +374,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -377,8 +435,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -438,8 +496,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -499,8 +557,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -563,8 +621,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -625,8 +683,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -687,8 +745,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -749,8 +807,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -811,8 +869,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -873,8 +931,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -937,8 +995,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -1001,8 +1059,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -1063,8 +1121,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -1109,64 +1167,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_an_account**
-> AccountResult get_an_account()
-
-Get an Account
-
-### Example
-
-* Basic Authentication (fc):
-```python
-from __future__ import print_function
-import time
-import freeclimb
-from freeclimb.rest import ApiException
-from pprint import pprint
-configuration = freeclimb.Configuration()
-# Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# Defining host is optional and default to https://www.freeclimb.com/apiserver
-configuration.host = "https://www.freeclimb.com/apiserver"
-
-# Enter a context with an instance of the API client
-with freeclimb.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = freeclimb.DefaultApi(api_client)
-    
-    try:
-        # Get an Account
-        api_response = api_instance.get_an_account()
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling DefaultApi->get_an_account: %s\n" % e)
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**AccountResult**](AccountResult.md)
-
-### Authorization
-
-[fc](../README.md#fc)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Account Details |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **get_an_application**
 > ApplicationResult get_an_application(application_id)
 
@@ -1183,8 +1183,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -1245,8 +1245,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -1307,8 +1307,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -1369,8 +1369,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -1431,8 +1431,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -1493,8 +1493,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -1551,8 +1551,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -1613,8 +1613,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -1677,8 +1677,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -1739,8 +1739,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -1803,8 +1803,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -1875,8 +1875,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -1943,8 +1943,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -2007,8 +2007,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -2069,8 +2069,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -2135,8 +2135,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -2201,8 +2201,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -2273,8 +2273,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -2335,8 +2335,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -2398,8 +2398,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -2460,8 +2460,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -2522,8 +2522,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -2586,8 +2586,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -2649,8 +2649,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -2715,8 +2715,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -2779,8 +2779,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -2840,8 +2840,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
@@ -2904,8 +2904,8 @@ from freeclimb.rest import ApiException
 from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"

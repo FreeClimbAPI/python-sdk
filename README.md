@@ -14,12 +14,18 @@ Python 2.7 and 3.4+
 ## Installation & Usage
 ### pip install
 
+From PyPI
+
+```sh
+pip install freeclimb
+```
+
 If the python package is hosted on a repository, you can install directly using:
 
 ```sh
 pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git`)
+
 
 Then import the package:
 ```python
@@ -40,7 +46,14 @@ Then import the package:
 import freeclimb
 ```
 
-## Getting Started
+### Running Tests
+
+Run tests with command:
+```
+pytest
+```
+ 
+## Testing Your Installation
 
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
@@ -53,27 +66,42 @@ from pprint import pprint
 
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
-# Defining host is optional and default to https://www.freeclimb.com/apiserver
-configuration.host = "https://www.freeclimb.com/apiserver"
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    buy_incoming_number_request = freeclimb.BuyIncomingNumberRequest() # BuyIncomingNumberRequest | Incoming Number transaction details
-
+    
     try:
-        # Buy a Phone Number
-        api_response = api_instance.buy_a_phone_number(buy_incoming_number_request)
+        # Get an Account
+        api_response = api_instance.get_an_account()
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling DefaultApi->buy_a_phone_number: %s\n" % e)
+        print("Exception when calling DefaultApi->get_an_account: %s\n" % e)
     
+```
+
+## Documentation for PerCL
+
+The Performance Command Language (PerCL) defines a set of instructions, written in JSON format, that express telephony actions to be performed in response to an event on the FreeClimb platform. FreeClimb communicates with the application server when events associated with the application occur, so the webserver can instruct FreeClimb how to handle such events using PerCL scripts.
+PerCL commands are a part of the model schema and can be serialized into JSON like so:
+
+```python
+import freeclimb
+from freeclimb import percl_to_json
+
+say = freeclimb.Say(text='Hello, World')
+play = freeclimb.Play(file='Example File')
+get_digits = freeclimb.GetDigits(
+    action_url='Example Action URL', prompts=[play, say])
+percl_script = freeclimb.PerclScript(commands=[get_digits])
+
+print(percl_to_json(percl_script))
 ```
 
 ## Documentation for API Endpoints
@@ -82,6 +110,7 @@ All URIs are relative to *https://www.freeclimb.com/apiserver*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**get_an_account**](docs/DefaultApi.md#get_an_account) | **GET** /Accounts/{accountId} | Get an Account
 *DefaultApi* | [**buy_a_phone_number**](docs/DefaultApi.md#buy_a_phone_number) | **POST** /Accounts/{accountId}/IncomingPhoneNumbers | Buy a Phone Number
 *DefaultApi* | [**create_a_conference**](docs/DefaultApi.md#create_a_conference) | **POST** /Accounts/{accountId}/Conferences | Create a Conference
 *DefaultApi* | [**create_a_queue**](docs/DefaultApi.md#create_a_queue) | **POST** /Accounts/{accountId}/Queues | Create a Queue
@@ -99,7 +128,6 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**get_a_participant**](docs/DefaultApi.md#get_a_participant) | **GET** /Accounts/{accountId}/Conferences/{conferenceId}/Participants/{callId} | Get a Participant
 *DefaultApi* | [**get_a_queue**](docs/DefaultApi.md#get_a_queue) | **GET** /Accounts/{accountId}/Queues/{queueId} | Get a Queue
 *DefaultApi* | [**get_a_recording**](docs/DefaultApi.md#get_a_recording) | **GET** /Accounts/{accountId}/Recordings/{recordingId} | Get a Recording
-*DefaultApi* | [**get_an_account**](docs/DefaultApi.md#get_an_account) | **GET** /Accounts/{accountId} | Get an Account
 *DefaultApi* | [**get_an_application**](docs/DefaultApi.md#get_an_application) | **GET** /Accounts/{accountId}/Applications/{applicationId} | Get an Application
 *DefaultApi* | [**get_an_incoming_number**](docs/DefaultApi.md#get_an_incoming_number) | **GET** /Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId} | Get an Incoming Number
 *DefaultApi* | [**get_an_sms_message**](docs/DefaultApi.md#get_an_sms_message) | **GET** /Accounts/{accountId}/Messages/{messageId} | Get an SMS Message

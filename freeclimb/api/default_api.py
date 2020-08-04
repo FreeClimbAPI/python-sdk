@@ -32,12 +32,115 @@ class DefaultApi(object):
     Do not edit the class manually.
     """
 
-    def __init__(self, api_client=None):
+    def __init__(self, api_client=None, account_id=None):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.accountId = self.api_client.configuration.username
+        if account_id is None:
+            account_id = self.api_client.configuration.username
+        self.accountId = account_id
 
+
+    def get_an_account(self, **kwargs):  # noqa: E501
+        """Get an Account  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_an_account(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: AccountResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_an_account_with_http_info(**kwargs)  # noqa: E501
+
+    def get_an_account_with_http_info(self, **kwargs):  # noqa: E501
+        """Get an Account  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_an_account_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(AccountResult, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_an_account" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.accountId
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['fc']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/Accounts/{accountId}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AccountResult',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
 
     def buy_a_phone_number(self, buy_incoming_number_request, **kwargs):  # noqa: E501
         """Buy a Phone Number  # noqa: E501
@@ -111,6 +214,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         path_params['accountId'] = self.accountId
 
         query_params = []
@@ -149,7 +254,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def create_a_conference(self, **kwargs):  # noqa: E501
         """Create a Conference  # noqa: E501
@@ -219,6 +323,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         path_params['accountId'] = self.accountId
 
         query_params = []
@@ -257,7 +363,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def create_a_queue(self, **kwargs):  # noqa: E501
         """Create a Queue  # noqa: E501
@@ -327,6 +432,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         path_params['accountId'] = self.accountId
 
         query_params = []
@@ -365,7 +472,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def create_an_application(self, **kwargs):  # noqa: E501
         """Create an application  # noqa: E501
@@ -435,6 +541,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         path_params['accountId'] = self.accountId
 
         query_params = []
@@ -473,7 +581,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def delete_a_recording(self, recording_id, **kwargs):  # noqa: E501
         """Delete a Recording  # noqa: E501
@@ -547,6 +654,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'recording_id' in local_var_params:
             path_params['recordingId'] = local_var_params['recording_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -577,7 +686,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def delete_an_application(self, application_id, **kwargs):  # noqa: E501
         """Delete an application  # noqa: E501
@@ -651,6 +759,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'application_id' in local_var_params:
             path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -681,7 +791,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def delete_an_incoming_number(self, phone_number_id, **kwargs):  # noqa: E501
         """Delete an Incoming Number  # noqa: E501
@@ -755,6 +864,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'phone_number_id' in local_var_params:
             path_params['phoneNumberId'] = local_var_params['phone_number_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -785,7 +896,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def dequeue_a_member(self, queue_id, call_id, **kwargs):  # noqa: E501
         """Dequeue a Member  # noqa: E501
@@ -865,6 +975,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'queue_id' in local_var_params:
             path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
         if 'call_id' in local_var_params:
@@ -901,7 +1013,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def dequeue_head_member(self, queue_id, **kwargs):  # noqa: E501
         """Dequeue Head Member  # noqa: E501
@@ -975,6 +1086,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'queue_id' in local_var_params:
             path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -1009,7 +1122,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def download_a_recording_file(self, recording_id, **kwargs):  # noqa: E501
         """Download a Recording File  # noqa: E501
@@ -1083,6 +1195,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'recording_id' in local_var_params:
             path_params['recordingId'] = local_var_params['recording_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -1190,6 +1304,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         path_params['accountId'] = self.accountId
 
         query_params = []
@@ -1228,7 +1344,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def get_a_call(self, call_id, **kwargs):  # noqa: E501
         """Get a Call  # noqa: E501
@@ -1302,6 +1417,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'call_id' in local_var_params:
             path_params['callId'] = local_var_params['call_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -1336,7 +1453,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def get_a_conference(self, conference_id, **kwargs):  # noqa: E501
         """Get a Conference  # noqa: E501
@@ -1410,6 +1526,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'conference_id' in local_var_params:
             path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -1444,7 +1562,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def get_a_member(self, queue_id, call_id, **kwargs):  # noqa: E501
         """Get a Member  # noqa: E501
@@ -1524,6 +1641,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'queue_id' in local_var_params:
             path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
         if 'call_id' in local_var_params:
@@ -1560,7 +1679,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def get_a_participant(self, conference_id, call_id, **kwargs):  # noqa: E501
         """Get a Participant  # noqa: E501
@@ -1640,6 +1758,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'conference_id' in local_var_params:
             path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
         if 'call_id' in local_var_params:
@@ -1676,7 +1796,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def get_a_queue(self, queue_id, **kwargs):  # noqa: E501
         """Get a Queue  # noqa: E501
@@ -1750,6 +1869,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'queue_id' in local_var_params:
             path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -1784,7 +1905,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def get_a_recording(self, recording_id, **kwargs):  # noqa: E501
         """Get a Recording  # noqa: E501
@@ -1858,6 +1978,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'recording_id' in local_var_params:
             path_params['recordingId'] = local_var_params['recording_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -1892,107 +2014,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
-
-    def get_an_account(self, **kwargs):  # noqa: E501
-        """Get an Account  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_an_account(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: AccountResult
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_an_account_with_http_info(**kwargs)  # noqa: E501
-
-    def get_an_account_with_http_info(self, **kwargs):  # noqa: E501
-        """Get an Account  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_an_account_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(AccountResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = []  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_an_account" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AccountResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
 
     def get_an_application(self, application_id, **kwargs):  # noqa: E501
         """Get an Application  # noqa: E501
@@ -2066,6 +2087,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'application_id' in local_var_params:
             path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -2100,7 +2123,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def get_an_incoming_number(self, phone_number_id, **kwargs):  # noqa: E501
         """Get an Incoming Number  # noqa: E501
@@ -2174,6 +2196,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'phone_number_id' in local_var_params:
             path_params['phoneNumberId'] = local_var_params['phone_number_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -2208,7 +2232,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def get_an_sms_message(self, message_id, **kwargs):  # noqa: E501
         """Get an SMS Message  # noqa: E501
@@ -2282,6 +2305,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'message_id' in local_var_params:
             path_params['messageId'] = local_var_params['message_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -2316,7 +2341,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def get_head_member(self, queue_id, **kwargs):  # noqa: E501
         """Get Head Member  # noqa: E501
@@ -2390,6 +2414,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'queue_id' in local_var_params:
             path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -2424,7 +2450,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def list_active_queues(self, **kwargs):  # noqa: E501
         """List Active Queues  # noqa: E501
@@ -2494,6 +2519,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         path_params['accountId'] = self.accountId
 
         query_params = []
@@ -2528,7 +2555,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def list_all_account_logs(self, **kwargs):  # noqa: E501
         """List All Account Logs  # noqa: E501
@@ -2596,6 +2622,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         path_params['accountId'] = self.accountId
 
         query_params = []
@@ -2628,7 +2656,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def list_an_application(self, **kwargs):  # noqa: E501
         """List applications  # noqa: E501
@@ -2698,6 +2725,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         path_params['accountId'] = self.accountId
 
         query_params = []
@@ -2732,7 +2761,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def list_available_numbers(self, **kwargs):  # noqa: E501
         """List available numbers  # noqa: E501
@@ -2841,7 +2869,6 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-
     def list_call_logs(self, call_id, **kwargs):  # noqa: E501
         """List Call Logs  # noqa: E501
 
@@ -2914,6 +2941,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'call_id' in local_var_params:
             path_params['callId'] = local_var_params['call_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -2948,7 +2977,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def list_call_recordings(self, call_id, **kwargs):  # noqa: E501
         """List Call Recordings  # noqa: E501
@@ -3024,6 +3052,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'call_id' in local_var_params:
             path_params['callId'] = local_var_params['call_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -3060,7 +3090,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def list_calls(self, **kwargs):  # noqa: E501
         """List Calls  # noqa: E501
@@ -3140,6 +3169,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         path_params['accountId'] = self.accountId
 
         query_params = []
@@ -3184,7 +3215,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def list_conferences(self, **kwargs):  # noqa: E501
         """List Conferences  # noqa: E501
@@ -3260,6 +3290,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         path_params['accountId'] = self.accountId
 
         query_params = []
@@ -3300,7 +3332,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def list_incoming_numbers(self, **kwargs):  # noqa: E501
         """List Incoming Numbers  # noqa: E501
@@ -3372,6 +3403,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         path_params['accountId'] = self.accountId
 
         query_params = []
@@ -3408,7 +3441,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def list_members(self, queue_id, **kwargs):  # noqa: E501
         """List Members  # noqa: E501
@@ -3482,6 +3514,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'queue_id' in local_var_params:
             path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -3516,7 +3550,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def list_participants(self, conference_id, **kwargs):  # noqa: E501
         """List Participants  # noqa: E501
@@ -3594,6 +3627,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'conference_id' in local_var_params:
             path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -3632,7 +3667,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def list_recordings(self, **kwargs):  # noqa: E501
         """List Recordings  # noqa: E501
@@ -3706,6 +3740,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         path_params['accountId'] = self.accountId
 
         query_params = []
@@ -3744,7 +3780,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def list_sms_messages(self, **kwargs):  # noqa: E501
         """List SMS Messages  # noqa: E501
@@ -3824,6 +3859,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         path_params['accountId'] = self.accountId
 
         query_params = []
@@ -3868,7 +3905,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def make_a_call(self, **kwargs):  # noqa: E501
         """Make a Call  # noqa: E501
@@ -3938,6 +3974,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         path_params['accountId'] = self.accountId
 
         query_params = []
@@ -3976,7 +4014,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def remove_a_participant(self, conference_id, call_id, **kwargs):  # noqa: E501
         """Remove a Participant  # noqa: E501
@@ -4056,6 +4093,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'conference_id' in local_var_params:
             path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
         if 'call_id' in local_var_params:
@@ -4161,6 +4200,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         path_params['accountId'] = self.accountId
 
         query_params = []
@@ -4199,7 +4240,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def stream_a_recording_file(self, recording_id, **kwargs):  # noqa: E501
         """Stream a Recording File  # noqa: E501
@@ -4273,6 +4313,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'recording_id' in local_var_params:
             path_params['recordingId'] = local_var_params['recording_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -4307,7 +4349,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def update_a_conference(self, conference_id, **kwargs):  # noqa: E501
         """Update a Conference  # noqa: E501
@@ -4383,6 +4424,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'conference_id' in local_var_params:
             path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -4502,6 +4545,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'call_id' in local_var_params:
             path_params['callId'] = local_var_params['call_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -4538,7 +4583,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def update_a_participant(self, conference_id, call_id, **kwargs):  # noqa: E501
         """Update a Participant  # noqa: E501
@@ -4620,6 +4664,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'conference_id' in local_var_params:
             path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
         if 'call_id' in local_var_params:
@@ -4662,7 +4708,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def update_a_queue(self, queue_id, **kwargs):  # noqa: E501
         """Update a Queue  # noqa: E501
@@ -4738,6 +4783,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'queue_id' in local_var_params:
             path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -4778,7 +4825,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def update_an_account(self, **kwargs):  # noqa: E501
         """Manage an account  # noqa: E501
@@ -4848,6 +4894,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         path_params['accountId'] = self.accountId
 
         query_params = []
@@ -4882,7 +4930,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def update_an_application(self, application_id, **kwargs):  # noqa: E501
         """Update an application  # noqa: E501
@@ -4958,6 +5005,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'application_id' in local_var_params:
             path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -4998,7 +5047,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
 
     def update_an_incoming_number(self, phone_number_id, **kwargs):  # noqa: E501
         """Update an Incoming Number  # noqa: E501
@@ -5074,6 +5122,8 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'account_id' in local_var_params:
+            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
         if 'phone_number_id' in local_var_params:
             path_params['phoneNumberId'] = local_var_params['phone_number_id']  # noqa: E501
         path_params['accountId'] = self.accountId
@@ -5114,4 +5164,3 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-
