@@ -23,7 +23,7 @@ class TestAccountResultAllOf(unittest.TestCase):
     """AccountResultAllOf unit test stubs"""
 
     def setUp(self):
-        self.account_result_all_of = AccountResultAllOf('account_id', 'auth_token', 'alias', 'label')
+        self.account_result_all_of = AccountResultAllOf('account_id', 'api_key', 'alias', 'label')
 
     def tearDown(self):
         pass

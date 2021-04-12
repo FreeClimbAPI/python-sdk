@@ -67,7 +67,7 @@ from pprint import pprint
 configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'ACCOUNT_ID'
-configuration.password = 'AUTH_TOKEN'
+configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"

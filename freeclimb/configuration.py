@@ -251,7 +251,7 @@ class Configuration(object):
             else:
                 return key
 
-    def get_basic_auth_token(self):
+    def get_basic_api_key(self):
         """Gets HTTP basic authentication header (string).
 
         :return: The token for basic HTTP authentication.
@@ -277,7 +277,7 @@ class Configuration(object):
                 'type': 'basic',
                 'in': 'header',
                 'key': 'Authorization',
-                'value': self.get_basic_auth_token()
+                'value': self.get_basic_api_key()
             }
         return auth
 

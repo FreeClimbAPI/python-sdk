@@ -39,7 +39,7 @@ class AccountResult(object):
         'date_updated': 'str',
         'revision': 'int',
         'account_id': 'str',
-        'auth_token': 'str',
+        'api_key': 'str',
         'alias': 'str',
         'label': 'str',
         'type': 'str',
@@ -53,7 +53,7 @@ class AccountResult(object):
         'date_updated': 'dateUpdated',
         'revision': 'revision',
         'account_id': 'accountId',
-        'auth_token': 'authToken',
+        'api_key': 'apiKey',
         'alias': 'alias',
         'label': 'label',
         'type': 'type',
@@ -61,7 +61,7 @@ class AccountResult(object):
         'subresource_uris': 'subresourceUris'
     }
 
-    def __init__(self, uri=None, date_created=None, date_updated=None, revision=None, account_id=None, auth_token=None, alias=None, label=None, type=None, status=None, subresource_uris=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, uri=None, date_created=None, date_updated=None, revision=None, account_id=None, api_key=None, alias=None, label=None, type=None, status=None, subresource_uris=None, local_vars_configuration=None):  # noqa: E501
         """AccountResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -72,7 +72,7 @@ class AccountResult(object):
         self._date_updated = None
         self._revision = None
         self._account_id = None
-        self._auth_token = None
+        self._api_key = None
         self._alias = None
         self._label = None
         self._type = None
@@ -90,8 +90,8 @@ class AccountResult(object):
             self.revision = revision
         if account_id is not None:
             self.account_id = account_id
-        if auth_token is not None:
-            self.auth_token = auth_token
+        if api_key is not None:
+            self.api_key = api_key
         if alias is not None:
             self.alias = alias
         if label is not None:
@@ -219,27 +219,27 @@ class AccountResult(object):
         self._account_id = account_id
 
     @property
-    def auth_token(self):
-        """Gets the auth_token of this AccountResult.  # noqa: E501
+    def api_key(self):
+        """Gets the api_key of this AccountResult.  # noqa: E501
 
         The authorization token assigned to this account. This token must be kept a secret by the customer.  # noqa: E501
 
-        :return: The auth_token of this AccountResult.  # noqa: E501
+        :return: The api_key of this AccountResult.  # noqa: E501
         :rtype: str
         """
-        return self._auth_token
+        return self._api_key
 
-    @auth_token.setter
-    def auth_token(self, auth_token):
-        """Sets the auth_token of this AccountResult.
+    @api_key.setter
+    def api_key(self, api_key):
+        """Sets the api_key of this AccountResult.
 
         The authorization token assigned to this account. This token must be kept a secret by the customer.  # noqa: E501
 
-        :param auth_token: The auth_token of this AccountResult.  # noqa: E501
+        :param api_key: The api_key of this AccountResult.  # noqa: E501
         :type: str
         """
 
-        self._auth_token = auth_token
+        self._api_key = api_key
 
     @property
     def alias(self):
