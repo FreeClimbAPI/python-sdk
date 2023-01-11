@@ -45,6 +45,7 @@ def lazy_import():
     from freeclimb.model.pause import Pause
     from freeclimb.model.percl_command import PerclCommand
     from freeclimb.model.play import Play
+    from freeclimb.model.play_beep import PlayBeep
     from freeclimb.model.play_early_media import PlayEarlyMedia
     from freeclimb.model.record_utterance import RecordUtterance
     from freeclimb.model.redirect import Redirect
@@ -71,6 +72,7 @@ def lazy_import():
     globals()['Pause'] = Pause
     globals()['PerclCommand'] = PerclCommand
     globals()['Play'] = Play
+    globals()['PlayBeep'] = PlayBeep
     globals()['PlayEarlyMedia'] = PlayEarlyMedia
     globals()['RecordUtterance'] = RecordUtterance
     globals()['Redirect'] = Redirect
@@ -140,9 +142,9 @@ class CreateConference(ModelComposed):
         return {
             'action_url': (str,),  # noqa: E501
             'alias': (bool,),  # noqa: E501
-            'play_beep': (str,),  # noqa: E501
+            'play_beep': (PlayBeep,),  # noqa: E501
             'record': (bool,),  # noqa: E501
-            'status_callback_url': (bool,),  # noqa: E501
+            'status_callback_url': (str,),  # noqa: E501
             'wait_url': (str,),  # noqa: E501
             'command': (str,),  # noqa: E501
         }
@@ -203,9 +205,9 @@ class CreateConference(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             alias (bool): Descriptive name for the Conference. . [optional]  # noqa: E501
-            play_beep (str): Indicates whether to play a beep when a Participant enters or leaves the Conference. either `always`, `never`, `entryOnly`, or `exitOnly`. Leaving this unset will make conference default to `always` . [optional]  # noqa: E501
+            play_beep (PlayBeep): [optional]  # noqa: E501
             record (bool): When set to `true`, the entire Conference is recorded. The `statusCallbackUrl` of the Conference will receive a `conferenceRecordingEnded` Webhook when the Conference transitions from the `inProgress` to empty state.. [optional]  # noqa: E501
-            status_callback_url (bool): This URL is invoked when the status of the Conference changes or when a recording of the Conference has become available.. [optional]  # noqa: E501
+            status_callback_url (str): This URL is invoked when the status of the Conference changes or when a recording of the Conference has become available.. [optional]  # noqa: E501
             wait_url (str): If specified, this URL provides the custom hold music for the Conference when it is in the populated state. This attribute is always fetched using HTTP GET and is fetched just once – when the Conference is created. The URL must be an audio file that is reachable and readable by FreeClimb.. [optional]  # noqa: E501
             command (str): Name of PerCL Command (this is automatically derived from mapping configuration and should not be manually supplied in any arguments). [optional]  # noqa: E501
         """
@@ -309,9 +311,9 @@ class CreateConference(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             alias (bool): Descriptive name for the Conference. . [optional]  # noqa: E501
-            play_beep (str): Indicates whether to play a beep when a Participant enters or leaves the Conference. either `always`, `never`, `entryOnly`, or `exitOnly`. Leaving this unset will make conference default to `always` . [optional]  # noqa: E501
+            play_beep (PlayBeep): [optional]  # noqa: E501
             record (bool): When set to `true`, the entire Conference is recorded. The `statusCallbackUrl` of the Conference will receive a `conferenceRecordingEnded` Webhook when the Conference transitions from the `inProgress` to empty state.. [optional]  # noqa: E501
-            status_callback_url (bool): This URL is invoked when the status of the Conference changes or when a recording of the Conference has become available.. [optional]  # noqa: E501
+            status_callback_url (str): This URL is invoked when the status of the Conference changes or when a recording of the Conference has become available.. [optional]  # noqa: E501
             wait_url (str): If specified, this URL provides the custom hold music for the Conference when it is in the populated state. This attribute is always fetched using HTTP GET and is fetched just once – when the Conference is created. The URL must be an audio file that is reachable and readable by FreeClimb.. [optional]  # noqa: E501
             command (str): Name of PerCL Command (this is automatically derived from mapping configuration and should not be manually supplied in any arguments). [optional]  # noqa: E501
         """

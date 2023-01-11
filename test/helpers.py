@@ -14,6 +14,9 @@ from freeclimb.model.update_conference_participant_request import UpdateConferen
 from freeclimb.model.update_conference_request import UpdateConferenceRequest
 from freeclimb.model.filter_logs_request import FilterLogsRequest
 from freeclimb.model_utils import model_to_dict, ModelComposed, ModelNormal, ModelSimple
+from freeclimb.model.play_beep import PlayBeep
+from freeclimb.model.update_call_request_status import UpdateCallRequestStatus
+from freeclimb.model.call_status import CallStatus
 
 
 class TestHelpers(object):
@@ -53,6 +56,8 @@ class TestHelpers(object):
             return True
         if param == 'status':
             return 'empty'
+        if param == 'statusEnum':
+            return json.dumps(CallStatus.COMPLETED)
         if param == 'direction':
             return 'inbound'
         if param == 'offnet':
@@ -100,7 +105,7 @@ class TestHelpers(object):
         if klassName == UpdateConferenceRequest:
             return UpdateConferenceRequest(
                 alias = 'TEST_ALIAS',
-                play_beep = 'always',
+                play_beep = json.dumps(PlayBeep.ALWAYS),
                 status = 'empty'
             )
         if klassName == MakeCallRequest:
@@ -119,7 +124,7 @@ class TestHelpers(object):
         if klassName == CreateConferenceRequest:
             return CreateConferenceRequest(
                 alias = 'TEST_ALIAS',
-                play_beep = 'always',
+                play_beep = json.dumps(PlayBeep.ALWAYS),
                 record = False,
                 wait_url = 'TEST_WAIT_URL',
                 status_callback_url = 'TEST_STATUS_CALLBACK_URL'
@@ -130,7 +135,7 @@ class TestHelpers(object):
             )
         if klassName == UpdateCallRequest:
             return UpdateCallRequest(
-                status="completed"
+                status=json.dumps(UpdateCallRequestStatus.COMPLETED)
             )
         if klassName == MessageRequest:
             return MessageRequest(
@@ -143,6 +148,7 @@ class TestHelpers(object):
     @staticmethod
     def serialize_body_param(param):
         if isinstance(param, ModelSimple) or isinstance(param, ModelNormal) or isinstance(param, ModelComposed):
+            print ("Parameters:", param)
             data = model_to_dict(param)
             if len(data) == 0:
                 return None

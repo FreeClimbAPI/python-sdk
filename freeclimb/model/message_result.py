@@ -33,8 +33,10 @@ from freeclimb.exceptions import ApiAttributeError
 
 def lazy_import():
     from freeclimb.model.message_result_all_of import MessageResultAllOf
+    from freeclimb.model.message_status import MessageStatus
     from freeclimb.model.mutable_resource_model import MutableResourceModel
     globals()['MessageResultAllOf'] = MessageResultAllOf
+    globals()['MessageStatus'] = MessageStatus
     globals()['MutableResourceModel'] = MutableResourceModel
 
 class MessageResult(ModelComposed):
@@ -62,20 +64,6 @@ class MessageResult(ModelComposed):
     """
 
     allowed_values = {
-        ('status',): {
-            'None': None,
-            'NEW': "new",
-            'QUEUED': "queued",
-            'REJECTED': "rejected",
-            'SENDING': "sending",
-            'SENT': "sent",
-            'FAILED': "failed",
-            'RECEIVED': "received",
-            'UNDELIVERED': "undelivered",
-            'EXPIRED': "expired",
-            'DELETED': "deleted",
-            'UNKNOWN': "unknown",
-        },
     }
 
     validations = {
@@ -110,7 +98,7 @@ class MessageResult(ModelComposed):
             'revision': (int,),  # noqa: E501
             'account_id': (str, none_type,),  # noqa: E501
             'message_id': (str, none_type,),  # noqa: E501
-            'status': (str, none_type,),  # noqa: E501
+            'status': (MessageStatus,),  # noqa: E501
             '_from': (str, none_type,),  # noqa: E501
             'to': (str, none_type,),  # noqa: E501
             'text': (str, none_type,),  # noqa: E501
@@ -183,7 +171,7 @@ class MessageResult(ModelComposed):
             revision (int): Revision count for the resource. This count is set to 1 on creation and is incremented every time it is updated.. [optional]  # noqa: E501
             account_id (str, none_type): String that uniquely identifies this account resource.. [optional]  # noqa: E501
             message_id (str, none_type): String that uniquely identifies this message resource. [optional]  # noqa: E501
-            status (str, none_type): Indicates the state of the message through the message lifecycle including: new, queued, rejected, sending, sent, failed, received, undelivered, expired, deleted, and unknown. [optional]  # noqa: E501
+            status (MessageStatus): [optional]  # noqa: E501
             _from (str, none_type): Phone number in E.164 format that sent the message.. [optional]  # noqa: E501
             to (str, none_type): Phone number in E.164 format that received the message.. [optional]  # noqa: E501
             text (str, none_type): Message contents. [optional]  # noqa: E501
@@ -294,7 +282,7 @@ class MessageResult(ModelComposed):
             revision (int): Revision count for the resource. This count is set to 1 on creation and is incremented every time it is updated.. [optional]  # noqa: E501
             account_id (str, none_type): String that uniquely identifies this account resource.. [optional]  # noqa: E501
             message_id (str, none_type): String that uniquely identifies this message resource. [optional]  # noqa: E501
-            status (str, none_type): Indicates the state of the message through the message lifecycle including: new, queued, rejected, sending, sent, failed, received, undelivered, expired, deleted, and unknown. [optional]  # noqa: E501
+            status (MessageStatus): [optional]  # noqa: E501
             _from (str, none_type): Phone number in E.164 format that sent the message.. [optional]  # noqa: E501
             to (str, none_type): Phone number in E.164 format that received the message.. [optional]  # noqa: E501
             text (str, none_type): Message contents. [optional]  # noqa: E501

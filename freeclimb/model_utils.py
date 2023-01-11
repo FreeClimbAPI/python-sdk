@@ -1512,7 +1512,8 @@ def is_valid_type(input_class_simple, valid_classes):
         bool
     """
     if issubclass(input_class_simple, OpenApiModel) and \
-        valid_classes == (bool, date, datetime, dict, float, int, list, str, none_type,):
+        valid_classes == (bool, date, datetime, dict, float, int, list, str, none_type,) or \
+        "enum" in str(valid_classes):
         return True
     valid_type = input_class_simple in valid_classes
     if not valid_type and (

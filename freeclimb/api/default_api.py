@@ -31,6 +31,7 @@ from freeclimb.model.available_number_list import AvailableNumberList
 from freeclimb.model.buy_incoming_number_request import BuyIncomingNumberRequest
 from freeclimb.model.call_list import CallList
 from freeclimb.model.call_result import CallResult
+from freeclimb.model.call_status import CallStatus
 from freeclimb.model.conference_list import ConferenceList
 from freeclimb.model.conference_participant_list import ConferenceParticipantList
 from freeclimb.model.conference_participant_result import ConferenceParticipantResult
@@ -42,6 +43,7 @@ from freeclimb.model.incoming_number_request import IncomingNumberRequest
 from freeclimb.model.incoming_number_result import IncomingNumberResult
 from freeclimb.model.log_list import LogList
 from freeclimb.model.make_call_request import MakeCallRequest
+from freeclimb.model.message_direction import MessageDirection
 from freeclimb.model.message_request import MessageRequest
 from freeclimb.model.message_result import MessageResult
 from freeclimb.model.messages_list import MessagesList
@@ -1756,7 +1758,7 @@ class DefaultApi(object):
                     '_from':
                         (str,),
                     'status':
-                        (str,),
+                        (CallStatus,),
                     'start_time':
                         (str,),
                     'end_time':
@@ -1899,6 +1901,7 @@ class DefaultApi(object):
                     'account_id',
                 ],
                 'nullable': [
+                    'offnet',
                 ],
                 'enum': [
                 ],
@@ -1940,7 +1943,7 @@ class DefaultApi(object):
                     'capabilities_short_code':
                         (bool,),
                     'offnet':
-                        (bool,),
+                        (bool, none_type,),
                 },
                 'attribute_map': {
                     'account_id': 'accountId',
@@ -2203,7 +2206,6 @@ class DefaultApi(object):
                 'nullable': [
                 ],
                 'enum': [
-                    'direction',
                 ],
                 'validation': [
                 ]
@@ -2212,11 +2214,6 @@ class DefaultApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('direction',): {
-
-                        "INBOUND": "inbound",
-                        "OUTBOUND": "outbound"
-                    },
                 },
                 'openapi_types': {
                     'account_id':
@@ -2230,7 +2227,7 @@ class DefaultApi(object):
                     'end_time':
                         (str,),
                     'direction':
-                        (str,),
+                        (MessageDirection,),
                 },
                 'attribute_map': {
                     'account_id': 'accountId',
@@ -5359,7 +5356,7 @@ class DefaultApi(object):
             active (bool): If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.. [optional] if omitted the server will use the default value of False
             to (str): Only show Calls to this phone number.. [optional]
             _from (str): Only show Calls from this phone number.. [optional]
-            status (str): Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`.. [optional]
+            status (CallStatus): Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`.. [optional]
             start_time (str): Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss.. [optional]
             end_time (str): Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss.. [optional]
             parent_call_id (str): Only show Calls spawned by the call with this ID.. [optional]
@@ -5538,7 +5535,7 @@ class DefaultApi(object):
             capabilities_toll_free (bool): [optional]
             capabilities_ten_dlc (bool): [optional]
             capabilities_short_code (bool): [optional]
-            offnet (bool): Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource.. [optional]
+            offnet (bool, none_type): Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5880,7 +5877,7 @@ class DefaultApi(object):
             _from (str): Only show Messages from this phone number.. [optional]
             begin_time (str): Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*.. [optional]
             end_time (str): Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*... [optional]
-            direction (str): Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb.. [optional]
+            direction (MessageDirection): Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

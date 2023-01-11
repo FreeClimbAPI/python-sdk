@@ -175,7 +175,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     account_id = "accountId_example" # str | ID of the account
     create_conference_request = CreateConferenceRequest(
         alias="alias_example",
-        play_beep="always",
+        play_beep=PlayBeep("always"),
         record=True,
         wait_url="wait_url_example",
         status_callback_url="status_callback_url_example",
@@ -2345,6 +2345,7 @@ List Calls
 import time
 import freeclimb
 from freeclimb.api import default_api
+from freeclimb.model.call_status import CallStatus
 from freeclimb.model.call_list import CallList
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
@@ -2372,7 +2373,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     active = False # bool | If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query. (optional) if omitted the server will use the default value of False
     to = "to_example" # str | Only show Calls to this phone number. (optional)
     _from = "from_example" # str | Only show Calls from this phone number. (optional)
-    status = "status_example" # str | Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`. (optional)
+    status = CallStatus("queued") # CallStatus | Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`. (optional)
     start_time = "startTime_example" # str | Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss. (optional)
     end_time = "endTime_example" # str | Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss. (optional)
     parent_call_id = "parentCallId_example" # str | Only show Calls spawned by the call with this ID. (optional)
@@ -2404,7 +2405,7 @@ Name | Type | Description  | Notes
  **active** | **bool**| If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query. | [optional] if omitted the server will use the default value of False
  **to** | **str**| Only show Calls to this phone number. | [optional]
  **_from** | **str**| Only show Calls from this phone number. | [optional]
- **status** | **str**| Only show Calls currently in this status. May be &#x60;queued&#x60;, &#x60;ringing&#x60;, &#x60;inProgress&#x60;, &#x60;canceled&#x60;, &#x60;completed&#x60;, &#x60;failed&#x60;, &#x60;busy&#x60;, or &#x60;noAnswer&#x60;. | [optional]
+ **status** | **CallStatus**| Only show Calls currently in this status. May be &#x60;queued&#x60;, &#x60;ringing&#x60;, &#x60;inProgress&#x60;, &#x60;canceled&#x60;, &#x60;completed&#x60;, &#x60;failed&#x60;, &#x60;busy&#x60;, or &#x60;noAnswer&#x60;. | [optional]
  **start_time** | **str**| Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss. | [optional]
  **end_time** | **str**| Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss. | [optional]
  **parent_call_id** | **str**| Only show Calls spawned by the call with this ID. | [optional]
@@ -2574,7 +2575,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     capabilities_toll_free = True # bool |  (optional)
     capabilities_ten_dlc = True # bool |  (optional)
     capabilities_short_code = True # bool |  (optional)
-    offnet = True # bool | Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource. (optional)
+    offnet = True # bool, none_type | Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -2613,7 +2614,7 @@ Name | Type | Description  | Notes
  **capabilities_toll_free** | **bool**|  | [optional]
  **capabilities_ten_dlc** | **bool**|  | [optional]
  **capabilities_short_code** | **bool**|  | [optional]
- **offnet** | **bool**| Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource. | [optional]
+ **offnet** | **bool, none_type**| Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource. | [optional]
 
 ### Return type
 
@@ -2910,6 +2911,7 @@ List SMS Messages
 import time
 import freeclimb
 from freeclimb.api import default_api
+from freeclimb.model.message_direction import MessageDirection
 from freeclimb.model.messages_list import MessagesList
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
@@ -2938,7 +2940,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     _from = "from_example" # str | Only show Messages from this phone number. (optional)
     begin_time = "beginTime_example" # str | Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*. (optional)
     end_time = "endTime_example" # str | Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*.. (optional)
-    direction = "inbound" # str | Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb. (optional)
+    direction = MessageDirection("inbound") # MessageDirection | Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -2968,7 +2970,7 @@ Name | Type | Description  | Notes
  **_from** | **str**| Only show Messages from this phone number. | [optional]
  **begin_time** | **str**| Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*. | [optional]
  **end_time** | **str**| Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*.. | [optional]
- **direction** | **str**| Either &#x60;inbound&#x60; or &#x60;outbound&#x60;. Only show Messages that were either *sent from* or *received by* FreeClimb. | [optional]
+ **direction** | **MessageDirection**| Either &#x60;inbound&#x60; or &#x60;outbound&#x60;. Only show Messages that were either *sent from* or *received by* FreeClimb. | [optional]
 
 ### Return type
 
@@ -3366,8 +3368,8 @@ with freeclimb.ApiClient(configuration) as api_client:
     conference_id = "conferenceId_example" # str | String that uniquely identifies this conference resource.
     update_conference_request = UpdateConferenceRequest(
         alias="alias_example",
-        play_beep="always",
-        status="empty",
+        play_beep=PlayBeep("always"),
+        status=UpdateConferenceRequestStatus("empty"),
     ) # UpdateConferenceRequest | Conference Details to update (optional)
 
     # example passing only required values which don't have defaults set
@@ -3458,7 +3460,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     account_id = "accountId_example" # str | ID of the account
     call_id = "callId_example" # str | String that uniquely identifies this call resource.
     update_call_request = UpdateCallRequest(
-        status="canceled",
+        status=UpdateCallRequestStatus("canceled"),
     ) # UpdateCallRequest | Call details to update
 
     # example passing only required values which don't have defaults set

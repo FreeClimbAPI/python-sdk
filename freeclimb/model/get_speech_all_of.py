@@ -32,7 +32,9 @@ from freeclimb.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from freeclimb.model.grammar_type import GrammarType
     from freeclimb.model.percl_command import PerclCommand
+    globals()['GrammarType'] = GrammarType
     globals()['PerclCommand'] = PerclCommand
 
 
@@ -91,9 +93,9 @@ class GetSpeechAllOf(ModelNormal):
         return {
             'action_url': (str,),  # noqa: E501
             'grammar_file': (str,),  # noqa: E501
-            'grammar_type': (int,),  # noqa: E501
-            'grammar_rule': (bool,),  # noqa: E501
-            'play_beep': (str,),  # noqa: E501
+            'grammar_type': (GrammarType,),  # noqa: E501
+            'grammar_rule': (str,),  # noqa: E501
+            'play_beep': (bool,),  # noqa: E501
             'prompts': ([PerclCommand],),  # noqa: E501
             'no_input_timeout_ms': (int,),  # noqa: E501
             'recognition_timeout_ms': (int,),  # noqa: E501
@@ -170,9 +172,9 @@ class GetSpeechAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            grammar_type (int): The grammar file type to use for speech recognition. A value of 'URL' indicates the grammarFile attribute specifies a URL that points to the grammar file. A value of `BUILTIN` indicates the grammarFile attribute specifies the name of one of the platform built-in grammar files.. [optional]  # noqa: E501
-            grammar_rule (bool): The grammar rule within the specified grammar file to use for speech recognition. This attribute is optional if `grammarType` is `URL` and ignored if `grammarType` is `BUILTIN`.. [optional]  # noqa: E501
-            play_beep (str): Indicates whether a beep should be played just before speech recognition is initiated so that the speaker can start to speak.. [optional]  # noqa: E501
+            grammar_type (GrammarType): [optional]  # noqa: E501
+            grammar_rule (str): The grammar rule within the specified grammar file to use for speech recognition. This attribute is optional if `grammarType` is `URL` and ignored if `grammarType` is `BUILTIN`.. [optional]  # noqa: E501
+            play_beep (bool): Indicates whether a beep should be played just before speech recognition is initiated so that the speaker can start to speak.. [optional]  # noqa: E501
             prompts ([PerclCommand]): The JSON array of PerCL commands to nest within the `GetSpeech` command. The `Say`, `Play`, and `Pause` commands can be used. The nested actions are executed while FreeClimb is waiting for input from the caller. This allows for playing menu options to the caller and to prompt for the expected input. These commands stop executing when the caller begins to input speech.. [optional]  # noqa: E501
             no_input_timeout_ms (int): When recognition is started and there is no speech detected for `noInputTimeoutMs` milliseconds, the recognizer will terminate the recognition operation.. [optional]  # noqa: E501
             recognition_timeout_ms (int): When playback of prompts ends and there is no match for `recognitionTimeoutMs` milliseconds, the recognizer will terminate the recognition operation.. [optional]  # noqa: E501
@@ -268,9 +270,9 @@ class GetSpeechAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            grammar_type (int): The grammar file type to use for speech recognition. A value of 'URL' indicates the grammarFile attribute specifies a URL that points to the grammar file. A value of `BUILTIN` indicates the grammarFile attribute specifies the name of one of the platform built-in grammar files.. [optional]  # noqa: E501
-            grammar_rule (bool): The grammar rule within the specified grammar file to use for speech recognition. This attribute is optional if `grammarType` is `URL` and ignored if `grammarType` is `BUILTIN`.. [optional]  # noqa: E501
-            play_beep (str): Indicates whether a beep should be played just before speech recognition is initiated so that the speaker can start to speak.. [optional]  # noqa: E501
+            grammar_type (GrammarType): [optional]  # noqa: E501
+            grammar_rule (str): The grammar rule within the specified grammar file to use for speech recognition. This attribute is optional if `grammarType` is `URL` and ignored if `grammarType` is `BUILTIN`.. [optional]  # noqa: E501
+            play_beep (bool): Indicates whether a beep should be played just before speech recognition is initiated so that the speaker can start to speak.. [optional]  # noqa: E501
             prompts ([PerclCommand]): The JSON array of PerCL commands to nest within the `GetSpeech` command. The `Say`, `Play`, and `Pause` commands can be used. The nested actions are executed while FreeClimb is waiting for input from the caller. This allows for playing menu options to the caller and to prompt for the expected input. These commands stop executing when the caller begins to input speech.. [optional]  # noqa: E501
             no_input_timeout_ms (int): When recognition is started and there is no speech detected for `noInputTimeoutMs` milliseconds, the recognizer will terminate the recognition operation.. [optional]  # noqa: E501
             recognition_timeout_ms (int): When playback of prompts ends and there is no match for `recognitionTimeoutMs` milliseconds, the recognizer will terminate the recognition operation.. [optional]  # noqa: E501

@@ -32,9 +32,15 @@ from freeclimb.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from freeclimb.model.answered_by import AnsweredBy
+    from freeclimb.model.call_direction import CallDirection
     from freeclimb.model.call_result_all_of import CallResultAllOf
+    from freeclimb.model.call_status import CallStatus
     from freeclimb.model.mutable_resource_model import MutableResourceModel
+    globals()['AnsweredBy'] = AnsweredBy
+    globals()['CallDirection'] = CallDirection
     globals()['CallResultAllOf'] = CallResultAllOf
+    globals()['CallStatus'] = CallStatus
     globals()['MutableResourceModel'] = MutableResourceModel
 
 class CallResult(ModelComposed):
@@ -62,17 +68,6 @@ class CallResult(ModelComposed):
     """
 
     allowed_values = {
-        ('status',): {
-            'None': None,
-            'QUEUED': "queued",
-            'RINGING': "ringing",
-            'IN_PROGRESS': "inProgress",
-            'CANCELED': "canceled",
-            'COMPLETED': "completed",
-            'BUSY': "busy",
-            'FAILED': "failed",
-            'NO_ANSWER': "noAnswer",
-        },
     }
 
     validations = {
@@ -111,14 +106,14 @@ class CallResult(ModelComposed):
             '_from': (str, none_type,),  # noqa: E501
             'to': (str, none_type,),  # noqa: E501
             'phone_number_id': (str, none_type,),  # noqa: E501
-            'status': (str, none_type,),  # noqa: E501
+            'status': (CallStatus,),  # noqa: E501
             'start_time': (str, none_type,),  # noqa: E501
             'connect_time': (str, none_type,),  # noqa: E501
             'end_time': (str, none_type,),  # noqa: E501
             'duration': (int, none_type,),  # noqa: E501
             'connect_duration': (int, none_type,),  # noqa: E501
-            'direction': (str, none_type,),  # noqa: E501
-            'answered_by': (str, none_type,),  # noqa: E501
+            'direction': (CallDirection,),  # noqa: E501
+            'answered_by': (AnsweredBy,),  # noqa: E501
             'subresource_uris': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
@@ -198,14 +193,14 @@ class CallResult(ModelComposed):
             _from (str, none_type): Phone number that initiated this Call.. [optional]  # noqa: E501
             to (str, none_type): Phone number that received this Call.. [optional]  # noqa: E501
             phone_number_id (str, none_type): If the Call was inbound, this is the ID of the IncomingPhoneNumber that received the Call (DNIS). If the Call was outbound, this is the ID of the phone number from which the Call was placed (ANI).. [optional]  # noqa: E501
-            status (str, none_type): * `queued` &ndash; Call is ready and waiting in line before going out. * `ringing` &ndash; Call is currently ringing. * `inProgress` &ndash; Call was answered and is currently in progress. * `canceled` &ndash; Call was hung up while it was queued or ringing. * `completed` &ndash; Call was answered and has ended normally. * `busy` &ndash; Caller received a busy signal. * `failed` &ndash; Call could not be completed as dialed, most likely because the phone number was non-existent. * `noAnswer` &ndash; Call ended without being answered.. [optional]  # noqa: E501
+            status (CallStatus): [optional]  # noqa: E501
             start_time (str, none_type): Start time of the Call (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT). Empty if the Call has not yet been dialed.. [optional]  # noqa: E501
             connect_time (str, none_type): Time the Call was answered (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT). Empty if the Call has not yet been dialed.. [optional]  # noqa: E501
             end_time (str, none_type): End time of the Call (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT). Empty if the Call did not complete successfully.. [optional]  # noqa: E501
             duration (int, none_type): Total length of the Call in seconds. Measures time between startTime and endTime. This value is empty for busy, failed, unanswered or ongoing Calls.. [optional]  # noqa: E501
             connect_duration (int, none_type): Length of time that the Call was connected in seconds. Measures time between connectTime and endTime. This value is empty for busy, failed, unanswered or ongoing Calls.. [optional]  # noqa: E501
-            direction (str, none_type): Direction of the Call. `inbound` for Calls into FreeClimb, `outboundAPI` for Calls initiated via the REST API,  `outboundDial` for Calls initiated by the `OutDial` PerCL command.. [optional]  # noqa: E501
-            answered_by (str, none_type): If this Call was initiated with answering machine detection, either `human` or `machine`. Empty otherwise.. [optional]  # noqa: E501
+            direction (CallDirection): [optional]  # noqa: E501
+            answered_by (AnsweredBy): [optional]  # noqa: E501
             subresource_uris ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): The list of subresources for this Call. These include things like logs and recordings associated with the Call.. [optional]  # noqa: E501
         """
 
@@ -316,14 +311,14 @@ class CallResult(ModelComposed):
             _from (str, none_type): Phone number that initiated this Call.. [optional]  # noqa: E501
             to (str, none_type): Phone number that received this Call.. [optional]  # noqa: E501
             phone_number_id (str, none_type): If the Call was inbound, this is the ID of the IncomingPhoneNumber that received the Call (DNIS). If the Call was outbound, this is the ID of the phone number from which the Call was placed (ANI).. [optional]  # noqa: E501
-            status (str, none_type): * `queued` &ndash; Call is ready and waiting in line before going out. * `ringing` &ndash; Call is currently ringing. * `inProgress` &ndash; Call was answered and is currently in progress. * `canceled` &ndash; Call was hung up while it was queued or ringing. * `completed` &ndash; Call was answered and has ended normally. * `busy` &ndash; Caller received a busy signal. * `failed` &ndash; Call could not be completed as dialed, most likely because the phone number was non-existent. * `noAnswer` &ndash; Call ended without being answered.. [optional]  # noqa: E501
+            status (CallStatus): [optional]  # noqa: E501
             start_time (str, none_type): Start time of the Call (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT). Empty if the Call has not yet been dialed.. [optional]  # noqa: E501
             connect_time (str, none_type): Time the Call was answered (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT). Empty if the Call has not yet been dialed.. [optional]  # noqa: E501
             end_time (str, none_type): End time of the Call (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT). Empty if the Call did not complete successfully.. [optional]  # noqa: E501
             duration (int, none_type): Total length of the Call in seconds. Measures time between startTime and endTime. This value is empty for busy, failed, unanswered or ongoing Calls.. [optional]  # noqa: E501
             connect_duration (int, none_type): Length of time that the Call was connected in seconds. Measures time between connectTime and endTime. This value is empty for busy, failed, unanswered or ongoing Calls.. [optional]  # noqa: E501
-            direction (str, none_type): Direction of the Call. `inbound` for Calls into FreeClimb, `outboundAPI` for Calls initiated via the REST API,  `outboundDial` for Calls initiated by the `OutDial` PerCL command.. [optional]  # noqa: E501
-            answered_by (str, none_type): If this Call was initiated with answering machine detection, either `human` or `machine`. Empty otherwise.. [optional]  # noqa: E501
+            direction (CallDirection): [optional]  # noqa: E501
+            answered_by (AnsweredBy): [optional]  # noqa: E501
             subresource_uris ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): The list of subresources for this Call. These include things like logs and recordings associated with the Call.. [optional]  # noqa: E501
         """
 

@@ -39,6 +39,7 @@ def lazy_import():
     from freeclimb.model.get_digits import GetDigits
     from freeclimb.model.get_speech import GetSpeech
     from freeclimb.model.hangup import Hangup
+    from freeclimb.model.if_machine import IfMachine
     from freeclimb.model.out_dial import OutDial
     from freeclimb.model.out_dial_all_of import OutDialAllOf
     from freeclimb.model.park import Park
@@ -65,6 +66,7 @@ def lazy_import():
     globals()['GetDigits'] = GetDigits
     globals()['GetSpeech'] = GetSpeech
     globals()['Hangup'] = Hangup
+    globals()['IfMachine'] = IfMachine
     globals()['OutDial'] = OutDial
     globals()['OutDialAllOf'] = OutDialAllOf
     globals()['Park'] = Park
@@ -142,7 +144,7 @@ class OutDial(ModelComposed):
             'call_connect_url': (str,),  # noqa: E501
             'calling_number': (float,),  # noqa: E501
             'destination': (float,),  # noqa: E501
-            'if_machine': (str,),  # noqa: E501
+            'if_machine': (IfMachine,),  # noqa: E501
             'if_machine_url': (str,),  # noqa: E501
             'send_digits': (str,),  # noqa: E501
             'status_callback_url': (str,),  # noqa: E501
@@ -213,7 +215,7 @@ class OutDial(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            if_machine (str): Specifies how FreeClimb should handle this OutDial if an answering machine answers the Call. Valid values: `redirect` invokes the ifMachineUrl for instructions. `hangup` hangs up the Call. The ifMachineUrl will not be invoked.. [optional]  # noqa: E501
+            if_machine (IfMachine): [optional]  # noqa: E501
             if_machine_url (str): When the `ifMachine` flag is set to `redirect`, this attribute specifies a URL to which FreeClimb makes a POST request when an answering machine or a fax machine is detected. This URL is required if the `ifMachine` flag is set to `redirect`. Otherwise, it should not be included.. [optional]  # noqa: E501
             send_digits (str): DTMF tones to play to the outdialed Call. This is typically used to dial a number and then dial an extension.. [optional]  # noqa: E501
             status_callback_url (str): When the outdialed Call leg terminates, FreeClimb sends a `callStatus` Webhook to the `statusCallbackUrl`. This is a notification only; any PerCL command returned is ignored.. [optional]  # noqa: E501
@@ -323,7 +325,7 @@ class OutDial(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            if_machine (str): Specifies how FreeClimb should handle this OutDial if an answering machine answers the Call. Valid values: `redirect` invokes the ifMachineUrl for instructions. `hangup` hangs up the Call. The ifMachineUrl will not be invoked.. [optional]  # noqa: E501
+            if_machine (IfMachine): [optional]  # noqa: E501
             if_machine_url (str): When the `ifMachine` flag is set to `redirect`, this attribute specifies a URL to which FreeClimb makes a POST request when an answering machine or a fax machine is detected. This URL is required if the `ifMachine` flag is set to `redirect`. Otherwise, it should not be included.. [optional]  # noqa: E501
             send_digits (str): DTMF tones to play to the outdialed Call. This is typically used to dial a number and then dial an extension.. [optional]  # noqa: E501
             status_callback_url (str): When the outdialed Call leg terminates, FreeClimb sends a `callStatus` Webhook to the `statusCallbackUrl`. This is a notification only; any PerCL command returned is ignored.. [optional]  # noqa: E501

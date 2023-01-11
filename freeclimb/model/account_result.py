@@ -33,8 +33,12 @@ from freeclimb.exceptions import ApiAttributeError
 
 def lazy_import():
     from freeclimb.model.account_result_all_of import AccountResultAllOf
+    from freeclimb.model.account_status import AccountStatus
+    from freeclimb.model.account_type import AccountType
     from freeclimb.model.mutable_resource_model import MutableResourceModel
     globals()['AccountResultAllOf'] = AccountResultAllOf
+    globals()['AccountStatus'] = AccountStatus
+    globals()['AccountType'] = AccountType
     globals()['MutableResourceModel'] = MutableResourceModel
 
 class AccountResult(ModelComposed):
@@ -62,17 +66,6 @@ class AccountResult(ModelComposed):
     """
 
     allowed_values = {
-        ('type',): {
-            'None': None,
-            'TRIAL': "trial",
-            'FULL': "full",
-        },
-        ('status',): {
-            'None': None,
-            'ACTIVE': "active",
-            'SUSPENDED': "suspended",
-            'CLOSED': "closed",
-        },
     }
 
     validations = {
@@ -109,8 +102,8 @@ class AccountResult(ModelComposed):
             'api_key': (str, none_type,),  # noqa: E501
             'alias': (str, none_type,),  # noqa: E501
             'label': (str, none_type,),  # noqa: E501
-            'type': (str, none_type,),  # noqa: E501
-            'status': (str, none_type,),  # noqa: E501
+            'type': (AccountType,),  # noqa: E501
+            'status': (AccountStatus,),  # noqa: E501
             'subresource_uris': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
@@ -180,8 +173,8 @@ class AccountResult(ModelComposed):
             api_key (str, none_type): The API key assigned to this account. This key must be kept a secret by the customer.. [optional]  # noqa: E501
             alias (str, none_type): A description for this account.. [optional]  # noqa: E501
             label (str, none_type): A string that identifies a category or group to which the account belongs.. [optional]  # noqa: E501
-            type (str, none_type): The type of this account. It is one of: trial or full.. [optional]  # noqa: E501
-            status (str, none_type): The status of this account. It is one of: active, suspended, or closed.. [optional]  # noqa: E501
+            type (AccountType): [optional]  # noqa: E501
+            status (AccountStatus): [optional]  # noqa: E501
             subresource_uris ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): The list of subresources for this account.. [optional]  # noqa: E501
         """
 
@@ -290,8 +283,8 @@ class AccountResult(ModelComposed):
             api_key (str, none_type): The API key assigned to this account. This key must be kept a secret by the customer.. [optional]  # noqa: E501
             alias (str, none_type): A description for this account.. [optional]  # noqa: E501
             label (str, none_type): A string that identifies a category or group to which the account belongs.. [optional]  # noqa: E501
-            type (str, none_type): The type of this account. It is one of: trial or full.. [optional]  # noqa: E501
-            status (str, none_type): The status of this account. It is one of: active, suspended, or closed.. [optional]  # noqa: E501
+            type (AccountType): [optional]  # noqa: E501
+            status (AccountStatus): [optional]  # noqa: E501
             subresource_uris ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): The list of subresources for this account.. [optional]  # noqa: E501
         """
 
