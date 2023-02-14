@@ -15,7 +15,7 @@ None
 
 ### Changed
 
-- Add missing models to package
+- Application Model allows nullable fields in this patch version
 - Updated README for pip instruction link change
 
 <a name="4.1.0"></a>
