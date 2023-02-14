@@ -9,6 +9,15 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 None
 
+<a name="4.1.1"></a>
+
+## [4.1.1] - 2023-02-14
+
+### Changed
+
+- Add missing models to package
+- Updated README for pip instruction link change
+
 <a name="4.1.0"></a>
 
 ## [4.1.0] - 2023-01-06
