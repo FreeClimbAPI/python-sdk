@@ -84,12 +84,12 @@ class ApplicationRequest(ModelNormal):
         """
         return {
             'alias': (str,),  # noqa: E501
-            'voice_url': (str,),  # noqa: E501
-            'voice_fallback_url': (str,),  # noqa: E501
-            'call_connect_url': (str,),  # noqa: E501
-            'status_callback_url': (str,),  # noqa: E501
-            'sms_url': (str,),  # noqa: E501
-            'sms_fallback_url': (str,),  # noqa: E501
+            'voice_url': (str, none_type,),  # noqa: E501
+            'voice_fallback_url': (str, none_type,),  # noqa: E501
+            'call_connect_url': (str, none_type,),  # noqa: E501
+            'status_callback_url': (str, none_type,),  # noqa: E501
+            'sms_url': (str, none_type,),  # noqa: E501
+            'sms_fallback_url': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -149,12 +149,12 @@ class ApplicationRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             alias (str): A human readable description of the application, with maximum length 64 characters.. [optional]  # noqa: E501
-            voice_url (str): The URL that FreeClimb will request when an inbound call arrives on a phone number assigned to this application. Used only for inbound calls.. [optional]  # noqa: E501
-            voice_fallback_url (str): The URL that FreeClimb will request if it times out waiting for a response from the voiceUrl. Used for inbound calls only. Note: A PerCL response is expected to control the inbound call.. [optional]  # noqa: E501
-            call_connect_url (str): The URL that FreeClimb will request when an outbound call request is complete. Used for outbound calls only.  Note: A PerCL response is expected if the outbound call is connected (status=InProgress) to control the call.. [optional]  # noqa: E501
-            status_callback_url (str): The URL that FreeClimb will request to pass call status (such as call ended) to the application.  Note: This is a notification only; any PerCL returned will be ignored.. [optional]  # noqa: E501
-            sms_url (str): The URL that FreeClimb will request when a phone number assigned to this application receives an incoming SMS message. Used for inbound SMS only.  Note: Any PerCL returned will be ignored.. [optional]  # noqa: E501
-            sms_fallback_url (str): The URL that FreeClimb will request if it times out waiting for a response from the smsUrl. Used for inbound SMS only.  Note: Any PerCL returned will be ignored.. [optional]  # noqa: E501
+            voice_url (str, none_type): The URL that FreeClimb will request when an inbound call arrives on a phone number assigned to this application. Used only for inbound calls.. [optional]  # noqa: E501
+            voice_fallback_url (str, none_type): The URL that FreeClimb will request if it times out waiting for a response from the voiceUrl. Used for inbound calls only. Note: A PerCL response is expected to control the inbound call.. [optional]  # noqa: E501
+            call_connect_url (str, none_type): The URL that FreeClimb will request when an outbound call request is complete. Used for outbound calls only.  Note: A PerCL response is expected if the outbound call is connected (status=InProgress) to control the call.. [optional]  # noqa: E501
+            status_callback_url (str, none_type): The URL that FreeClimb will request to pass call status (such as call ended) to the application.  Note: This is a notification only; any PerCL returned will be ignored.. [optional]  # noqa: E501
+            sms_url (str, none_type): The URL that FreeClimb will request when a phone number assigned to this application receives an incoming SMS message. Used for inbound SMS only.  Note: Any PerCL returned will be ignored.. [optional]  # noqa: E501
+            sms_fallback_url (str, none_type): The URL that FreeClimb will request if it times out waiting for a response from the smsUrl. Used for inbound SMS only.  Note: Any PerCL returned will be ignored.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -237,12 +237,12 @@ class ApplicationRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             alias (str): A human readable description of the application, with maximum length 64 characters.. [optional]  # noqa: E501
-            voice_url (str): The URL that FreeClimb will request when an inbound call arrives on a phone number assigned to this application. Used only for inbound calls.. [optional]  # noqa: E501
-            voice_fallback_url (str): The URL that FreeClimb will request if it times out waiting for a response from the voiceUrl. Used for inbound calls only. Note: A PerCL response is expected to control the inbound call.. [optional]  # noqa: E501
-            call_connect_url (str): The URL that FreeClimb will request when an outbound call request is complete. Used for outbound calls only.  Note: A PerCL response is expected if the outbound call is connected (status=InProgress) to control the call.. [optional]  # noqa: E501
-            status_callback_url (str): The URL that FreeClimb will request to pass call status (such as call ended) to the application.  Note: This is a notification only; any PerCL returned will be ignored.. [optional]  # noqa: E501
-            sms_url (str): The URL that FreeClimb will request when a phone number assigned to this application receives an incoming SMS message. Used for inbound SMS only.  Note: Any PerCL returned will be ignored.. [optional]  # noqa: E501
-            sms_fallback_url (str): The URL that FreeClimb will request if it times out waiting for a response from the smsUrl. Used for inbound SMS only.  Note: Any PerCL returned will be ignored.. [optional]  # noqa: E501
+            voice_url (str, none_type): The URL that FreeClimb will request when an inbound call arrives on a phone number assigned to this application. Used only for inbound calls.. [optional]  # noqa: E501
+            voice_fallback_url (str, none_type): The URL that FreeClimb will request if it times out waiting for a response from the voiceUrl. Used for inbound calls only. Note: A PerCL response is expected to control the inbound call.. [optional]  # noqa: E501
+            call_connect_url (str, none_type): The URL that FreeClimb will request when an outbound call request is complete. Used for outbound calls only.  Note: A PerCL response is expected if the outbound call is connected (status=InProgress) to control the call.. [optional]  # noqa: E501
+            status_callback_url (str, none_type): The URL that FreeClimb will request to pass call status (such as call ended) to the application.  Note: This is a notification only; any PerCL returned will be ignored.. [optional]  # noqa: E501
+            sms_url (str, none_type): The URL that FreeClimb will request when a phone number assigned to this application receives an incoming SMS message. Used for inbound SMS only.  Note: Any PerCL returned will be ignored.. [optional]  # noqa: E501
+            sms_fallback_url (str, none_type): The URL that FreeClimb will request if it times out waiting for a response from the smsUrl. Used for inbound SMS only.  Note: Any PerCL returned will be ignored.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
