@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action_url** | **str** | URL to which FreeClimb sends an HTTP POST request.  | 
 **call_connect_url** | **str** | URL to which FreeClimb makes an HTTP POST request informing the result of the OutDial. | 
-**calling_number** | **float** | he caller ID to show to the called party when FreeClimb calls. This can be one of the following: The To or From number provided in the first Webhook to your webserver. Any phone number you have purchased from FreeClimb. | 
-**destination** | **float** | E.164 representation of the phone number to Call.  | 
+**calling_number** | **str** | he caller ID to show to the called party when FreeClimb calls. This can be one of the following: The To or From number provided in the first Webhook to your webserver. Any phone number you have purchased from FreeClimb. | 
+**destination** | **str** | E.164 representation of the phone number to Call.  | 
 **if_machine** | [**IfMachine**](IfMachine.md) |  | [optional] 
 **if_machine_url** | **str** | When the &#x60;ifMachine&#x60; flag is set to &#x60;redirect&#x60;, this attribute specifies a URL to which FreeClimb makes a POST request when an answering machine or a fax machine is detected. This URL is required if the &#x60;ifMachine&#x60; flag is set to &#x60;redirect&#x60;. Otherwise, it should not be included. | [optional] 
 **send_digits** | **str** | DTMF tones to play to the outdialed Call. This is typically used to dial a number and then dial an extension. | [optional] 
