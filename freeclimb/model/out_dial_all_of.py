@@ -91,8 +91,8 @@ class OutDialAllOf(ModelNormal):
         return {
             'action_url': (str,),  # noqa: E501
             'call_connect_url': (str,),  # noqa: E501
-            'calling_number': (float,),  # noqa: E501
-            'destination': (float,),  # noqa: E501
+            'calling_number': (str,),  # noqa: E501
+            'destination': (str,),  # noqa: E501
             'if_machine': (IfMachine,),  # noqa: E501
             'if_machine_url': (str,),  # noqa: E501
             'send_digits': (str,),  # noqa: E501
@@ -132,8 +132,8 @@ class OutDialAllOf(ModelNormal):
         Args:
             action_url (str): URL to which FreeClimb sends an HTTP POST request. 
             call_connect_url (str): URL to which FreeClimb makes an HTTP POST request informing the result of the OutDial.
-            calling_number (float): he caller ID to show to the called party when FreeClimb calls. This can be one of the following: The To or From number provided in the first Webhook to your webserver. Any phone number you have purchased from FreeClimb.
-            destination (float): E.164 representation of the phone number to Call. 
+            calling_number (str): he caller ID to show to the called party when FreeClimb calls. This can be one of the following: The To or From number provided in the first Webhook to your webserver. Any phone number you have purchased from FreeClimb.
+            destination (str): E.164 representation of the phone number to Call. 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -229,8 +229,8 @@ class OutDialAllOf(ModelNormal):
         Args:
             action_url (str): URL to which FreeClimb sends an HTTP POST request. 
             call_connect_url (str): URL to which FreeClimb makes an HTTP POST request informing the result of the OutDial.
-            calling_number (float): he caller ID to show to the called party when FreeClimb calls. This can be one of the following: The To or From number provided in the first Webhook to your webserver. Any phone number you have purchased from FreeClimb.
-            destination (float): E.164 representation of the phone number to Call. 
+            calling_number (str): he caller ID to show to the called party when FreeClimb calls. This can be one of the following: The To or From number provided in the first Webhook to your webserver. Any phone number you have purchased from FreeClimb.
+            destination (str): E.164 representation of the phone number to Call. 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
