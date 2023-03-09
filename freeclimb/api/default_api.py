@@ -1728,7 +1728,7 @@ class DefaultApi(object):
                     'active',
                     'to',
                     '_from',
-                    'status',
+                    'call_status',
                     'start_time',
                     'end_time',
                     'parent_call_id',
@@ -1757,7 +1757,7 @@ class DefaultApi(object):
                         (str,),
                     '_from':
                         (str,),
-                    'status':
+                    'call_status':
                         (CallStatus,),
                     'start_time':
                         (str,),
@@ -1771,7 +1771,7 @@ class DefaultApi(object):
                     'active': 'active',
                     'to': 'to',
                     '_from': 'from',
-                    'status': 'status',
+                    'call_status': 'callStatus',
                     'start_time': 'startTime',
                     'end_time': 'endTime',
                     'parent_call_id': 'parentCallId',
@@ -1781,7 +1781,7 @@ class DefaultApi(object):
                     'active': 'query',
                     'to': 'query',
                     '_from': 'query',
-                    'status': 'query',
+                    'call_status': 'query',
                     'start_time': 'query',
                     'end_time': 'query',
                     'parent_call_id': 'query',
@@ -5356,7 +5356,7 @@ class DefaultApi(object):
             active (bool): If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.. [optional] if omitted the server will use the default value of False
             to (str): Only show Calls to this phone number.. [optional]
             _from (str): Only show Calls from this phone number.. [optional]
-            status (CallStatus): Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`.. [optional]
+            call_status (CallStatus): Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`.. [optional]
             start_time (str): Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss.. [optional]
             end_time (str): Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss.. [optional]
             parent_call_id (str): Only show Calls spawned by the call with this ID.. [optional]

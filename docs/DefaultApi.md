@@ -2373,7 +2373,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     active = False # bool | If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query. (optional) if omitted the server will use the default value of False
     to = "to_example" # str | Only show Calls to this phone number. (optional)
     _from = "from_example" # str | Only show Calls from this phone number. (optional)
-    status = CallStatus("queued") # CallStatus | Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`. (optional)
+    call_status = CallStatus("queued") # CallStatus | Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`. (optional)
     start_time = "startTime_example" # str | Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss. (optional)
     end_time = "endTime_example" # str | Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss. (optional)
     parent_call_id = "parentCallId_example" # str | Only show Calls spawned by the call with this ID. (optional)
@@ -2390,7 +2390,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Calls
-        api_response = api_instance.list_calls(account_id, active=active, to=to, _from=_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id)
+        api_response = api_instance.list_calls(account_id, active=active, to=to, _from=_from, call_status=call_status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_calls: %s\n" % e)
@@ -2405,7 +2405,7 @@ Name | Type | Description  | Notes
  **active** | **bool**| If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query. | [optional] if omitted the server will use the default value of False
  **to** | **str**| Only show Calls to this phone number. | [optional]
  **_from** | **str**| Only show Calls from this phone number. | [optional]
- **status** | **CallStatus**| Only show Calls currently in this status. May be &#x60;queued&#x60;, &#x60;ringing&#x60;, &#x60;inProgress&#x60;, &#x60;canceled&#x60;, &#x60;completed&#x60;, &#x60;failed&#x60;, &#x60;busy&#x60;, or &#x60;noAnswer&#x60;. | [optional]
+ **call_status** | **CallStatus**| Only show Calls currently in this status. May be &#x60;queued&#x60;, &#x60;ringing&#x60;, &#x60;inProgress&#x60;, &#x60;canceled&#x60;, &#x60;completed&#x60;, &#x60;failed&#x60;, &#x60;busy&#x60;, or &#x60;noAnswer&#x60;. | [optional]
  **start_time** | **str**| Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss. | [optional]
  **end_time** | **str**| Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss. | [optional]
  **parent_call_id** | **str**| Only show Calls spawned by the call with this ID. | [optional]
