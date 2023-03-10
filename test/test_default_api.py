@@ -494,13 +494,13 @@ class TestDefaultApi(unittest.TestCase):
         active = active_list_calls_test_value
         to = to_list_calls_test_value
         _from = _from_list_calls_test_value
-        call_status = call_status_list_calls_test_value
+        status = status_list_calls_test_value
         start_time = start_time_list_calls_test_value
         end_time = end_time_list_calls_test_value
         parent_call_id = parent_call_id_list_calls_test_value
 
 
-        api_response = self.api.list_calls(active=active,to=to,_from=_from,call_status=call_status,start_time=start_time,end_time=end_time,parent_call_id=parent_call_id)
+        api_response = self.api.list_calls(active=active,to=to,_from=_from,status=status,start_time=start_time,end_time=end_time,parent_call_id=parent_call_id)
         
         assert isinstance(api_response, CallList)
 
@@ -865,7 +865,7 @@ to_list_calls_test_value = "to_example"
 
 _from_list_calls_test_value = "from_example"
 
-call_status_list_calls_test_value = CallStatus.QUEUED
+status_list_calls_test_value = CallStatus.QUEUED
 
 start_time_list_calls_test_value = "startTime_example"
 
