@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **_from** | **str, none_type** | Phone number that initiated this Call. | [optional] 
 **to** | **str, none_type** | Phone number that received this Call. | [optional] 
 **phone_number_id** | **str, none_type** | If the Call was inbound, this is the ID of the IncomingPhoneNumber that received the Call (DNIS). If the Call was outbound, this is the ID of the phone number from which the Call was placed (ANI). | [optional] 
-**status** | [**CallStatus**](CallStatus.md) |  | [optional] 
+**call_status** | [**CallStatus**](CallStatus.md) |  | [optional] 
 **start_time** | **str, none_type** | Start time of the Call (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT). Empty if the Call has not yet been dialed. | [optional] 
 **connect_time** | **str, none_type** | Time the Call was answered (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT). Empty if the Call has not yet been dialed. | [optional] 
 **end_time** | **str, none_type** | End time of the Call (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT). Empty if the Call did not complete successfully. | [optional] 
