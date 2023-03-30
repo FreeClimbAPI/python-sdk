@@ -8,7 +8,7 @@ class TestRequestVerifier(unittest.TestCase):
     """RequestVerifier unit test stubs"""
 
     def setUp(self):
-        self.model = RequestVerifier()
+        self.requestVerifierObject = RequestVerifier()
     
     def tearDown(self):
         pass
@@ -19,7 +19,7 @@ class TestRequestVerifier(unittest.TestCase):
         tolerance = 5 * 60
         requestHeader = "t=1679944186,v1=c3957749baf61df4b1506802579cc69a74c77a1ae21447b930e5a704f9ec4120,v1=1ba18712726898fbbe48cd862dd096a709f7ad761a5bab14bda9ac24d963a6a8"
         with self.assertRaises(Exception) as exc:
-            self.model.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
+            self.requestVerifierObject.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
         self.assertEqual(str(exc.exception), "Request Body cannot be empty or null")
     
     def test_checkRequestHeader_noSignatures(self):
@@ -28,7 +28,7 @@ class TestRequestVerifier(unittest.TestCase):
         tolerance = 5 * 60
         requestHeader = "t=1679944186,"
         with self.assertRaises(Exception) as exc:
-            self.model.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
+            self.requestVerifierObject.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
         self.assertEqual(str(exc.exception), "Error with request header, signatures are not present")
     
     def test_checkRequestHeader_noTimestamp(self):
@@ -37,7 +37,7 @@ class TestRequestVerifier(unittest.TestCase):
         tolerance = 5 * 60
         requestHeader = "v1=c3957749baf61df4b1506802579cc69a74c77a1ae21447b930e5a704f9ec4120,v1=1ba18712726898fbbe48cd862dd096a709f7ad761a5bab14bda9ac24d963a6a8"
         with self.assertRaises(Exception) as exc:
-            self.model.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
+            self.requestVerifierObject.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
         self.assertEqual(str(exc.exception), "Error with request header, timestamp is not present")
     
     def test_checkRequestHeader_emptyRequestHeader(self):
@@ -46,7 +46,7 @@ class TestRequestVerifier(unittest.TestCase):
         tolerance = 5 * 60
         requestHeader = ""        
         with self.assertRaises(Exception) as exc:
-            self.model.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
+            self.requestVerifierObject.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
         self.assertEqual(str(exc.exception), "Error with request header, Request header is empty")
 
     def test_checkSigningSecret(self):
@@ -55,7 +55,7 @@ class TestRequestVerifier(unittest.TestCase):
         tolerance = 5 * 60
         requestHeader = "t=1679944186,v1=c3957749baf61df4b1506802579cc69a74c77a1ae21447b930e5a704f9ec4120,v1=1ba18712726898fbbe48cd862dd096a709f7ad761a5bab14bda9ac24d963a6a8"        
         with self.assertRaises(Exception) as exc:
-            self.model.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
+            self.requestVerifierObject.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
         self.assertEqual(str(exc.exception), "Signing secret cannot be empty or null")
     
     def test_checkTolerance_toleranceMaxInt(self):
@@ -64,7 +64,7 @@ class TestRequestVerifier(unittest.TestCase):
         tolerance = sys.maxsize
         requestHeader = "t=1679944186,v1=c3957749baf61df4b1506802579cc69a74c77a1ae21447b930e5a704f9ec4120,v1=1ba18712726898fbbe48cd862dd096a709f7ad761a5bab14bda9ac24d963a6a8"        
         with self.assertRaises(Exception) as exc:
-            self.model.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
+            self.requestVerifierObject.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
         self.assertEqual(str(exc.exception), "Tolerance value must be a positive integer")
     
     def test_checkTolerance_toleranceZeroValue(self):
@@ -73,7 +73,7 @@ class TestRequestVerifier(unittest.TestCase):
         tolerance = 0
         requestHeader = "t=1679944186,v1=c3957749baf61df4b1506802579cc69a74c77a1ae21447b930e5a704f9ec4120,v1=1ba18712726898fbbe48cd862dd096a709f7ad761a5bab14bda9ac24d963a6a8"        
         with self.assertRaises(Exception) as exc:
-            self.model.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
+            self.requestVerifierObject.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
         self.assertEqual(str(exc.exception), "Tolerance value must be a positive integer")
     
     def test_checkTolerance_toleranceNegativeValue(self):
@@ -82,7 +82,7 @@ class TestRequestVerifier(unittest.TestCase):
         tolerance = -5
         requestHeader = "t=1679944186,v1=c3957749baf61df4b1506802579cc69a74c77a1ae21447b930e5a704f9ec4120,v1=1ba18712726898fbbe48cd862dd096a709f7ad761a5bab14bda9ac24d963a6a8"        
         with self.assertRaises(Exception) as exc:
-            self.model.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
+            self.requestVerifierObject.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
         self.assertEqual(str(exc.exception), "Tolerance value must be a positive integer")
     
     def test_verifyTolerance(self):
@@ -92,7 +92,7 @@ class TestRequestVerifier(unittest.TestCase):
         tolerance = 5 * 60
         requestHeader = "t=1900871395,v1=1d798c86e977ff734dec3a8b8d67fe8621dcc1df46ef4212e0bfe2e122b01bfd,v1=1ba18712726898fbbe48cd862dd096a709f7ad761a5bab14bda9ac24d963a6a8"        
         with self.assertRaises(Exception) as exc:
-            self.model.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
+            self.requestVerifierObject.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
         self.assertEqual(str(exc.exception), "Request time exceeded tolerance threshold. Request: 1900871395" 
                 + ", CurrentTime: " + str(currentTime) + ", tolerance: " + str(tolerance))
     
@@ -102,7 +102,7 @@ class TestRequestVerifier(unittest.TestCase):
         tolerance = 5 * 60
         requestHeader = "t=1679944186,v1=c3957749baf61df4b1506802579cc69a74c77a1ae21447b930e5a704f9ec4120,v1=1ba18712726898fbbe48cd862dd096a709f7ad761a5bab14bda9ac24d963a6a8"        
         with self.assertRaises(Exception) as exc:
-            self.model.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
+            self.requestVerifierObject.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
         self.assertEqual(str(exc.exception), "Unverified signature request, If this request was unexpected, it may be from a bad actor. Please proceed with caution. If the request was exepected, please check any typos or issues with the signingSecret")
     
     def test_verifyRequestSignature(self):
@@ -112,7 +112,7 @@ class TestRequestVerifier(unittest.TestCase):
         requestHeader = "t=1679944186,v1=c3957749baf61df4b1506802579cc69a74c77a1ae21447b930e5a704f9ec4120,v1=1ba18712726898fbbe48cd862dd096a709f7ad761a5bab14bda9ac24d963a6a8"        
         raised = False
         try:
-            self.model.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
+            self.requestVerifierObject.verifyRequestSignature(requestBody, requestHeader, signingSecret, tolerance)
         except:
             raised = True
         self.assertFalse(raised, 'Exception has been raised')
