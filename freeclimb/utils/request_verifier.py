@@ -3,7 +3,10 @@ import sys
 from freeclimb.utils.signature_information import SignatureInformation
 
 class RequestVerifier:
-    def verifyRequestSignature(self, requestBody, requestHeader, signingSecret, tolerance):
+    
+    DEFAULT_TOLERANCE = 5*60*1000
+
+    def verifyRequestSignature(self, requestBody, requestHeader, signingSecret, tolerance=DEFAULT_TOLERANCE):
         self.checkRequestBody(requestBody)
         self.checkRequestHeader(requestHeader)
         self.checkSigningSecret(signingSecret)
@@ -11,7 +14,7 @@ class RequestVerifier:
         info = SignatureInformation(requestHeader)
         self.verifyTolerance(info, tolerance)
         self.verifySignature(info, requestBody, signingSecret)
-
+    
     def checkRequestBody(self, requestBody):
         if requestBody == "" or requestBody == None:
             raise Exception("Request Body cannot be empty or null")

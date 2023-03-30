@@ -16,7 +16,7 @@ class SignatureInformation:
     
     def isRequestTimeValid(self, tolerance):
         currentTime = self.getCurrentUnixTime()
-        return float(self.requestTimestamp) + float(tolerance) < currentTime
+        return int(self.requestTimestamp) + int(tolerance) < currentTime
 
     def isSignatureSafe(self, requestBody, signingSecret):
         hashValue = self.computeHash(requestBody, signingSecret)
