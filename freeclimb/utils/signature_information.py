@@ -7,8 +7,7 @@ class SignatureInformation:
     def __init__(self, requestHeader:str):
         signatureHeaders = requestHeader.split(",")
         for signature in signatureHeaders:
-            header = signature.split("=")[0]
-            value = signature.split("=")[1]
+            header, value = signature.split("=")
             if header == "t":
                 self.requestTimestamp = int(value)
             elif header == "v1":
