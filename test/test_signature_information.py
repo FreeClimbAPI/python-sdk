@@ -17,7 +17,7 @@ class TestSignatureInformation(unittest.TestCase):
         self.assertEqual(self.signatureInformationObject.isRequestTimeValid(tolerance), True)
     
     def test_isRequestTimeValid_false(self):
-        tolerance = 5 * 60 * 1000
+        tolerance = 5 * 60 * 10000
         self.assertEqual(self.signatureInformationObject.isRequestTimeValid(tolerance), False)
     
     def test_isSignatureSafe_true(self):
