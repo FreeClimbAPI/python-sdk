@@ -1,30 +1,30 @@
 import time, hmac, hashlib
 
 class SignatureInformation:
-    requestTimestamp:int = 0
+    request_timestamp:int = 0
     signatures = []
 
-    def __init__(self, requestHeader:str):
-        signatureHeaders = requestHeader.split(",")
-        for signature in signatureHeaders:
+    def __init__(self, request_header:str):
+        signature_headers = request_header.split(",")
+        for signature in signature_headers:
             header, value = signature.split("=")
             if header == "t":
-                self.requestTimestamp = int(value)
+                self.request_timestamp = int(value)
             elif header == "v1":
                 self.signatures.append(value) 
     
-    def isRequestTimeValid(self, tolerance:int) -> bool:
-        currentTime = self.getCurrentUnixTime()
-        timeCalculation:int = self.requestTimestamp + tolerance
-        return (timeCalculation) < currentTime
+    def is_request_time_valid(self, tolerance:int) -> bool:
+        current_time = self.get_current_unix_time()
+        time_calculation:int = self.request_timestamp + tolerance
+        return (time_calculation) < current_time
 
-    def isSignatureSafe(self, requestBody:str, signingSecret:str) -> bool:
-        hashValue = self.computeHash(requestBody, signingSecret)
+    def is_signature_safe(self, requestBody:str, signingSecret:str) -> bool:
+        hashValue = self.compute_hash(requestBody, signingSecret)
         return hashValue in self.signatures
 
-    def computeHash(self, requestBody:str, signingSecret:str) -> str:
-        data = str(self.requestTimestamp) + "." + requestBody
+    def compute_hash(self, requestBody:str, signingSecret:str) -> str:
+        data = str(self.request_timestamp) + "." + requestBody
         return hmac.new(bytes(signingSecret, 'utf-8'), data.encode('utf-8'), digestmod=hashlib.sha256).hexdigest()
 
-    def getCurrentUnixTime(self) -> int:
+    def get_current_unix_time(self) -> int:
         return int(time.time())
