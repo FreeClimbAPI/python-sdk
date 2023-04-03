@@ -15,7 +15,7 @@ None
 
 ### Changed
 
-- callStatus variable of CallResult is now processing and returning correct data back
+- Implementation of verify signature request feature
 
 <a name="4.1.3"></a>
 
