@@ -19,10 +19,10 @@ class SignatureInformation:
         return (time_calculation) < current_time
 
     def is_signature_safe(self, requestBody:str, signingSecret:str) -> bool:
-        hashValue = self.compute_hash(requestBody, signingSecret)
+        hashValue = self.__compute_hash(requestBody, signingSecret)
         return hashValue in self.signatures
 
-    def compute_hash(self, requestBody:str, signingSecret:str) -> str:
+    def __compute_hash(self, requestBody:str, signingSecret:str) -> str:
         data = str(self.request_timestamp) + "." + requestBody
         return hmac.new(bytes(signingSecret, 'utf-8'), data.encode('utf-8'), digestmod=hashlib.sha256).hexdigest()
 
