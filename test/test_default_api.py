@@ -498,9 +498,11 @@ class TestDefaultApi(unittest.TestCase):
         start_time = start_time_list_calls_test_value
         end_time = end_time_list_calls_test_value
         parent_call_id = parent_call_id_list_calls_test_value
+        application_id = application_id_list_calls_test_value
+        has_application = has_application_list_calls_test_value
 
 
-        api_response = self.api.list_calls(active=active,to=to,_from=_from,status=status,start_time=start_time,end_time=end_time,parent_call_id=parent_call_id)
+        api_response = self.api.list_calls(active=active,to=to,_from=_from,status=status,start_time=start_time,end_time=end_time,parent_call_id=parent_call_id,application_id=application_id,has_application=has_application)
         
         assert isinstance(api_response, CallList)
 
@@ -872,6 +874,10 @@ start_time_list_calls_test_value = "startTime_example"
 end_time_list_calls_test_value = "endTime_example"
 
 parent_call_id_list_calls_test_value = "parentCallId_example"
+
+application_id_list_calls_test_value = ['AP0123456789ABCDEFabcedf000000000000000001','AP0123456789ABCDEFabcedf000000000000000002', 'AP0123456789ABCDEFabcedf000000000000000003']
+
+has_application_list_calls_test_value = False
 
 status_list_conferences_test_value = "status_example"
 

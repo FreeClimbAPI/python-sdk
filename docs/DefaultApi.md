@@ -2377,6 +2377,10 @@ with freeclimb.ApiClient(configuration) as api_client:
     start_time = "startTime_example" # str | Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss. (optional)
     end_time = "endTime_example" # str | Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss. (optional)
     parent_call_id = "parentCallId_example" # str | Only show Calls spawned by the call with this ID. (optional)
+    application_id = [
+        "AP62ECB020842930cc01FFCCfeEe150AC32DcAEc8a",
+    ] # [str] | Only show calls belonging to the given applicationId. This parameter can be repeated to return calls from multiple Applications. (optional)
+    has_application = True # bool | Only show calls which are associated with an Application (applicationId != null) (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -2390,7 +2394,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Calls
-        api_response = api_instance.list_calls(account_id, active=active, to=to, _from=_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id)
+        api_response = api_instance.list_calls(account_id, active=active, to=to, _from=_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id, application_id=application_id, has_application=has_application)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_calls: %s\n" % e)
@@ -2409,6 +2413,8 @@ Name | Type | Description  | Notes
  **start_time** | **str**| Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss. | [optional]
  **end_time** | **str**| Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss. | [optional]
  **parent_call_id** | **str**| Only show Calls spawned by the call with this ID. | [optional]
+ **application_id** | **[str]**| Only show calls belonging to the given applicationId. This parameter can be repeated to return calls from multiple Applications. | [optional]
+ **has_application** | **bool**| Only show calls which are associated with an Application (applicationId !&#x3D; null) | [optional]
 
 ### Return type
 
