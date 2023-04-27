@@ -271,16 +271,17 @@ class PerclScript(ModelNormal):
         attributes = [attribute for attribute in percl_command_inst.openapi_types if attribute != 'command']
         attribute_map = {}
         for attribute in attributes:
+            key = percl_command_inst.attribute_map.get(attribute)
             val = percl_command_inst.get(attribute)
             if val is None:
                 continue
             if hasattr(val, 'command'):
-                attribute_map[attribute] = self.to_percl_dict(val)
+                attribute_map[key] = self.to_percl_dict(val)
                 continue
             if isinstance(val, list):
-                attribute_map[attribute] = [self.to_percl_dict(item) if hasattr(item, 'command') else item for item in val]
+                attribute_map[key] = [self.to_percl_dict(item) if hasattr(item, 'command') else item for item in val]
                 continue
-            attribute_map[attribute] = val 
+            attribute_map[key] = val
         percl_dict = {
             command: attribute_map
         }
