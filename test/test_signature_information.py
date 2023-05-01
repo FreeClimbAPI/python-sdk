@@ -1,3 +1,4 @@
+import sys
 import unittest
 
 from freeclimb.utils.signature_information import SignatureInformation
@@ -17,7 +18,7 @@ class TestSignatureInformation(unittest.TestCase):
         self.assertEqual(self.signature_information.is_request_time_valid(tolerance), True)
     
     def test_is_request_time_valid_false(self):
-        tolerance = 5 * 60 * 10000
+        tolerance = sys.maxsize - 1679944186
         self.assertEqual(self.signature_information.is_request_time_valid(tolerance), False)
     
     def test_is_signature_safe_true(self):
