@@ -1732,6 +1732,7 @@ class DefaultApi(object):
                     'start_time',
                     'end_time',
                     'parent_call_id',
+                    'application_id',
                 ],
                 'required': [
                     'account_id',
@@ -1741,10 +1742,15 @@ class DefaultApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'application_id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('application_id',): {
+
+                        'max_items': 16,
+                    },
                 },
                 'allowed_values': {
                 },
@@ -1765,6 +1771,8 @@ class DefaultApi(object):
                         (str,),
                     'parent_call_id':
                         (str,),
+                    'application_id':
+                        ([str],),
                 },
                 'attribute_map': {
                     'account_id': 'accountId',
@@ -1775,6 +1783,7 @@ class DefaultApi(object):
                     'start_time': 'startTime',
                     'end_time': 'endTime',
                     'parent_call_id': 'parentCallId',
+                    'application_id': 'applicationId',
                 },
                 'location_map': {
                     'account_id': 'path',
@@ -1785,8 +1794,10 @@ class DefaultApi(object):
                     'start_time': 'query',
                     'end_time': 'query',
                     'parent_call_id': 'query',
+                    'application_id': 'query',
                 },
                 'collection_format_map': {
+                    'application_id': 'multi',
                 }
             },
             headers_map={
@@ -5360,6 +5371,7 @@ class DefaultApi(object):
             start_time (str): Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss.. [optional]
             end_time (str): Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss.. [optional]
             parent_call_id (str): Only show Calls spawned by the call with this ID.. [optional]
+            application_id ([str]): Only show calls belonging to the given applicationId. This parameter can be repeated to return calls from multiple Applications.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

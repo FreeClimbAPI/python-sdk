@@ -1,6 +1,6 @@
 # PlayBeep
 
-Controls when a beep is played. Valid values: `always`, `never`, `entryOnly`, `exitOnly`.
+Indicates whether to play a beep when a Participant enters or leaves the Conference. either `always`, `never`, `entryOnly`, or `exitOnly`. Leaving this unset will make conference default to `always` 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
