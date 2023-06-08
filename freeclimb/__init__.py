@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "4.3.0"
+__version__ = "4.4.0"
 
 # import ApiClient
 from freeclimb.api_client import ApiClient
@@ -135,6 +135,16 @@ from freeclimb.model.reject_all_of import RejectAllOf
 from freeclimb.model.remove_from_conference import RemoveFromConference
 from freeclimb.model.remove_from_conference_all_of import RemoveFromConferenceAllOf
 from freeclimb.model.request_type import RequestType
+from freeclimb.model.sms_ten_dlc_brand import SMSTenDLCBrand
+from freeclimb.model.sms_ten_dlc_brands_list_result import SMSTenDLCBrandsListResult
+from freeclimb.model.sms_ten_dlc_brands_list_result_all_of import SMSTenDLCBrandsListResultAllOf
+from freeclimb.model.sms_ten_dlc_campaign import SMSTenDLCCampaign
+from freeclimb.model.sms_ten_dlc_campaigns_list_result import SMSTenDLCCampaignsListResult
+from freeclimb.model.sms_ten_dlc_campaigns_list_result_all_of import SMSTenDLCCampaignsListResultAllOf
+from freeclimb.model.sms_ten_dlc_partner_campaign import SMSTenDLCPartnerCampaign
+from freeclimb.model.sms_ten_dlc_partner_campaign_brand import SMSTenDLCPartnerCampaignBrand
+from freeclimb.model.sms_ten_dlc_partner_campaigns_list_result import SMSTenDLCPartnerCampaignsListResult
+from freeclimb.model.sms_ten_dlc_partner_campaigns_list_result_all_of import SMSTenDLCPartnerCampaignsListResultAllOf
 from freeclimb.model.say import Say
 from freeclimb.model.say_all_of import SayAllOf
 from freeclimb.model.send_digits import SendDigits
