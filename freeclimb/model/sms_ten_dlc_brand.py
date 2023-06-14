@@ -347,7 +347,7 @@ class SMSTenDLCBrand(ModelNormal):
             ip_address (str): IP address of the browser requesting to create brand identity.. [optional]  # noqa: E501
             website (str): Brand website URL.. [optional]  # noqa: E501
             alt_business_id (str): Alternate business identifier such as DUNS, LEI, or GIIN. [optional]  # noqa: E501
-            alt_business_id_type (str): [optional]  # noqa: E501
+            alt_business_id_type (str): The type of the Alternative business identifier. [optional]  # noqa: E501
             universal_ein (str): Universal EIN of Brand, Read Only.. [optional]  # noqa: E501
             reference_id (str): Caller supplied brand reference ID. If supplied, the value must be unique across all submitted brands. Can be used to prevent duplicate brand registrations.. [optional]  # noqa: E501
             optional_attributes ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)}): Optional brand attributes. Please refer to GET /enum/optionalAttributeNames for dictionary of optional attribute names.. [optional]  # noqa: E501
@@ -470,7 +470,7 @@ class SMSTenDLCBrand(ModelNormal):
             ip_address (str): IP address of the browser requesting to create brand identity.. [optional]  # noqa: E501
             website (str): Brand website URL.. [optional]  # noqa: E501
             alt_business_id (str): Alternate business identifier such as DUNS, LEI, or GIIN. [optional]  # noqa: E501
-            alt_business_id_type (str): [optional]  # noqa: E501
+            alt_business_id_type (str): The type of the Alternative business identifier. [optional]  # noqa: E501
             universal_ein (str): Universal EIN of Brand, Read Only.. [optional]  # noqa: E501
             reference_id (str): Caller supplied brand reference ID. If supplied, the value must be unique across all submitted brands. Can be used to prevent duplicate brand registrations.. [optional]  # noqa: E501
             optional_attributes ({str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)}): Optional brand attributes. Please refer to GET /enum/optionalAttributeNames for dictionary of optional attribute names.. [optional]  # noqa: E501

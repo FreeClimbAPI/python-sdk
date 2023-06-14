@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **ip_address** | **str** | IP address of the browser requesting to create brand identity. | [optional] 
 **website** | **str** | Brand website URL. | [optional] 
 **alt_business_id** | **str** | Alternate business identifier such as DUNS, LEI, or GIIN | [optional] 
-**alt_business_id_type** | **str** |  | [optional] 
+**alt_business_id_type** | **str** | The type of the Alternative business identifier | [optional] 
 **universal_ein** | **str** | Universal EIN of Brand, Read Only. | [optional] [readonly] 
 **reference_id** | **str** | Caller supplied brand reference ID. If supplied, the value must be unique across all submitted brands. Can be used to prevent duplicate brand registrations. | [optional] 
 **optional_attributes** | **{str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)}** | Optional brand attributes. Please refer to GET /enum/optionalAttributeNames for dictionary of optional attribute names. | [optional] 

@@ -89,7 +89,7 @@ class SMSTenDLCPartnerCampaignsListResultAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'queue_members': ([SMSTenDLCPartnerCampaign], none_type,),  # noqa: E501
+            'partner_campaigns': ([SMSTenDLCPartnerCampaign], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -98,7 +98,7 @@ class SMSTenDLCPartnerCampaignsListResultAllOf(ModelNormal):
 
 
     attribute_map = {
-        'queue_members': 'queueMembers',  # noqa: E501
+        'partner_campaigns': 'partnerCampaigns',  # noqa: E501
     }
 
     read_only_vars = {
@@ -142,7 +142,7 @@ class SMSTenDLCPartnerCampaignsListResultAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            queue_members ([SMSTenDLCPartnerCampaign], none_type): [optional]  # noqa: E501
+            partner_campaigns ([SMSTenDLCPartnerCampaign], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -224,7 +224,7 @@ class SMSTenDLCPartnerCampaignsListResultAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            queue_members ([SMSTenDLCPartnerCampaign], none_type): [optional]  # noqa: E501
+            partner_campaigns ([SMSTenDLCPartnerCampaign], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

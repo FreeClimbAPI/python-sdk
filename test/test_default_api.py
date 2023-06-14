@@ -391,44 +391,6 @@ class TestDefaultApi(unittest.TestCase):
         
         assert isinstance(api_response, MessageResult)
 
-    def test_get_an_sms_ten_dlc_brands(self):
-        """Test case for get_an_sms_ten_dlc_brands
-
-        Get list of SMS 10DLC Brnads  # noqa: E501
-        """
-
-
-
-        api_response = self.api.get_an_sms_ten_dlc_brands()
-        
-        assert isinstance(api_response, SMSTenDLCBrandsListResult)
-
-    def test_get_an_sms_ten_dlc_campaigns(self):
-        """Test case for get_an_sms_ten_dlc_campaigns
-
-        Get list of SMS 10DLC Campaigns  # noqa: E501
-        """
-
-        brand_id = brand_id_get_an_sms_ten_dlc_campaigns_test_value
-
-
-        api_response = self.api.get_an_sms_ten_dlc_campaigns(brand_id=brand_id)
-        
-        assert isinstance(api_response, SMSTenDLCCampaignsListResult)
-
-    def test_get_an_sms_ten_dlc_partner_campaigns(self):
-        """Test case for get_an_sms_ten_dlc_partner_campaigns
-
-        Get list of SMS 10DLC Partner Campaigns  # noqa: E501
-        """
-
-        brand_id = brand_id_get_an_sms_ten_dlc_partner_campaigns_test_value
-
-
-        api_response = self.api.get_an_sms_ten_dlc_partner_campaigns(brand_id=brand_id)
-        
-        assert isinstance(api_response, SMSTenDLCPartnerCampaignsListResult)
-
     def test_get_head_member(self):
         """Test case for get_head_member
 
@@ -455,6 +417,18 @@ class TestDefaultApi(unittest.TestCase):
         
         assert isinstance(api_response, SMSTenDLCBrand)
 
+    def test_get_ten_dlc_sms_brands(self):
+        """Test case for get_ten_dlc_sms_brands
+
+        Get list of SMS 10DLC Brands  # noqa: E501
+        """
+
+
+
+        api_response = self.api.get_ten_dlc_sms_brands()
+        
+        assert isinstance(api_response, SMSTenDLCBrandsListResult)
+
     def test_get_ten_dlc_sms_campaign(self):
         """Test case for get_ten_dlc_sms_campaign
 
@@ -468,6 +442,19 @@ class TestDefaultApi(unittest.TestCase):
         
         assert isinstance(api_response, SMSTenDLCCampaign)
 
+    def test_get_ten_dlc_sms_campaigns(self):
+        """Test case for get_ten_dlc_sms_campaigns
+
+        Get list of SMS 10DLC Campaigns  # noqa: E501
+        """
+
+        brand_id = brand_id_get_ten_dlc_sms_campaigns_test_value
+
+
+        api_response = self.api.get_ten_dlc_sms_campaigns(brand_id=brand_id)
+        
+        assert isinstance(api_response, SMSTenDLCCampaignsListResult)
+
     def test_get_ten_dlc_sms_partner_campaign(self):
         """Test case for get_ten_dlc_sms_partner_campaign
 
@@ -480,6 +467,19 @@ class TestDefaultApi(unittest.TestCase):
         api_response = self.api.get_ten_dlc_sms_partner_campaign(campaign_id=campaign_id)
         
         assert isinstance(api_response, SMSTenDLCPartnerCampaign)
+
+    def test_get_ten_dlc_sms_partner_campaigns(self):
+        """Test case for get_ten_dlc_sms_partner_campaigns
+
+        Get list of SMS 10DLC Partner Campaigns  # noqa: E501
+        """
+
+        brand_id = brand_id_get_ten_dlc_sms_partner_campaigns_test_value
+
+
+        api_response = self.api.get_ten_dlc_sms_partner_campaigns(brand_id=brand_id)
+        
+        assert isinstance(api_response, SMSTenDLCPartnerCampaignsListResult)
 
     def test_list_active_queues(self):
         """Test case for list_active_queues
@@ -1040,9 +1040,9 @@ conference_id_list_recordings_test_value = "conferenceId_example"
 
 date_created_list_recordings_test_value = "dateCreated_example"
 
-brand_id_get_an_sms_ten_dlc_campaigns_test_value = "BX56XX4"
+brand_id_get_ten_dlc_sms_campaigns_test_value = "BX56XX4"
 
-brand_id_get_an_sms_ten_dlc_partner_campaigns_test_value = "BX56XX4"
+brand_id_get_ten_dlc_sms_partner_campaigns_test_value = "BX56XX4"
 
 brand_id_get_ten_dlc_sms_brand_test_value = "BX56XX4"
 

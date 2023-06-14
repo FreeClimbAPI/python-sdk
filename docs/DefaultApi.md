@@ -25,13 +25,13 @@ Method | HTTP request | Description
 [**get_an_application**](DefaultApi.md#get_an_application) | **GET** /Accounts/{accountId}/Applications/{applicationId} | Get an Application
 [**get_an_incoming_number**](DefaultApi.md#get_an_incoming_number) | **GET** /Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId} | Get an Incoming Number
 [**get_an_sms_message**](DefaultApi.md#get_an_sms_message) | **GET** /Accounts/{accountId}/Messages/{messageId} | Get an SMS Message
-[**get_an_sms_ten_dlc_brands**](DefaultApi.md#get_an_sms_ten_dlc_brands) | **GET** /Accounts/{accountId}/Messages/10DLC/Brands | Get list of SMS 10DLC Brnads
-[**get_an_sms_ten_dlc_campaigns**](DefaultApi.md#get_an_sms_ten_dlc_campaigns) | **GET** /Accounts/{accountId}/Messages/10DLC/Campaigns | Get list of SMS 10DLC Campaigns
-[**get_an_sms_ten_dlc_partner_campaigns**](DefaultApi.md#get_an_sms_ten_dlc_partner_campaigns) | **GET** /Accounts/{accountId}/Messages/10DLC/PartnerCampaigns | Get list of SMS 10DLC Partner Campaigns
 [**get_head_member**](DefaultApi.md#get_head_member) | **GET** /Accounts/{accountId}/Queues/{queueId}/Members/Front | Get Head Member
 [**get_ten_dlc_sms_brand**](DefaultApi.md#get_ten_dlc_sms_brand) | **GET** /Accounts/{accountId}/Messages/10DLC/Brands/{brandId} | Get a 10DLC SMS Brand
+[**get_ten_dlc_sms_brands**](DefaultApi.md#get_ten_dlc_sms_brands) | **GET** /Accounts/{accountId}/Messages/10DLC/Brands | Get list of SMS 10DLC Brands
 [**get_ten_dlc_sms_campaign**](DefaultApi.md#get_ten_dlc_sms_campaign) | **GET** /Accounts/{accountId}/Messages/10DLC/Campaigns/{campaignId} | Get a 10DLC SMS Campaign
+[**get_ten_dlc_sms_campaigns**](DefaultApi.md#get_ten_dlc_sms_campaigns) | **GET** /Accounts/{accountId}/Messages/10DLC/Campaigns | Get list of SMS 10DLC Campaigns
 [**get_ten_dlc_sms_partner_campaign**](DefaultApi.md#get_ten_dlc_sms_partner_campaign) | **GET** /Accounts/{accountId}/Messages/10DLC/PartnerCampaigns/{campaignId} | Get a 10DLC SMS Partner Campaign
+[**get_ten_dlc_sms_partner_campaigns**](DefaultApi.md#get_ten_dlc_sms_partner_campaigns) | **GET** /Accounts/{accountId}/Messages/10DLC/PartnerCampaigns | Get list of SMS 10DLC Partner Campaigns
 [**list_active_queues**](DefaultApi.md#list_active_queues) | **GET** /Accounts/{accountId}/Queues | List Active Queues
 [**list_all_account_logs**](DefaultApi.md#list_all_account_logs) | **GET** /Accounts/{accountId}/Logs | List All Account Logs
 [**list_applications**](DefaultApi.md#list_applications) | **GET** /Accounts/{accountId}/Applications | List applications
@@ -1748,256 +1748,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_an_sms_ten_dlc_brands**
-> SMSTenDLCBrandsListResult get_an_sms_ten_dlc_brands(account_id)
-
-Get list of SMS 10DLC Brnads
-
-### Example
-
-* Basic Authentication (fc):
-
-```python
-import time
-import freeclimb
-from freeclimb.api import default_api
-from freeclimb.model.sms_ten_dlc_brands_list_result import SMSTenDLCBrandsListResult
-from pprint import pprint
-# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
-# See configuration.py for a list of all supported configuration parameters.
-configuration = freeclimb.Configuration(
-    host = "https://www.freeclimb.com/apiserver"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: fc
-configuration = freeclimb.Configuration(
-    username = 'ACCOUNT_ID',
-    password = 'API_KEY'
-)
-
-# Enter a context with an instance of the API client
-with freeclimb.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = default_api.DefaultApi(api_client)
-    account_id = "accountId_example" # str | ID of the account
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get list of SMS 10DLC Brnads
-        api_response = api_instance.get_an_sms_ten_dlc_brands(account_id)
-        pprint(api_response)
-    except freeclimb.ApiException as e:
-        print("Exception when calling DefaultApi->get_an_sms_ten_dlc_brands: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
-
-### Return type
-
-[**SMSTenDLCBrandsListResult**](SMSTenDLCBrandsListResult.md)
-
-### Authorization
-
-[fc](../README.md#fc)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | The list SMS 10DLC brands |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_an_sms_ten_dlc_campaigns**
-> SMSTenDLCCampaignsListResult get_an_sms_ten_dlc_campaigns(account_id)
-
-Get list of SMS 10DLC Campaigns
-
-### Example
-
-* Basic Authentication (fc):
-
-```python
-import time
-import freeclimb
-from freeclimb.api import default_api
-from freeclimb.model.sms_ten_dlc_campaigns_list_result import SMSTenDLCCampaignsListResult
-from pprint import pprint
-# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
-# See configuration.py for a list of all supported configuration parameters.
-configuration = freeclimb.Configuration(
-    host = "https://www.freeclimb.com/apiserver"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: fc
-configuration = freeclimb.Configuration(
-    username = 'ACCOUNT_ID',
-    password = 'API_KEY'
-)
-
-# Enter a context with an instance of the API client
-with freeclimb.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = default_api.DefaultApi(api_client)
-    account_id = "accountId_example" # str | ID of the account
-    brand_id = "brandId_example" # str | The unique identifier for a brand (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get list of SMS 10DLC Campaigns
-        api_response = api_instance.get_an_sms_ten_dlc_campaigns(account_id)
-        pprint(api_response)
-    except freeclimb.ApiException as e:
-        print("Exception when calling DefaultApi->get_an_sms_ten_dlc_campaigns: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get list of SMS 10DLC Campaigns
-        api_response = api_instance.get_an_sms_ten_dlc_campaigns(account_id, brand_id=brand_id)
-        pprint(api_response)
-    except freeclimb.ApiException as e:
-        print("Exception when calling DefaultApi->get_an_sms_ten_dlc_campaigns: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
- **brand_id** | **str**| The unique identifier for a brand | [optional]
-
-### Return type
-
-[**SMSTenDLCCampaignsListResult**](SMSTenDLCCampaignsListResult.md)
-
-### Authorization
-
-[fc](../README.md#fc)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | The list SMS 10DLC campaigns |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_an_sms_ten_dlc_partner_campaigns**
-> SMSTenDLCPartnerCampaignsListResult get_an_sms_ten_dlc_partner_campaigns(account_id)
-
-Get list of SMS 10DLC Partner Campaigns
-
-### Example
-
-* Basic Authentication (fc):
-
-```python
-import time
-import freeclimb
-from freeclimb.api import default_api
-from freeclimb.model.sms_ten_dlc_partner_campaigns_list_result import SMSTenDLCPartnerCampaignsListResult
-from pprint import pprint
-# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
-# See configuration.py for a list of all supported configuration parameters.
-configuration = freeclimb.Configuration(
-    host = "https://www.freeclimb.com/apiserver"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: fc
-configuration = freeclimb.Configuration(
-    username = 'ACCOUNT_ID',
-    password = 'API_KEY'
-)
-
-# Enter a context with an instance of the API client
-with freeclimb.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = default_api.DefaultApi(api_client)
-    account_id = "accountId_example" # str | ID of the account
-    brand_id = "brandId_example" # str | The unique identifier for a brand (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Get list of SMS 10DLC Partner Campaigns
-        api_response = api_instance.get_an_sms_ten_dlc_partner_campaigns(account_id)
-        pprint(api_response)
-    except freeclimb.ApiException as e:
-        print("Exception when calling DefaultApi->get_an_sms_ten_dlc_partner_campaigns: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Get list of SMS 10DLC Partner Campaigns
-        api_response = api_instance.get_an_sms_ten_dlc_partner_campaigns(account_id, brand_id=brand_id)
-        pprint(api_response)
-    except freeclimb.ApiException as e:
-        print("Exception when calling DefaultApi->get_an_sms_ten_dlc_partner_campaigns: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
- **brand_id** | **str**| The unique identifier for a brand | [optional]
-
-### Return type
-
-[**SMSTenDLCPartnerCampaignsListResult**](SMSTenDLCPartnerCampaignsListResult.md)
-
-### Authorization
-
-[fc](../README.md#fc)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | The list SMS 10DLC partner campaigns |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **get_head_member**
 > QueueMember get_head_member(account_id, queue_id)
 
@@ -2154,6 +1904,82 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_ten_dlc_sms_brands**
+> SMSTenDLCBrandsListResult get_ten_dlc_sms_brands(account_id)
+
+Get list of SMS 10DLC Brands
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import time
+import freeclimb
+from freeclimb.api import default_api
+from freeclimb.model.sms_ten_dlc_brands_list_result import SMSTenDLCBrandsListResult
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = default_api.DefaultApi(api_client)
+    account_id = "accountId_example" # str | ID of the account
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get list of SMS 10DLC Brands
+        api_response = api_instance.get_ten_dlc_sms_brands(account_id)
+        pprint(api_response)
+    except freeclimb.ApiException as e:
+        print("Exception when calling DefaultApi->get_ten_dlc_sms_brands: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| ID of the account |
+
+### Return type
+
+[**SMSTenDLCBrandsListResult**](SMSTenDLCBrandsListResult.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The list SMS 10DLC brands |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_ten_dlc_sms_campaign**
 > SMSTenDLCCampaign get_ten_dlc_sms_campaign(account_id, campaign_id)
 
@@ -2232,6 +2058,93 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_ten_dlc_sms_campaigns**
+> SMSTenDLCCampaignsListResult get_ten_dlc_sms_campaigns(account_id)
+
+Get list of SMS 10DLC Campaigns
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import time
+import freeclimb
+from freeclimb.api import default_api
+from freeclimb.model.sms_ten_dlc_campaigns_list_result import SMSTenDLCCampaignsListResult
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = default_api.DefaultApi(api_client)
+    account_id = "accountId_example" # str | ID of the account
+    brand_id = "brandId_example" # str | The unique identifier for a brand (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get list of SMS 10DLC Campaigns
+        api_response = api_instance.get_ten_dlc_sms_campaigns(account_id)
+        pprint(api_response)
+    except freeclimb.ApiException as e:
+        print("Exception when calling DefaultApi->get_ten_dlc_sms_campaigns: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get list of SMS 10DLC Campaigns
+        api_response = api_instance.get_ten_dlc_sms_campaigns(account_id, brand_id=brand_id)
+        pprint(api_response)
+    except freeclimb.ApiException as e:
+        print("Exception when calling DefaultApi->get_ten_dlc_sms_campaigns: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| ID of the account |
+ **brand_id** | **str**| The unique identifier for a brand | [optional]
+
+### Return type
+
+[**SMSTenDLCCampaignsListResult**](SMSTenDLCCampaignsListResult.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The list SMS 10DLC campaigns |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_ten_dlc_sms_partner_campaign**
 > SMSTenDLCPartnerCampaign get_ten_dlc_sms_partner_campaign(account_id, campaign_id)
 
@@ -2307,6 +2220,93 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The specific SMS 10DLC Partner Campaign that’s been processed by FreeClimb |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_ten_dlc_sms_partner_campaigns**
+> SMSTenDLCPartnerCampaignsListResult get_ten_dlc_sms_partner_campaigns(account_id)
+
+Get list of SMS 10DLC Partner Campaigns
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import time
+import freeclimb
+from freeclimb.api import default_api
+from freeclimb.model.sms_ten_dlc_partner_campaigns_list_result import SMSTenDLCPartnerCampaignsListResult
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = default_api.DefaultApi(api_client)
+    account_id = "accountId_example" # str | ID of the account
+    brand_id = "brandId_example" # str | The unique identifier for a brand (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get list of SMS 10DLC Partner Campaigns
+        api_response = api_instance.get_ten_dlc_sms_partner_campaigns(account_id)
+        pprint(api_response)
+    except freeclimb.ApiException as e:
+        print("Exception when calling DefaultApi->get_ten_dlc_sms_partner_campaigns: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get list of SMS 10DLC Partner Campaigns
+        api_response = api_instance.get_ten_dlc_sms_partner_campaigns(account_id, brand_id=brand_id)
+        pprint(api_response)
+    except freeclimb.ApiException as e:
+        print("Exception when calling DefaultApi->get_ten_dlc_sms_partner_campaigns: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| ID of the account |
+ **brand_id** | **str**| The unique identifier for a brand | [optional]
+
+### Return type
+
+[**SMSTenDLCPartnerCampaignsListResult**](SMSTenDLCPartnerCampaignsListResult.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The list SMS 10DLC partner campaigns |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3064,7 +3064,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     has_application = False # bool | Indication of whether the phone number has an application linked to it. (optional) if omitted the server will use the default value of False
     voice_enabled = True # bool | Indicates whether the phone number can handle Calls. Typically set to true for all numbers. (optional) if omitted the server will use the default value of True
     sms_enabled = True # bool | Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers. (optional) if omitted the server will use the default value of True
-    has_campaign = True # bool | Indication of whether the phone number has a campaign accociatied with it (optional)
+    has_campaign = True # bool | Indication of whether the phone number has a campaign associated with it (optional)
     capabilities_voice = True # bool |  (optional)
     capabilities_sms = True # bool |  (optional)
     capabilities_toll_free = True # bool |  (optional)
@@ -3104,7 +3104,7 @@ Name | Type | Description  | Notes
  **has_application** | **bool**| Indication of whether the phone number has an application linked to it. | [optional] if omitted the server will use the default value of False
  **voice_enabled** | **bool**| Indicates whether the phone number can handle Calls. Typically set to true for all numbers. | [optional] if omitted the server will use the default value of True
  **sms_enabled** | **bool**| Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers. | [optional] if omitted the server will use the default value of True
- **has_campaign** | **bool**| Indication of whether the phone number has a campaign accociatied with it | [optional]
+ **has_campaign** | **bool**| Indication of whether the phone number has a campaign associated with it | [optional]
  **capabilities_voice** | **bool**|  | [optional]
  **capabilities_sms** | **bool**|  | [optional]
  **capabilities_toll_free** | **bool**|  | [optional]

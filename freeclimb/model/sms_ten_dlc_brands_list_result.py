@@ -99,7 +99,7 @@ class SMSTenDLCBrandsListResult(ModelComposed):
             'num_pages': (int, none_type,),  # noqa: E501
             'page_size': (int, none_type,),  # noqa: E501
             'next_page_uri': (str, none_type,),  # noqa: E501
-            'queue_members': ([SMSTenDLCBrand], none_type,),  # noqa: E501
+            'brands': ([SMSTenDLCBrand], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -115,7 +115,7 @@ class SMSTenDLCBrandsListResult(ModelComposed):
         'num_pages': 'numPages',  # noqa: E501
         'page_size': 'pageSize',  # noqa: E501
         'next_page_uri': 'nextPageUri',  # noqa: E501
-        'queue_members': 'queueMembers',  # noqa: E501
+        'brands': 'brands',  # noqa: E501
     }
 
     read_only_vars = {
@@ -164,7 +164,7 @@ class SMSTenDLCBrandsListResult(ModelComposed):
             num_pages (int, none_type): Total number of pages. [optional]  # noqa: E501
             page_size (int, none_type): Number of items per page. [optional]  # noqa: E501
             next_page_uri (str, none_type): Uri to retrieve the next page of items. [optional]  # noqa: E501
-            queue_members ([SMSTenDLCBrand], none_type): [optional]  # noqa: E501
+            brands ([SMSTenDLCBrand], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -271,7 +271,7 @@ class SMSTenDLCBrandsListResult(ModelComposed):
             num_pages (int, none_type): Total number of pages. [optional]  # noqa: E501
             page_size (int, none_type): Number of items per page. [optional]  # noqa: E501
             next_page_uri (str, none_type): Uri to retrieve the next page of items. [optional]  # noqa: E501
-            queue_members ([SMSTenDLCBrand], none_type): [optional]  # noqa: E501
+            brands ([SMSTenDLCBrand], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
