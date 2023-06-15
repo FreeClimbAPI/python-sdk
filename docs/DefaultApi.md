@@ -105,7 +105,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Buy a Phone Number
-        api_response = api_instance.buy_a_phone_number(account_id, buy_incoming_number_request)
+        api_response = api_instance.buy_a_phone_number(buy_incoming_number_request)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->buy_a_phone_number: %s\n" % e)
@@ -116,7 +116,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **buy_incoming_number_request** | [**BuyIncomingNumberRequest**](BuyIncomingNumberRequest.md)| Incoming Number transaction details |
 
 ### Return type
@@ -190,7 +189,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Create a Conference
-        api_response = api_instance.create_a_conference(account_id)
+        api_response = api_instance.create_a_conference()
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->create_a_conference: %s\n" % e)
@@ -199,7 +198,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create a Conference
-        api_response = api_instance.create_a_conference(account_id, create_conference_request=create_conference_request)
+        api_response = api_instance.create_a_conference(create_conference_request=create_conference_request)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->create_a_conference: %s\n" % e)
@@ -210,7 +209,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **create_conference_request** | [**CreateConferenceRequest**](CreateConferenceRequest.md)| Conference to create | [optional]
 
 ### Return type
@@ -281,7 +279,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Create a Queue
-        api_response = api_instance.create_a_queue(account_id)
+        api_response = api_instance.create_a_queue()
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->create_a_queue: %s\n" % e)
@@ -290,7 +288,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create a Queue
-        api_response = api_instance.create_a_queue(account_id, queue_request=queue_request)
+        api_response = api_instance.create_a_queue(queue_request=queue_request)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->create_a_queue: %s\n" % e)
@@ -301,7 +299,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **queue_request** | [**QueueRequest**](QueueRequest.md)| Queue details used to create a queue | [optional]
 
 ### Return type
@@ -377,7 +374,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Create an application
-        api_response = api_instance.create_an_application(account_id)
+        api_response = api_instance.create_an_application()
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->create_an_application: %s\n" % e)
@@ -386,7 +383,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create an application
-        api_response = api_instance.create_an_application(account_id, application_request=application_request)
+        api_response = api_instance.create_an_application(application_request=application_request)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->create_an_application: %s\n" % e)
@@ -397,7 +394,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **application_request** | [**ApplicationRequest**](ApplicationRequest.md)| Application Details | [optional]
 
 ### Return type
@@ -463,7 +459,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Delete a Recording
-        api_instance.delete_a_recording(account_id, recording_id)
+        api_instance.delete_a_recording(recording_id)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->delete_a_recording: %s\n" % e)
 ```
@@ -473,7 +469,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **recording_id** | **str**| String that uniquely identifies this recording resource. |
 
 ### Return type
@@ -539,7 +534,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Delete an application
-        api_instance.delete_an_application(account_id, application_id)
+        api_instance.delete_an_application(application_id)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->delete_an_application: %s\n" % e)
 ```
@@ -549,7 +544,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **application_id** | **str**| String that uniquely identifies this application resource. |
 
 ### Return type
@@ -615,7 +609,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Delete an Incoming Number
-        api_instance.delete_an_incoming_number(account_id, phone_number_id)
+        api_instance.delete_an_incoming_number(phone_number_id)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->delete_an_incoming_number: %s\n" % e)
 ```
@@ -625,7 +619,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **phone_number_id** | **str**| String that uniquely identifies this phone number resource. |
 
 ### Return type
@@ -693,7 +686,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Dequeue a Member
-        api_response = api_instance.dequeue_a_member(account_id, queue_id, call_id)
+        api_response = api_instance.dequeue_a_member(queue_id, call_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->dequeue_a_member: %s\n" % e)
@@ -704,7 +697,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **queue_id** | **str**| String that uniquely identifies the Queue that the Member belongs to. |
  **call_id** | **str**| ID if the Call that the Member belongs to |
 
@@ -772,7 +764,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Dequeue Head Member
-        api_response = api_instance.dequeue_head_member(account_id, queue_id)
+        api_response = api_instance.dequeue_head_member(queue_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->dequeue_head_member: %s\n" % e)
@@ -783,7 +775,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **queue_id** | **str**| String that uniquely identifies this queue resource. |
 
 ### Return type
@@ -849,7 +840,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Download a Recording File
-        api_response = api_instance.download_a_recording_file(account_id, recording_id)
+        api_response = api_instance.download_a_recording_file(recording_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->download_a_recording_file: %s\n" % e)
@@ -860,7 +851,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **recording_id** | **str**| String that uniquely identifies this recording resource. |
 
 ### Return type
@@ -930,7 +920,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Filter Logs
-        api_response = api_instance.filter_logs(account_id, filter_logs_request)
+        api_response = api_instance.filter_logs(filter_logs_request)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->filter_logs: %s\n" % e)
@@ -941,7 +931,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **filter_logs_request** | [**FilterLogsRequest**](FilterLogsRequest.md)| Filter logs request paramters |
 
 ### Return type
@@ -1008,7 +997,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get a Call
-        api_response = api_instance.get_a_call(account_id, call_id)
+        api_response = api_instance.get_a_call(call_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_a_call: %s\n" % e)
@@ -1019,7 +1008,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **call_id** | **str**| String that uniquely identifies this call resource. |
 
 ### Return type
@@ -1086,7 +1074,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get a Conference
-        api_response = api_instance.get_a_conference(account_id, conference_id)
+        api_response = api_instance.get_a_conference(conference_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_a_conference: %s\n" % e)
@@ -1097,7 +1085,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **conference_id** | **str**| A string that uniquely identifies this conference resource. |
 
 ### Return type
@@ -1165,7 +1152,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get a Member
-        api_response = api_instance.get_a_member(account_id, queue_id, call_id)
+        api_response = api_instance.get_a_member(queue_id, call_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_a_member: %s\n" % e)
@@ -1176,7 +1163,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **queue_id** | **str**| String that uniquely identifies the Queue that the Member belongs to. |
  **call_id** | **str**| ID of the Call that the Member belongs to |
 
@@ -1245,7 +1231,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get a Participant
-        api_response = api_instance.get_a_participant(account_id, conference_id, call_id)
+        api_response = api_instance.get_a_participant(conference_id, call_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_a_participant: %s\n" % e)
@@ -1256,7 +1242,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **conference_id** | **str**| ID of the conference this participant is in. |
  **call_id** | **str**| ID of the Call associated with this participant. |
 
@@ -1324,7 +1309,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get a Queue
-        api_response = api_instance.get_a_queue(account_id, queue_id)
+        api_response = api_instance.get_a_queue(queue_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_a_queue: %s\n" % e)
@@ -1335,7 +1320,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **queue_id** | **str**| A string that uniquely identifies this queue resource. |
 
 ### Return type
@@ -1402,7 +1386,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get a Recording
-        api_response = api_instance.get_a_recording(account_id, recording_id)
+        api_response = api_instance.get_a_recording(recording_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_a_recording: %s\n" % e)
@@ -1413,7 +1397,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **recording_id** | **str**| String that uniquely identifies this recording resource. |
 
 ### Return type
@@ -1479,7 +1462,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get an Account
-        api_response = api_instance.get_an_account(account_id)
+        api_response = api_instance.get_an_account()
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_an_account: %s\n" % e)
@@ -1490,7 +1473,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
 
 ### Return type
 
@@ -1556,7 +1538,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get an Application
-        api_response = api_instance.get_an_application(account_id, application_id)
+        api_response = api_instance.get_an_application(application_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_an_application: %s\n" % e)
@@ -1567,7 +1549,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **application_id** | **str**| A string that uniquely identifies this application resource. |
 
 ### Return type
@@ -1634,7 +1615,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get an Incoming Number
-        api_response = api_instance.get_an_incoming_number(account_id, phone_number_id)
+        api_response = api_instance.get_an_incoming_number(phone_number_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_an_incoming_number: %s\n" % e)
@@ -1645,7 +1626,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **phone_number_id** | **str**| String that uniquely identifies this phone number resource. |
 
 ### Return type
@@ -1712,7 +1692,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get an SMS Message
-        api_response = api_instance.get_an_sms_message(account_id, message_id)
+        api_response = api_instance.get_an_sms_message(message_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_an_sms_message: %s\n" % e)
@@ -1723,7 +1703,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **message_id** | **str**| String that uniquely identifies this Message resource. |
 
 ### Return type
@@ -1790,7 +1769,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get Head Member
-        api_response = api_instance.get_head_member(account_id, queue_id)
+        api_response = api_instance.get_head_member(queue_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_head_member: %s\n" % e)
@@ -1801,7 +1780,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **queue_id** | **str**| String that uniquely identifies the Queue that the Member belongs to. |
 
 ### Return type
@@ -1868,7 +1846,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get a 10DLC SMS Brand
-        api_response = api_instance.get_ten_dlc_sms_brand(account_id, brand_id)
+        api_response = api_instance.get_ten_dlc_sms_brand(brand_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_ten_dlc_sms_brand: %s\n" % e)
@@ -1879,7 +1857,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **brand_id** | **str**| String that uniquely identifies this brand resource. |
 
 ### Return type
@@ -1945,7 +1922,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get list of SMS 10DLC Brands
-        api_response = api_instance.get_ten_dlc_sms_brands(account_id)
+        api_response = api_instance.get_ten_dlc_sms_brands()
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_ten_dlc_sms_brands: %s\n" % e)
@@ -1956,7 +1933,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
 
 ### Return type
 
@@ -2022,7 +1998,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get a 10DLC SMS Campaign
-        api_response = api_instance.get_ten_dlc_sms_campaign(account_id, campaign_id)
+        api_response = api_instance.get_ten_dlc_sms_campaign(campaign_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_ten_dlc_sms_campaign: %s\n" % e)
@@ -2033,7 +2009,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **campaign_id** | **str**| String that uniquely identifies this campaign resource. |
 
 ### Return type
@@ -2100,7 +2075,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get list of SMS 10DLC Campaigns
-        api_response = api_instance.get_ten_dlc_sms_campaigns(account_id)
+        api_response = api_instance.get_ten_dlc_sms_campaigns()
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_ten_dlc_sms_campaigns: %s\n" % e)
@@ -2109,7 +2084,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get list of SMS 10DLC Campaigns
-        api_response = api_instance.get_ten_dlc_sms_campaigns(account_id, brand_id=brand_id)
+        api_response = api_instance.get_ten_dlc_sms_campaigns(brand_id=brand_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_ten_dlc_sms_campaigns: %s\n" % e)
@@ -2120,7 +2095,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **brand_id** | **str**| The unique identifier for a brand | [optional]
 
 ### Return type
@@ -2187,7 +2161,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get a 10DLC SMS Partner Campaign
-        api_response = api_instance.get_ten_dlc_sms_partner_campaign(account_id, campaign_id)
+        api_response = api_instance.get_ten_dlc_sms_partner_campaign(campaign_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_ten_dlc_sms_partner_campaign: %s\n" % e)
@@ -2198,7 +2172,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **campaign_id** | **str**| String that uniquely identifies this campaign resource. |
 
 ### Return type
@@ -2265,7 +2238,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get list of SMS 10DLC Partner Campaigns
-        api_response = api_instance.get_ten_dlc_sms_partner_campaigns(account_id)
+        api_response = api_instance.get_ten_dlc_sms_partner_campaigns()
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_ten_dlc_sms_partner_campaigns: %s\n" % e)
@@ -2274,7 +2247,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get list of SMS 10DLC Partner Campaigns
-        api_response = api_instance.get_ten_dlc_sms_partner_campaigns(account_id, brand_id=brand_id)
+        api_response = api_instance.get_ten_dlc_sms_partner_campaigns(brand_id=brand_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->get_ten_dlc_sms_partner_campaigns: %s\n" % e)
@@ -2285,7 +2258,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **brand_id** | **str**| The unique identifier for a brand | [optional]
 
 ### Return type
@@ -2352,7 +2324,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # List Active Queues
-        api_response = api_instance.list_active_queues(account_id)
+        api_response = api_instance.list_active_queues()
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_active_queues: %s\n" % e)
@@ -2361,7 +2333,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Active Queues
-        api_response = api_instance.list_active_queues(account_id, alias=alias)
+        api_response = api_instance.list_active_queues(alias=alias)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_active_queues: %s\n" % e)
@@ -2372,7 +2344,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **alias** | **str**| Return only the Queue resources with aliases that exactly match this name. | [optional]
 
 ### Return type
@@ -2438,7 +2409,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # List All Account Logs
-        api_response = api_instance.list_all_account_logs(account_id)
+        api_response = api_instance.list_all_account_logs()
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_all_account_logs: %s\n" % e)
@@ -2449,7 +2420,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
 
 ### Return type
 
@@ -2515,7 +2485,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # List applications
-        api_response = api_instance.list_applications(account_id)
+        api_response = api_instance.list_applications()
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_applications: %s\n" % e)
@@ -2524,7 +2494,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List applications
-        api_response = api_instance.list_applications(account_id, alias=alias)
+        api_response = api_instance.list_applications(alias=alias)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_applications: %s\n" % e)
@@ -2535,7 +2505,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **alias** | **str**| Return only applications with aliases that exactly match this value. | [optional]
 
 ### Return type
@@ -2697,7 +2666,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # List Call Logs
-        api_response = api_instance.list_call_logs(account_id, call_id)
+        api_response = api_instance.list_call_logs(call_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_call_logs: %s\n" % e)
@@ -2708,7 +2677,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **call_id** | **str**| String that uniquely identifies this call resource. |
 
 ### Return type
@@ -2776,7 +2744,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # List Call Recordings
-        api_response = api_instance.list_call_recordings(account_id, call_id)
+        api_response = api_instance.list_call_recordings(call_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_call_recordings: %s\n" % e)
@@ -2785,7 +2753,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Call Recordings
-        api_response = api_instance.list_call_recordings(account_id, call_id, date_created=date_created)
+        api_response = api_instance.list_call_recordings(call_id, date_created=date_created)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_call_recordings: %s\n" % e)
@@ -2796,7 +2764,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **call_id** | **str**| String that uniquely identifies this call resource. |
  **date_created** | **str**| Only show recordings created on the specified date, in the form *YYYY-MM-DD*. | [optional]
 
@@ -2874,7 +2841,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # List Calls
-        api_response = api_instance.list_calls(account_id)
+        api_response = api_instance.list_calls()
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_calls: %s\n" % e)
@@ -2883,7 +2850,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Calls
-        api_response = api_instance.list_calls(account_id, active=active, to=to, _from=_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id, application_id=application_id)
+        api_response = api_instance.list_calls(active=active, to=to, _from=_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id, application_id=application_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_calls: %s\n" % e)
@@ -2894,7 +2861,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **active** | **bool**| If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query. | [optional] if omitted the server will use the default value of False
  **to** | **str**| Only show Calls to this phone number. | [optional]
  **_from** | **str**| Only show Calls from this phone number. | [optional]
@@ -2971,7 +2937,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # List Conferences
-        api_response = api_instance.list_conferences(account_id)
+        api_response = api_instance.list_conferences()
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_conferences: %s\n" % e)
@@ -2980,7 +2946,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Conferences
-        api_response = api_instance.list_conferences(account_id, status=status, alias=alias, date_created=date_created, date_updated=date_updated)
+        api_response = api_instance.list_conferences(status=status, alias=alias, date_created=date_created, date_updated=date_updated)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_conferences: %s\n" % e)
@@ -2991,7 +2957,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **status** | **str**| Only show conferences that currently have the specified status. Valid values: &#x60;empty&#x60;, &#x60;populated&#x60;, &#x60;inProgress&#x60;, or &#x60;terminated&#x60;. | [optional]
  **alias** | **str**| List Conferences whose alias exactly matches this string. | [optional]
  **date_created** | **str**| Only show Conferences that were created on the specified date, in the form *YYYY-MM-DD*. | [optional]
@@ -3075,7 +3040,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # List Incoming Numbers
-        api_response = api_instance.list_incoming_numbers(account_id)
+        api_response = api_instance.list_incoming_numbers()
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_incoming_numbers: %s\n" % e)
@@ -3084,7 +3049,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Incoming Numbers
-        api_response = api_instance.list_incoming_numbers(account_id, phone_number=phone_number, alias=alias, region=region, country=country, application_id=application_id, has_application=has_application, voice_enabled=voice_enabled, sms_enabled=sms_enabled, has_campaign=has_campaign, capabilities_voice=capabilities_voice, capabilities_sms=capabilities_sms, capabilities_toll_free=capabilities_toll_free, capabilities_ten_dlc=capabilities_ten_dlc, capabilities_short_code=capabilities_short_code, offnet=offnet)
+        api_response = api_instance.list_incoming_numbers(phone_number=phone_number, alias=alias, region=region, country=country, application_id=application_id, has_application=has_application, voice_enabled=voice_enabled, sms_enabled=sms_enabled, has_campaign=has_campaign, capabilities_voice=capabilities_voice, capabilities_sms=capabilities_sms, capabilities_toll_free=capabilities_toll_free, capabilities_ten_dlc=capabilities_ten_dlc, capabilities_short_code=capabilities_short_code, offnet=offnet)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_incoming_numbers: %s\n" % e)
@@ -3095,7 +3060,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **phone_number** | **str**| Only show incoming phone number resources that match this PCRE-compatible regular expression. | [optional]
  **alias** | **str**| Only show incoming phone numbers with aliases that exactly match this value. | [optional]
  **region** | **str**| State or province of this phone number. | [optional]
@@ -3176,7 +3140,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # List Members
-        api_response = api_instance.list_members(account_id, queue_id)
+        api_response = api_instance.list_members(queue_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_members: %s\n" % e)
@@ -3187,7 +3151,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **queue_id** | **str**| String that uniquely identifies the Queue that the Member belongs to. |
 
 ### Return type
@@ -3256,7 +3219,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # List Participants
-        api_response = api_instance.list_participants(account_id, conference_id)
+        api_response = api_instance.list_participants(conference_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_participants: %s\n" % e)
@@ -3265,7 +3228,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Participants
-        api_response = api_instance.list_participants(account_id, conference_id, talk=talk, listen=listen)
+        api_response = api_instance.list_participants(conference_id, talk=talk, listen=listen)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_participants: %s\n" % e)
@@ -3276,7 +3239,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **conference_id** | **str**| ID of the conference this participant is in. |
  **talk** | **bool**| Only show Participants with the talk privilege. | [optional]
  **listen** | **bool**| Only show Participants with the listen privilege. | [optional]
@@ -3347,7 +3309,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # List Recordings
-        api_response = api_instance.list_recordings(account_id)
+        api_response = api_instance.list_recordings()
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_recordings: %s\n" % e)
@@ -3356,7 +3318,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Recordings
-        api_response = api_instance.list_recordings(account_id, call_id=call_id, conference_id=conference_id, date_created=date_created)
+        api_response = api_instance.list_recordings(call_id=call_id, conference_id=conference_id, date_created=date_created)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_recordings: %s\n" % e)
@@ -3367,7 +3329,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **call_id** | **str**| Show only Recordings made during the Call with this ID. | [optional]
  **conference_id** | **str**| Show only Recordings made during the conference with this ID. | [optional]
  **date_created** | **str**| Only show Recordings created on this date, formatted as *YYYY-MM-DD*. | [optional]
@@ -3441,7 +3402,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # List SMS Messages
-        api_response = api_instance.list_sms_messages(account_id)
+        api_response = api_instance.list_sms_messages()
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_sms_messages: %s\n" % e)
@@ -3450,7 +3411,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List SMS Messages
-        api_response = api_instance.list_sms_messages(account_id, to=to, _from=_from, begin_time=begin_time, end_time=end_time, direction=direction)
+        api_response = api_instance.list_sms_messages(to=to, _from=_from, begin_time=begin_time, end_time=end_time, direction=direction)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_sms_messages: %s\n" % e)
@@ -3461,7 +3422,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **to** | **str**| Only show Messages to this phone number. | [optional]
  **_from** | **str**| Only show Messages from this phone number. | [optional]
  **begin_time** | **str**| Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*. | [optional]
@@ -3544,7 +3504,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Make a Call
-        api_response = api_instance.make_a_call(account_id)
+        api_response = api_instance.make_a_call()
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->make_a_call: %s\n" % e)
@@ -3553,7 +3513,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Make a Call
-        api_response = api_instance.make_a_call(account_id, make_call_request=make_call_request)
+        api_response = api_instance.make_a_call(make_call_request=make_call_request)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->make_a_call: %s\n" % e)
@@ -3564,7 +3524,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **make_call_request** | [**MakeCallRequest**](MakeCallRequest.md)| Call details for making a call | [optional]
 
 ### Return type
@@ -3631,7 +3590,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Remove a Participant
-        api_instance.remove_a_participant(account_id, conference_id, call_id)
+        api_instance.remove_a_participant(conference_id, call_id)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->remove_a_participant: %s\n" % e)
 ```
@@ -3641,7 +3600,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **conference_id** | **str**| ID of the conference this participant is in. |
  **call_id** | **str**| ID of the Call associated with this participant. |
 
@@ -3710,7 +3668,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Send an SMS Message
-        api_response = api_instance.send_an_sms_message(account_id, message_request)
+        api_response = api_instance.send_an_sms_message(message_request)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->send_an_sms_message: %s\n" % e)
@@ -3721,7 +3679,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **message_request** | [**MessageRequest**](MessageRequest.md)| Details to create a message |
 
 ### Return type
@@ -3787,7 +3744,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Stream a Recording File
-        api_response = api_instance.stream_a_recording_file(account_id, recording_id)
+        api_response = api_instance.stream_a_recording_file(recording_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->stream_a_recording_file: %s\n" % e)
@@ -3798,7 +3755,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **recording_id** | **str**| String that uniquely identifies this recording resource. |
 
 ### Return type
@@ -3871,7 +3827,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Update a Conference
-        api_response = api_instance.update_a_conference(account_id, conference_id)
+        api_response = api_instance.update_a_conference(conference_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->update_a_conference: %s\n" % e)
@@ -3880,7 +3836,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update a Conference
-        api_response = api_instance.update_a_conference(account_id, conference_id, update_conference_request=update_conference_request)
+        api_response = api_instance.update_a_conference(conference_id, update_conference_request=update_conference_request)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->update_a_conference: %s\n" % e)
@@ -3891,7 +3847,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **conference_id** | **str**| String that uniquely identifies this conference resource. |
  **update_conference_request** | [**UpdateConferenceRequest**](UpdateConferenceRequest.md)| Conference Details to update | [optional]
 
@@ -3962,7 +3917,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Update a Live Call
-        api_instance.update_a_live_call(account_id, call_id, update_call_request)
+        api_instance.update_a_live_call(call_id, update_call_request)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->update_a_live_call: %s\n" % e)
 ```
@@ -3972,7 +3927,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **call_id** | **str**| String that uniquely identifies this call resource. |
  **update_call_request** | [**UpdateCallRequest**](UpdateCallRequest.md)| Call details to update |
 
@@ -4046,7 +4000,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Update a Participant
-        api_response = api_instance.update_a_participant(account_id, conference_id, call_id)
+        api_response = api_instance.update_a_participant(conference_id, call_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->update_a_participant: %s\n" % e)
@@ -4055,7 +4009,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update a Participant
-        api_response = api_instance.update_a_participant(account_id, conference_id, call_id, update_conference_participant_request=update_conference_participant_request)
+        api_response = api_instance.update_a_participant(conference_id, call_id, update_conference_participant_request=update_conference_participant_request)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->update_a_participant: %s\n" % e)
@@ -4066,7 +4020,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **conference_id** | **str**| ID of the conference this participant is in. |
  **call_id** | **str**| ID of the Call associated with this participant. |
  **update_conference_participant_request** | [**UpdateConferenceParticipantRequest**](UpdateConferenceParticipantRequest.md)| Conference participant details to update | [optional]
@@ -4140,7 +4093,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Update a Queue
-        api_response = api_instance.update_a_queue(account_id, queue_id)
+        api_response = api_instance.update_a_queue(queue_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->update_a_queue: %s\n" % e)
@@ -4149,7 +4102,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update a Queue
-        api_response = api_instance.update_a_queue(account_id, queue_id, queue_request=queue_request)
+        api_response = api_instance.update_a_queue(queue_id, queue_request=queue_request)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->update_a_queue: %s\n" % e)
@@ -4160,7 +4113,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **queue_id** | **str**| A string that uniquely identifies this Queue resource. |
  **queue_request** | [**QueueRequest**](QueueRequest.md)| Queue Details to update | [optional]
 
@@ -4231,7 +4183,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Manage an account
-        api_instance.update_an_account(account_id)
+        api_instance.update_an_account()
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->update_an_account: %s\n" % e)
 
@@ -4239,7 +4191,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Manage an account
-        api_instance.update_an_account(account_id, account_request=account_request)
+        api_instance.update_an_account(account_request=account_request)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->update_an_account: %s\n" % e)
 ```
@@ -4249,7 +4201,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **account_request** | [**AccountRequest**](AccountRequest.md)| Account details to update | [optional]
 
 ### Return type
@@ -4326,7 +4277,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Update an application
-        api_response = api_instance.update_an_application(account_id, application_id)
+        api_response = api_instance.update_an_application(application_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->update_an_application: %s\n" % e)
@@ -4335,7 +4286,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update an application
-        api_response = api_instance.update_an_application(account_id, application_id, application_request=application_request)
+        api_response = api_instance.update_an_application(application_id, application_request=application_request)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->update_an_application: %s\n" % e)
@@ -4346,7 +4297,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **application_id** | **str**| A string that uniquely identifies this application resource. |
  **application_request** | [**ApplicationRequest**](ApplicationRequest.md)| Application details to update. | [optional]
 
@@ -4420,7 +4370,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Update an Incoming Number
-        api_response = api_instance.update_an_incoming_number(account_id, phone_number_id)
+        api_response = api_instance.update_an_incoming_number(phone_number_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->update_an_incoming_number: %s\n" % e)
@@ -4429,7 +4379,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update an Incoming Number
-        api_response = api_instance.update_an_incoming_number(account_id, phone_number_id, incoming_number_request=incoming_number_request)
+        api_response = api_instance.update_an_incoming_number(phone_number_id, incoming_number_request=incoming_number_request)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->update_an_incoming_number: %s\n" % e)
@@ -4440,7 +4390,6 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account |
  **phone_number_id** | **str**| String that uniquely identifies this phone number resource. |
  **incoming_number_request** | [**IncomingNumberRequest**](IncomingNumberRequest.md)| Incoming Number details to update | [optional]
 
