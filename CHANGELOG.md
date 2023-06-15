@@ -13,7 +13,7 @@ None
 
 ## [4.4.0] - 2023-06-08
 
-### Changed
+### Added
 
 - Number management feature for python sdk including methods, properties, and testing
 
