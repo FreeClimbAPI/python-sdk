@@ -87,7 +87,7 @@ class AddToConferenceAllOf(ModelNormal):
             'allow_call_control': (bool,),  # noqa: E501
             'call_control_sequence': (str,),  # noqa: E501
             'call_control_url': (str,),  # noqa: E501
-            'call_id': (bool,),  # noqa: E501
+            'call_id': (str,),  # noqa: E501
             'leave_conference_url': (str,),  # noqa: E501
             'listen': (bool,),  # noqa: E501
             'notification_url': (str,),  # noqa: E501
@@ -160,7 +160,7 @@ class AddToConferenceAllOf(ModelNormal):
             allow_call_control (bool): If `true`, Call control will be enabled for this Participant's Call leg.. [optional]  # noqa: E501
             call_control_sequence (str): Defines a sequence of digits that, when entered by this caller, invokes the `callControlUrl`. Only digits plus '*', and '#' may be used.. [optional]  # noqa: E501
             call_control_url (str): URL to be invoked when this Participant enters the digit sequence defined in the `callControlSequence` attribute.. [optional]  # noqa: E501
-            call_id (bool): ID of the Call that will be added to the specified Conference. The Call must be in progress or an error will result. If the Call is part of an existing Conference, it is first removed from that Conference and is then moved to the new one.. [optional]  # noqa: E501
+            call_id (str): ID of the Call that will be added to the specified Conference. The Call must be in progress or an error will result. If the Call is part of an existing Conference, it is first removed from that Conference and is then moved to the new one.. [optional]  # noqa: E501
             leave_conference_url (str): URL to be invoked when the Participant leaves the Conference. . [optional]  # noqa: E501
             listen (bool): If `true`, the Participant joins the Conference with listen privileges. This may be modified later via the REST API or `SetListen` PerCL command.. [optional]  # noqa: E501
             notification_url (str): When the Participant enters the Conference, this URL will be invoked using an HTTP POST request with the standard request parameters.. [optional]  # noqa: E501
@@ -254,7 +254,7 @@ class AddToConferenceAllOf(ModelNormal):
             allow_call_control (bool): If `true`, Call control will be enabled for this Participant's Call leg.. [optional]  # noqa: E501
             call_control_sequence (str): Defines a sequence of digits that, when entered by this caller, invokes the `callControlUrl`. Only digits plus '*', and '#' may be used.. [optional]  # noqa: E501
             call_control_url (str): URL to be invoked when this Participant enters the digit sequence defined in the `callControlSequence` attribute.. [optional]  # noqa: E501
-            call_id (bool): ID of the Call that will be added to the specified Conference. The Call must be in progress or an error will result. If the Call is part of an existing Conference, it is first removed from that Conference and is then moved to the new one.. [optional]  # noqa: E501
+            call_id (str): ID of the Call that will be added to the specified Conference. The Call must be in progress or an error will result. If the Call is part of an existing Conference, it is first removed from that Conference and is then moved to the new one.. [optional]  # noqa: E501
             leave_conference_url (str): URL to be invoked when the Participant leaves the Conference. . [optional]  # noqa: E501
             listen (bool): If `true`, the Participant joins the Conference with listen privileges. This may be modified later via the REST API or `SetListen` PerCL command.. [optional]  # noqa: E501
             notification_url (str): When the Participant enters the Conference, this URL will be invoked using an HTTP POST request with the standard request parameters.. [optional]  # noqa: E501
