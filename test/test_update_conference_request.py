@@ -11,25 +11,46 @@
 
 import sys
 import unittest
+from datetime import datetime, date
 
 import freeclimb
+from freeclimb.model.play_beep import PlayBeep
+from freeclimb.model.update_conference_request_status import UpdateConferenceRequestStatus
+globals()['PlayBeep'] = PlayBeep
+globals()['UpdateConferenceRequestStatus'] = UpdateConferenceRequestStatus
 
 from freeclimb.model.update_conference_request import UpdateConferenceRequest  # noqa: E501
+
 
 class TestUpdateConferenceRequest(unittest.TestCase):
     """UpdateConferenceRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = UpdateConferenceRequest()
 
-    def tearDown(self):
-        pass
+    def test_alias(self):
+        """Test UpdateConferenceRequest.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.get("alias") == "TEST_STRING"
 
-    def testUpdateConferenceRequest(self):
-        """Test UpdateConferenceRequest"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = UpdateConferenceRequest()  # noqa: E501
-        pass
+    def test_play_beep(self):
+        """Test UpdateConferenceRequest.play_beep"""
+        self.model.play_beep = PlayBeep.ALWAYS
+        assert self.model.get("play_beep") == PlayBeep.ALWAYS
+        self.model.play_beep = PlayBeep.NEVER
+        assert self.model.get("play_beep") == PlayBeep.NEVER
+        self.model.play_beep = PlayBeep.ENTRY_ONLY
+        assert self.model.get("play_beep") == PlayBeep.ENTRY_ONLY
+        self.model.play_beep = PlayBeep.EXIT_ONLY
+        assert self.model.get("play_beep") == PlayBeep.EXIT_ONLY
+
+    def test_status(self):
+        """Test UpdateConferenceRequest.status"""
+        self.model.status = UpdateConferenceRequestStatus.EMPTY
+        assert self.model.get("status") == UpdateConferenceRequestStatus.EMPTY
+        self.model.status = UpdateConferenceRequestStatus.TERMINATED
+        assert self.model.get(
+            "status") == UpdateConferenceRequestStatus.TERMINATED
 
 
 if __name__ == '__main__':

@@ -11,25 +11,23 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.redirect_all_of import RedirectAllOf  # noqa: E501
 
+
 class TestRedirectAllOf(unittest.TestCase):
     """RedirectAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = RedirectAllOf(action_url="TEST_URL")
 
-    def tearDown(self):
-        pass
-
-    def testRedirectAllOf(self):
-        """Test RedirectAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = RedirectAllOf()  # noqa: E501
-        pass
+    def test_action_url(self):
+        """Test RedirectAllOf.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.get("action_url") == "TEST_STRING"
 
 
 if __name__ == '__main__':

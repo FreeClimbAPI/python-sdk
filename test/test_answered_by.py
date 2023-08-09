@@ -11,25 +11,38 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 
 from freeclimb.model.answered_by import AnsweredBy  # noqa: E501
 
+
 class TestAnsweredBy(unittest.TestCase):
     """AnsweredBy unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_HUMAN_should_serialize_to_enum(self):
+        expected = AnsweredBy.HUMAN
+        calculated = AnsweredBy['HUMAN']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_HUMAN_should_deserialize_to_string(self):
+        test = AnsweredBy.HUMAN
+        expected = "human"
+        calculated = test.value
+        assert expected == calculated
 
-    def testAnsweredBy(self):
-        """Test AnsweredBy"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = AnsweredBy()  # noqa: E501
-        pass
+    def test_MACHINE_should_serialize_to_enum(self):
+        expected = AnsweredBy.MACHINE
+        calculated = AnsweredBy['MACHINE']
+        assert expected == calculated
+
+    def test_MACHINE_should_deserialize_to_string(self):
+        test = AnsweredBy.MACHINE
+        expected = "machine"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

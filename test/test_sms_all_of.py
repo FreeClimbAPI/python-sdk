@@ -11,25 +11,39 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.sms_all_of import SmsAllOf  # noqa: E501
 
+
 class TestSmsAllOf(unittest.TestCase):
     """SmsAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = SmsAllOf(
+            to="+11231231234", _from="+11231231234", text="TEST_STRING")
 
-    def tearDown(self):
-        pass
+    def test_to(self):
+        """Test SmsAllOf.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.get("to") == "TEST_STRING"
 
-    def testSmsAllOf(self):
-        """Test SmsAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = SmsAllOf()  # noqa: E501
-        pass
+    def test__from(self):
+        """Test SmsAllOf._from"""
+        self.model._from = "TEST_STRING"
+        assert self.model.get("_from") == "TEST_STRING"
+
+    def test_text(self):
+        """Test SmsAllOf.text"""
+        self.model.text = "TEST_STRING"
+        assert self.model.get("text") == "TEST_STRING"
+
+    def test_notification_url(self):
+        """Test SmsAllOf.notification_url"""
+        self.model.notification_url = "TEST_STRING"
+        assert self.model.get("notification_url") == "TEST_STRING"
 
 
 if __name__ == '__main__':

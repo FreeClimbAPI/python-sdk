@@ -11,25 +11,24 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 
 from freeclimb.model.filter_logs_request import FilterLogsRequest  # noqa: E501
 
+
 class TestFilterLogsRequest(unittest.TestCase):
     """FilterLogsRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = FilterLogsRequest(pql="TEST_PQL")
 
-    def tearDown(self):
-        pass
-
-    def testFilterLogsRequest(self):
-        """Test FilterLogsRequest"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = FilterLogsRequest()  # noqa: E501
-        pass
+    def test_pql(self):
+        """Test FilterLogsRequest.pql"""
+        self.model.pql = "TEST_STRING"
+        assert self.model.get("pql") == "TEST_STRING"
 
 
 if __name__ == '__main__':

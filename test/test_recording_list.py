@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 from freeclimb.model.pagination_model import PaginationModel
@@ -22,20 +23,60 @@ globals()['RecordingResult'] = RecordingResult
 
 from freeclimb.model.recording_list import RecordingList  # noqa: E501
 
+
 class TestRecordingList(unittest.TestCase):
     """RecordingList unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = RecordingList()
 
-    def tearDown(self):
-        pass
+    def test_total(self):
+        """Test RecordingList.total"""
 
-    def testRecordingList(self):
-        """Test RecordingList"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = RecordingList()  # noqa: E501
-        pass
+        self.model.total = 1
+        assert self.model.get("total") == 1
+
+    def test_start(self):
+        """Test RecordingList.start"""
+
+        self.model.start = 1
+        assert self.model.get("start") == 1
+
+    def test_end(self):
+        """Test RecordingList.end"""
+
+        self.model.end = 1
+        assert self.model.get("end") == 1
+
+    def test_page(self):
+        """Test RecordingList.page"""
+
+        self.model.page = 1
+        assert self.model.get("page") == 1
+
+    def test_num_pages(self):
+        """Test RecordingList.num_pages"""
+
+        self.model.num_pages = 1
+        assert self.model.get("num_pages") == 1
+
+    def test_page_size(self):
+        """Test RecordingList.page_size"""
+
+        self.model.page_size = 1
+        assert self.model.get("page_size") == 1
+
+    def test_next_page_uri(self):
+        """Test RecordingList.next_page_uri"""
+        self.model.next_page_uri = "TEST_STRING"
+        assert self.model.get("next_page_uri") == "TEST_STRING"
+
+    def test_recordings(self):
+        """Test RecordingList.recordings"""
+
+        testList = []
+        self.model.recordings = testList
+        assert self.model.get("recordings") == testList
 
 
 if __name__ == '__main__':

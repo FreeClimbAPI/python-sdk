@@ -11,25 +11,48 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.log_level import LogLevel  # noqa: E501
 
+
 class TestLogLevel(unittest.TestCase):
     """LogLevel unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_INFO_should_serialize_to_enum(self):
+        expected = LogLevel.INFO
+        calculated = LogLevel['INFO']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_INFO_should_deserialize_to_string(self):
+        test = LogLevel.INFO
+        expected = "info"
+        calculated = test.value
+        assert expected == calculated
 
-    def testLogLevel(self):
-        """Test LogLevel"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = LogLevel()  # noqa: E501
-        pass
+    def test_WARNING_should_serialize_to_enum(self):
+        expected = LogLevel.WARNING
+        calculated = LogLevel['WARNING']
+        assert expected == calculated
+
+    def test_WARNING_should_deserialize_to_string(self):
+        test = LogLevel.WARNING
+        expected = "warning"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_ERROR_should_serialize_to_enum(self):
+        expected = LogLevel.ERROR
+        calculated = LogLevel['ERROR']
+        assert expected == calculated
+
+    def test_ERROR_should_deserialize_to_string(self):
+        test = LogLevel.ERROR
+        expected = "error"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

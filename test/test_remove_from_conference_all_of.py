@@ -11,25 +11,23 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.remove_from_conference_all_of import RemoveFromConferenceAllOf  # noqa: E501
 
+
 class TestRemoveFromConferenceAllOf(unittest.TestCase):
     """RemoveFromConferenceAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = RemoveFromConferenceAllOf(call_id="TEST_ID")
 
-    def tearDown(self):
-        pass
-
-    def testRemoveFromConferenceAllOf(self):
-        """Test RemoveFromConferenceAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = RemoveFromConferenceAllOf()  # noqa: E501
-        pass
+    def test_call_id(self):
+        """Test RemoveFromConferenceAllOf.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.get("call_id") == "TEST_STRING"
 
 
 if __name__ == '__main__':

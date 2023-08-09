@@ -11,25 +11,23 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.play_early_media_all_of import PlayEarlyMediaAllOf  # noqa: E501
 
+
 class TestPlayEarlyMediaAllOf(unittest.TestCase):
     """PlayEarlyMediaAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = PlayEarlyMediaAllOf(file="TEST_STRING")
 
-    def tearDown(self):
-        pass
-
-    def testPlayEarlyMediaAllOf(self):
-        """Test PlayEarlyMediaAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = PlayEarlyMediaAllOf()  # noqa: E501
-        pass
+    def test_file(self):
+        """Test PlayEarlyMediaAllOf.file"""
+        self.model.file = "TEST_STRING"
+        assert self.model.get("file") == "TEST_STRING"
 
 
 if __name__ == '__main__':

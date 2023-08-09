@@ -11,25 +11,37 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.message_direction import MessageDirection  # noqa: E501
 
+
 class TestMessageDirection(unittest.TestCase):
     """MessageDirection unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_INBOUND_should_serialize_to_enum(self):
+        expected = MessageDirection.INBOUND
+        calculated = MessageDirection['INBOUND']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_INBOUND_should_deserialize_to_string(self):
+        test = MessageDirection.INBOUND
+        expected = "inbound"
+        calculated = test.value
+        assert expected == calculated
 
-    def testMessageDirection(self):
-        """Test MessageDirection"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = MessageDirection()  # noqa: E501
-        pass
+    def test_OUTBOUND_should_serialize_to_enum(self):
+        expected = MessageDirection.OUTBOUND
+        calculated = MessageDirection['OUTBOUND']
+        assert expected == calculated
+
+    def test_OUTBOUND_should_deserialize_to_string(self):
+        test = MessageDirection.OUTBOUND
+        expected = "outbound"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

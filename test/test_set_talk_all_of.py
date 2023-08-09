@@ -11,25 +11,28 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.set_talk_all_of import SetTalkAllOf  # noqa: E501
 
+
 class TestSetTalkAllOf(unittest.TestCase):
     """SetTalkAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = SetTalkAllOf(call_id="TEST_ID")
 
-    def tearDown(self):
-        pass
+    def test_call_id(self):
+        """Test SetTalkAllOf.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.get("call_id") == "TEST_STRING"
 
-    def testSetTalkAllOf(self):
-        """Test SetTalkAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = SetTalkAllOf()  # noqa: E501
-        pass
+    def test_talk(self):
+        """Test SetTalkAllOf.talk"""
+        self.model.talk = False
+        assert self.model.get("talk") == False
 
 
 if __name__ == '__main__':

@@ -11,6 +11,8 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 from freeclimb.model.available_number import AvailableNumber
@@ -26,17 +28,58 @@ class TestAvailableNumberList(unittest.TestCase):
     """AvailableNumberList unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = AvailableNumberList()
+    
+    def test_total(self):
+        """Test AvailableNumberList.total"""
+        
+        self.model.total = 1
+        assert self.model.get("total") == 1
 
-    def tearDown(self):
-        pass
+    def test_start(self):
+        """Test AvailableNumberList.start"""
+        
+        self.model.start = 1
+        assert self.model.get("start") == 1
 
-    def testAvailableNumberList(self):
-        """Test AvailableNumberList"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = AvailableNumberList()  # noqa: E501
-        pass
+    def test_end(self):
+        """Test AvailableNumberList.end"""
+        
+        self.model.end = 1
+        assert self.model.get("end") == 1
+
+    def test_page(self):
+        """Test AvailableNumberList.page"""
+        
+        self.model.page = 1
+        assert self.model.get("page") == 1
+
+    def test_num_pages(self):
+        """Test AvailableNumberList.num_pages"""
+        
+        self.model.num_pages = 1
+        assert self.model.get("num_pages") == 1
+
+    def test_page_size(self):
+        """Test AvailableNumberList.page_size"""
+        
+        self.model.page_size = 1
+        assert self.model.get("page_size") == 1
+
+    def test_next_page_uri(self):
+        """Test AvailableNumberList.next_page_uri"""
+        self.model.next_page_uri = "TEST_STRING"
+        assert self.model.get("next_page_uri") == "TEST_STRING"
+        
+
+    def test_available_phone_numbers(self):
+        """Test AvailableNumberList.available_phone_numbers"""
+        
+        testList = []
+        self.model.available_phone_numbers = testList
+        assert self.model.get("available_phone_numbers") == testList
 
 
+    
 if __name__ == '__main__':
     unittest.main()

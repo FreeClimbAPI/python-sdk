@@ -11,6 +11,8 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 from freeclimb.model.conference_participant_result_all_of import ConferenceParticipantResultAllOf
@@ -20,20 +22,63 @@ globals()['MutableResourceModel'] = MutableResourceModel
 
 from freeclimb.model.conference_participant_result import ConferenceParticipantResult  # noqa: E501
 
+
 class TestConferenceParticipantResult(unittest.TestCase):
     """ConferenceParticipantResult unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = ConferenceParticipantResult()
 
-    def tearDown(self):
-        pass
+    def test_uri(self):
+        """Test ConferenceParticipantResult.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.get("uri") == "TEST_STRING"
 
-    def testConferenceParticipantResult(self):
-        """Test ConferenceParticipantResult"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = ConferenceParticipantResult()  # noqa: E501
-        pass
+    def test_date_created(self):
+        """Test ConferenceParticipantResult.date_created"""
+        self.model.date_created = "TEST_STRING"
+        assert self.model.get("date_created") == "TEST_STRING"
+
+    def test_date_updated(self):
+        """Test ConferenceParticipantResult.date_updated"""
+        self.model.date_updated = "TEST_STRING"
+        assert self.model.get("date_updated") == "TEST_STRING"
+
+    def test_revision(self):
+        """Test ConferenceParticipantResult.revision"""
+
+        self.model.revision = 1
+        assert self.model.get("revision") == 1
+
+    def test_account_id(self):
+        """Test ConferenceParticipantResult.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.get("account_id") == "TEST_STRING"
+
+    def test_conference_id(self):
+        """Test ConferenceParticipantResult.conference_id"""
+        self.model.conference_id = "TEST_STRING"
+        assert self.model.get("conference_id") == "TEST_STRING"
+
+    def test_call_id(self):
+        """Test ConferenceParticipantResult.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.get("call_id") == "TEST_STRING"
+
+    def test_talk(self):
+        """Test ConferenceParticipantResult.talk"""
+        self.model.talk = False
+        assert self.model.get("talk") == False
+
+    def test_listen(self):
+        """Test ConferenceParticipantResult.listen"""
+        self.model.listen = False
+        assert self.model.get("listen") == False
+
+    def test_start_conf_on_enter(self):
+        """Test ConferenceParticipantResult.start_conf_on_enter"""
+        self.model.start_conf_on_enter = False
+        assert self.model.get("start_conf_on_enter") == False
 
 
 if __name__ == '__main__':

@@ -11,25 +11,59 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.record_utterance_term_reason import RecordUtteranceTermReason  # noqa: E501
 
+
 class TestRecordUtteranceTermReason(unittest.TestCase):
     """RecordUtteranceTermReason unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_FINISH_KEY_should_serialize_to_enum(self):
+        expected = RecordUtteranceTermReason.FINISH_KEY
+        calculated = RecordUtteranceTermReason['FINISH_KEY']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_FINISH_KEY_should_deserialize_to_string(self):
+        test = RecordUtteranceTermReason.FINISH_KEY
+        expected = "finishKey"
+        calculated = test.value
+        assert expected == calculated
 
-    def testRecordUtteranceTermReason(self):
-        """Test RecordUtteranceTermReason"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = RecordUtteranceTermReason()  # noqa: E501
-        pass
+    def test_TIMEOUT_should_serialize_to_enum(self):
+        expected = RecordUtteranceTermReason.TIMEOUT
+        calculated = RecordUtteranceTermReason['TIMEOUT']
+        assert expected == calculated
+
+    def test_TIMEOUT_should_deserialize_to_string(self):
+        test = RecordUtteranceTermReason.TIMEOUT
+        expected = "timeout"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_HANGUP_should_serialize_to_enum(self):
+        expected = RecordUtteranceTermReason.HANGUP
+        calculated = RecordUtteranceTermReason['HANGUP']
+        assert expected == calculated
+
+    def test_HANGUP_should_deserialize_to_string(self):
+        test = RecordUtteranceTermReason.HANGUP
+        expected = "hangup"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_MAX_LENGTH_should_serialize_to_enum(self):
+        expected = RecordUtteranceTermReason.MAX_LENGTH
+        calculated = RecordUtteranceTermReason['MAX_LENGTH']
+        assert expected == calculated
+
+    def test_MAX_LENGTH_should_deserialize_to_string(self):
+        test = RecordUtteranceTermReason.MAX_LENGTH
+        expected = "maxLength"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

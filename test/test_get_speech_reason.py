@@ -11,25 +11,81 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.get_speech_reason import GetSpeechReason  # noqa: E501
 
+
 class TestGetSpeechReason(unittest.TestCase):
     """GetSpeechReason unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_ERROR_should_serialize_to_enum(self):
+        expected = GetSpeechReason.ERROR
+        calculated = GetSpeechReason['ERROR']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_ERROR_should_deserialize_to_string(self):
+        test = GetSpeechReason.ERROR
+        expected = "error"
+        calculated = test.value
+        assert expected == calculated
 
-    def testGetSpeechReason(self):
-        """Test GetSpeechReason"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = GetSpeechReason()  # noqa: E501
-        pass
+    def test_HANGUP_should_serialize_to_enum(self):
+        expected = GetSpeechReason.HANGUP
+        calculated = GetSpeechReason['HANGUP']
+        assert expected == calculated
+
+    def test_HANGUP_should_deserialize_to_string(self):
+        test = GetSpeechReason.HANGUP
+        expected = "hangup"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_DIGIT_should_serialize_to_enum(self):
+        expected = GetSpeechReason.DIGIT
+        calculated = GetSpeechReason['DIGIT']
+        assert expected == calculated
+
+    def test_DIGIT_should_deserialize_to_string(self):
+        test = GetSpeechReason.DIGIT
+        expected = "digit"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_NO_INPUT_should_serialize_to_enum(self):
+        expected = GetSpeechReason.NO_INPUT
+        calculated = GetSpeechReason['NO_INPUT']
+        assert expected == calculated
+
+    def test_NO_INPUT_should_deserialize_to_string(self):
+        test = GetSpeechReason.NO_INPUT
+        expected = "noInput"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_NO_MATCH_should_serialize_to_enum(self):
+        expected = GetSpeechReason.NO_MATCH
+        calculated = GetSpeechReason['NO_MATCH']
+        assert expected == calculated
+
+    def test_NO_MATCH_should_deserialize_to_string(self):
+        test = GetSpeechReason.NO_MATCH
+        expected = "noMatch"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_RECOGNITION_should_serialize_to_enum(self):
+        expected = GetSpeechReason.RECOGNITION
+        calculated = GetSpeechReason['RECOGNITION']
+        assert expected == calculated
+
+    def test_RECOGNITION_should_deserialize_to_string(self):
+        test = GetSpeechReason.RECOGNITION
+        expected = "recognition"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

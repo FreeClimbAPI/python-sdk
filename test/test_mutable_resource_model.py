@@ -11,25 +11,39 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.mutable_resource_model import MutableResourceModel  # noqa: E501
 
+
 class TestMutableResourceModel(unittest.TestCase):
     """MutableResourceModel unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = MutableResourceModel()
 
-    def tearDown(self):
-        pass
+    def test_uri(self):
+        """Test MutableResourceModel.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.get("uri") == "TEST_STRING"
 
-    def testMutableResourceModel(self):
-        """Test MutableResourceModel"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = MutableResourceModel()  # noqa: E501
-        pass
+    def test_date_created(self):
+        """Test MutableResourceModel.date_created"""
+        self.model.date_created = "TEST_STRING"
+        assert self.model.get("date_created") == "TEST_STRING"
+
+    def test_date_updated(self):
+        """Test MutableResourceModel.date_updated"""
+        self.model.date_updated = "TEST_STRING"
+        assert self.model.get("date_updated") == "TEST_STRING"
+
+    def test_revision(self):
+        """Test MutableResourceModel.revision"""
+
+        self.model.revision = 1
+        assert self.model.get("revision") == 1
 
 
 if __name__ == '__main__':

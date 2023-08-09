@@ -11,25 +11,104 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 
 from freeclimb.model.call_status import CallStatus  # noqa: E501
 
+
 class TestCallStatus(unittest.TestCase):
     """CallStatus unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_QUEUED_should_serialize_to_enum(self):
+        expected = CallStatus.QUEUED
+        calculated = CallStatus['QUEUED']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_QUEUED_should_deserialize_to_string(self):
+        test = CallStatus.QUEUED
+        expected = "queued"
+        calculated = test.value
+        assert expected == calculated
 
-    def testCallStatus(self):
-        """Test CallStatus"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = CallStatus()  # noqa: E501
-        pass
+    def test_RINGING_should_serialize_to_enum(self):
+        expected = CallStatus.RINGING
+        calculated = CallStatus['RINGING']
+        assert expected == calculated
+
+    def test_RINGING_should_deserialize_to_string(self):
+        test = CallStatus.RINGING
+        expected = "ringing"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_IN_PROGRESS_should_serialize_to_enum(self):
+        expected = CallStatus.IN_PROGRESS
+        calculated = CallStatus['IN_PROGRESS']
+        assert expected == calculated
+
+    def test_IN_PROGRESS_should_deserialize_to_string(self):
+        test = CallStatus.IN_PROGRESS
+        expected = "inProgress"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_CANCELED_should_serialize_to_enum(self):
+        expected = CallStatus.CANCELED
+        calculated = CallStatus['CANCELED']
+        assert expected == calculated
+
+    def test_CANCELED_should_deserialize_to_string(self):
+        test = CallStatus.CANCELED
+        expected = "canceled"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_COMPLETED_should_serialize_to_enum(self):
+        expected = CallStatus.COMPLETED
+        calculated = CallStatus['COMPLETED']
+        assert expected == calculated
+
+    def test_COMPLETED_should_deserialize_to_string(self):
+        test = CallStatus.COMPLETED
+        expected = "completed"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_FAILED_should_serialize_to_enum(self):
+        expected = CallStatus.FAILED
+        calculated = CallStatus['FAILED']
+        assert expected == calculated
+
+    def test_FAILED_should_deserialize_to_string(self):
+        test = CallStatus.FAILED
+        expected = "failed"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_BUSY_should_serialize_to_enum(self):
+        expected = CallStatus.BUSY
+        calculated = CallStatus['BUSY']
+        assert expected == calculated
+
+    def test_BUSY_should_deserialize_to_string(self):
+        test = CallStatus.BUSY
+        expected = "busy"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_NO_ANSWER_should_serialize_to_enum(self):
+        expected = CallStatus.NO_ANSWER
+        calculated = CallStatus['NO_ANSWER']
+        assert expected == calculated
+
+    def test_NO_ANSWER_should_deserialize_to_string(self):
+        test = CallStatus.NO_ANSWER
+        expected = "noAnswer"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

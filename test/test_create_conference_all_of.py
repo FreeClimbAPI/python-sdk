@@ -11,25 +11,57 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
+from freeclimb.model.play_beep import PlayBeep
+globals()['PlayBeep'] = PlayBeep
 
 from freeclimb.model.create_conference_all_of import CreateConferenceAllOf  # noqa: E501
+
 
 class TestCreateConferenceAllOf(unittest.TestCase):
     """CreateConferenceAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = CreateConferenceAllOf(action_url="TEST_URL")
 
-    def tearDown(self):
-        pass
+    def test_action_url(self):
+        """Test CreateConferenceAllOf.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.get("action_url") == "TEST_STRING"
 
-    def testCreateConferenceAllOf(self):
-        """Test CreateConferenceAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = CreateConferenceAllOf()  # noqa: E501
-        pass
+    def test_alias(self):
+        """Test CreateConferenceAllOf.alias"""
+        self.model.alias = False
+        assert self.model.get("alias") == False
+
+    def test_play_beep(self):
+        """Test CreateConferenceAllOf.play_beep"""
+        self.model.play_beep = PlayBeep.ALWAYS
+        assert self.model.get("play_beep") == PlayBeep.ALWAYS
+        self.model.play_beep = PlayBeep.NEVER
+        assert self.model.get("play_beep") == PlayBeep.NEVER
+        self.model.play_beep = PlayBeep.ENTRY_ONLY
+        assert self.model.get("play_beep") == PlayBeep.ENTRY_ONLY
+        self.model.play_beep = PlayBeep.EXIT_ONLY
+        assert self.model.get("play_beep") == PlayBeep.EXIT_ONLY
+
+    def test_record(self):
+        """Test CreateConferenceAllOf.record"""
+        self.model.record = False
+        assert self.model.get("record") == False
+
+    def test_status_callback_url(self):
+        """Test CreateConferenceAllOf.status_callback_url"""
+        self.model.status_callback_url = "TEST_STRING"
+        assert self.model.get("status_callback_url") == "TEST_STRING"
+
+    def test_wait_url(self):
+        """Test CreateConferenceAllOf.wait_url"""
+        self.model.wait_url = "TEST_STRING"
+        assert self.model.get("wait_url") == "TEST_STRING"
 
 
 if __name__ == '__main__':

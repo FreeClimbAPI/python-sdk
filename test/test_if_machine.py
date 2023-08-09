@@ -11,25 +11,37 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.if_machine import IfMachine  # noqa: E501
 
+
 class TestIfMachine(unittest.TestCase):
     """IfMachine unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_REDIRECT_should_serialize_to_enum(self):
+        expected = IfMachine.REDIRECT
+        calculated = IfMachine['REDIRECT']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_REDIRECT_should_deserialize_to_string(self):
+        test = IfMachine.REDIRECT
+        expected = "redirect"
+        calculated = test.value
+        assert expected == calculated
 
-    def testIfMachine(self):
-        """Test IfMachine"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = IfMachine()  # noqa: E501
-        pass
+    def test_HANGUP_should_serialize_to_enum(self):
+        expected = IfMachine.HANGUP
+        calculated = IfMachine['HANGUP']
+        assert expected == calculated
+
+    def test_HANGUP_should_deserialize_to_string(self):
+        test = IfMachine.HANGUP
+        expected = "hangup"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

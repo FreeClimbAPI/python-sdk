@@ -11,6 +11,8 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -22,6 +24,7 @@ from freeclimb.model.get_digits_all_of import GetDigitsAllOf
 from freeclimb.model.get_speech import GetSpeech
 from freeclimb.model.hangup import Hangup
 from freeclimb.model.out_dial import OutDial
+from freeclimb.model.park import Park
 from freeclimb.model.pause import Pause
 from freeclimb.model.percl_command import PerclCommand
 from freeclimb.model.play import Play
@@ -37,6 +40,7 @@ from freeclimb.model.set_talk import SetTalk
 from freeclimb.model.sms import Sms
 from freeclimb.model.start_record_call import StartRecordCall
 from freeclimb.model.terminate_conference import TerminateConference
+from freeclimb.model.unpark import Unpark
 globals()['AddToConference'] = AddToConference
 globals()['CreateConference'] = CreateConference
 globals()['Dequeue'] = Dequeue
@@ -46,6 +50,7 @@ globals()['GetDigitsAllOf'] = GetDigitsAllOf
 globals()['GetSpeech'] = GetSpeech
 globals()['Hangup'] = Hangup
 globals()['OutDial'] = OutDial
+globals()['Park'] = Park
 globals()['Pause'] = Pause
 globals()['PerclCommand'] = PerclCommand
 globals()['Play'] = Play
@@ -61,23 +66,69 @@ globals()['SetTalk'] = SetTalk
 globals()['Sms'] = Sms
 globals()['StartRecordCall'] = StartRecordCall
 globals()['TerminateConference'] = TerminateConference
+globals()['Unpark'] = Unpark
 
 from freeclimb.model.get_digits import GetDigits  # noqa: E501
+
 
 class TestGetDigits(unittest.TestCase):
     """GetDigits unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = GetDigits(action_url="TEST_URL")
 
-    def tearDown(self):
-        pass
+    def test_action_url(self):
+        """Test GetDigits.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.get("action_url") == "TEST_STRING"
 
-    def testGetDigits(self):
-        """Test GetDigits"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = GetDigits()  # noqa: E501
-        pass
+    def test_digit_timeout_ms(self):
+        """Test GetDigits.digit_timeout_ms"""
+
+        self.model.digit_timeout_ms = 1
+        assert self.model.get("digit_timeout_ms") == 1
+
+    def test_finish_on_key(self):
+        """Test GetDigits.finish_on_key"""
+        self.model.finish_on_key = "TEST_STRING"
+        assert self.model.get("finish_on_key") == "TEST_STRING"
+
+    def test_flush_buffer(self):
+        """Test GetDigits.flush_buffer"""
+        self.model.flush_buffer = False
+        assert self.model.get("flush_buffer") == False
+
+    def test_initial_timeout_ms(self):
+        """Test GetDigits.initial_timeout_ms"""
+        self.model.initial_timeout_ms = "TEST_STRING"
+        assert self.model.get("initial_timeout_ms") == "TEST_STRING"
+
+    def test_max_digits(self):
+        """Test GetDigits.max_digits"""
+
+        self.model.max_digits = 1
+        assert self.model.get("max_digits") == 1
+
+    def test_min_digits(self):
+        """Test GetDigits.min_digits"""
+
+        self.model.min_digits = 1
+        assert self.model.get("min_digits") == 1
+
+    def test_prompts(self):
+        """Test GetDigits.prompts"""
+
+        testList = []
+        self.model.prompts = testList
+        assert self.model.get("prompts") == testList
+
+    def test_privacy_mode(self):
+        """Test GetDigits.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.get("privacy_mode") == False
+
+    def test_command_test(self):
+        assert self.model.command == "GetDigits"
 
 
 if __name__ == '__main__':

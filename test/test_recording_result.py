@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 from freeclimb.model.mutable_resource_model import MutableResourceModel
@@ -20,20 +21,59 @@ globals()['RecordingResultAllOf'] = RecordingResultAllOf
 
 from freeclimb.model.recording_result import RecordingResult  # noqa: E501
 
+
 class TestRecordingResult(unittest.TestCase):
     """RecordingResult unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = RecordingResult()
 
-    def tearDown(self):
-        pass
+    def test_uri(self):
+        """Test RecordingResult.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.get("uri") == "TEST_STRING"
 
-    def testRecordingResult(self):
-        """Test RecordingResult"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = RecordingResult()  # noqa: E501
-        pass
+    def test_date_created(self):
+        """Test RecordingResult.date_created"""
+        self.model.date_created = "TEST_STRING"
+        assert self.model.get("date_created") == "TEST_STRING"
+
+    def test_date_updated(self):
+        """Test RecordingResult.date_updated"""
+        self.model.date_updated = "TEST_STRING"
+        assert self.model.get("date_updated") == "TEST_STRING"
+
+    def test_revision(self):
+        """Test RecordingResult.revision"""
+
+        self.model.revision = 1
+        assert self.model.get("revision") == 1
+
+    def test_recording_id(self):
+        """Test RecordingResult.recording_id"""
+        self.model.recording_id = "TEST_STRING"
+        assert self.model.get("recording_id") == "TEST_STRING"
+
+    def test_account_id(self):
+        """Test RecordingResult.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.get("account_id") == "TEST_STRING"
+
+    def test_call_id(self):
+        """Test RecordingResult.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.get("call_id") == "TEST_STRING"
+
+    def test_duration_sec(self):
+        """Test RecordingResult.duration_sec"""
+
+        self.model.duration_sec = 1
+        assert self.model.get("duration_sec") == 1
+
+    def test_conference_id(self):
+        """Test RecordingResult.conference_id"""
+        self.model.conference_id = "TEST_STRING"
+        assert self.model.get("conference_id") == "TEST_STRING"
 
 
 if __name__ == '__main__':

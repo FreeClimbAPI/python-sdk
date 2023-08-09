@@ -11,25 +11,33 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.park_all_of import ParkAllOf  # noqa: E501
 
+
 class TestParkAllOf(unittest.TestCase):
     """ParkAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = ParkAllOf(wait_url="TEST_URL", action_url="TEST_URL")
 
-    def tearDown(self):
-        pass
+    def test_wait_url(self):
+        """Test ParkAllOf.wait_url"""
+        self.model.wait_url = "TEST_STRING"
+        assert self.model.get("wait_url") == "TEST_STRING"
 
-    def testParkAllOf(self):
-        """Test ParkAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = ParkAllOf()  # noqa: E501
-        pass
+    def test_action_url(self):
+        """Test ParkAllOf.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.get("action_url") == "TEST_STRING"
+
+    def test_notification_url(self):
+        """Test ParkAllOf.notification_url"""
+        self.model.notification_url = "TEST_STRING"
+        assert self.model.get("notification_url") == "TEST_STRING"
 
 
 if __name__ == '__main__':

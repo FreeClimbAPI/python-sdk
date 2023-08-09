@@ -11,25 +11,44 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.message_request_all_of import MessageRequestAllOf  # noqa: E501
 
+
 class TestMessageRequestAllOf(unittest.TestCase):
     """MessageRequestAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = MessageRequestAllOf(
+            _from="+11231231234", to="+11231231234", text="TEST_STRING")
 
-    def tearDown(self):
-        pass
+    def test__from(self):
+        """Test MessageRequestAllOf._from"""
+        self.model._from = "TEST_STRING"
+        assert self.model.get("_from") == "TEST_STRING"
 
-    def testMessageRequestAllOf(self):
-        """Test MessageRequestAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = MessageRequestAllOf()  # noqa: E501
-        pass
+    def test_to(self):
+        """Test MessageRequestAllOf.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.get("to") == "TEST_STRING"
+
+    def test_text(self):
+        """Test MessageRequestAllOf.text"""
+        self.model.text = "TEST_STRING"
+        assert self.model.get("text") == "TEST_STRING"
+
+    def test_notification_url(self):
+        """Test MessageRequestAllOf.notification_url"""
+        self.model.notification_url = "TEST_STRING"
+        assert self.model.get("notification_url") == "TEST_STRING"
+
+    def test_account_id(self):
+        """Test MessageRequestAllOf.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.get("account_id") == "TEST_STRING"
 
 
 if __name__ == '__main__':

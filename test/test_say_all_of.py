@@ -11,25 +11,44 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.say_all_of import SayAllOf  # noqa: E501
 
+
 class TestSayAllOf(unittest.TestCase):
     """SayAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = SayAllOf(text="TEST_STRING")
 
-    def tearDown(self):
-        pass
+    def test_text(self):
+        """Test SayAllOf.text"""
+        self.model.text = "TEST_STRING"
+        assert self.model.get("text") == "TEST_STRING"
 
-    def testSayAllOf(self):
-        """Test SayAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = SayAllOf()  # noqa: E501
-        pass
+    def test_language(self):
+        """Test SayAllOf.language"""
+        self.model.language = "TEST_STRING"
+        assert self.model.get("language") == "TEST_STRING"
+
+    def test_loop(self):
+        """Test SayAllOf.loop"""
+
+        self.model.loop = 1
+        assert self.model.get("loop") == 1
+
+    def test_conference_id(self):
+        """Test SayAllOf.conference_id"""
+        self.model.conference_id = "TEST_STRING"
+        assert self.model.get("conference_id") == "TEST_STRING"
+
+    def test_privacy_mode(self):
+        """Test SayAllOf.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.get("privacy_mode") == False
 
 
 if __name__ == '__main__':

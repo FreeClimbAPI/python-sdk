@@ -11,25 +11,59 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.play_beep import PlayBeep  # noqa: E501
 
+
 class TestPlayBeep(unittest.TestCase):
     """PlayBeep unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_ALWAYS_should_serialize_to_enum(self):
+        expected = PlayBeep.ALWAYS
+        calculated = PlayBeep['ALWAYS']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_ALWAYS_should_deserialize_to_string(self):
+        test = PlayBeep.ALWAYS
+        expected = "always"
+        calculated = test.value
+        assert expected == calculated
 
-    def testPlayBeep(self):
-        """Test PlayBeep"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = PlayBeep()  # noqa: E501
-        pass
+    def test_NEVER_should_serialize_to_enum(self):
+        expected = PlayBeep.NEVER
+        calculated = PlayBeep['NEVER']
+        assert expected == calculated
+
+    def test_NEVER_should_deserialize_to_string(self):
+        test = PlayBeep.NEVER
+        expected = "never"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_ENTRY_ONLY_should_serialize_to_enum(self):
+        expected = PlayBeep.ENTRY_ONLY
+        calculated = PlayBeep['ENTRY_ONLY']
+        assert expected == calculated
+
+    def test_ENTRY_ONLY_should_deserialize_to_string(self):
+        test = PlayBeep.ENTRY_ONLY
+        expected = "entryOnly"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_EXIT_ONLY_should_serialize_to_enum(self):
+        expected = PlayBeep.EXIT_ONLY
+        calculated = PlayBeep['EXIT_ONLY']
+        assert expected == calculated
+
+    def test_EXIT_ONLY_should_deserialize_to_string(self):
+        test = PlayBeep.EXIT_ONLY
+        expected = "exitOnly"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

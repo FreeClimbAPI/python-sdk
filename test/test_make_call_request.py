@@ -11,25 +11,69 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.make_call_request import MakeCallRequest  # noqa: E501
 
+
 class TestMakeCallRequest(unittest.TestCase):
     """MakeCallRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = MakeCallRequest(_from="+11231231234", to="+11231231234")
 
-    def tearDown(self):
-        pass
+    def test__from(self):
+        """Test MakeCallRequest._from"""
+        self.model._from = "TEST_STRING"
+        assert self.model.get("_from") == "TEST_STRING"
 
-    def testMakeCallRequest(self):
-        """Test MakeCallRequest"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = MakeCallRequest()  # noqa: E501
-        pass
+    def test_to(self):
+        """Test MakeCallRequest.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.get("to") == "TEST_STRING"
+
+    def test_application_id(self):
+        """Test MakeCallRequest.application_id"""
+        self.model.application_id = "TEST_STRING"
+        assert self.model.get("application_id") == "TEST_STRING"
+
+    def test_send_digits(self):
+        """Test MakeCallRequest.send_digits"""
+        self.model.send_digits = "TEST_STRING"
+        assert self.model.get("send_digits") == "TEST_STRING"
+
+    def test_if_machine(self):
+        """Test MakeCallRequest.if_machine"""
+        self.model.if_machine = "TEST_STRING"
+        assert self.model.get("if_machine") == "TEST_STRING"
+
+    def test_if_machine_url(self):
+        """Test MakeCallRequest.if_machine_url"""
+        self.model.if_machine_url = "TEST_STRING"
+        assert self.model.get("if_machine_url") == "TEST_STRING"
+
+    def test_timeout(self):
+        """Test MakeCallRequest.timeout"""
+
+        self.model.timeout = 1
+        assert self.model.get("timeout") == 1
+
+    def test_parent_call_id(self):
+        """Test MakeCallRequest.parent_call_id"""
+        self.model.parent_call_id = "TEST_STRING"
+        assert self.model.get("parent_call_id") == "TEST_STRING"
+
+    def test_privacy_mode(self):
+        """Test MakeCallRequest.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.get("privacy_mode") == False
+
+    def test_call_connect_url(self):
+        """Test MakeCallRequest.call_connect_url"""
+        self.model.call_connect_url = "TEST_STRING"
+        assert self.model.get("call_connect_url") == "TEST_STRING"
 
 
 if __name__ == '__main__':

@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -20,8 +21,10 @@ from freeclimb.model.enqueue import Enqueue
 from freeclimb.model.get_digits import GetDigits
 from freeclimb.model.get_speech import GetSpeech
 from freeclimb.model.get_speech_all_of import GetSpeechAllOf
+from freeclimb.model.grammar_type import GrammarType
 from freeclimb.model.hangup import Hangup
 from freeclimb.model.out_dial import OutDial
+from freeclimb.model.park import Park
 from freeclimb.model.pause import Pause
 from freeclimb.model.percl_command import PerclCommand
 from freeclimb.model.play import Play
@@ -37,6 +40,7 @@ from freeclimb.model.set_talk import SetTalk
 from freeclimb.model.sms import Sms
 from freeclimb.model.start_record_call import StartRecordCall
 from freeclimb.model.terminate_conference import TerminateConference
+from freeclimb.model.unpark import Unpark
 globals()['AddToConference'] = AddToConference
 globals()['CreateConference'] = CreateConference
 globals()['Dequeue'] = Dequeue
@@ -44,8 +48,10 @@ globals()['Enqueue'] = Enqueue
 globals()['GetDigits'] = GetDigits
 globals()['GetSpeech'] = GetSpeech
 globals()['GetSpeechAllOf'] = GetSpeechAllOf
+globals()['GrammarType'] = GrammarType
 globals()['Hangup'] = Hangup
 globals()['OutDial'] = OutDial
+globals()['Park'] = Park
 globals()['Pause'] = Pause
 globals()['PerclCommand'] = PerclCommand
 globals()['Play'] = Play
@@ -61,23 +67,94 @@ globals()['SetTalk'] = SetTalk
 globals()['Sms'] = Sms
 globals()['StartRecordCall'] = StartRecordCall
 globals()['TerminateConference'] = TerminateConference
+globals()['Unpark'] = Unpark
 
 from freeclimb.model.get_speech import GetSpeech  # noqa: E501
+
 
 class TestGetSpeech(unittest.TestCase):
     """GetSpeech unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = GetSpeech(action_url="TEST_URL",
+                               grammar_file="TEST_STRING")
 
-    def tearDown(self):
-        pass
+    def test_action_url(self):
+        """Test GetSpeech.action_url"""
 
-    def testGetSpeech(self):
-        """Test GetSpeech"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = GetSpeech()  # noqa: E501
-        pass
+        self.model.action_url = "TEST_STRING"
+        assert self.model.get("action_url") == "TEST_STRING"
+
+    def test_grammar_type(self):
+        """Test GetSpeech.grammar_type"""
+        self.model.grammar_type = GrammarType.URL
+        assert self.model.get("grammar_type") == GrammarType.URL
+        self.model.grammar_type = GrammarType.BUILT_IN
+        assert self.model.get("grammar_type") == GrammarType.BUILT_IN
+
+    def test_grammar_file(self):
+        """Test GetSpeech.grammar_file"""
+        self.model.grammar_file = "TEST_STRING"
+        assert self.model.get("grammar_file") == "TEST_STRING"
+
+    def test_grammar_rule(self):
+        """Test GetSpeech.grammar_rule"""
+        self.model.grammar_rule = "TEST_STRING"
+        assert self.model.get("grammar_rule") == "TEST_STRING"
+
+    def test_play_beep(self):
+        """Test GetSpeech.play_beep"""
+        self.model.play_beep = False
+        assert self.model.get("play_beep") == False
+
+    def test_prompts(self):
+        """Test GetSpeech.prompts"""
+
+        testList = []
+        self.model.prompts = testList
+        assert self.model.get("prompts") == testList
+
+    def test_no_input_timeout_ms(self):
+        """Test GetSpeech.no_input_timeout_ms"""
+
+        self.model.no_input_timeout_ms = 1
+        assert self.model.get("no_input_timeout_ms") == 1
+
+    def test_recognition_timeout_ms(self):
+        """Test GetSpeech.recognition_timeout_ms"""
+
+        self.model.recognition_timeout_ms = 1
+        assert self.model.get("recognition_timeout_ms") == 1
+
+    def test_confidence_threshold(self):
+        """Test GetSpeech.confidence_threshold"""
+        self.model.confidence_threshold = float(1)
+        assert self.model.get("confidence_threshold") == float(1)
+
+    def test_sensitivity_level(self):
+        """Test GetSpeech.sensitivity_level"""
+        self.model.sensitivity_level = float(1)
+        assert self.model.get("sensitivity_level") == float(1)
+
+    def test_speech_complete_timeout_ms(self):
+        """Test GetSpeech.speech_complete_timeout_ms"""
+
+        self.model.speech_complete_timeout_ms = 1
+        assert self.model.get("speech_complete_timeout_ms") == 1
+
+    def test_speech_incomplete_timeout_ms(self):
+        """Test GetSpeech.speech_incomplete_timeout_ms"""
+
+        self.model.speech_incomplete_timeout_ms = 1
+        assert self.model.get("speech_incomplete_timeout_ms") == 1
+
+    def test_privacy_mode(self):
+        """Test GetSpeech.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.get("privacy_mode") == False
+
+    def test_command_test(self):
+        assert self.model.command == "GetSpeech"
 
 
 if __name__ == '__main__':

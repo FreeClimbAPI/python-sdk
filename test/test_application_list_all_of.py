@@ -11,6 +11,8 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 from freeclimb.model.application_result import ApplicationResult
@@ -22,17 +24,16 @@ class TestApplicationListAllOf(unittest.TestCase):
     """ApplicationListAllOf unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def testApplicationListAllOf(self):
-        """Test ApplicationListAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = ApplicationListAllOf()  # noqa: E501
-        pass
+        self.model = ApplicationListAllOf()
+    
+    def test_applications(self):
+        """Test ApplicationListAllOf.applications"""
+        
+        testList = []
+        self.model.applications = testList
+        assert self.model.get("applications") == testList
 
 
+    
 if __name__ == '__main__':
     unittest.main()

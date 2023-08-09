@@ -11,25 +11,45 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.queue_member import QueueMember  # noqa: E501
 
+
 class TestQueueMember(unittest.TestCase):
     """QueueMember unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = QueueMember()
 
-    def tearDown(self):
-        pass
+    def test_uri(self):
+        """Test QueueMember.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.get("uri") == "TEST_STRING"
 
-    def testQueueMember(self):
-        """Test QueueMember"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = QueueMember()  # noqa: E501
-        pass
+    def test_call_id(self):
+        """Test QueueMember.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.get("call_id") == "TEST_STRING"
+
+    def test_wait_time(self):
+        """Test QueueMember.wait_time"""
+
+        self.model.wait_time = 1
+        assert self.model.get("wait_time") == 1
+
+    def test_position(self):
+        """Test QueueMember.position"""
+
+        self.model.position = 1
+        assert self.model.get("position") == 1
+
+    def test_date_enqueued(self):
+        """Test QueueMember.date_enqueued"""
+        self.model.date_enqueued = "TEST_STRING"
+        assert self.model.get("date_enqueued") == "TEST_STRING"
 
 
 if __name__ == '__main__':

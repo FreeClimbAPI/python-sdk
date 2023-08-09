@@ -11,25 +11,55 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.record_utterance_all_of import RecordUtteranceAllOf  # noqa: E501
 
+
 class TestRecordUtteranceAllOf(unittest.TestCase):
     """RecordUtteranceAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = RecordUtteranceAllOf(action_url="TEST_URL")
 
-    def tearDown(self):
-        pass
+    def test_action_url(self):
+        """Test RecordUtteranceAllOf.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.get("action_url") == "TEST_STRING"
 
-    def testRecordUtteranceAllOf(self):
-        """Test RecordUtteranceAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = RecordUtteranceAllOf()  # noqa: E501
-        pass
+    def test_silence_timeout_ms(self):
+        """Test RecordUtteranceAllOf.silence_timeout_ms"""
+
+        self.model.silence_timeout_ms = 1
+        assert self.model.get("silence_timeout_ms") == 1
+
+    def test_finish_on_key(self):
+        """Test RecordUtteranceAllOf.finish_on_key"""
+        self.model.finish_on_key = "TEST_STRING"
+        assert self.model.get("finish_on_key") == "TEST_STRING"
+
+    def test_max_length_sec(self):
+        """Test RecordUtteranceAllOf.max_length_sec"""
+
+        self.model.max_length_sec = 1
+        assert self.model.get("max_length_sec") == 1
+
+    def test_play_beep(self):
+        """Test RecordUtteranceAllOf.play_beep"""
+        self.model.play_beep = False
+        assert self.model.get("play_beep") == False
+
+    def test_auto_start(self):
+        """Test RecordUtteranceAllOf.auto_start"""
+        self.model.auto_start = False
+        assert self.model.get("auto_start") == False
+
+    def test_privacy_mode(self):
+        """Test RecordUtteranceAllOf.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.get("privacy_mode") == False
 
 
 if __name__ == '__main__':

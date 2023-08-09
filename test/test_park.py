@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -68,20 +69,30 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.park import Park  # noqa: E501
 
+
 class TestPark(unittest.TestCase):
     """Park unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = Park(wait_url="TEST_URL", action_url="TEST_URL")
 
-    def tearDown(self):
-        pass
+    def test_wait_url(self):
+        """Test Park.wait_url"""
+        self.model.wait_url = "TEST_STRING"
+        assert self.model.get("wait_url") == "TEST_STRING"
 
-    def testPark(self):
-        """Test Park"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = Park()  # noqa: E501
-        pass
+    def test_action_url(self):
+        """Test Park.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.get("action_url") == "TEST_STRING"
+
+    def test_notification_url(self):
+        """Test Park.notification_url"""
+        self.model.notification_url = "TEST_STRING"
+        assert self.model.get("notification_url") == "TEST_STRING"
+
+    def test_command_test(self):
+        assert self.model.command == "Park"
 
 
 if __name__ == '__main__':

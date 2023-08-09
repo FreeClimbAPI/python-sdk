@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 from freeclimb.model.sms_ten_dlc_partner_campaign import SMSTenDLCPartnerCampaign
@@ -22,17 +23,16 @@ class TestSMSTenDLCPartnerCampaignsListResultAllOf(unittest.TestCase):
     """SMSTenDLCPartnerCampaignsListResultAllOf unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def testSMSTenDLCPartnerCampaignsListResultAllOf(self):
-        """Test SMSTenDLCPartnerCampaignsListResultAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = SMSTenDLCPartnerCampaignsListResultAllOf()  # noqa: E501
-        pass
+        self.model = SMSTenDLCPartnerCampaignsListResultAllOf()
+    
+    def test_partner_campaigns(self):
+        """Test SMSTenDLCPartnerCampaignsListResultAllOf.partner_campaigns"""
+        
+        testList = []
+        self.model.partner_campaigns = testList
+        assert self.model.get("partner_campaigns") == testList
 
 
+    
 if __name__ == '__main__':
     unittest.main()

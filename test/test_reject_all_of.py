@@ -11,25 +11,23 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.reject_all_of import RejectAllOf  # noqa: E501
 
+
 class TestRejectAllOf(unittest.TestCase):
     """RejectAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = RejectAllOf()
 
-    def tearDown(self):
-        pass
-
-    def testRejectAllOf(self):
-        """Test RejectAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = RejectAllOf()  # noqa: E501
-        pass
+    def test_reason(self):
+        """Test RejectAllOf.reason"""
+        self.model.reason = "TEST_STRING"
+        assert self.model.get("reason") == "TEST_STRING"
 
 
 if __name__ == '__main__':

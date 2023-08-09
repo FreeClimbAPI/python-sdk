@@ -11,25 +11,37 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.machine_type import MachineType  # noqa: E501
 
+
 class TestMachineType(unittest.TestCase):
     """MachineType unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_ANSWERING_MACHINE_should_serialize_to_enum(self):
+        expected = MachineType.ANSWERING_MACHINE
+        calculated = MachineType['ANSWERING_MACHINE']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_ANSWERING_MACHINE_should_deserialize_to_string(self):
+        test = MachineType.ANSWERING_MACHINE
+        expected = "answeringMachine"
+        calculated = test.value
+        assert expected == calculated
 
-    def testMachineType(self):
-        """Test MachineType"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = MachineType()  # noqa: E501
-        pass
+    def test_FAX_MACHINE_should_serialize_to_enum(self):
+        expected = MachineType.FAX_MACHINE
+        calculated = MachineType['FAX_MACHINE']
+        assert expected == calculated
+
+    def test_FAX_MACHINE_should_deserialize_to_string(self):
+        test = MachineType.FAX_MACHINE
+        expected = "faxMachine"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

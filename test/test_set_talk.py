@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -21,6 +22,7 @@ from freeclimb.model.get_digits import GetDigits
 from freeclimb.model.get_speech import GetSpeech
 from freeclimb.model.hangup import Hangup
 from freeclimb.model.out_dial import OutDial
+from freeclimb.model.park import Park
 from freeclimb.model.pause import Pause
 from freeclimb.model.percl_command import PerclCommand
 from freeclimb.model.play import Play
@@ -37,6 +39,7 @@ from freeclimb.model.set_talk_all_of import SetTalkAllOf
 from freeclimb.model.sms import Sms
 from freeclimb.model.start_record_call import StartRecordCall
 from freeclimb.model.terminate_conference import TerminateConference
+from freeclimb.model.unpark import Unpark
 globals()['AddToConference'] = AddToConference
 globals()['CreateConference'] = CreateConference
 globals()['Dequeue'] = Dequeue
@@ -45,6 +48,7 @@ globals()['GetDigits'] = GetDigits
 globals()['GetSpeech'] = GetSpeech
 globals()['Hangup'] = Hangup
 globals()['OutDial'] = OutDial
+globals()['Park'] = Park
 globals()['Pause'] = Pause
 globals()['PerclCommand'] = PerclCommand
 globals()['Play'] = Play
@@ -61,23 +65,29 @@ globals()['SetTalkAllOf'] = SetTalkAllOf
 globals()['Sms'] = Sms
 globals()['StartRecordCall'] = StartRecordCall
 globals()['TerminateConference'] = TerminateConference
+globals()['Unpark'] = Unpark
 
 from freeclimb.model.set_talk import SetTalk  # noqa: E501
+
 
 class TestSetTalk(unittest.TestCase):
     """SetTalk unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = SetTalk(call_id="TEST_ID")
 
-    def tearDown(self):
-        pass
+    def test_call_id(self):
+        """Test SetTalk.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.get("call_id") == "TEST_STRING"
 
-    def testSetTalk(self):
-        """Test SetTalk"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = SetTalk()  # noqa: E501
-        pass
+    def test_talk(self):
+        """Test SetTalk.talk"""
+        self.model.talk = False
+        assert self.model.get("talk") == False
+
+    def test_command_test(self):
+        assert self.model.command == "SetTalk"
 
 
 if __name__ == '__main__':

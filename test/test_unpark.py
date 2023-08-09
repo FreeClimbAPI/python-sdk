@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+from datetime import datetime, date
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -66,20 +67,15 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.unpark import Unpark  # noqa: E501
 
+
 class TestUnpark(unittest.TestCase):
     """Unpark unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = Unpark()
 
-    def tearDown(self):
-        pass
-
-    def testUnpark(self):
-        """Test Unpark"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = Unpark()  # noqa: E501
-        pass
+    def test_command_test(self):
+        assert self.model.command == "Unpark"
 
 
 if __name__ == '__main__':

@@ -11,25 +11,59 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.queue_result_status import QueueResultStatus  # noqa: E501
 
+
 class TestQueueResultStatus(unittest.TestCase):
     """QueueResultStatus unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_QUEUE_FULL_should_serialize_to_enum(self):
+        expected = QueueResultStatus.QUEUE_FULL
+        calculated = QueueResultStatus['QUEUE_FULL']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_QUEUE_FULL_should_deserialize_to_string(self):
+        test = QueueResultStatus.QUEUE_FULL
+        expected = "queueFull"
+        calculated = test.value
+        assert expected == calculated
 
-    def testQueueResultStatus(self):
-        """Test QueueResultStatus"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = QueueResultStatus()  # noqa: E501
-        pass
+    def test_DEQUEUED_should_serialize_to_enum(self):
+        expected = QueueResultStatus.DEQUEUED
+        calculated = QueueResultStatus['DEQUEUED']
+        assert expected == calculated
+
+    def test_DEQUEUED_should_deserialize_to_string(self):
+        test = QueueResultStatus.DEQUEUED
+        expected = "dequeued"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_HANGUP_should_serialize_to_enum(self):
+        expected = QueueResultStatus.HANGUP
+        calculated = QueueResultStatus['HANGUP']
+        assert expected == calculated
+
+    def test_HANGUP_should_deserialize_to_string(self):
+        test = QueueResultStatus.HANGUP
+        expected = "hangup"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_SYSTEM_ERROR_should_serialize_to_enum(self):
+        expected = QueueResultStatus.SYSTEM_ERROR
+        calculated = QueueResultStatus['SYSTEM_ERROR']
+        assert expected == calculated
+
+    def test_SYSTEM_ERROR_should_deserialize_to_string(self):
+        test = QueueResultStatus.SYSTEM_ERROR
+        expected = "systemError"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

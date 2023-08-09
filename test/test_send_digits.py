@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -21,6 +22,7 @@ from freeclimb.model.get_digits import GetDigits
 from freeclimb.model.get_speech import GetSpeech
 from freeclimb.model.hangup import Hangup
 from freeclimb.model.out_dial import OutDial
+from freeclimb.model.park import Park
 from freeclimb.model.pause import Pause
 from freeclimb.model.percl_command import PerclCommand
 from freeclimb.model.play import Play
@@ -37,6 +39,7 @@ from freeclimb.model.set_talk import SetTalk
 from freeclimb.model.sms import Sms
 from freeclimb.model.start_record_call import StartRecordCall
 from freeclimb.model.terminate_conference import TerminateConference
+from freeclimb.model.unpark import Unpark
 globals()['AddToConference'] = AddToConference
 globals()['CreateConference'] = CreateConference
 globals()['Dequeue'] = Dequeue
@@ -45,6 +48,7 @@ globals()['GetDigits'] = GetDigits
 globals()['GetSpeech'] = GetSpeech
 globals()['Hangup'] = Hangup
 globals()['OutDial'] = OutDial
+globals()['Park'] = Park
 globals()['Pause'] = Pause
 globals()['PerclCommand'] = PerclCommand
 globals()['Play'] = Play
@@ -61,23 +65,35 @@ globals()['SetTalk'] = SetTalk
 globals()['Sms'] = Sms
 globals()['StartRecordCall'] = StartRecordCall
 globals()['TerminateConference'] = TerminateConference
+globals()['Unpark'] = Unpark
 
 from freeclimb.model.send_digits import SendDigits  # noqa: E501
+
 
 class TestSendDigits(unittest.TestCase):
     """SendDigits unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = SendDigits(digits="TEST_STRING")
 
-    def tearDown(self):
-        pass
+    def test_digits(self):
+        """Test SendDigits.digits"""
+        self.model.digits = "TEST_STRING"
+        assert self.model.get("digits") == "TEST_STRING"
 
-    def testSendDigits(self):
-        """Test SendDigits"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = SendDigits()  # noqa: E501
-        pass
+    def test_pause_ms(self):
+        """Test SendDigits.pause_ms"""
+
+        self.model.pause_ms = 1
+        assert self.model.get("pause_ms") == 1
+
+    def test_privacy_mode(self):
+        """Test SendDigits.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.get("privacy_mode") == False
+
+    def test_command_test(self):
+        assert self.model.command == "SendDigits"
 
 
 if __name__ == '__main__':

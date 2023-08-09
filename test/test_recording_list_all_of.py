@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 from freeclimb.model.recording_result import RecordingResult
@@ -18,20 +19,19 @@ globals()['RecordingResult'] = RecordingResult
 
 from freeclimb.model.recording_list_all_of import RecordingListAllOf  # noqa: E501
 
+
 class TestRecordingListAllOf(unittest.TestCase):
     """RecordingListAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = RecordingListAllOf()
 
-    def tearDown(self):
-        pass
+    def test_recordings(self):
+        """Test RecordingListAllOf.recordings"""
 
-    def testRecordingListAllOf(self):
-        """Test RecordingListAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = RecordingListAllOf()  # noqa: E501
-        pass
+        testList = []
+        self.model.recordings = testList
+        assert self.model.get("recordings") == testList
 
 
 if __name__ == '__main__':

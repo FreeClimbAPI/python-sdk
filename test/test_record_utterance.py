@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -21,6 +22,7 @@ from freeclimb.model.get_digits import GetDigits
 from freeclimb.model.get_speech import GetSpeech
 from freeclimb.model.hangup import Hangup
 from freeclimb.model.out_dial import OutDial
+from freeclimb.model.park import Park
 from freeclimb.model.pause import Pause
 from freeclimb.model.percl_command import PerclCommand
 from freeclimb.model.play import Play
@@ -37,6 +39,7 @@ from freeclimb.model.set_talk import SetTalk
 from freeclimb.model.sms import Sms
 from freeclimb.model.start_record_call import StartRecordCall
 from freeclimb.model.terminate_conference import TerminateConference
+from freeclimb.model.unpark import Unpark
 globals()['AddToConference'] = AddToConference
 globals()['CreateConference'] = CreateConference
 globals()['Dequeue'] = Dequeue
@@ -45,6 +48,7 @@ globals()['GetDigits'] = GetDigits
 globals()['GetSpeech'] = GetSpeech
 globals()['Hangup'] = Hangup
 globals()['OutDial'] = OutDial
+globals()['Park'] = Park
 globals()['Pause'] = Pause
 globals()['PerclCommand'] = PerclCommand
 globals()['Play'] = Play
@@ -61,23 +65,56 @@ globals()['SetTalk'] = SetTalk
 globals()['Sms'] = Sms
 globals()['StartRecordCall'] = StartRecordCall
 globals()['TerminateConference'] = TerminateConference
+globals()['Unpark'] = Unpark
 
 from freeclimb.model.record_utterance import RecordUtterance  # noqa: E501
+
 
 class TestRecordUtterance(unittest.TestCase):
     """RecordUtterance unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = RecordUtterance(action_url="TEST_URL")
 
-    def tearDown(self):
-        pass
+    def test_action_url(self):
+        """Test RecordUtterance.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.get("action_url") == "TEST_STRING"
 
-    def testRecordUtterance(self):
-        """Test RecordUtterance"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = RecordUtterance()  # noqa: E501
-        pass
+    def test_silence_timeout_ms(self):
+        """Test RecordUtterance.silence_timeout_ms"""
+
+        self.model.silence_timeout_ms = 1
+        assert self.model.get("silence_timeout_ms") == 1
+
+    def test_finish_on_key(self):
+        """Test RecordUtterance.finish_on_key"""
+        self.model.finish_on_key = "TEST_STRING"
+        assert self.model.get("finish_on_key") == "TEST_STRING"
+
+    def test_max_length_sec(self):
+        """Test RecordUtterance.max_length_sec"""
+
+        self.model.max_length_sec = 1
+        assert self.model.get("max_length_sec") == 1
+
+    def test_play_beep(self):
+        """Test RecordUtterance.play_beep"""
+        self.model.play_beep = False
+        assert self.model.get("play_beep") == False
+
+    def test_auto_start(self):
+        """Test RecordUtterance.auto_start"""
+        self.model.auto_start = False
+        assert self.model.get("auto_start") == False
+
+    def test_privacy_mode(self):
+        """Test RecordUtterance.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.get("privacy_mode") == False
+
+    def test_command_test(self):
+        assert self.model.command == "RecordUtterance"
 
 
 if __name__ == '__main__':

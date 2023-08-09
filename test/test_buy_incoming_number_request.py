@@ -11,25 +11,34 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 
 from freeclimb.model.buy_incoming_number_request import BuyIncomingNumberRequest  # noqa: E501
 
+
 class TestBuyIncomingNumberRequest(unittest.TestCase):
     """BuyIncomingNumberRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = BuyIncomingNumberRequest(phone_number="+11231231234")
 
-    def tearDown(self):
-        pass
+    def test_phone_number(self):
+        """Test BuyIncomingNumberRequest.phone_number"""
+        self.model.phone_number = "TEST_STRING"
+        assert self.model.get("phone_number") == "TEST_STRING"
 
-    def testBuyIncomingNumberRequest(self):
-        """Test BuyIncomingNumberRequest"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = BuyIncomingNumberRequest()  # noqa: E501
-        pass
+    def test_alias(self):
+        """Test BuyIncomingNumberRequest.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.get("alias") == "TEST_STRING"
+
+    def test_application_id(self):
+        """Test BuyIncomingNumberRequest.application_id"""
+        self.model.application_id = "TEST_STRING"
+        assert self.model.get("application_id") == "TEST_STRING"
 
 
 if __name__ == '__main__':

@@ -11,25 +11,49 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 
 from freeclimb.model.conference_participant_result_all_of import ConferenceParticipantResultAllOf  # noqa: E501
 
+
 class TestConferenceParticipantResultAllOf(unittest.TestCase):
     """ConferenceParticipantResultAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = ConferenceParticipantResultAllOf()
 
-    def tearDown(self):
-        pass
+    def test_account_id(self):
+        """Test ConferenceParticipantResultAllOf.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.get("account_id") == "TEST_STRING"
 
-    def testConferenceParticipantResultAllOf(self):
-        """Test ConferenceParticipantResultAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = ConferenceParticipantResultAllOf()  # noqa: E501
-        pass
+    def test_conference_id(self):
+        """Test ConferenceParticipantResultAllOf.conference_id"""
+        self.model.conference_id = "TEST_STRING"
+        assert self.model.get("conference_id") == "TEST_STRING"
+
+    def test_call_id(self):
+        """Test ConferenceParticipantResultAllOf.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.get("call_id") == "TEST_STRING"
+
+    def test_talk(self):
+        """Test ConferenceParticipantResultAllOf.talk"""
+        self.model.talk = False
+        assert self.model.get("talk") == False
+
+    def test_listen(self):
+        """Test ConferenceParticipantResultAllOf.listen"""
+        self.model.listen = False
+        assert self.model.get("listen") == False
+
+    def test_start_conf_on_enter(self):
+        """Test ConferenceParticipantResultAllOf.start_conf_on_enter"""
+        self.model.start_conf_on_enter = False
+        assert self.model.get("start_conf_on_enter") == False
 
 
 if __name__ == '__main__':

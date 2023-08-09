@@ -11,6 +11,8 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 from freeclimb.model.application_result_all_of import ApplicationResultAllOf
@@ -20,20 +22,78 @@ globals()['MutableResourceModel'] = MutableResourceModel
 
 from freeclimb.model.application_result import ApplicationResult  # noqa: E501
 
+
 class TestApplicationResult(unittest.TestCase):
     """ApplicationResult unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = ApplicationResult()
 
-    def tearDown(self):
-        pass
+    def test_uri(self):
+        """Test ApplicationResult.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.get("uri") == "TEST_STRING"
 
-    def testApplicationResult(self):
-        """Test ApplicationResult"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = ApplicationResult()  # noqa: E501
-        pass
+    def test_date_created(self):
+        """Test ApplicationResult.date_created"""
+        self.model.date_created = "TEST_STRING"
+        assert self.model.get("date_created") == "TEST_STRING"
+
+    def test_date_updated(self):
+        """Test ApplicationResult.date_updated"""
+        self.model.date_updated = "TEST_STRING"
+        assert self.model.get("date_updated") == "TEST_STRING"
+
+    def test_revision(self):
+        """Test ApplicationResult.revision"""
+
+        self.model.revision = 1
+        assert self.model.get("revision") == 1
+
+    def test_account_id(self):
+        """Test ApplicationResult.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.get("account_id") == "TEST_STRING"
+
+    def test_application_id(self):
+        """Test ApplicationResult.application_id"""
+        self.model.application_id = "TEST_STRING"
+        assert self.model.get("application_id") == "TEST_STRING"
+
+    def test_alias(self):
+        """Test ApplicationResult.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.get("alias") == "TEST_STRING"
+
+    def test_voice_url(self):
+        """Test ApplicationResult.voice_url"""
+        self.model.voice_url = "TEST_STRING"
+        assert self.model.get("voice_url") == "TEST_STRING"
+
+    def test_voice_fallback_url(self):
+        """Test ApplicationResult.voice_fallback_url"""
+        self.model.voice_fallback_url = "TEST_STRING"
+        assert self.model.get("voice_fallback_url") == "TEST_STRING"
+
+    def test_call_connect_url(self):
+        """Test ApplicationResult.call_connect_url"""
+        self.model.call_connect_url = "TEST_STRING"
+        assert self.model.get("call_connect_url") == "TEST_STRING"
+
+    def test_status_callback_url(self):
+        """Test ApplicationResult.status_callback_url"""
+        self.model.status_callback_url = "TEST_STRING"
+        assert self.model.get("status_callback_url") == "TEST_STRING"
+
+    def test_sms_url(self):
+        """Test ApplicationResult.sms_url"""
+        self.model.sms_url = "TEST_STRING"
+        assert self.model.get("sms_url") == "TEST_STRING"
+
+    def test_sms_fallback_url(self):
+        """Test ApplicationResult.sms_fallback_url"""
+        self.model.sms_fallback_url = "TEST_STRING"
+        assert self.model.get("sms_fallback_url") == "TEST_STRING"
 
 
 if __name__ == '__main__':

@@ -11,25 +11,64 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 
 from freeclimb.model.application_result_all_of import ApplicationResultAllOf  # noqa: E501
 
+
 class TestApplicationResultAllOf(unittest.TestCase):
     """ApplicationResultAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = ApplicationResultAllOf()
 
-    def tearDown(self):
-        pass
+    def test_account_id(self):
+        """Test ApplicationResultAllOf.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.get("account_id") == "TEST_STRING"
 
-    def testApplicationResultAllOf(self):
-        """Test ApplicationResultAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = ApplicationResultAllOf()  # noqa: E501
-        pass
+    def test_application_id(self):
+        """Test ApplicationResultAllOf.application_id"""
+        self.model.application_id = "TEST_STRING"
+        assert self.model.get("application_id") == "TEST_STRING"
+
+    def test_alias(self):
+        """Test ApplicationResultAllOf.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.get("alias") == "TEST_STRING"
+
+    def test_voice_url(self):
+        """Test ApplicationResultAllOf.voice_url"""
+        self.model.voice_url = "TEST_STRING"
+        assert self.model.get("voice_url") == "TEST_STRING"
+
+    def test_voice_fallback_url(self):
+        """Test ApplicationResultAllOf.voice_fallback_url"""
+        self.model.voice_fallback_url = "TEST_STRING"
+        assert self.model.get("voice_fallback_url") == "TEST_STRING"
+
+    def test_call_connect_url(self):
+        """Test ApplicationResultAllOf.call_connect_url"""
+        self.model.call_connect_url = "TEST_STRING"
+        assert self.model.get("call_connect_url") == "TEST_STRING"
+
+    def test_status_callback_url(self):
+        """Test ApplicationResultAllOf.status_callback_url"""
+        self.model.status_callback_url = "TEST_STRING"
+        assert self.model.get("status_callback_url") == "TEST_STRING"
+
+    def test_sms_url(self):
+        """Test ApplicationResultAllOf.sms_url"""
+        self.model.sms_url = "TEST_STRING"
+        assert self.model.get("sms_url") == "TEST_STRING"
+
+    def test_sms_fallback_url(self):
+        """Test ApplicationResultAllOf.sms_fallback_url"""
+        self.model.sms_fallback_url = "TEST_STRING"
+        assert self.model.get("sms_fallback_url") == "TEST_STRING"
 
 
 if __name__ == '__main__':

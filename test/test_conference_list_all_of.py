@@ -11,6 +11,8 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 from freeclimb.model.conference_result import ConferenceResult
@@ -18,20 +20,19 @@ globals()['ConferenceResult'] = ConferenceResult
 
 from freeclimb.model.conference_list_all_of import ConferenceListAllOf  # noqa: E501
 
+
 class TestConferenceListAllOf(unittest.TestCase):
     """ConferenceListAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = ConferenceListAllOf()
 
-    def tearDown(self):
-        pass
+    def test_conferences(self):
+        """Test ConferenceListAllOf.conferences"""
 
-    def testConferenceListAllOf(self):
-        """Test ConferenceListAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = ConferenceListAllOf()  # noqa: E501
-        pass
+        testList = []
+        self.model.conferences = testList
+        assert self.model.get("conferences") == testList
 
 
 if __name__ == '__main__':

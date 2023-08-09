@@ -11,6 +11,8 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -22,6 +24,7 @@ from freeclimb.model.get_digits import GetDigits
 from freeclimb.model.get_speech import GetSpeech
 from freeclimb.model.hangup import Hangup
 from freeclimb.model.out_dial import OutDial
+from freeclimb.model.park import Park
 from freeclimb.model.pause import Pause
 from freeclimb.model.percl_command import PerclCommand
 from freeclimb.model.play import Play
@@ -37,6 +40,7 @@ from freeclimb.model.set_talk import SetTalk
 from freeclimb.model.sms import Sms
 from freeclimb.model.start_record_call import StartRecordCall
 from freeclimb.model.terminate_conference import TerminateConference
+from freeclimb.model.unpark import Unpark
 globals()['AddToConference'] = AddToConference
 globals()['AddToConferenceAllOf'] = AddToConferenceAllOf
 globals()['CreateConference'] = CreateConference
@@ -46,6 +50,7 @@ globals()['GetDigits'] = GetDigits
 globals()['GetSpeech'] = GetSpeech
 globals()['Hangup'] = Hangup
 globals()['OutDial'] = OutDial
+globals()['Park'] = Park
 globals()['Pause'] = Pause
 globals()['PerclCommand'] = PerclCommand
 globals()['Play'] = Play
@@ -61,23 +66,69 @@ globals()['SetTalk'] = SetTalk
 globals()['Sms'] = Sms
 globals()['StartRecordCall'] = StartRecordCall
 globals()['TerminateConference'] = TerminateConference
+globals()['Unpark'] = Unpark
 
 from freeclimb.model.add_to_conference import AddToConference  # noqa: E501
+
 
 class TestAddToConference(unittest.TestCase):
     """AddToConference unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = AddToConference(conference_id="TEST_ID")
 
-    def tearDown(self):
-        pass
+    def test_allow_call_control(self):
+        """Test AddToConference.allow_call_control"""
+        self.model.allow_call_control = False
+        assert self.model.get("allow_call_control") == False
 
-    def testAddToConference(self):
-        """Test AddToConference"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = AddToConference()  # noqa: E501
-        pass
+    def test_call_control_sequence(self):
+        """Test AddToConference.call_control_sequence"""
+        self.model.call_control_sequence = "TEST_STRING"
+        assert self.model.get("call_control_sequence") == "TEST_STRING"
+
+    def test_call_control_url(self):
+        """Test AddToConference.call_control_url"""
+        self.model.call_control_url = "TEST_STRING"
+        assert self.model.get("call_control_url") == "TEST_STRING"
+
+    def test_conference_id(self):
+        """Test AddToConference.conference_id"""
+        self.model.conference_id = "TEST_STRING"
+        assert self.model.get("conference_id") == "TEST_STRING"
+
+    def test_call_id(self):
+        """Test AddToConference.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.get("call_id") == "TEST_STRING"
+
+    def test_leave_conference_url(self):
+        """Test AddToConference.leave_conference_url"""
+        self.model.leave_conference_url = "TEST_STRING"
+        assert self.model.get("leave_conference_url") == "TEST_STRING"
+
+    def test_listen(self):
+        """Test AddToConference.listen"""
+        self.model.listen = False
+        assert self.model.get("listen") == False
+
+    def test_notification_url(self):
+        """Test AddToConference.notification_url"""
+        self.model.notification_url = "TEST_STRING"
+        assert self.model.get("notification_url") == "TEST_STRING"
+
+    def test_start_conf_on_enter(self):
+        """Test AddToConference.start_conf_on_enter"""
+        self.model.start_conf_on_enter = False
+        assert self.model.get("start_conf_on_enter") == False
+
+    def test_talk(self):
+        """Test AddToConference.talk"""
+        self.model.talk = False
+        assert self.model.get("talk") == False
+
+    def test_command_test(self):
+        assert self.model.command == "AddToConference"
 
 
 if __name__ == '__main__':

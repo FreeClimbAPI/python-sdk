@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+from datetime import datetime, date
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -21,6 +22,7 @@ from freeclimb.model.get_digits import GetDigits
 from freeclimb.model.get_speech import GetSpeech
 from freeclimb.model.hangup import Hangup
 from freeclimb.model.out_dial import OutDial
+from freeclimb.model.park import Park
 from freeclimb.model.pause import Pause
 from freeclimb.model.percl_command import PerclCommand
 from freeclimb.model.play import Play
@@ -36,6 +38,7 @@ from freeclimb.model.set_talk import SetTalk
 from freeclimb.model.sms import Sms
 from freeclimb.model.start_record_call import StartRecordCall
 from freeclimb.model.terminate_conference import TerminateConference
+from freeclimb.model.unpark import Unpark
 globals()['AddToConference'] = AddToConference
 globals()['CreateConference'] = CreateConference
 globals()['Dequeue'] = Dequeue
@@ -44,6 +47,7 @@ globals()['GetDigits'] = GetDigits
 globals()['GetSpeech'] = GetSpeech
 globals()['Hangup'] = Hangup
 globals()['OutDial'] = OutDial
+globals()['Park'] = Park
 globals()['Pause'] = Pause
 globals()['PerclCommand'] = PerclCommand
 globals()['Play'] = Play
@@ -59,23 +63,19 @@ globals()['SetTalk'] = SetTalk
 globals()['Sms'] = Sms
 globals()['StartRecordCall'] = StartRecordCall
 globals()['TerminateConference'] = TerminateConference
+globals()['Unpark'] = Unpark
 
 from freeclimb.model.start_record_call import StartRecordCall  # noqa: E501
+
 
 class TestStartRecordCall(unittest.TestCase):
     """StartRecordCall unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = StartRecordCall()
 
-    def tearDown(self):
-        pass
-
-    def testStartRecordCall(self):
-        """Test StartRecordCall"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = StartRecordCall()  # noqa: E501
-        pass
+    def test_command_test(self):
+        assert self.model.command == "StartRecordCall"
 
 
 if __name__ == '__main__':

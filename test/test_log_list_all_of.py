@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 from freeclimb.model.log_result import LogResult
@@ -18,20 +19,19 @@ globals()['LogResult'] = LogResult
 
 from freeclimb.model.log_list_all_of import LogListAllOf  # noqa: E501
 
+
 class TestLogListAllOf(unittest.TestCase):
     """LogListAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = LogListAllOf()
 
-    def tearDown(self):
-        pass
+    def test_logs(self):
+        """Test LogListAllOf.logs"""
 
-    def testLogListAllOf(self):
-        """Test LogListAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = LogListAllOf()  # noqa: E501
-        pass
+        testList = []
+        self.model.logs = testList
+        assert self.model.get("logs") == testList
 
 
 if __name__ == '__main__':

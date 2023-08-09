@@ -11,25 +11,38 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 
 from freeclimb.model.account_type import AccountType  # noqa: E501
 
+
 class TestAccountType(unittest.TestCase):
     """AccountType unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_TRIAL_should_serialize_to_enum(self):
+        expected = AccountType.TRIAL
+        calculated = AccountType['TRIAL']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_TRIAL_should_deserialize_to_string(self):
+        test = AccountType.TRIAL
+        expected = "trial"
+        calculated = test.value
+        assert expected == calculated
 
-    def testAccountType(self):
-        """Test AccountType"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = AccountType()  # noqa: E501
-        pass
+    def test_FULL_should_serialize_to_enum(self):
+        expected = AccountType.FULL
+        calculated = AccountType['FULL']
+        assert expected == calculated
+
+    def test_FULL_should_deserialize_to_string(self):
+        test = AccountType.FULL
+        expected = "full"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

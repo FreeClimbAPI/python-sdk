@@ -11,6 +11,8 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -22,9 +24,11 @@ from freeclimb.model.get_digits import GetDigits
 from freeclimb.model.get_speech import GetSpeech
 from freeclimb.model.hangup import Hangup
 from freeclimb.model.out_dial import OutDial
+from freeclimb.model.park import Park
 from freeclimb.model.pause import Pause
 from freeclimb.model.percl_command import PerclCommand
 from freeclimb.model.play import Play
+from freeclimb.model.play_beep import PlayBeep
 from freeclimb.model.play_early_media import PlayEarlyMedia
 from freeclimb.model.record_utterance import RecordUtterance
 from freeclimb.model.redirect import Redirect
@@ -37,6 +41,7 @@ from freeclimb.model.set_talk import SetTalk
 from freeclimb.model.sms import Sms
 from freeclimb.model.start_record_call import StartRecordCall
 from freeclimb.model.terminate_conference import TerminateConference
+from freeclimb.model.unpark import Unpark
 globals()['AddToConference'] = AddToConference
 globals()['CreateConference'] = CreateConference
 globals()['CreateConferenceAllOf'] = CreateConferenceAllOf
@@ -46,9 +51,11 @@ globals()['GetDigits'] = GetDigits
 globals()['GetSpeech'] = GetSpeech
 globals()['Hangup'] = Hangup
 globals()['OutDial'] = OutDial
+globals()['Park'] = Park
 globals()['Pause'] = Pause
 globals()['PerclCommand'] = PerclCommand
 globals()['Play'] = Play
+globals()['PlayBeep'] = PlayBeep
 globals()['PlayEarlyMedia'] = PlayEarlyMedia
 globals()['RecordUtterance'] = RecordUtterance
 globals()['Redirect'] = Redirect
@@ -61,23 +68,55 @@ globals()['SetTalk'] = SetTalk
 globals()['Sms'] = Sms
 globals()['StartRecordCall'] = StartRecordCall
 globals()['TerminateConference'] = TerminateConference
+globals()['Unpark'] = Unpark
 
 from freeclimb.model.create_conference import CreateConference  # noqa: E501
+
 
 class TestCreateConference(unittest.TestCase):
     """CreateConference unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = CreateConference(action_url="TEST_URL")
 
-    def tearDown(self):
-        pass
+    def test_action_url(self):
+        """Test CreateConference.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.get("action_url") == "TEST_STRING"
 
-    def testCreateConference(self):
-        """Test CreateConference"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = CreateConference()  # noqa: E501
-        pass
+    def test_alias(self):
+        """Test CreateConference.alias"""
+        self.model.alias = False
+        assert self.model.get("alias") == False
+
+    def test_play_beep(self):
+        """Test CreateConference.play_beep"""
+        self.model.play_beep = PlayBeep.ALWAYS
+        assert self.model.get("play_beep") == PlayBeep.ALWAYS
+        self.model.play_beep = PlayBeep.NEVER
+        assert self.model.get("play_beep") == PlayBeep.NEVER
+        self.model.play_beep = PlayBeep.ENTRY_ONLY
+        assert self.model.get("play_beep") == PlayBeep.ENTRY_ONLY
+        self.model.play_beep = PlayBeep.EXIT_ONLY
+        assert self.model.get("play_beep") == PlayBeep.EXIT_ONLY
+
+    def test_record(self):
+        """Test CreateConference.record"""
+        self.model.record = False
+        assert self.model.get("record") == False
+
+    def test_status_callback_url(self):
+        """Test CreateConference.status_callback_url"""
+        self.model.status_callback_url = "TEST_STRING"
+        assert self.model.get("status_callback_url") == "TEST_STRING"
+
+    def test_wait_url(self):
+        """Test CreateConference.wait_url"""
+        self.model.wait_url = "TEST_STRING"
+        assert self.model.get("wait_url") == "TEST_STRING"
+
+    def test_command_test(self):
+        assert self.model.command == "CreateConference"
 
 
 if __name__ == '__main__':

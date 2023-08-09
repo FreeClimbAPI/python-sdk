@@ -11,25 +11,29 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.queue_request import QueueRequest  # noqa: E501
 
+
 class TestQueueRequest(unittest.TestCase):
     """QueueRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = QueueRequest()
 
-    def tearDown(self):
-        pass
+    def test_alias(self):
+        """Test QueueRequest.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.get("alias") == "TEST_STRING"
 
-    def testQueueRequest(self):
-        """Test QueueRequest"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = QueueRequest()  # noqa: E501
-        pass
+    def test_max_size(self):
+        """Test QueueRequest.max_size"""
+
+        self.model.max_size = 1
+        assert self.model.get("max_size") == 1
 
 
 if __name__ == '__main__':

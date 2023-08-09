@@ -11,6 +11,8 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 from freeclimb.model.capabilities import Capabilities
@@ -18,20 +20,49 @@ globals()['Capabilities'] = Capabilities
 
 from freeclimb.model.available_number import AvailableNumber  # noqa: E501
 
+
 class TestAvailableNumber(unittest.TestCase):
     """AvailableNumber unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = AvailableNumber()
 
-    def tearDown(self):
-        pass
+    def test_capabilities(self):
+        """Test AvailableNumber.capabilities"""
+        object = Capabilities(sms=False, voice=False,
+                              toll_free=False, ten_dlc=False, short_code=False)
+        self.model.capabilities = object
+        assert self.model.get("capabilities", object)
 
-    def testAvailableNumber(self):
-        """Test AvailableNumber"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = AvailableNumber()  # noqa: E501
-        pass
+    def test_campaign_id(self):
+        """Test AvailableNumber.campaign_id"""
+        self.model.campaign_id = "TEST_STRING"
+        assert self.model.get("campaign_id") == "TEST_STRING"
+
+    def test_phone_number(self):
+        """Test AvailableNumber.phone_number"""
+        self.model.phone_number = "TEST_STRING"
+        assert self.model.get("phone_number") == "TEST_STRING"
+
+    def test_voice_enabled(self):
+        """Test AvailableNumber.voice_enabled"""
+        self.model.voice_enabled = False
+        assert self.model.get("voice_enabled") == False
+
+    def test_sms_enabled(self):
+        """Test AvailableNumber.sms_enabled"""
+        self.model.sms_enabled = False
+        assert self.model.get("sms_enabled") == False
+
+    def test_region(self):
+        """Test AvailableNumber.region"""
+        self.model.region = "TEST_STRING"
+        assert self.model.get("region") == "TEST_STRING"
+
+    def test_country(self):
+        """Test AvailableNumber.country"""
+        self.model.country = "TEST_STRING"
+        assert self.model.get("country") == "TEST_STRING"
 
 
 if __name__ == '__main__':
