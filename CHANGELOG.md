@@ -13,9 +13,9 @@ None
 
 ## [4.4.2] - 2023-08-10
 
-### Changed
+### Added
 
-- Updated generated unit tests
+- generated unit tests
 
 <a name="4.4.1"></a>
 
