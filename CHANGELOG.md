@@ -9,6 +9,14 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 None
 
+<a name="4.4.2"></a>
+
+## [4.4.2] - 2023-08-10
+
+### Changed
+
+- Updated generated unit tests
+
 <a name="4.4.1"></a>
 
 ## [4.4.1] - 2023-07-26
