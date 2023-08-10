@@ -11,25 +11,45 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 
 from freeclimb.model.capabilities import Capabilities  # noqa: E501
 
+
 class TestCapabilities(unittest.TestCase):
     """Capabilities unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = Capabilities(
+            sms=False, voice=False, toll_free=False, ten_dlc=False, short_code=False)
 
-    def tearDown(self):
-        pass
+    def test_voice(self):
+        """Test Capabilities.voice"""
+        self.model.voice = False
+        assert self.model.get("voice") == False
 
-    def testCapabilities(self):
-        """Test Capabilities"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = Capabilities()  # noqa: E501
-        pass
+    def test_sms(self):
+        """Test Capabilities.sms"""
+        self.model.sms = False
+        assert self.model.get("sms") == False
+
+    def test_toll_free(self):
+        """Test Capabilities.toll_free"""
+        self.model.toll_free = False
+        assert self.model.get("toll_free") == False
+
+    def test_ten_dlc(self):
+        """Test Capabilities.ten_dlc"""
+        self.model.ten_dlc = False
+        assert self.model.get("ten_dlc") == False
+
+    def test_short_code(self):
+        """Test Capabilities.short_code"""
+        self.model.short_code = False
+        assert self.model.get("short_code") == False
 
 
 if __name__ == '__main__':

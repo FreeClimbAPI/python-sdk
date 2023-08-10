@@ -11,25 +11,80 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
+from freeclimb.model.message_status import MessageStatus
+globals()['MessageStatus'] = MessageStatus
 
 from freeclimb.model.message_result_all_of import MessageResultAllOf  # noqa: E501
+
 
 class TestMessageResultAllOf(unittest.TestCase):
     """MessageResultAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = MessageResultAllOf()
 
-    def tearDown(self):
-        pass
+    def test_account_id(self):
+        """Test MessageResultAllOf.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.get("account_id") == "TEST_STRING"
 
-    def testMessageResultAllOf(self):
-        """Test MessageResultAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = MessageResultAllOf()  # noqa: E501
-        pass
+    def test_message_id(self):
+        """Test MessageResultAllOf.message_id"""
+        self.model.message_id = "TEST_STRING"
+        assert self.model.get("message_id") == "TEST_STRING"
+
+    def test_status(self):
+        """Test MessageResultAllOf.status"""
+        self.model.status = MessageStatus.NEW
+        assert self.model.get("status") == MessageStatus.NEW
+        self.model.status = MessageStatus.QUEUED
+        assert self.model.get("status") == MessageStatus.QUEUED
+        self.model.status = MessageStatus.REJECTED
+        assert self.model.get("status") == MessageStatus.REJECTED
+        self.model.status = MessageStatus.SENDING
+        assert self.model.get("status") == MessageStatus.SENDING
+        self.model.status = MessageStatus.SENT
+        assert self.model.get("status") == MessageStatus.SENT
+        self.model.status = MessageStatus.FAILED
+        assert self.model.get("status") == MessageStatus.FAILED
+        self.model.status = MessageStatus.RECEIVED
+        assert self.model.get("status") == MessageStatus.RECEIVED
+        self.model.status = MessageStatus.UNDELIVERED
+        assert self.model.get("status") == MessageStatus.UNDELIVERED
+        self.model.status = MessageStatus.EXPIRED
+        assert self.model.get("status") == MessageStatus.EXPIRED
+        self.model.status = MessageStatus.DELETED
+        assert self.model.get("status") == MessageStatus.DELETED
+        self.model.status = MessageStatus.UNKNOWN
+        assert self.model.get("status") == MessageStatus.UNKNOWN
+
+    def test__from(self):
+        """Test MessageResultAllOf._from"""
+        self.model._from = "TEST_STRING"
+        assert self.model.get("_from") == "TEST_STRING"
+
+    def test_to(self):
+        """Test MessageResultAllOf.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.get("to") == "TEST_STRING"
+
+    def test_text(self):
+        """Test MessageResultAllOf.text"""
+        self.model.text = "TEST_STRING"
+        assert self.model.get("text") == "TEST_STRING"
+
+    def test_direction(self):
+        """Test MessageResultAllOf.direction"""
+        self.model.direction = "TEST_STRING"
+        assert self.model.get("direction") == "TEST_STRING"
+
+    def test_notification_url(self):
+        """Test MessageResultAllOf.notification_url"""
+        self.model.notification_url = "TEST_STRING"
+        assert self.model.get("notification_url") == "TEST_STRING"
 
 
 if __name__ == '__main__':

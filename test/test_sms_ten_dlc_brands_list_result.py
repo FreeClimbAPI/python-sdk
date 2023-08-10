@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 from freeclimb.model.pagination_model import PaginationModel
@@ -22,20 +23,60 @@ globals()['SMSTenDLCBrandsListResultAllOf'] = SMSTenDLCBrandsListResultAllOf
 
 from freeclimb.model.sms_ten_dlc_brands_list_result import SMSTenDLCBrandsListResult  # noqa: E501
 
+
 class TestSMSTenDLCBrandsListResult(unittest.TestCase):
     """SMSTenDLCBrandsListResult unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = SMSTenDLCBrandsListResult()
 
-    def tearDown(self):
-        pass
+    def test_total(self):
+        """Test SMSTenDLCBrandsListResult.total"""
 
-    def testSMSTenDLCBrandsListResult(self):
-        """Test SMSTenDLCBrandsListResult"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = SMSTenDLCBrandsListResult()  # noqa: E501
-        pass
+        self.model.total = 1
+        assert self.model.get("total") == 1
+
+    def test_start(self):
+        """Test SMSTenDLCBrandsListResult.start"""
+
+        self.model.start = 1
+        assert self.model.get("start") == 1
+
+    def test_end(self):
+        """Test SMSTenDLCBrandsListResult.end"""
+
+        self.model.end = 1
+        assert self.model.get("end") == 1
+
+    def test_page(self):
+        """Test SMSTenDLCBrandsListResult.page"""
+
+        self.model.page = 1
+        assert self.model.get("page") == 1
+
+    def test_num_pages(self):
+        """Test SMSTenDLCBrandsListResult.num_pages"""
+
+        self.model.num_pages = 1
+        assert self.model.get("num_pages") == 1
+
+    def test_page_size(self):
+        """Test SMSTenDLCBrandsListResult.page_size"""
+
+        self.model.page_size = 1
+        assert self.model.get("page_size") == 1
+
+    def test_next_page_uri(self):
+        """Test SMSTenDLCBrandsListResult.next_page_uri"""
+        self.model.next_page_uri = "TEST_STRING"
+        assert self.model.get("next_page_uri") == "TEST_STRING"
+
+    def test_brands(self):
+        """Test SMSTenDLCBrandsListResult.brands"""
+
+        testList = []
+        self.model.brands = testList
+        assert self.model.get("brands") == testList
 
 
 if __name__ == '__main__':

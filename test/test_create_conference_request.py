@@ -11,25 +11,52 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
+from freeclimb.model.play_beep import PlayBeep
+globals()['PlayBeep'] = PlayBeep
 
 from freeclimb.model.create_conference_request import CreateConferenceRequest  # noqa: E501
+
 
 class TestCreateConferenceRequest(unittest.TestCase):
     """CreateConferenceRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = CreateConferenceRequest()
 
-    def tearDown(self):
-        pass
+    def test_alias(self):
+        """Test CreateConferenceRequest.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.get("alias") == "TEST_STRING"
 
-    def testCreateConferenceRequest(self):
-        """Test CreateConferenceRequest"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = CreateConferenceRequest()  # noqa: E501
-        pass
+    def test_play_beep(self):
+        """Test CreateConferenceRequest.play_beep"""
+        self.model.play_beep = PlayBeep.ALWAYS
+        assert self.model.get("play_beep") == PlayBeep.ALWAYS
+        self.model.play_beep = PlayBeep.NEVER
+        assert self.model.get("play_beep") == PlayBeep.NEVER
+        self.model.play_beep = PlayBeep.ENTRY_ONLY
+        assert self.model.get("play_beep") == PlayBeep.ENTRY_ONLY
+        self.model.play_beep = PlayBeep.EXIT_ONLY
+        assert self.model.get("play_beep") == PlayBeep.EXIT_ONLY
+
+    def test_record(self):
+        """Test CreateConferenceRequest.record"""
+        self.model.record = False
+        assert self.model.get("record") == False
+
+    def test_wait_url(self):
+        """Test CreateConferenceRequest.wait_url"""
+        self.model.wait_url = "TEST_STRING"
+        assert self.model.get("wait_url") == "TEST_STRING"
+
+    def test_status_callback_url(self):
+        """Test CreateConferenceRequest.status_callback_url"""
+        self.model.status_callback_url = "TEST_STRING"
+        assert self.model.get("status_callback_url") == "TEST_STRING"
 
 
 if __name__ == '__main__':

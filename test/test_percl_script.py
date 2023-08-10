@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 from freeclimb.model.percl_command import PerclCommand
@@ -18,20 +19,23 @@ globals()['PerclCommand'] = PerclCommand
 
 from freeclimb.model.percl_script import PerclScript  # noqa: E501
 
+
 class TestPerclScript(unittest.TestCase):
     """PerclScript unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = PerclScript()
 
-    def tearDown(self):
-        pass
+    def test_commands(self):
+        """Test PerclScript.commands"""
 
-    def testPerclScript(self):
-        """Test PerclScript"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = PerclScript()  # noqa: E501
-        pass
+        testList = []
+        self.model.commands = testList
+        assert self.model.get("commands") == testList
+
+    def test_to_json(self):
+        self.model.commands = []
+        assert self.model.to_json() == "[]"
 
 
 if __name__ == '__main__':

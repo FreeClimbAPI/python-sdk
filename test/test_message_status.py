@@ -11,25 +11,136 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.message_status import MessageStatus  # noqa: E501
 
+
 class TestMessageStatus(unittest.TestCase):
     """MessageStatus unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_NEW_should_serialize_to_enum(self):
+        expected = MessageStatus.NEW
+        calculated = MessageStatus['NEW']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_NEW_should_deserialize_to_string(self):
+        test = MessageStatus.NEW
+        expected = "new"
+        calculated = test.value
+        assert expected == calculated
 
-    def testMessageStatus(self):
-        """Test MessageStatus"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = MessageStatus()  # noqa: E501
-        pass
+    def test_QUEUED_should_serialize_to_enum(self):
+        expected = MessageStatus.QUEUED
+        calculated = MessageStatus['QUEUED']
+        assert expected == calculated
+
+    def test_QUEUED_should_deserialize_to_string(self):
+        test = MessageStatus.QUEUED
+        expected = "queued"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_REJECTED_should_serialize_to_enum(self):
+        expected = MessageStatus.REJECTED
+        calculated = MessageStatus['REJECTED']
+        assert expected == calculated
+
+    def test_REJECTED_should_deserialize_to_string(self):
+        test = MessageStatus.REJECTED
+        expected = "rejected"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_SENDING_should_serialize_to_enum(self):
+        expected = MessageStatus.SENDING
+        calculated = MessageStatus['SENDING']
+        assert expected == calculated
+
+    def test_SENDING_should_deserialize_to_string(self):
+        test = MessageStatus.SENDING
+        expected = "sending"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_SENT_should_serialize_to_enum(self):
+        expected = MessageStatus.SENT
+        calculated = MessageStatus['SENT']
+        assert expected == calculated
+
+    def test_SENT_should_deserialize_to_string(self):
+        test = MessageStatus.SENT
+        expected = "sent"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_FAILED_should_serialize_to_enum(self):
+        expected = MessageStatus.FAILED
+        calculated = MessageStatus['FAILED']
+        assert expected == calculated
+
+    def test_FAILED_should_deserialize_to_string(self):
+        test = MessageStatus.FAILED
+        expected = "failed"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_RECEIVED_should_serialize_to_enum(self):
+        expected = MessageStatus.RECEIVED
+        calculated = MessageStatus['RECEIVED']
+        assert expected == calculated
+
+    def test_RECEIVED_should_deserialize_to_string(self):
+        test = MessageStatus.RECEIVED
+        expected = "received"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_UNDELIVERED_should_serialize_to_enum(self):
+        expected = MessageStatus.UNDELIVERED
+        calculated = MessageStatus['UNDELIVERED']
+        assert expected == calculated
+
+    def test_UNDELIVERED_should_deserialize_to_string(self):
+        test = MessageStatus.UNDELIVERED
+        expected = "undelivered"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_EXPIRED_should_serialize_to_enum(self):
+        expected = MessageStatus.EXPIRED
+        calculated = MessageStatus['EXPIRED']
+        assert expected == calculated
+
+    def test_EXPIRED_should_deserialize_to_string(self):
+        test = MessageStatus.EXPIRED
+        expected = "expired"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_DELETED_should_serialize_to_enum(self):
+        expected = MessageStatus.DELETED
+        calculated = MessageStatus['DELETED']
+        assert expected == calculated
+
+    def test_DELETED_should_deserialize_to_string(self):
+        test = MessageStatus.DELETED
+        expected = "deleted"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_UNKNOWN_should_serialize_to_enum(self):
+        expected = MessageStatus.UNKNOWN
+        calculated = MessageStatus['UNKNOWN']
+        assert expected == calculated
+
+    def test_UNKNOWN_should_deserialize_to_string(self):
+        test = MessageStatus.UNKNOWN
+        expected = "unknown"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

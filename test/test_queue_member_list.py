@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 from freeclimb.model.pagination_model import PaginationModel
@@ -26,17 +27,58 @@ class TestQueueMemberList(unittest.TestCase):
     """QueueMemberList unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = QueueMemberList()
+    
+    def test_total(self):
+        """Test QueueMemberList.total"""
+        
+        self.model.total = 1
+        assert self.model.get("total") == 1
 
-    def tearDown(self):
-        pass
+    def test_start(self):
+        """Test QueueMemberList.start"""
+        
+        self.model.start = 1
+        assert self.model.get("start") == 1
 
-    def testQueueMemberList(self):
-        """Test QueueMemberList"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = QueueMemberList()  # noqa: E501
-        pass
+    def test_end(self):
+        """Test QueueMemberList.end"""
+        
+        self.model.end = 1
+        assert self.model.get("end") == 1
+
+    def test_page(self):
+        """Test QueueMemberList.page"""
+        
+        self.model.page = 1
+        assert self.model.get("page") == 1
+
+    def test_num_pages(self):
+        """Test QueueMemberList.num_pages"""
+        
+        self.model.num_pages = 1
+        assert self.model.get("num_pages") == 1
+
+    def test_page_size(self):
+        """Test QueueMemberList.page_size"""
+        
+        self.model.page_size = 1
+        assert self.model.get("page_size") == 1
+
+    def test_next_page_uri(self):
+        """Test QueueMemberList.next_page_uri"""
+        self.model.next_page_uri = "TEST_STRING"
+        assert self.model.get("next_page_uri") == "TEST_STRING"
+        
+
+    def test_queue_members(self):
+        """Test QueueMemberList.queue_members"""
+        
+        testList = []
+        self.model.queue_members = testList
+        assert self.model.get("queue_members") == testList
 
 
+    
 if __name__ == '__main__':
     unittest.main()

@@ -11,25 +11,27 @@
 
 import sys
 import unittest
+from datetime import datetime, date
 
 import freeclimb
+from freeclimb.model.update_call_request_status import UpdateCallRequestStatus
+globals()['UpdateCallRequestStatus'] = UpdateCallRequestStatus
 
 from freeclimb.model.update_call_request import UpdateCallRequest  # noqa: E501
+
 
 class TestUpdateCallRequest(unittest.TestCase):
     """UpdateCallRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = UpdateCallRequest(status="TEST_STRING")
 
-    def tearDown(self):
-        pass
-
-    def testUpdateCallRequest(self):
-        """Test UpdateCallRequest"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = UpdateCallRequest()  # noqa: E501
-        pass
+    def test_status(self):
+        """Test UpdateCallRequest.status"""
+        self.model.status = UpdateCallRequestStatus.CANCELED
+        assert self.model.get("status") == UpdateCallRequestStatus.CANCELED
+        self.model.status = UpdateCallRequestStatus.COMPLETED
+        assert self.model.get("status") == UpdateCallRequestStatus.COMPLETED
 
 
 if __name__ == '__main__':

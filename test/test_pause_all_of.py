@@ -11,25 +11,24 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.pause_all_of import PauseAllOf  # noqa: E501
 
+
 class TestPauseAllOf(unittest.TestCase):
     """PauseAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = PauseAllOf(length=1)
 
-    def tearDown(self):
-        pass
+    def test_length(self):
+        """Test PauseAllOf.length"""
 
-    def testPauseAllOf(self):
-        """Test PauseAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = PauseAllOf()  # noqa: E501
-        pass
+        self.model.length = 1
+        assert self.model.get("length") == 1
 
 
 if __name__ == '__main__':

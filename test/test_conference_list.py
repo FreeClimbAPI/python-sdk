@@ -11,6 +11,8 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 from freeclimb.model.conference_list_all_of import ConferenceListAllOf
@@ -22,20 +24,60 @@ globals()['PaginationModel'] = PaginationModel
 
 from freeclimb.model.conference_list import ConferenceList  # noqa: E501
 
+
 class TestConferenceList(unittest.TestCase):
     """ConferenceList unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = ConferenceList()
 
-    def tearDown(self):
-        pass
+    def test_total(self):
+        """Test ConferenceList.total"""
 
-    def testConferenceList(self):
-        """Test ConferenceList"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = ConferenceList()  # noqa: E501
-        pass
+        self.model.total = 1
+        assert self.model.get("total") == 1
+
+    def test_start(self):
+        """Test ConferenceList.start"""
+
+        self.model.start = 1
+        assert self.model.get("start") == 1
+
+    def test_end(self):
+        """Test ConferenceList.end"""
+
+        self.model.end = 1
+        assert self.model.get("end") == 1
+
+    def test_page(self):
+        """Test ConferenceList.page"""
+
+        self.model.page = 1
+        assert self.model.get("page") == 1
+
+    def test_num_pages(self):
+        """Test ConferenceList.num_pages"""
+
+        self.model.num_pages = 1
+        assert self.model.get("num_pages") == 1
+
+    def test_page_size(self):
+        """Test ConferenceList.page_size"""
+
+        self.model.page_size = 1
+        assert self.model.get("page_size") == 1
+
+    def test_next_page_uri(self):
+        """Test ConferenceList.next_page_uri"""
+        self.model.next_page_uri = "TEST_STRING"
+        assert self.model.get("next_page_uri") == "TEST_STRING"
+
+    def test_conferences(self):
+        """Test ConferenceList.conferences"""
+
+        testList = []
+        self.model.conferences = testList
+        assert self.model.get("conferences") == testList
 
 
 if __name__ == '__main__':

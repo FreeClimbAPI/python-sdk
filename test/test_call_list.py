@@ -11,6 +11,8 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 from freeclimb.model.call_list_all_of import CallListAllOf
@@ -22,20 +24,60 @@ globals()['PaginationModel'] = PaginationModel
 
 from freeclimb.model.call_list import CallList  # noqa: E501
 
+
 class TestCallList(unittest.TestCase):
     """CallList unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = CallList()
 
-    def tearDown(self):
-        pass
+    def test_total(self):
+        """Test CallList.total"""
 
-    def testCallList(self):
-        """Test CallList"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = CallList()  # noqa: E501
-        pass
+        self.model.total = 1
+        assert self.model.get("total") == 1
+
+    def test_start(self):
+        """Test CallList.start"""
+
+        self.model.start = 1
+        assert self.model.get("start") == 1
+
+    def test_end(self):
+        """Test CallList.end"""
+
+        self.model.end = 1
+        assert self.model.get("end") == 1
+
+    def test_page(self):
+        """Test CallList.page"""
+
+        self.model.page = 1
+        assert self.model.get("page") == 1
+
+    def test_num_pages(self):
+        """Test CallList.num_pages"""
+
+        self.model.num_pages = 1
+        assert self.model.get("num_pages") == 1
+
+    def test_page_size(self):
+        """Test CallList.page_size"""
+
+        self.model.page_size = 1
+        assert self.model.get("page_size") == 1
+
+    def test_next_page_uri(self):
+        """Test CallList.next_page_uri"""
+        self.model.next_page_uri = "TEST_STRING"
+        assert self.model.get("next_page_uri") == "TEST_STRING"
+
+    def test_calls(self):
+        """Test CallList.calls"""
+
+        testList = []
+        self.model.calls = testList
+        assert self.model.get("calls") == testList
 
 
 if __name__ == '__main__':

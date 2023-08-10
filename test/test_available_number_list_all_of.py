@@ -11,6 +11,8 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 from freeclimb.model.available_number import AvailableNumber
@@ -22,17 +24,16 @@ class TestAvailableNumberListAllOf(unittest.TestCase):
     """AvailableNumberListAllOf unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def testAvailableNumberListAllOf(self):
-        """Test AvailableNumberListAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = AvailableNumberListAllOf()  # noqa: E501
-        pass
+        self.model = AvailableNumberListAllOf()
+    
+    def test_available_phone_numbers(self):
+        """Test AvailableNumberListAllOf.available_phone_numbers"""
+        
+        testList = []
+        self.model.available_phone_numbers = testList
+        assert self.model.get("available_phone_numbers") == testList
 
 
+    
 if __name__ == '__main__':
     unittest.main()

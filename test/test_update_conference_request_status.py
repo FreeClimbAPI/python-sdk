@@ -11,25 +11,37 @@
 
 import sys
 import unittest
+from datetime import datetime, date
 
 import freeclimb
 
 from freeclimb.model.update_conference_request_status import UpdateConferenceRequestStatus  # noqa: E501
 
+
 class TestUpdateConferenceRequestStatus(unittest.TestCase):
     """UpdateConferenceRequestStatus unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_EMPTY_should_serialize_to_enum(self):
+        expected = UpdateConferenceRequestStatus.EMPTY
+        calculated = UpdateConferenceRequestStatus['EMPTY']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_EMPTY_should_deserialize_to_string(self):
+        test = UpdateConferenceRequestStatus.EMPTY
+        expected = "empty"
+        calculated = test.value
+        assert expected == calculated
 
-    def testUpdateConferenceRequestStatus(self):
-        """Test UpdateConferenceRequestStatus"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = UpdateConferenceRequestStatus()  # noqa: E501
-        pass
+    def test_TERMINATED_should_serialize_to_enum(self):
+        expected = UpdateConferenceRequestStatus.TERMINATED
+        calculated = UpdateConferenceRequestStatus['TERMINATED']
+        assert expected == calculated
+
+    def test_TERMINATED_should_deserialize_to_string(self):
+        test = UpdateConferenceRequestStatus.TERMINATED
+        expected = "terminated"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

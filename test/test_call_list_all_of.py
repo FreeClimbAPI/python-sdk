@@ -11,6 +11,8 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 from freeclimb.model.call_result import CallResult
@@ -18,20 +20,19 @@ globals()['CallResult'] = CallResult
 
 from freeclimb.model.call_list_all_of import CallListAllOf  # noqa: E501
 
+
 class TestCallListAllOf(unittest.TestCase):
     """CallListAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = CallListAllOf()
 
-    def tearDown(self):
-        pass
+    def test_calls(self):
+        """Test CallListAllOf.calls"""
 
-    def testCallListAllOf(self):
-        """Test CallListAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = CallListAllOf()  # noqa: E501
-        pass
+        testList = []
+        self.model.calls = testList
+        assert self.model.get("calls") == testList
 
 
 if __name__ == '__main__':

@@ -11,25 +11,28 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.set_listen_all_of import SetListenAllOf  # noqa: E501
 
+
 class TestSetListenAllOf(unittest.TestCase):
     """SetListenAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = SetListenAllOf(call_id="TEST_ID")
 
-    def tearDown(self):
-        pass
+    def test_call_id(self):
+        """Test SetListenAllOf.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.get("call_id") == "TEST_STRING"
 
-    def testSetListenAllOf(self):
-        """Test SetListenAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = SetListenAllOf()  # noqa: E501
-        pass
+    def test_listen(self):
+        """Test SetListenAllOf.listen"""
+        self.model.listen = False
+        assert self.model.get("listen") == False
 
 
 if __name__ == '__main__':

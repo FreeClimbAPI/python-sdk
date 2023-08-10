@@ -11,25 +11,39 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.play_all_of import PlayAllOf  # noqa: E501
 
+
 class TestPlayAllOf(unittest.TestCase):
     """PlayAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = PlayAllOf(file="TEST_STRING")
 
-    def tearDown(self):
-        pass
+    def test_file(self):
+        """Test PlayAllOf.file"""
+        self.model.file = "TEST_STRING"
+        assert self.model.get("file") == "TEST_STRING"
 
-    def testPlayAllOf(self):
-        """Test PlayAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = PlayAllOf()  # noqa: E501
-        pass
+    def test_loop(self):
+        """Test PlayAllOf.loop"""
+
+        self.model.loop = 1
+        assert self.model.get("loop") == 1
+
+    def test_conference_id(self):
+        """Test PlayAllOf.conference_id"""
+        self.model.conference_id = "TEST_STRING"
+        assert self.model.get("conference_id") == "TEST_STRING"
+
+    def test_privacy_mode(self):
+        """Test PlayAllOf.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.get("privacy_mode") == False
 
 
 if __name__ == '__main__':

@@ -11,25 +11,54 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 
 from freeclimb.model.application_request import ApplicationRequest  # noqa: E501
 
+
 class TestApplicationRequest(unittest.TestCase):
     """ApplicationRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = ApplicationRequest()
 
-    def tearDown(self):
-        pass
+    def test_alias(self):
+        """Test ApplicationRequest.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.get("alias") == "TEST_STRING"
 
-    def testApplicationRequest(self):
-        """Test ApplicationRequest"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = ApplicationRequest()  # noqa: E501
-        pass
+    def test_voice_url(self):
+        """Test ApplicationRequest.voice_url"""
+        self.model.voice_url = "TEST_STRING"
+        assert self.model.get("voice_url") == "TEST_STRING"
+
+    def test_voice_fallback_url(self):
+        """Test ApplicationRequest.voice_fallback_url"""
+        self.model.voice_fallback_url = "TEST_STRING"
+        assert self.model.get("voice_fallback_url") == "TEST_STRING"
+
+    def test_call_connect_url(self):
+        """Test ApplicationRequest.call_connect_url"""
+        self.model.call_connect_url = "TEST_STRING"
+        assert self.model.get("call_connect_url") == "TEST_STRING"
+
+    def test_status_callback_url(self):
+        """Test ApplicationRequest.status_callback_url"""
+        self.model.status_callback_url = "TEST_STRING"
+        assert self.model.get("status_callback_url") == "TEST_STRING"
+
+    def test_sms_url(self):
+        """Test ApplicationRequest.sms_url"""
+        self.model.sms_url = "TEST_STRING"
+        assert self.model.get("sms_url") == "TEST_STRING"
+
+    def test_sms_fallback_url(self):
+        """Test ApplicationRequest.sms_fallback_url"""
+        self.model.sms_fallback_url = "TEST_STRING"
+        assert self.model.get("sms_fallback_url") == "TEST_STRING"
 
 
 if __name__ == '__main__':

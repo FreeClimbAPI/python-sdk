@@ -11,25 +11,49 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 
 from freeclimb.model.call_direction import CallDirection  # noqa: E501
 
+
 class TestCallDirection(unittest.TestCase):
     """CallDirection unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_INBOUND_should_serialize_to_enum(self):
+        expected = CallDirection.INBOUND
+        calculated = CallDirection['INBOUND']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_INBOUND_should_deserialize_to_string(self):
+        test = CallDirection.INBOUND
+        expected = "inbound"
+        calculated = test.value
+        assert expected == calculated
 
-    def testCallDirection(self):
-        """Test CallDirection"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = CallDirection()  # noqa: E501
-        pass
+    def test_OUTBOUND_API_should_serialize_to_enum(self):
+        expected = CallDirection.OUTBOUND_API
+        calculated = CallDirection['OUTBOUND_API']
+        assert expected == calculated
+
+    def test_OUTBOUND_API_should_deserialize_to_string(self):
+        test = CallDirection.OUTBOUND_API
+        expected = "outboundAPI"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_OUTBOUND_DIAL_should_serialize_to_enum(self):
+        expected = CallDirection.OUTBOUND_DIAL
+        calculated = CallDirection['OUTBOUND_DIAL']
+        assert expected == calculated
+
+    def test_OUTBOUND_DIAL_should_deserialize_to_string(self):
+        test = CallDirection.OUTBOUND_DIAL
+        expected = "outboundDial"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

@@ -11,6 +11,8 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 from freeclimb.model.application_list_all_of import ApplicationListAllOf
@@ -22,20 +24,60 @@ globals()['PaginationModel'] = PaginationModel
 
 from freeclimb.model.application_list import ApplicationList  # noqa: E501
 
+
 class TestApplicationList(unittest.TestCase):
     """ApplicationList unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = ApplicationList()
 
-    def tearDown(self):
-        pass
+    def test_total(self):
+        """Test ApplicationList.total"""
 
-    def testApplicationList(self):
-        """Test ApplicationList"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = ApplicationList()  # noqa: E501
-        pass
+        self.model.total = 1
+        assert self.model.get("total") == 1
+
+    def test_start(self):
+        """Test ApplicationList.start"""
+
+        self.model.start = 1
+        assert self.model.get("start") == 1
+
+    def test_end(self):
+        """Test ApplicationList.end"""
+
+        self.model.end = 1
+        assert self.model.get("end") == 1
+
+    def test_page(self):
+        """Test ApplicationList.page"""
+
+        self.model.page = 1
+        assert self.model.get("page") == 1
+
+    def test_num_pages(self):
+        """Test ApplicationList.num_pages"""
+
+        self.model.num_pages = 1
+        assert self.model.get("num_pages") == 1
+
+    def test_page_size(self):
+        """Test ApplicationList.page_size"""
+
+        self.model.page_size = 1
+        assert self.model.get("page_size") == 1
+
+    def test_next_page_uri(self):
+        """Test ApplicationList.next_page_uri"""
+        self.model.next_page_uri = "TEST_STRING"
+        assert self.model.get("next_page_uri") == "TEST_STRING"
+
+    def test_applications(self):
+        """Test ApplicationList.applications"""
+
+        testList = []
+        self.model.applications = testList
+        assert self.model.get("applications") == testList
 
 
 if __name__ == '__main__':

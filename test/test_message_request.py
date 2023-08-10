@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 from freeclimb.model.message_request_all_of import MessageRequestAllOf
@@ -20,20 +21,59 @@ globals()['MutableResourceModel'] = MutableResourceModel
 
 from freeclimb.model.message_request import MessageRequest  # noqa: E501
 
+
 class TestMessageRequest(unittest.TestCase):
     """MessageRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = MessageRequest(
+            _from="+11231231234", to="+11231231234", text="TEST_STRING")
 
-    def tearDown(self):
-        pass
+    def test_uri(self):
+        """Test MessageRequest.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.get("uri") == "TEST_STRING"
 
-    def testMessageRequest(self):
-        """Test MessageRequest"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = MessageRequest()  # noqa: E501
-        pass
+    def test_date_created(self):
+        """Test MessageRequest.date_created"""
+        self.model.date_created = "TEST_STRING"
+        assert self.model.get("date_created") == "TEST_STRING"
+
+    def test_date_updated(self):
+        """Test MessageRequest.date_updated"""
+        self.model.date_updated = "TEST_STRING"
+        assert self.model.get("date_updated") == "TEST_STRING"
+
+    def test_revision(self):
+        """Test MessageRequest.revision"""
+
+        self.model.revision = 1
+        assert self.model.get("revision") == 1
+
+    def test__from(self):
+        """Test MessageRequest._from"""
+        self.model._from = "TEST_STRING"
+        assert self.model.get("_from") == "TEST_STRING"
+
+    def test_to(self):
+        """Test MessageRequest.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.get("to") == "TEST_STRING"
+
+    def test_text(self):
+        """Test MessageRequest.text"""
+        self.model.text = "TEST_STRING"
+        assert self.model.get("text") == "TEST_STRING"
+
+    def test_notification_url(self):
+        """Test MessageRequest.notification_url"""
+        self.model.notification_url = "TEST_STRING"
+        assert self.model.get("notification_url") == "TEST_STRING"
+
+    def test_account_id(self):
+        """Test MessageRequest.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.get("account_id") == "TEST_STRING"
 
 
 if __name__ == '__main__':

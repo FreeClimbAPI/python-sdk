@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 from freeclimb.model.mutable_resource_model import MutableResourceModel
@@ -20,20 +21,72 @@ globals()['QueueResultAllOf'] = QueueResultAllOf
 
 from freeclimb.model.queue_result import QueueResult  # noqa: E501
 
+
 class TestQueueResult(unittest.TestCase):
     """QueueResult unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = QueueResult()
 
-    def tearDown(self):
-        pass
+    def test_uri(self):
+        """Test QueueResult.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.get("uri") == "TEST_STRING"
 
-    def testQueueResult(self):
-        """Test QueueResult"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = QueueResult()  # noqa: E501
-        pass
+    def test_date_created(self):
+        """Test QueueResult.date_created"""
+        self.model.date_created = "TEST_STRING"
+        assert self.model.get("date_created") == "TEST_STRING"
+
+    def test_date_updated(self):
+        """Test QueueResult.date_updated"""
+        self.model.date_updated = "TEST_STRING"
+        assert self.model.get("date_updated") == "TEST_STRING"
+
+    def test_revision(self):
+        """Test QueueResult.revision"""
+
+        self.model.revision = 1
+        assert self.model.get("revision") == 1
+
+    def test_account_id(self):
+        """Test QueueResult.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.get("account_id") == "TEST_STRING"
+
+    def test_queue_id(self):
+        """Test QueueResult.queue_id"""
+        self.model.queue_id = "TEST_STRING"
+        assert self.model.get("queue_id") == "TEST_STRING"
+
+    def test_alias(self):
+        """Test QueueResult.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.get("alias") == "TEST_STRING"
+
+    def test_max_size(self):
+        """Test QueueResult.max_size"""
+
+        self.model.max_size = 1
+        assert self.model.get("max_size") == 1
+
+    def test_current_size(self):
+        """Test QueueResult.current_size"""
+
+        self.model.current_size = 1
+        assert self.model.get("current_size") == 1
+
+    def test_average_queue_removal_time(self):
+        """Test QueueResult.average_queue_removal_time"""
+
+        self.model.average_queue_removal_time = 1
+        assert self.model.get("average_queue_removal_time") == 1
+
+    def test_subresource_uris(self):
+        """Test QueueResult.subresource_uris"""
+        testObject = {}
+        self.model.subresource_uris = testObject
+        assert self.model.get("subresource_uris") == testObject
 
 
 if __name__ == '__main__':

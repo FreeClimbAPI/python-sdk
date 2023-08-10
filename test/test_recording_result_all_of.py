@@ -11,25 +11,44 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.recording_result_all_of import RecordingResultAllOf  # noqa: E501
 
+
 class TestRecordingResultAllOf(unittest.TestCase):
     """RecordingResultAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = RecordingResultAllOf()
 
-    def tearDown(self):
-        pass
+    def test_recording_id(self):
+        """Test RecordingResultAllOf.recording_id"""
+        self.model.recording_id = "TEST_STRING"
+        assert self.model.get("recording_id") == "TEST_STRING"
 
-    def testRecordingResultAllOf(self):
-        """Test RecordingResultAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = RecordingResultAllOf()  # noqa: E501
-        pass
+    def test_account_id(self):
+        """Test RecordingResultAllOf.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.get("account_id") == "TEST_STRING"
+
+    def test_call_id(self):
+        """Test RecordingResultAllOf.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.get("call_id") == "TEST_STRING"
+
+    def test_duration_sec(self):
+        """Test RecordingResultAllOf.duration_sec"""
+
+        self.model.duration_sec = 1
+        assert self.model.get("duration_sec") == 1
+
+    def test_conference_id(self):
+        """Test RecordingResultAllOf.conference_id"""
+        self.model.conference_id = "TEST_STRING"
+        assert self.model.get("conference_id") == "TEST_STRING"
 
 
 if __name__ == '__main__':

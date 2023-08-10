@@ -11,25 +11,49 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 
 from freeclimb.model.account_status import AccountStatus  # noqa: E501
 
+
 class TestAccountStatus(unittest.TestCase):
     """AccountStatus unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_CLOSED_should_serialize_to_enum(self):
+        expected = AccountStatus.CLOSED
+        calculated = AccountStatus['CLOSED']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_CLOSED_should_deserialize_to_string(self):
+        test = AccountStatus.CLOSED
+        expected = "closed"
+        calculated = test.value
+        assert expected == calculated
 
-    def testAccountStatus(self):
-        """Test AccountStatus"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = AccountStatus()  # noqa: E501
-        pass
+    def test_SUSPENDED_should_serialize_to_enum(self):
+        expected = AccountStatus.SUSPENDED
+        calculated = AccountStatus['SUSPENDED']
+        assert expected == calculated
+
+    def test_SUSPENDED_should_deserialize_to_string(self):
+        test = AccountStatus.SUSPENDED
+        expected = "suspended"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_ACTIVE_should_serialize_to_enum(self):
+        expected = AccountStatus.ACTIVE
+        calculated = AccountStatus['ACTIVE']
+        assert expected == calculated
+
+    def test_ACTIVE_should_deserialize_to_string(self):
+        test = AccountStatus.ACTIVE
+        expected = "active"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

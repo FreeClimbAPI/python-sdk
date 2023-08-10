@@ -11,25 +11,28 @@
 
 import sys
 import unittest
+from datetime import datetime, date
 
 import freeclimb
 
 from freeclimb.model.update_conference_participant_request import UpdateConferenceParticipantRequest  # noqa: E501
 
+
 class TestUpdateConferenceParticipantRequest(unittest.TestCase):
     """UpdateConferenceParticipantRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = UpdateConferenceParticipantRequest()
 
-    def tearDown(self):
-        pass
+    def test_talk(self):
+        """Test UpdateConferenceParticipantRequest.talk"""
+        self.model.talk = False
+        assert self.model.get("talk") == False
 
-    def testUpdateConferenceParticipantRequest(self):
-        """Test UpdateConferenceParticipantRequest"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = UpdateConferenceParticipantRequest()  # noqa: E501
-        pass
+    def test_listen(self):
+        """Test UpdateConferenceParticipantRequest.listen"""
+        self.model.listen = False
+        assert self.model.get("listen") == False
 
 
 if __name__ == '__main__':

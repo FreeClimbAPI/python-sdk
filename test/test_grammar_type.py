@@ -11,25 +11,37 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.grammar_type import GrammarType  # noqa: E501
 
+
 class TestGrammarType(unittest.TestCase):
     """GrammarType unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_URL_should_serialize_to_enum(self):
+        expected = GrammarType.URL
+        calculated = GrammarType['URL']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_URL_should_deserialize_to_string(self):
+        test = GrammarType.URL
+        expected = "URL"
+        calculated = test.value
+        assert expected == calculated
 
-    def testGrammarType(self):
-        """Test GrammarType"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = GrammarType()  # noqa: E501
-        pass
+    def test_BUILT_IN_should_serialize_to_enum(self):
+        expected = GrammarType.BUILT_IN
+        calculated = GrammarType['BUILT_IN']
+        assert expected == calculated
+
+    def test_BUILT_IN_should_deserialize_to_string(self):
+        test = GrammarType.BUILT_IN
+        expected = "BUILTIN"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

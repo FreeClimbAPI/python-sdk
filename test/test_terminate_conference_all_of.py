@@ -11,25 +11,23 @@
 
 import sys
 import unittest
+from datetime import datetime, date
 
 import freeclimb
 
 from freeclimb.model.terminate_conference_all_of import TerminateConferenceAllOf  # noqa: E501
 
+
 class TestTerminateConferenceAllOf(unittest.TestCase):
     """TerminateConferenceAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = TerminateConferenceAllOf(conference_id="TEST_STRING")
 
-    def tearDown(self):
-        pass
-
-    def testTerminateConferenceAllOf(self):
-        """Test TerminateConferenceAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = TerminateConferenceAllOf()  # noqa: E501
-        pass
+    def test_conference_id(self):
+        """Test TerminateConferenceAllOf.conference_id"""
+        self.model.conference_id = "TEST_STRING"
+        assert self.model.get("conference_id") == "TEST_STRING"
 
 
 if __name__ == '__main__':

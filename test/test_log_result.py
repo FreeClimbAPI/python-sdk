@@ -11,25 +11,61 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
+from freeclimb.model.log_level import LogLevel
+globals()['LogLevel'] = LogLevel
 
 from freeclimb.model.log_result import LogResult  # noqa: E501
+
 
 class TestLogResult(unittest.TestCase):
     """LogResult unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = LogResult()
 
-    def tearDown(self):
-        pass
+    def test_timestamp(self):
+        """Test LogResult.timestamp"""
 
-    def testLogResult(self):
-        """Test LogResult"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = LogResult()  # noqa: E501
-        pass
+        self.model.timestamp = 1
+        assert self.model.get("timestamp") == 1
+
+    def test_level(self):
+        """Test LogResult.level"""
+        self.model.level = LogLevel.INFO
+        assert self.model.get("level") == LogLevel.INFO
+        self.model.level = LogLevel.WARNING
+        assert self.model.get("level") == LogLevel.WARNING
+        self.model.level = LogLevel.ERROR
+        assert self.model.get("level") == LogLevel.ERROR
+
+    def test_request_id(self):
+        """Test LogResult.request_id"""
+        self.model.request_id = "TEST_STRING"
+        assert self.model.get("request_id") == "TEST_STRING"
+
+    def test_account_id(self):
+        """Test LogResult.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.get("account_id") == "TEST_STRING"
+
+    def test_call_id(self):
+        """Test LogResult.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.get("call_id") == "TEST_STRING"
+
+    def test_message(self):
+        """Test LogResult.message"""
+        self.model.message = "TEST_STRING"
+        assert self.model.get("message") == "TEST_STRING"
+
+    def test_metadata(self):
+        """Test LogResult.metadata"""
+        testObject = {}
+        self.model.metadata = testObject
+        assert self.model.get("metadata") == testObject
 
 
 if __name__ == '__main__':

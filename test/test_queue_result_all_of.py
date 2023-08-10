@@ -11,25 +11,57 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.queue_result_all_of import QueueResultAllOf  # noqa: E501
 
+
 class TestQueueResultAllOf(unittest.TestCase):
     """QueueResultAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = QueueResultAllOf()
 
-    def tearDown(self):
-        pass
+    def test_account_id(self):
+        """Test QueueResultAllOf.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.get("account_id") == "TEST_STRING"
 
-    def testQueueResultAllOf(self):
-        """Test QueueResultAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = QueueResultAllOf()  # noqa: E501
-        pass
+    def test_queue_id(self):
+        """Test QueueResultAllOf.queue_id"""
+        self.model.queue_id = "TEST_STRING"
+        assert self.model.get("queue_id") == "TEST_STRING"
+
+    def test_alias(self):
+        """Test QueueResultAllOf.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.get("alias") == "TEST_STRING"
+
+    def test_max_size(self):
+        """Test QueueResultAllOf.max_size"""
+
+        self.model.max_size = 1
+        assert self.model.get("max_size") == 1
+
+    def test_current_size(self):
+        """Test QueueResultAllOf.current_size"""
+
+        self.model.current_size = 1
+        assert self.model.get("current_size") == 1
+
+    def test_average_queue_removal_time(self):
+        """Test QueueResultAllOf.average_queue_removal_time"""
+
+        self.model.average_queue_removal_time = 1
+        assert self.model.get("average_queue_removal_time") == 1
+
+    def test_subresource_uris(self):
+        """Test QueueResultAllOf.subresource_uris"""
+        testObject = {}
+        self.model.subresource_uris = testObject
+        assert self.model.get("subresource_uris") == testObject
 
 
 if __name__ == '__main__':

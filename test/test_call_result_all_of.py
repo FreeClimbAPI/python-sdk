@@ -11,25 +11,123 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
+from freeclimb.model.answered_by import AnsweredBy
+from freeclimb.model.call_direction import CallDirection
+from freeclimb.model.call_status import CallStatus
+globals()['AnsweredBy'] = AnsweredBy
+globals()['CallDirection'] = CallDirection
+globals()['CallStatus'] = CallStatus
 
 from freeclimb.model.call_result_all_of import CallResultAllOf  # noqa: E501
+
 
 class TestCallResultAllOf(unittest.TestCase):
     """CallResultAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = CallResultAllOf()
 
-    def tearDown(self):
-        pass
+    def test_call_id(self):
+        """Test CallResultAllOf.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.get("call_id") == "TEST_STRING"
 
-    def testCallResultAllOf(self):
-        """Test CallResultAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = CallResultAllOf()  # noqa: E501
-        pass
+    def test_parent_call_id(self):
+        """Test CallResultAllOf.parent_call_id"""
+        self.model.parent_call_id = "TEST_STRING"
+        assert self.model.get("parent_call_id") == "TEST_STRING"
+
+    def test_account_id(self):
+        """Test CallResultAllOf.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.get("account_id") == "TEST_STRING"
+
+    def test__from(self):
+        """Test CallResultAllOf._from"""
+        self.model._from = "TEST_STRING"
+        assert self.model.get("_from") == "TEST_STRING"
+
+    def test_to(self):
+        """Test CallResultAllOf.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.get("to") == "TEST_STRING"
+
+    def test_phone_number_id(self):
+        """Test CallResultAllOf.phone_number_id"""
+        self.model.phone_number_id = "TEST_STRING"
+        assert self.model.get("phone_number_id") == "TEST_STRING"
+
+    def test_call_status(self):
+        """Test CallResultAllOf.call_status"""
+        self.model.call_status = CallStatus.QUEUED
+        assert self.model.get("call_status") == CallStatus.QUEUED
+        self.model.call_status = CallStatus.RINGING
+        assert self.model.get("call_status") == CallStatus.RINGING
+        self.model.call_status = CallStatus.IN_PROGRESS
+        assert self.model.get("call_status") == CallStatus.IN_PROGRESS
+        self.model.call_status = CallStatus.CANCELED
+        assert self.model.get("call_status") == CallStatus.CANCELED
+        self.model.call_status = CallStatus.COMPLETED
+        assert self.model.get("call_status") == CallStatus.COMPLETED
+        self.model.call_status = CallStatus.FAILED
+        assert self.model.get("call_status") == CallStatus.FAILED
+        self.model.call_status = CallStatus.BUSY
+        assert self.model.get("call_status") == CallStatus.BUSY
+        self.model.call_status = CallStatus.NO_ANSWER
+        assert self.model.get("call_status") == CallStatus.NO_ANSWER
+
+    def test_start_time(self):
+        """Test CallResultAllOf.start_time"""
+        self.model.start_time = "TEST_STRING"
+        assert self.model.get("start_time") == "TEST_STRING"
+
+    def test_connect_time(self):
+        """Test CallResultAllOf.connect_time"""
+        self.model.connect_time = "TEST_STRING"
+        assert self.model.get("connect_time") == "TEST_STRING"
+
+    def test_end_time(self):
+        """Test CallResultAllOf.end_time"""
+        self.model.end_time = "TEST_STRING"
+        assert self.model.get("end_time") == "TEST_STRING"
+
+    def test_duration(self):
+        """Test CallResultAllOf.duration"""
+
+        self.model.duration = 1
+        assert self.model.get("duration") == 1
+
+    def test_connect_duration(self):
+        """Test CallResultAllOf.connect_duration"""
+
+        self.model.connect_duration = 1
+        assert self.model.get("connect_duration") == 1
+
+    def test_direction(self):
+        """Test CallResultAllOf.direction"""
+        self.model.direction = CallDirection.INBOUND
+        assert self.model.get("direction") == CallDirection.INBOUND
+        self.model.direction = CallDirection.OUTBOUND_API
+        assert self.model.get("direction") == CallDirection.OUTBOUND_API
+        self.model.direction = CallDirection.OUTBOUND_DIAL
+        assert self.model.get("direction") == CallDirection.OUTBOUND_DIAL
+
+    def test_answered_by(self):
+        """Test CallResultAllOf.answered_by"""
+        self.model.answered_by = AnsweredBy.HUMAN
+        assert self.model.get("answered_by") == AnsweredBy.HUMAN
+        self.model.answered_by = AnsweredBy.MACHINE
+        assert self.model.get("answered_by") == AnsweredBy.MACHINE
+
+    def test_subresource_uris(self):
+        """Test CallResultAllOf.subresource_uris"""
+        testObject = {}
+        self.model.subresource_uris = testObject
+        assert self.model.get("subresource_uris") == testObject
 
 
 if __name__ == '__main__':

@@ -11,25 +11,34 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
 
 from freeclimb.model.send_digits_all_of import SendDigitsAllOf  # noqa: E501
 
+
 class TestSendDigitsAllOf(unittest.TestCase):
     """SendDigitsAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = SendDigitsAllOf(digits="TEST_STRING")
 
-    def tearDown(self):
-        pass
+    def test_digits(self):
+        """Test SendDigitsAllOf.digits"""
+        self.model.digits = "TEST_STRING"
+        assert self.model.get("digits") == "TEST_STRING"
 
-    def testSendDigitsAllOf(self):
-        """Test SendDigitsAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = SendDigitsAllOf()  # noqa: E501
-        pass
+    def test_pause_ms(self):
+        """Test SendDigitsAllOf.pause_ms"""
+
+        self.model.pause_ms = 1
+        assert self.model.get("pause_ms") == 1
+
+    def test_privacy_mode(self):
+        """Test SendDigitsAllOf.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.get("privacy_mode") == False
 
 
 if __name__ == '__main__':

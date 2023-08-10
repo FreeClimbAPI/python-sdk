@@ -11,25 +11,60 @@
 
 import sys
 import unittest
+import datetime
+import decimal
 
 import freeclimb
 
 from freeclimb.model.conference_status import ConferenceStatus  # noqa: E501
 
+
 class TestConferenceStatus(unittest.TestCase):
     """ConferenceStatus unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_EMPTY_should_serialize_to_enum(self):
+        expected = ConferenceStatus.EMPTY
+        calculated = ConferenceStatus['EMPTY']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_EMPTY_should_deserialize_to_string(self):
+        test = ConferenceStatus.EMPTY
+        expected = "empty"
+        calculated = test.value
+        assert expected == calculated
 
-    def testConferenceStatus(self):
-        """Test ConferenceStatus"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = ConferenceStatus()  # noqa: E501
-        pass
+    def test_POPULATED_should_serialize_to_enum(self):
+        expected = ConferenceStatus.POPULATED
+        calculated = ConferenceStatus['POPULATED']
+        assert expected == calculated
+
+    def test_POPULATED_should_deserialize_to_string(self):
+        test = ConferenceStatus.POPULATED
+        expected = "populated"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_IN_PROGRESS_should_serialize_to_enum(self):
+        expected = ConferenceStatus.IN_PROGRESS
+        calculated = ConferenceStatus['IN_PROGRESS']
+        assert expected == calculated
+
+    def test_IN_PROGRESS_should_deserialize_to_string(self):
+        test = ConferenceStatus.IN_PROGRESS
+        expected = "inProgress"
+        calculated = test.value
+        assert expected == calculated
+
+    def test_TERMINATED_should_serialize_to_enum(self):
+        expected = ConferenceStatus.TERMINATED
+        calculated = ConferenceStatus['TERMINATED']
+        assert expected == calculated
+
+    def test_TERMINATED_should_deserialize_to_string(self):
+        test = ConferenceStatus.TERMINATED
+        expected = "terminated"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

@@ -11,25 +11,37 @@
 
 import sys
 import unittest
+from datetime import datetime, date
 
 import freeclimb
 
 from freeclimb.model.update_call_request_status import UpdateCallRequestStatus  # noqa: E501
 
+
 class TestUpdateCallRequestStatus(unittest.TestCase):
     """UpdateCallRequestStatus unit test stubs"""
 
-    def setUp(self):
-        pass
+    def test_CANCELED_should_serialize_to_enum(self):
+        expected = UpdateCallRequestStatus.CANCELED
+        calculated = UpdateCallRequestStatus['CANCELED']
+        assert expected == calculated
 
-    def tearDown(self):
-        pass
+    def test_CANCELED_should_deserialize_to_string(self):
+        test = UpdateCallRequestStatus.CANCELED
+        expected = "canceled"
+        calculated = test.value
+        assert expected == calculated
 
-    def testUpdateCallRequestStatus(self):
-        """Test UpdateCallRequestStatus"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = UpdateCallRequestStatus()  # noqa: E501
-        pass
+    def test_COMPLETED_should_serialize_to_enum(self):
+        expected = UpdateCallRequestStatus.COMPLETED
+        calculated = UpdateCallRequestStatus['COMPLETED']
+        assert expected == calculated
+
+    def test_COMPLETED_should_deserialize_to_string(self):
+        test = UpdateCallRequestStatus.COMPLETED
+        expected = "completed"
+        calculated = test.value
+        assert expected == calculated
 
 
 if __name__ == '__main__':

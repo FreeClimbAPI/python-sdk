@@ -11,27 +11,96 @@
 
 import sys
 import unittest
+import datetime
 
 import freeclimb
+from freeclimb.model.grammar_type import GrammarType
 from freeclimb.model.percl_command import PerclCommand
+globals()['GrammarType'] = GrammarType
 globals()['PerclCommand'] = PerclCommand
 
 from freeclimb.model.get_speech_all_of import GetSpeechAllOf  # noqa: E501
+
 
 class TestGetSpeechAllOf(unittest.TestCase):
     """GetSpeechAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = GetSpeechAllOf(
+            action_url="TEST_URL", grammar_file="TEST_STRING")
 
-    def tearDown(self):
-        pass
+    def test_action_url(self):
+        """Test GetSpeechAllOf.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.get("action_url") == "TEST_STRING"
 
-    def testGetSpeechAllOf(self):
-        """Test GetSpeechAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = GetSpeechAllOf()  # noqa: E501
-        pass
+    def test_grammar_type(self):
+        """Test GetSpeechAllOf.grammar_type"""
+        self.model.grammar_type = GrammarType.URL
+        assert self.model.get("grammar_type") == GrammarType.URL
+        self.model.grammar_type = GrammarType.BUILT_IN
+        assert self.model.get("grammar_type") == GrammarType.BUILT_IN
+
+    def test_grammar_file(self):
+        """Test GetSpeechAllOf.grammar_file"""
+        self.model.grammar_file = "TEST_STRING"
+        assert self.model.get("grammar_file") == "TEST_STRING"
+
+    def test_grammar_rule(self):
+        """Test GetSpeechAllOf.grammar_rule"""
+        self.model.grammar_rule = "TEST_STRING"
+        assert self.model.get("grammar_rule") == "TEST_STRING"
+
+    def test_play_beep(self):
+        """Test GetSpeechAllOf.play_beep"""
+        self.model.play_beep = False
+        assert self.model.get("play_beep") == False
+
+    def test_prompts(self):
+        """Test GetSpeechAllOf.prompts"""
+
+        testList = []
+        self.model.prompts = testList
+        assert self.model.get("prompts") == testList
+
+    def test_no_input_timeout_ms(self):
+        """Test GetSpeechAllOf.no_input_timeout_ms"""
+
+        self.model.no_input_timeout_ms = 1
+        assert self.model.get("no_input_timeout_ms") == 1
+
+    def test_recognition_timeout_ms(self):
+        """Test GetSpeechAllOf.recognition_timeout_ms"""
+
+        self.model.recognition_timeout_ms = 1
+        assert self.model.get("recognition_timeout_ms") == 1
+
+    def test_confidence_threshold(self):
+        """Test GetSpeechAllOf.confidence_threshold"""
+        self.model.confidence_threshold = float(1)
+        assert self.model.get("confidence_threshold") == float(1)
+
+    def test_sensitivity_level(self):
+        """Test GetSpeechAllOf.sensitivity_level"""
+        self.model.sensitivity_level = float(1)
+        assert self.model.get("sensitivity_level") == float(1)
+
+    def test_speech_complete_timeout_ms(self):
+        """Test GetSpeechAllOf.speech_complete_timeout_ms"""
+
+        self.model.speech_complete_timeout_ms = 1
+        assert self.model.get("speech_complete_timeout_ms") == 1
+
+    def test_speech_incomplete_timeout_ms(self):
+        """Test GetSpeechAllOf.speech_incomplete_timeout_ms"""
+
+        self.model.speech_incomplete_timeout_ms = 1
+        assert self.model.get("speech_incomplete_timeout_ms") == 1
+
+    def test_privacy_mode(self):
+        """Test GetSpeechAllOf.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.get("privacy_mode") == False
 
 
 if __name__ == '__main__':
