@@ -3465,6 +3465,79 @@
           "identityStatus": "VERIFIED",
           "createDate": "2022-07-01T20:29:23Z"
         }
+      },
+      "TranscribeUtterance": {
+        "title": "TranscribeUtterance",
+        "x-stoplight": {
+          "id": "u509r3zqc38ze"
+        },
+        "type": "object",
+        "description": "The `TranscribeUtterance` command transcribes the caller’s voice and returns transcription of the audio and optionally returns the recording of the audio transcribed.\n\n`TranscribeUtterance` is blocking and is a terminal command. As such, the actionUrl property is required, and control of the Call picks up using the `PerCL` returned in response of the `actionUrl`. Recording and Transcription information is returned in the actionUrl request. If the reason this command ended was due to the call hanging up, any PerCL returned will not execute.",
+        "properties": {
+          "actionUrl": {
+            "type": "string"
+          },
+          "playBeep": {
+            "type": "boolean",
+            "default": false
+          },
+          "record": {
+            "type": "object",
+            "properties": {
+              "saveRecording": {
+                "type": "boolean",
+                "default": false
+              },
+              "maxLengthSec": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 60,
+                "default": 60
+              },
+              "rcrdTerminationSilenceTimeMs": {
+                "type": "integer",
+                "exclusiveMinimum": true,
+                "minimum": 0,
+                "maximum": 3000
+              }
+            }
+          },
+          "privacyForLogging": {
+            "type": "boolean",
+            "default": false
+          },
+          "privacyForRecording": {
+            "type": "boolean",
+            "default": false
+          },
+          "prompts": {
+            "type": "array",
+            "items": {}
+          }
+        },
+        "required": [
+          "actionUrl"
+        ],
+        "x-examples": {
+          "Example 1": {
+            "TranscribeUtterance": {
+              "actionUrl": "http://foo.vail/handleTranscription",
+              "record": {
+                "maxLengthSec": 60,
+                "saveRecording": true,
+                "rcrdTerminationSilenceTimeMs": 2000
+              },
+              "playBeep": true,
+              "prompts": [
+                {
+                  "Play": {
+                    "file": "http://dplutil01.vail/~user/prompts/please-record-greeting.wav"
+                  }
+                }
+              ]
+            }
+          }
+        }
       }
     }
   },
