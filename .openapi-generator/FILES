@@ -293,4 +293,6 @@ requirements.txt
 setup.cfg
 setup.py
 test/__init__.py
+test/test_transcribe_utterance.py
+test/test_transcribe_utterance_record.py
 tox.ini

@@ -11,6 +11,8 @@
 
 import sys
 import unittest
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.transcribe_utterance_record import TranscribeUtteranceRecord
@@ -22,17 +24,56 @@ class TestTranscribeUtterance(unittest.TestCase):
     """TranscribeUtterance unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = TranscribeUtterance(action_url="TEST_URL")
+    
+    def test_action_url(self):
+        """Test TranscribeUtterance.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.get("action_url") == "TEST_STRING"
+        
+         
 
-    def tearDown(self):
-        pass
+     
+    def test_play_beep(self):
+        """Test TranscribeUtterance.play_beep"""
+        self.model.play_beep = False
+        assert self.model.get("play_beep") == False
+        
+         
 
-    def testTranscribeUtterance(self):
-        """Test TranscribeUtterance"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = TranscribeUtterance()  # noqa: E501
-        pass
+     
+    def test_record(self):
+        """Test TranscribeUtterance.record"""
+        self.model.record = TranscribeUtteranceRecord(save_recording=False, max_length_sec=1, rcrd_termination_silence_time_ms=1)
+        assert isinstance(self.model.record, TranscribeUtteranceRecord)
+         
 
+     
+    def test_privacy_for_logging(self):
+        """Test TranscribeUtterance.privacy_for_logging"""
+        self.model.privacy_for_logging = False
+        assert self.model.get("privacy_for_logging") == False
+        
+         
+
+     
+    def test_privacy_for_recording(self):
+        """Test TranscribeUtterance.privacy_for_recording"""
+        self.model.privacy_for_recording = False
+        assert self.model.get("privacy_for_recording") == False
+        
+         
+
+     
+    def test_prompts(self):
+        """Test TranscribeUtterance.prompts"""
+        testArray = []
+        self.model.prompts = testArray
+        assert self.model.get("prompts") == testArray
+        
+         
+
+     
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,6 +11,8 @@
 
 import sys
 import unittest
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
@@ -20,17 +22,32 @@ class TestTranscribeUtteranceRecord(unittest.TestCase):
     """TranscribeUtteranceRecord unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = TranscribeUtteranceRecord()
+    
+    def test_save_recording(self):
+        """Test TranscribeUtteranceRecord.save_recording"""
+        self.model.save_recording = False
+        assert self.model.get("save_recording") == False
+        
+         
 
-    def tearDown(self):
-        pass
+     
+    def test_max_length_sec(self):
+        """Test TranscribeUtteranceRecord.max_length_sec"""
+        
+         
+        self.model.max_length_sec = 1
+        assert self.model.get("max_length_sec") == 1
 
-    def testTranscribeUtteranceRecord(self):
-        """Test TranscribeUtteranceRecord"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = TranscribeUtteranceRecord()  # noqa: E501
-        pass
+     
+    def test_rcrd_termination_silence_time_ms(self):
+        """Test TranscribeUtteranceRecord.rcrd_termination_silence_time_ms"""
+        
+         
+        self.model.rcrd_termination_silence_time_ms = 1
+        assert self.model.get("rcrd_termination_silence_time_ms") == 1
 
+     
 
 if __name__ == '__main__':
     unittest.main()
