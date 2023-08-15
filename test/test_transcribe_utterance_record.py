@@ -28,26 +28,18 @@ class TestTranscribeUtteranceRecord(unittest.TestCase):
         """Test TranscribeUtteranceRecord.save_recording"""
         self.model.save_recording = False
         assert self.model.get("save_recording") == False
-        
-         
-
-     
+             
     def test_max_length_sec(self):
         """Test TranscribeUtteranceRecord.max_length_sec"""
-        
-         
         self.model.max_length_sec = 1
         assert self.model.get("max_length_sec") == 1
 
      
     def test_rcrd_termination_silence_time_ms(self):
         """Test TranscribeUtteranceRecord.rcrd_termination_silence_time_ms"""
-        
-         
         self.model.rcrd_termination_silence_time_ms = 1
         assert self.model.get("rcrd_termination_silence_time_ms") == 1
 
-     
-
+        
 if __name__ == '__main__':
     unittest.main()
