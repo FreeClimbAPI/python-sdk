@@ -11,19 +11,22 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.play_all_of import PlayAllOf  # noqa: E501
 
-
 class TestPlayAllOf(unittest.TestCase):
     """PlayAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = PlayAllOf(file="TEST_STRING")
-
+        self.model = PlayAllOf(
+            file="",
+            
+        )
+    
     def test_file(self):
         """Test PlayAllOf.file"""
         self.model.file = "TEST_STRING"
@@ -31,7 +34,6 @@ class TestPlayAllOf(unittest.TestCase):
 
     def test_loop(self):
         """Test PlayAllOf.loop"""
-
         self.model.loop = 1
         assert self.model.get("loop") == 1
 
@@ -44,7 +46,6 @@ class TestPlayAllOf(unittest.TestCase):
         """Test PlayAllOf.privacy_mode"""
         self.model.privacy_mode = False
         assert self.model.get("privacy_mode") == False
-
 
 if __name__ == '__main__':
     unittest.main()

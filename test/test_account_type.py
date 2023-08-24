@@ -11,17 +11,17 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.account_type import AccountType  # noqa: E501
 
-
 class TestAccountType(unittest.TestCase):
     """AccountType unit test stubs"""
 
+    
     def test_TRIAL_should_serialize_to_enum(self):
         expected = AccountType.TRIAL
         calculated = AccountType['TRIAL']
@@ -43,7 +43,6 @@ class TestAccountType(unittest.TestCase):
         expected = "full"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

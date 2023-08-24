@@ -11,17 +11,17 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.account_status import AccountStatus  # noqa: E501
 
-
 class TestAccountStatus(unittest.TestCase):
     """AccountStatus unit test stubs"""
 
+    
     def test_CLOSED_should_serialize_to_enum(self):
         expected = AccountStatus.CLOSED
         calculated = AccountStatus['CLOSED']
@@ -54,7 +54,6 @@ class TestAccountStatus(unittest.TestCase):
         expected = "active"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

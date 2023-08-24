@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.sms_ten_dlc_partner_campaign import SMSTenDLCPartnerCampaign
@@ -23,16 +24,14 @@ class TestSMSTenDLCPartnerCampaignsListResultAllOf(unittest.TestCase):
     """SMSTenDLCPartnerCampaignsListResultAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = SMSTenDLCPartnerCampaignsListResultAllOf()
+        self.model = SMSTenDLCPartnerCampaignsListResultAllOf(
+        )
     
     def test_partner_campaigns(self):
         """Test SMSTenDLCPartnerCampaignsListResultAllOf.partner_campaigns"""
-        
         testList = []
         self.model.partner_campaigns = testList
         assert self.model.get("partner_campaigns") == testList
 
-
-    
 if __name__ == '__main__':
     unittest.main()

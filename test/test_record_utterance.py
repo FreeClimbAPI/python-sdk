@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -69,13 +70,15 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.record_utterance import RecordUtterance  # noqa: E501
 
-
 class TestRecordUtterance(unittest.TestCase):
     """RecordUtterance unit test stubs"""
 
     def setUp(self):
-        self.model = RecordUtterance(action_url="TEST_URL")
-
+        self.model = RecordUtterance(
+            action_url="",
+            
+        )
+    
     def test_action_url(self):
         """Test RecordUtterance.action_url"""
         self.model.action_url = "TEST_STRING"
@@ -83,7 +86,6 @@ class TestRecordUtterance(unittest.TestCase):
 
     def test_silence_timeout_ms(self):
         """Test RecordUtterance.silence_timeout_ms"""
-
         self.model.silence_timeout_ms = 1
         assert self.model.get("silence_timeout_ms") == 1
 
@@ -94,7 +96,6 @@ class TestRecordUtterance(unittest.TestCase):
 
     def test_max_length_sec(self):
         """Test RecordUtterance.max_length_sec"""
-
         self.model.max_length_sec = 1
         assert self.model.get("max_length_sec") == 1
 
@@ -115,7 +116,6 @@ class TestRecordUtterance(unittest.TestCase):
 
     def test_command_test(self):
         assert self.model.command == "RecordUtterance"
-
 
 if __name__ == '__main__':
     unittest.main()

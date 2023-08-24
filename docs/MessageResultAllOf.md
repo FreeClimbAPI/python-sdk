@@ -11,6 +11,9 @@ Name | Type | Description | Notes
 **text** | **str, none_type** | Message contents | [optional] 
 **direction** | **str, none_type** | Noting whether the message was inbound or outbound | [optional] 
 **notification_url** | **str, none_type** | URL invoked when message sent | [optional] 
+**brand_id** | **str, none_type** | The unique identifier for the brand associated with the message | [optional] 
+**campaign_id** | **str, none_type** | The unique identifier for the campaign associated with the message | [optional] 
+**segment_count** | **float, none_type** | The number of segments into which the message was split | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

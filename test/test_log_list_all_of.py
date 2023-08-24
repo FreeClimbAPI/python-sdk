@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.log_result import LogResult
@@ -19,20 +20,18 @@ globals()['LogResult'] = LogResult
 
 from freeclimb.model.log_list_all_of import LogListAllOf  # noqa: E501
 
-
 class TestLogListAllOf(unittest.TestCase):
     """LogListAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = LogListAllOf()
-
+        self.model = LogListAllOf(
+        )
+    
     def test_logs(self):
         """Test LogListAllOf.logs"""
-
         testList = []
         self.model.logs = testList
         assert self.model.get("logs") == testList
-
 
 if __name__ == '__main__':
     unittest.main()

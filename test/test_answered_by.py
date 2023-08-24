@@ -11,17 +11,17 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.answered_by import AnsweredBy  # noqa: E501
 
-
 class TestAnsweredBy(unittest.TestCase):
     """AnsweredBy unit test stubs"""
 
+    
     def test_HUMAN_should_serialize_to_enum(self):
         expected = AnsweredBy.HUMAN
         calculated = AnsweredBy['HUMAN']
@@ -43,7 +43,6 @@ class TestAnsweredBy(unittest.TestCase):
         expected = "machine"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

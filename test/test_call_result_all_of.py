@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.answered_by import AnsweredBy
@@ -24,13 +24,13 @@ globals()['CallStatus'] = CallStatus
 
 from freeclimb.model.call_result_all_of import CallResultAllOf  # noqa: E501
 
-
 class TestCallResultAllOf(unittest.TestCase):
     """CallResultAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = CallResultAllOf()
-
+        self.model = CallResultAllOf(
+        )
+    
     def test_call_id(self):
         """Test CallResultAllOf.call_id"""
         self.model.call_id = "TEST_STRING"
@@ -97,13 +97,11 @@ class TestCallResultAllOf(unittest.TestCase):
 
     def test_duration(self):
         """Test CallResultAllOf.duration"""
-
         self.model.duration = 1
         assert self.model.get("duration") == 1
 
     def test_connect_duration(self):
         """Test CallResultAllOf.connect_duration"""
-
         self.model.connect_duration = 1
         assert self.model.get("connect_duration") == 1
 
@@ -128,7 +126,6 @@ class TestCallResultAllOf(unittest.TestCase):
         testObject = {}
         self.model.subresource_uris = testObject
         assert self.model.get("subresource_uris") == testObject
-
 
 if __name__ == '__main__':
     unittest.main()

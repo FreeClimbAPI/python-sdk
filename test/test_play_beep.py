@@ -11,16 +11,17 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.play_beep import PlayBeep  # noqa: E501
 
-
 class TestPlayBeep(unittest.TestCase):
     """PlayBeep unit test stubs"""
 
+    
     def test_ALWAYS_should_serialize_to_enum(self):
         expected = PlayBeep.ALWAYS
         calculated = PlayBeep['ALWAYS']
@@ -64,7 +65,6 @@ class TestPlayBeep(unittest.TestCase):
         expected = "exitOnly"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

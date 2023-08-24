@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.pagination_model import PaginationModel
@@ -23,46 +24,40 @@ globals()['SMSTenDLCBrandsListResultAllOf'] = SMSTenDLCBrandsListResultAllOf
 
 from freeclimb.model.sms_ten_dlc_brands_list_result import SMSTenDLCBrandsListResult  # noqa: E501
 
-
 class TestSMSTenDLCBrandsListResult(unittest.TestCase):
     """SMSTenDLCBrandsListResult unit test stubs"""
 
     def setUp(self):
-        self.model = SMSTenDLCBrandsListResult()
-
+        self.model = SMSTenDLCBrandsListResult(
+        )
+    
     def test_total(self):
         """Test SMSTenDLCBrandsListResult.total"""
-
         self.model.total = 1
         assert self.model.get("total") == 1
 
     def test_start(self):
         """Test SMSTenDLCBrandsListResult.start"""
-
         self.model.start = 1
         assert self.model.get("start") == 1
 
     def test_end(self):
         """Test SMSTenDLCBrandsListResult.end"""
-
         self.model.end = 1
         assert self.model.get("end") == 1
 
     def test_page(self):
         """Test SMSTenDLCBrandsListResult.page"""
-
         self.model.page = 1
         assert self.model.get("page") == 1
 
     def test_num_pages(self):
         """Test SMSTenDLCBrandsListResult.num_pages"""
-
         self.model.num_pages = 1
         assert self.model.get("num_pages") == 1
 
     def test_page_size(self):
         """Test SMSTenDLCBrandsListResult.page_size"""
-
         self.model.page_size = 1
         assert self.model.get("page_size") == 1
 
@@ -73,11 +68,9 @@ class TestSMSTenDLCBrandsListResult(unittest.TestCase):
 
     def test_brands(self):
         """Test SMSTenDLCBrandsListResult.brands"""
-
         testList = []
         self.model.brands = testList
         assert self.model.get("brands") == testList
-
 
 if __name__ == '__main__':
     unittest.main()

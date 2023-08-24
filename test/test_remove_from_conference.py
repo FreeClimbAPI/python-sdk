@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -69,13 +70,15 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.remove_from_conference import RemoveFromConference  # noqa: E501
 
-
 class TestRemoveFromConference(unittest.TestCase):
     """RemoveFromConference unit test stubs"""
 
     def setUp(self):
-        self.model = RemoveFromConference(call_id="TEST_ID")
-
+        self.model = RemoveFromConference(
+            call_id="",
+            
+        )
+    
     def test_call_id(self):
         """Test RemoveFromConference.call_id"""
         self.model.call_id = "TEST_STRING"
@@ -83,7 +86,6 @@ class TestRemoveFromConference(unittest.TestCase):
 
     def test_command_test(self):
         assert self.model.command == "RemoveFromConference"
-
 
 if __name__ == '__main__':
     unittest.main()

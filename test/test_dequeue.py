@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -68,16 +68,15 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.dequeue import Dequeue  # noqa: E501
 
-
 class TestDequeue(unittest.TestCase):
     """Dequeue unit test stubs"""
 
     def setUp(self):
-        self.model = Dequeue()
-
+        self.model = Dequeue(
+        )
+    
     def test_command_test(self):
         assert self.model.command == "Dequeue"
-
 
 if __name__ == '__main__':
     unittest.main()

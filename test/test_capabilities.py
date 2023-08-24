@@ -11,21 +11,30 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.capabilities import Capabilities  # noqa: E501
-
 
 class TestCapabilities(unittest.TestCase):
     """Capabilities unit test stubs"""
 
     def setUp(self):
         self.model = Capabilities(
-            sms=False, voice=False, toll_free=False, ten_dlc=False, short_code=False)
-
+            voice=True,
+            
+            sms=True,
+            
+            toll_free=True,
+            
+            ten_dlc=True,
+            
+            short_code=True,
+            
+        )
+    
     def test_voice(self):
         """Test Capabilities.voice"""
         self.model.voice = False
@@ -50,7 +59,6 @@ class TestCapabilities(unittest.TestCase):
         """Test Capabilities.short_code"""
         self.model.short_code = False
         assert self.model.get("short_code") == False
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.conference_participant_list_all_of import ConferenceParticipantListAllOf
@@ -24,46 +24,40 @@ globals()['PaginationModel'] = PaginationModel
 
 from freeclimb.model.conference_participant_list import ConferenceParticipantList  # noqa: E501
 
-
 class TestConferenceParticipantList(unittest.TestCase):
     """ConferenceParticipantList unit test stubs"""
 
     def setUp(self):
-        self.model = ConferenceParticipantList()
-
+        self.model = ConferenceParticipantList(
+        )
+    
     def test_total(self):
         """Test ConferenceParticipantList.total"""
-
         self.model.total = 1
         assert self.model.get("total") == 1
 
     def test_start(self):
         """Test ConferenceParticipantList.start"""
-
         self.model.start = 1
         assert self.model.get("start") == 1
 
     def test_end(self):
         """Test ConferenceParticipantList.end"""
-
         self.model.end = 1
         assert self.model.get("end") == 1
 
     def test_page(self):
         """Test ConferenceParticipantList.page"""
-
         self.model.page = 1
         assert self.model.get("page") == 1
 
     def test_num_pages(self):
         """Test ConferenceParticipantList.num_pages"""
-
         self.model.num_pages = 1
         assert self.model.get("num_pages") == 1
 
     def test_page_size(self):
         """Test ConferenceParticipantList.page_size"""
-
         self.model.page_size = 1
         assert self.model.get("page_size") == 1
 
@@ -74,11 +68,9 @@ class TestConferenceParticipantList(unittest.TestCase):
 
     def test_participants(self):
         """Test ConferenceParticipantList.participants"""
-
         testList = []
         self.model.participants = testList
         assert self.model.get("participants") == testList
-
 
 if __name__ == '__main__':
     unittest.main()

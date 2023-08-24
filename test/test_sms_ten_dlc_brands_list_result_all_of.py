@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.sms_ten_dlc_brand import SMSTenDLCBrand
@@ -19,20 +20,18 @@ globals()['SMSTenDLCBrand'] = SMSTenDLCBrand
 
 from freeclimb.model.sms_ten_dlc_brands_list_result_all_of import SMSTenDLCBrandsListResultAllOf  # noqa: E501
 
-
 class TestSMSTenDLCBrandsListResultAllOf(unittest.TestCase):
     """SMSTenDLCBrandsListResultAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = SMSTenDLCBrandsListResultAllOf()
-
+        self.model = SMSTenDLCBrandsListResultAllOf(
+        )
+    
     def test_brands(self):
         """Test SMSTenDLCBrandsListResultAllOf.brands"""
-
         testList = []
         self.model.brands = testList
         assert self.model.get("brands") == testList
-
 
 if __name__ == '__main__':
     unittest.main()

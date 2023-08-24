@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -65,13 +66,12 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.percl_command import PerclCommand  # noqa: E501
 
-
 class TestPerclCommand(unittest.TestCase):
     """PerclCommand unit test stubs"""
 
+    
     def test_command(self):
         """Test PerclCommand.command"""
-
 
 if __name__ == '__main__':
     unittest.main()

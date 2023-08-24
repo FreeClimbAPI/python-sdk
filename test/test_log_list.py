@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.log_list_all_of import LogListAllOf
@@ -23,46 +24,40 @@ globals()['PaginationModel'] = PaginationModel
 
 from freeclimb.model.log_list import LogList  # noqa: E501
 
-
 class TestLogList(unittest.TestCase):
     """LogList unit test stubs"""
 
     def setUp(self):
-        self.model = LogList()
-
+        self.model = LogList(
+        )
+    
     def test_total(self):
         """Test LogList.total"""
-
         self.model.total = 1
         assert self.model.get("total") == 1
 
     def test_start(self):
         """Test LogList.start"""
-
         self.model.start = 1
         assert self.model.get("start") == 1
 
     def test_end(self):
         """Test LogList.end"""
-
         self.model.end = 1
         assert self.model.get("end") == 1
 
     def test_page(self):
         """Test LogList.page"""
-
         self.model.page = 1
         assert self.model.get("page") == 1
 
     def test_num_pages(self):
         """Test LogList.num_pages"""
-
         self.model.num_pages = 1
         assert self.model.get("num_pages") == 1
 
     def test_page_size(self):
         """Test LogList.page_size"""
-
         self.model.page_size = 1
         assert self.model.get("page_size") == 1
 
@@ -73,11 +68,9 @@ class TestLogList(unittest.TestCase):
 
     def test_logs(self):
         """Test LogList.logs"""
-
         testList = []
         self.model.logs = testList
         assert self.model.get("logs") == testList
-
 
 if __name__ == '__main__':
     unittest.main()

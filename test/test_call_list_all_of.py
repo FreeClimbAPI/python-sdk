@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.call_result import CallResult
@@ -20,20 +20,18 @@ globals()['CallResult'] = CallResult
 
 from freeclimb.model.call_list_all_of import CallListAllOf  # noqa: E501
 
-
 class TestCallListAllOf(unittest.TestCase):
     """CallListAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = CallListAllOf()
-
+        self.model = CallListAllOf(
+        )
+    
     def test_calls(self):
         """Test CallListAllOf.calls"""
-
         testList = []
         self.model.calls = testList
         assert self.model.get("calls") == testList
-
 
 if __name__ == '__main__':
     unittest.main()

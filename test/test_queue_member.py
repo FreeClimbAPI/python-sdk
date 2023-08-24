@@ -11,19 +11,20 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.queue_member import QueueMember  # noqa: E501
 
-
 class TestQueueMember(unittest.TestCase):
     """QueueMember unit test stubs"""
 
     def setUp(self):
-        self.model = QueueMember()
-
+        self.model = QueueMember(
+        )
+    
     def test_uri(self):
         """Test QueueMember.uri"""
         self.model.uri = "TEST_STRING"
@@ -36,13 +37,11 @@ class TestQueueMember(unittest.TestCase):
 
     def test_wait_time(self):
         """Test QueueMember.wait_time"""
-
         self.model.wait_time = 1
         assert self.model.get("wait_time") == 1
 
     def test_position(self):
         """Test QueueMember.position"""
-
         self.model.position = 1
         assert self.model.get("position") == 1
 
@@ -50,7 +49,6 @@ class TestQueueMember(unittest.TestCase):
         """Test QueueMember.date_enqueued"""
         self.model.date_enqueued = "TEST_STRING"
         assert self.model.get("date_enqueued") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

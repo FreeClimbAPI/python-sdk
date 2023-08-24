@@ -11,16 +11,17 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.log_level import LogLevel  # noqa: E501
 
-
 class TestLogLevel(unittest.TestCase):
     """LogLevel unit test stubs"""
 
+    
     def test_INFO_should_serialize_to_enum(self):
         expected = LogLevel.INFO
         calculated = LogLevel['INFO']
@@ -53,7 +54,6 @@ class TestLogLevel(unittest.TestCase):
         expected = "error"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

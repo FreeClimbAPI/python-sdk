@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.message_result import MessageResult
@@ -19,20 +20,18 @@ globals()['MessageResult'] = MessageResult
 
 from freeclimb.model.messages_list_all_of import MessagesListAllOf  # noqa: E501
 
-
 class TestMessagesListAllOf(unittest.TestCase):
     """MessagesListAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = MessagesListAllOf()
-
+        self.model = MessagesListAllOf(
+        )
+    
     def test_messages(self):
         """Test MessagesListAllOf.messages"""
-
         testList = []
         self.model.messages = testList
         assert self.model.get("messages") == testList
-
 
 if __name__ == '__main__':
     unittest.main()

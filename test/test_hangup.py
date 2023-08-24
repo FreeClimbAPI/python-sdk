@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -69,13 +70,13 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.hangup import Hangup  # noqa: E501
 
-
 class TestHangup(unittest.TestCase):
     """Hangup unit test stubs"""
 
     def setUp(self):
-        self.model = Hangup()
-
+        self.model = Hangup(
+        )
+    
     def test_reason(self):
         """Test Hangup.reason"""
         self.model.reason = "TEST_STRING"
@@ -83,7 +84,6 @@ class TestHangup(unittest.TestCase):
 
     def test_command_test(self):
         assert self.model.command == "Hangup"
-
 
 if __name__ == '__main__':
     unittest.main()

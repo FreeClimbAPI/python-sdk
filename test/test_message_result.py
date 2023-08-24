@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.message_result_all_of import MessageResultAllOf
@@ -23,13 +24,13 @@ globals()['MutableResourceModel'] = MutableResourceModel
 
 from freeclimb.model.message_result import MessageResult  # noqa: E501
 
-
 class TestMessageResult(unittest.TestCase):
     """MessageResult unit test stubs"""
 
     def setUp(self):
-        self.model = MessageResult()
-
+        self.model = MessageResult(
+        )
+    
     def test_uri(self):
         """Test MessageResult.uri"""
         self.model.uri = "TEST_STRING"
@@ -47,7 +48,6 @@ class TestMessageResult(unittest.TestCase):
 
     def test_revision(self):
         """Test MessageResult.revision"""
-
         self.model.revision = 1
         assert self.model.get("revision") == 1
 
@@ -111,6 +111,20 @@ class TestMessageResult(unittest.TestCase):
         self.model.notification_url = "TEST_STRING"
         assert self.model.get("notification_url") == "TEST_STRING"
 
+    def test_brand_id(self):
+        """Test MessageResult.brand_id"""
+        self.model.brand_id = "TEST_STRING"
+        assert self.model.get("brand_id") == "TEST_STRING"
+
+    def test_campaign_id(self):
+        """Test MessageResult.campaign_id"""
+        self.model.campaign_id = "TEST_STRING"
+        assert self.model.get("campaign_id") == "TEST_STRING"
+
+    def test_segment_count(self):
+        """Test MessageResult.segment_count"""
+        self.model.segment_count = float(1) 
+        assert self.model.get("segment_count") == float(1)
 
 if __name__ == '__main__':
     unittest.main()

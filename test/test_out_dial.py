@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -71,14 +72,21 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.out_dial import OutDial  # noqa: E501
 
-
 class TestOutDial(unittest.TestCase):
     """OutDial unit test stubs"""
 
     def setUp(self):
-        self.model = OutDial(action_url="TEST_URL", call_connect_url="TEST_URL",
-                             calling_number="+11231231234", destination="+11231231234")
-
+        self.model = OutDial(
+            action_url="",
+            
+            call_connect_url="",
+            
+            calling_number="",
+            
+            destination="",
+            
+        )
+    
     def test_action_url(self):
         """Test OutDial.action_url"""
         self.model.action_url = "TEST_STRING"
@@ -123,7 +131,6 @@ class TestOutDial(unittest.TestCase):
 
     def test_timeout(self):
         """Test OutDial.timeout"""
-
         self.model.timeout = 1
         assert self.model.get("timeout") == 1
 
@@ -134,7 +141,6 @@ class TestOutDial(unittest.TestCase):
 
     def test_command_test(self):
         assert self.model.command == "OutDial"
-
 
 if __name__ == '__main__':
     unittest.main()

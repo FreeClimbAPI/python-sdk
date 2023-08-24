@@ -18,20 +18,22 @@ import freeclimb
 
 from freeclimb.model.sms_ten_dlc_brand import SMSTenDLCBrand  # noqa: E501
 
-
 class TestSMSTenDLCBrand(unittest.TestCase):
     """SMSTenDLCBrand unit test stubs"""
 
     def setUp(self):
-        self.model = SMSTenDLCBrand(entity_type="PRIVATE_PROFIT", display_name="TEST_STRING",
-                                    phone="TEST_STRING",
-                                    country="TS",
-                                    email="TEST_STRING",
-                                    brand_relationship="BASIC_ACCOUNT",
-                                    vertical="TEST_STRING",
-                                    mock=True,
-                                    identity_status="VERIFIED")
-
+        self.model = SMSTenDLCBrand(
+            entity_type="PRIVATE_PROFIT",
+            display_name="",
+            phone="",
+            country="",
+            email="",
+            brand_relationship="BASIC_ACCOUNT",
+            vertical="",
+            mock=True,
+            identity_status="SELF_DECLARED",
+        )
+    
     def test_account_id(self):
         """Test SMSTenDLCBrand.account_id"""
         self.model.account_id = "TEST_STRING"
@@ -39,19 +41,14 @@ class TestSMSTenDLCBrand(unittest.TestCase):
 
     def test_entity_type(self):
         """Test SMSTenDLCBrand.entity_type"""
-
         self.model.entity_type = "PRIVATE_PROFIT"
         assert self.model.get("entity_type") == "PRIVATE_PROFIT"
-
         self.model.entity_type = "PUBLIC_PROFIT"
         assert self.model.get("entity_type") == "PUBLIC_PROFIT"
-
         self.model.entity_type = "NON_PROFIT"
         assert self.model.get("entity_type") == "NON_PROFIT"
-
         self.model.entity_type = "GOVERNMENT"
         assert self.model.get("entity_type") == "GOVERNMENT"
-
         self.model.entity_type = "SOLE_PROPRIETOR"
         assert self.model.get("entity_type") == "SOLE_PROPRIETOR"
 
@@ -60,7 +57,6 @@ class TestSMSTenDLCBrand(unittest.TestCase):
             self.model.entity_type = "INVALID_ENUM"
         exception_raised = info.value
         assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
-
     def test_csp_id(self):
         """Test SMSTenDLCBrand.csp_id"""
         self.model.csp_id = "TEST_STRING"
@@ -73,155 +69,184 @@ class TestSMSTenDLCBrand(unittest.TestCase):
 
     def test_first_name(self):
         """Test SMSTenDLCBrand.first_name"""
-        self.model.first_name = "TEST_STRING"
-        assert self.model.get("first_name") == "TEST_STRING"
+        self.model.first_name = "T" * 100
+        assert self.model.get("first_name") == "T" * 100
+        
+        with pytest.raises(Exception):
+            self.model.first_name = "T" * 100
+            assert self.model.get("first_name") == "T" * (100 + 1)
 
     def test_last_name(self):
         """Test SMSTenDLCBrand.last_name"""
-        self.model.last_name = "TEST_STRING"
-        assert self.model.get("last_name") == "TEST_STRING"
+        self.model.last_name = "T" * 100
+        assert self.model.get("last_name") == "T" * 100
+        
+        with pytest.raises(Exception):
+            self.model.last_name = "T" * 100
+            assert self.model.get("last_name") == "T" * (100 + 1)
 
     def test_display_name(self):
         """Test SMSTenDLCBrand.display_name"""
-        self.model.display_name = "TEST_STRING"
-        assert self.model.get("display_name") == "TEST_STRING"
+        self.model.display_name = "T" * 255
+        assert self.model.get("display_name") == "T" * 255
+        
+        with pytest.raises(Exception):
+            self.model.display_name = "T" * 255
+            assert self.model.get("display_name") == "T" * (255 + 1)
 
     def test_company_name(self):
         """Test SMSTenDLCBrand.company_name"""
-        self.model.company_name = "TEST_STRING"
-        assert self.model.get("company_name") == "TEST_STRING"
+        self.model.company_name = "T" * 255
+        assert self.model.get("company_name") == "T" * 255
+        
+        with pytest.raises(Exception):
+            self.model.company_name = "T" * 255
+            assert self.model.get("company_name") == "T" * (255 + 1)
 
     def test_ein(self):
         """Test SMSTenDLCBrand.ein"""
-        self.model.ein = "TEST_STRING"
-        assert self.model.get("ein") == "TEST_STRING"
+        self.model.ein = "T" * 21
+        assert self.model.get("ein") == "T" * 21
+        
+        with pytest.raises(Exception):
+            self.model.ein = "T" * 21
+            assert self.model.get("ein") == "T" * (21 + 1)
 
     def test_ein_issuing_country(self):
         """Test SMSTenDLCBrand.ein_issuing_country"""
-        self.model.ein_issuing_country = "TS"
-        assert self.model.get("ein_issuing_country") == "TS"
+        self.model.ein_issuing_country = "T" * 2
+        assert self.model.get("ein_issuing_country") == "T" * 2
+        
+        with pytest.raises(Exception):
+            self.model.ein_issuing_country = "T" * 2
+            assert self.model.get("ein_issuing_country") == "T" * (2 + 1)
 
     def test_phone(self):
         """Test SMSTenDLCBrand.phone"""
-        self.model.phone = "TEST_STRING"
-        assert self.model.get("phone") == "TEST_STRING"
+        self.model.phone = "T" * 20
+        assert self.model.get("phone") == "T" * 20
+        
+        with pytest.raises(Exception):
+            self.model.phone = "T" * 20
+            assert self.model.get("phone") == "T" * (20 + 1)
 
     def test_street(self):
         """Test SMSTenDLCBrand.street"""
-        self.model.street = "TEST_STRING"
-        assert self.model.get("street") == "TEST_STRING"
+        self.model.street = "T" * 100
+        assert self.model.get("street") == "T" * 100
+        
+        with pytest.raises(Exception):
+            self.model.street = "T" * 100
+            assert self.model.get("street") == "T" * (100 + 1)
 
     def test_city(self):
         """Test SMSTenDLCBrand.city"""
-        self.model.city = "TEST_STRING"
-        assert self.model.get("city") == "TEST_STRING"
+        self.model.city = "T" * 100
+        assert self.model.get("city") == "T" * 100
+        
+        with pytest.raises(Exception):
+            self.model.city = "T" * 100
+            assert self.model.get("city") == "T" * (100 + 1)
 
     def test_state(self):
         """Test SMSTenDLCBrand.state"""
-        self.model.state = "TEST_STRING"
-        assert self.model.get("state") == "TEST_STRING"
+        self.model.state = "T" * 20
+        assert self.model.get("state") == "T" * 20
+        
+        with pytest.raises(Exception):
+            self.model.state = "T" * 20
+            assert self.model.get("state") == "T" * (20 + 1)
 
     def test_postal_code(self):
         """Test SMSTenDLCBrand.postal_code"""
-        self.model.postal_code = "TEST_STR"
-        assert self.model.get("postal_code") == "TEST_STR"
+        self.model.postal_code = "T" * 10
+        assert self.model.get("postal_code") == "T" * 10
+        
+        with pytest.raises(Exception):
+            self.model.postal_code = "T" * 10
+            assert self.model.get("postal_code") == "T" * (10 + 1)
 
     def test_country(self):
         """Test SMSTenDLCBrand.country"""
-        self.model.country = "TS"
-        assert self.model.get("country") == "TS"
+        self.model.country = "T" * 2
+        assert self.model.get("country") == "T" * 2
+        
+        with pytest.raises(Exception):
+            self.model.country = "T" * 2
+            assert self.model.get("country") == "T" * (2 + 1)
 
     def test_email(self):
         """Test SMSTenDLCBrand.email"""
-        self.model.email = "TEST_STRING"
-        assert self.model.get("email") == "TEST_STRING"
+        self.model.email = "T" * 100
+        assert self.model.get("email") == "T" * 100
+        
+        with pytest.raises(Exception):
+            self.model.email = "T" * 100
+            assert self.model.get("email") == "T" * (100 + 1)
 
     def test_stock_symbol(self):
         """Test SMSTenDLCBrand.stock_symbol"""
-        self.model.stock_symbol = "TEST_STR"
-        assert self.model.get("stock_symbol") == "TEST_STR"
+        self.model.stock_symbol = "T" * 10
+        assert self.model.get("stock_symbol") == "T" * 10
+        
+        with pytest.raises(Exception):
+            self.model.stock_symbol = "T" * 10
+            assert self.model.get("stock_symbol") == "T" * (10 + 1)
 
     def test_stock_exchange(self):
         """Test SMSTenDLCBrand.stock_exchange"""
-
         self.model.stock_exchange = "NONE"
         assert self.model.get("stock_exchange") == "NONE"
-
         self.model.stock_exchange = "NASDAQ"
         assert self.model.get("stock_exchange") == "NASDAQ"
-
         self.model.stock_exchange = "NYSE"
         assert self.model.get("stock_exchange") == "NYSE"
-
         self.model.stock_exchange = "AMEX"
         assert self.model.get("stock_exchange") == "AMEX"
-
         self.model.stock_exchange = "AMX"
         assert self.model.get("stock_exchange") == "AMX"
-
         self.model.stock_exchange = "ASX"
         assert self.model.get("stock_exchange") == "ASX"
-
         self.model.stock_exchange = "B3"
         assert self.model.get("stock_exchange") == "B3"
-
         self.model.stock_exchange = "BME"
         assert self.model.get("stock_exchange") == "BME"
-
         self.model.stock_exchange = "BSE"
         assert self.model.get("stock_exchange") == "BSE"
-
         self.model.stock_exchange = "FRA"
         assert self.model.get("stock_exchange") == "FRA"
-
         self.model.stock_exchange = "ICEX"
         assert self.model.get("stock_exchange") == "ICEX"
-
         self.model.stock_exchange = "JPX"
         assert self.model.get("stock_exchange") == "JPX"
-
         self.model.stock_exchange = "JSE"
         assert self.model.get("stock_exchange") == "JSE"
-
         self.model.stock_exchange = "KRX"
         assert self.model.get("stock_exchange") == "KRX"
-
         self.model.stock_exchange = "LON"
         assert self.model.get("stock_exchange") == "LON"
-
         self.model.stock_exchange = "NSE"
         assert self.model.get("stock_exchange") == "NSE"
-
         self.model.stock_exchange = "OMX"
         assert self.model.get("stock_exchange") == "OMX"
-
         self.model.stock_exchange = "SEHK"
         assert self.model.get("stock_exchange") == "SEHK"
-
         self.model.stock_exchange = "SGX"
         assert self.model.get("stock_exchange") == "SGX"
-
         self.model.stock_exchange = "SSE"
         assert self.model.get("stock_exchange") == "SSE"
-
         self.model.stock_exchange = "STO"
         assert self.model.get("stock_exchange") == "STO"
-
         self.model.stock_exchange = "SWX"
         assert self.model.get("stock_exchange") == "SWX"
-
         self.model.stock_exchange = "SZSE"
         assert self.model.get("stock_exchange") == "SZSE"
-
         self.model.stock_exchange = "TSX"
         assert self.model.get("stock_exchange") == "TSX"
-
         self.model.stock_exchange = "TWSE"
         assert self.model.get("stock_exchange") == "TWSE"
-
         self.model.stock_exchange = "VSE"
         assert self.model.get("stock_exchange") == "VSE"
-
         self.model.stock_exchange = "OTHER"
         assert self.model.get("stock_exchange") == "OTHER"
 
@@ -230,32 +255,34 @@ class TestSMSTenDLCBrand(unittest.TestCase):
             self.model.stock_exchange = "INVALID_ENUM"
         exception_raised = info.value
         assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
-
     def test_ip_address(self):
         """Test SMSTenDLCBrand.ip_address"""
-        self.model.ip_address = "TEST_STRING"
-        assert self.model.get("ip_address") == "TEST_STRING"
+        self.model.ip_address = "T" * 50
+        assert self.model.get("ip_address") == "T" * 50
+        
+        with pytest.raises(Exception):
+            self.model.ip_address = "T" * 50
+            assert self.model.get("ip_address") == "T" * (50 + 1)
 
     def test_website(self):
         """Test SMSTenDLCBrand.website"""
-        self.model.website = "TEST_STRING"
-        assert self.model.get("website") == "TEST_STRING"
+        self.model.website = "T" * 100
+        assert self.model.get("website") == "T" * 100
+        
+        with pytest.raises(Exception):
+            self.model.website = "T" * 100
+            assert self.model.get("website") == "T" * (100 + 1)
 
     def test_brand_relationship(self):
         """Test SMSTenDLCBrand.brand_relationship"""
-
         self.model.brand_relationship = "BASIC_ACCOUNT"
         assert self.model.get("brand_relationship") == "BASIC_ACCOUNT"
-
         self.model.brand_relationship = "SMALL_ACCOUNT"
         assert self.model.get("brand_relationship") == "SMALL_ACCOUNT"
-
         self.model.brand_relationship = "MEDIUM_ACCOUNT"
         assert self.model.get("brand_relationship") == "MEDIUM_ACCOUNT"
-
         self.model.brand_relationship = "LARGE_ACCOUNT"
         assert self.model.get("brand_relationship") == "LARGE_ACCOUNT"
-
         self.model.brand_relationship = "KEY_ACCOUNT"
         assert self.model.get("brand_relationship") == "KEY_ACCOUNT"
 
@@ -264,29 +291,32 @@ class TestSMSTenDLCBrand(unittest.TestCase):
             self.model.brand_relationship = "INVALID_ENUM"
         exception_raised = info.value
         assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
-
     def test_vertical(self):
         """Test SMSTenDLCBrand.vertical"""
-        self.model.vertical = "TEST_STRING"
-        assert self.model.get("vertical") == "TEST_STRING"
+        self.model.vertical = "T" * 50
+        assert self.model.get("vertical") == "T" * 50
+        
+        with pytest.raises(Exception):
+            self.model.vertical = "T" * 50
+            assert self.model.get("vertical") == "T" * (50 + 1)
 
     def test_alt_business_id(self):
         """Test SMSTenDLCBrand.alt_business_id"""
-        self.model.alt_business_id = "TEST_STRING"
-        assert self.model.get("alt_business_id") == "TEST_STRING"
+        self.model.alt_business_id = "T" * 50
+        assert self.model.get("alt_business_id") == "T" * 50
+        
+        with pytest.raises(Exception):
+            self.model.alt_business_id = "T" * 50
+            assert self.model.get("alt_business_id") == "T" * (50 + 1)
 
     def test_alt_business_id_type(self):
         """Test SMSTenDLCBrand.alt_business_id_type"""
-
         self.model.alt_business_id_type = "NONE"
         assert self.model.get("alt_business_id_type") == "NONE"
-
         self.model.alt_business_id_type = "DUNS"
         assert self.model.get("alt_business_id_type") == "DUNS"
-
         self.model.alt_business_id_type = "GIIN"
         assert self.model.get("alt_business_id_type") == "GIIN"
-
         self.model.alt_business_id_type = "LEI"
         assert self.model.get("alt_business_id_type") == "LEI"
 
@@ -295,7 +325,6 @@ class TestSMSTenDLCBrand(unittest.TestCase):
             self.model.alt_business_id_type = "INVALID_ENUM"
         exception_raised = info.value
         assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
-
     def test_universal_ein(self):
         """Test SMSTenDLCBrand.universal_ein"""
         self.model.universal_ein = "TEST_STRING"
@@ -303,12 +332,15 @@ class TestSMSTenDLCBrand(unittest.TestCase):
 
     def test_reference_id(self):
         """Test SMSTenDLCBrand.reference_id"""
-        self.model.reference_id = "TEST_STRING"
-        assert self.model.get("reference_id") == "TEST_STRING"
+        self.model.reference_id = "T" * 50
+        assert self.model.get("reference_id") == "T" * 50
+        
+        with pytest.raises(Exception):
+            self.model.reference_id = "T" * 50
+            assert self.model.get("reference_id") == "T" * (50 + 1)
 
     def test_optional_attributes(self):
         """Test SMSTenDLCBrand.optional_attributes"""
-
         self.model.optional_attributes = {}
         assert self.model.get("optional_attributes") == {}
 
@@ -319,16 +351,12 @@ class TestSMSTenDLCBrand(unittest.TestCase):
 
     def test_identity_status(self):
         """Test SMSTenDLCBrand.identity_status"""
-
         self.model.identity_status = "SELF_DECLARED"
         assert self.model.get("identity_status") == "SELF_DECLARED"
-
         self.model.identity_status = "UNVERIFIED"
         assert self.model.get("identity_status") == "UNVERIFIED"
-
         self.model.identity_status = "VERIFIED"
         assert self.model.get("identity_status") == "VERIFIED"
-
         self.model.identity_status = "VETTED_VERIFIED"
         assert self.model.get("identity_status") == "VETTED_VERIFIED"
 
@@ -337,13 +365,10 @@ class TestSMSTenDLCBrand(unittest.TestCase):
             self.model.identity_status = "INVALID_ENUM"
         exception_raised = info.value
         assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
-
     def test_create_date(self):
         """Test SMSTenDLCBrand.create_date"""
         self.model.create_date = datetime.fromtimestamp(1691592436)
-        assert self.model.get(
-            "create_date") == datetime.fromtimestamp(1691592436)
-
+        assert self.model.get("create_date") == datetime.fromtimestamp(1691592436)
 
 if __name__ == '__main__':
     unittest.main()

@@ -12,6 +12,7 @@
 import sys
 import unittest
 from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -69,13 +70,15 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.terminate_conference import TerminateConference  # noqa: E501
 
-
 class TestTerminateConference(unittest.TestCase):
     """TerminateConference unit test stubs"""
 
     def setUp(self):
-        self.model = TerminateConference(conference_id="TEST_STRING")
-
+        self.model = TerminateConference(
+            conference_id="",
+            
+        )
+    
     def test_conference_id(self):
         """Test TerminateConference.conference_id"""
         self.model.conference_id = "TEST_STRING"
@@ -83,7 +86,6 @@ class TestTerminateConference(unittest.TestCase):
 
     def test_command_test(self):
         assert self.model.command == "TerminateConference"
-
 
 if __name__ == '__main__':
     unittest.main()

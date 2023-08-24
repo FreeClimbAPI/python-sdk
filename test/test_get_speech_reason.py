@@ -11,16 +11,17 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.get_speech_reason import GetSpeechReason  # noqa: E501
 
-
 class TestGetSpeechReason(unittest.TestCase):
     """GetSpeechReason unit test stubs"""
 
+    
     def test_ERROR_should_serialize_to_enum(self):
         expected = GetSpeechReason.ERROR
         calculated = GetSpeechReason['ERROR']
@@ -86,7 +87,6 @@ class TestGetSpeechReason(unittest.TestCase):
         expected = "recognition"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

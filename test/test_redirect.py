@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -69,13 +70,15 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.redirect import Redirect  # noqa: E501
 
-
 class TestRedirect(unittest.TestCase):
     """Redirect unit test stubs"""
 
     def setUp(self):
-        self.model = Redirect(action_url="TEST_URL")
-
+        self.model = Redirect(
+            action_url="",
+            
+        )
+    
     def test_action_url(self):
         """Test Redirect.action_url"""
         self.model.action_url = "TEST_STRING"
@@ -83,7 +86,6 @@ class TestRedirect(unittest.TestCase):
 
     def test_command_test(self):
         assert self.model.command == "Redirect"
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,16 +11,17 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.message_status import MessageStatus  # noqa: E501
 
-
 class TestMessageStatus(unittest.TestCase):
     """MessageStatus unit test stubs"""
 
+    
     def test_NEW_should_serialize_to_enum(self):
         expected = MessageStatus.NEW
         calculated = MessageStatus['NEW']
@@ -141,7 +142,6 @@ class TestMessageStatus(unittest.TestCase):
         expected = "unknown"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

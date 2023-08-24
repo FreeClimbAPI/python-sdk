@@ -2554,6 +2554,9 @@ class DefaultApi(object):
                     'begin_time',
                     'end_time',
                     'direction',
+                    'campaign_id',
+                    'brand_id',
+                    'is10_dlc',
                 ],
                 'required': [
                     'account_id',
@@ -2583,6 +2586,12 @@ class DefaultApi(object):
                         (str,),
                     'direction':
                         (MessageDirection,),
+                    'campaign_id':
+                        (str,),
+                    'brand_id':
+                        (str,),
+                    'is10_dlc':
+                        (bool,),
                 },
                 'attribute_map': {
                     'account_id': 'accountId',
@@ -2591,6 +2600,9 @@ class DefaultApi(object):
                     'begin_time': 'beginTime',
                     'end_time': 'endTime',
                     'direction': 'direction',
+                    'campaign_id': 'campaignId',
+                    'brand_id': 'brandId',
+                    'is10_dlc': 'is10DLC',
                 },
                 'location_map': {
                     'account_id': 'path',
@@ -2599,6 +2611,9 @@ class DefaultApi(object):
                     'begin_time': 'query',
                     'end_time': 'query',
                     'direction': 'query',
+                    'campaign_id': 'query',
+                    'brand_id': 'query',
+                    'is10_dlc': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -6735,6 +6750,9 @@ class DefaultApi(object):
             begin_time (str): Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*.. [optional]
             end_time (str): Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*... [optional]
             direction (MessageDirection): Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb.. [optional]
+            campaign_id (str): Only show messages associated with this campaign ID.. [optional]
+            brand_id (str): Only show messages associated with this brand ID. [optional]
+            is10_dlc (bool): Only show messages that were sent as part of a 10DLC campaign.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

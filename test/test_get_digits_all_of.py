@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.percl_command import PerclCommand
@@ -20,13 +20,15 @@ globals()['PerclCommand'] = PerclCommand
 
 from freeclimb.model.get_digits_all_of import GetDigitsAllOf  # noqa: E501
 
-
 class TestGetDigitsAllOf(unittest.TestCase):
     """GetDigitsAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = GetDigitsAllOf(action_url="TEST_URL")
-
+        self.model = GetDigitsAllOf(
+            action_url="",
+            
+        )
+    
     def test_action_url(self):
         """Test GetDigitsAllOf.action_url"""
         self.model.action_url = "TEST_STRING"
@@ -34,7 +36,6 @@ class TestGetDigitsAllOf(unittest.TestCase):
 
     def test_digit_timeout_ms(self):
         """Test GetDigitsAllOf.digit_timeout_ms"""
-
         self.model.digit_timeout_ms = 1
         assert self.model.get("digit_timeout_ms") == 1
 
@@ -55,19 +56,16 @@ class TestGetDigitsAllOf(unittest.TestCase):
 
     def test_max_digits(self):
         """Test GetDigitsAllOf.max_digits"""
-
         self.model.max_digits = 1
         assert self.model.get("max_digits") == 1
 
     def test_min_digits(self):
         """Test GetDigitsAllOf.min_digits"""
-
         self.model.min_digits = 1
         assert self.model.get("min_digits") == 1
 
     def test_prompts(self):
         """Test GetDigitsAllOf.prompts"""
-
         testList = []
         self.model.prompts = testList
         assert self.model.get("prompts") == testList
@@ -76,7 +74,6 @@ class TestGetDigitsAllOf(unittest.TestCase):
         """Test GetDigitsAllOf.privacy_mode"""
         self.model.privacy_mode = False
         assert self.model.get("privacy_mode") == False
-
 
 if __name__ == '__main__':
     unittest.main()

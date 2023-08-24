@@ -11,17 +11,17 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.call_direction import CallDirection  # noqa: E501
 
-
 class TestCallDirection(unittest.TestCase):
     """CallDirection unit test stubs"""
 
+    
     def test_INBOUND_should_serialize_to_enum(self):
         expected = CallDirection.INBOUND
         calculated = CallDirection['INBOUND']
@@ -54,7 +54,6 @@ class TestCallDirection(unittest.TestCase):
         expected = "outboundDial"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

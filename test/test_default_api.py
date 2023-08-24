@@ -685,9 +685,12 @@ class TestDefaultApi(unittest.TestCase):
         begin_time = begin_time_list_sms_messages_test_value
         end_time = end_time_list_sms_messages_test_value
         direction = direction_list_sms_messages_test_value
+        campaign_id = campaign_id_list_sms_messages_test_value
+        brand_id = brand_id_list_sms_messages_test_value
+        is10_dlc = is10_dlc_list_sms_messages_test_value
 
 
-        api_response = self.api.list_sms_messages(to=to,_from=_from,begin_time=begin_time,end_time=end_time,direction=direction)
+        api_response = self.api.list_sms_messages(to=to,_from=_from,begin_time=begin_time,end_time=end_time,direction=direction,campaign_id=campaign_id,brand_id=brand_id,is10_dlc=is10_dlc)
         
         assert isinstance(api_response, MessagesList)
 
@@ -1052,6 +1055,12 @@ campaign_id_get_ten_dlc_sms_partner_campaign_test_value = "CX56XX4"
 
 has_campaign_list_incoming_numbers_test_value = True
 
+campaign_id_list_sms_messages_test_value = "CX56XX4"
+
+brand_id_list_sms_messages_test_value = "BX56XX4"
+
+is10_dlc_list_sms_messages_test_value = True
+
 queue_request_update_a_queue_test_value = QueueRequest(
         alias="alias_example",
         max_size=100,
@@ -1109,6 +1118,8 @@ incoming_number_request_update_an_incoming_number_test_value = IncomingNumberReq
         application_id="application_id_example",
         alias="alias_example",
 )
+
+
 
 if __name__ == '__main__':
     unittest.main()

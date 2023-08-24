@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.conference_result import ConferenceResult
@@ -20,20 +20,18 @@ globals()['ConferenceResult'] = ConferenceResult
 
 from freeclimb.model.conference_list_all_of import ConferenceListAllOf  # noqa: E501
 
-
 class TestConferenceListAllOf(unittest.TestCase):
     """ConferenceListAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = ConferenceListAllOf()
-
+        self.model = ConferenceListAllOf(
+        )
+    
     def test_conferences(self):
         """Test ConferenceListAllOf.conferences"""
-
         testList = []
         self.model.conferences = testList
         assert self.model.get("conferences") == testList
-
 
 if __name__ == '__main__':
     unittest.main()

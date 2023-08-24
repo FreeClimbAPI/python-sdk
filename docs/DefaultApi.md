@@ -3398,6 +3398,9 @@ with freeclimb.ApiClient(configuration) as api_client:
     begin_time = "beginTime_example" # str | Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*. (optional)
     end_time = "endTime_example" # str | Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*.. (optional)
     direction = MessageDirection("inbound") # MessageDirection | Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb. (optional)
+    campaign_id = "campaignId_example" # str | Only show messages associated with this campaign ID. (optional)
+    brand_id = "brandId_example" # str | Only show messages associated with this brand ID (optional)
+    is10_dlc = True # bool | Only show messages that were sent as part of a 10DLC campaign. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -3411,7 +3414,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List SMS Messages
-        api_response = api_instance.list_sms_messages(to=to, _from=_from, begin_time=begin_time, end_time=end_time, direction=direction)
+        api_response = api_instance.list_sms_messages(to=to, _from=_from, begin_time=begin_time, end_time=end_time, direction=direction, campaign_id=campaign_id, brand_id=brand_id, is10_dlc=is10_dlc)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_sms_messages: %s\n" % e)
@@ -3427,6 +3430,9 @@ Name | Type | Description  | Notes
  **begin_time** | **str**| Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*. | [optional]
  **end_time** | **str**| Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*.. | [optional]
  **direction** | **MessageDirection**| Either &#x60;inbound&#x60; or &#x60;outbound&#x60;. Only show Messages that were either *sent from* or *received by* FreeClimb. | [optional]
+ **campaign_id** | **str**| Only show messages associated with this campaign ID. | [optional]
+ **brand_id** | **str**| Only show messages associated with this brand ID | [optional]
+ **is10_dlc** | **bool**| Only show messages that were sent as part of a 10DLC campaign. | [optional]
 
 ### Return type
 

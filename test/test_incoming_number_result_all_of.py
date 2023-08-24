@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.capabilities import Capabilities
@@ -19,17 +20,16 @@ globals()['Capabilities'] = Capabilities
 
 from freeclimb.model.incoming_number_result_all_of import IncomingNumberResultAllOf  # noqa: E501
 
-
 class TestIncomingNumberResultAllOf(unittest.TestCase):
     """IncomingNumberResultAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = IncomingNumberResultAllOf()
-
+        self.model = IncomingNumberResultAllOf(
+        )
+    
     def test_capabilities(self):
         """Test IncomingNumberResultAllOf.capabilities"""
-        object = Capabilities(sms=False, voice=False,
-                              toll_free=False, ten_dlc=False, short_code=False)
+        object = Capabilities(sms=False, voice=False, toll_free=False, ten_dlc=False, short_code=False)
         self.model.capabilities = object
         assert self.model.get("capabilities", object)
 
@@ -87,7 +87,6 @@ class TestIncomingNumberResultAllOf(unittest.TestCase):
         """Test IncomingNumberResultAllOf.offnet"""
         self.model.offnet = False
         assert self.model.get("offnet") == False
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,20 +11,22 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.add_to_conference_all_of import AddToConferenceAllOf  # noqa: E501
 
-
 class TestAddToConferenceAllOf(unittest.TestCase):
     """AddToConferenceAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = AddToConferenceAllOf(conference_id="TEST_ID")
-
+        self.model = AddToConferenceAllOf(
+            conference_id="",
+            
+        )
+    
     def test_allow_call_control(self):
         """Test AddToConferenceAllOf.allow_call_control"""
         self.model.allow_call_control = False
@@ -74,7 +76,6 @@ class TestAddToConferenceAllOf(unittest.TestCase):
         """Test AddToConferenceAllOf.talk"""
         self.model.talk = False
         assert self.model.get("talk") == False
-
 
 if __name__ == '__main__':
     unittest.main()

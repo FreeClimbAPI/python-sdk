@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.account_result_all_of import AccountResultAllOf
@@ -26,13 +26,13 @@ globals()['MutableResourceModel'] = MutableResourceModel
 
 from freeclimb.model.account_result import AccountResult  # noqa: E501
 
-
 class TestAccountResult(unittest.TestCase):
     """AccountResult unit test stubs"""
 
     def setUp(self):
-        self.model = AccountResult()
-
+        self.model = AccountResult(
+        )
+    
     def test_uri(self):
         """Test AccountResult.uri"""
         self.model.uri = "TEST_STRING"
@@ -50,7 +50,6 @@ class TestAccountResult(unittest.TestCase):
 
     def test_revision(self):
         """Test AccountResult.revision"""
-
         self.model.revision = 1
         assert self.model.get("revision") == 1
 
@@ -95,7 +94,6 @@ class TestAccountResult(unittest.TestCase):
         testObject = {}
         self.model.subresource_uris = testObject
         assert self.model.get("subresource_uris") == testObject
-
 
 if __name__ == '__main__':
     unittest.main()

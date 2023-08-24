@@ -11,19 +11,20 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.queue_result_all_of import QueueResultAllOf  # noqa: E501
 
-
 class TestQueueResultAllOf(unittest.TestCase):
     """QueueResultAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = QueueResultAllOf()
-
+        self.model = QueueResultAllOf(
+        )
+    
     def test_account_id(self):
         """Test QueueResultAllOf.account_id"""
         self.model.account_id = "TEST_STRING"
@@ -41,19 +42,16 @@ class TestQueueResultAllOf(unittest.TestCase):
 
     def test_max_size(self):
         """Test QueueResultAllOf.max_size"""
-
         self.model.max_size = 1
         assert self.model.get("max_size") == 1
 
     def test_current_size(self):
         """Test QueueResultAllOf.current_size"""
-
         self.model.current_size = 1
         assert self.model.get("current_size") == 1
 
     def test_average_queue_removal_time(self):
         """Test QueueResultAllOf.average_queue_removal_time"""
-
         self.model.average_queue_removal_time = 1
         assert self.model.get("average_queue_removal_time") == 1
 
@@ -62,7 +60,6 @@ class TestQueueResultAllOf(unittest.TestCase):
         testObject = {}
         self.model.subresource_uris = testObject
         assert self.model.get("subresource_uris") == testObject
-
 
 if __name__ == '__main__':
     unittest.main()

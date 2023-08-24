@@ -11,16 +11,17 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.request_type import RequestType  # noqa: E501
 
-
 class TestRequestType(unittest.TestCase):
     """RequestType unit test stubs"""
 
+    
     def test_INBOUND_CALL_should_serialize_to_enum(self):
         expected = RequestType.INBOUND_CALL
         calculated = RequestType['INBOUND_CALL']
@@ -273,7 +274,6 @@ class TestRequestType(unittest.TestCase):
         expected = "messageStatus"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

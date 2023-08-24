@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.account_status import AccountStatus
@@ -22,13 +22,13 @@ globals()['AccountType'] = AccountType
 
 from freeclimb.model.account_result_all_of import AccountResultAllOf  # noqa: E501
 
-
 class TestAccountResultAllOf(unittest.TestCase):
     """AccountResultAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = AccountResultAllOf()
-
+        self.model = AccountResultAllOf(
+        )
+    
     def test_account_id(self):
         """Test AccountResultAllOf.account_id"""
         self.model.account_id = "TEST_STRING"
@@ -70,7 +70,6 @@ class TestAccountResultAllOf(unittest.TestCase):
         testObject = {}
         self.model.subresource_uris = testObject
         assert self.model.get("subresource_uris") == testObject
-
 
 if __name__ == '__main__':
     unittest.main()

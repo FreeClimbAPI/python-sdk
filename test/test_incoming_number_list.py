@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.incoming_number_list_all_of import IncomingNumberListAllOf
@@ -23,46 +24,40 @@ globals()['PaginationModel'] = PaginationModel
 
 from freeclimb.model.incoming_number_list import IncomingNumberList  # noqa: E501
 
-
 class TestIncomingNumberList(unittest.TestCase):
     """IncomingNumberList unit test stubs"""
 
     def setUp(self):
-        self.model = IncomingNumberList()
-
+        self.model = IncomingNumberList(
+        )
+    
     def test_total(self):
         """Test IncomingNumberList.total"""
-
         self.model.total = 1
         assert self.model.get("total") == 1
 
     def test_start(self):
         """Test IncomingNumberList.start"""
-
         self.model.start = 1
         assert self.model.get("start") == 1
 
     def test_end(self):
         """Test IncomingNumberList.end"""
-
         self.model.end = 1
         assert self.model.get("end") == 1
 
     def test_page(self):
         """Test IncomingNumberList.page"""
-
         self.model.page = 1
         assert self.model.get("page") == 1
 
     def test_num_pages(self):
         """Test IncomingNumberList.num_pages"""
-
         self.model.num_pages = 1
         assert self.model.get("num_pages") == 1
 
     def test_page_size(self):
         """Test IncomingNumberList.page_size"""
-
         self.model.page_size = 1
         assert self.model.get("page_size") == 1
 
@@ -73,11 +68,9 @@ class TestIncomingNumberList(unittest.TestCase):
 
     def test_incoming_phone_numbers(self):
         """Test IncomingNumberList.incoming_phone_numbers"""
-
         testList = []
         self.model.incoming_phone_numbers = testList
         assert self.model.get("incoming_phone_numbers") == testList
-
 
 if __name__ == '__main__':
     unittest.main()

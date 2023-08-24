@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.recording_result import RecordingResult
@@ -19,20 +20,18 @@ globals()['RecordingResult'] = RecordingResult
 
 from freeclimb.model.recording_list_all_of import RecordingListAllOf  # noqa: E501
 
-
 class TestRecordingListAllOf(unittest.TestCase):
     """RecordingListAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = RecordingListAllOf()
-
+        self.model = RecordingListAllOf(
+        )
+    
     def test_recordings(self):
         """Test RecordingListAllOf.recordings"""
-
         testList = []
         self.model.recordings = testList
         assert self.model.get("recordings") == testList
-
 
 if __name__ == '__main__':
     unittest.main()

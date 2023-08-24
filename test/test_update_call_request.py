@@ -12,6 +12,7 @@
 import sys
 import unittest
 from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.update_call_request_status import UpdateCallRequestStatus
@@ -19,20 +20,20 @@ globals()['UpdateCallRequestStatus'] = UpdateCallRequestStatus
 
 from freeclimb.model.update_call_request import UpdateCallRequest  # noqa: E501
 
-
 class TestUpdateCallRequest(unittest.TestCase):
     """UpdateCallRequest unit test stubs"""
 
     def setUp(self):
-        self.model = UpdateCallRequest(status="TEST_STRING")
-
+        self.model = UpdateCallRequest(
+            status="TEST_STRING"
+        )
+    
     def test_status(self):
         """Test UpdateCallRequest.status"""
         self.model.status = UpdateCallRequestStatus.CANCELED
         assert self.model.get("status") == UpdateCallRequestStatus.CANCELED
         self.model.status = UpdateCallRequestStatus.COMPLETED
         assert self.model.get("status") == UpdateCallRequestStatus.COMPLETED
-
 
 if __name__ == '__main__':
     unittest.main()
