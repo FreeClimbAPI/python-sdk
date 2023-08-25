@@ -76,7 +76,6 @@ class TestPlay(unittest.TestCase):
     def setUp(self):
         self.model = Play(
             file="",
-            
         )
     
     def test_file(self):

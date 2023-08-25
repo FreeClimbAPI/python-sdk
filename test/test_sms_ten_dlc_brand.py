@@ -73,8 +73,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("first_name") == "T" * 100
         
         with pytest.raises(Exception):
-            self.model.first_name = "T" * 100
-            assert self.model.get("first_name") == "T" * (100 + 1)
+            self.model.first_name = "T" * (100 + 1)
 
     def test_last_name(self):
         """Test SMSTenDLCBrand.last_name"""
@@ -82,8 +81,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("last_name") == "T" * 100
         
         with pytest.raises(Exception):
-            self.model.last_name = "T" * 100
-            assert self.model.get("last_name") == "T" * (100 + 1)
+            self.model.last_name = "T" * (100 + 1)
 
     def test_display_name(self):
         """Test SMSTenDLCBrand.display_name"""
@@ -91,8 +89,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("display_name") == "T" * 255
         
         with pytest.raises(Exception):
-            self.model.display_name = "T" * 255
-            assert self.model.get("display_name") == "T" * (255 + 1)
+            self.model.display_name = "T" * (255 + 1)
 
     def test_company_name(self):
         """Test SMSTenDLCBrand.company_name"""
@@ -100,8 +97,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("company_name") == "T" * 255
         
         with pytest.raises(Exception):
-            self.model.company_name = "T" * 255
-            assert self.model.get("company_name") == "T" * (255 + 1)
+            self.model.company_name = "T" * (255 + 1)
 
     def test_ein(self):
         """Test SMSTenDLCBrand.ein"""
@@ -109,8 +105,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("ein") == "T" * 21
         
         with pytest.raises(Exception):
-            self.model.ein = "T" * 21
-            assert self.model.get("ein") == "T" * (21 + 1)
+            self.model.ein = "T" * (21 + 1)
 
     def test_ein_issuing_country(self):
         """Test SMSTenDLCBrand.ein_issuing_country"""
@@ -118,8 +113,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("ein_issuing_country") == "T" * 2
         
         with pytest.raises(Exception):
-            self.model.ein_issuing_country = "T" * 2
-            assert self.model.get("ein_issuing_country") == "T" * (2 + 1)
+            self.model.ein_issuing_country = "T" * (2 + 1)
 
     def test_phone(self):
         """Test SMSTenDLCBrand.phone"""
@@ -127,8 +121,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("phone") == "T" * 20
         
         with pytest.raises(Exception):
-            self.model.phone = "T" * 20
-            assert self.model.get("phone") == "T" * (20 + 1)
+            self.model.phone = "T" * (20 + 1)
 
     def test_street(self):
         """Test SMSTenDLCBrand.street"""
@@ -136,8 +129,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("street") == "T" * 100
         
         with pytest.raises(Exception):
-            self.model.street = "T" * 100
-            assert self.model.get("street") == "T" * (100 + 1)
+            self.model.street = "T" * (100 + 1)
 
     def test_city(self):
         """Test SMSTenDLCBrand.city"""
@@ -145,8 +137,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("city") == "T" * 100
         
         with pytest.raises(Exception):
-            self.model.city = "T" * 100
-            assert self.model.get("city") == "T" * (100 + 1)
+            self.model.city = "T" * (100 + 1)
 
     def test_state(self):
         """Test SMSTenDLCBrand.state"""
@@ -154,8 +145,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("state") == "T" * 20
         
         with pytest.raises(Exception):
-            self.model.state = "T" * 20
-            assert self.model.get("state") == "T" * (20 + 1)
+            self.model.state = "T" * (20 + 1)
 
     def test_postal_code(self):
         """Test SMSTenDLCBrand.postal_code"""
@@ -163,8 +153,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("postal_code") == "T" * 10
         
         with pytest.raises(Exception):
-            self.model.postal_code = "T" * 10
-            assert self.model.get("postal_code") == "T" * (10 + 1)
+            self.model.postal_code = "T" * (10 + 1)
 
     def test_country(self):
         """Test SMSTenDLCBrand.country"""
@@ -172,8 +161,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("country") == "T" * 2
         
         with pytest.raises(Exception):
-            self.model.country = "T" * 2
-            assert self.model.get("country") == "T" * (2 + 1)
+            self.model.country = "T" * (2 + 1)
 
     def test_email(self):
         """Test SMSTenDLCBrand.email"""
@@ -181,8 +169,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("email") == "T" * 100
         
         with pytest.raises(Exception):
-            self.model.email = "T" * 100
-            assert self.model.get("email") == "T" * (100 + 1)
+            self.model.email = "T" * (100 + 1)
 
     def test_stock_symbol(self):
         """Test SMSTenDLCBrand.stock_symbol"""
@@ -190,8 +177,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("stock_symbol") == "T" * 10
         
         with pytest.raises(Exception):
-            self.model.stock_symbol = "T" * 10
-            assert self.model.get("stock_symbol") == "T" * (10 + 1)
+            self.model.stock_symbol = "T" * (10 + 1)
 
     def test_stock_exchange(self):
         """Test SMSTenDLCBrand.stock_exchange"""
@@ -261,8 +247,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("ip_address") == "T" * 50
         
         with pytest.raises(Exception):
-            self.model.ip_address = "T" * 50
-            assert self.model.get("ip_address") == "T" * (50 + 1)
+            self.model.ip_address = "T" * (50 + 1)
 
     def test_website(self):
         """Test SMSTenDLCBrand.website"""
@@ -270,8 +255,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("website") == "T" * 100
         
         with pytest.raises(Exception):
-            self.model.website = "T" * 100
-            assert self.model.get("website") == "T" * (100 + 1)
+            self.model.website = "T" * (100 + 1)
 
     def test_brand_relationship(self):
         """Test SMSTenDLCBrand.brand_relationship"""
@@ -297,8 +281,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("vertical") == "T" * 50
         
         with pytest.raises(Exception):
-            self.model.vertical = "T" * 50
-            assert self.model.get("vertical") == "T" * (50 + 1)
+            self.model.vertical = "T" * (50 + 1)
 
     def test_alt_business_id(self):
         """Test SMSTenDLCBrand.alt_business_id"""
@@ -306,8 +289,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("alt_business_id") == "T" * 50
         
         with pytest.raises(Exception):
-            self.model.alt_business_id = "T" * 50
-            assert self.model.get("alt_business_id") == "T" * (50 + 1)
+            self.model.alt_business_id = "T" * (50 + 1)
 
     def test_alt_business_id_type(self):
         """Test SMSTenDLCBrand.alt_business_id_type"""
@@ -336,8 +318,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
         assert self.model.get("reference_id") == "T" * 50
         
         with pytest.raises(Exception):
-            self.model.reference_id = "T" * 50
-            assert self.model.get("reference_id") == "T" * (50 + 1)
+            self.model.reference_id = "T" * (50 + 1)
 
     def test_optional_attributes(self):
         """Test SMSTenDLCBrand.optional_attributes"""

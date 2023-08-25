@@ -24,7 +24,6 @@ class TestPlayEarlyMediaAllOf(unittest.TestCase):
     def setUp(self):
         self.model = PlayEarlyMediaAllOf(
             file="",
-            
         )
     
     def test_file(self):

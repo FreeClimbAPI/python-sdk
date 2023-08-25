@@ -26,13 +26,9 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
     def setUp(self):
         self.model = SMSTenDLCPartnerCampaign(
             campaign_id="",
-            
             brand_id="",
-            
             usecase="",
-            
             description="",
-            
         )
     
     def test_account_id(self):
@@ -68,8 +64,7 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
         assert self.model.get("brand_id") == "T" * 8
         
         with pytest.raises(Exception):
-            self.model.brand_id = "T" * 8
-            assert self.model.get("brand_id") == "T" * (8 + 1)
+            self.model.brand_id = "T" * (8 + 1)
 
     def test_usecase(self):
         """Test SMSTenDLCPartnerCampaign.usecase"""
@@ -77,8 +72,7 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
         assert self.model.get("usecase") == "T" * 20
         
         with pytest.raises(Exception):
-            self.model.usecase = "T" * 20
-            assert self.model.get("usecase") == "T" * (20 + 1)
+            self.model.usecase = "T" * (20 + 1)
 
     def test_description(self):
         """Test SMSTenDLCPartnerCampaign.description"""
@@ -86,8 +80,7 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
         assert self.model.get("description") == "T" * 4096
         
         with pytest.raises(Exception):
-            self.model.description = "T" * 4096
-            assert self.model.get("description") == "T" * (4096 + 1)
+            self.model.description = "T" * (4096 + 1)
 
     def test_embedded_link(self):
         """Test SMSTenDLCPartnerCampaign.embedded_link"""
@@ -140,8 +133,7 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
         assert self.model.get("sample1") == "T" * 1024
         
         with pytest.raises(Exception):
-            self.model.sample1 = "T" * 1024
-            assert self.model.get("sample1") == "T" * (1024 + 1)
+            self.model.sample1 = "T" * (1024 + 1)
 
     def test_sample2(self):
         """Test SMSTenDLCPartnerCampaign.sample2"""
@@ -149,8 +141,7 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
         assert self.model.get("sample2") == "T" * 1024
         
         with pytest.raises(Exception):
-            self.model.sample2 = "T" * 1024
-            assert self.model.get("sample2") == "T" * (1024 + 1)
+            self.model.sample2 = "T" * (1024 + 1)
 
     def test_sample3(self):
         """Test SMSTenDLCPartnerCampaign.sample3"""
@@ -158,8 +149,7 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
         assert self.model.get("sample3") == "T" * 1024
         
         with pytest.raises(Exception):
-            self.model.sample3 = "T" * 1024
-            assert self.model.get("sample3") == "T" * (1024 + 1)
+            self.model.sample3 = "T" * (1024 + 1)
 
     def test_sample4(self):
         """Test SMSTenDLCPartnerCampaign.sample4"""
@@ -167,8 +157,7 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
         assert self.model.get("sample4") == "T" * 1024
         
         with pytest.raises(Exception):
-            self.model.sample4 = "T" * 1024
-            assert self.model.get("sample4") == "T" * (1024 + 1)
+            self.model.sample4 = "T" * (1024 + 1)
 
     def test_sample5(self):
         """Test SMSTenDLCPartnerCampaign.sample5"""
@@ -176,8 +165,7 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
         assert self.model.get("sample5") == "T" * 1024
         
         with pytest.raises(Exception):
-            self.model.sample5 = "T" * 1024
-            assert self.model.get("sample5") == "T" * (1024 + 1)
+            self.model.sample5 = "T" * (1024 + 1)
 
     def test_message_flow(self):
         """Test SMSTenDLCPartnerCampaign.message_flow"""
@@ -185,8 +173,7 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
         assert self.model.get("message_flow") == "T" * 2048
         
         with pytest.raises(Exception):
-            self.model.message_flow = "T" * 2048
-            assert self.model.get("message_flow") == "T" * (2048 + 1)
+            self.model.message_flow = "T" * (2048 + 1)
 
     def test_help_message(self):
         """Test SMSTenDLCPartnerCampaign.help_message"""
@@ -194,8 +181,7 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
         assert self.model.get("help_message") == "T" * 255
         
         with pytest.raises(Exception):
-            self.model.help_message = "T" * 255
-            assert self.model.get("help_message") == "T" * (255 + 1)
+            self.model.help_message = "T" * (255 + 1)
 
     def test_optin_keywords(self):
         """Test SMSTenDLCPartnerCampaign.optin_keywords"""
@@ -203,8 +189,7 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
         assert self.model.get("optin_keywords") == "T" * 255
         
         with pytest.raises(Exception):
-            self.model.optin_keywords = "T" * 255
-            assert self.model.get("optin_keywords") == "T" * (255 + 1)
+            self.model.optin_keywords = "T" * (255 + 1)
 
     def test_optout_keywords(self):
         """Test SMSTenDLCPartnerCampaign.optout_keywords"""
@@ -212,8 +197,7 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
         assert self.model.get("optout_keywords") == "T" * 255
         
         with pytest.raises(Exception):
-            self.model.optout_keywords = "T" * 255
-            assert self.model.get("optout_keywords") == "T" * (255 + 1)
+            self.model.optout_keywords = "T" * (255 + 1)
 
     def test_help_keywords(self):
         """Test SMSTenDLCPartnerCampaign.help_keywords"""
@@ -221,8 +205,7 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
         assert self.model.get("help_keywords") == "T" * 255
         
         with pytest.raises(Exception):
-            self.model.help_keywords = "T" * 255
-            assert self.model.get("help_keywords") == "T" * (255 + 1)
+            self.model.help_keywords = "T" * (255 + 1)
 
     def test_optin_message(self):
         """Test SMSTenDLCPartnerCampaign.optin_message"""
@@ -230,8 +213,7 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
         assert self.model.get("optin_message") == "T" * 255
         
         with pytest.raises(Exception):
-            self.model.optin_message = "T" * 255
-            assert self.model.get("optin_message") == "T" * (255 + 1)
+            self.model.optin_message = "T" * (255 + 1)
 
     def test_optout_message(self):
         """Test SMSTenDLCPartnerCampaign.optout_message"""
@@ -239,8 +221,7 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
         assert self.model.get("optout_message") == "T" * 255
         
         with pytest.raises(Exception):
-            self.model.optout_message = "T" * 255
-            assert self.model.get("optout_message") == "T" * (255 + 1)
+            self.model.optout_message = "T" * (255 + 1)
 
     def test_brand(self):
         """Test SMSTenDLCPartnerCampaign.brand"""

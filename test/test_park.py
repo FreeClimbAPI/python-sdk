@@ -76,9 +76,7 @@ class TestPark(unittest.TestCase):
     def setUp(self):
         self.model = Park(
             wait_url="",
-            
             action_url="",
-            
         )
     
     def test_wait_url(self):

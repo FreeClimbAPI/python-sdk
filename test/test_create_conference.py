@@ -78,7 +78,6 @@ class TestCreateConference(unittest.TestCase):
     def setUp(self):
         self.model = CreateConference(
             action_url="",
-            
         )
     
     def test_action_url(self):

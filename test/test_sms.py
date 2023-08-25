@@ -76,11 +76,8 @@ class TestSms(unittest.TestCase):
     def setUp(self):
         self.model = Sms(
             to="",
-            
             _from="",
-            
             text="",
-            
         )
     
     def test_to(self):

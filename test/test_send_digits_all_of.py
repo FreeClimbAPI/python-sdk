@@ -24,7 +24,6 @@ class TestSendDigitsAllOf(unittest.TestCase):
     def setUp(self):
         self.model = SendDigitsAllOf(
             digits="",
-            
         )
     
     def test_digits(self):

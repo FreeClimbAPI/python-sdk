@@ -24,9 +24,7 @@ class TestParkAllOf(unittest.TestCase):
     def setUp(self):
         self.model = ParkAllOf(
             wait_url="",
-            
             action_url="",
-            
         )
     
     def test_wait_url(self):

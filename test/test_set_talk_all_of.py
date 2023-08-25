@@ -24,7 +24,6 @@ class TestSetTalkAllOf(unittest.TestCase):
     def setUp(self):
         self.model = SetTalkAllOf(
             call_id="",
-            
         )
     
     def test_call_id(self):

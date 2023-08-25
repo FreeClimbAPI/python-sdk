@@ -28,9 +28,7 @@ class TestGetSpeechAllOf(unittest.TestCase):
     def setUp(self):
         self.model = GetSpeechAllOf(
             action_url="",
-            
             grammar_file="",
-            
         )
     
     def test_action_url(self):

@@ -26,7 +26,6 @@ class TestCreateConferenceAllOf(unittest.TestCase):
     def setUp(self):
         self.model = CreateConferenceAllOf(
             action_url="",
-            
         )
     
     def test_action_url(self):

@@ -24,7 +24,6 @@ class TestRecordUtteranceAllOf(unittest.TestCase):
     def setUp(self):
         self.model = RecordUtteranceAllOf(
             action_url="",
-            
         )
     
     def test_action_url(self):

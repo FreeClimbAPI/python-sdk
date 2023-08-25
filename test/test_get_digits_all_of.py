@@ -26,7 +26,6 @@ class TestGetDigitsAllOf(unittest.TestCase):
     def setUp(self):
         self.model = GetDigitsAllOf(
             action_url="",
-            
         )
     
     def test_action_url(self):

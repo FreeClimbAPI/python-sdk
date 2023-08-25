@@ -24,7 +24,6 @@ class TestSayAllOf(unittest.TestCase):
     def setUp(self):
         self.model = SayAllOf(
             text="",
-            
         )
     
     def test_text(self):

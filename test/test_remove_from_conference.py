@@ -76,7 +76,6 @@ class TestRemoveFromConference(unittest.TestCase):
     def setUp(self):
         self.model = RemoveFromConference(
             call_id="",
-            
         )
     
     def test_call_id(self):

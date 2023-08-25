@@ -24,7 +24,6 @@ class TestRedirectAllOf(unittest.TestCase):
     def setUp(self):
         self.model = RedirectAllOf(
             action_url="",
-            
         )
     
     def test_action_url(self):

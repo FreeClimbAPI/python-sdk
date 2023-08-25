@@ -76,7 +76,6 @@ class TestSendDigits(unittest.TestCase):
     def setUp(self):
         self.model = SendDigits(
             digits="",
-            
         )
     
     def test_digits(self):

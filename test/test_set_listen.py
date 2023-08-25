@@ -76,7 +76,6 @@ class TestSetListen(unittest.TestCase):
     def setUp(self):
         self.model = SetListen(
             call_id="",
-            
         )
     
     def test_call_id(self):

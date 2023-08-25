@@ -24,19 +24,12 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
     def setUp(self):
         self.model = SMSTenDLCCampaign(
             campaign_id="",
-            
             csp_id="",
-            
             brand_id="",
-            
             usecase="",
-            
             sub_usecases=[],
-            
             description="",
-            
             mock=True,
-            
         )
     
     def test_account_id(self):
@@ -60,8 +53,7 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         assert self.model.get("reseller_id") == "T" * 8
         
         with pytest.raises(Exception):
-            self.model.reseller_id = "T" * 8
-            assert self.model.get("reseller_id") == "T" * (8 + 1)
+            self.model.reseller_id = "T" * (8 + 1)
 
     def test_status(self):
         """Test SMSTenDLCCampaign.status"""
@@ -96,8 +88,7 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         assert self.model.get("brand_id") == "T" * 8
         
         with pytest.raises(Exception):
-            self.model.brand_id = "T" * 8
-            assert self.model.get("brand_id") == "T" * (8 + 1)
+            self.model.brand_id = "T" * (8 + 1)
 
     def test_usecase(self):
         """Test SMSTenDLCCampaign.usecase"""
@@ -105,8 +96,7 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         assert self.model.get("usecase") == "T" * 20
         
         with pytest.raises(Exception):
-            self.model.usecase = "T" * 20
-            assert self.model.get("usecase") == "T" * (20 + 1)
+            self.model.usecase = "T" * (20 + 1)
 
     def test_sub_usecases(self):
         """Test SMSTenDLCCampaign.sub_usecases"""
@@ -120,8 +110,7 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         assert self.model.get("description") == "T" * 4096
         
         with pytest.raises(Exception):
-            self.model.description = "T" * 4096
-            assert self.model.get("description") == "T" * (4096 + 1)
+            self.model.description = "T" * (4096 + 1)
 
     def test_embedded_link(self):
         """Test SMSTenDLCCampaign.embedded_link"""
@@ -174,8 +163,7 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         assert self.model.get("sample1") == "T" * 1024
         
         with pytest.raises(Exception):
-            self.model.sample1 = "T" * 1024
-            assert self.model.get("sample1") == "T" * (1024 + 1)
+            self.model.sample1 = "T" * (1024 + 1)
 
     def test_sample2(self):
         """Test SMSTenDLCCampaign.sample2"""
@@ -183,8 +171,7 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         assert self.model.get("sample2") == "T" * 1024
         
         with pytest.raises(Exception):
-            self.model.sample2 = "T" * 1024
-            assert self.model.get("sample2") == "T" * (1024 + 1)
+            self.model.sample2 = "T" * (1024 + 1)
 
     def test_sample3(self):
         """Test SMSTenDLCCampaign.sample3"""
@@ -192,8 +179,7 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         assert self.model.get("sample3") == "T" * 1024
         
         with pytest.raises(Exception):
-            self.model.sample3 = "T" * 1024
-            assert self.model.get("sample3") == "T" * (1024 + 1)
+            self.model.sample3 = "T" * (1024 + 1)
 
     def test_sample4(self):
         """Test SMSTenDLCCampaign.sample4"""
@@ -201,8 +187,7 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         assert self.model.get("sample4") == "T" * 1024
         
         with pytest.raises(Exception):
-            self.model.sample4 = "T" * 1024
-            assert self.model.get("sample4") == "T" * (1024 + 1)
+            self.model.sample4 = "T" * (1024 + 1)
 
     def test_sample5(self):
         """Test SMSTenDLCCampaign.sample5"""
@@ -210,8 +195,7 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         assert self.model.get("sample5") == "T" * 1024
         
         with pytest.raises(Exception):
-            self.model.sample5 = "T" * 1024
-            assert self.model.get("sample5") == "T" * (1024 + 1)
+            self.model.sample5 = "T" * (1024 + 1)
 
     def test_message_flow(self):
         """Test SMSTenDLCCampaign.message_flow"""
@@ -219,8 +203,7 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         assert self.model.get("message_flow") == "T" * 2048
         
         with pytest.raises(Exception):
-            self.model.message_flow = "T" * 2048
-            assert self.model.get("message_flow") == "T" * (2048 + 1)
+            self.model.message_flow = "T" * (2048 + 1)
 
     def test_help_message(self):
         """Test SMSTenDLCCampaign.help_message"""
@@ -228,8 +211,7 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         assert self.model.get("help_message") == "T" * 255
         
         with pytest.raises(Exception):
-            self.model.help_message = "T" * 255
-            assert self.model.get("help_message") == "T" * (255 + 1)
+            self.model.help_message = "T" * (255 + 1)
 
     def test_reference_id(self):
         """Test SMSTenDLCCampaign.reference_id"""
@@ -237,8 +219,7 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         assert self.model.get("reference_id") == "T" * 50
         
         with pytest.raises(Exception):
-            self.model.reference_id = "T" * 50
-            assert self.model.get("reference_id") == "T" * (50 + 1)
+            self.model.reference_id = "T" * (50 + 1)
 
     def test_mock(self):
         """Test SMSTenDLCCampaign.mock"""

@@ -76,7 +76,6 @@ class TestTerminateConference(unittest.TestCase):
     def setUp(self):
         self.model = TerminateConference(
             conference_id="",
-            
         )
     
     def test_conference_id(self):

@@ -24,7 +24,6 @@ class TestPlayAllOf(unittest.TestCase):
     def setUp(self):
         self.model = PlayAllOf(
             file="",
-            
         )
     
     def test_file(self):

@@ -28,11 +28,8 @@ class TestMessageRequest(unittest.TestCase):
     def setUp(self):
         self.model = MessageRequest(
             _from="",
-            
             to="",
-            
             text="",
-            
         )
     
     def test_uri(self):

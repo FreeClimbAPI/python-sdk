@@ -76,7 +76,6 @@ class TestRedirect(unittest.TestCase):
     def setUp(self):
         self.model = Redirect(
             action_url="",
-            
         )
     
     def test_action_url(self):

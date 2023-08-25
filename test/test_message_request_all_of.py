@@ -24,11 +24,8 @@ class TestMessageRequestAllOf(unittest.TestCase):
     def setUp(self):
         self.model = MessageRequestAllOf(
             _from="",
-            
             to="",
-            
             text="",
-            
         )
     
     def test__from(self):

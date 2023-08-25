@@ -24,7 +24,6 @@ class TestFilterLogsRequest(unittest.TestCase):
     def setUp(self):
         self.model = FilterLogsRequest(
             pql="",
-            
         )
     
     def test_pql(self):

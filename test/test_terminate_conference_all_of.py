@@ -24,7 +24,6 @@ class TestTerminateConferenceAllOf(unittest.TestCase):
     def setUp(self):
         self.model = TerminateConferenceAllOf(
             conference_id="",
-            
         )
     
     def test_conference_id(self):

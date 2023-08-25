@@ -24,7 +24,6 @@ class TestRemoveFromConferenceAllOf(unittest.TestCase):
     def setUp(self):
         self.model = RemoveFromConferenceAllOf(
             call_id="",
-            
         )
     
     def test_call_id(self):

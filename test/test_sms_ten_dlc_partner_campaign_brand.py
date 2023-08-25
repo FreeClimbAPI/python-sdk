@@ -24,9 +24,7 @@ class TestSMSTenDLCPartnerCampaignBrand(unittest.TestCase):
     def setUp(self):
         self.model = SMSTenDLCPartnerCampaignBrand(
             phone="",
-            
             email="",
-            
         )
     
     def test_account_id(self):
@@ -45,8 +43,7 @@ class TestSMSTenDLCPartnerCampaignBrand(unittest.TestCase):
         assert self.model.get("first_name") == "T" * 100
         
         with pytest.raises(Exception):
-            self.model.first_name = "T" * 100
-            assert self.model.get("first_name") == "T" * (100 + 1)
+            self.model.first_name = "T" * (100 + 1)
 
     def test_last_name(self):
         """Test SMSTenDLCPartnerCampaignBrand.last_name"""
@@ -54,8 +51,7 @@ class TestSMSTenDLCPartnerCampaignBrand(unittest.TestCase):
         assert self.model.get("last_name") == "T" * 100
         
         with pytest.raises(Exception):
-            self.model.last_name = "T" * 100
-            assert self.model.get("last_name") == "T" * (100 + 1)
+            self.model.last_name = "T" * (100 + 1)
 
     def test_display_name(self):
         """Test SMSTenDLCPartnerCampaignBrand.display_name"""
@@ -63,8 +59,7 @@ class TestSMSTenDLCPartnerCampaignBrand(unittest.TestCase):
         assert self.model.get("display_name") == "T" * 255
         
         with pytest.raises(Exception):
-            self.model.display_name = "T" * 255
-            assert self.model.get("display_name") == "T" * (255 + 1)
+            self.model.display_name = "T" * (255 + 1)
 
     def test_company_name(self):
         """Test SMSTenDLCPartnerCampaignBrand.company_name"""
@@ -72,8 +67,7 @@ class TestSMSTenDLCPartnerCampaignBrand(unittest.TestCase):
         assert self.model.get("company_name") == "T" * 255
         
         with pytest.raises(Exception):
-            self.model.company_name = "T" * 255
-            assert self.model.get("company_name") == "T" * (255 + 1)
+            self.model.company_name = "T" * (255 + 1)
 
     def test_phone(self):
         """Test SMSTenDLCPartnerCampaignBrand.phone"""
@@ -81,8 +75,7 @@ class TestSMSTenDLCPartnerCampaignBrand(unittest.TestCase):
         assert self.model.get("phone") == "T" * 20
         
         with pytest.raises(Exception):
-            self.model.phone = "T" * 20
-            assert self.model.get("phone") == "T" * (20 + 1)
+            self.model.phone = "T" * (20 + 1)
 
     def test_email(self):
         """Test SMSTenDLCPartnerCampaignBrand.email"""
@@ -90,8 +83,7 @@ class TestSMSTenDLCPartnerCampaignBrand(unittest.TestCase):
         assert self.model.get("email") == "T" * 100
         
         with pytest.raises(Exception):
-            self.model.email = "T" * 100
-            assert self.model.get("email") == "T" * (100 + 1)
+            self.model.email = "T" * (100 + 1)
 
     def test_website(self):
         """Test SMSTenDLCPartnerCampaignBrand.website"""
@@ -99,8 +91,7 @@ class TestSMSTenDLCPartnerCampaignBrand(unittest.TestCase):
         assert self.model.get("website") == "T" * 100
         
         with pytest.raises(Exception):
-            self.model.website = "T" * 100
-            assert self.model.get("website") == "T" * (100 + 1)
+            self.model.website = "T" * (100 + 1)
 
     def test_optional_attributes(self):
         """Test SMSTenDLCPartnerCampaignBrand.optional_attributes"""

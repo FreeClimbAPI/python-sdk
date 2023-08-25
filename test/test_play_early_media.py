@@ -76,7 +76,6 @@ class TestPlayEarlyMedia(unittest.TestCase):
     def setUp(self):
         self.model = PlayEarlyMedia(
             file="",
-            
         )
     
     def test_file(self):

@@ -24,9 +24,7 @@ class TestMakeCallRequest(unittest.TestCase):
     def setUp(self):
         self.model = MakeCallRequest(
             _from="",
-            
             to="",
-            
         )
     
     def test__from(self):

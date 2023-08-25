@@ -26,13 +26,9 @@ class TestOutDialAllOf(unittest.TestCase):
     def setUp(self):
         self.model = OutDialAllOf(
             action_url="",
-            
             call_connect_url="",
-            
             calling_number="",
-            
             destination="",
-            
         )
     
     def test_action_url(self):

@@ -24,11 +24,8 @@ class TestSmsAllOf(unittest.TestCase):
     def setUp(self):
         self.model = SmsAllOf(
             to="",
-            
             _from="",
-            
             text="",
-            
         )
     
     def test_to(self):

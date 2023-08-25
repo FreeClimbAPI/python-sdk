@@ -24,15 +24,10 @@ class TestCapabilities(unittest.TestCase):
     def setUp(self):
         self.model = Capabilities(
             voice=True,
-            
             sms=True,
-            
             toll_free=True,
-            
             ten_dlc=True,
-            
             short_code=True,
-            
         )
     
     def test_voice(self):
