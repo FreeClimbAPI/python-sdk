@@ -52,8 +52,10 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         self.model.reseller_id = "T" * 8
         assert self.model.get("reseller_id") == "T" * 8
         
-        with pytest.raises(Exception):
+        with pytest.raises(Exception) as info:
             self.model.reseller_id = "T" * (8 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_status(self):
         """Test SMSTenDLCCampaign.status"""
@@ -87,16 +89,20 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         self.model.brand_id = "T" * 8
         assert self.model.get("brand_id") == "T" * 8
         
-        with pytest.raises(Exception):
+        with pytest.raises(Exception) as info:
             self.model.brand_id = "T" * (8 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_usecase(self):
         """Test SMSTenDLCCampaign.usecase"""
         self.model.usecase = "T" * 20
         assert self.model.get("usecase") == "T" * 20
         
-        with pytest.raises(Exception):
+        with pytest.raises(Exception) as info:
             self.model.usecase = "T" * (20 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_sub_usecases(self):
         """Test SMSTenDLCCampaign.sub_usecases"""
@@ -109,8 +115,10 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         self.model.description = "T" * 4096
         assert self.model.get("description") == "T" * 4096
         
-        with pytest.raises(Exception):
+        with pytest.raises(Exception) as info:
             self.model.description = "T" * (4096 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_embedded_link(self):
         """Test SMSTenDLCCampaign.embedded_link"""
@@ -162,64 +170,80 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         self.model.sample1 = "T" * 1024
         assert self.model.get("sample1") == "T" * 1024
         
-        with pytest.raises(Exception):
+        with pytest.raises(Exception) as info:
             self.model.sample1 = "T" * (1024 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_sample2(self):
         """Test SMSTenDLCCampaign.sample2"""
         self.model.sample2 = "T" * 1024
         assert self.model.get("sample2") == "T" * 1024
         
-        with pytest.raises(Exception):
+        with pytest.raises(Exception) as info:
             self.model.sample2 = "T" * (1024 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_sample3(self):
         """Test SMSTenDLCCampaign.sample3"""
         self.model.sample3 = "T" * 1024
         assert self.model.get("sample3") == "T" * 1024
         
-        with pytest.raises(Exception):
+        with pytest.raises(Exception) as info:
             self.model.sample3 = "T" * (1024 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_sample4(self):
         """Test SMSTenDLCCampaign.sample4"""
         self.model.sample4 = "T" * 1024
         assert self.model.get("sample4") == "T" * 1024
         
-        with pytest.raises(Exception):
+        with pytest.raises(Exception) as info:
             self.model.sample4 = "T" * (1024 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_sample5(self):
         """Test SMSTenDLCCampaign.sample5"""
         self.model.sample5 = "T" * 1024
         assert self.model.get("sample5") == "T" * 1024
         
-        with pytest.raises(Exception):
+        with pytest.raises(Exception) as info:
             self.model.sample5 = "T" * (1024 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_message_flow(self):
         """Test SMSTenDLCCampaign.message_flow"""
         self.model.message_flow = "T" * 2048
         assert self.model.get("message_flow") == "T" * 2048
         
-        with pytest.raises(Exception):
+        with pytest.raises(Exception) as info:
             self.model.message_flow = "T" * (2048 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_help_message(self):
         """Test SMSTenDLCCampaign.help_message"""
         self.model.help_message = "T" * 255
         assert self.model.get("help_message") == "T" * 255
         
-        with pytest.raises(Exception):
+        with pytest.raises(Exception) as info:
             self.model.help_message = "T" * (255 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_reference_id(self):
         """Test SMSTenDLCCampaign.reference_id"""
         self.model.reference_id = "T" * 50
         assert self.model.get("reference_id") == "T" * 50
         
-        with pytest.raises(Exception):
+        with pytest.raises(Exception) as info:
             self.model.reference_id = "T" * (50 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_mock(self):
         """Test SMSTenDLCCampaign.mock"""
