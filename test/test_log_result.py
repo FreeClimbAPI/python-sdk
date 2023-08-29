@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.log_level import LogLevel
@@ -19,16 +20,15 @@ globals()['LogLevel'] = LogLevel
 
 from freeclimb.model.log_result import LogResult  # noqa: E501
 
-
 class TestLogResult(unittest.TestCase):
     """LogResult unit test stubs"""
 
     def setUp(self):
-        self.model = LogResult()
-
+        self.model = LogResult(
+        )
+    
     def test_timestamp(self):
         """Test LogResult.timestamp"""
-
         self.model.timestamp = 1
         assert self.model.get("timestamp") == 1
 
@@ -66,7 +66,6 @@ class TestLogResult(unittest.TestCase):
         testObject = {}
         self.model.metadata = testObject
         assert self.model.get("metadata") == testObject
-
 
 if __name__ == '__main__':
     unittest.main()

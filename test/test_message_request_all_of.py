@@ -11,20 +11,23 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.message_request_all_of import MessageRequestAllOf  # noqa: E501
-
 
 class TestMessageRequestAllOf(unittest.TestCase):
     """MessageRequestAllOf unit test stubs"""
 
     def setUp(self):
         self.model = MessageRequestAllOf(
-            _from="+11231231234", to="+11231231234", text="TEST_STRING")
-
+            _from="",
+            to="",
+            text="",
+        )
+    
     def test__from(self):
         """Test MessageRequestAllOf._from"""
         self.model._from = "TEST_STRING"
@@ -49,7 +52,6 @@ class TestMessageRequestAllOf(unittest.TestCase):
         """Test MessageRequestAllOf.account_id"""
         self.model.account_id = "TEST_STRING"
         assert self.model.get("account_id") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

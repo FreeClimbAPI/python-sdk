@@ -11,19 +11,21 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.say_all_of import SayAllOf  # noqa: E501
 
-
 class TestSayAllOf(unittest.TestCase):
     """SayAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = SayAllOf(text="TEST_STRING")
-
+        self.model = SayAllOf(
+            text="",
+        )
+    
     def test_text(self):
         """Test SayAllOf.text"""
         self.model.text = "TEST_STRING"
@@ -36,7 +38,6 @@ class TestSayAllOf(unittest.TestCase):
 
     def test_loop(self):
         """Test SayAllOf.loop"""
-
         self.model.loop = 1
         assert self.model.get("loop") == 1
 
@@ -49,7 +50,6 @@ class TestSayAllOf(unittest.TestCase):
         """Test SayAllOf.privacy_mode"""
         self.model.privacy_mode = False
         assert self.model.get("privacy_mode") == False
-
 
 if __name__ == '__main__':
     unittest.main()

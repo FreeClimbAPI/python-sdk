@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.application_list_all_of import ApplicationListAllOf
@@ -24,46 +24,40 @@ globals()['PaginationModel'] = PaginationModel
 
 from freeclimb.model.application_list import ApplicationList  # noqa: E501
 
-
 class TestApplicationList(unittest.TestCase):
     """ApplicationList unit test stubs"""
 
     def setUp(self):
-        self.model = ApplicationList()
-
+        self.model = ApplicationList(
+        )
+    
     def test_total(self):
         """Test ApplicationList.total"""
-
         self.model.total = 1
         assert self.model.get("total") == 1
 
     def test_start(self):
         """Test ApplicationList.start"""
-
         self.model.start = 1
         assert self.model.get("start") == 1
 
     def test_end(self):
         """Test ApplicationList.end"""
-
         self.model.end = 1
         assert self.model.get("end") == 1
 
     def test_page(self):
         """Test ApplicationList.page"""
-
         self.model.page = 1
         assert self.model.get("page") == 1
 
     def test_num_pages(self):
         """Test ApplicationList.num_pages"""
-
         self.model.num_pages = 1
         assert self.model.get("num_pages") == 1
 
     def test_page_size(self):
         """Test ApplicationList.page_size"""
-
         self.model.page_size = 1
         assert self.model.get("page_size") == 1
 
@@ -74,11 +68,9 @@ class TestApplicationList(unittest.TestCase):
 
     def test_applications(self):
         """Test ApplicationList.applications"""
-
         testList = []
         self.model.applications = testList
         assert self.model.get("applications") == testList
-
 
 if __name__ == '__main__':
     unittest.main()

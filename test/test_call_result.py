@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.answered_by import AnsweredBy
@@ -28,13 +28,13 @@ globals()['MutableResourceModel'] = MutableResourceModel
 
 from freeclimb.model.call_result import CallResult  # noqa: E501
 
-
 class TestCallResult(unittest.TestCase):
     """CallResult unit test stubs"""
 
     def setUp(self):
-        self.model = CallResult()
-
+        self.model = CallResult(
+        )
+    
     def test_uri(self):
         """Test CallResult.uri"""
         self.model.uri = "TEST_STRING"
@@ -52,7 +52,6 @@ class TestCallResult(unittest.TestCase):
 
     def test_revision(self):
         """Test CallResult.revision"""
-
         self.model.revision = 1
         assert self.model.get("revision") == 1
 
@@ -122,13 +121,11 @@ class TestCallResult(unittest.TestCase):
 
     def test_duration(self):
         """Test CallResult.duration"""
-
         self.model.duration = 1
         assert self.model.get("duration") == 1
 
     def test_connect_duration(self):
         """Test CallResult.connect_duration"""
-
         self.model.connect_duration = 1
         assert self.model.get("connect_duration") == 1
 
@@ -153,7 +150,6 @@ class TestCallResult(unittest.TestCase):
         testObject = {}
         self.model.subresource_uris = testObject
         assert self.model.get("subresource_uris") == testObject
-
 
 if __name__ == '__main__':
     unittest.main()

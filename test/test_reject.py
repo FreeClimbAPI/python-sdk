@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -69,13 +70,13 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.reject import Reject  # noqa: E501
 
-
 class TestReject(unittest.TestCase):
     """Reject unit test stubs"""
 
     def setUp(self):
-        self.model = Reject()
-
+        self.model = Reject(
+        )
+    
     def test_reason(self):
         """Test Reject.reason"""
         self.model.reason = "TEST_STRING"
@@ -83,7 +84,6 @@ class TestReject(unittest.TestCase):
 
     def test_command_test(self):
         assert self.model.command == "Reject"
-
 
 if __name__ == '__main__':
     unittest.main()

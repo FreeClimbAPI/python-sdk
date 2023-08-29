@@ -12,6 +12,7 @@
 import sys
 import unittest
 from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -67,16 +68,15 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.unpark import Unpark  # noqa: E501
 
-
 class TestUnpark(unittest.TestCase):
     """Unpark unit test stubs"""
 
     def setUp(self):
-        self.model = Unpark()
-
+        self.model = Unpark(
+        )
+    
     def test_command_test(self):
         assert self.model.command == "Unpark"
-
 
 if __name__ == '__main__':
     unittest.main()

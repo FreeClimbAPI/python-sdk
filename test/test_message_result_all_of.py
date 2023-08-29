@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.message_status import MessageStatus
@@ -19,13 +20,13 @@ globals()['MessageStatus'] = MessageStatus
 
 from freeclimb.model.message_result_all_of import MessageResultAllOf  # noqa: E501
 
-
 class TestMessageResultAllOf(unittest.TestCase):
     """MessageResultAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = MessageResultAllOf()
-
+        self.model = MessageResultAllOf(
+        )
+    
     def test_account_id(self):
         """Test MessageResultAllOf.account_id"""
         self.model.account_id = "TEST_STRING"
@@ -86,6 +87,20 @@ class TestMessageResultAllOf(unittest.TestCase):
         self.model.notification_url = "TEST_STRING"
         assert self.model.get("notification_url") == "TEST_STRING"
 
+    def test_brand_id(self):
+        """Test MessageResultAllOf.brand_id"""
+        self.model.brand_id = "TEST_STRING"
+        assert self.model.get("brand_id") == "TEST_STRING"
+
+    def test_campaign_id(self):
+        """Test MessageResultAllOf.campaign_id"""
+        self.model.campaign_id = "TEST_STRING"
+        assert self.model.get("campaign_id") == "TEST_STRING"
+
+    def test_segment_count(self):
+        """Test MessageResultAllOf.segment_count"""
+        self.model.segment_count = float(1) 
+        assert self.model.get("segment_count") == float(1)
 
 if __name__ == '__main__':
     unittest.main()

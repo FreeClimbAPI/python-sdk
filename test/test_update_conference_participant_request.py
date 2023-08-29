@@ -12,18 +12,19 @@
 import sys
 import unittest
 from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.update_conference_participant_request import UpdateConferenceParticipantRequest  # noqa: E501
 
-
 class TestUpdateConferenceParticipantRequest(unittest.TestCase):
     """UpdateConferenceParticipantRequest unit test stubs"""
 
     def setUp(self):
-        self.model = UpdateConferenceParticipantRequest()
-
+        self.model = UpdateConferenceParticipantRequest(
+        )
+    
     def test_talk(self):
         """Test UpdateConferenceParticipantRequest.talk"""
         self.model.talk = False
@@ -33,7 +34,6 @@ class TestUpdateConferenceParticipantRequest(unittest.TestCase):
         """Test UpdateConferenceParticipantRequest.listen"""
         self.model.listen = False
         assert self.model.get("listen") == False
-
 
 if __name__ == '__main__':
     unittest.main()

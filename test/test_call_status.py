@@ -11,17 +11,17 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.call_status import CallStatus  # noqa: E501
 
-
 class TestCallStatus(unittest.TestCase):
     """CallStatus unit test stubs"""
 
+    
     def test_QUEUED_should_serialize_to_enum(self):
         expected = CallStatus.QUEUED
         calculated = CallStatus['QUEUED']
@@ -109,7 +109,6 @@ class TestCallStatus(unittest.TestCase):
         expected = "noAnswer"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -69,13 +70,14 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.play_early_media import PlayEarlyMedia  # noqa: E501
 
-
 class TestPlayEarlyMedia(unittest.TestCase):
     """PlayEarlyMedia unit test stubs"""
 
     def setUp(self):
-        self.model = PlayEarlyMedia(file="TEST_STRING")
-
+        self.model = PlayEarlyMedia(
+            file="",
+        )
+    
     def test_file(self):
         """Test PlayEarlyMedia.file"""
         self.model.file = "TEST_STRING"
@@ -83,7 +85,6 @@ class TestPlayEarlyMedia(unittest.TestCase):
 
     def test_command_test(self):
         assert self.model.command == "PlayEarlyMedia"
-
 
 if __name__ == '__main__':
     unittest.main()

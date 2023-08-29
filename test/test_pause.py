@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -69,22 +70,21 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.pause import Pause  # noqa: E501
 
-
 class TestPause(unittest.TestCase):
     """Pause unit test stubs"""
 
     def setUp(self):
-        self.model = Pause(length=1)
-
+        self.model = Pause(
+            length=1
+        )
+    
     def test_length(self):
         """Test Pause.length"""
-
         self.model.length = 1
         assert self.model.get("length") == 1
 
     def test_command_test(self):
         assert self.model.command == "Pause"
-
 
 if __name__ == '__main__':
     unittest.main()

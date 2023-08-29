@@ -97,6 +97,9 @@ class MessageResultAllOf(ModelNormal):
             'text': (str, none_type,),  # noqa: E501
             'direction': (str, none_type,),  # noqa: E501
             'notification_url': (str, none_type,),  # noqa: E501
+            'brand_id': (str, none_type,),  # noqa: E501
+            'campaign_id': (str, none_type,),  # noqa: E501
+            'segment_count': (float, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -113,6 +116,9 @@ class MessageResultAllOf(ModelNormal):
         'text': 'text',  # noqa: E501
         'direction': 'direction',  # noqa: E501
         'notification_url': 'notificationUrl',  # noqa: E501
+        'brand_id': 'brandId',  # noqa: E501
+        'campaign_id': 'campaignId',  # noqa: E501
+        'segment_count': 'segmentCount',  # noqa: E501
     }
 
     read_only_vars = {
@@ -164,6 +170,9 @@ class MessageResultAllOf(ModelNormal):
             text (str, none_type): Message contents. [optional]  # noqa: E501
             direction (str, none_type): Noting whether the message was inbound or outbound. [optional]  # noqa: E501
             notification_url (str, none_type): URL invoked when message sent. [optional]  # noqa: E501
+            brand_id (str, none_type): The unique identifier for the brand associated with the message. [optional]  # noqa: E501
+            campaign_id (str, none_type): The unique identifier for the campaign associated with the message. [optional]  # noqa: E501
+            segment_count (float, none_type): The number of segments into which the message was split. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -253,6 +262,9 @@ class MessageResultAllOf(ModelNormal):
             text (str, none_type): Message contents. [optional]  # noqa: E501
             direction (str, none_type): Noting whether the message was inbound or outbound. [optional]  # noqa: E501
             notification_url (str, none_type): URL invoked when message sent. [optional]  # noqa: E501
+            brand_id (str, none_type): The unique identifier for the brand associated with the message. [optional]  # noqa: E501
+            campaign_id (str, none_type): The unique identifier for the campaign associated with the message. [optional]  # noqa: E501
+            segment_count (float, none_type): The number of segments into which the message was split. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

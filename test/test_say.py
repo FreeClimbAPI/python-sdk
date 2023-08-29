@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -69,13 +70,14 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.say import Say  # noqa: E501
 
-
 class TestSay(unittest.TestCase):
     """Say unit test stubs"""
 
     def setUp(self):
-        self.model = Say(text="TEST_STRING")
-
+        self.model = Say(
+            text="",
+        )
+    
     def test_text(self):
         """Test Say.text"""
         self.model.text = "TEST_STRING"
@@ -88,7 +90,6 @@ class TestSay(unittest.TestCase):
 
     def test_loop(self):
         """Test Say.loop"""
-
         self.model.loop = 1
         assert self.model.get("loop") == 1
 
@@ -104,7 +105,6 @@ class TestSay(unittest.TestCase):
 
     def test_command_test(self):
         assert self.model.command == "Say"
-
 
 if __name__ == '__main__':
     unittest.main()

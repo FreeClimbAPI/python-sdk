@@ -11,20 +11,20 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.account_request import AccountRequest  # noqa: E501
 
-
 class TestAccountRequest(unittest.TestCase):
     """AccountRequest unit test stubs"""
 
     def setUp(self):
-        self.model = AccountRequest()
-
+        self.model = AccountRequest(
+        )
+    
     def test_alias(self):
         """Test AccountRequest.alias"""
         self.model.alias = "TEST_STRING"
@@ -34,7 +34,6 @@ class TestAccountRequest(unittest.TestCase):
         """Test AccountRequest.label"""
         self.model.label = "TEST_STRING"
         assert self.model.get("label") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

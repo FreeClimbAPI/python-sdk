@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -69,13 +70,14 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.set_listen import SetListen  # noqa: E501
 
-
 class TestSetListen(unittest.TestCase):
     """SetListen unit test stubs"""
 
     def setUp(self):
-        self.model = SetListen(call_id="TEST_ID")
-
+        self.model = SetListen(
+            call_id="",
+        )
+    
     def test_call_id(self):
         """Test SetListen.call_id"""
         self.model.call_id = "TEST_STRING"
@@ -88,7 +90,6 @@ class TestSetListen(unittest.TestCase):
 
     def test_command_test(self):
         assert self.model.command == "SetListen"
-
 
 if __name__ == '__main__':
     unittest.main()

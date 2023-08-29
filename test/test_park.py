@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -69,13 +70,15 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.park import Park  # noqa: E501
 
-
 class TestPark(unittest.TestCase):
     """Park unit test stubs"""
 
     def setUp(self):
-        self.model = Park(wait_url="TEST_URL", action_url="TEST_URL")
-
+        self.model = Park(
+            wait_url="",
+            action_url="",
+        )
+    
     def test_wait_url(self):
         """Test Park.wait_url"""
         self.model.wait_url = "TEST_STRING"
@@ -93,7 +96,6 @@ class TestPark(unittest.TestCase):
 
     def test_command_test(self):
         assert self.model.command == "Park"
-
 
 if __name__ == '__main__':
     unittest.main()

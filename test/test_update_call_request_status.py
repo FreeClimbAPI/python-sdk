@@ -12,15 +12,16 @@
 import sys
 import unittest
 from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.update_call_request_status import UpdateCallRequestStatus  # noqa: E501
 
-
 class TestUpdateCallRequestStatus(unittest.TestCase):
     """UpdateCallRequestStatus unit test stubs"""
 
+    
     def test_CANCELED_should_serialize_to_enum(self):
         expected = UpdateCallRequestStatus.CANCELED
         calculated = UpdateCallRequestStatus['CANCELED']
@@ -42,7 +43,6 @@ class TestUpdateCallRequestStatus(unittest.TestCase):
         expected = "completed"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

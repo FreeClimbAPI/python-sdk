@@ -18,14 +18,15 @@ import freeclimb
 
 from freeclimb.model.sms_ten_dlc_partner_campaign_brand import SMSTenDLCPartnerCampaignBrand  # noqa: E501
 
-
 class TestSMSTenDLCPartnerCampaignBrand(unittest.TestCase):
     """SMSTenDLCPartnerCampaignBrand unit test stubs"""
 
     def setUp(self):
-        self.model = SMSTenDLCPartnerCampaignBrand(phone="TEST_STRING",
-                                                   email="TEST_STRING")
-
+        self.model = SMSTenDLCPartnerCampaignBrand(
+            phone="",
+            email="",
+        )
+    
     def test_account_id(self):
         """Test SMSTenDLCPartnerCampaignBrand.account_id"""
         self.model.account_id = "TEST_STRING"
@@ -38,51 +39,83 @@ class TestSMSTenDLCPartnerCampaignBrand(unittest.TestCase):
 
     def test_first_name(self):
         """Test SMSTenDLCPartnerCampaignBrand.first_name"""
-        self.model.first_name = "TEST_STRING"
-        assert self.model.get("first_name") == "TEST_STRING"
+        self.model.first_name = "T" * 100
+        assert self.model.get("first_name") == "T" * 100
+        
+        with pytest.raises(Exception) as info:
+            self.model.first_name = "T" * (100 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_last_name(self):
         """Test SMSTenDLCPartnerCampaignBrand.last_name"""
-        self.model.last_name = "TEST_STRING"
-        assert self.model.get("last_name") == "TEST_STRING"
+        self.model.last_name = "T" * 100
+        assert self.model.get("last_name") == "T" * 100
+        
+        with pytest.raises(Exception) as info:
+            self.model.last_name = "T" * (100 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_display_name(self):
         """Test SMSTenDLCPartnerCampaignBrand.display_name"""
-        self.model.display_name = "TEST_STRING"
-        assert self.model.get("display_name") == "TEST_STRING"
+        self.model.display_name = "T" * 255
+        assert self.model.get("display_name") == "T" * 255
+        
+        with pytest.raises(Exception) as info:
+            self.model.display_name = "T" * (255 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_company_name(self):
         """Test SMSTenDLCPartnerCampaignBrand.company_name"""
-        self.model.company_name = "TEST_STRING"
-        assert self.model.get("company_name") == "TEST_STRING"
+        self.model.company_name = "T" * 255
+        assert self.model.get("company_name") == "T" * 255
+        
+        with pytest.raises(Exception) as info:
+            self.model.company_name = "T" * (255 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_phone(self):
         """Test SMSTenDLCPartnerCampaignBrand.phone"""
-        self.model.phone = "TEST_STRING"
-        assert self.model.get("phone") == "TEST_STRING"
+        self.model.phone = "T" * 20
+        assert self.model.get("phone") == "T" * 20
+        
+        with pytest.raises(Exception) as info:
+            self.model.phone = "T" * (20 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_email(self):
         """Test SMSTenDLCPartnerCampaignBrand.email"""
-        self.model.email = "TEST_STRING"
-        assert self.model.get("email") == "TEST_STRING"
+        self.model.email = "T" * 100
+        assert self.model.get("email") == "T" * 100
+        
+        with pytest.raises(Exception) as info:
+            self.model.email = "T" * (100 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_website(self):
         """Test SMSTenDLCPartnerCampaignBrand.website"""
-        self.model.website = "TEST_STRING"
-        assert self.model.get("website") == "TEST_STRING"
+        self.model.website = "T" * 100
+        assert self.model.get("website") == "T" * 100
+        
+        with pytest.raises(Exception) as info:
+            self.model.website = "T" * (100 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_optional_attributes(self):
         """Test SMSTenDLCPartnerCampaignBrand.optional_attributes"""
-
         self.model.optional_attributes = {}
         assert self.model.get("optional_attributes") == {}
 
     def test_evp_vetting_score(self):
         """Test SMSTenDLCPartnerCampaignBrand.evp_vetting_score"""
-
         self.model.evp_vetting_score = 1
         assert self.model.get("evp_vetting_score") == 1
-
 
 if __name__ == '__main__':
     unittest.main()

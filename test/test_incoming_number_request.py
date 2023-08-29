@@ -11,19 +11,20 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.incoming_number_request import IncomingNumberRequest  # noqa: E501
 
-
 class TestIncomingNumberRequest(unittest.TestCase):
     """IncomingNumberRequest unit test stubs"""
 
     def setUp(self):
-        self.model = IncomingNumberRequest()
-
+        self.model = IncomingNumberRequest(
+        )
+    
     def test_application_id(self):
         """Test IncomingNumberRequest.application_id"""
         self.model.application_id = "TEST_STRING"
@@ -38,7 +39,6 @@ class TestIncomingNumberRequest(unittest.TestCase):
         """Test IncomingNumberRequest.campaign_id"""
         self.model.campaign_id = "TEST_STRING"
         assert self.model.get("campaign_id") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

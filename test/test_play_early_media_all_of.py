@@ -11,24 +11,25 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.play_early_media_all_of import PlayEarlyMediaAllOf  # noqa: E501
 
-
 class TestPlayEarlyMediaAllOf(unittest.TestCase):
     """PlayEarlyMediaAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = PlayEarlyMediaAllOf(file="TEST_STRING")
-
+        self.model = PlayEarlyMediaAllOf(
+            file="",
+        )
+    
     def test_file(self):
         """Test PlayEarlyMediaAllOf.file"""
         self.model.file = "TEST_STRING"
         assert self.model.get("file") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -69,14 +70,16 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.sms import Sms  # noqa: E501
 
-
 class TestSms(unittest.TestCase):
     """Sms unit test stubs"""
 
     def setUp(self):
-        self.model = Sms(to="+11231231234",
-                         _from="+11231231234", text="TEST_STRING")
-
+        self.model = Sms(
+            to="",
+            _from="",
+            text="",
+        )
+    
     def test_to(self):
         """Test Sms.to"""
         self.model.to = "TEST_STRING"
@@ -99,7 +102,6 @@ class TestSms(unittest.TestCase):
 
     def test_command_test(self):
         assert self.model.command == "Sms"
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,25 +11,25 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.pause_all_of import PauseAllOf  # noqa: E501
 
-
 class TestPauseAllOf(unittest.TestCase):
     """PauseAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = PauseAllOf(length=1)
-
+        self.model = PauseAllOf(
+            length=1
+        )
+    
     def test_length(self):
         """Test PauseAllOf.length"""
-
         self.model.length = 1
         assert self.model.get("length") == 1
-
 
 if __name__ == '__main__':
     unittest.main()

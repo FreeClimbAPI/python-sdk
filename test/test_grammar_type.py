@@ -11,16 +11,17 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.grammar_type import GrammarType  # noqa: E501
 
-
 class TestGrammarType(unittest.TestCase):
     """GrammarType unit test stubs"""
 
+    
     def test_URL_should_serialize_to_enum(self):
         expected = GrammarType.URL
         calculated = GrammarType['URL']
@@ -42,7 +43,6 @@ class TestGrammarType(unittest.TestCase):
         expected = "BUILTIN"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

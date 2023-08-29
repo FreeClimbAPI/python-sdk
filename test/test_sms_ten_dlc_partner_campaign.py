@@ -20,16 +20,17 @@ globals()['SMSTenDLCPartnerCampaignBrand'] = SMSTenDLCPartnerCampaignBrand
 
 from freeclimb.model.sms_ten_dlc_partner_campaign import SMSTenDLCPartnerCampaign  # noqa: E501
 
-
 class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
     """SMSTenDLCPartnerCampaign unit test stubs"""
 
     def setUp(self):
-        self.model = SMSTenDLCPartnerCampaign(campaign_id="TEST_STRING",
-                                              brand_id="TEST_STR",
-                                              usecase="TEST_STRING",
-                                              description="TEST_STRING")
-
+        self.model = SMSTenDLCPartnerCampaign(
+            campaign_id="",
+            brand_id="",
+            usecase="",
+            description="",
+        )
+    
     def test_account_id(self):
         """Test SMSTenDLCPartnerCampaign.account_id"""
         self.model.account_id = "TEST_STRING"
@@ -42,10 +43,8 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
 
     def test_status(self):
         """Test SMSTenDLCPartnerCampaign.status"""
-
         self.model.status = "ACTIVE"
         assert self.model.get("status") == "ACTIVE"
-
         self.model.status = "EXPIRED"
         assert self.model.get("status") == "EXPIRED"
 
@@ -54,27 +53,40 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
             self.model.status = "INVALID_ENUM"
         exception_raised = info.value
         assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
-
     def test_create_date(self):
         """Test SMSTenDLCPartnerCampaign.create_date"""
         self.model.create_date = datetime.fromtimestamp(1691592436)
-        assert self.model.get(
-            "create_date") == datetime.fromtimestamp(1691592436)
+        assert self.model.get("create_date") == datetime.fromtimestamp(1691592436)
 
     def test_brand_id(self):
         """Test SMSTenDLCPartnerCampaign.brand_id"""
-        self.model.brand_id = "TEST_STR"
-        assert self.model.get("brand_id") == "TEST_STR"
+        self.model.brand_id = "T" * 8
+        assert self.model.get("brand_id") == "T" * 8
+        
+        with pytest.raises(Exception) as info:
+            self.model.brand_id = "T" * (8 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_usecase(self):
         """Test SMSTenDLCPartnerCampaign.usecase"""
-        self.model.usecase = "TEST_STRING"
-        assert self.model.get("usecase") == "TEST_STRING"
+        self.model.usecase = "T" * 20
+        assert self.model.get("usecase") == "T" * 20
+        
+        with pytest.raises(Exception) as info:
+            self.model.usecase = "T" * (20 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_description(self):
         """Test SMSTenDLCPartnerCampaign.description"""
-        self.model.description = "TEST_STRING"
-        assert self.model.get("description") == "TEST_STRING"
+        self.model.description = "T" * 4096
+        assert self.model.get("description") == "T" * 4096
+        
+        with pytest.raises(Exception) as info:
+            self.model.description = "T" * (4096 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_embedded_link(self):
         """Test SMSTenDLCPartnerCampaign.embedded_link"""
@@ -123,71 +135,129 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
 
     def test_sample1(self):
         """Test SMSTenDLCPartnerCampaign.sample1"""
-        self.model.sample1 = "TEST_STRING"
-        assert self.model.get("sample1") == "TEST_STRING"
+        self.model.sample1 = "T" * 1024
+        assert self.model.get("sample1") == "T" * 1024
+        
+        with pytest.raises(Exception) as info:
+            self.model.sample1 = "T" * (1024 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_sample2(self):
         """Test SMSTenDLCPartnerCampaign.sample2"""
-        self.model.sample2 = "TEST_STRING"
-        assert self.model.get("sample2") == "TEST_STRING"
+        self.model.sample2 = "T" * 1024
+        assert self.model.get("sample2") == "T" * 1024
+        
+        with pytest.raises(Exception) as info:
+            self.model.sample2 = "T" * (1024 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_sample3(self):
         """Test SMSTenDLCPartnerCampaign.sample3"""
-        self.model.sample3 = "TEST_STRING"
-        assert self.model.get("sample3") == "TEST_STRING"
+        self.model.sample3 = "T" * 1024
+        assert self.model.get("sample3") == "T" * 1024
+        
+        with pytest.raises(Exception) as info:
+            self.model.sample3 = "T" * (1024 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_sample4(self):
         """Test SMSTenDLCPartnerCampaign.sample4"""
-        self.model.sample4 = "TEST_STRING"
-        assert self.model.get("sample4") == "TEST_STRING"
+        self.model.sample4 = "T" * 1024
+        assert self.model.get("sample4") == "T" * 1024
+        
+        with pytest.raises(Exception) as info:
+            self.model.sample4 = "T" * (1024 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_sample5(self):
         """Test SMSTenDLCPartnerCampaign.sample5"""
-        self.model.sample5 = "TEST_STRING"
-        assert self.model.get("sample5") == "TEST_STRING"
+        self.model.sample5 = "T" * 1024
+        assert self.model.get("sample5") == "T" * 1024
+        
+        with pytest.raises(Exception) as info:
+            self.model.sample5 = "T" * (1024 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_message_flow(self):
         """Test SMSTenDLCPartnerCampaign.message_flow"""
-        self.model.message_flow = "TEST_STRING"
-        assert self.model.get("message_flow") == "TEST_STRING"
+        self.model.message_flow = "T" * 2048
+        assert self.model.get("message_flow") == "T" * 2048
+        
+        with pytest.raises(Exception) as info:
+            self.model.message_flow = "T" * (2048 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_help_message(self):
         """Test SMSTenDLCPartnerCampaign.help_message"""
-        self.model.help_message = "TEST_STRING"
-        assert self.model.get("help_message") == "TEST_STRING"
+        self.model.help_message = "T" * 255
+        assert self.model.get("help_message") == "T" * 255
+        
+        with pytest.raises(Exception) as info:
+            self.model.help_message = "T" * (255 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_optin_keywords(self):
         """Test SMSTenDLCPartnerCampaign.optin_keywords"""
-        self.model.optin_keywords = "TEST_STRING"
-        assert self.model.get("optin_keywords") == "TEST_STRING"
+        self.model.optin_keywords = "T" * 255
+        assert self.model.get("optin_keywords") == "T" * 255
+        
+        with pytest.raises(Exception) as info:
+            self.model.optin_keywords = "T" * (255 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_optout_keywords(self):
         """Test SMSTenDLCPartnerCampaign.optout_keywords"""
-        self.model.optout_keywords = "TEST_STRING"
-        assert self.model.get("optout_keywords") == "TEST_STRING"
+        self.model.optout_keywords = "T" * 255
+        assert self.model.get("optout_keywords") == "T" * 255
+        
+        with pytest.raises(Exception) as info:
+            self.model.optout_keywords = "T" * (255 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_help_keywords(self):
         """Test SMSTenDLCPartnerCampaign.help_keywords"""
-        self.model.help_keywords = "TEST_STRING"
-        assert self.model.get("help_keywords") == "TEST_STRING"
+        self.model.help_keywords = "T" * 255
+        assert self.model.get("help_keywords") == "T" * 255
+        
+        with pytest.raises(Exception) as info:
+            self.model.help_keywords = "T" * (255 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_optin_message(self):
         """Test SMSTenDLCPartnerCampaign.optin_message"""
-        self.model.optin_message = "TEST_STRING"
-        assert self.model.get("optin_message") == "TEST_STRING"
+        self.model.optin_message = "T" * 255
+        assert self.model.get("optin_message") == "T" * 255
+        
+        with pytest.raises(Exception) as info:
+            self.model.optin_message = "T" * (255 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_optout_message(self):
         """Test SMSTenDLCPartnerCampaign.optout_message"""
-        self.model.optout_message = "TEST_STRING"
-        assert self.model.get("optout_message") == "TEST_STRING"
+        self.model.optout_message = "T" * 255
+        assert self.model.get("optout_message") == "T" * 255
+        
+        with pytest.raises(Exception) as info:
+            self.model.optout_message = "T" * (255 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
     def test_brand(self):
         """Test SMSTenDLCPartnerCampaign.brand"""
-        object = SMSTenDLCPartnerCampaignBrand(
-            phone="TEST_STRING", email="TEST_STRING")
+        object = SMSTenDLCPartnerCampaignBrand(phone="TEST_STRING", email="TEST_STRING")
         self.model.brand = object
         assert self.model.get("brand", object)
-
 
 if __name__ == '__main__':
     unittest.main()

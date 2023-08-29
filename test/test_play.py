@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -69,13 +70,14 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.play import Play  # noqa: E501
 
-
 class TestPlay(unittest.TestCase):
     """Play unit test stubs"""
 
     def setUp(self):
-        self.model = Play(file="TEST_STRING")
-
+        self.model = Play(
+            file="",
+        )
+    
     def test_file(self):
         """Test Play.file"""
         self.model.file = "TEST_STRING"
@@ -83,7 +85,6 @@ class TestPlay(unittest.TestCase):
 
     def test_loop(self):
         """Test Play.loop"""
-
         self.model.loop = 1
         assert self.model.get("loop") == 1
 
@@ -99,7 +100,6 @@ class TestPlay(unittest.TestCase):
 
     def test_command_test(self):
         assert self.model.command == "Play"
-
 
 if __name__ == '__main__':
     unittest.main()

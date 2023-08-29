@@ -11,16 +11,17 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.queue_result_status import QueueResultStatus  # noqa: E501
 
-
 class TestQueueResultStatus(unittest.TestCase):
     """QueueResultStatus unit test stubs"""
 
+    
     def test_QUEUE_FULL_should_serialize_to_enum(self):
         expected = QueueResultStatus.QUEUE_FULL
         calculated = QueueResultStatus['QUEUE_FULL']
@@ -64,7 +65,6 @@ class TestQueueResultStatus(unittest.TestCase):
         expected = "systemError"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.if_machine import IfMachine
@@ -19,14 +20,17 @@ globals()['IfMachine'] = IfMachine
 
 from freeclimb.model.out_dial_all_of import OutDialAllOf  # noqa: E501
 
-
 class TestOutDialAllOf(unittest.TestCase):
     """OutDialAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = OutDialAllOf(action_url="TEST_URL", call_connect_url="TEST_URL",
-                                  calling_number="+11231231234", destination="+11231231234")
-
+        self.model = OutDialAllOf(
+            action_url="",
+            call_connect_url="",
+            calling_number="",
+            destination="",
+        )
+    
     def test_action_url(self):
         """Test OutDialAllOf.action_url"""
         self.model.action_url = "TEST_STRING"
@@ -71,7 +75,6 @@ class TestOutDialAllOf(unittest.TestCase):
 
     def test_timeout(self):
         """Test OutDialAllOf.timeout"""
-
         self.model.timeout = 1
         assert self.model.get("timeout") == 1
 
@@ -79,7 +82,6 @@ class TestOutDialAllOf(unittest.TestCase):
         """Test OutDialAllOf.privacy_mode"""
         self.model.privacy_mode = False
         assert self.model.get("privacy_mode") == False
-
 
 if __name__ == '__main__':
     unittest.main()

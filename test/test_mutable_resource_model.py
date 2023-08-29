@@ -11,19 +11,20 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.mutable_resource_model import MutableResourceModel  # noqa: E501
 
-
 class TestMutableResourceModel(unittest.TestCase):
     """MutableResourceModel unit test stubs"""
 
     def setUp(self):
-        self.model = MutableResourceModel()
-
+        self.model = MutableResourceModel(
+        )
+    
     def test_uri(self):
         """Test MutableResourceModel.uri"""
         self.model.uri = "TEST_STRING"
@@ -41,10 +42,8 @@ class TestMutableResourceModel(unittest.TestCase):
 
     def test_revision(self):
         """Test MutableResourceModel.revision"""
-
         self.model.revision = 1
         assert self.model.get("revision") == 1
-
 
 if __name__ == '__main__':
     unittest.main()

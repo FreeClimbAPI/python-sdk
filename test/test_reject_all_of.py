@@ -11,24 +11,24 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.reject_all_of import RejectAllOf  # noqa: E501
 
-
 class TestRejectAllOf(unittest.TestCase):
     """RejectAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = RejectAllOf()
-
+        self.model = RejectAllOf(
+        )
+    
     def test_reason(self):
         """Test RejectAllOf.reason"""
         self.model.reason = "TEST_STRING"
         assert self.model.get("reason") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

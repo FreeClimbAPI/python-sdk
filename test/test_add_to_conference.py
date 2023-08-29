@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -70,13 +70,14 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.add_to_conference import AddToConference  # noqa: E501
 
-
 class TestAddToConference(unittest.TestCase):
     """AddToConference unit test stubs"""
 
     def setUp(self):
-        self.model = AddToConference(conference_id="TEST_ID")
-
+        self.model = AddToConference(
+            conference_id="",
+        )
+    
     def test_allow_call_control(self):
         """Test AddToConference.allow_call_control"""
         self.model.allow_call_control = False
@@ -129,7 +130,6 @@ class TestAddToConference(unittest.TestCase):
 
     def test_command_test(self):
         assert self.model.command == "AddToConference"
-
 
 if __name__ == '__main__':
     unittest.main()

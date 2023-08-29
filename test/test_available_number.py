@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.capabilities import Capabilities
@@ -20,17 +20,16 @@ globals()['Capabilities'] = Capabilities
 
 from freeclimb.model.available_number import AvailableNumber  # noqa: E501
 
-
 class TestAvailableNumber(unittest.TestCase):
     """AvailableNumber unit test stubs"""
 
     def setUp(self):
-        self.model = AvailableNumber()
-
+        self.model = AvailableNumber(
+        )
+    
     def test_capabilities(self):
         """Test AvailableNumber.capabilities"""
-        object = Capabilities(sms=False, voice=False,
-                              toll_free=False, ten_dlc=False, short_code=False)
+        object = Capabilities(sms=False, voice=False, toll_free=False, ten_dlc=False, short_code=False)
         self.model.capabilities = object
         assert self.model.get("capabilities", object)
 
@@ -63,7 +62,6 @@ class TestAvailableNumber(unittest.TestCase):
         """Test AvailableNumber.country"""
         self.model.country = "TEST_STRING"
         assert self.model.get("country") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

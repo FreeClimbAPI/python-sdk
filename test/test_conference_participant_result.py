@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.conference_participant_result_all_of import ConferenceParticipantResultAllOf
@@ -22,13 +22,13 @@ globals()['MutableResourceModel'] = MutableResourceModel
 
 from freeclimb.model.conference_participant_result import ConferenceParticipantResult  # noqa: E501
 
-
 class TestConferenceParticipantResult(unittest.TestCase):
     """ConferenceParticipantResult unit test stubs"""
 
     def setUp(self):
-        self.model = ConferenceParticipantResult()
-
+        self.model = ConferenceParticipantResult(
+        )
+    
     def test_uri(self):
         """Test ConferenceParticipantResult.uri"""
         self.model.uri = "TEST_STRING"
@@ -46,7 +46,6 @@ class TestConferenceParticipantResult(unittest.TestCase):
 
     def test_revision(self):
         """Test ConferenceParticipantResult.revision"""
-
         self.model.revision = 1
         assert self.model.get("revision") == 1
 
@@ -79,7 +78,6 @@ class TestConferenceParticipantResult(unittest.TestCase):
         """Test ConferenceParticipantResult.start_conf_on_enter"""
         self.model.start_conf_on_enter = False
         assert self.model.get("start_conf_on_enter") == False
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,16 +11,17 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.record_utterance_term_reason import RecordUtteranceTermReason  # noqa: E501
 
-
 class TestRecordUtteranceTermReason(unittest.TestCase):
     """RecordUtteranceTermReason unit test stubs"""
 
+    
     def test_FINISH_KEY_should_serialize_to_enum(self):
         expected = RecordUtteranceTermReason.FINISH_KEY
         calculated = RecordUtteranceTermReason['FINISH_KEY']
@@ -64,7 +65,6 @@ class TestRecordUtteranceTermReason(unittest.TestCase):
         expected = "maxLength"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

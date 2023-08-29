@@ -11,17 +11,17 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.conference_status import ConferenceStatus  # noqa: E501
 
-
 class TestConferenceStatus(unittest.TestCase):
     """ConferenceStatus unit test stubs"""
 
+    
     def test_EMPTY_should_serialize_to_enum(self):
         expected = ConferenceStatus.EMPTY
         calculated = ConferenceStatus['EMPTY']
@@ -65,7 +65,6 @@ class TestConferenceStatus(unittest.TestCase):
         expected = "terminated"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

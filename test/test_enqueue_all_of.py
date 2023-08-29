@@ -11,21 +11,23 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.enqueue_all_of import EnqueueAllOf  # noqa: E501
-
 
 class TestEnqueueAllOf(unittest.TestCase):
     """EnqueueAllOf unit test stubs"""
 
     def setUp(self):
         self.model = EnqueueAllOf(
-            action_url="TEST_URL", queue_id="TEST_ID", wait_url="TEST_URL")
-
+            action_url="",
+            queue_id="",
+            wait_url="",
+        )
+    
     def test_action_url(self):
         """Test EnqueueAllOf.action_url"""
         self.model.action_url = "TEST_STRING"
@@ -45,7 +47,6 @@ class TestEnqueueAllOf(unittest.TestCase):
         """Test EnqueueAllOf.wait_url"""
         self.model.wait_url = "TEST_STRING"
         assert self.model.get("wait_url") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

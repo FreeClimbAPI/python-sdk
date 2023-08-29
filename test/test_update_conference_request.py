@@ -12,6 +12,7 @@
 import sys
 import unittest
 from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.play_beep import PlayBeep
@@ -21,13 +22,13 @@ globals()['UpdateConferenceRequestStatus'] = UpdateConferenceRequestStatus
 
 from freeclimb.model.update_conference_request import UpdateConferenceRequest  # noqa: E501
 
-
 class TestUpdateConferenceRequest(unittest.TestCase):
     """UpdateConferenceRequest unit test stubs"""
 
     def setUp(self):
-        self.model = UpdateConferenceRequest()
-
+        self.model = UpdateConferenceRequest(
+        )
+    
     def test_alias(self):
         """Test UpdateConferenceRequest.alias"""
         self.model.alias = "TEST_STRING"
@@ -49,9 +50,7 @@ class TestUpdateConferenceRequest(unittest.TestCase):
         self.model.status = UpdateConferenceRequestStatus.EMPTY
         assert self.model.get("status") == UpdateConferenceRequestStatus.EMPTY
         self.model.status = UpdateConferenceRequestStatus.TERMINATED
-        assert self.model.get(
-            "status") == UpdateConferenceRequestStatus.TERMINATED
-
+        assert self.model.get("status") == UpdateConferenceRequestStatus.TERMINATED
 
 if __name__ == '__main__':
     unittest.main()

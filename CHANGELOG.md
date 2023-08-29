@@ -9,6 +9,19 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 None
 
+<a name="4.4.3"></a>
+
+## [4.4.3] - 2023-08-24
+
+### Changed 
+
+- Removed testing for properties with 'x-max-length-*' vendor extension
+
+### Added
+
+- Generation for model initialization
+- Testing for properties with 'maxLength'
+
 <a name="4.4.2"></a>
 
 ## [4.4.2] - 2023-08-10

@@ -11,19 +11,20 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.recording_result_all_of import RecordingResultAllOf  # noqa: E501
 
-
 class TestRecordingResultAllOf(unittest.TestCase):
     """RecordingResultAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = RecordingResultAllOf()
-
+        self.model = RecordingResultAllOf(
+        )
+    
     def test_recording_id(self):
         """Test RecordingResultAllOf.recording_id"""
         self.model.recording_id = "TEST_STRING"
@@ -41,7 +42,6 @@ class TestRecordingResultAllOf(unittest.TestCase):
 
     def test_duration_sec(self):
         """Test RecordingResultAllOf.duration_sec"""
-
         self.model.duration_sec = 1
         assert self.model.get("duration_sec") == 1
 
@@ -49,7 +49,6 @@ class TestRecordingResultAllOf(unittest.TestCase):
         """Test RecordingResultAllOf.conference_id"""
         self.model.conference_id = "TEST_STRING"
         assert self.model.get("conference_id") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

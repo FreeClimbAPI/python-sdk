@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.incoming_number_result import IncomingNumberResult
@@ -19,20 +20,18 @@ globals()['IncomingNumberResult'] = IncomingNumberResult
 
 from freeclimb.model.incoming_number_list_all_of import IncomingNumberListAllOf  # noqa: E501
 
-
 class TestIncomingNumberListAllOf(unittest.TestCase):
     """IncomingNumberListAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = IncomingNumberListAllOf()
-
+        self.model = IncomingNumberListAllOf(
+        )
+    
     def test_incoming_phone_numbers(self):
         """Test IncomingNumberListAllOf.incoming_phone_numbers"""
-
         testList = []
         self.model.incoming_phone_numbers = testList
         assert self.model.get("incoming_phone_numbers") == testList
-
 
 if __name__ == '__main__':
     unittest.main()

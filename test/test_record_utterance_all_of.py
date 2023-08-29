@@ -11,19 +11,21 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.record_utterance_all_of import RecordUtteranceAllOf  # noqa: E501
 
-
 class TestRecordUtteranceAllOf(unittest.TestCase):
     """RecordUtteranceAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = RecordUtteranceAllOf(action_url="TEST_URL")
-
+        self.model = RecordUtteranceAllOf(
+            action_url="",
+        )
+    
     def test_action_url(self):
         """Test RecordUtteranceAllOf.action_url"""
         self.model.action_url = "TEST_STRING"
@@ -31,7 +33,6 @@ class TestRecordUtteranceAllOf(unittest.TestCase):
 
     def test_silence_timeout_ms(self):
         """Test RecordUtteranceAllOf.silence_timeout_ms"""
-
         self.model.silence_timeout_ms = 1
         assert self.model.get("silence_timeout_ms") == 1
 
@@ -42,7 +43,6 @@ class TestRecordUtteranceAllOf(unittest.TestCase):
 
     def test_max_length_sec(self):
         """Test RecordUtteranceAllOf.max_length_sec"""
-
         self.model.max_length_sec = 1
         assert self.model.get("max_length_sec") == 1
 
@@ -60,7 +60,6 @@ class TestRecordUtteranceAllOf(unittest.TestCase):
         """Test RecordUtteranceAllOf.privacy_mode"""
         self.model.privacy_mode = False
         assert self.model.get("privacy_mode") == False
-
 
 if __name__ == '__main__':
     unittest.main()

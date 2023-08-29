@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.application_result_all_of import ApplicationResultAllOf
@@ -22,13 +22,13 @@ globals()['MutableResourceModel'] = MutableResourceModel
 
 from freeclimb.model.application_result import ApplicationResult  # noqa: E501
 
-
 class TestApplicationResult(unittest.TestCase):
     """ApplicationResult unit test stubs"""
 
     def setUp(self):
-        self.model = ApplicationResult()
-
+        self.model = ApplicationResult(
+        )
+    
     def test_uri(self):
         """Test ApplicationResult.uri"""
         self.model.uri = "TEST_STRING"
@@ -46,7 +46,6 @@ class TestApplicationResult(unittest.TestCase):
 
     def test_revision(self):
         """Test ApplicationResult.revision"""
-
         self.model.revision = 1
         assert self.model.get("revision") == 1
 
@@ -94,7 +93,6 @@ class TestApplicationResult(unittest.TestCase):
         """Test ApplicationResult.sms_fallback_url"""
         self.model.sms_fallback_url = "TEST_STRING"
         assert self.model.get("sms_fallback_url") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

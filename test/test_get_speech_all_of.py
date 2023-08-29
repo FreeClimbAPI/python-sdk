@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.grammar_type import GrammarType
@@ -21,14 +22,15 @@ globals()['PerclCommand'] = PerclCommand
 
 from freeclimb.model.get_speech_all_of import GetSpeechAllOf  # noqa: E501
 
-
 class TestGetSpeechAllOf(unittest.TestCase):
     """GetSpeechAllOf unit test stubs"""
 
     def setUp(self):
         self.model = GetSpeechAllOf(
-            action_url="TEST_URL", grammar_file="TEST_STRING")
-
+            action_url="",
+            grammar_file="",
+        )
+    
     def test_action_url(self):
         """Test GetSpeechAllOf.action_url"""
         self.model.action_url = "TEST_STRING"
@@ -58,42 +60,37 @@ class TestGetSpeechAllOf(unittest.TestCase):
 
     def test_prompts(self):
         """Test GetSpeechAllOf.prompts"""
-
         testList = []
         self.model.prompts = testList
         assert self.model.get("prompts") == testList
 
     def test_no_input_timeout_ms(self):
         """Test GetSpeechAllOf.no_input_timeout_ms"""
-
         self.model.no_input_timeout_ms = 1
         assert self.model.get("no_input_timeout_ms") == 1
 
     def test_recognition_timeout_ms(self):
         """Test GetSpeechAllOf.recognition_timeout_ms"""
-
         self.model.recognition_timeout_ms = 1
         assert self.model.get("recognition_timeout_ms") == 1
 
     def test_confidence_threshold(self):
         """Test GetSpeechAllOf.confidence_threshold"""
-        self.model.confidence_threshold = float(1)
+        self.model.confidence_threshold = float(1) 
         assert self.model.get("confidence_threshold") == float(1)
 
     def test_sensitivity_level(self):
         """Test GetSpeechAllOf.sensitivity_level"""
-        self.model.sensitivity_level = float(1)
+        self.model.sensitivity_level = float(1) 
         assert self.model.get("sensitivity_level") == float(1)
 
     def test_speech_complete_timeout_ms(self):
         """Test GetSpeechAllOf.speech_complete_timeout_ms"""
-
         self.model.speech_complete_timeout_ms = 1
         assert self.model.get("speech_complete_timeout_ms") == 1
 
     def test_speech_incomplete_timeout_ms(self):
         """Test GetSpeechAllOf.speech_incomplete_timeout_ms"""
-
         self.model.speech_incomplete_timeout_ms = 1
         assert self.model.get("speech_incomplete_timeout_ms") == 1
 
@@ -101,7 +98,6 @@ class TestGetSpeechAllOf(unittest.TestCase):
         """Test GetSpeechAllOf.privacy_mode"""
         self.model.privacy_mode = False
         assert self.model.get("privacy_mode") == False
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.mutable_resource_model import MutableResourceModel
@@ -21,13 +22,13 @@ globals()['QueueResultAllOf'] = QueueResultAllOf
 
 from freeclimb.model.queue_result import QueueResult  # noqa: E501
 
-
 class TestQueueResult(unittest.TestCase):
     """QueueResult unit test stubs"""
 
     def setUp(self):
-        self.model = QueueResult()
-
+        self.model = QueueResult(
+        )
+    
     def test_uri(self):
         """Test QueueResult.uri"""
         self.model.uri = "TEST_STRING"
@@ -45,7 +46,6 @@ class TestQueueResult(unittest.TestCase):
 
     def test_revision(self):
         """Test QueueResult.revision"""
-
         self.model.revision = 1
         assert self.model.get("revision") == 1
 
@@ -66,19 +66,16 @@ class TestQueueResult(unittest.TestCase):
 
     def test_max_size(self):
         """Test QueueResult.max_size"""
-
         self.model.max_size = 1
         assert self.model.get("max_size") == 1
 
     def test_current_size(self):
         """Test QueueResult.current_size"""
-
         self.model.current_size = 1
         assert self.model.get("current_size") == 1
 
     def test_average_queue_removal_time(self):
         """Test QueueResult.average_queue_removal_time"""
-
         self.model.average_queue_removal_time = 1
         assert self.model.get("average_queue_removal_time") == 1
 
@@ -87,7 +84,6 @@ class TestQueueResult(unittest.TestCase):
         testObject = {}
         self.model.subresource_uris = testObject
         assert self.model.get("subresource_uris") == testObject
-
 
 if __name__ == '__main__':
     unittest.main()

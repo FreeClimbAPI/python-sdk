@@ -11,24 +11,24 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.hangup_all_of import HangupAllOf  # noqa: E501
 
-
 class TestHangupAllOf(unittest.TestCase):
     """HangupAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = HangupAllOf()
-
+        self.model = HangupAllOf(
+        )
+    
     def test_reason(self):
         """Test HangupAllOf.reason"""
         self.model.reason = "TEST_STRING"
         assert self.model.get("reason") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

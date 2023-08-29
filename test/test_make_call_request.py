@@ -11,19 +11,22 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.make_call_request import MakeCallRequest  # noqa: E501
 
-
 class TestMakeCallRequest(unittest.TestCase):
     """MakeCallRequest unit test stubs"""
 
     def setUp(self):
-        self.model = MakeCallRequest(_from="+11231231234", to="+11231231234")
-
+        self.model = MakeCallRequest(
+            _from="",
+            to="",
+        )
+    
     def test__from(self):
         """Test MakeCallRequest._from"""
         self.model._from = "TEST_STRING"
@@ -56,7 +59,6 @@ class TestMakeCallRequest(unittest.TestCase):
 
     def test_timeout(self):
         """Test MakeCallRequest.timeout"""
-
         self.model.timeout = 1
         assert self.model.get("timeout") == 1
 
@@ -74,7 +76,6 @@ class TestMakeCallRequest(unittest.TestCase):
         """Test MakeCallRequest.call_connect_url"""
         self.model.call_connect_url = "TEST_STRING"
         assert self.model.get("call_connect_url") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

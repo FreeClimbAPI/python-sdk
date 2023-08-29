@@ -11,24 +11,25 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.redirect_all_of import RedirectAllOf  # noqa: E501
 
-
 class TestRedirectAllOf(unittest.TestCase):
     """RedirectAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = RedirectAllOf(action_url="TEST_URL")
-
+        self.model = RedirectAllOf(
+            action_url="",
+        )
+    
     def test_action_url(self):
         """Test RedirectAllOf.action_url"""
         self.model.action_url = "TEST_STRING"
         assert self.model.get("action_url") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

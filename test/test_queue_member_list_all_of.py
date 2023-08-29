@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.queue_member import QueueMember
@@ -19,20 +20,18 @@ globals()['QueueMember'] = QueueMember
 
 from freeclimb.model.queue_member_list_all_of import QueueMemberListAllOf  # noqa: E501
 
-
 class TestQueueMemberListAllOf(unittest.TestCase):
     """QueueMemberListAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = QueueMemberListAllOf()
-
+        self.model = QueueMemberListAllOf(
+        )
+    
     def test_queue_members(self):
         """Test QueueMemberListAllOf.queue_members"""
-
         testList = []
         self.model.queue_members = testList
         assert self.model.get("queue_members") == testList
-
 
 if __name__ == '__main__':
     unittest.main()

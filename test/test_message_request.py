@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.message_request_all_of import MessageRequestAllOf
@@ -21,14 +22,16 @@ globals()['MutableResourceModel'] = MutableResourceModel
 
 from freeclimb.model.message_request import MessageRequest  # noqa: E501
 
-
 class TestMessageRequest(unittest.TestCase):
     """MessageRequest unit test stubs"""
 
     def setUp(self):
         self.model = MessageRequest(
-            _from="+11231231234", to="+11231231234", text="TEST_STRING")
-
+            _from="",
+            to="",
+            text="",
+        )
+    
     def test_uri(self):
         """Test MessageRequest.uri"""
         self.model.uri = "TEST_STRING"
@@ -46,7 +49,6 @@ class TestMessageRequest(unittest.TestCase):
 
     def test_revision(self):
         """Test MessageRequest.revision"""
-
         self.model.revision = 1
         assert self.model.get("revision") == 1
 
@@ -74,7 +76,6 @@ class TestMessageRequest(unittest.TestCase):
         """Test MessageRequest.account_id"""
         self.model.account_id = "TEST_STRING"
         assert self.model.get("account_id") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,16 +11,17 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.if_machine import IfMachine  # noqa: E501
 
-
 class TestIfMachine(unittest.TestCase):
     """IfMachine unit test stubs"""
 
+    
     def test_REDIRECT_should_serialize_to_enum(self):
         expected = IfMachine.REDIRECT
         calculated = IfMachine['REDIRECT']
@@ -42,7 +43,6 @@ class TestIfMachine(unittest.TestCase):
         expected = "hangup"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -70,13 +70,14 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.get_digits import GetDigits  # noqa: E501
 
-
 class TestGetDigits(unittest.TestCase):
     """GetDigits unit test stubs"""
 
     def setUp(self):
-        self.model = GetDigits(action_url="TEST_URL")
-
+        self.model = GetDigits(
+            action_url="",
+        )
+    
     def test_action_url(self):
         """Test GetDigits.action_url"""
         self.model.action_url = "TEST_STRING"
@@ -84,7 +85,6 @@ class TestGetDigits(unittest.TestCase):
 
     def test_digit_timeout_ms(self):
         """Test GetDigits.digit_timeout_ms"""
-
         self.model.digit_timeout_ms = 1
         assert self.model.get("digit_timeout_ms") == 1
 
@@ -105,19 +105,16 @@ class TestGetDigits(unittest.TestCase):
 
     def test_max_digits(self):
         """Test GetDigits.max_digits"""
-
         self.model.max_digits = 1
         assert self.model.get("max_digits") == 1
 
     def test_min_digits(self):
         """Test GetDigits.min_digits"""
-
         self.model.min_digits = 1
         assert self.model.get("min_digits") == 1
 
     def test_prompts(self):
         """Test GetDigits.prompts"""
-
         testList = []
         self.model.prompts = testList
         assert self.model.get("prompts") == testList
@@ -129,7 +126,6 @@ class TestGetDigits(unittest.TestCase):
 
     def test_command_test(self):
         assert self.model.command == "GetDigits"
-
 
 if __name__ == '__main__':
     unittest.main()

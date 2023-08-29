@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.application_result import ApplicationResult
@@ -24,16 +24,14 @@ class TestApplicationListAllOf(unittest.TestCase):
     """ApplicationListAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = ApplicationListAllOf()
+        self.model = ApplicationListAllOf(
+        )
     
     def test_applications(self):
         """Test ApplicationListAllOf.applications"""
-        
         testList = []
         self.model.applications = testList
         assert self.model.get("applications") == testList
 
-
-    
 if __name__ == '__main__':
     unittest.main()

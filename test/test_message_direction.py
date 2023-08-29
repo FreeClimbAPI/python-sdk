@@ -11,16 +11,17 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.message_direction import MessageDirection  # noqa: E501
 
-
 class TestMessageDirection(unittest.TestCase):
     """MessageDirection unit test stubs"""
 
+    
     def test_INBOUND_should_serialize_to_enum(self):
         expected = MessageDirection.INBOUND
         calculated = MessageDirection['INBOUND']
@@ -42,7 +43,6 @@ class TestMessageDirection(unittest.TestCase):
         expected = "outbound"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

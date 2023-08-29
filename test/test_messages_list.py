@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.message_result import MessageResult
@@ -23,46 +24,40 @@ globals()['PaginationModel'] = PaginationModel
 
 from freeclimb.model.messages_list import MessagesList  # noqa: E501
 
-
 class TestMessagesList(unittest.TestCase):
     """MessagesList unit test stubs"""
 
     def setUp(self):
-        self.model = MessagesList()
-
+        self.model = MessagesList(
+        )
+    
     def test_total(self):
         """Test MessagesList.total"""
-
         self.model.total = 1
         assert self.model.get("total") == 1
 
     def test_start(self):
         """Test MessagesList.start"""
-
         self.model.start = 1
         assert self.model.get("start") == 1
 
     def test_end(self):
         """Test MessagesList.end"""
-
         self.model.end = 1
         assert self.model.get("end") == 1
 
     def test_page(self):
         """Test MessagesList.page"""
-
         self.model.page = 1
         assert self.model.get("page") == 1
 
     def test_num_pages(self):
         """Test MessagesList.num_pages"""
-
         self.model.num_pages = 1
         assert self.model.get("num_pages") == 1
 
     def test_page_size(self):
         """Test MessagesList.page_size"""
-
         self.model.page_size = 1
         assert self.model.get("page_size") == 1
 
@@ -73,11 +68,9 @@ class TestMessagesList(unittest.TestCase):
 
     def test_messages(self):
         """Test MessagesList.messages"""
-
         testList = []
         self.model.messages = testList
         assert self.model.get("messages") == testList
-
 
 if __name__ == '__main__':
     unittest.main()

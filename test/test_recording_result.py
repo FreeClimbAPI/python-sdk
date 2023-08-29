@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.mutable_resource_model import MutableResourceModel
@@ -21,13 +22,13 @@ globals()['RecordingResultAllOf'] = RecordingResultAllOf
 
 from freeclimb.model.recording_result import RecordingResult  # noqa: E501
 
-
 class TestRecordingResult(unittest.TestCase):
     """RecordingResult unit test stubs"""
 
     def setUp(self):
-        self.model = RecordingResult()
-
+        self.model = RecordingResult(
+        )
+    
     def test_uri(self):
         """Test RecordingResult.uri"""
         self.model.uri = "TEST_STRING"
@@ -45,7 +46,6 @@ class TestRecordingResult(unittest.TestCase):
 
     def test_revision(self):
         """Test RecordingResult.revision"""
-
         self.model.revision = 1
         assert self.model.get("revision") == 1
 
@@ -66,7 +66,6 @@ class TestRecordingResult(unittest.TestCase):
 
     def test_duration_sec(self):
         """Test RecordingResult.duration_sec"""
-
         self.model.duration_sec = 1
         assert self.model.get("duration_sec") == 1
 
@@ -74,7 +73,6 @@ class TestRecordingResult(unittest.TestCase):
         """Test RecordingResult.conference_id"""
         self.model.conference_id = "TEST_STRING"
         assert self.model.get("conference_id") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

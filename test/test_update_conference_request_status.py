@@ -12,15 +12,16 @@
 import sys
 import unittest
 from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.update_conference_request_status import UpdateConferenceRequestStatus  # noqa: E501
 
-
 class TestUpdateConferenceRequestStatus(unittest.TestCase):
     """UpdateConferenceRequestStatus unit test stubs"""
 
+    
     def test_EMPTY_should_serialize_to_enum(self):
         expected = UpdateConferenceRequestStatus.EMPTY
         calculated = UpdateConferenceRequestStatus['EMPTY']
@@ -42,7 +43,6 @@ class TestUpdateConferenceRequestStatus(unittest.TestCase):
         expected = "terminated"
         calculated = test.value
         assert expected == calculated
-
 
 if __name__ == '__main__':
     unittest.main()

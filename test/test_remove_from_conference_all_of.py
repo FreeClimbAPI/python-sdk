@@ -11,24 +11,25 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.remove_from_conference_all_of import RemoveFromConferenceAllOf  # noqa: E501
 
-
 class TestRemoveFromConferenceAllOf(unittest.TestCase):
     """RemoveFromConferenceAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = RemoveFromConferenceAllOf(call_id="TEST_ID")
-
+        self.model = RemoveFromConferenceAllOf(
+            call_id="",
+        )
+    
     def test_call_id(self):
         """Test RemoveFromConferenceAllOf.call_id"""
         self.model.call_id = "TEST_STRING"
         assert self.model.get("call_id") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

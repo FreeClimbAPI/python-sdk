@@ -11,19 +11,22 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.park_all_of import ParkAllOf  # noqa: E501
 
-
 class TestParkAllOf(unittest.TestCase):
     """ParkAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = ParkAllOf(wait_url="TEST_URL", action_url="TEST_URL")
-
+        self.model = ParkAllOf(
+            wait_url="",
+            action_url="",
+        )
+    
     def test_wait_url(self):
         """Test ParkAllOf.wait_url"""
         self.model.wait_url = "TEST_STRING"
@@ -38,7 +41,6 @@ class TestParkAllOf(unittest.TestCase):
         """Test ParkAllOf.notification_url"""
         self.model.notification_url = "TEST_STRING"
         assert self.model.get("notification_url") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

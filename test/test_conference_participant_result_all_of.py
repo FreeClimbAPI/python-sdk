@@ -11,20 +11,20 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.conference_participant_result_all_of import ConferenceParticipantResultAllOf  # noqa: E501
 
-
 class TestConferenceParticipantResultAllOf(unittest.TestCase):
     """ConferenceParticipantResultAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = ConferenceParticipantResultAllOf()
-
+        self.model = ConferenceParticipantResultAllOf(
+        )
+    
     def test_account_id(self):
         """Test ConferenceParticipantResultAllOf.account_id"""
         self.model.account_id = "TEST_STRING"
@@ -54,7 +54,6 @@ class TestConferenceParticipantResultAllOf(unittest.TestCase):
         """Test ConferenceParticipantResultAllOf.start_conf_on_enter"""
         self.model.start_conf_on_enter = False
         assert self.model.get("start_conf_on_enter") == False
-
 
 if __name__ == '__main__':
     unittest.main()

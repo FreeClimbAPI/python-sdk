@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.available_number import AvailableNumber
@@ -24,16 +24,14 @@ class TestAvailableNumberListAllOf(unittest.TestCase):
     """AvailableNumberListAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = AvailableNumberListAllOf()
+        self.model = AvailableNumberListAllOf(
+        )
     
     def test_available_phone_numbers(self):
         """Test AvailableNumberListAllOf.available_phone_numbers"""
-        
         testList = []
         self.model.available_phone_numbers = testList
         assert self.model.get("available_phone_numbers") == testList
 
-
-    
 if __name__ == '__main__':
     unittest.main()

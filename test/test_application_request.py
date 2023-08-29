@@ -11,20 +11,20 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.application_request import ApplicationRequest  # noqa: E501
 
-
 class TestApplicationRequest(unittest.TestCase):
     """ApplicationRequest unit test stubs"""
 
     def setUp(self):
-        self.model = ApplicationRequest()
-
+        self.model = ApplicationRequest(
+        )
+    
     def test_alias(self):
         """Test ApplicationRequest.alias"""
         self.model.alias = "TEST_STRING"
@@ -59,7 +59,6 @@ class TestApplicationRequest(unittest.TestCase):
         """Test ApplicationRequest.sms_fallback_url"""
         self.model.sms_fallback_url = "TEST_STRING"
         assert self.model.get("sms_fallback_url") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

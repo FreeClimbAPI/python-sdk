@@ -11,19 +11,20 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.queue_request import QueueRequest  # noqa: E501
 
-
 class TestQueueRequest(unittest.TestCase):
     """QueueRequest unit test stubs"""
 
     def setUp(self):
-        self.model = QueueRequest()
-
+        self.model = QueueRequest(
+        )
+    
     def test_alias(self):
         """Test QueueRequest.alias"""
         self.model.alias = "TEST_STRING"
@@ -31,10 +32,8 @@ class TestQueueRequest(unittest.TestCase):
 
     def test_max_size(self):
         """Test QueueRequest.max_size"""
-
         self.model.max_size = 1
         assert self.model.get("max_size") == 1
-
 
 if __name__ == '__main__':
     unittest.main()

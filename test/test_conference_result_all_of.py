@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.conference_status import ConferenceStatus
@@ -22,13 +22,13 @@ globals()['PlayBeep'] = PlayBeep
 
 from freeclimb.model.conference_result_all_of import ConferenceResultAllOf  # noqa: E501
 
-
 class TestConferenceResultAllOf(unittest.TestCase):
     """ConferenceResultAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = ConferenceResultAllOf()
-
+        self.model = ConferenceResultAllOf(
+        )
+    
     def test_conference_id(self):
         """Test ConferenceResultAllOf.conference_id"""
         self.model.conference_id = "TEST_STRING"
@@ -91,7 +91,6 @@ class TestConferenceResultAllOf(unittest.TestCase):
         testObject = {}
         self.model.subresource_uris = testObject
         assert self.model.get("subresource_uris") == testObject
-
 
 if __name__ == '__main__':
     unittest.main()

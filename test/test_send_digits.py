@@ -11,7 +11,8 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.add_to_conference import AddToConference
@@ -69,13 +70,14 @@ globals()['Unpark'] = Unpark
 
 from freeclimb.model.send_digits import SendDigits  # noqa: E501
 
-
 class TestSendDigits(unittest.TestCase):
     """SendDigits unit test stubs"""
 
     def setUp(self):
-        self.model = SendDigits(digits="TEST_STRING")
-
+        self.model = SendDigits(
+            digits="",
+        )
+    
     def test_digits(self):
         """Test SendDigits.digits"""
         self.model.digits = "TEST_STRING"
@@ -83,7 +85,6 @@ class TestSendDigits(unittest.TestCase):
 
     def test_pause_ms(self):
         """Test SendDigits.pause_ms"""
-
         self.model.pause_ms = 1
         assert self.model.get("pause_ms") == 1
 
@@ -94,7 +95,6 @@ class TestSendDigits(unittest.TestCase):
 
     def test_command_test(self):
         assert self.model.command == "SendDigits"
-
 
 if __name__ == '__main__':
     unittest.main()

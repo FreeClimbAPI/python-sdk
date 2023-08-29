@@ -11,20 +11,23 @@
 
 import sys
 import unittest
-import datetime
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 
 from freeclimb.model.sms_all_of import SmsAllOf  # noqa: E501
-
 
 class TestSmsAllOf(unittest.TestCase):
     """SmsAllOf unit test stubs"""
 
     def setUp(self):
         self.model = SmsAllOf(
-            to="+11231231234", _from="+11231231234", text="TEST_STRING")
-
+            to="",
+            _from="",
+            text="",
+        )
+    
     def test_to(self):
         """Test SmsAllOf.to"""
         self.model.to = "TEST_STRING"
@@ -44,7 +47,6 @@ class TestSmsAllOf(unittest.TestCase):
         """Test SmsAllOf.notification_url"""
         self.model.notification_url = "TEST_STRING"
         assert self.model.get("notification_url") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()

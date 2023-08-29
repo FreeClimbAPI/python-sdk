@@ -11,8 +11,8 @@
 
 import sys
 import unittest
-import datetime
-import decimal
+from datetime import datetime, date
+import pytest
 
 import freeclimb
 from freeclimb.model.play_beep import PlayBeep
@@ -20,13 +20,14 @@ globals()['PlayBeep'] = PlayBeep
 
 from freeclimb.model.create_conference_all_of import CreateConferenceAllOf  # noqa: E501
 
-
 class TestCreateConferenceAllOf(unittest.TestCase):
     """CreateConferenceAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = CreateConferenceAllOf(action_url="TEST_URL")
-
+        self.model = CreateConferenceAllOf(
+            action_url="",
+        )
+    
     def test_action_url(self):
         """Test CreateConferenceAllOf.action_url"""
         self.model.action_url = "TEST_STRING"
@@ -62,7 +63,6 @@ class TestCreateConferenceAllOf(unittest.TestCase):
         """Test CreateConferenceAllOf.wait_url"""
         self.model.wait_url = "TEST_STRING"
         assert self.model.get("wait_url") == "TEST_STRING"
-
 
 if __name__ == '__main__':
     unittest.main()
