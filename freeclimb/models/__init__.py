@@ -140,6 +140,8 @@ from freeclimb.model.sms_all_of import SmsAllOf
 from freeclimb.model.start_record_call import StartRecordCall
 from freeclimb.model.terminate_conference import TerminateConference
 from freeclimb.model.terminate_conference_all_of import TerminateConferenceAllOf
+from freeclimb.model.transcribe_utterance import TranscribeUtterance
+from freeclimb.model.transcribe_utterance_record import TranscribeUtteranceRecord
 from freeclimb.model.unpark import Unpark
 from freeclimb.model.update_call_request import UpdateCallRequest
 from freeclimb.model.update_call_request_status import UpdateCallRequestStatus
