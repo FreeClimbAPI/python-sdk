@@ -57,6 +57,7 @@ def lazy_import():
     from freeclimb.model.sms import Sms
     from freeclimb.model.start_record_call import StartRecordCall
     from freeclimb.model.terminate_conference import TerminateConference
+    from freeclimb.model.transcribe_utterance import TranscribeUtterance
     from freeclimb.model.unpark import Unpark
     globals()['AddToConference'] = AddToConference
     globals()['CreateConference'] = CreateConference
@@ -83,6 +84,7 @@ def lazy_import():
     globals()['Sms'] = Sms
     globals()['StartRecordCall'] = StartRecordCall
     globals()['TerminateConference'] = TerminateConference
+    globals()['TranscribeUtterance'] = TranscribeUtterance
     globals()['Unpark'] = Unpark
 
 class SetListen(ModelComposed):

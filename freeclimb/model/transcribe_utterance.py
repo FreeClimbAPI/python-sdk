@@ -32,8 +32,63 @@ from freeclimb.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from freeclimb.model.add_to_conference import AddToConference
+    from freeclimb.model.create_conference import CreateConference
+    from freeclimb.model.dequeue import Dequeue
+    from freeclimb.model.enqueue import Enqueue
+    from freeclimb.model.get_digits import GetDigits
+    from freeclimb.model.get_speech import GetSpeech
+    from freeclimb.model.hangup import Hangup
+    from freeclimb.model.out_dial import OutDial
+    from freeclimb.model.park import Park
+    from freeclimb.model.pause import Pause
+    from freeclimb.model.percl_command import PerclCommand
+    from freeclimb.model.play import Play
+    from freeclimb.model.play_early_media import PlayEarlyMedia
+    from freeclimb.model.record_utterance import RecordUtterance
+    from freeclimb.model.redirect import Redirect
+    from freeclimb.model.reject import Reject
+    from freeclimb.model.remove_from_conference import RemoveFromConference
+    from freeclimb.model.say import Say
+    from freeclimb.model.send_digits import SendDigits
+    from freeclimb.model.set_listen import SetListen
+    from freeclimb.model.set_talk import SetTalk
+    from freeclimb.model.sms import Sms
+    from freeclimb.model.start_record_call import StartRecordCall
+    from freeclimb.model.terminate_conference import TerminateConference
+    from freeclimb.model.terminate_conference_all_of import TerminateConferenceAllOf
+    from freeclimb.model.transcribe_utterance import TranscribeUtterance
     from freeclimb.model.transcribe_utterance_record import TranscribeUtteranceRecord
+    from freeclimb.model.unpark import Unpark
+
+    globals()['AddToConference'] = AddToConference
+    globals()['CreateConference'] = CreateConference
+    globals()['Dequeue'] = Dequeue
+    globals()['Enqueue'] = Enqueue
+    globals()['GetDigits'] = GetDigits
+    globals()['GetSpeech'] = GetSpeech
+    globals()['Hangup'] = Hangup
+    globals()['OutDial'] = OutDial
+    globals()['Park'] = Park
+    globals()['Pause'] = Pause
+    globals()['PerclCommand'] = PerclCommand
+    globals()['Play'] = Play
+    globals()['PlayEarlyMedia'] = PlayEarlyMedia
+    globals()['RecordUtterance'] = RecordUtterance
+    globals()['Redirect'] = Redirect
+    globals()['Reject'] = Reject
+    globals()['RemoveFromConference'] = RemoveFromConference
+    globals()['Say'] = Say
+    globals()['SendDigits'] = SendDigits
+    globals()['SetListen'] = SetListen
+    globals()['SetTalk'] = SetTalk
+    globals()['Sms'] = Sms
+    globals()['StartRecordCall'] = StartRecordCall
+    globals()['TerminateConference'] = TerminateConference
+    globals()['TerminateConferenceAllOf'] = TerminateConferenceAllOf
+    globals()['TranscribeUtterance'] = TranscribeUtterance
     globals()['TranscribeUtteranceRecord'] = TranscribeUtteranceRecord
+    globals()['Unpark'] = Unpark
 
 
 class TranscribeUtterance(ModelNormal):
@@ -99,6 +154,7 @@ class TranscribeUtterance(ModelNormal):
 
     @cached_property
     def discriminator():
+        return None
         return None
 
 
@@ -287,5 +343,11 @@ class TranscribeUtterance(ModelNormal):
             if var_name in self.read_only_vars:
                 raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
                                      f"class with read only attributes.")
-
+    @cached_property
+    def command():
+        mappings = PerclCommand.discriminator['command']
+        mapping = next((mapping for mapping,schema in mappings.items() if schema == TranscribeUtterance), None)
+        if mapping == None:
+            raise ApiAttributeError("{0} has no mapping '{1}'".format(TranscribeUtterance.__class__.name, 'command'))
+        return mapping
 
