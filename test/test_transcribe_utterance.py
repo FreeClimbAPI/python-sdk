@@ -40,6 +40,8 @@ class TestTranscribeUtterance(unittest.TestCase):
 
     def test_record(self):
         """Test TranscribeUtterance.record"""
+        self.model.record = TranscribeUtteranceRecord(save_recording=False, max_length_sec=1, rcrd_termination_silence_time_ms=1)
+        assert isinstance(self.model.record, TranscribeUtteranceRecord)
 
     def test_privacy_for_logging(self):
         """Test TranscribeUtterance.privacy_for_logging"""
