@@ -15,6 +15,7 @@ None
 
 ### Added
 
+- TranscribeUtterance into a PerCL command
 - MIT License
 
 <a name="4.5.0"></a>
