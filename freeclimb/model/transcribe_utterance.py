@@ -155,7 +155,6 @@ class TranscribeUtterance(ModelNormal):
     @cached_property
     def discriminator():
         return None
-        return None
 
 
     attribute_map = {
