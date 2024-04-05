@@ -1,5 +1,4 @@
 import unittest
-import freeclimb
 
 from freeclimb.utils.signature_information import SignatureInformation
 

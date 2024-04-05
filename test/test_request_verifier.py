@@ -1,7 +1,6 @@
 import sys
 import time
 import unittest
-import freeclimb
 
 from freeclimb.utils.request_verifier import RequestVerifier
 
