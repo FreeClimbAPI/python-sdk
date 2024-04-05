@@ -16,7 +16,7 @@ class SignatureInformation:
     def is_request_time_valid(self, tolerance:int) -> bool:
         current_time = self.get_current_unix_time()
         time_calculation:int = self.request_timestamp + tolerance
-        return (time_calculation) < current_time
+        return current_time < (time_calculation)
 
     def is_signature_safe(self, requestBody:str, signingSecret:str) -> bool:
         hashValue = self.__compute_hash(requestBody, signingSecret)
