@@ -11,13 +11,16 @@
 """
 
 
-__version__ = "4.5.1"
+__version__ = "4.5.2"
 
 # import ApiClient
 from freeclimb.api_client import ApiClient
 
 # import Configuration
 from freeclimb.configuration import Configuration
+
+# Utils
+from freeclimb.utils.request_verifier import RequestVerifier
 
 # import exceptions
 from freeclimb.exceptions import OpenApiException
