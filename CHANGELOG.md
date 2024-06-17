@@ -9,6 +9,14 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 None
 
+<a name="4.5.3"></a>
+
+## [4.5.3] - 2024-06-17
+
+### Changed
+
+- Fixed GetDigit initial_timeout_ms property bug
+
 <a name="4.5.2"></a>
 
 ## [4.5.2] - 2024-04-05
