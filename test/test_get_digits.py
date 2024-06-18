@@ -40,6 +40,7 @@ from freeclimb.model.set_talk import SetTalk
 from freeclimb.model.sms import Sms
 from freeclimb.model.start_record_call import StartRecordCall
 from freeclimb.model.terminate_conference import TerminateConference
+from freeclimb.model.transcribe_utterance import TranscribeUtterance
 from freeclimb.model.unpark import Unpark
 globals()['AddToConference'] = AddToConference
 globals()['CreateConference'] = CreateConference
@@ -66,6 +67,7 @@ globals()['SetTalk'] = SetTalk
 globals()['Sms'] = Sms
 globals()['StartRecordCall'] = StartRecordCall
 globals()['TerminateConference'] = TerminateConference
+globals()['TranscribeUtterance'] = TranscribeUtterance
 globals()['Unpark'] = Unpark
 
 from freeclimb.model.get_digits import GetDigits  # noqa: E501
@@ -100,8 +102,8 @@ class TestGetDigits(unittest.TestCase):
 
     def test_initial_timeout_ms(self):
         """Test GetDigits.initial_timeout_ms"""
-        self.model.initial_timeout_ms = "TEST_STRING"
-        assert self.model.get("initial_timeout_ms") == "TEST_STRING"
+        self.model.initial_timeout_ms = 1
+        assert self.model.get("initial_timeout_ms") == 1
 
     def test_max_digits(self):
         """Test GetDigits.max_digits"""

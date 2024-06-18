@@ -50,8 +50,8 @@ class TestGetDigitsAllOf(unittest.TestCase):
 
     def test_initial_timeout_ms(self):
         """Test GetDigitsAllOf.initial_timeout_ms"""
-        self.model.initial_timeout_ms = "TEST_STRING"
-        assert self.model.get("initial_timeout_ms") == "TEST_STRING"
+        self.model.initial_timeout_ms = 1
+        assert self.model.get("initial_timeout_ms") == 1
 
     def test_max_digits(self):
         """Test GetDigitsAllOf.max_digits"""
@@ -73,6 +73,7 @@ class TestGetDigitsAllOf(unittest.TestCase):
         """Test GetDigitsAllOf.privacy_mode"""
         self.model.privacy_mode = False
         assert self.model.get("privacy_mode") == False
+
 
 if __name__ == '__main__':
     unittest.main()
