@@ -235,6 +235,56 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         exception_raised = info.value
         assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
 
+    def test_optin_keywords(self):
+        """Test SMSTenDLCCampaign.optin_keywords"""
+        self.model.optin_keywords = "T" * 255
+        assert self.model.get("optin_keywords") == "T" * 255
+        
+        with pytest.raises(Exception) as info:
+            self.model.optin_keywords = "T" * (255 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
+
+    def test_optout_keywords(self):
+        """Test SMSTenDLCCampaign.optout_keywords"""
+        self.model.optout_keywords = "T" * 255
+        assert self.model.get("optout_keywords") == "T" * 255
+        
+        with pytest.raises(Exception) as info:
+            self.model.optout_keywords = "T" * (255 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
+
+    def test_help_keywords(self):
+        """Test SMSTenDLCCampaign.help_keywords"""
+        self.model.help_keywords = "T" * 255
+        assert self.model.get("help_keywords") == "T" * 255
+        
+        with pytest.raises(Exception) as info:
+            self.model.help_keywords = "T" * (255 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
+
+    def test_optin_message(self):
+        """Test SMSTenDLCCampaign.optin_message"""
+        self.model.optin_message = "T" * 255
+        assert self.model.get("optin_message") == "T" * 255
+        
+        with pytest.raises(Exception) as info:
+            self.model.optin_message = "T" * (255 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
+
+    def test_optout_message(self):
+        """Test SMSTenDLCCampaign.optout_message"""
+        self.model.optout_message = "T" * 255
+        assert self.model.get("optout_message") == "T" * 255
+        
+        with pytest.raises(Exception) as info:
+            self.model.optout_message = "T" * (255 + 1)
+        exception_raised = info.value
+        assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
+
     def test_reference_id(self):
         """Test SMSTenDLCCampaign.reference_id"""
         self.model.reference_id = "T" * 50
@@ -254,6 +304,7 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
         """Test SMSTenDLCCampaign.next_renewal_or_expiration_date"""
         self.model.next_renewal_or_expiration_date = date.fromtimestamp(1691592436)
         assert self.model.get("next_renewal_or_expiration_date") == date.fromtimestamp(1691592436) 
+
 
 if __name__ == '__main__':
     unittest.main()

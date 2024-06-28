@@ -56,7 +56,6 @@ def lazy_import():
     from freeclimb.model.sms import Sms
     from freeclimb.model.start_record_call import StartRecordCall
     from freeclimb.model.terminate_conference import TerminateConference
-    from freeclimb.model.terminate_conference_all_of import TerminateConferenceAllOf
     from freeclimb.model.transcribe_utterance import TranscribeUtterance
     from freeclimb.model.unpark import Unpark
     globals()['AddToConference'] = AddToConference
@@ -83,7 +82,6 @@ def lazy_import():
     globals()['Sms'] = Sms
     globals()['StartRecordCall'] = StartRecordCall
     globals()['TerminateConference'] = TerminateConference
-    globals()['TerminateConferenceAllOf'] = TerminateConferenceAllOf
     globals()['TranscribeUtterance'] = TranscribeUtterance
     globals()['Unpark'] = Unpark
 
@@ -140,7 +138,6 @@ class TerminateConference(ModelComposed):
         """
         lazy_import()
         return {
-            'conference_id': (str,),  # noqa: E501
             'command': (str,),  # noqa: E501
         }
 
@@ -150,7 +147,6 @@ class TerminateConference(ModelComposed):
 
 
     attribute_map = {
-        'conference_id': 'conferenceId',  # noqa: E501
         'command': 'command',  # noqa: E501
     }
 
@@ -163,7 +159,6 @@ class TerminateConference(ModelComposed):
         """TerminateConference - a model defined in OpenAPI
 
         Keyword Args:
-            conference_id (str): ID of the conference to terminate.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -264,7 +259,6 @@ class TerminateConference(ModelComposed):
         """TerminateConference - a model defined in OpenAPI
 
         Keyword Args:
-            conference_id (str): ID of the conference to terminate.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -370,7 +364,6 @@ class TerminateConference(ModelComposed):
           ],
           'allOf': [
               PerclCommand,
-              TerminateConferenceAllOf,
           ],
           'oneOf': [
           ],

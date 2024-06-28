@@ -32,6 +32,11 @@ Name | Type | Description | Notes
 **sample5** | **str, none_type** | Message sample. Some campaign tiers require 5 or more message samples. | [optional] 
 **message_flow** | **str, none_type** | Message flow description. | [optional] 
 **help_message** | **str, none_type** | Help message of the campaign. | [optional] 
+**optin_keywords** | **str** | Subscriber opt-in keywords. Multiple keywords are comma separated without space. | [optional] 
+**optout_keywords** | **str** | Subscriber opt-out keywords. Multiple keywords are comma separated without space. | [optional] 
+**help_keywords** | **str** | Subscriber help keywords. Multiple keywords are comma separated without space. | [optional] 
+**optin_message** | **str** | Subscriber opt-in message. | [optional] 
+**optout_message** | **str** | Subscriber opt-out message. | [optional] 
 **reference_id** | **str, none_type** | Caller supplied campaign reference ID. If supplied, the value must be unique across all submitted campaigns. Can be used to prevent duplicate campaign registrations. | [optional] 
 **next_renewal_or_expiration_date** | **date, none_type** | When the campaign would be due for its next renew/bill date. | [optional] 
 

@@ -39,7 +39,7 @@ from freeclimb.model.set_talk import SetTalk
 from freeclimb.model.sms import Sms
 from freeclimb.model.start_record_call import StartRecordCall
 from freeclimb.model.terminate_conference import TerminateConference
-from freeclimb.model.terminate_conference_all_of import TerminateConferenceAllOf
+from freeclimb.model.transcribe_utterance import TranscribeUtterance
 from freeclimb.model.unpark import Unpark
 globals()['AddToConference'] = AddToConference
 globals()['CreateConference'] = CreateConference
@@ -65,7 +65,7 @@ globals()['SetTalk'] = SetTalk
 globals()['Sms'] = Sms
 globals()['StartRecordCall'] = StartRecordCall
 globals()['TerminateConference'] = TerminateConference
-globals()['TerminateConferenceAllOf'] = TerminateConferenceAllOf
+globals()['TranscribeUtterance'] = TranscribeUtterance
 globals()['Unpark'] = Unpark
 
 from freeclimb.model.terminate_conference import TerminateConference  # noqa: E501
@@ -75,13 +75,8 @@ class TestTerminateConference(unittest.TestCase):
 
     def setUp(self):
         self.model = TerminateConference(
-            conference_id="",
         )
     
-    def test_conference_id(self):
-        """Test TerminateConference.conference_id"""
-        self.model.conference_id = "TEST_STRING"
-        assert self.model.get("conference_id") == "TEST_STRING"
 
     def test_command_test(self):
         assert self.model.command == "TerminateConference"

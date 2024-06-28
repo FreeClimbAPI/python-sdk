@@ -48,10 +48,12 @@ class TestMessageRequestAllOf(unittest.TestCase):
         self.model.notification_url = "TEST_STRING"
         assert self.model.get("notification_url") == "TEST_STRING"
 
-    def test_account_id(self):
-        """Test MessageRequestAllOf.account_id"""
-        self.model.account_id = "TEST_STRING"
-        assert self.model.get("account_id") == "TEST_STRING"
+    def test_media_urls(self):
+        """Test MessageRequestAllOf.media_urls"""
+        testArray = []
+        self.model.media_urls = testArray
+        assert self.model.get("media_urls") == testArray
+
 
 if __name__ == '__main__':
     unittest.main()

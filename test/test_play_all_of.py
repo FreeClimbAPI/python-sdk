@@ -36,15 +36,11 @@ class TestPlayAllOf(unittest.TestCase):
         self.model.loop = 1
         assert self.model.get("loop") == 1
 
-    def test_conference_id(self):
-        """Test PlayAllOf.conference_id"""
-        self.model.conference_id = "TEST_STRING"
-        assert self.model.get("conference_id") == "TEST_STRING"
-
     def test_privacy_mode(self):
         """Test PlayAllOf.privacy_mode"""
         self.model.privacy_mode = False
         assert self.model.get("privacy_mode") == False
+
 
 if __name__ == '__main__':
     unittest.main()

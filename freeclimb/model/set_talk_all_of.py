@@ -83,7 +83,6 @@ class SetTalkAllOf(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'call_id': (str,),  # noqa: E501
             'talk': (bool,),  # noqa: E501
         }
 
@@ -93,7 +92,6 @@ class SetTalkAllOf(ModelNormal):
 
 
     attribute_map = {
-        'call_id': 'callId',  # noqa: E501
         'talk': 'talk',  # noqa: E501
     }
 
@@ -104,11 +102,8 @@ class SetTalkAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, call_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
         """SetTalkAllOf - a model defined in OpenAPI
-
-        Args:
-            call_id (str): ID of the call leg that is to be muted or unmuted. The Call must be in a Conference or an error will be triggered.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -169,7 +164,6 @@ class SetTalkAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.call_id = call_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -190,11 +184,8 @@ class SetTalkAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, call_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, *args, **kwargs):  # noqa: E501
         """SetTalkAllOf - a model defined in OpenAPI
-
-        Args:
-            call_id (str): ID of the call leg that is to be muted or unmuted. The Call must be in a Conference or an error will be triggered.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -253,7 +244,6 @@ class SetTalkAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.call_id = call_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

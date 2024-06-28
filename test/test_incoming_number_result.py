@@ -18,9 +18,11 @@ import freeclimb
 from freeclimb.model.capabilities import Capabilities
 from freeclimb.model.incoming_number_result_all_of import IncomingNumberResultAllOf
 from freeclimb.model.mutable_resource_model import MutableResourceModel
+from freeclimb.model.tfn import TFN
 globals()['Capabilities'] = Capabilities
 globals()['IncomingNumberResultAllOf'] = IncomingNumberResultAllOf
 globals()['MutableResourceModel'] = MutableResourceModel
+globals()['TFN'] = TFN
 
 from freeclimb.model.incoming_number_result import IncomingNumberResult  # noqa: E501
 
@@ -53,7 +55,7 @@ class TestIncomingNumberResult(unittest.TestCase):
 
     def test_capabilities(self):
         """Test IncomingNumberResult.capabilities"""
-        object = Capabilities(sms=False, voice=False, toll_free=False, ten_dlc=False, short_code=False)
+        object = Capabilities(False, False, False, False, False)
         self.model.capabilities = object
         assert self.model.get("capabilities", object)
 
@@ -111,6 +113,13 @@ class TestIncomingNumberResult(unittest.TestCase):
         """Test IncomingNumberResult.offnet"""
         self.model.offnet = False
         assert self.model.get("offnet") == False
+
+    def test_tfn(self):
+        """Test IncomingNumberResult.tfn"""
+        object = TFN("campaign_id_example")
+        self.model.tfn = object
+        assert self.model.get("tfn", object)
+
 
 if __name__ == '__main__':
     unittest.main()

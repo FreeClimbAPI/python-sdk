@@ -16,20 +16,21 @@ import pytest
 
 import freeclimb
 
-from freeclimb.model.remove_from_conference_all_of import RemoveFromConferenceAllOf  # noqa: E501
+from freeclimb.model.tfn import TFN  # noqa: E501
 
-class TestRemoveFromConferenceAllOf(unittest.TestCase):
-    """RemoveFromConferenceAllOf unit test stubs"""
+class TestTFN(unittest.TestCase):
+    """TFN unit test stubs"""
 
     def setUp(self):
-        self.model = RemoveFromConferenceAllOf(
-            call_id="",
+        self.model = TFN(
+            campaign_id="",
         )
     
-    def test_call_id(self):
-        """Test RemoveFromConferenceAllOf.call_id"""
-        self.model.call_id = "TEST_STRING"
-        assert self.model.get("call_id") == "TEST_STRING"
+    def test_campaign_id(self):
+        """Test TFN.campaign_id"""
+        self.model.campaign_id = "TEST_STRING"
+        assert self.model.get("campaign_id") == "TEST_STRING"
+
 
 if __name__ == '__main__':
     unittest.main()

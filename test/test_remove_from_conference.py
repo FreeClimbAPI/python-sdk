@@ -32,7 +32,6 @@ from freeclimb.model.record_utterance import RecordUtterance
 from freeclimb.model.redirect import Redirect
 from freeclimb.model.reject import Reject
 from freeclimb.model.remove_from_conference import RemoveFromConference
-from freeclimb.model.remove_from_conference_all_of import RemoveFromConferenceAllOf
 from freeclimb.model.say import Say
 from freeclimb.model.send_digits import SendDigits
 from freeclimb.model.set_listen import SetListen
@@ -40,6 +39,7 @@ from freeclimb.model.set_talk import SetTalk
 from freeclimb.model.sms import Sms
 from freeclimb.model.start_record_call import StartRecordCall
 from freeclimb.model.terminate_conference import TerminateConference
+from freeclimb.model.transcribe_utterance import TranscribeUtterance
 from freeclimb.model.unpark import Unpark
 globals()['AddToConference'] = AddToConference
 globals()['CreateConference'] = CreateConference
@@ -58,7 +58,6 @@ globals()['RecordUtterance'] = RecordUtterance
 globals()['Redirect'] = Redirect
 globals()['Reject'] = Reject
 globals()['RemoveFromConference'] = RemoveFromConference
-globals()['RemoveFromConferenceAllOf'] = RemoveFromConferenceAllOf
 globals()['Say'] = Say
 globals()['SendDigits'] = SendDigits
 globals()['SetListen'] = SetListen
@@ -66,6 +65,7 @@ globals()['SetTalk'] = SetTalk
 globals()['Sms'] = Sms
 globals()['StartRecordCall'] = StartRecordCall
 globals()['TerminateConference'] = TerminateConference
+globals()['TranscribeUtterance'] = TranscribeUtterance
 globals()['Unpark'] = Unpark
 
 from freeclimb.model.remove_from_conference import RemoveFromConference  # noqa: E501
@@ -75,13 +75,8 @@ class TestRemoveFromConference(unittest.TestCase):
 
     def setUp(self):
         self.model = RemoveFromConference(
-            call_id="",
         )
     
-    def test_call_id(self):
-        """Test RemoveFromConference.call_id"""
-        self.model.call_id = "TEST_STRING"
-        assert self.model.get("call_id") == "TEST_STRING"
 
     def test_command_test(self):
         assert self.model.command == "RemoveFromConference"

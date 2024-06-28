@@ -4,7 +4,6 @@ The `SetListen` command enables or disables the listen privilege for a Conferenc
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**call_id** | **str** | ID of the call leg that is to be assigned the listen privilege. The Call must be in a Conference or an error will be triggered. | 
 **listen** | **bool** | Specifying &#x60;false&#x60; will silence the Conference for this Participant. | [optional] 
 **command** | **str** | Name of PerCL Command (this is automatically derived from mapping configuration and should not be manually supplied in any arguments) | [optional] 
 
