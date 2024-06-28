@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **voice_enabled** | **bool, none_type** | Indicates whether the phone number can handle Calls. Typically set to true for all numbers. | [optional] 
 **sms_enabled** | **bool, none_type** | Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers. | [optional] 
 **offnet** | **bool, none_type** | The offnet field is a boolean representing whether the number is offnet registered or not. This field will be rendered only for requests to the IncomingPhone number resource. | [optional] 
+**tfn** | [**TFN**](TFN.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

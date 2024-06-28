@@ -64,6 +64,7 @@ from freeclimb.model.incoming_number_list_all_of import IncomingNumberListAllOf
 from freeclimb.model.incoming_number_request import IncomingNumberRequest
 from freeclimb.model.incoming_number_result import IncomingNumberResult
 from freeclimb.model.incoming_number_result_all_of import IncomingNumberResultAllOf
+from freeclimb.model.inline_object import InlineObject
 from freeclimb.model.language import Language
 from freeclimb.model.log_level import LogLevel
 from freeclimb.model.log_list import LogList
@@ -115,7 +116,6 @@ from freeclimb.model.redirect_all_of import RedirectAllOf
 from freeclimb.model.reject import Reject
 from freeclimb.model.reject_all_of import RejectAllOf
 from freeclimb.model.remove_from_conference import RemoveFromConference
-from freeclimb.model.remove_from_conference_all_of import RemoveFromConferenceAllOf
 from freeclimb.model.request_type import RequestType
 from freeclimb.model.sms_ten_dlc_brand import SMSTenDLCBrand
 from freeclimb.model.sms_ten_dlc_brands_list_result import SMSTenDLCBrandsListResult
@@ -127,6 +127,9 @@ from freeclimb.model.sms_ten_dlc_partner_campaign import SMSTenDLCPartnerCampaig
 from freeclimb.model.sms_ten_dlc_partner_campaign_brand import SMSTenDLCPartnerCampaignBrand
 from freeclimb.model.sms_ten_dlc_partner_campaigns_list_result import SMSTenDLCPartnerCampaignsListResult
 from freeclimb.model.sms_ten_dlc_partner_campaigns_list_result_all_of import SMSTenDLCPartnerCampaignsListResultAllOf
+from freeclimb.model.sms_toll_free_campaign import SMSTollFreeCampaign
+from freeclimb.model.sms_toll_free_campaigns_list_result import SMSTollFreeCampaignsListResult
+from freeclimb.model.sms_toll_free_campaigns_list_result_all_of import SMSTollFreeCampaignsListResultAllOf
 from freeclimb.model.say import Say
 from freeclimb.model.say_all_of import SayAllOf
 from freeclimb.model.send_digits import SendDigits
@@ -138,8 +141,8 @@ from freeclimb.model.set_talk_all_of import SetTalkAllOf
 from freeclimb.model.sms import Sms
 from freeclimb.model.sms_all_of import SmsAllOf
 from freeclimb.model.start_record_call import StartRecordCall
+from freeclimb.model.tfn import TFN
 from freeclimb.model.terminate_conference import TerminateConference
-from freeclimb.model.terminate_conference_all_of import TerminateConferenceAllOf
 from freeclimb.model.transcribe_utterance import TranscribeUtterance
 from freeclimb.model.transcribe_utterance_record import TranscribeUtteranceRecord
 from freeclimb.model.unpark import Unpark

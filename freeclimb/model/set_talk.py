@@ -140,7 +140,6 @@ class SetTalk(ModelComposed):
         """
         lazy_import()
         return {
-            'call_id': (str,),  # noqa: E501
             'talk': (bool,),  # noqa: E501
             'command': (str,),  # noqa: E501
         }
@@ -151,7 +150,6 @@ class SetTalk(ModelComposed):
 
 
     attribute_map = {
-        'call_id': 'callId',  # noqa: E501
         'talk': 'talk',  # noqa: E501
         'command': 'command',  # noqa: E501
     }
@@ -165,7 +163,6 @@ class SetTalk(ModelComposed):
         """SetTalk - a model defined in OpenAPI
 
         Keyword Args:
-            call_id (str): ID of the call leg that is to be muted or unmuted. The Call must be in a Conference or an error will be triggered.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -267,7 +264,6 @@ class SetTalk(ModelComposed):
         """SetTalk - a model defined in OpenAPI
 
         Keyword Args:
-            call_id (str): ID of the call leg that is to be muted or unmuted. The Call must be in a Conference or an error will be triggered.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

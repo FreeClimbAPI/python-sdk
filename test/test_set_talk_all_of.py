@@ -23,18 +23,13 @@ class TestSetTalkAllOf(unittest.TestCase):
 
     def setUp(self):
         self.model = SetTalkAllOf(
-            call_id="",
         )
     
-    def test_call_id(self):
-        """Test SetTalkAllOf.call_id"""
-        self.model.call_id = "TEST_STRING"
-        assert self.model.get("call_id") == "TEST_STRING"
-
     def test_talk(self):
         """Test SetTalkAllOf.talk"""
         self.model.talk = False
         assert self.model.get("talk") == False
+
 
 if __name__ == '__main__':
     unittest.main()

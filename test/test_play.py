@@ -40,6 +40,7 @@ from freeclimb.model.set_talk import SetTalk
 from freeclimb.model.sms import Sms
 from freeclimb.model.start_record_call import StartRecordCall
 from freeclimb.model.terminate_conference import TerminateConference
+from freeclimb.model.transcribe_utterance import TranscribeUtterance
 from freeclimb.model.unpark import Unpark
 globals()['AddToConference'] = AddToConference
 globals()['CreateConference'] = CreateConference
@@ -66,6 +67,7 @@ globals()['SetTalk'] = SetTalk
 globals()['Sms'] = Sms
 globals()['StartRecordCall'] = StartRecordCall
 globals()['TerminateConference'] = TerminateConference
+globals()['TranscribeUtterance'] = TranscribeUtterance
 globals()['Unpark'] = Unpark
 
 from freeclimb.model.play import Play  # noqa: E501
@@ -88,15 +90,11 @@ class TestPlay(unittest.TestCase):
         self.model.loop = 1
         assert self.model.get("loop") == 1
 
-    def test_conference_id(self):
-        """Test Play.conference_id"""
-        self.model.conference_id = "TEST_STRING"
-        assert self.model.get("conference_id") == "TEST_STRING"
-
     def test_privacy_mode(self):
         """Test Play.privacy_mode"""
         self.model.privacy_mode = False
         assert self.model.get("privacy_mode") == False
+
 
     def test_command_test(self):
         assert self.model.command == "Play"

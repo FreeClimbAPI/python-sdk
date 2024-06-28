@@ -49,7 +49,6 @@ def lazy_import():
     from freeclimb.model.redirect import Redirect
     from freeclimb.model.reject import Reject
     from freeclimb.model.remove_from_conference import RemoveFromConference
-    from freeclimb.model.remove_from_conference_all_of import RemoveFromConferenceAllOf
     from freeclimb.model.say import Say
     from freeclimb.model.send_digits import SendDigits
     from freeclimb.model.set_listen import SetListen
@@ -76,7 +75,6 @@ def lazy_import():
     globals()['Redirect'] = Redirect
     globals()['Reject'] = Reject
     globals()['RemoveFromConference'] = RemoveFromConference
-    globals()['RemoveFromConferenceAllOf'] = RemoveFromConferenceAllOf
     globals()['Say'] = Say
     globals()['SendDigits'] = SendDigits
     globals()['SetListen'] = SetListen
@@ -140,7 +138,6 @@ class RemoveFromConference(ModelComposed):
         """
         lazy_import()
         return {
-            'call_id': (str,),  # noqa: E501
             'command': (str,),  # noqa: E501
         }
 
@@ -150,7 +147,6 @@ class RemoveFromConference(ModelComposed):
 
 
     attribute_map = {
-        'call_id': 'callId',  # noqa: E501
         'command': 'command',  # noqa: E501
     }
 
@@ -163,7 +159,6 @@ class RemoveFromConference(ModelComposed):
         """RemoveFromConference - a model defined in OpenAPI
 
         Keyword Args:
-            call_id (str): ID of the Call leg to be removed from the Conference. The Call must be in a Conference or an error will be triggered.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -264,7 +259,6 @@ class RemoveFromConference(ModelComposed):
         """RemoveFromConference - a model defined in OpenAPI
 
         Keyword Args:
-            call_id (str): ID of the Call leg to be removed from the Conference. The Call must be in a Conference or an error will be triggered.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -370,7 +364,6 @@ class RemoveFromConference(ModelComposed):
           ],
           'allOf': [
               PerclCommand,
-              RemoveFromConferenceAllOf,
           ],
           'oneOf': [
           ],

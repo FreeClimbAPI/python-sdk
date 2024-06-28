@@ -46,11 +46,6 @@ class TestAddToConferenceAllOf(unittest.TestCase):
         self.model.conference_id = "TEST_STRING"
         assert self.model.get("conference_id") == "TEST_STRING"
 
-    def test_call_id(self):
-        """Test AddToConferenceAllOf.call_id"""
-        self.model.call_id = "TEST_STRING"
-        assert self.model.get("call_id") == "TEST_STRING"
-
     def test_leave_conference_url(self):
         """Test AddToConferenceAllOf.leave_conference_url"""
         self.model.leave_conference_url = "TEST_STRING"
@@ -75,6 +70,7 @@ class TestAddToConferenceAllOf(unittest.TestCase):
         """Test AddToConferenceAllOf.talk"""
         self.model.talk = False
         assert self.model.get("talk") == False
+
 
 if __name__ == '__main__':
     unittest.main()

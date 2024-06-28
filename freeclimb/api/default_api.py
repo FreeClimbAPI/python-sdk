@@ -41,6 +41,7 @@ from freeclimb.model.filter_logs_request import FilterLogsRequest
 from freeclimb.model.incoming_number_list import IncomingNumberList
 from freeclimb.model.incoming_number_request import IncomingNumberRequest
 from freeclimb.model.incoming_number_result import IncomingNumberResult
+from freeclimb.model.inline_object import InlineObject
 from freeclimb.model.log_list import LogList
 from freeclimb.model.make_call_request import MakeCallRequest
 from freeclimb.model.message_direction import MessageDirection
@@ -60,6 +61,8 @@ from freeclimb.model.sms_ten_dlc_campaign import SMSTenDLCCampaign
 from freeclimb.model.sms_ten_dlc_campaigns_list_result import SMSTenDLCCampaignsListResult
 from freeclimb.model.sms_ten_dlc_partner_campaign import SMSTenDLCPartnerCampaign
 from freeclimb.model.sms_ten_dlc_partner_campaigns_list_result import SMSTenDLCPartnerCampaignsListResult
+from freeclimb.model.sms_toll_free_campaign import SMSTollFreeCampaign
+from freeclimb.model.sms_toll_free_campaigns_list_result import SMSTollFreeCampaignsListResult
 from freeclimb.model.update_call_request import UpdateCallRequest
 from freeclimb.model.update_conference_participant_request import UpdateConferenceParticipantRequest
 from freeclimb.model.update_conference_request import UpdateConferenceRequest
@@ -1675,6 +1678,114 @@ class DefaultApi(object):
             },
             api_client=api_client
         )
+        self.get_toll_free_sms_campaign_endpoint = _Endpoint(
+            settings={
+                'response_type': (SMSTollFreeCampaign,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Messages/TollFree/Campaigns/{campaignId}',
+                'operation_id': 'get_toll_free_sms_campaign',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'campaign_id',
+                ],
+                'required': [
+                    'account_id',
+                    'campaign_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'campaign_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'campaign_id': 'campaignId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'campaign_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_toll_free_sms_campaigns_endpoint = _Endpoint(
+            settings={
+                'response_type': (SMSTollFreeCampaignsListResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Messages/TollFree/Campaigns',
+                'operation_id': 'get_toll_free_sms_campaigns',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                ],
+                'required': [
+                    'account_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.list_active_queues_endpoint = _Endpoint(
             settings={
                 'response_type': (QueueList,),
@@ -2148,6 +2259,72 @@ class DefaultApi(object):
             },
             api_client=api_client
         )
+        self.list_conference_recordings_endpoint = _Endpoint(
+            settings={
+                'response_type': (RecordingList,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Conferences/{conferenceId}/Recordings',
+                'operation_id': 'list_conference_recordings',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'call_id',
+                    'conference_id',
+                    'date_created',
+                ],
+                'required': [
+                    'account_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'call_id':
+                        (str,),
+                    'conference_id':
+                        (str,),
+                    'date_created':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'call_id': 'callId',
+                    'conference_id': 'conferenceId',
+                    'date_created': 'dateCreated',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'call_id': 'query',
+                    'conference_id': 'query',
+                    'date_created': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.list_conferences_endpoint = _Endpoint(
             settings={
                 'response_type': (ConferenceList,),
@@ -2247,6 +2424,7 @@ class DefaultApi(object):
                     'capabilities_toll_free',
                     'capabilities_ten_dlc',
                     'capabilities_short_code',
+                    'tfn_campaign_id',
                     'offnet',
                 ],
                 'required': [
@@ -2295,6 +2473,8 @@ class DefaultApi(object):
                         (bool,),
                     'capabilities_short_code':
                         (bool,),
+                    'tfn_campaign_id':
+                        (str,),
                     'offnet':
                         (bool,),
                 },
@@ -2314,6 +2494,7 @@ class DefaultApi(object):
                     'capabilities_toll_free': 'capabilities.tollFree',
                     'capabilities_ten_dlc': 'capabilities.tenDLC',
                     'capabilities_short_code': 'capabilities.shortCode',
+                    'tfn_campaign_id': 'tfn.campaignId',
                     'offnet': 'offnet',
                 },
                 'location_map': {
@@ -2332,6 +2513,7 @@ class DefaultApi(object):
                     'capabilities_toll_free': 'query',
                     'capabilities_ten_dlc': 'query',
                     'capabilities_short_code': 'query',
+                    'tfn_campaign_id': 'query',
                     'offnet': 'query',
                 },
                 'collection_format_map': {
@@ -2676,6 +2858,64 @@ class DefaultApi(object):
             headers_map={
                 'accept': [
                     'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.make_a_webrtc_jwt_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Calls/WebRTC/Token',
+                'operation_id': 'make_a_webrtc_jwt',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'inline_object',
+                ],
+                'required': [
+                    'account_id',
+                    'inline_object',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'inline_object':
+                        (InlineObject,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'inline_object': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/plain'
                 ],
                 'content_type': [
                     'application/json'
@@ -5704,6 +5944,172 @@ class DefaultApi(object):
 
         return self.get_ten_dlc_sms_partner_campaigns_endpoint.call_with_http_info(**kwargs)
 
+    def get_toll_free_sms_campaign(
+        self,
+        campaign_id, 
+        **kwargs
+        ):
+        """Get a TollFree SMS Campaign  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_toll_free_sms_campaign(campaign_id, async_req=True)
+        >>> result = thread.get()
+
+
+        Args:
+
+
+            campaign_id (str): String that uniquely identifies this TollFree Campaign resource.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SMSTollFreeCampaign
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
+
+        kwargs['campaign_id'] = \
+            campaign_id
+
+        return self.get_toll_free_sms_campaign_endpoint.call_with_http_info(**kwargs)
+
+    def get_toll_free_sms_campaigns(
+        self,
+         
+        **kwargs
+        ):
+        """Get list of TollFree Campaigns  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_toll_free_sms_campaigns(async_req=True)
+        >>> result = thread.get()
+
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SMSTollFreeCampaignsListResult
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
+
+        return self.get_toll_free_sms_campaigns_endpoint.call_with_http_info(**kwargs)
+
     def list_active_queues(
         self,
          
@@ -6292,6 +6698,88 @@ class DefaultApi(object):
 
         return self.list_calls_endpoint.call_with_http_info(**kwargs)
 
+    def list_conference_recordings(
+        self,
+         
+        **kwargs
+        ):
+        """List Conference Recordings  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_conference_recordings(async_req=True)
+        >>> result = thread.get()
+
+
+
+
+
+        Keyword Args:
+            call_id (str): Show only Recordings made during the Call with this ID.. [optional]
+            conference_id (str): Show only Recordings made during the conference with this ID.. [optional]
+            date_created (str): Only show Recordings created on this date, formatted as *YYYY-MM-DD*.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            RecordingList
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
+
+        return self.list_conference_recordings_endpoint.call_with_http_info(**kwargs)
+
     def list_conferences(
         self,
          
@@ -6407,6 +6895,7 @@ class DefaultApi(object):
             capabilities_toll_free (bool): [optional]
             capabilities_ten_dlc (bool): [optional]
             capabilities_short_code (bool): [optional]
+            tfn_campaign_id (str): Only show incoming phone number resources that have been assigned to the provided TFNCampaign ID.. [optional]
             offnet (bool): Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -6893,6 +7382,94 @@ class DefaultApi(object):
             self.account_id
 
         return self.make_a_call_endpoint.call_with_http_info(**kwargs)
+
+    def make_a_webrtc_jwt(
+        self,
+        inline_object, 
+        **kwargs
+        ):
+        """Make a JWT for WebRTC calling  # noqa: E501
+
+        Make a JWT for WebRTC calling  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.make_a_webrtc_jwt(inline_object, async_req=True)
+        >>> result = thread.get()
+
+
+        Args:
+
+
+            inline_object (InlineObject):
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
+
+        kwargs['inline_object'] = \
+            inline_object
+
+        return self.make_a_webrtc_jwt_endpoint.call_with_http_info(**kwargs)
 
     def remove_a_participant(
         self,
