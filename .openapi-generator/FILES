@@ -35,6 +35,7 @@ docs/ConferenceStatus.md
 docs/CreateConference.md
 docs/CreateConferenceAllOf.md
 docs/CreateConferenceRequest.md
+docs/CreateWebRTCToken.md
 docs/DefaultApi.md
 docs/Dequeue.md
 docs/Enqueue.md
@@ -55,7 +56,6 @@ docs/IncomingNumberListAllOf.md
 docs/IncomingNumberRequest.md
 docs/IncomingNumberResult.md
 docs/IncomingNumberResultAllOf.md
-docs/InlineObject.md
 docs/Language.md
 docs/LogLevel.md
 docs/LogList.md
@@ -186,6 +186,7 @@ freeclimb/model/conference_status.py
 freeclimb/model/create_conference.py
 freeclimb/model/create_conference_all_of.py
 freeclimb/model/create_conference_request.py
+freeclimb/model/create_web_rtc_token.py
 freeclimb/model/dequeue.py
 freeclimb/model/enqueue.py
 freeclimb/model/enqueue_all_of.py
@@ -205,7 +206,6 @@ freeclimb/model/incoming_number_list_all_of.py
 freeclimb/model/incoming_number_request.py
 freeclimb/model/incoming_number_result.py
 freeclimb/model/incoming_number_result_all_of.py
-freeclimb/model/inline_object.py
 freeclimb/model/language.py
 freeclimb/model/log_level.py
 freeclimb/model/log_list.py
@@ -299,24 +299,5 @@ requirements.txt
 setup.cfg
 setup.py
 test/__init__.py
-test/test_add_to_conference.py
-test/test_add_to_conference_all_of.py
 test/test_default_api.py
-test/test_incoming_number_result.py
-test/test_incoming_number_result_all_of.py
-test/test_message_request.py
-test/test_message_request_all_of.py
-test/test_message_result.py
-test/test_message_result_all_of.py
-test/test_play.py
-test/test_play_all_of.py
-test/test_remove_from_conference.py
-test/test_say.py
-test/test_say_all_of.py
-test/test_set_listen.py
-test/test_set_listen_all_of.py
-test/test_set_talk.py
-test/test_set_talk_all_of.py
-test/test_sms_ten_dlc_campaign.py
-test/test_terminate_conference.py
 tox.ini

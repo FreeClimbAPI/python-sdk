@@ -66,6 +66,7 @@ from freeclimb.model.conference_status import ConferenceStatus
 from freeclimb.model.create_conference import CreateConference
 from freeclimb.model.create_conference_all_of import CreateConferenceAllOf
 from freeclimb.model.create_conference_request import CreateConferenceRequest
+from freeclimb.model.create_web_rtc_token import CreateWebRTCToken
 from freeclimb.model.dequeue import Dequeue
 from freeclimb.model.enqueue import Enqueue
 from freeclimb.model.enqueue_all_of import EnqueueAllOf
@@ -85,7 +86,6 @@ from freeclimb.model.incoming_number_list_all_of import IncomingNumberListAllOf
 from freeclimb.model.incoming_number_request import IncomingNumberRequest
 from freeclimb.model.incoming_number_result import IncomingNumberResult
 from freeclimb.model.incoming_number_result_all_of import IncomingNumberResultAllOf
-from freeclimb.model.inline_object import InlineObject
 from freeclimb.model.language import Language
 from freeclimb.model.log_level import LogLevel
 from freeclimb.model.log_list import LogList

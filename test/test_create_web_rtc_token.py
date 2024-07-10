@@ -16,30 +16,30 @@ import pytest
 
 import freeclimb
 
-from freeclimb.model.inline_object import InlineObject  # noqa: E501
+from freeclimb.model.create_web_rtc_token import CreateWebRTCToken  # noqa: E501
 
-class TestInlineObject(unittest.TestCase):
-    """InlineObject unit test stubs"""
+class TestCreateWebRTCToken(unittest.TestCase):
+    """CreateWebRTCToken unit test stubs"""
 
     def setUp(self):
-        self.model = InlineObject(
+        self.model = CreateWebRTCToken(
             to="",
             _from="",
             uses=1
         )
     
     def test_to(self):
-        """Test InlineObject.to"""
+        """Test CreateWebRTCToken.to"""
         self.model.to = "TEST_STRING"
         assert self.model.get("to") == "TEST_STRING"
 
     def test__from(self):
-        """Test InlineObject._from"""
+        """Test CreateWebRTCToken._from"""
         self.model._from = "TEST_STRING"
         assert self.model.get("_from") == "TEST_STRING"
 
     def test_uses(self):
-        """Test InlineObject.uses"""
+        """Test CreateWebRTCToken.uses"""
         self.model.uses = 1
         assert self.model.get("uses") == 1
 

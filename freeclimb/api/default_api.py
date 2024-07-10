@@ -37,11 +37,11 @@ from freeclimb.model.conference_participant_list import ConferenceParticipantLis
 from freeclimb.model.conference_participant_result import ConferenceParticipantResult
 from freeclimb.model.conference_result import ConferenceResult
 from freeclimb.model.create_conference_request import CreateConferenceRequest
+from freeclimb.model.create_web_rtc_token import CreateWebRTCToken
 from freeclimb.model.filter_logs_request import FilterLogsRequest
 from freeclimb.model.incoming_number_list import IncomingNumberList
 from freeclimb.model.incoming_number_request import IncomingNumberRequest
 from freeclimb.model.incoming_number_result import IncomingNumberResult
-from freeclimb.model.inline_object import InlineObject
 from freeclimb.model.log_list import LogList
 from freeclimb.model.make_call_request import MakeCallRequest
 from freeclimb.model.message_direction import MessageDirection
@@ -2879,11 +2879,11 @@ class DefaultApi(object):
             params_map={
                 'all': [
                     'account_id',
-                    'inline_object',
+                    'create_web_rtc_token',
                 ],
                 'required': [
                     'account_id',
-                    'inline_object',
+                    'create_web_rtc_token',
                 ],
                 'nullable': [
                 ],
@@ -2900,15 +2900,15 @@ class DefaultApi(object):
                 'openapi_types': {
                     'account_id':
                         (str,),
-                    'inline_object':
-                        (InlineObject,),
+                    'create_web_rtc_token':
+                        (CreateWebRTCToken,),
                 },
                 'attribute_map': {
                     'account_id': 'accountId',
                 },
                 'location_map': {
                     'account_id': 'path',
-                    'inline_object': 'body',
+                    'create_web_rtc_token': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -3101,7 +3101,7 @@ class DefaultApi(object):
         )
         self.update_a_conference_endpoint = _Endpoint(
             settings={
-                'response_type': (ConferenceResult,),
+                'response_type': None,
                 'auth': [
                     'fc'
                 ],
@@ -3153,9 +3153,7 @@ class DefaultApi(object):
                 }
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
+                'accept': [],
                 'content_type': [
                     'application/json'
                 ]
@@ -7385,7 +7383,7 @@ class DefaultApi(object):
 
     def make_a_webrtc_jwt(
         self,
-        inline_object, 
+        create_web_rtc_token, 
         **kwargs
         ):
         """Make a JWT for WebRTC calling  # noqa: E501
@@ -7394,14 +7392,14 @@ class DefaultApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.make_a_webrtc_jwt(inline_object, async_req=True)
+        >>> thread = api.make_a_webrtc_jwt(create_web_rtc_token, async_req=True)
         >>> result = thread.get()
 
 
         Args:
 
 
-            inline_object (InlineObject):
+            create_web_rtc_token (CreateWebRTCToken): Information needed to craft a JWT compatible with the platforms WebRTC APIs
 
 
 
@@ -7466,8 +7464,8 @@ class DefaultApi(object):
         kwargs['account_id'] = \
             self.account_id
 
-        kwargs['inline_object'] = \
-            inline_object
+        kwargs['create_web_rtc_token'] = \
+            create_web_rtc_token
 
         return self.make_a_webrtc_jwt_endpoint.call_with_http_info(**kwargs)
 
@@ -7791,7 +7789,7 @@ class DefaultApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ConferenceResult
+            None
                 If the method is called asynchronously, returns the request
                 thread.
         """

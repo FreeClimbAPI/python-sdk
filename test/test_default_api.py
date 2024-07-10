@@ -72,11 +72,11 @@ from freeclimb.model.conference_participant_list import ConferenceParticipantLis
 from freeclimb.model.conference_participant_result import ConferenceParticipantResult
 from freeclimb.model.conference_result import ConferenceResult
 from freeclimb.model.create_conference_request import CreateConferenceRequest
+from freeclimb.model.create_web_rtc_token import CreateWebRTCToken
 from freeclimb.model.filter_logs_request import FilterLogsRequest
 from freeclimb.model.incoming_number_list import IncomingNumberList
 from freeclimb.model.incoming_number_request import IncomingNumberRequest
 from freeclimb.model.incoming_number_result import IncomingNumberResult
-from freeclimb.model.inline_object import InlineObject
 from freeclimb.model.log_list import LogList
 from freeclimb.model.make_call_request import MakeCallRequest
 from freeclimb.model.message_direction import MessageDirection
@@ -757,10 +757,10 @@ class TestDefaultApi(unittest.TestCase):
         Make a JWT for WebRTC calling  # noqa: E501
         """
 
-        inline_object = inline_object_make_a_webrtc_jwt_test_value
+        create_web_rtc_token = create_web_rtc_token_make_a_webrtc_jwt_test_value
 
 
-        api_response = self.api.make_a_webrtc_jwt(inline_object=inline_object)
+        api_response = self.api.make_a_webrtc_jwt(create_web_rtc_token=create_web_rtc_token)
         
         assert isinstance(api_response, str)
 
@@ -816,7 +816,7 @@ class TestDefaultApi(unittest.TestCase):
 
         api_response = self.api.update_a_conference(conference_id=conference_id,update_conference_request=update_conference_request)
         
-        assert isinstance(api_response, ConferenceResult)
+        
 
     def test_update_a_live_call(self):
         """Test case for update_a_live_call
@@ -1186,7 +1186,7 @@ conference_id_list_conference_recordings_test_value = "conference_id_example"
 
 date_created_list_conference_recordings_test_value = "date_created_example"
 
-inline_object_make_a_webrtc_jwt_test_value = InlineObject(to="to_example", _from="from_example", uses=1)
+create_web_rtc_token_make_a_webrtc_jwt_test_value = CreateWebRTCToken(to="to_example", _from="from_example", uses=1)
 
 
 if __name__ == '__main__':

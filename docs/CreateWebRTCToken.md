@@ -1,4 +1,4 @@
-# InlineObject
+# CreateWebRTCToken
 
 ## Properties
 Name | Type | Description | Notes

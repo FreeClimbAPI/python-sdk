@@ -3803,7 +3803,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **make_a_webrtc_jwt**
-> str make_a_webrtc_jwt(account_id, inline_object)
+> str make_a_webrtc_jwt(account_id, create_web_rtc_token)
 
 Make a JWT for WebRTC calling
 
@@ -3817,7 +3817,7 @@ Make a JWT for WebRTC calling
 import time
 import freeclimb
 from freeclimb.api import default_api
-from freeclimb.model.inline_object import InlineObject
+from freeclimb.model.create_web_rtc_token import CreateWebRTCToken
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
 # See configuration.py for a list of all supported configuration parameters.
@@ -3841,16 +3841,16 @@ with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = default_api.DefaultApi(api_client)
     account_id = "accountId_example" # str | ID of the account
-    inline_object = InlineObject(
+    create_web_rtc_token = CreateWebRTCToken(
         to="to_example",
         _from="_from_example",
         uses=1,
-    ) # InlineObject | 
+    ) # CreateWebRTCToken | Information needed to craft a JWT compatible with the platforms WebRTC APIs
 
     # example passing only required values which don't have defaults set
     try:
         # Make a JWT for WebRTC calling
-        api_response = api_instance.make_a_webrtc_jwt(inline_object)
+        api_response = api_instance.make_a_webrtc_jwt(create_web_rtc_token)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->make_a_webrtc_jwt: %s\n" % e)
@@ -3861,7 +3861,7 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object** | [**InlineObject**](InlineObject.md)|  |
+ **create_web_rtc_token** | [**CreateWebRTCToken**](CreateWebRTCToken.md)| Information needed to craft a JWT compatible with the platforms WebRTC APIs |
 
 ### Return type
 
@@ -4117,7 +4117,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_a_conference**
-> ConferenceResult update_a_conference(account_id, conference_id)
+> update_a_conference(account_id, conference_id)
 
 Update a Conference
 
@@ -4130,7 +4130,6 @@ import time
 import freeclimb
 from freeclimb.api import default_api
 from freeclimb.model.update_conference_request import UpdateConferenceRequest
-from freeclimb.model.conference_result import ConferenceResult
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
 # See configuration.py for a list of all supported configuration parameters.
@@ -4164,8 +4163,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Update a Conference
-        api_response = api_instance.update_a_conference(conference_id)
-        pprint(api_response)
+        api_instance.update_a_conference(conference_id)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->update_a_conference: %s\n" % e)
 
@@ -4173,8 +4171,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update a Conference
-        api_response = api_instance.update_a_conference(conference_id, update_conference_request=update_conference_request)
-        pprint(api_response)
+        api_instance.update_a_conference(conference_id, update_conference_request=update_conference_request)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->update_a_conference: %s\n" % e)
 ```
@@ -4189,7 +4186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConferenceResult**](ConferenceResult.md)
+void (empty response body)
 
 ### Authorization
 
@@ -4198,14 +4195,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Conference Details to Update |  -  |
+**204** | Successful conference details update |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
