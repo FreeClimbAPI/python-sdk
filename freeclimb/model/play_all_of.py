@@ -85,7 +85,6 @@ class PlayAllOf(ModelNormal):
         return {
             'file': (str,),  # noqa: E501
             'loop': (int,),  # noqa: E501
-            'conference_id': (str,),  # noqa: E501
             'privacy_mode': (bool,),  # noqa: E501
         }
 
@@ -97,7 +96,6 @@ class PlayAllOf(ModelNormal):
     attribute_map = {
         'file': 'file',  # noqa: E501
         'loop': 'loop',  # noqa: E501
-        'conference_id': 'conferenceId',  # noqa: E501
         'privacy_mode': 'privacyMode',  # noqa: E501
     }
 
@@ -146,7 +144,6 @@ class PlayAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             loop (int): Number of times the audio file is played. Specifying '0' causes the Play action to loop until the Call is hung up.. [optional]  # noqa: E501
-            conference_id (str): ID of the Conference the audio should be rendered to. If this is not specified, the audio is by default rendered to the caller associated with the call leg that corresponds to the current PerCL execution context. The call leg associated with this command must be in the specified Conference or the command will return an error.. [optional]  # noqa: E501
             privacy_mode (bool): Parameter `privacyMode` will not log the `text` as required by PCI compliance.. [optional]  # noqa: E501
         """
 
@@ -234,7 +231,6 @@ class PlayAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             loop (int): Number of times the audio file is played. Specifying '0' causes the Play action to loop until the Call is hung up.. [optional]  # noqa: E501
-            conference_id (str): ID of the Conference the audio should be rendered to. If this is not specified, the audio is by default rendered to the caller associated with the call leg that corresponds to the current PerCL execution context. The call leg associated with this command must be in the specified Conference or the command will return an error.. [optional]  # noqa: E501
             privacy_mode (bool): Parameter `privacyMode` will not log the `text` as required by PCI compliance.. [optional]  # noqa: E501
         """
 

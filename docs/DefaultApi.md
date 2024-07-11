@@ -32,6 +32,8 @@ Method | HTTP request | Description
 [**get_ten_dlc_sms_campaigns**](DefaultApi.md#get_ten_dlc_sms_campaigns) | **GET** /Accounts/{accountId}/Messages/10DLC/Campaigns | Get list of SMS 10DLC Campaigns
 [**get_ten_dlc_sms_partner_campaign**](DefaultApi.md#get_ten_dlc_sms_partner_campaign) | **GET** /Accounts/{accountId}/Messages/10DLC/PartnerCampaigns/{campaignId} | Get a 10DLC SMS Partner Campaign
 [**get_ten_dlc_sms_partner_campaigns**](DefaultApi.md#get_ten_dlc_sms_partner_campaigns) | **GET** /Accounts/{accountId}/Messages/10DLC/PartnerCampaigns | Get list of SMS 10DLC Partner Campaigns
+[**get_toll_free_sms_campaign**](DefaultApi.md#get_toll_free_sms_campaign) | **GET** /Accounts/{accountId}/Messages/TollFree/Campaigns/{campaignId} | Get a TollFree SMS Campaign
+[**get_toll_free_sms_campaigns**](DefaultApi.md#get_toll_free_sms_campaigns) | **GET** /Accounts/{accountId}/Messages/TollFree/Campaigns | Get list of TollFree Campaigns
 [**list_active_queues**](DefaultApi.md#list_active_queues) | **GET** /Accounts/{accountId}/Queues | List Active Queues
 [**list_all_account_logs**](DefaultApi.md#list_all_account_logs) | **GET** /Accounts/{accountId}/Logs | List All Account Logs
 [**list_applications**](DefaultApi.md#list_applications) | **GET** /Accounts/{accountId}/Applications | List applications
@@ -39,6 +41,7 @@ Method | HTTP request | Description
 [**list_call_logs**](DefaultApi.md#list_call_logs) | **GET** /Accounts/{accountId}/Calls/{callId}/Logs | List Call Logs
 [**list_call_recordings**](DefaultApi.md#list_call_recordings) | **GET** /Accounts/{accountId}/Calls/{callId}/Recordings | List Call Recordings
 [**list_calls**](DefaultApi.md#list_calls) | **GET** /Accounts/{accountId}/Calls | List Calls
+[**list_conference_recordings**](DefaultApi.md#list_conference_recordings) | **GET** /Accounts/{accountId}/Conferences/{conferenceId}/Recordings | List Conference Recordings
 [**list_conferences**](DefaultApi.md#list_conferences) | **GET** /Accounts/{accountId}/Conferences | List Conferences
 [**list_incoming_numbers**](DefaultApi.md#list_incoming_numbers) | **GET** /Accounts/{accountId}/IncomingPhoneNumbers | List Incoming Numbers
 [**list_members**](DefaultApi.md#list_members) | **GET** /Accounts/{accountId}/Queues/{queueId}/Members | List Members
@@ -46,6 +49,7 @@ Method | HTTP request | Description
 [**list_recordings**](DefaultApi.md#list_recordings) | **GET** /Accounts/{accountId}/Recordings | List Recordings
 [**list_sms_messages**](DefaultApi.md#list_sms_messages) | **GET** /Accounts/{accountId}/Messages | List SMS Messages
 [**make_a_call**](DefaultApi.md#make_a_call) | **POST** /Accounts/{accountId}/Calls | Make a Call
+[**make_a_webrtc_jwt**](DefaultApi.md#make_a_webrtc_jwt) | **POST** /Accounts/{accountId}/Calls/WebRTC/Token | Make a JWT for WebRTC calling
 [**remove_a_participant**](DefaultApi.md#remove_a_participant) | **DELETE** /Accounts/{accountId}/Conferences/{conferenceId}/Participants/{callId} | Remove a Participant
 [**send_an_sms_message**](DefaultApi.md#send_an_sms_message) | **POST** /Accounts/{accountId}/Messages | Send an SMS Message
 [**stream_a_recording_file**](DefaultApi.md#stream_a_recording_file) | **GET** /Accounts/{accountId}/Recordings/{recordingId}/Stream | Stream a Recording File
@@ -2282,6 +2286,158 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_toll_free_sms_campaign**
+> SMSTollFreeCampaign get_toll_free_sms_campaign(account_id, campaign_id)
+
+Get a TollFree SMS Campaign
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import time
+import freeclimb
+from freeclimb.api import default_api
+from freeclimb.model.sms_toll_free_campaign import SMSTollFreeCampaign
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = default_api.DefaultApi(api_client)
+    account_id = "accountId_example" # str | ID of the account
+    campaign_id = "campaignId_example" # str | String that uniquely identifies this TollFree Campaign resource.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get a TollFree SMS Campaign
+        api_response = api_instance.get_toll_free_sms_campaign(campaign_id)
+        pprint(api_response)
+    except freeclimb.ApiException as e:
+        print("Exception when calling DefaultApi->get_toll_free_sms_campaign: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **campaign_id** | **str**| String that uniquely identifies this TollFree Campaign resource. |
+
+### Return type
+
+[**SMSTollFreeCampaign**](SMSTollFreeCampaign.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The specific SMS TollFree Campaign that’s been processed by FreeClimb |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_toll_free_sms_campaigns**
+> SMSTollFreeCampaignsListResult get_toll_free_sms_campaigns(account_id)
+
+Get list of TollFree Campaigns
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import time
+import freeclimb
+from freeclimb.api import default_api
+from freeclimb.model.sms_toll_free_campaigns_list_result import SMSTollFreeCampaignsListResult
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = default_api.DefaultApi(api_client)
+    account_id = "accountId_example" # str | ID of the account
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get list of TollFree Campaigns
+        api_response = api_instance.get_toll_free_sms_campaigns()
+        pprint(api_response)
+    except freeclimb.ApiException as e:
+        print("Exception when calling DefaultApi->get_toll_free_sms_campaigns: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+### Return type
+
+[**SMSTollFreeCampaignsListResult**](SMSTollFreeCampaignsListResult.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The list toll-free campaigns |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_active_queues**
 > QueueList list_active_queues(account_id)
 
@@ -2892,6 +3048,96 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **list_conference_recordings**
+> RecordingList list_conference_recordings(account_id)
+
+List Conference Recordings
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import time
+import freeclimb
+from freeclimb.api import default_api
+from freeclimb.model.recording_list import RecordingList
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = default_api.DefaultApi(api_client)
+    account_id = "accountId_example" # str | ID of the account
+    call_id = "callId_example" # str | Show only Recordings made during the Call with this ID. (optional)
+    conference_id = "conferenceId_example" # str | Show only Recordings made during the conference with this ID. (optional)
+    date_created = "dateCreated_example" # str | Only show Recordings created on this date, formatted as *YYYY-MM-DD*. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # List Conference Recordings
+        api_response = api_instance.list_conference_recordings()
+        pprint(api_response)
+    except freeclimb.ApiException as e:
+        print("Exception when calling DefaultApi->list_conference_recordings: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # List Conference Recordings
+        api_response = api_instance.list_conference_recordings(call_id=call_id, conference_id=conference_id, date_created=date_created)
+        pprint(api_response)
+    except freeclimb.ApiException as e:
+        print("Exception when calling DefaultApi->list_conference_recordings: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **call_id** | **str**| Show only Recordings made during the Call with this ID. | [optional]
+ **conference_id** | **str**| Show only Recordings made during the conference with this ID. | [optional]
+ **date_created** | **str**| Only show Recordings created on this date, formatted as *YYYY-MM-DD*. | [optional]
+
+### Return type
+
+[**RecordingList**](RecordingList.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of Recordings |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_conferences**
 > ConferenceList list_conferences(account_id)
 
@@ -3035,6 +3281,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     capabilities_toll_free = True # bool |  (optional)
     capabilities_ten_dlc = True # bool |  (optional)
     capabilities_short_code = True # bool |  (optional)
+    tfn_campaign_id = "tfn.campaignId_example" # str | Only show incoming phone number resources that have been assigned to the provided TFNCampaign ID. (optional)
     offnet = True # bool | Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource. (optional)
 
     # example passing only required values which don't have defaults set
@@ -3049,7 +3296,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Incoming Numbers
-        api_response = api_instance.list_incoming_numbers(phone_number=phone_number, alias=alias, region=region, country=country, application_id=application_id, has_application=has_application, voice_enabled=voice_enabled, sms_enabled=sms_enabled, has_campaign=has_campaign, capabilities_voice=capabilities_voice, capabilities_sms=capabilities_sms, capabilities_toll_free=capabilities_toll_free, capabilities_ten_dlc=capabilities_ten_dlc, capabilities_short_code=capabilities_short_code, offnet=offnet)
+        api_response = api_instance.list_incoming_numbers(phone_number=phone_number, alias=alias, region=region, country=country, application_id=application_id, has_application=has_application, voice_enabled=voice_enabled, sms_enabled=sms_enabled, has_campaign=has_campaign, capabilities_voice=capabilities_voice, capabilities_sms=capabilities_sms, capabilities_toll_free=capabilities_toll_free, capabilities_ten_dlc=capabilities_ten_dlc, capabilities_short_code=capabilities_short_code, tfn_campaign_id=tfn_campaign_id, offnet=offnet)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_incoming_numbers: %s\n" % e)
@@ -3074,6 +3321,7 @@ Name | Type | Description  | Notes
  **capabilities_toll_free** | **bool**|  | [optional]
  **capabilities_ten_dlc** | **bool**|  | [optional]
  **capabilities_short_code** | **bool**|  | [optional]
+ **tfn_campaign_id** | **str**| Only show incoming phone number resources that have been assigned to the provided TFNCampaign ID. | [optional]
  **offnet** | **bool**| Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource. | [optional]
 
 ### Return type
@@ -3554,6 +3802,89 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **make_a_webrtc_jwt**
+> str make_a_webrtc_jwt(account_id, create_web_rtc_token)
+
+Make a JWT for WebRTC calling
+
+Make a JWT for WebRTC calling
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import time
+import freeclimb
+from freeclimb.api import default_api
+from freeclimb.model.create_web_rtc_token import CreateWebRTCToken
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = default_api.DefaultApi(api_client)
+    account_id = "accountId_example" # str | ID of the account
+    create_web_rtc_token = CreateWebRTCToken(
+        to="to_example",
+        _from="_from_example",
+        uses=1,
+    ) # CreateWebRTCToken | Information needed to craft a JWT compatible with the platforms WebRTC APIs
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Make a JWT for WebRTC calling
+        api_response = api_instance.make_a_webrtc_jwt(create_web_rtc_token)
+        pprint(api_response)
+    except freeclimb.ApiException as e:
+        print("Exception when calling DefaultApi->make_a_webrtc_jwt: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **create_web_rtc_token** | [**CreateWebRTCToken**](CreateWebRTCToken.md)| Information needed to craft a JWT compatible with the platforms WebRTC APIs |
+
+### Return type
+
+**str**
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: text/plain
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The created JWT |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **remove_a_participant**
 > remove_a_participant(account_id, conference_id, call_id)
 
@@ -3786,7 +4117,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_a_conference**
-> ConferenceResult update_a_conference(account_id, conference_id)
+> update_a_conference(account_id, conference_id)
 
 Update a Conference
 
@@ -3799,7 +4130,6 @@ import time
 import freeclimb
 from freeclimb.api import default_api
 from freeclimb.model.update_conference_request import UpdateConferenceRequest
-from freeclimb.model.conference_result import ConferenceResult
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
 # See configuration.py for a list of all supported configuration parameters.
@@ -3833,8 +4163,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Update a Conference
-        api_response = api_instance.update_a_conference(conference_id)
-        pprint(api_response)
+        api_instance.update_a_conference(conference_id)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->update_a_conference: %s\n" % e)
 
@@ -3842,8 +4171,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update a Conference
-        api_response = api_instance.update_a_conference(conference_id, update_conference_request=update_conference_request)
-        pprint(api_response)
+        api_instance.update_a_conference(conference_id, update_conference_request=update_conference_request)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->update_a_conference: %s\n" % e)
 ```
@@ -3858,7 +4186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConferenceResult**](ConferenceResult.md)
+void (empty response body)
 
 ### Authorization
 
@@ -3867,14 +4195,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Conference Details to Update |  -  |
+**204** | Successful conference details update |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

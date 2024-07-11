@@ -72,6 +72,7 @@ from freeclimb.model.conference_participant_list import ConferenceParticipantLis
 from freeclimb.model.conference_participant_result import ConferenceParticipantResult
 from freeclimb.model.conference_result import ConferenceResult
 from freeclimb.model.create_conference_request import CreateConferenceRequest
+from freeclimb.model.create_web_rtc_token import CreateWebRTCToken
 from freeclimb.model.filter_logs_request import FilterLogsRequest
 from freeclimb.model.incoming_number_list import IncomingNumberList
 from freeclimb.model.incoming_number_request import IncomingNumberRequest
@@ -95,6 +96,8 @@ from freeclimb.model.sms_ten_dlc_campaign import SMSTenDLCCampaign
 from freeclimb.model.sms_ten_dlc_campaigns_list_result import SMSTenDLCCampaignsListResult
 from freeclimb.model.sms_ten_dlc_partner_campaign import SMSTenDLCPartnerCampaign
 from freeclimb.model.sms_ten_dlc_partner_campaigns_list_result import SMSTenDLCPartnerCampaignsListResult
+from freeclimb.model.sms_toll_free_campaign import SMSTollFreeCampaign
+from freeclimb.model.sms_toll_free_campaigns_list_result import SMSTollFreeCampaignsListResult
 from freeclimb.model.update_call_request import UpdateCallRequest
 from freeclimb.model.update_conference_participant_request import UpdateConferenceParticipantRequest
 from freeclimb.model.update_conference_request import UpdateConferenceRequest
@@ -481,6 +484,31 @@ class TestDefaultApi(unittest.TestCase):
         
         assert isinstance(api_response, SMSTenDLCPartnerCampaignsListResult)
 
+    def test_get_toll_free_sms_campaign(self):
+        """Test case for get_toll_free_sms_campaign
+
+        Get a TollFree SMS Campaign  # noqa: E501
+        """
+
+        campaign_id = campaign_id_get_toll_free_sms_campaign_test_value
+
+
+        api_response = self.api.get_toll_free_sms_campaign(campaign_id=campaign_id)
+        
+        assert isinstance(api_response, SMSTollFreeCampaign)
+
+    def test_get_toll_free_sms_campaigns(self):
+        """Test case for get_toll_free_sms_campaigns
+
+        Get list of TollFree Campaigns  # noqa: E501
+        """
+
+
+
+        api_response = self.api.get_toll_free_sms_campaigns()
+        
+        assert isinstance(api_response, SMSTollFreeCampaignsListResult)
+
     def test_list_active_queues(self):
         """Test case for list_active_queues
 
@@ -588,6 +616,21 @@ class TestDefaultApi(unittest.TestCase):
         
         assert isinstance(api_response, CallList)
 
+    def test_list_conference_recordings(self):
+        """Test case for list_conference_recordings
+
+        List Conference Recordings  # noqa: E501
+        """
+
+        call_id = call_id_list_conference_recordings_test_value
+        conference_id = conference_id_list_conference_recordings_test_value
+        date_created = date_created_list_conference_recordings_test_value
+
+
+        api_response = self.api.list_conference_recordings(call_id=call_id,conference_id=conference_id,date_created=date_created)
+        
+        assert isinstance(api_response, RecordingList)
+
     def test_list_conferences(self):
         """Test case for list_conferences
 
@@ -624,10 +667,11 @@ class TestDefaultApi(unittest.TestCase):
         capabilities_toll_free = capabilities_toll_free_list_incoming_numbers_test_value
         capabilities_ten_dlc = capabilities_ten_dlc_list_incoming_numbers_test_value
         capabilities_short_code = capabilities_short_code_list_incoming_numbers_test_value
+        tfn_campaign_id = tfn_campaign_id_list_incoming_numbers_test_value
         offnet = offnet_list_incoming_numbers_test_value
 
 
-        api_response = self.api.list_incoming_numbers(phone_number=phone_number,alias=alias,region=region,country=country,application_id=application_id,has_application=has_application,voice_enabled=voice_enabled,sms_enabled=sms_enabled,has_campaign=has_campaign,capabilities_voice=capabilities_voice,capabilities_sms=capabilities_sms,capabilities_toll_free=capabilities_toll_free,capabilities_ten_dlc=capabilities_ten_dlc,capabilities_short_code=capabilities_short_code,offnet=offnet)
+        api_response = self.api.list_incoming_numbers(phone_number=phone_number,alias=alias,region=region,country=country,application_id=application_id,has_application=has_application,voice_enabled=voice_enabled,sms_enabled=sms_enabled,has_campaign=has_campaign,capabilities_voice=capabilities_voice,capabilities_sms=capabilities_sms,capabilities_toll_free=capabilities_toll_free,capabilities_ten_dlc=capabilities_ten_dlc,capabilities_short_code=capabilities_short_code,tfn_campaign_id=tfn_campaign_id,offnet=offnet)
         
         assert isinstance(api_response, IncomingNumberList)
 
@@ -707,6 +751,19 @@ class TestDefaultApi(unittest.TestCase):
         
         assert isinstance(api_response, CallResult)
 
+    def test_make_a_webrtc_jwt(self):
+        """Test case for make_a_webrtc_jwt
+
+        Make a JWT for WebRTC calling  # noqa: E501
+        """
+
+        create_web_rtc_token = create_web_rtc_token_make_a_webrtc_jwt_test_value
+
+
+        api_response = self.api.make_a_webrtc_jwt(create_web_rtc_token=create_web_rtc_token)
+        
+        assert isinstance(api_response, str)
+
     def test_remove_a_participant(self):
         """Test case for remove_a_participant
 
@@ -759,7 +816,7 @@ class TestDefaultApi(unittest.TestCase):
 
         api_response = self.api.update_a_conference(conference_id=conference_id,update_conference_request=update_conference_request)
         
-        assert isinstance(api_response, ConferenceResult)
+        
 
     def test_update_a_live_call(self):
         """Test case for update_a_live_call
@@ -1119,6 +1176,17 @@ incoming_number_request_update_an_incoming_number_test_value = IncomingNumberReq
         alias="alias_example",
 )
 
+tfn_campaign_id_list_incoming_numbers_test_value = "tfn_campaign_id_example"
+
+call_id_list_conference_recordings_test_value = "call_id_example"
+
+campaign_id_get_toll_free_sms_campaign_test_value = "conference_id_example"
+
+conference_id_list_conference_recordings_test_value = "conference_id_example"
+
+date_created_list_conference_recordings_test_value = "date_created_example"
+
+create_web_rtc_token_make_a_webrtc_jwt_test_value = CreateWebRTCToken(to="to_example", _from="from_example", uses=1)
 
 
 if __name__ == '__main__':

@@ -15,21 +15,24 @@ from datetime import datetime, date
 import pytest
 
 import freeclimb
+from freeclimb.model.sms_toll_free_campaign import SMSTollFreeCampaign
+globals()['SMSTollFreeCampaign'] = SMSTollFreeCampaign
 
-from freeclimb.model.terminate_conference_all_of import TerminateConferenceAllOf  # noqa: E501
+from freeclimb.model.sms_toll_free_campaigns_list_result_all_of import SMSTollFreeCampaignsListResultAllOf  # noqa: E501
 
-class TestTerminateConferenceAllOf(unittest.TestCase):
-    """TerminateConferenceAllOf unit test stubs"""
+class TestSMSTollFreeCampaignsListResultAllOf(unittest.TestCase):
+    """SMSTollFreeCampaignsListResultAllOf unit test stubs"""
 
     def setUp(self):
-        self.model = TerminateConferenceAllOf(
-            conference_id="",
+        self.model = SMSTollFreeCampaignsListResultAllOf(
         )
     
-    def test_conference_id(self):
-        """Test TerminateConferenceAllOf.conference_id"""
-        self.model.conference_id = "TEST_STRING"
-        assert self.model.get("conference_id") == "TEST_STRING"
+    def test_brands(self):
+        """Test SMSTollFreeCampaignsListResultAllOf.brands"""
+        testList = []
+        self.model.brands = testList
+        assert self.model.get("brands") == testList
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -23,18 +23,13 @@ class TestSetListenAllOf(unittest.TestCase):
 
     def setUp(self):
         self.model = SetListenAllOf(
-            call_id="",
         )
     
-    def test_call_id(self):
-        """Test SetListenAllOf.call_id"""
-        self.model.call_id = "TEST_STRING"
-        assert self.model.get("call_id") == "TEST_STRING"
-
     def test_listen(self):
         """Test SetListenAllOf.listen"""
         self.model.listen = False
         assert self.model.get("listen") == False
+
 
 if __name__ == '__main__':
     unittest.main()

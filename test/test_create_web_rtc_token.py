@@ -16,35 +16,32 @@ import pytest
 
 import freeclimb
 
-from freeclimb.model.say_all_of import SayAllOf  # noqa: E501
+from freeclimb.model.create_web_rtc_token import CreateWebRTCToken  # noqa: E501
 
-class TestSayAllOf(unittest.TestCase):
-    """SayAllOf unit test stubs"""
+class TestCreateWebRTCToken(unittest.TestCase):
+    """CreateWebRTCToken unit test stubs"""
 
     def setUp(self):
-        self.model = SayAllOf(
-            text="",
+        self.model = CreateWebRTCToken(
+            to="",
+            _from="",
+            uses=1
         )
     
-    def test_text(self):
-        """Test SayAllOf.text"""
-        self.model.text = "TEST_STRING"
-        assert self.model.get("text") == "TEST_STRING"
+    def test_to(self):
+        """Test CreateWebRTCToken.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.get("to") == "TEST_STRING"
 
-    def test_language(self):
-        """Test SayAllOf.language"""
-        self.model.language = "TEST_STRING"
-        assert self.model.get("language") == "TEST_STRING"
+    def test__from(self):
+        """Test CreateWebRTCToken._from"""
+        self.model._from = "TEST_STRING"
+        assert self.model.get("_from") == "TEST_STRING"
 
-    def test_loop(self):
-        """Test SayAllOf.loop"""
-        self.model.loop = 1
-        assert self.model.get("loop") == 1
-
-    def test_privacy_mode(self):
-        """Test SayAllOf.privacy_mode"""
-        self.model.privacy_mode = False
-        assert self.model.get("privacy_mode") == False
+    def test_uses(self):
+        """Test CreateWebRTCToken.uses"""
+        self.model.uses = 1
+        assert self.model.get("uses") == 1
 
 
 if __name__ == '__main__':

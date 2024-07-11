@@ -99,6 +99,21 @@ class SMSTenDLCCampaign(ModelNormal):
         ('help_message',): {
             'max_length': 255,
         },
+        ('optin_keywords',): {
+            'max_length': 255,
+        },
+        ('optout_keywords',): {
+            'max_length': 255,
+        },
+        ('help_keywords',): {
+            'max_length': 255,
+        },
+        ('optin_message',): {
+            'max_length': 255,
+        },
+        ('optout_message',): {
+            'max_length': 255,
+        },
         ('reference_id',): {
             'max_length': 50,
         },
@@ -155,6 +170,11 @@ class SMSTenDLCCampaign(ModelNormal):
             'sample5': (str, none_type,),  # noqa: E501
             'message_flow': (str, none_type,),  # noqa: E501
             'help_message': (str, none_type,),  # noqa: E501
+            'optin_keywords': (str,),  # noqa: E501
+            'optout_keywords': (str,),  # noqa: E501
+            'help_keywords': (str,),  # noqa: E501
+            'optin_message': (str,),  # noqa: E501
+            'optout_message': (str,),  # noqa: E501
             'reference_id': (str, none_type,),  # noqa: E501
             'next_renewal_or_expiration_date': (date, none_type,),  # noqa: E501
         }
@@ -194,6 +214,11 @@ class SMSTenDLCCampaign(ModelNormal):
         'sample5': 'sample5',  # noqa: E501
         'message_flow': 'messageFlow',  # noqa: E501
         'help_message': 'helpMessage',  # noqa: E501
+        'optin_keywords': 'optinKeywords',  # noqa: E501
+        'optout_keywords': 'optoutKeywords',  # noqa: E501
+        'help_keywords': 'helpKeywords',  # noqa: E501
+        'optin_message': 'optinMessage',  # noqa: E501
+        'optout_message': 'optoutMessage',  # noqa: E501
         'reference_id': 'referenceId',  # noqa: E501
         'next_renewal_or_expiration_date': 'nextRenewalOrExpirationDate',  # noqa: E501
     }
@@ -270,6 +295,11 @@ class SMSTenDLCCampaign(ModelNormal):
             sample5 (str, none_type): Message sample. Some campaign tiers require 5 or more message samples.. [optional]  # noqa: E501
             message_flow (str, none_type): Message flow description.. [optional]  # noqa: E501
             help_message (str, none_type): Help message of the campaign.. [optional]  # noqa: E501
+            optin_keywords (str): Subscriber opt-in keywords. Multiple keywords are comma separated without space.. [optional]  # noqa: E501
+            optout_keywords (str): Subscriber opt-out keywords. Multiple keywords are comma separated without space.. [optional]  # noqa: E501
+            help_keywords (str): Subscriber help keywords. Multiple keywords are comma separated without space.. [optional]  # noqa: E501
+            optin_message (str): Subscriber opt-in message.. [optional]  # noqa: E501
+            optout_message (str): Subscriber opt-out message.. [optional]  # noqa: E501
             reference_id (str, none_type): Caller supplied campaign reference ID. If supplied, the value must be unique across all submitted campaigns. Can be used to prevent duplicate campaign registrations.. [optional]  # noqa: E501
             next_renewal_or_expiration_date (date, none_type): When the campaign would be due for its next renew/bill date.. [optional]  # noqa: E501
         """
@@ -391,6 +421,11 @@ class SMSTenDLCCampaign(ModelNormal):
             sample5 (str, none_type): Message sample. Some campaign tiers require 5 or more message samples.. [optional]  # noqa: E501
             message_flow (str, none_type): Message flow description.. [optional]  # noqa: E501
             help_message (str, none_type): Help message of the campaign.. [optional]  # noqa: E501
+            optin_keywords (str): Subscriber opt-in keywords. Multiple keywords are comma separated without space.. [optional]  # noqa: E501
+            optout_keywords (str): Subscriber opt-out keywords. Multiple keywords are comma separated without space.. [optional]  # noqa: E501
+            help_keywords (str): Subscriber help keywords. Multiple keywords are comma separated without space.. [optional]  # noqa: E501
+            optin_message (str): Subscriber opt-in message.. [optional]  # noqa: E501
+            optout_message (str): Subscriber opt-out message.. [optional]  # noqa: E501
             reference_id (str, none_type): Caller supplied campaign reference ID. If supplied, the value must be unique across all submitted campaigns. Can be used to prevent duplicate campaign registrations.. [optional]  # noqa: E501
             next_renewal_or_expiration_date (date, none_type): When the campaign would be due for its next renew/bill date.. [optional]  # noqa: E501
         """

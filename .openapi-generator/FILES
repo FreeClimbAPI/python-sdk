@@ -35,6 +35,7 @@ docs/ConferenceStatus.md
 docs/CreateConference.md
 docs/CreateConferenceAllOf.md
 docs/CreateConferenceRequest.md
+docs/CreateWebRTCToken.md
 docs/DefaultApi.md
 docs/Dequeue.md
 docs/Enqueue.md
@@ -106,7 +107,6 @@ docs/RedirectAllOf.md
 docs/Reject.md
 docs/RejectAllOf.md
 docs/RemoveFromConference.md
-docs/RemoveFromConferenceAllOf.md
 docs/RequestType.md
 docs/SMSTenDLCBrand.md
 docs/SMSTenDLCBrandsListResult.md
@@ -118,6 +118,9 @@ docs/SMSTenDLCPartnerCampaign.md
 docs/SMSTenDLCPartnerCampaignBrand.md
 docs/SMSTenDLCPartnerCampaignsListResult.md
 docs/SMSTenDLCPartnerCampaignsListResultAllOf.md
+docs/SMSTollFreeCampaign.md
+docs/SMSTollFreeCampaignsListResult.md
+docs/SMSTollFreeCampaignsListResultAllOf.md
 docs/Say.md
 docs/SayAllOf.md
 docs/SendDigits.md
@@ -129,8 +132,8 @@ docs/SetTalkAllOf.md
 docs/Sms.md
 docs/SmsAllOf.md
 docs/StartRecordCall.md
+docs/TFN.md
 docs/TerminateConference.md
-docs/TerminateConferenceAllOf.md
 docs/TranscribeUtterance.md
 docs/TranscribeUtteranceRecord.md
 docs/Unpark.md
@@ -183,6 +186,7 @@ freeclimb/model/conference_status.py
 freeclimb/model/create_conference.py
 freeclimb/model/create_conference_all_of.py
 freeclimb/model/create_conference_request.py
+freeclimb/model/create_web_rtc_token.py
 freeclimb/model/dequeue.py
 freeclimb/model/enqueue.py
 freeclimb/model/enqueue_all_of.py
@@ -253,7 +257,6 @@ freeclimb/model/redirect_all_of.py
 freeclimb/model/reject.py
 freeclimb/model/reject_all_of.py
 freeclimb/model/remove_from_conference.py
-freeclimb/model/remove_from_conference_all_of.py
 freeclimb/model/request_type.py
 freeclimb/model/say.py
 freeclimb/model/say_all_of.py
@@ -275,9 +278,12 @@ freeclimb/model/sms_ten_dlc_partner_campaign.py
 freeclimb/model/sms_ten_dlc_partner_campaign_brand.py
 freeclimb/model/sms_ten_dlc_partner_campaigns_list_result.py
 freeclimb/model/sms_ten_dlc_partner_campaigns_list_result_all_of.py
+freeclimb/model/sms_toll_free_campaign.py
+freeclimb/model/sms_toll_free_campaigns_list_result.py
+freeclimb/model/sms_toll_free_campaigns_list_result_all_of.py
 freeclimb/model/start_record_call.py
 freeclimb/model/terminate_conference.py
-freeclimb/model/terminate_conference_all_of.py
+freeclimb/model/tfn.py
 freeclimb/model/transcribe_utterance.py
 freeclimb/model/transcribe_utterance_record.py
 freeclimb/model/unpark.py
@@ -293,4 +299,5 @@ requirements.txt
 setup.cfg
 setup.py
 test/__init__.py
+test/test_default_api.py
 tox.ini

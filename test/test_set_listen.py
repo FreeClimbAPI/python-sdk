@@ -40,6 +40,7 @@ from freeclimb.model.set_talk import SetTalk
 from freeclimb.model.sms import Sms
 from freeclimb.model.start_record_call import StartRecordCall
 from freeclimb.model.terminate_conference import TerminateConference
+from freeclimb.model.transcribe_utterance import TranscribeUtterance
 from freeclimb.model.unpark import Unpark
 globals()['AddToConference'] = AddToConference
 globals()['CreateConference'] = CreateConference
@@ -66,6 +67,7 @@ globals()['SetTalk'] = SetTalk
 globals()['Sms'] = Sms
 globals()['StartRecordCall'] = StartRecordCall
 globals()['TerminateConference'] = TerminateConference
+globals()['TranscribeUtterance'] = TranscribeUtterance
 globals()['Unpark'] = Unpark
 
 from freeclimb.model.set_listen import SetListen  # noqa: E501
@@ -75,18 +77,13 @@ class TestSetListen(unittest.TestCase):
 
     def setUp(self):
         self.model = SetListen(
-            call_id="",
         )
     
-    def test_call_id(self):
-        """Test SetListen.call_id"""
-        self.model.call_id = "TEST_STRING"
-        assert self.model.get("call_id") == "TEST_STRING"
-
     def test_listen(self):
         """Test SetListen.listen"""
         self.model.listen = False
         assert self.model.get("listen") == False
+
 
     def test_command_test(self):
         assert self.model.command == "SetListen"
