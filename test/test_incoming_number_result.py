@@ -55,7 +55,13 @@ class TestIncomingNumberResult(unittest.TestCase):
 
     def test_capabilities(self):
         """Test IncomingNumberResult.capabilities"""
-        object = Capabilities(False, False, False, False, False)
+        object = Capabilities(
+        voice=True,
+        sms=True,
+        toll_free=True,
+        ten_dlc=True,
+        short_code=True,
+    )
         self.model.capabilities = object
         assert self.model.get("capabilities", object)
 
@@ -116,7 +122,9 @@ class TestIncomingNumberResult(unittest.TestCase):
 
     def test_tfn(self):
         """Test IncomingNumberResult.tfn"""
-        object = TFN("campaign_id_example")
+        object = TFN(
+        campaign_id="campaign_id_example",
+    )
         self.model.tfn = object
         assert self.model.get("tfn", object)
 

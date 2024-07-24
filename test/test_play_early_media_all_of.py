@@ -31,5 +31,6 @@ class TestPlayEarlyMediaAllOf(unittest.TestCase):
         self.model.file = "TEST_STRING"
         assert self.model.get("file") == "TEST_STRING"
 
+
 if __name__ == '__main__':
     unittest.main()

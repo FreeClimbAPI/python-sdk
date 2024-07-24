@@ -57,6 +57,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
             self.model.entity_type = "INVALID_ENUM"
         exception_raised = info.value
         assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
+        
     def test_csp_id(self):
         """Test SMSTenDLCBrand.csp_id"""
         self.model.csp_id = "TEST_STRING"
@@ -269,6 +270,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
             self.model.stock_exchange = "INVALID_ENUM"
         exception_raised = info.value
         assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
+        
     def test_ip_address(self):
         """Test SMSTenDLCBrand.ip_address"""
         self.model.ip_address = "T" * 50
@@ -307,6 +309,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
             self.model.brand_relationship = "INVALID_ENUM"
         exception_raised = info.value
         assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
+        
     def test_vertical(self):
         """Test SMSTenDLCBrand.vertical"""
         self.model.vertical = "T" * 50
@@ -343,6 +346,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
             self.model.alt_business_id_type = "INVALID_ENUM"
         exception_raised = info.value
         assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
+        
     def test_universal_ein(self):
         """Test SMSTenDLCBrand.universal_ein"""
         self.model.universal_ein = "TEST_STRING"
@@ -384,10 +388,12 @@ class TestSMSTenDLCBrand(unittest.TestCase):
             self.model.identity_status = "INVALID_ENUM"
         exception_raised = info.value
         assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
+        
     def test_create_date(self):
         """Test SMSTenDLCBrand.create_date"""
         self.model.create_date = datetime.fromtimestamp(1691592436)
         assert self.model.get("create_date") == datetime.fromtimestamp(1691592436)
+
 
 if __name__ == '__main__':
     unittest.main()

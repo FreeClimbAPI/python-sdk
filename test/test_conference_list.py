@@ -72,5 +72,6 @@ class TestConferenceList(unittest.TestCase):
         self.model.conferences = testList
         assert self.model.get("conferences") == testList
 
+
 if __name__ == '__main__':
     unittest.main()

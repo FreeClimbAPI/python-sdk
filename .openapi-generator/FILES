@@ -135,7 +135,8 @@ docs/StartRecordCall.md
 docs/TFN.md
 docs/TerminateConference.md
 docs/TranscribeUtterance.md
-docs/TranscribeUtteranceRecord.md
+docs/TranscribeUtteranceAllOf.md
+docs/TranscribeUtteranceAllOfRecord.md
 docs/Unpark.md
 docs/UpdateCallRequest.md
 docs/UpdateCallRequestStatus.md
@@ -285,7 +286,8 @@ freeclimb/model/start_record_call.py
 freeclimb/model/terminate_conference.py
 freeclimb/model/tfn.py
 freeclimb/model/transcribe_utterance.py
-freeclimb/model/transcribe_utterance_record.py
+freeclimb/model/transcribe_utterance_all_of.py
+freeclimb/model/transcribe_utterance_all_of_record.py
 freeclimb/model/unpark.py
 freeclimb/model/update_call_request.py
 freeclimb/model/update_call_request_status.py
@@ -299,5 +301,4 @@ requirements.txt
 setup.cfg
 setup.py
 test/__init__.py
-test/test_default_api.py
 tox.ini

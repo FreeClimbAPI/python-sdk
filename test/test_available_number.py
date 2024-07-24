@@ -29,7 +29,13 @@ class TestAvailableNumber(unittest.TestCase):
     
     def test_capabilities(self):
         """Test AvailableNumber.capabilities"""
-        object = Capabilities(sms=False, voice=False, toll_free=False, ten_dlc=False, short_code=False)
+        object = Capabilities(
+        voice=True,
+        sms=True,
+        toll_free=True,
+        ten_dlc=True,
+        short_code=True,
+    )
         self.model.capabilities = object
         assert self.model.get("capabilities", object)
 
@@ -62,6 +68,7 @@ class TestAvailableNumber(unittest.TestCase):
         """Test AvailableNumber.country"""
         self.model.country = "TEST_STRING"
         assert self.model.get("country") == "TEST_STRING"
+
 
 if __name__ == '__main__':
     unittest.main()

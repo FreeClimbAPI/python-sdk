@@ -77,5 +77,6 @@ class TestMakeCallRequest(unittest.TestCase):
         self.model.call_connect_url = "TEST_STRING"
         assert self.model.get("call_connect_url") == "TEST_STRING"
 
+
 if __name__ == '__main__':
     unittest.main()

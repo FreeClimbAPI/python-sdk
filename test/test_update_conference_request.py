@@ -52,5 +52,6 @@ class TestUpdateConferenceRequest(unittest.TestCase):
         self.model.status = UpdateConferenceRequestStatus.TERMINATED
         assert self.model.get("status") == UpdateConferenceRequestStatus.TERMINATED
 
+
 if __name__ == '__main__':
     unittest.main()

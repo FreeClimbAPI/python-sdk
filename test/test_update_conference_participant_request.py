@@ -35,5 +35,6 @@ class TestUpdateConferenceParticipantRequest(unittest.TestCase):
         self.model.listen = False
         assert self.model.get("listen") == False
 
+
 if __name__ == '__main__':
     unittest.main()

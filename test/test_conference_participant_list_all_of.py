@@ -33,5 +33,6 @@ class TestConferenceParticipantListAllOf(unittest.TestCase):
         self.model.participants = testList
         assert self.model.get("participants") == testList
 
+
 if __name__ == '__main__':
     unittest.main()

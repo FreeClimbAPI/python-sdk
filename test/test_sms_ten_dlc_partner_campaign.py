@@ -53,6 +53,7 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
             self.model.status = "INVALID_ENUM"
         exception_raised = info.value
         assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
+        
     def test_create_date(self):
         """Test SMSTenDLCPartnerCampaign.create_date"""
         self.model.create_date = datetime.fromtimestamp(1691592436)
@@ -255,9 +256,23 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
 
     def test_brand(self):
         """Test SMSTenDLCPartnerCampaign.brand"""
-        object = SMSTenDLCPartnerCampaignBrand(phone="TEST_STRING", email="TEST_STRING")
+        object = SMSTenDLCPartnerCampaignBrand(
+        account_id="account_id_example",
+        first_name="John",
+        last_name="Doe",
+        display_name="ABC Mobile",
+        company_name="ABC Inc.",
+        phone="+12024567890",
+        email="email_example",
+        website="http://www.abcmobile.com",
+        optional_attributes={
+            "key": {},
+        },
+        evp_vetting_score=1,
+    )
         self.model.brand = object
         assert self.model.get("brand", object)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -55,5 +55,6 @@ class TestConferenceParticipantResultAllOf(unittest.TestCase):
         self.model.start_conf_on_enter = False
         assert self.model.get("start_conf_on_enter") == False
 
+
 if __name__ == '__main__':
     unittest.main()

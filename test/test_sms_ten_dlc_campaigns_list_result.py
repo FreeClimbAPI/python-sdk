@@ -72,5 +72,6 @@ class TestSMSTenDLCCampaignsListResult(unittest.TestCase):
         self.model.campaigns = testList
         assert self.model.get("campaigns") == testList
 
+
 if __name__ == '__main__':
     unittest.main()

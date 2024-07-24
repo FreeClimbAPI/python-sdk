@@ -33,5 +33,6 @@ class TestApplicationListAllOf(unittest.TestCase):
         self.model.applications = testList
         assert self.model.get("applications") == testList
 
+
 if __name__ == '__main__':
     unittest.main()

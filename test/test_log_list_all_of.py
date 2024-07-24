@@ -33,5 +33,6 @@ class TestLogListAllOf(unittest.TestCase):
         self.model.logs = testList
         assert self.model.get("logs") == testList
 
+
 if __name__ == '__main__':
     unittest.main()

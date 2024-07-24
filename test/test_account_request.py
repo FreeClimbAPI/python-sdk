@@ -35,5 +35,6 @@ class TestAccountRequest(unittest.TestCase):
         self.model.label = "TEST_STRING"
         assert self.model.get("label") == "TEST_STRING"
 
+
 if __name__ == '__main__':
     unittest.main()

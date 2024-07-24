@@ -40,5 +40,6 @@ class TestIncomingNumberRequest(unittest.TestCase):
         self.model.campaign_id = "TEST_STRING"
         assert self.model.get("campaign_id") == "TEST_STRING"
 
+
 if __name__ == '__main__':
     unittest.main()

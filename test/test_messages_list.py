@@ -72,5 +72,6 @@ class TestMessagesList(unittest.TestCase):
         self.model.messages = testList
         assert self.model.get("messages") == testList
 
+
 if __name__ == '__main__':
     unittest.main()

@@ -31,5 +31,6 @@ class TestFilterLogsRequest(unittest.TestCase):
         self.model.pql = "TEST_STRING"
         assert self.model.get("pql") == "TEST_STRING"
 
+
 if __name__ == '__main__':
     unittest.main()

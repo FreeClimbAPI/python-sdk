@@ -99,8 +99,11 @@ class TestMessageResultAllOf(unittest.TestCase):
 
     def test_segment_count(self):
         """Test MessageResultAllOf.segment_count"""
+        
+        
         self.model.segment_count = float(1) 
         assert self.model.get("segment_count") == float(1)
+        
 
     def test_media_urls(self):
         """Test MessageResultAllOf.media_urls"""

@@ -67,5 +67,6 @@ class TestLogResult(unittest.TestCase):
         self.model.metadata = testObject
         assert self.model.get("metadata") == testObject
 
+
 if __name__ == '__main__':
     unittest.main()

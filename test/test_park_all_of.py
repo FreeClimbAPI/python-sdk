@@ -42,5 +42,6 @@ class TestParkAllOf(unittest.TestCase):
         self.model.notification_url = "TEST_STRING"
         assert self.model.get("notification_url") == "TEST_STRING"
 
+
 if __name__ == '__main__':
     unittest.main()

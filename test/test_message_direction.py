@@ -44,5 +44,6 @@ class TestMessageDirection(unittest.TestCase):
         calculated = test.value
         assert expected == calculated
 
+    
 if __name__ == '__main__':
     unittest.main()

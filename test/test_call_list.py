@@ -72,5 +72,6 @@ class TestCallList(unittest.TestCase):
         self.model.calls = testList
         assert self.model.get("calls") == testList
 
+
 if __name__ == '__main__':
     unittest.main()

@@ -151,5 +151,6 @@ class TestCallResult(unittest.TestCase):
         self.model.subresource_uris = testObject
         assert self.model.get("subresource_uris") == testObject
 
+
 if __name__ == '__main__':
     unittest.main()

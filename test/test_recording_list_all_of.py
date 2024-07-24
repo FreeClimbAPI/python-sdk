@@ -33,5 +33,6 @@ class TestRecordingListAllOf(unittest.TestCase):
         self.model.recordings = testList
         assert self.model.get("recordings") == testList
 
+
 if __name__ == '__main__':
     unittest.main()

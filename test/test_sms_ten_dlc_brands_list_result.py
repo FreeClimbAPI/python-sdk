@@ -72,5 +72,6 @@ class TestSMSTenDLCBrandsListResult(unittest.TestCase):
         self.model.brands = testList
         assert self.model.get("brands") == testList
 
+
 if __name__ == '__main__':
     unittest.main()

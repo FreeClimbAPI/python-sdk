@@ -16,30 +16,30 @@ import pytest
 
 import freeclimb
 
-from freeclimb.model.transcribe_utterance_record import TranscribeUtteranceRecord  # noqa: E501
+from freeclimb.model.transcribe_utterance_all_of_record import TranscribeUtteranceAllOfRecord  # noqa: E501
 
-class TestTranscribeUtteranceRecord(unittest.TestCase):
-    """TranscribeUtteranceRecord unit test stubs"""
+class TestTranscribeUtteranceAllOfRecord(unittest.TestCase):
+    """TranscribeUtteranceAllOfRecord unit test stubs"""
 
     def setUp(self):
-        self.model = TranscribeUtteranceRecord()
+        self.model = TranscribeUtteranceAllOfRecord(
+        )
     
     def test_save_recording(self):
-        """Test TranscribeUtteranceRecord.save_recording"""
+        """Test TranscribeUtteranceAllOfRecord.save_recording"""
         self.model.save_recording = False
         assert self.model.get("save_recording") == False
-             
+
     def test_max_length_sec(self):
-        """Test TranscribeUtteranceRecord.max_length_sec"""
+        """Test TranscribeUtteranceAllOfRecord.max_length_sec"""
         self.model.max_length_sec = 1
         assert self.model.get("max_length_sec") == 1
 
-     
     def test_rcrd_termination_silence_time_ms(self):
-        """Test TranscribeUtteranceRecord.rcrd_termination_silence_time_ms"""
+        """Test TranscribeUtteranceAllOfRecord.rcrd_termination_silence_time_ms"""
         self.model.rcrd_termination_silence_time_ms = 1
         assert self.model.get("rcrd_termination_silence_time_ms") == 1
 
-        
+
 if __name__ == '__main__':
     unittest.main()

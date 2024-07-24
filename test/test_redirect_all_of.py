@@ -31,5 +31,6 @@ class TestRedirectAllOf(unittest.TestCase):
         self.model.action_url = "TEST_STRING"
         assert self.model.get("action_url") == "TEST_STRING"
 
+
 if __name__ == '__main__':
     unittest.main()
