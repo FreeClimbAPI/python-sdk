@@ -114,9 +114,9 @@ class TestTranscribeUtterance(unittest.TestCase):
 
     def test_prompts(self):
         """Test TranscribeUtterance.prompts"""
-        testArray = []
-        self.model.prompts = testArray
-        assert self.model.get("prompts") == testArray
+        testList = []
+        self.model.prompts = testList
+        assert self.model.get("prompts") == testList
 
 
     def test_command_test(self):

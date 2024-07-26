@@ -622,12 +622,12 @@ class TestDefaultApi(unittest.TestCase):
         List Conference Recordings  # noqa: E501
         """
 
-        call_id = call_id_list_conference_recordings_test_value
         conference_id = conference_id_list_conference_recordings_test_value
+        call_id = call_id_list_conference_recordings_test_value
         date_created = date_created_list_conference_recordings_test_value
 
 
-        api_response = self.api.list_conference_recordings(call_id=call_id,conference_id=conference_id,date_created=date_created)
+        api_response = self.api.list_conference_recordings(conference_id=conference_id,call_id=call_id,date_created=date_created)
         
         assert isinstance(api_response, RecordingList)
 

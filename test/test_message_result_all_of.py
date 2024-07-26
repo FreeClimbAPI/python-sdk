@@ -107,9 +107,9 @@ class TestMessageResultAllOf(unittest.TestCase):
 
     def test_media_urls(self):
         """Test MessageResultAllOf.media_urls"""
-        testArray = []
-        self.model.media_urls = testArray
-        assert self.model.get("media_urls") == testArray
+        testList = []
+        self.model.media_urls = testList
+        assert self.model.get("media_urls") == testList
 
 
 if __name__ == '__main__':

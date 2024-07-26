@@ -60,9 +60,9 @@ class TestTranscribeUtteranceAllOf(unittest.TestCase):
 
     def test_prompts(self):
         """Test TranscribeUtteranceAllOf.prompts"""
-        testArray = []
-        self.model.prompts = testArray
-        assert self.model.get("prompts") == testArray
+        testList = []
+        self.model.prompts = testList
+        assert self.model.get("prompts") == testList
 
 
 if __name__ == '__main__':
