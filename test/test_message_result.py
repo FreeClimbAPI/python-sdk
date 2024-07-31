@@ -123,14 +123,17 @@ class TestMessageResult(unittest.TestCase):
 
     def test_segment_count(self):
         """Test MessageResult.segment_count"""
+        
+        
         self.model.segment_count = float(1) 
         assert self.model.get("segment_count") == float(1)
+        
 
     def test_media_urls(self):
         """Test MessageResult.media_urls"""
-        testArray = []
-        self.model.media_urls = testArray
-        assert self.model.get("media_urls") == testArray
+        testList = []
+        self.model.media_urls = testList
+        assert self.model.get("media_urls") == testList
 
 
 if __name__ == '__main__':

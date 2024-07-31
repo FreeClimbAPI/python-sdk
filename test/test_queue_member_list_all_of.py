@@ -33,5 +33,6 @@ class TestQueueMemberListAllOf(unittest.TestCase):
         self.model.queue_members = testList
         assert self.model.get("queue_members") == testList
 
+
 if __name__ == '__main__':
     unittest.main()

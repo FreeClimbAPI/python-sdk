@@ -50,5 +50,6 @@ class TestQueueMember(unittest.TestCase):
         self.model.date_enqueued = "TEST_STRING"
         assert self.model.get("date_enqueued") == "TEST_STRING"
 
+
 if __name__ == '__main__':
     unittest.main()

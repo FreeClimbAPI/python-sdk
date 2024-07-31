@@ -45,5 +45,6 @@ class TestMutableResourceModel(unittest.TestCase):
         self.model.revision = 1
         assert self.model.get("revision") == 1
 
+
 if __name__ == '__main__':
     unittest.main()

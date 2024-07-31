@@ -76,13 +76,19 @@ class TestGetSpeechAllOf(unittest.TestCase):
 
     def test_confidence_threshold(self):
         """Test GetSpeechAllOf.confidence_threshold"""
+        
+        
         self.model.confidence_threshold = float(1) 
         assert self.model.get("confidence_threshold") == float(1)
+        
 
     def test_sensitivity_level(self):
         """Test GetSpeechAllOf.sensitivity_level"""
+        
+        
         self.model.sensitivity_level = float(1) 
         assert self.model.get("sensitivity_level") == float(1)
+        
 
     def test_speech_complete_timeout_ms(self):
         """Test GetSpeechAllOf.speech_complete_timeout_ms"""
@@ -98,6 +104,7 @@ class TestGetSpeechAllOf(unittest.TestCase):
         """Test GetSpeechAllOf.privacy_mode"""
         self.model.privacy_mode = False
         assert self.model.get("privacy_mode") == False
+
 
 if __name__ == '__main__':
     unittest.main()

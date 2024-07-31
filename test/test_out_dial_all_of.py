@@ -83,5 +83,6 @@ class TestOutDialAllOf(unittest.TestCase):
         self.model.privacy_mode = False
         assert self.model.get("privacy_mode") == False
 
+
 if __name__ == '__main__':
     unittest.main()

@@ -64,5 +64,6 @@ class TestCreateConferenceAllOf(unittest.TestCase):
         self.model.wait_url = "TEST_STRING"
         assert self.model.get("wait_url") == "TEST_STRING"
 
+
 if __name__ == '__main__':
     unittest.main()

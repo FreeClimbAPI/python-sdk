@@ -25,7 +25,7 @@ class TestUpdateCallRequest(unittest.TestCase):
 
     def setUp(self):
         self.model = UpdateCallRequest(
-            status="TEST_STRING"
+            status= UpdateCallRequestStatus.CANCELED,
         )
     
     def test_status(self):
@@ -34,6 +34,7 @@ class TestUpdateCallRequest(unittest.TestCase):
         assert self.model.get("status") == UpdateCallRequestStatus.CANCELED
         self.model.status = UpdateCallRequestStatus.COMPLETED
         assert self.model.get("status") == UpdateCallRequestStatus.COMPLETED
+
 
 if __name__ == '__main__':
     unittest.main()

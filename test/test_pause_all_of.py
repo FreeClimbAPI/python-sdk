@@ -23,13 +23,14 @@ class TestPauseAllOf(unittest.TestCase):
 
     def setUp(self):
         self.model = PauseAllOf(
-            length=1
+            length=1,
         )
     
     def test_length(self):
         """Test PauseAllOf.length"""
         self.model.length = 1
         assert self.model.get("length") == 1
+
 
 if __name__ == '__main__':
     unittest.main()

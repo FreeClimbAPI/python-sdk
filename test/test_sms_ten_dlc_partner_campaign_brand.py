@@ -117,5 +117,6 @@ class TestSMSTenDLCPartnerCampaignBrand(unittest.TestCase):
         self.model.evp_vetting_score = 1
         assert self.model.get("evp_vetting_score") == 1
 
+
 if __name__ == '__main__':
     unittest.main()

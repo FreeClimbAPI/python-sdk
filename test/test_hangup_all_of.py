@@ -30,5 +30,6 @@ class TestHangupAllOf(unittest.TestCase):
         self.model.reason = "TEST_STRING"
         assert self.model.get("reason") == "TEST_STRING"
 
+
 if __name__ == '__main__':
     unittest.main()

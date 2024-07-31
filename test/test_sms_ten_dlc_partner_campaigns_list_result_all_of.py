@@ -33,5 +33,6 @@ class TestSMSTenDLCPartnerCampaignsListResultAllOf(unittest.TestCase):
         self.model.partner_campaigns = testList
         assert self.model.get("partner_campaigns") == testList
 
+
 if __name__ == '__main__':
     unittest.main()

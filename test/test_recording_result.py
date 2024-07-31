@@ -74,5 +74,6 @@ class TestRecordingResult(unittest.TestCase):
         self.model.conference_id = "TEST_STRING"
         assert self.model.get("conference_id") == "TEST_STRING"
 
+
 if __name__ == '__main__':
     unittest.main()

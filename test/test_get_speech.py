@@ -41,6 +41,7 @@ from freeclimb.model.set_talk import SetTalk
 from freeclimb.model.sms import Sms
 from freeclimb.model.start_record_call import StartRecordCall
 from freeclimb.model.terminate_conference import TerminateConference
+from freeclimb.model.transcribe_utterance import TranscribeUtterance
 from freeclimb.model.unpark import Unpark
 globals()['AddToConference'] = AddToConference
 globals()['CreateConference'] = CreateConference
@@ -68,6 +69,7 @@ globals()['SetTalk'] = SetTalk
 globals()['Sms'] = Sms
 globals()['StartRecordCall'] = StartRecordCall
 globals()['TerminateConference'] = TerminateConference
+globals()['TranscribeUtterance'] = TranscribeUtterance
 globals()['Unpark'] = Unpark
 
 from freeclimb.model.get_speech import GetSpeech  # noqa: E501
@@ -126,13 +128,19 @@ class TestGetSpeech(unittest.TestCase):
 
     def test_confidence_threshold(self):
         """Test GetSpeech.confidence_threshold"""
+        
+        
         self.model.confidence_threshold = float(1) 
         assert self.model.get("confidence_threshold") == float(1)
+        
 
     def test_sensitivity_level(self):
         """Test GetSpeech.sensitivity_level"""
+        
+        
         self.model.sensitivity_level = float(1) 
         assert self.model.get("sensitivity_level") == float(1)
+        
 
     def test_speech_complete_timeout_ms(self):
         """Test GetSpeech.speech_complete_timeout_ms"""
@@ -148,6 +156,7 @@ class TestGetSpeech(unittest.TestCase):
         """Test GetSpeech.privacy_mode"""
         self.model.privacy_mode = False
         assert self.model.get("privacy_mode") == False
+
 
     def test_command_test(self):
         assert self.model.command == "GetSpeech"

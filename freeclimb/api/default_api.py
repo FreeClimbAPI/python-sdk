@@ -2273,12 +2273,13 @@ class DefaultApi(object):
             params_map={
                 'all': [
                     'account_id',
-                    'call_id',
                     'conference_id',
+                    'call_id',
                     'date_created',
                 ],
                 'required': [
                     'account_id',
+                    'conference_id',
                 ],
                 'nullable': [
                 ],
@@ -2295,23 +2296,23 @@ class DefaultApi(object):
                 'openapi_types': {
                     'account_id':
                         (str,),
-                    'call_id':
-                        (str,),
                     'conference_id':
+                        (str,),
+                    'call_id':
                         (str,),
                     'date_created':
                         (str,),
                 },
                 'attribute_map': {
                     'account_id': 'accountId',
-                    'call_id': 'callId',
                     'conference_id': 'conferenceId',
+                    'call_id': 'callId',
                     'date_created': 'dateCreated',
                 },
                 'location_map': {
                     'account_id': 'path',
+                    'conference_id': 'path',
                     'call_id': 'query',
-                    'conference_id': 'query',
                     'date_created': 'query',
                 },
                 'collection_format_map': {
@@ -6698,7 +6699,7 @@ class DefaultApi(object):
 
     def list_conference_recordings(
         self,
-         
+        conference_id, 
         **kwargs
         ):
         """List Conference Recordings  # noqa: E501
@@ -6706,16 +6707,20 @@ class DefaultApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_conference_recordings(async_req=True)
+        >>> thread = api.list_conference_recordings(conference_id, async_req=True)
         >>> result = thread.get()
 
+
+        Args:
+
+
+            conference_id (str): Show only Recordings made during the conference with this ID.
 
 
 
 
         Keyword Args:
             call_id (str): Show only Recordings made during the Call with this ID.. [optional]
-            conference_id (str): Show only Recordings made during the conference with this ID.. [optional]
             date_created (str): Only show Recordings created on this date, formatted as *YYYY-MM-DD*.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -6775,6 +6780,9 @@ class DefaultApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['account_id'] = \
             self.account_id
+
+        kwargs['conference_id'] = \
+            conference_id
 
         return self.list_conference_recordings_endpoint.call_with_http_info(**kwargs)
 

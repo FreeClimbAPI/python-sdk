@@ -33,6 +33,7 @@ class TestPerclScript(unittest.TestCase):
         self.model.commands = testList
         assert self.model.get("commands") == testList
 
+
     def test_to_json(self):
         self.model.commands = []
         assert self.model.to_json() == "[]"

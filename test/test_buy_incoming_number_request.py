@@ -41,5 +41,6 @@ class TestBuyIncomingNumberRequest(unittest.TestCase):
         self.model.application_id = "TEST_STRING"
         assert self.model.get("application_id") == "TEST_STRING"
 
+
 if __name__ == '__main__':
     unittest.main()

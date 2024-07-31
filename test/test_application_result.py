@@ -94,5 +94,6 @@ class TestApplicationResult(unittest.TestCase):
         self.model.sms_fallback_url = "TEST_STRING"
         assert self.model.get("sms_fallback_url") == "TEST_STRING"
 
+
 if __name__ == '__main__':
     unittest.main()

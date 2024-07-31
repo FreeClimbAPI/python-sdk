@@ -29,7 +29,7 @@ class TestSMSTollFreeCampaign(unittest.TestCase):
             registration_status="UNREGISTERED",
             date_created="",
             date_updated="",
-            revision=1
+            revision=1,
         )
     
     def test_account_id(self):
@@ -65,6 +65,7 @@ class TestSMSTollFreeCampaign(unittest.TestCase):
             self.model.registration_status = "INVALID_ENUM"
         exception_raised = info.value
         assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
+        
     def test_date_created(self):
         """Test SMSTollFreeCampaign.date_created"""
         self.model.date_created = "TEST_STRING"

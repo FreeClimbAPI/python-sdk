@@ -55,5 +55,6 @@ class TestCapabilities(unittest.TestCase):
         self.model.short_code = False
         assert self.model.get("short_code") == False
 
+
 if __name__ == '__main__':
     unittest.main()

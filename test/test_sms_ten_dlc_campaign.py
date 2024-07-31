@@ -69,6 +69,7 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
             self.model.status = "INVALID_ENUM"
         exception_raised = info.value
         assert exception_raised.__class__.__name__ == freeclimb.ApiValueError.__name__
+        
     def test_create_date(self):
         """Test SMSTenDLCCampaign.create_date"""
         self.model.create_date = datetime.fromtimestamp(1691592436)

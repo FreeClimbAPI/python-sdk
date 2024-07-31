@@ -31,7 +31,13 @@ class TestIncomingNumberResultAllOf(unittest.TestCase):
     
     def test_capabilities(self):
         """Test IncomingNumberResultAllOf.capabilities"""
-        object = Capabilities(False, False, False, False, False)
+        object = Capabilities(
+        voice=True,
+        sms=True,
+        toll_free=True,
+        ten_dlc=True,
+        short_code=True,
+    )
         self.model.capabilities = object
         assert self.model.get("capabilities", object)
 
@@ -92,7 +98,9 @@ class TestIncomingNumberResultAllOf(unittest.TestCase):
 
     def test_tfn(self):
         """Test IncomingNumberResultAllOf.tfn"""
-        object = TFN("campaign_id_example")
+        object = TFN(
+        campaign_id="campaign_id_example",
+    )
         self.model.tfn = object
         assert self.model.get("tfn", object)
 

@@ -15,8 +15,62 @@ from datetime import datetime, date
 import pytest
 
 import freeclimb
-from freeclimb.model.transcribe_utterance_record import TranscribeUtteranceRecord
-globals()['TranscribeUtteranceRecord'] = TranscribeUtteranceRecord
+from freeclimb.model.add_to_conference import AddToConference
+from freeclimb.model.create_conference import CreateConference
+from freeclimb.model.dequeue import Dequeue
+from freeclimb.model.enqueue import Enqueue
+from freeclimb.model.get_digits import GetDigits
+from freeclimb.model.get_speech import GetSpeech
+from freeclimb.model.hangup import Hangup
+from freeclimb.model.out_dial import OutDial
+from freeclimb.model.park import Park
+from freeclimb.model.pause import Pause
+from freeclimb.model.percl_command import PerclCommand
+from freeclimb.model.play import Play
+from freeclimb.model.play_early_media import PlayEarlyMedia
+from freeclimb.model.record_utterance import RecordUtterance
+from freeclimb.model.redirect import Redirect
+from freeclimb.model.reject import Reject
+from freeclimb.model.remove_from_conference import RemoveFromConference
+from freeclimb.model.say import Say
+from freeclimb.model.send_digits import SendDigits
+from freeclimb.model.set_listen import SetListen
+from freeclimb.model.set_talk import SetTalk
+from freeclimb.model.sms import Sms
+from freeclimb.model.start_record_call import StartRecordCall
+from freeclimb.model.terminate_conference import TerminateConference
+from freeclimb.model.transcribe_utterance import TranscribeUtterance
+from freeclimb.model.transcribe_utterance_all_of import TranscribeUtteranceAllOf
+from freeclimb.model.transcribe_utterance_all_of_record import TranscribeUtteranceAllOfRecord
+from freeclimb.model.unpark import Unpark
+globals()['AddToConference'] = AddToConference
+globals()['CreateConference'] = CreateConference
+globals()['Dequeue'] = Dequeue
+globals()['Enqueue'] = Enqueue
+globals()['GetDigits'] = GetDigits
+globals()['GetSpeech'] = GetSpeech
+globals()['Hangup'] = Hangup
+globals()['OutDial'] = OutDial
+globals()['Park'] = Park
+globals()['Pause'] = Pause
+globals()['PerclCommand'] = PerclCommand
+globals()['Play'] = Play
+globals()['PlayEarlyMedia'] = PlayEarlyMedia
+globals()['RecordUtterance'] = RecordUtterance
+globals()['Redirect'] = Redirect
+globals()['Reject'] = Reject
+globals()['RemoveFromConference'] = RemoveFromConference
+globals()['Say'] = Say
+globals()['SendDigits'] = SendDigits
+globals()['SetListen'] = SetListen
+globals()['SetTalk'] = SetTalk
+globals()['Sms'] = Sms
+globals()['StartRecordCall'] = StartRecordCall
+globals()['TerminateConference'] = TerminateConference
+globals()['TranscribeUtterance'] = TranscribeUtterance
+globals()['TranscribeUtteranceAllOf'] = TranscribeUtteranceAllOf
+globals()['TranscribeUtteranceAllOfRecord'] = TranscribeUtteranceAllOfRecord
+globals()['Unpark'] = Unpark
 
 from freeclimb.model.transcribe_utterance import TranscribeUtterance  # noqa: E501
 
@@ -40,8 +94,13 @@ class TestTranscribeUtterance(unittest.TestCase):
 
     def test_record(self):
         """Test TranscribeUtterance.record"""
-        self.model.record = TranscribeUtteranceRecord(save_recording=False, max_length_sec=1, rcrd_termination_silence_time_ms=1)
-        assert isinstance(self.model.record, TranscribeUtteranceRecord)
+        object = TranscribeUtteranceAllOfRecord(
+        save_recording=False,
+        max_length_sec=60,
+        rcrd_termination_silence_time_ms=0,
+    )
+        self.model.record = object
+        assert self.model.get("record", object)
 
     def test_privacy_for_logging(self):
         """Test TranscribeUtterance.privacy_for_logging"""
@@ -55,9 +114,9 @@ class TestTranscribeUtterance(unittest.TestCase):
 
     def test_prompts(self):
         """Test TranscribeUtterance.prompts"""
-        testArray = []
-        self.model.prompts = testArray
-        assert self.model.get("prompts") == testArray
+        testList = []
+        self.model.prompts = testList
+        assert self.model.get("prompts") == testList
 
 
     def test_command_test(self):

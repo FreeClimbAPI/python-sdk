@@ -40,6 +40,7 @@ from freeclimb.model.sms import Sms
 from freeclimb.model.sms_all_of import SmsAllOf
 from freeclimb.model.start_record_call import StartRecordCall
 from freeclimb.model.terminate_conference import TerminateConference
+from freeclimb.model.transcribe_utterance import TranscribeUtterance
 from freeclimb.model.unpark import Unpark
 globals()['AddToConference'] = AddToConference
 globals()['CreateConference'] = CreateConference
@@ -66,6 +67,7 @@ globals()['Sms'] = Sms
 globals()['SmsAllOf'] = SmsAllOf
 globals()['StartRecordCall'] = StartRecordCall
 globals()['TerminateConference'] = TerminateConference
+globals()['TranscribeUtterance'] = TranscribeUtterance
 globals()['Unpark'] = Unpark
 
 from freeclimb.model.sms import Sms  # noqa: E501
@@ -99,6 +101,7 @@ class TestSms(unittest.TestCase):
         """Test Sms.notification_url"""
         self.model.notification_url = "TEST_STRING"
         assert self.model.get("notification_url") == "TEST_STRING"
+
 
     def test_command_test(self):
         assert self.model.command == "Sms"

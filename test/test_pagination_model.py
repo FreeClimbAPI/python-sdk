@@ -60,5 +60,6 @@ class TestPaginationModel(unittest.TestCase):
         self.model.next_page_uri = "TEST_STRING"
         assert self.model.get("next_page_uri") == "TEST_STRING"
 
+
 if __name__ == '__main__':
     unittest.main()

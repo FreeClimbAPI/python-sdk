@@ -35,5 +35,6 @@ class TestQueueRequest(unittest.TestCase):
         self.model.max_size = 1
         assert self.model.get("max_size") == 1
 
+
 if __name__ == '__main__':
     unittest.main()

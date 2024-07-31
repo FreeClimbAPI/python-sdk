@@ -3049,7 +3049,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_conference_recordings**
-> RecordingList list_conference_recordings(account_id)
+> RecordingList list_conference_recordings(account_id, conference_id)
 
 List Conference Recordings
 
@@ -3085,14 +3085,14 @@ with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = default_api.DefaultApi(api_client)
     account_id = "accountId_example" # str | ID of the account
+    conference_id = "conferenceId_example" # str | Show only Recordings made during the conference with this ID.
     call_id = "callId_example" # str | Show only Recordings made during the Call with this ID. (optional)
-    conference_id = "conferenceId_example" # str | Show only Recordings made during the conference with this ID. (optional)
     date_created = "dateCreated_example" # str | Only show Recordings created on this date, formatted as *YYYY-MM-DD*. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # List Conference Recordings
-        api_response = api_instance.list_conference_recordings()
+        api_response = api_instance.list_conference_recordings(conference_id)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_conference_recordings: %s\n" % e)
@@ -3101,7 +3101,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Conference Recordings
-        api_response = api_instance.list_conference_recordings(call_id=call_id, conference_id=conference_id, date_created=date_created)
+        api_response = api_instance.list_conference_recordings(conference_id, call_id=call_id, date_created=date_created)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_conference_recordings: %s\n" % e)
@@ -3112,8 +3112,8 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **conference_id** | **str**| Show only Recordings made during the conference with this ID. |
  **call_id** | **str**| Show only Recordings made during the Call with this ID. | [optional]
- **conference_id** | **str**| Show only Recordings made during the conference with this ID. | [optional]
  **date_created** | **str**| Only show Recordings created on this date, formatted as *YYYY-MM-DD*. | [optional]
 
 ### Return type

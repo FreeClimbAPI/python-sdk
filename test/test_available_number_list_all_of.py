@@ -33,5 +33,6 @@ class TestAvailableNumberListAllOf(unittest.TestCase):
         self.model.available_phone_numbers = testList
         assert self.model.get("available_phone_numbers") == testList
 
+
 if __name__ == '__main__':
     unittest.main()

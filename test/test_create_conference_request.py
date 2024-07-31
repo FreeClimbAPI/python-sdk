@@ -58,5 +58,6 @@ class TestCreateConferenceRequest(unittest.TestCase):
         self.model.status_callback_url = "TEST_STRING"
         assert self.model.get("status_callback_url") == "TEST_STRING"
 
+
 if __name__ == '__main__':
     unittest.main()

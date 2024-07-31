@@ -126,6 +126,7 @@ class TestGetDigits(unittest.TestCase):
         self.model.privacy_mode = False
         assert self.model.get("privacy_mode") == False
 
+
     def test_command_test(self):
         assert self.model.command == "GetDigits"
 

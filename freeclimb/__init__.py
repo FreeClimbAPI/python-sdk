@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "4.6.0"
+__version__ = "4.6.1"
 
 # import ApiClient
 from freeclimb.api_client import ApiClient
@@ -165,7 +165,8 @@ from freeclimb.model.start_record_call import StartRecordCall
 from freeclimb.model.tfn import TFN
 from freeclimb.model.terminate_conference import TerminateConference
 from freeclimb.model.transcribe_utterance import TranscribeUtterance
-from freeclimb.model.transcribe_utterance_record import TranscribeUtteranceRecord
+from freeclimb.model.transcribe_utterance_all_of import TranscribeUtteranceAllOf
+from freeclimb.model.transcribe_utterance_all_of_record import TranscribeUtteranceAllOfRecord
 from freeclimb.model.unpark import Unpark
 from freeclimb.model.update_call_request import UpdateCallRequest
 from freeclimb.model.update_call_request_status import UpdateCallRequestStatus
