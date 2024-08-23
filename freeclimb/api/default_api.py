@@ -7396,7 +7396,6 @@ class DefaultApi(object):
         ):
         """Make a JWT for WebRTC calling  # noqa: E501
 
-        Make a JWT for WebRTC calling  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
