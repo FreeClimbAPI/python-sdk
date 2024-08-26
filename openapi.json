@@ -3783,6 +3783,7 @@
         "tags": [],
         "summary": "List applications",
         "operationId": "list-applications",
+        "x-is-paginated": true,
         "parameters": [
           {
             "name": "alias",
@@ -3850,6 +3851,7 @@
         "tags": [],
         "summary": "List available numbers",
         "operationId": "list-available-numbers",
+        "x-is-paginated": true,
         "parameters": [
           {
             "name": "phoneNumber",
@@ -4035,6 +4037,7 @@
         "tags": [],
         "summary": "List Incoming Numbers",
         "operationId": "list-incoming-numbers",
+        "x-is-paginated": true,
         "parameters": [
           {
             "$ref": "#/components/parameters/AccountId"
@@ -4316,6 +4319,7 @@
         "tags": [],
         "summary": "List Calls",
         "operationId": "list-calls",
+        "x-is-paginated": true,
         "parameters": [
           {
             "name": "active",
@@ -4420,6 +4424,7 @@
         "tags": [],
         "summary": "List Call Recordings",
         "operationId": "list-call-recordings",
+        "x-is-paginated": true,
         "parameters": [
           {
             "name": "dateCreated",
@@ -4463,6 +4468,7 @@
         "tags": [],
         "summary": "List Call Logs",
         "operationId": "list-call-logs",
+        "x-is-paginated": true,
         "parameters": [
           {
             "$ref": "#/components/parameters/AccountId"
@@ -4566,6 +4572,7 @@
         "tags": [],
         "summary": "List Conferences",
         "operationId": "list-conferences",
+        "x-is-paginated": true,
         "parameters": [
           {
             "name": "status",
@@ -4824,6 +4831,7 @@
         "tags": [],
         "summary": "List Participants",
         "operationId": "list-participants",
+        "x-is-paginated": true,
         "parameters": [
           {
             "name": "talk",
@@ -4876,6 +4884,7 @@
         "tags": [],
         "summary": "List Conference Recordings",
         "operationId": "list-conference-recordings",
+        "x-is-paginated": true,
         "parameters": [
           {
             "name": "callId",
@@ -5004,6 +5013,7 @@
         "tags": [],
         "summary": "List Active Queues",
         "operationId": "list-active-queues",
+        "x-is-paginated": true,
         "parameters": [
           {
             "name": "alias",
@@ -5137,6 +5147,7 @@
         "tags": [],
         "summary": "List Members",
         "operationId": "list-members",
+        "x-is-paginated": "true",
         "parameters": [
           {
             "$ref": "#/components/parameters/AccountId"
@@ -5255,6 +5266,7 @@
         "tags": [],
         "summary": "List All Account Logs",
         "operationId": "list-all-account-logs",
+        "x-is-paginated": true,
         "parameters": [
           {
             "$ref": "#/components/parameters/AccountId"
@@ -5314,6 +5326,7 @@
         "tags": [],
         "summary": "List Recordings",
         "operationId": "list-recordings",
+        "x-is-paginated": true,
         "parameters": [
           {
             "name": "callId",
@@ -5495,6 +5508,7 @@
         "tags": [],
         "summary": "List SMS Messages",
         "operationId": "list-sms-messages",
+        "x-is-paginated": true,
         "parameters": [
           {
             "$ref": "#/components/parameters/AccountId"
@@ -5660,6 +5674,7 @@
         "tags": [],
         "summary": "Get list of SMS 10DLC Campaigns",
         "operationId": "get-tenDLC-sms-Campaigns",
+        "x-is-paginated": true,
         "parameters": [
           {
             "$ref": "#/components/parameters/AccountId"
@@ -5772,6 +5787,7 @@
         "tags": [],
         "summary": "Get list of SMS 10DLC Partner Campaigns",
         "operationId": "get-tenDLC-sms-partnerCampaigns",
+        "x-is-paginated": true,
         "parameters": [
           {
             "$ref": "#/components/parameters/AccountId"
@@ -5893,6 +5909,7 @@
         "tags": [],
         "summary": "Get list of SMS 10DLC Brands",
         "operationId": "get-tenDLC-sms-brands",
+        "x-is-paginated": true,
         "parameters": [
           {
             "$ref": "#/components/parameters/AccountId"
@@ -5994,6 +6011,7 @@
         "tags": [],
         "summary": "Get list of TollFree Campaigns",
         "operationId": "get-tollFree-sms-campaigns",
+        "x-is-paginated": true,
         "parameters": [
           {
             "$ref": "#/components/parameters/AccountId"

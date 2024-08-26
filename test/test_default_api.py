@@ -903,6 +903,304 @@ class TestDefaultApi(unittest.TestCase):
         assert isinstance(api_response, IncomingNumberResult)
 
 
+    def  test_get_ten_dlc_sms_brands_get_next_page(self):
+        """Test case for get_next_page using get_ten_dlc_sms_brands response
+
+        Get Next Page for Get list of SMS 10DLC Brands  # noqa: E501
+        """
+
+        
+        api_response = self.api.get_ten_dlc_sms_brands()
+        api_response.next_page_uri = "/Accounts/{accountId}/Messages/10DLC/Brands?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, SMSTenDLCBrandsListResult)
+
+    def  test_get_ten_dlc_sms_campaigns_get_next_page(self):
+        """Test case for get_next_page using get_ten_dlc_sms_campaigns response
+
+        Get Next Page for Get list of SMS 10DLC Campaigns  # noqa: E501
+        """
+
+        brand_id = brand_id_get_ten_dlc_sms_campaigns_test_value
+        
+        api_response = self.api.get_ten_dlc_sms_campaigns(brand_id=brand_id)
+        api_response.next_page_uri = "/Accounts/{accountId}/Messages/10DLC/Campaigns?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, SMSTenDLCCampaignsListResult)
+
+    def  test_get_ten_dlc_sms_partner_campaigns_get_next_page(self):
+        """Test case for get_next_page using get_ten_dlc_sms_partner_campaigns response
+
+        Get Next Page for Get list of SMS 10DLC Partner Campaigns  # noqa: E501
+        """
+
+        brand_id = brand_id_get_ten_dlc_sms_partner_campaigns_test_value
+        
+        api_response = self.api.get_ten_dlc_sms_partner_campaigns(brand_id=brand_id)
+        api_response.next_page_uri = "/Accounts/{accountId}/Messages/10DLC/PartnerCampaigns?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, SMSTenDLCPartnerCampaignsListResult)
+
+    def  test_get_toll_free_sms_campaigns_get_next_page(self):
+        """Test case for get_next_page using get_toll_free_sms_campaigns response
+
+        Get Next Page for Get list of TollFree Campaigns  # noqa: E501
+        """
+
+        
+        api_response = self.api.get_toll_free_sms_campaigns()
+        api_response.next_page_uri = "/Accounts/{accountId}/Messages/TollFree/Campaigns?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, SMSTollFreeCampaignsListResult)
+
+    def  test_list_active_queues_get_next_page(self):
+        """Test case for get_next_page using list_active_queues response
+
+        Get Next Page for List Active Queues  # noqa: E501
+        """
+
+        alias = alias_list_active_queues_test_value
+        
+        api_response = self.api.list_active_queues(alias=alias)
+        api_response.next_page_uri = "/Accounts/{accountId}/Queues?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, QueueList)
+
+    def  test_list_all_account_logs_get_next_page(self):
+        """Test case for get_next_page using list_all_account_logs response
+
+        Get Next Page for List All Account Logs  # noqa: E501
+        """
+
+        
+        api_response = self.api.list_all_account_logs()
+        api_response.next_page_uri = "/Accounts/{accountId}/Logs?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, LogList)
+
+    def  test_list_applications_get_next_page(self):
+        """Test case for get_next_page using list_applications response
+
+        Get Next Page for List applications  # noqa: E501
+        """
+
+        alias = alias_list_applications_test_value
+        
+        api_response = self.api.list_applications(alias=alias)
+        api_response.next_page_uri = "/Accounts/{accountId}/Applications?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, ApplicationList)
+
+    def  test_list_available_numbers_get_next_page(self):
+        """Test case for get_next_page using list_available_numbers response
+
+        Get Next Page for List available numbers  # noqa: E501
+        """
+
+        phone_number = phone_number_list_available_numbers_test_value
+        region = region_list_available_numbers_test_value
+        country = country_list_available_numbers_test_value
+        voice_enabled = voice_enabled_list_available_numbers_test_value
+        sms_enabled = sms_enabled_list_available_numbers_test_value
+        capabilities_voice = capabilities_voice_list_available_numbers_test_value
+        capabilities_sms = capabilities_sms_list_available_numbers_test_value
+        capabilities_toll_free = capabilities_toll_free_list_available_numbers_test_value
+        capabilities_ten_dlc = capabilities_ten_dlc_list_available_numbers_test_value
+        capabilities_short_code = capabilities_short_code_list_available_numbers_test_value
+        
+        api_response = self.api.list_available_numbers(phone_number=phone_number,region=region,country=country,voice_enabled=voice_enabled,sms_enabled=sms_enabled,capabilities_voice=capabilities_voice,capabilities_sms=capabilities_sms,capabilities_toll_free=capabilities_toll_free,capabilities_ten_dlc=capabilities_ten_dlc,capabilities_short_code=capabilities_short_code)
+        api_response.next_page_uri = "/AvailablePhoneNumbers?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, AvailableNumberList)
+
+    def  test_list_call_logs_get_next_page(self):
+        """Test case for get_next_page using list_call_logs response
+
+        Get Next Page for List Call Logs  # noqa: E501
+        """
+
+        call_id = call_id_list_call_logs_test_value
+        
+        api_response = self.api.list_call_logs(call_id=call_id)
+        api_response.next_page_uri = "/Accounts/{accountId}/Calls/{callId}/Logs?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, LogList)
+
+    def  test_list_call_recordings_get_next_page(self):
+        """Test case for get_next_page using list_call_recordings response
+
+        Get Next Page for List Call Recordings  # noqa: E501
+        """
+
+        call_id = call_id_list_call_recordings_test_value
+        date_created = date_created_list_call_recordings_test_value
+        
+        api_response = self.api.list_call_recordings(call_id=call_id,date_created=date_created)
+        api_response.next_page_uri = "/Accounts/{accountId}/Calls/{callId}/Recordings?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, RecordingList)
+
+    def  test_list_calls_get_next_page(self):
+        """Test case for get_next_page using list_calls response
+
+        Get Next Page for List Calls  # noqa: E501
+        """
+
+        active = active_list_calls_test_value
+        to = to_list_calls_test_value
+        _from = _from_list_calls_test_value
+        status = status_list_calls_test_value
+        start_time = start_time_list_calls_test_value
+        end_time = end_time_list_calls_test_value
+        parent_call_id = parent_call_id_list_calls_test_value
+        application_id = application_id_list_calls_test_value
+        
+        api_response = self.api.list_calls(active=active,to=to,_from=_from,status=status,start_time=start_time,end_time=end_time,parent_call_id=parent_call_id,application_id=application_id)
+        api_response.next_page_uri = "/Accounts/{accountId}/Calls?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, CallList)
+
+    def  test_list_conference_recordings_get_next_page(self):
+        """Test case for get_next_page using list_conference_recordings response
+
+        Get Next Page for List Conference Recordings  # noqa: E501
+        """
+
+        conference_id = conference_id_list_conference_recordings_test_value
+        call_id = call_id_list_conference_recordings_test_value
+        date_created = date_created_list_conference_recordings_test_value
+        
+        api_response = self.api.list_conference_recordings(conference_id=conference_id,call_id=call_id,date_created=date_created)
+        api_response.next_page_uri = "/Accounts/{accountId}/Conferences/{conferenceId}/Recordings?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, RecordingList)
+
+    def  test_list_conferences_get_next_page(self):
+        """Test case for get_next_page using list_conferences response
+
+        Get Next Page for List Conferences  # noqa: E501
+        """
+
+        status = status_list_conferences_test_value
+        alias = alias_list_conferences_test_value
+        date_created = date_created_list_conferences_test_value
+        date_updated = date_updated_list_conferences_test_value
+        
+        api_response = self.api.list_conferences(status=status,alias=alias,date_created=date_created,date_updated=date_updated)
+        api_response.next_page_uri = "/Accounts/{accountId}/Conferences?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, ConferenceList)
+
+    def  test_list_incoming_numbers_get_next_page(self):
+        """Test case for get_next_page using list_incoming_numbers response
+
+        Get Next Page for List Incoming Numbers  # noqa: E501
+        """
+
+        phone_number = phone_number_list_incoming_numbers_test_value
+        alias = alias_list_incoming_numbers_test_value
+        region = region_list_incoming_numbers_test_value
+        country = country_list_incoming_numbers_test_value
+        application_id = application_id_list_incoming_numbers_test_value
+        has_application = has_application_list_incoming_numbers_test_value
+        voice_enabled = voice_enabled_list_incoming_numbers_test_value
+        sms_enabled = sms_enabled_list_incoming_numbers_test_value
+        has_campaign = has_campaign_list_incoming_numbers_test_value
+        capabilities_voice = capabilities_voice_list_incoming_numbers_test_value
+        capabilities_sms = capabilities_sms_list_incoming_numbers_test_value
+        capabilities_toll_free = capabilities_toll_free_list_incoming_numbers_test_value
+        capabilities_ten_dlc = capabilities_ten_dlc_list_incoming_numbers_test_value
+        capabilities_short_code = capabilities_short_code_list_incoming_numbers_test_value
+        tfn_campaign_id = tfn_campaign_id_list_incoming_numbers_test_value
+        offnet = offnet_list_incoming_numbers_test_value
+        
+        api_response = self.api.list_incoming_numbers(phone_number=phone_number,alias=alias,region=region,country=country,application_id=application_id,has_application=has_application,voice_enabled=voice_enabled,sms_enabled=sms_enabled,has_campaign=has_campaign,capabilities_voice=capabilities_voice,capabilities_sms=capabilities_sms,capabilities_toll_free=capabilities_toll_free,capabilities_ten_dlc=capabilities_ten_dlc,capabilities_short_code=capabilities_short_code,tfn_campaign_id=tfn_campaign_id,offnet=offnet)
+        api_response.next_page_uri = "/Accounts/{accountId}/IncomingPhoneNumbers?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, IncomingNumberList)
+
+    def  test_list_members_get_next_page(self):
+        """Test case for get_next_page using list_members response
+
+        Get Next Page for List Members  # noqa: E501
+        """
+
+        queue_id = queue_id_list_members_test_value
+        
+        api_response = self.api.list_members(queue_id=queue_id)
+        api_response.next_page_uri = "/Accounts/{accountId}/Queues/{queueId}/Members?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, QueueMemberList)
+
+    def  test_list_participants_get_next_page(self):
+        """Test case for get_next_page using list_participants response
+
+        Get Next Page for List Participants  # noqa: E501
+        """
+
+        conference_id = conference_id_list_participants_test_value
+        talk = talk_list_participants_test_value
+        listen = listen_list_participants_test_value
+        
+        api_response = self.api.list_participants(conference_id=conference_id,talk=talk,listen=listen)
+        api_response.next_page_uri = "/Accounts/{accountId}/Conferences/{conferenceId}/Participants?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, ConferenceParticipantList)
+
+    def  test_list_recordings_get_next_page(self):
+        """Test case for get_next_page using list_recordings response
+
+        Get Next Page for List Recordings  # noqa: E501
+        """
+
+        call_id = call_id_list_recordings_test_value
+        conference_id = conference_id_list_recordings_test_value
+        date_created = date_created_list_recordings_test_value
+        
+        api_response = self.api.list_recordings(call_id=call_id,conference_id=conference_id,date_created=date_created)
+        api_response.next_page_uri = "/Accounts/{accountId}/Recordings?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, RecordingList)
+
+    def  test_list_sms_messages_get_next_page(self):
+        """Test case for get_next_page using list_sms_messages response
+
+        Get Next Page for List SMS Messages  # noqa: E501
+        """
+
+        to = to_list_sms_messages_test_value
+        _from = _from_list_sms_messages_test_value
+        begin_time = begin_time_list_sms_messages_test_value
+        end_time = end_time_list_sms_messages_test_value
+        direction = direction_list_sms_messages_test_value
+        campaign_id = campaign_id_list_sms_messages_test_value
+        brand_id = brand_id_list_sms_messages_test_value
+        is10_dlc = is10_dlc_list_sms_messages_test_value
+        
+        api_response = self.api.list_sms_messages(to=to,_from=_from,begin_time=begin_time,end_time=end_time,direction=direction,campaign_id=campaign_id,brand_id=brand_id,is10_dlc=is10_dlc)
+        api_response.next_page_uri = "/Accounts/{accountId}/Messages?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, MessagesList)
+
+
 buy_incoming_number_request_buy_a_phone_number_test_value = BuyIncomingNumberRequest(
             phone_number="phone_number_example",
             alias="alias_example",
