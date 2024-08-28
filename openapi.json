@@ -480,7 +480,7 @@
         }
       },
       "AddToConference": {
-        "description": "The `AddToConference` command adds a Participant to a Conference. If this Participant currently is in another Conference, the Participant is first removed from that Conference. Two Call legs can be bridged together by creating a Conference and adding both Call legs to it via `AddToConference`.",
+        "description": "The `AddToConference` command adds a Participant to a Conference. Two Call legs can be bridged together by creating a Conference and adding both Call legs to it via `AddToConference`.",
         "x-percl-command": true,
         "x-ref-properties": [
           "false",
@@ -4286,7 +4286,6 @@
         "tags": [],
         "summary": "Make a Call",
         "operationId": "make-a-call",
-        "x-is-paginated": true,
         "parameters": [
           {
             "$ref": "#/components/parameters/AccountId"
@@ -4320,6 +4319,7 @@
         "tags": [],
         "summary": "List Calls",
         "operationId": "list-calls",
+        "x-is-paginated": true,
         "parameters": [
           {
             "name": "active",
@@ -5147,6 +5147,7 @@
         "tags": [],
         "summary": "List Members",
         "operationId": "list-members",
+        "x-is-paginated": true,
         "parameters": [
           {
             "$ref": "#/components/parameters/AccountId"
