@@ -183,7 +183,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**update_an_account**](docs/DefaultApi.md#update_an_account) | **POST** /Accounts/{accountId} | Manage an account
 *DefaultApi* | [**update_an_application**](docs/DefaultApi.md#update_an_application) | **POST** /Accounts/{accountId}/Applications/{applicationId} | Update an application
 *DefaultApi* | [**update_an_incoming_number**](docs/DefaultApi.md#update_an_incoming_number) | **POST** /Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId} | Update an Incoming Number
-
+*DefaultApi* | [get_next_page](docs/DefaultApi.md#get_next_page) | **GET** | Get Next Page of Paginated List Resource
 
 ## Documentation For Models
 

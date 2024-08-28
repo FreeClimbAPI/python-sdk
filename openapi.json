@@ -4286,6 +4286,7 @@
         "tags": [],
         "summary": "Make a Call",
         "operationId": "make-a-call",
+        "x-is-paginated": true,
         "parameters": [
           {
             "$ref": "#/components/parameters/AccountId"
@@ -4319,7 +4320,6 @@
         "tags": [],
         "summary": "List Calls",
         "operationId": "list-calls",
-        "x-is-paginated": true,
         "parameters": [
           {
             "name": "active",
@@ -5147,7 +5147,6 @@
         "tags": [],
         "summary": "List Members",
         "operationId": "list-members",
-        "x-is-paginated": "true",
         "parameters": [
           {
             "$ref": "#/components/parameters/AccountId"
