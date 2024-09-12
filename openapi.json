@@ -1553,6 +1553,7 @@
         }
       },
       "ApplicationList": {
+        "x-implements": "Pagination",
         "allOf": [
           {
             "$ref": "#/components/schemas/PaginationModel"
@@ -1613,6 +1614,7 @@
         }
       },
       "AvailableNumberList": {
+        "x-implements": "Pagination",
         "allOf": [
           {
             "$ref": "#/components/schemas/PaginationModel"
@@ -1727,6 +1729,7 @@
         }
       },
       "IncomingNumberList": {
+        "x-implements": "Pagination",
         "allOf": [
           {
             "$ref": "#/components/schemas/PaginationModel"
@@ -1905,6 +1908,7 @@
         }
       },
       "CallList": {
+        "x-implements": "Pagination",
         "allOf": [
           {
             "$ref": "#/components/schemas/PaginationModel"
@@ -1962,6 +1966,7 @@
         ]
       },
       "RecordingList": {
+        "x-implements": "Pagination",
         "allOf": [
           {
             "$ref": "#/components/schemas/PaginationModel"
@@ -2020,6 +2025,7 @@
         }
       },
       "LogList": {
+        "x-implements": "Pagination",
         "allOf": [
           {
             "$ref": "#/components/schemas/PaginationModel"
@@ -2099,6 +2105,7 @@
         ]
       },
       "MessagesList": {
+        "x-implements": "Pagination",
         "allOf": [
           {
             "$ref": "#/components/schemas/PaginationModel"
@@ -2159,6 +2166,7 @@
         ]
       },
       "ConferenceList": {
+        "x-implements": "Pagination",
         "allOf": [
           {
             "$ref": "#/components/schemas/PaginationModel"
@@ -2348,6 +2356,7 @@
         }
       },
       "ConferenceParticipantList": {
+        "x-implements": "Pagination",
         "allOf": [
           {
             "$ref": "#/components/schemas/PaginationModel"
@@ -2430,6 +2439,7 @@
         }
       },
       "QueueList": {
+        "x-implements": "Pagination",
         "allOf": [
           {
             "$ref": "#/components/schemas/PaginationModel"
@@ -2480,6 +2490,7 @@
         }
       },
       "QueueMemberList": {
+        "x-implements": "Pagination",
         "allOf": [
           {
             "$ref": "#/components/schemas/PaginationModel"
@@ -2510,6 +2521,7 @@
         }
       },
       "SMSTenDLCCampaignsListResult": {
+        "x-implements": "Pagination",
         "allOf": [
           {
             "$ref": "#/components/schemas/PaginationModel"
@@ -2772,6 +2784,7 @@
         }
       },
       "SMSTenDLCPartnerCampaignsListResult": {
+        "x-implements": "Pagination",
         "allOf": [
           {
             "$ref": "#/components/schemas/PaginationModel"
@@ -3075,6 +3088,7 @@
         }
       },
       "SMSTenDLCBrandsListResult": {
+        "x-implements": "Pagination",
         "allOf": [
           {
             "$ref": "#/components/schemas/PaginationModel"
@@ -3430,6 +3444,7 @@
         }
       },
       "SMSTollFreeCampaignsListResult": {
+        "x-implements": "Pagination",
         "allOf": [
           {
             "$ref": "#/components/schemas/PaginationModel"
