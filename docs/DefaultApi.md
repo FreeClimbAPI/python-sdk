@@ -60,7 +60,7 @@ Method | HTTP request | Description
 [**update_an_account**](DefaultApi.md#update_an_account) | **POST** /Accounts/{accountId} | Manage an account
 [**update_an_application**](DefaultApi.md#update_an_application) | **POST** /Accounts/{accountId}/Applications/{applicationId} | Update an application
 [**update_an_incoming_number**](DefaultApi.md#update_an_incoming_number) | **POST** /Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId} | Update an Incoming Number
-
+[**get_next_page**](DefaultApi.md#get_next_page) | **GET** | Get Next Page of Paginated List Resource
 
 # **buy_a_phone_number**
 > IncomingNumberResult buy_a_phone_number(account_id, buy_incoming_number_request)
@@ -4747,3 +4747,76 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+
+# **get_next_page**
+
+> (type(response)) get_next_page(response)
+
+Get Next Page of Paginated List Resource
+
+### Example
+
+* Basic Authentication (fc):
+
+```typescript
+import time
+import freeclimb
+from freeclimb.api import default_api
+from freeclimb.model.call_status import CallStatus
+from freeclimb.model.call_list import CallList
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = default_api.DefaultApi(api_client)
+    
+    try:
+        api_response = api_instance.list_calls()
+        pprint(api_response)
+	next_page_response = api_instance.get_next_page(api_response)
+	pprint(next_page_response)
+    except freeclimb.ApiException as e:
+        print("Exception when calling DefaultApi->list_calls: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | Any | Response from operation to list an API resource | 
+
+### Return type
+
+type(response)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+###  HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| 200 | Successful retrieved resource list | - |
