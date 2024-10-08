@@ -32,6 +32,8 @@ from freeclimb.model.buy_incoming_number_request import BuyIncomingNumberRequest
 from freeclimb.model.call_list import CallList
 from freeclimb.model.call_result import CallResult
 from freeclimb.model.call_status import CallStatus
+from freeclimb.model.completion_request import CompletionRequest
+from freeclimb.model.completion_result import CompletionResult
 from freeclimb.model.conference_list import ConferenceList
 from freeclimb.model.conference_participant_list import ConferenceParticipantList
 from freeclimb.model.conference_participant_result import ConferenceParticipantResult
@@ -1783,6 +1785,69 @@ class DefaultApi(object):
                     'application/json'
                 ],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.knowledgebase_completion_endpoint = _Endpoint(
+            settings={
+                'response_type': (CompletionResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/KnowledgeBases/{knowledgeBaseId}/Completion',
+                'operation_id': 'knowledgebase_completion',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'knowledge_base_id',
+                    'completion_request',
+                ],
+                'required': [
+                    'account_id',
+                    'knowledge_base_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'knowledge_base_id':
+                        (str,),
+                    'completion_request':
+                        (CompletionRequest,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'knowledge_base_id': 'knowledgeBaseId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'knowledge_base_id': 'path',
+                    'completion_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -6108,6 +6173,94 @@ class DefaultApi(object):
             self.account_id
 
         return self.get_toll_free_sms_campaigns_endpoint.call_with_http_info(**kwargs)
+
+    def knowledgebase_completion(
+        self,
+        knowledge_base_id, 
+        **kwargs
+        ):
+        """Query the knowledge base  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.knowledgebase_completion(knowledge_base_id, async_req=True)
+        >>> result = thread.get()
+
+
+        Args:
+
+
+            knowledge_base_id (str): A string that uniquely identifies the KnowledgeBase resource.
+
+
+
+
+        Keyword Args:
+            completion_request (CompletionRequest): Completion request details. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CompletionResult
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
+
+        kwargs['knowledge_base_id'] = \
+            knowledge_base_id
+
+        return self.knowledgebase_completion_endpoint.call_with_http_info(**kwargs)
 
     def list_active_queues(
         self,

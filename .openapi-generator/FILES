@@ -23,6 +23,8 @@ docs/CallResult.md
 docs/CallResultAllOf.md
 docs/CallStatus.md
 docs/Capabilities.md
+docs/CompletionRequest.md
+docs/CompletionResult.md
 docs/ConferenceList.md
 docs/ConferenceListAllOf.md
 docs/ConferenceParticipantList.md
@@ -175,6 +177,8 @@ freeclimb/model/call_result.py
 freeclimb/model/call_result_all_of.py
 freeclimb/model/call_status.py
 freeclimb/model/capabilities.py
+freeclimb/model/completion_request.py
+freeclimb/model/completion_result.py
 freeclimb/model/conference_list.py
 freeclimb/model/conference_list_all_of.py
 freeclimb/model/conference_participant_list.py
@@ -301,4 +305,8 @@ requirements.txt
 setup.cfg
 setup.py
 test/__init__.py
+test/test_sms_ten_dlc_brand.py
+test/test_sms_ten_dlc_campaign.py
+test/test_sms_ten_dlc_partner_campaign.py
+test/test_sms_toll_free_campaign.py
 tox.ini
