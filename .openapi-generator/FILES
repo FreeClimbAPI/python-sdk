@@ -305,8 +305,4 @@ requirements.txt
 setup.cfg
 setup.py
 test/__init__.py
-test/test_sms_ten_dlc_brand.py
-test/test_sms_ten_dlc_campaign.py
-test/test_sms_ten_dlc_partner_campaign.py
-test/test_sms_toll_free_campaign.py
 tox.ini
