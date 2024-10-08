@@ -59,10 +59,13 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
 
     def test_status(self):
         """Test SMSTenDLCCampaign.status"""
+        
         self.model.status = "ACTIVE"
         assert self.model.get("status") == "ACTIVE"
+        
         self.model.status = "EXPIRED"
         assert self.model.get("status") == "EXPIRED"
+        
 
     def test_status_throws_on_invalid_enum(self):
         with pytest.raises(Exception) as info:

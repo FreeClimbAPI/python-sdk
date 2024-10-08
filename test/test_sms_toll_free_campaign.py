@@ -49,16 +49,22 @@ class TestSMSTollFreeCampaign(unittest.TestCase):
 
     def test_registration_status(self):
         """Test SMSTollFreeCampaign.registration_status"""
+        
         self.model.registration_status = "UNREGISTERED"
         assert self.model.get("registration_status") == "UNREGISTERED"
+        
         self.model.registration_status = "INITIATED"
         assert self.model.get("registration_status") == "INITIATED"
+        
         self.model.registration_status = "PENDING"
         assert self.model.get("registration_status") == "PENDING"
+        
         self.model.registration_status = "DECLINED"
         assert self.model.get("registration_status") == "DECLINED"
+        
         self.model.registration_status = "REGISTERED"
         assert self.model.get("registration_status") == "REGISTERED"
+        
 
     def test_registration_status_throws_on_invalid_enum(self):
         with pytest.raises(Exception) as info:

@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "4.7.0"
+__version__ = "4.7.1"
 
 # import ApiClient
 from freeclimb.api_client import ApiClient
@@ -54,6 +54,8 @@ from freeclimb.model.call_result import CallResult
 from freeclimb.model.call_result_all_of import CallResultAllOf
 from freeclimb.model.call_status import CallStatus
 from freeclimb.model.capabilities import Capabilities
+from freeclimb.model.completion_request import CompletionRequest
+from freeclimb.model.completion_result import CompletionResult
 from freeclimb.model.conference_list import ConferenceList
 from freeclimb.model.conference_list_all_of import ConferenceListAllOf
 from freeclimb.model.conference_participant_list import ConferenceParticipantList
