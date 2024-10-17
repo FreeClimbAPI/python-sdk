@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "4.7.1"
+__version__ = "4.8.0"
 
 # import ApiClient
 from freeclimb.api_client import ApiClient

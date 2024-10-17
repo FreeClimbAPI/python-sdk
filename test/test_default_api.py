@@ -173,6 +173,20 @@ class TestDefaultApi(unittest.TestCase):
         
         assert isinstance(api_response, ApplicationResult)
 
+    def test_create_knowledge_base_completion(self):
+        """Test case for create_knowledge_base_completion
+
+        Query the knowledge base  # noqa: E501
+        """
+
+        knowledge_base_id = knowledge_base_id_create_knowledge_base_completion_test_value
+        completion_request = completion_request_create_knowledge_base_completion_test_value
+
+
+        api_response = self.api.create_knowledge_base_completion(knowledge_base_id=knowledge_base_id,completion_request=completion_request)
+        
+        assert isinstance(api_response, CompletionResult)
+
     def test_delete_a_recording(self):
         """Test case for delete_a_recording
 
@@ -510,20 +524,6 @@ class TestDefaultApi(unittest.TestCase):
         api_response = self.api.get_toll_free_sms_campaigns()
         
         assert isinstance(api_response, SMSTollFreeCampaignsListResult)
-
-    def test_knowledgebase_completion(self):
-        """Test case for knowledgebase_completion
-
-        Query the knowledge base  # noqa: E501
-        """
-
-        knowledge_base_id = knowledge_base_id_knowledgebase_completion_test_value
-        completion_request = completion_request_knowledgebase_completion_test_value
-
-
-        api_response = self.api.knowledgebase_completion(knowledge_base_id=knowledge_base_id,completion_request=completion_request)
-        
-        assert isinstance(api_response, CompletionResult)
 
     def test_list_active_queues(self):
         """Test case for list_active_queues
@@ -1502,9 +1502,9 @@ date_created_list_conference_recordings_test_value = "date_created_example"
 
 create_web_rtc_token_make_a_webrtc_jwt_test_value = CreateWebRTCToken(to="to_example", _from="from_example", uses=1)
 
-knowledge_base_id_knowledgebase_completion_test_value = "knowledge_base_id_example"
+knowledge_base_id_create_knowledge_base_completion_test_value = "knowledge_base_id_example"
 
-completion_request_knowledgebase_completion_test_value = CompletionRequest(query="query_example")
+completion_request_create_knowledge_base_completion_test_value = CompletionRequest(query="query_example")
 
 
 if __name__ == '__main__':
