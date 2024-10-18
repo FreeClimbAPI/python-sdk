@@ -69,3 +69,4 @@ target/
 .DS_Store
 freeclimb/.DS_Store
 git_push.sh
+/node_modules
