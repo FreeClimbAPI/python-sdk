@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**create_a_conference**](DefaultApi.md#create_a_conference) | **POST** /Accounts/{accountId}/Conferences | Create a Conference
 [**create_a_queue**](DefaultApi.md#create_a_queue) | **POST** /Accounts/{accountId}/Queues | Create a Queue
 [**create_an_application**](DefaultApi.md#create_an_application) | **POST** /Accounts/{accountId}/Applications | Create an application
+[**create_knowledge_base_completion**](DefaultApi.md#create_knowledge_base_completion) | **POST** /Accounts/{accountId}/KnowledgeBases/{knowledgeBaseId}/Completion | Query the knowledge base
 [**delete_a_recording**](DefaultApi.md#delete_a_recording) | **DELETE** /Accounts/{accountId}/Recordings/{recordingId} | Delete a Recording
 [**delete_an_application**](DefaultApi.md#delete_an_application) | **DELETE** /Accounts/{accountId}/Applications/{applicationId} | Delete an application
 [**delete_an_incoming_number**](DefaultApi.md#delete_an_incoming_number) | **DELETE** /Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId} | Delete an Incoming Number
@@ -419,6 +420,97 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Application successfuly created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_knowledge_base_completion**
+> CompletionResult create_knowledge_base_completion(account_id, knowledge_base_id)
+
+Query the knowledge base
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import time
+import freeclimb
+from freeclimb.api import default_api
+from freeclimb.model.completion_result import CompletionResult
+from freeclimb.model.completion_request import CompletionRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = default_api.DefaultApi(api_client)
+    account_id = "accountId_example" # str | ID of the account
+    knowledge_base_id = "knowledgeBaseId_example" # str | A string that uniquely identifies the KnowledgeBase resource.
+    completion_request = CompletionRequest(
+        query="query_example",
+    ) # CompletionRequest | Completion request details (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Query the knowledge base
+        api_response = api_instance.create_knowledge_base_completion(knowledge_base_id)
+        pprint(api_response)
+    except freeclimb.ApiException as e:
+        print("Exception when calling DefaultApi->create_knowledge_base_completion: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Query the knowledge base
+        api_response = api_instance.create_knowledge_base_completion(knowledge_base_id, completion_request=completion_request)
+        pprint(api_response)
+    except freeclimb.ApiException as e:
+        print("Exception when calling DefaultApi->create_knowledge_base_completion: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **knowledge_base_id** | **str**| A string that uniquely identifies the KnowledgeBase resource. |
+ **completion_request** | [**CompletionRequest**](CompletionRequest.md)| Completion request details | [optional]
+
+### Return type
+
+[**CompletionResult**](CompletionResult.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | KnowledgeaBase completion response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

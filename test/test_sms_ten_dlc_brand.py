@@ -41,16 +41,22 @@ class TestSMSTenDLCBrand(unittest.TestCase):
 
     def test_entity_type(self):
         """Test SMSTenDLCBrand.entity_type"""
+        
         self.model.entity_type = "PRIVATE_PROFIT"
         assert self.model.get("entity_type") == "PRIVATE_PROFIT"
+        
         self.model.entity_type = "PUBLIC_PROFIT"
         assert self.model.get("entity_type") == "PUBLIC_PROFIT"
+        
         self.model.entity_type = "NON_PROFIT"
         assert self.model.get("entity_type") == "NON_PROFIT"
+        
         self.model.entity_type = "GOVERNMENT"
         assert self.model.get("entity_type") == "GOVERNMENT"
+        
         self.model.entity_type = "SOLE_PROPRIETOR"
         assert self.model.get("entity_type") == "SOLE_PROPRIETOR"
+        
 
     def test_entity_type_throws_on_invalid_enum(self):
         with pytest.raises(Exception) as info:
@@ -210,60 +216,88 @@ class TestSMSTenDLCBrand(unittest.TestCase):
 
     def test_stock_exchange(self):
         """Test SMSTenDLCBrand.stock_exchange"""
+        
         self.model.stock_exchange = "NONE"
         assert self.model.get("stock_exchange") == "NONE"
+        
         self.model.stock_exchange = "NASDAQ"
         assert self.model.get("stock_exchange") == "NASDAQ"
+        
         self.model.stock_exchange = "NYSE"
         assert self.model.get("stock_exchange") == "NYSE"
+        
         self.model.stock_exchange = "AMEX"
         assert self.model.get("stock_exchange") == "AMEX"
+        
         self.model.stock_exchange = "AMX"
         assert self.model.get("stock_exchange") == "AMX"
+        
         self.model.stock_exchange = "ASX"
         assert self.model.get("stock_exchange") == "ASX"
+        
         self.model.stock_exchange = "B3"
         assert self.model.get("stock_exchange") == "B3"
+        
         self.model.stock_exchange = "BME"
         assert self.model.get("stock_exchange") == "BME"
+        
         self.model.stock_exchange = "BSE"
         assert self.model.get("stock_exchange") == "BSE"
+        
         self.model.stock_exchange = "FRA"
         assert self.model.get("stock_exchange") == "FRA"
+        
         self.model.stock_exchange = "ICEX"
         assert self.model.get("stock_exchange") == "ICEX"
+        
         self.model.stock_exchange = "JPX"
         assert self.model.get("stock_exchange") == "JPX"
+        
         self.model.stock_exchange = "JSE"
         assert self.model.get("stock_exchange") == "JSE"
+        
         self.model.stock_exchange = "KRX"
         assert self.model.get("stock_exchange") == "KRX"
+        
         self.model.stock_exchange = "LON"
         assert self.model.get("stock_exchange") == "LON"
+        
         self.model.stock_exchange = "NSE"
         assert self.model.get("stock_exchange") == "NSE"
+        
         self.model.stock_exchange = "OMX"
         assert self.model.get("stock_exchange") == "OMX"
+        
         self.model.stock_exchange = "SEHK"
         assert self.model.get("stock_exchange") == "SEHK"
+        
         self.model.stock_exchange = "SGX"
         assert self.model.get("stock_exchange") == "SGX"
+        
         self.model.stock_exchange = "SSE"
         assert self.model.get("stock_exchange") == "SSE"
+        
         self.model.stock_exchange = "STO"
         assert self.model.get("stock_exchange") == "STO"
+        
         self.model.stock_exchange = "SWX"
         assert self.model.get("stock_exchange") == "SWX"
+        
         self.model.stock_exchange = "SZSE"
         assert self.model.get("stock_exchange") == "SZSE"
+        
         self.model.stock_exchange = "TSX"
         assert self.model.get("stock_exchange") == "TSX"
+        
         self.model.stock_exchange = "TWSE"
         assert self.model.get("stock_exchange") == "TWSE"
+        
         self.model.stock_exchange = "VSE"
         assert self.model.get("stock_exchange") == "VSE"
+        
         self.model.stock_exchange = "OTHER"
         assert self.model.get("stock_exchange") == "OTHER"
+        
 
     def test_stock_exchange_throws_on_invalid_enum(self):
         with pytest.raises(Exception) as info:
@@ -293,16 +327,22 @@ class TestSMSTenDLCBrand(unittest.TestCase):
 
     def test_brand_relationship(self):
         """Test SMSTenDLCBrand.brand_relationship"""
+        
         self.model.brand_relationship = "BASIC_ACCOUNT"
         assert self.model.get("brand_relationship") == "BASIC_ACCOUNT"
+        
         self.model.brand_relationship = "SMALL_ACCOUNT"
         assert self.model.get("brand_relationship") == "SMALL_ACCOUNT"
+        
         self.model.brand_relationship = "MEDIUM_ACCOUNT"
         assert self.model.get("brand_relationship") == "MEDIUM_ACCOUNT"
+        
         self.model.brand_relationship = "LARGE_ACCOUNT"
         assert self.model.get("brand_relationship") == "LARGE_ACCOUNT"
+        
         self.model.brand_relationship = "KEY_ACCOUNT"
         assert self.model.get("brand_relationship") == "KEY_ACCOUNT"
+        
 
     def test_brand_relationship_throws_on_invalid_enum(self):
         with pytest.raises(Exception) as info:
@@ -332,14 +372,19 @@ class TestSMSTenDLCBrand(unittest.TestCase):
 
     def test_alt_business_id_type(self):
         """Test SMSTenDLCBrand.alt_business_id_type"""
+        
         self.model.alt_business_id_type = "NONE"
         assert self.model.get("alt_business_id_type") == "NONE"
+        
         self.model.alt_business_id_type = "DUNS"
         assert self.model.get("alt_business_id_type") == "DUNS"
+        
         self.model.alt_business_id_type = "GIIN"
         assert self.model.get("alt_business_id_type") == "GIIN"
+        
         self.model.alt_business_id_type = "LEI"
         assert self.model.get("alt_business_id_type") == "LEI"
+        
 
     def test_alt_business_id_type_throws_on_invalid_enum(self):
         with pytest.raises(Exception) as info:
@@ -374,14 +419,19 @@ class TestSMSTenDLCBrand(unittest.TestCase):
 
     def test_identity_status(self):
         """Test SMSTenDLCBrand.identity_status"""
+        
         self.model.identity_status = "SELF_DECLARED"
         assert self.model.get("identity_status") == "SELF_DECLARED"
+        
         self.model.identity_status = "UNVERIFIED"
         assert self.model.get("identity_status") == "UNVERIFIED"
+        
         self.model.identity_status = "VERIFIED"
         assert self.model.get("identity_status") == "VERIFIED"
+        
         self.model.identity_status = "VETTED_VERIFIED"
         assert self.model.get("identity_status") == "VETTED_VERIFIED"
+        
 
     def test_identity_status_throws_on_invalid_enum(self):
         with pytest.raises(Exception) as info:

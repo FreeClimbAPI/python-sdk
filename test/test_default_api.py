@@ -67,6 +67,8 @@ from freeclimb.model.buy_incoming_number_request import BuyIncomingNumberRequest
 from freeclimb.model.call_list import CallList
 from freeclimb.model.call_result import CallResult
 from freeclimb.model.call_status import CallStatus
+from freeclimb.model.completion_request import CompletionRequest
+from freeclimb.model.completion_result import CompletionResult
 from freeclimb.model.conference_list import ConferenceList
 from freeclimb.model.conference_participant_list import ConferenceParticipantList
 from freeclimb.model.conference_participant_result import ConferenceParticipantResult
@@ -170,6 +172,20 @@ class TestDefaultApi(unittest.TestCase):
         api_response = self.api.create_an_application(application_request=application_request)
         
         assert isinstance(api_response, ApplicationResult)
+
+    def test_create_knowledge_base_completion(self):
+        """Test case for create_knowledge_base_completion
+
+        Query the knowledge base  # noqa: E501
+        """
+
+        knowledge_base_id = knowledge_base_id_create_knowledge_base_completion_test_value
+        completion_request = completion_request_create_knowledge_base_completion_test_value
+
+
+        api_response = self.api.create_knowledge_base_completion(knowledge_base_id=knowledge_base_id,completion_request=completion_request)
+        
+        assert isinstance(api_response, CompletionResult)
 
     def test_delete_a_recording(self):
         """Test case for delete_a_recording
@@ -1485,6 +1501,10 @@ conference_id_list_conference_recordings_test_value = "conference_id_example"
 date_created_list_conference_recordings_test_value = "date_created_example"
 
 create_web_rtc_token_make_a_webrtc_jwt_test_value = CreateWebRTCToken(to="to_example", _from="from_example", uses=1)
+
+knowledge_base_id_create_knowledge_base_completion_test_value = "knowledge_base_id_example"
+
+completion_request_create_knowledge_base_completion_test_value = CompletionRequest(query="query_example")
 
 
 if __name__ == '__main__':
