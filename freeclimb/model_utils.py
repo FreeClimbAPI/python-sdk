@@ -129,9 +129,12 @@ class OpenApiModel(object):
             path_to_item.extend(self._path_to_item)
         path_to_item.append(name)
 
+        print("openapi_types")
+        print(self._path_to_item, name, value, self.openapi_types)
         if name in self.openapi_types:
             required_types_mixed = self.openapi_types[name]
         elif self.additional_properties_type is None:
+            print("has no attribute set_attribute:135")
             raise ApiAttributeError(
                 "{0} has no attribute '{1}'".format(
                     type(self).__name__, name),
@@ -471,6 +474,7 @@ class ModelSimple(OpenApiModel):
         if name in self:
             return self.get(name)
 
+        print("has no attribute __getitem__:475")
         raise ApiAttributeError(
             "{0} has no attribute '{1}'".format(
                 type(self).__name__, name),
@@ -525,7 +529,7 @@ class ModelNormal(OpenApiModel):
         """get the value of an attribute using square-bracket notation: `instance[attr]`"""
         if name in self:
             return self.get(name)
-
+        print("has no attribute __getitem__:530")
         raise ApiAttributeError(
             "{0} has no attribute '{1}'".format(
                 type(self).__name__, name),
@@ -621,6 +625,7 @@ class ModelComposed(OpenApiModel):
             - have additionalProperties set
             """
             if name not in self.openapi_types:
+                print("has no attribute __setitem__:626")
                 raise ApiAttributeError(
                     "{0} has no attribute '{1}'".format(
                         type(self).__name__, name),
@@ -672,6 +677,7 @@ class ModelComposed(OpenApiModel):
         """get the value of an attribute using square-bracket notation: `instance[attr]`"""
         value = self.get(name, self.__unset_attribute_value__)
         if value is self.__unset_attribute_value__:
+            print("has no attribute __getitem__:677")
             raise ApiAttributeError(
                 "{0} has no attribute '{1}'".format(
                     type(self).__name__, name),
@@ -1789,11 +1795,16 @@ def get_allof_instances(self, model_args, constant_args):
     """
     composed_instances = []
     for allof_class in self._composed_schemas['allOf']:
+        print("all of composed schemas")
+        print(constant_args.get('_spec_property_naming'))
+        print(allof_class)
+        print(model_args)
 
         try:
             if constant_args.get('_spec_property_naming'):
                 allof_instance = allof_class._from_openapi_data(**model_args, **constant_args)
             else:
+                print('in the else')
                 allof_instance = allof_class(**model_args, **constant_args)
             composed_instances.append(allof_instance)
         except Exception as ex:
