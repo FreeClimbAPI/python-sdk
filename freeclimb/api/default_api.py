@@ -79,17 +79,21 @@ class DefaultApi:
     Do not edit the class manually.
     """
 
-    def __init__(self, api_client=None) -> None:
+    def __init__(self, api_client=None, account_id=None):
         if api_client is None:
-            api_client = ApiClient.get_default()
+            api_client = ApiClient().get_default()
         self.api_client = api_client
+        if account_id is None:
+            account_id = self.api_client.configuration.username
+        self.account_id = account_id
 
 
     @validate_call
     def buy_a_phone_number(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         buy_incoming_number_request: Annotated[BuyIncomingNumberRequest, Field(description="Incoming Number transaction details")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -105,11 +109,10 @@ class DefaultApi:
     ) -> IncomingNumberResult:
         """Buy a Phone Number
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param buy_incoming_number_request: Incoming Number transaction details (required)
         :type buy_incoming_number_request: BuyIncomingNumberRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -131,6 +134,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._buy_a_phone_number_serialize(
             account_id=account_id,
@@ -158,8 +162,9 @@ class DefaultApi:
     @validate_call
     def buy_a_phone_number_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         buy_incoming_number_request: Annotated[BuyIncomingNumberRequest, Field(description="Incoming Number transaction details")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -175,11 +180,10 @@ class DefaultApi:
     ) -> ApiResponse[IncomingNumberResult]:
         """Buy a Phone Number
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param buy_incoming_number_request: Incoming Number transaction details (required)
         :type buy_incoming_number_request: BuyIncomingNumberRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -201,6 +205,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._buy_a_phone_number_serialize(
             account_id=account_id,
@@ -228,8 +233,9 @@ class DefaultApi:
     @validate_call
     def buy_a_phone_number_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         buy_incoming_number_request: Annotated[BuyIncomingNumberRequest, Field(description="Incoming Number transaction details")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -245,11 +251,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Buy a Phone Number
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param buy_incoming_number_request: Incoming Number transaction details (required)
         :type buy_incoming_number_request: BuyIncomingNumberRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -271,6 +276,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._buy_a_phone_number_serialize(
             account_id=account_id,
@@ -374,8 +380,9 @@ class DefaultApi:
     @validate_call
     def create_a_conference(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         create_conference_request: Annotated[Optional[CreateConferenceRequest], Field(description="Conference to create")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -391,11 +398,10 @@ class DefaultApi:
     ) -> ConferenceResult:
         """Create a Conference
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param create_conference_request: Conference to create
         :type create_conference_request: CreateConferenceRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -417,6 +423,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._create_a_conference_serialize(
             account_id=account_id,
@@ -444,8 +451,9 @@ class DefaultApi:
     @validate_call
     def create_a_conference_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         create_conference_request: Annotated[Optional[CreateConferenceRequest], Field(description="Conference to create")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -461,11 +469,10 @@ class DefaultApi:
     ) -> ApiResponse[ConferenceResult]:
         """Create a Conference
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param create_conference_request: Conference to create
         :type create_conference_request: CreateConferenceRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -487,6 +494,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._create_a_conference_serialize(
             account_id=account_id,
@@ -514,8 +522,9 @@ class DefaultApi:
     @validate_call
     def create_a_conference_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         create_conference_request: Annotated[Optional[CreateConferenceRequest], Field(description="Conference to create")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -531,11 +540,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Create a Conference
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param create_conference_request: Conference to create
         :type create_conference_request: CreateConferenceRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -557,6 +565,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._create_a_conference_serialize(
             account_id=account_id,
@@ -660,8 +669,9 @@ class DefaultApi:
     @validate_call
     def create_a_queue(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_request: Annotated[Optional[QueueRequest], Field(description="Queue details used to create a queue")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -677,11 +687,10 @@ class DefaultApi:
     ) -> QueueResult:
         """Create a Queue
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_request: Queue details used to create a queue
         :type queue_request: QueueRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -703,6 +712,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._create_a_queue_serialize(
             account_id=account_id,
@@ -730,8 +740,9 @@ class DefaultApi:
     @validate_call
     def create_a_queue_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_request: Annotated[Optional[QueueRequest], Field(description="Queue details used to create a queue")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -747,11 +758,10 @@ class DefaultApi:
     ) -> ApiResponse[QueueResult]:
         """Create a Queue
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_request: Queue details used to create a queue
         :type queue_request: QueueRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -773,6 +783,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._create_a_queue_serialize(
             account_id=account_id,
@@ -800,8 +811,9 @@ class DefaultApi:
     @validate_call
     def create_a_queue_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_request: Annotated[Optional[QueueRequest], Field(description="Queue details used to create a queue")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -817,11 +829,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Create a Queue
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_request: Queue details used to create a queue
         :type queue_request: QueueRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -843,6 +854,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._create_a_queue_serialize(
             account_id=account_id,
@@ -946,8 +958,9 @@ class DefaultApi:
     @validate_call
     def create_an_application(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         application_request: Annotated[Optional[ApplicationRequest], Field(description="Application Details")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -963,11 +976,10 @@ class DefaultApi:
     ) -> ApplicationResult:
         """Create an application
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param application_request: Application Details
         :type application_request: ApplicationRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -989,6 +1001,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._create_an_application_serialize(
             account_id=account_id,
@@ -1016,8 +1029,9 @@ class DefaultApi:
     @validate_call
     def create_an_application_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         application_request: Annotated[Optional[ApplicationRequest], Field(description="Application Details")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1033,11 +1047,10 @@ class DefaultApi:
     ) -> ApiResponse[ApplicationResult]:
         """Create an application
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param application_request: Application Details
         :type application_request: ApplicationRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1059,6 +1072,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._create_an_application_serialize(
             account_id=account_id,
@@ -1086,8 +1100,9 @@ class DefaultApi:
     @validate_call
     def create_an_application_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         application_request: Annotated[Optional[ApplicationRequest], Field(description="Application Details")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1103,11 +1118,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Create an application
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param application_request: Application Details
         :type application_request: ApplicationRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1129,6 +1143,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._create_an_application_serialize(
             account_id=account_id,
@@ -1232,9 +1247,11 @@ class DefaultApi:
     @validate_call
     def create_knowledge_base_completion(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         knowledge_base_id: Annotated[StrictStr, Field(description="A string that uniquely identifies the KnowledgeBase resource.")],
+        
         completion_request: Annotated[Optional[CompletionRequest], Field(description="Completion request details")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1250,13 +1267,13 @@ class DefaultApi:
     ) -> CompletionResult:
         """Query the knowledge base
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param knowledge_base_id: A string that uniquely identifies the KnowledgeBase resource. (required)
         :type knowledge_base_id: str
+        
         :param completion_request: Completion request details
         :type completion_request: CompletionRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1278,6 +1295,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._create_knowledge_base_completion_serialize(
             account_id=account_id,
@@ -1306,9 +1324,11 @@ class DefaultApi:
     @validate_call
     def create_knowledge_base_completion_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         knowledge_base_id: Annotated[StrictStr, Field(description="A string that uniquely identifies the KnowledgeBase resource.")],
+        
         completion_request: Annotated[Optional[CompletionRequest], Field(description="Completion request details")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1324,13 +1344,13 @@ class DefaultApi:
     ) -> ApiResponse[CompletionResult]:
         """Query the knowledge base
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param knowledge_base_id: A string that uniquely identifies the KnowledgeBase resource. (required)
         :type knowledge_base_id: str
+        
         :param completion_request: Completion request details
         :type completion_request: CompletionRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1352,6 +1372,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._create_knowledge_base_completion_serialize(
             account_id=account_id,
@@ -1380,9 +1401,11 @@ class DefaultApi:
     @validate_call
     def create_knowledge_base_completion_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         knowledge_base_id: Annotated[StrictStr, Field(description="A string that uniquely identifies the KnowledgeBase resource.")],
+        
         completion_request: Annotated[Optional[CompletionRequest], Field(description="Completion request details")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1398,13 +1421,13 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Query the knowledge base
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param knowledge_base_id: A string that uniquely identifies the KnowledgeBase resource. (required)
         :type knowledge_base_id: str
+        
         :param completion_request: Completion request details
         :type completion_request: CompletionRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1426,6 +1449,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._create_knowledge_base_completion_serialize(
             account_id=account_id,
@@ -1533,8 +1557,9 @@ class DefaultApi:
     @validate_call
     def delete_a_recording(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         recording_id: Annotated[StrictStr, Field(description="String that uniquely identifies this recording resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1550,11 +1575,10 @@ class DefaultApi:
     ) -> None:
         """Delete a Recording
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param recording_id: String that uniquely identifies this recording resource. (required)
         :type recording_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1576,6 +1600,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._delete_a_recording_serialize(
             account_id=account_id,
@@ -1603,8 +1628,9 @@ class DefaultApi:
     @validate_call
     def delete_a_recording_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         recording_id: Annotated[StrictStr, Field(description="String that uniquely identifies this recording resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1620,11 +1646,10 @@ class DefaultApi:
     ) -> ApiResponse[None]:
         """Delete a Recording
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param recording_id: String that uniquely identifies this recording resource. (required)
         :type recording_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1646,6 +1671,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._delete_a_recording_serialize(
             account_id=account_id,
@@ -1673,8 +1699,9 @@ class DefaultApi:
     @validate_call
     def delete_a_recording_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         recording_id: Annotated[StrictStr, Field(description="String that uniquely identifies this recording resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1690,11 +1717,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Delete a Recording
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param recording_id: String that uniquely identifies this recording resource. (required)
         :type recording_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1716,6 +1742,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._delete_a_recording_serialize(
             account_id=account_id,
@@ -1799,8 +1826,9 @@ class DefaultApi:
     @validate_call
     def delete_an_application(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         application_id: Annotated[StrictStr, Field(description="String that uniquely identifies this application resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1816,11 +1844,10 @@ class DefaultApi:
     ) -> None:
         """Delete an application
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param application_id: String that uniquely identifies this application resource. (required)
         :type application_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1842,6 +1869,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._delete_an_application_serialize(
             account_id=account_id,
@@ -1869,8 +1897,9 @@ class DefaultApi:
     @validate_call
     def delete_an_application_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         application_id: Annotated[StrictStr, Field(description="String that uniquely identifies this application resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1886,11 +1915,10 @@ class DefaultApi:
     ) -> ApiResponse[None]:
         """Delete an application
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param application_id: String that uniquely identifies this application resource. (required)
         :type application_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1912,6 +1940,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._delete_an_application_serialize(
             account_id=account_id,
@@ -1939,8 +1968,9 @@ class DefaultApi:
     @validate_call
     def delete_an_application_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         application_id: Annotated[StrictStr, Field(description="String that uniquely identifies this application resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1956,11 +1986,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Delete an application
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param application_id: String that uniquely identifies this application resource. (required)
         :type application_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1982,6 +2011,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._delete_an_application_serialize(
             account_id=account_id,
@@ -2065,8 +2095,9 @@ class DefaultApi:
     @validate_call
     def delete_an_incoming_number(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         phone_number_id: Annotated[StrictStr, Field(description="String that uniquely identifies this phone number resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2082,11 +2113,10 @@ class DefaultApi:
     ) -> None:
         """Delete an Incoming Number
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param phone_number_id: String that uniquely identifies this phone number resource. (required)
         :type phone_number_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2108,6 +2138,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._delete_an_incoming_number_serialize(
             account_id=account_id,
@@ -2135,8 +2166,9 @@ class DefaultApi:
     @validate_call
     def delete_an_incoming_number_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         phone_number_id: Annotated[StrictStr, Field(description="String that uniquely identifies this phone number resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2152,11 +2184,10 @@ class DefaultApi:
     ) -> ApiResponse[None]:
         """Delete an Incoming Number
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param phone_number_id: String that uniquely identifies this phone number resource. (required)
         :type phone_number_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2178,6 +2209,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._delete_an_incoming_number_serialize(
             account_id=account_id,
@@ -2205,8 +2237,9 @@ class DefaultApi:
     @validate_call
     def delete_an_incoming_number_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         phone_number_id: Annotated[StrictStr, Field(description="String that uniquely identifies this phone number resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2222,11 +2255,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Delete an Incoming Number
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param phone_number_id: String that uniquely identifies this phone number resource. (required)
         :type phone_number_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2248,6 +2280,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._delete_an_incoming_number_serialize(
             account_id=account_id,
@@ -2331,9 +2364,11 @@ class DefaultApi:
     @validate_call
     def dequeue_a_member(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="String that uniquely identifies the Queue that the Member belongs to.")],
+        
         call_id: Annotated[StrictStr, Field(description="ID if the Call that the Member belongs to")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2349,13 +2384,13 @@ class DefaultApi:
     ) -> QueueMember:
         """Dequeue a Member
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :type queue_id: str
+        
         :param call_id: ID if the Call that the Member belongs to (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2377,6 +2412,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._dequeue_a_member_serialize(
             account_id=account_id,
@@ -2405,9 +2441,11 @@ class DefaultApi:
     @validate_call
     def dequeue_a_member_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="String that uniquely identifies the Queue that the Member belongs to.")],
+        
         call_id: Annotated[StrictStr, Field(description="ID if the Call that the Member belongs to")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2423,13 +2461,13 @@ class DefaultApi:
     ) -> ApiResponse[QueueMember]:
         """Dequeue a Member
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :type queue_id: str
+        
         :param call_id: ID if the Call that the Member belongs to (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2451,6 +2489,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._dequeue_a_member_serialize(
             account_id=account_id,
@@ -2479,9 +2518,11 @@ class DefaultApi:
     @validate_call
     def dequeue_a_member_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="String that uniquely identifies the Queue that the Member belongs to.")],
+        
         call_id: Annotated[StrictStr, Field(description="ID if the Call that the Member belongs to")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2497,13 +2538,13 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Dequeue a Member
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :type queue_id: str
+        
         :param call_id: ID if the Call that the Member belongs to (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2525,6 +2566,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._dequeue_a_member_serialize(
             account_id=account_id,
@@ -2619,8 +2661,9 @@ class DefaultApi:
     @validate_call
     def dequeue_head_member(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="String that uniquely identifies this queue resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2636,11 +2679,10 @@ class DefaultApi:
     ) -> QueueMember:
         """Dequeue Head Member
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: String that uniquely identifies this queue resource. (required)
         :type queue_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2662,6 +2704,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._dequeue_head_member_serialize(
             account_id=account_id,
@@ -2689,8 +2732,9 @@ class DefaultApi:
     @validate_call
     def dequeue_head_member_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="String that uniquely identifies this queue resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2706,11 +2750,10 @@ class DefaultApi:
     ) -> ApiResponse[QueueMember]:
         """Dequeue Head Member
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: String that uniquely identifies this queue resource. (required)
         :type queue_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2732,6 +2775,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._dequeue_head_member_serialize(
             account_id=account_id,
@@ -2759,8 +2803,9 @@ class DefaultApi:
     @validate_call
     def dequeue_head_member_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="String that uniquely identifies this queue resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2776,11 +2821,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Dequeue Head Member
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: String that uniquely identifies this queue resource. (required)
         :type queue_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2802,6 +2846,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._dequeue_head_member_serialize(
             account_id=account_id,
@@ -2892,8 +2937,9 @@ class DefaultApi:
     @validate_call
     def download_a_recording_file(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         recording_id: Annotated[StrictStr, Field(description="String that uniquely identifies this recording resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2909,11 +2955,10 @@ class DefaultApi:
     ) -> bytearray:
         """Download a Recording File
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param recording_id: String that uniquely identifies this recording resource. (required)
         :type recording_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2935,6 +2980,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._download_a_recording_file_serialize(
             account_id=account_id,
@@ -2962,8 +3008,9 @@ class DefaultApi:
     @validate_call
     def download_a_recording_file_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         recording_id: Annotated[StrictStr, Field(description="String that uniquely identifies this recording resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2979,11 +3026,10 @@ class DefaultApi:
     ) -> ApiResponse[bytearray]:
         """Download a Recording File
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param recording_id: String that uniquely identifies this recording resource. (required)
         :type recording_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3005,6 +3051,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._download_a_recording_file_serialize(
             account_id=account_id,
@@ -3032,8 +3079,9 @@ class DefaultApi:
     @validate_call
     def download_a_recording_file_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         recording_id: Annotated[StrictStr, Field(description="String that uniquely identifies this recording resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3049,11 +3097,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Download a Recording File
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param recording_id: String that uniquely identifies this recording resource. (required)
         :type recording_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3075,6 +3122,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._download_a_recording_file_serialize(
             account_id=account_id,
@@ -3165,8 +3213,9 @@ class DefaultApi:
     @validate_call
     def filter_logs(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         filter_logs_request: Annotated[FilterLogsRequest, Field(description="Filter logs request paramters")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3182,11 +3231,10 @@ class DefaultApi:
     ) -> LogList:
         """Filter Logs
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param filter_logs_request: Filter logs request paramters (required)
         :type filter_logs_request: FilterLogsRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3208,6 +3256,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._filter_logs_serialize(
             account_id=account_id,
@@ -3235,8 +3284,9 @@ class DefaultApi:
     @validate_call
     def filter_logs_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         filter_logs_request: Annotated[FilterLogsRequest, Field(description="Filter logs request paramters")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3252,11 +3302,10 @@ class DefaultApi:
     ) -> ApiResponse[LogList]:
         """Filter Logs
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param filter_logs_request: Filter logs request paramters (required)
         :type filter_logs_request: FilterLogsRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3278,6 +3327,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._filter_logs_serialize(
             account_id=account_id,
@@ -3305,8 +3355,9 @@ class DefaultApi:
     @validate_call
     def filter_logs_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         filter_logs_request: Annotated[FilterLogsRequest, Field(description="Filter logs request paramters")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3322,11 +3373,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Filter Logs
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param filter_logs_request: Filter logs request paramters (required)
         :type filter_logs_request: FilterLogsRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3348,6 +3398,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._filter_logs_serialize(
             account_id=account_id,
@@ -3451,8 +3502,9 @@ class DefaultApi:
     @validate_call
     def get_a_call(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         call_id: Annotated[StrictStr, Field(description="String that uniquely identifies this call resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3468,11 +3520,10 @@ class DefaultApi:
     ) -> CallResult:
         """Get a Call
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param call_id: String that uniquely identifies this call resource. (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3494,6 +3545,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_call_serialize(
             account_id=account_id,
@@ -3521,8 +3573,9 @@ class DefaultApi:
     @validate_call
     def get_a_call_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         call_id: Annotated[StrictStr, Field(description="String that uniquely identifies this call resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3538,11 +3591,10 @@ class DefaultApi:
     ) -> ApiResponse[CallResult]:
         """Get a Call
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param call_id: String that uniquely identifies this call resource. (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3564,6 +3616,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_call_serialize(
             account_id=account_id,
@@ -3591,8 +3644,9 @@ class DefaultApi:
     @validate_call
     def get_a_call_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         call_id: Annotated[StrictStr, Field(description="String that uniquely identifies this call resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3608,11 +3662,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get a Call
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param call_id: String that uniquely identifies this call resource. (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3634,6 +3687,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_call_serialize(
             account_id=account_id,
@@ -3724,8 +3778,9 @@ class DefaultApi:
     @validate_call
     def get_a_conference(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="A string that uniquely identifies this conference resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3741,11 +3796,10 @@ class DefaultApi:
     ) -> ConferenceResult:
         """Get a Conference
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: A string that uniquely identifies this conference resource. (required)
         :type conference_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3767,6 +3821,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_conference_serialize(
             account_id=account_id,
@@ -3794,8 +3849,9 @@ class DefaultApi:
     @validate_call
     def get_a_conference_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="A string that uniquely identifies this conference resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3811,11 +3867,10 @@ class DefaultApi:
     ) -> ApiResponse[ConferenceResult]:
         """Get a Conference
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: A string that uniquely identifies this conference resource. (required)
         :type conference_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3837,6 +3892,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_conference_serialize(
             account_id=account_id,
@@ -3864,8 +3920,9 @@ class DefaultApi:
     @validate_call
     def get_a_conference_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="A string that uniquely identifies this conference resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3881,11 +3938,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get a Conference
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: A string that uniquely identifies this conference resource. (required)
         :type conference_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3907,6 +3963,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_conference_serialize(
             account_id=account_id,
@@ -3997,9 +4054,11 @@ class DefaultApi:
     @validate_call
     def get_a_member(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="String that uniquely identifies the Queue that the Member belongs to.")],
+        
         call_id: Annotated[StrictStr, Field(description="ID of the Call that the Member belongs to")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4015,13 +4074,13 @@ class DefaultApi:
     ) -> QueueMember:
         """Get a Member
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :type queue_id: str
+        
         :param call_id: ID of the Call that the Member belongs to (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4043,6 +4102,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_member_serialize(
             account_id=account_id,
@@ -4071,9 +4131,11 @@ class DefaultApi:
     @validate_call
     def get_a_member_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="String that uniquely identifies the Queue that the Member belongs to.")],
+        
         call_id: Annotated[StrictStr, Field(description="ID of the Call that the Member belongs to")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4089,13 +4151,13 @@ class DefaultApi:
     ) -> ApiResponse[QueueMember]:
         """Get a Member
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :type queue_id: str
+        
         :param call_id: ID of the Call that the Member belongs to (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4117,6 +4179,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_member_serialize(
             account_id=account_id,
@@ -4145,9 +4208,11 @@ class DefaultApi:
     @validate_call
     def get_a_member_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="String that uniquely identifies the Queue that the Member belongs to.")],
+        
         call_id: Annotated[StrictStr, Field(description="ID of the Call that the Member belongs to")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4163,13 +4228,13 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get a Member
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :type queue_id: str
+        
         :param call_id: ID of the Call that the Member belongs to (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4191,6 +4256,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_member_serialize(
             account_id=account_id,
@@ -4285,9 +4351,11 @@ class DefaultApi:
     @validate_call
     def get_a_participant(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="ID of the conference this participant is in.")],
+        
         call_id: Annotated[StrictStr, Field(description="ID of the Call associated with this participant.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4303,13 +4371,13 @@ class DefaultApi:
     ) -> ConferenceParticipantResult:
         """Get a Participant
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: ID of the conference this participant is in. (required)
         :type conference_id: str
+        
         :param call_id: ID of the Call associated with this participant. (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4331,6 +4399,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_participant_serialize(
             account_id=account_id,
@@ -4359,9 +4428,11 @@ class DefaultApi:
     @validate_call
     def get_a_participant_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="ID of the conference this participant is in.")],
+        
         call_id: Annotated[StrictStr, Field(description="ID of the Call associated with this participant.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4377,13 +4448,13 @@ class DefaultApi:
     ) -> ApiResponse[ConferenceParticipantResult]:
         """Get a Participant
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: ID of the conference this participant is in. (required)
         :type conference_id: str
+        
         :param call_id: ID of the Call associated with this participant. (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4405,6 +4476,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_participant_serialize(
             account_id=account_id,
@@ -4433,9 +4505,11 @@ class DefaultApi:
     @validate_call
     def get_a_participant_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="ID of the conference this participant is in.")],
+        
         call_id: Annotated[StrictStr, Field(description="ID of the Call associated with this participant.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4451,13 +4525,13 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get a Participant
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: ID of the conference this participant is in. (required)
         :type conference_id: str
+        
         :param call_id: ID of the Call associated with this participant. (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4479,6 +4553,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_participant_serialize(
             account_id=account_id,
@@ -4573,8 +4648,9 @@ class DefaultApi:
     @validate_call
     def get_a_queue(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="A string that uniquely identifies this queue resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4590,11 +4666,10 @@ class DefaultApi:
     ) -> QueueResult:
         """Get a Queue
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: A string that uniquely identifies this queue resource. (required)
         :type queue_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4616,6 +4691,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_queue_serialize(
             account_id=account_id,
@@ -4643,8 +4719,9 @@ class DefaultApi:
     @validate_call
     def get_a_queue_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="A string that uniquely identifies this queue resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4660,11 +4737,10 @@ class DefaultApi:
     ) -> ApiResponse[QueueResult]:
         """Get a Queue
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: A string that uniquely identifies this queue resource. (required)
         :type queue_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4686,6 +4762,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_queue_serialize(
             account_id=account_id,
@@ -4713,8 +4790,9 @@ class DefaultApi:
     @validate_call
     def get_a_queue_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="A string that uniquely identifies this queue resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4730,11 +4808,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get a Queue
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: A string that uniquely identifies this queue resource. (required)
         :type queue_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4756,6 +4833,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_queue_serialize(
             account_id=account_id,
@@ -4846,8 +4924,9 @@ class DefaultApi:
     @validate_call
     def get_a_recording(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         recording_id: Annotated[StrictStr, Field(description="String that uniquely identifies this recording resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4863,11 +4942,10 @@ class DefaultApi:
     ) -> RecordingResult:
         """Get a Recording
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param recording_id: String that uniquely identifies this recording resource. (required)
         :type recording_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4889,6 +4967,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_recording_serialize(
             account_id=account_id,
@@ -4916,8 +4995,9 @@ class DefaultApi:
     @validate_call
     def get_a_recording_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         recording_id: Annotated[StrictStr, Field(description="String that uniquely identifies this recording resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4933,11 +5013,10 @@ class DefaultApi:
     ) -> ApiResponse[RecordingResult]:
         """Get a Recording
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param recording_id: String that uniquely identifies this recording resource. (required)
         :type recording_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4959,6 +5038,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_recording_serialize(
             account_id=account_id,
@@ -4986,8 +5066,9 @@ class DefaultApi:
     @validate_call
     def get_a_recording_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         recording_id: Annotated[StrictStr, Field(description="String that uniquely identifies this recording resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5003,11 +5084,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get a Recording
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param recording_id: String that uniquely identifies this recording resource. (required)
         :type recording_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5029,6 +5109,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_a_recording_serialize(
             account_id=account_id,
@@ -5119,7 +5200,7 @@ class DefaultApi:
     @validate_call
     def get_an_account(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5135,9 +5216,7 @@ class DefaultApi:
     ) -> AccountResult:
         """Get an Account
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5159,6 +5238,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_an_account_serialize(
             account_id=account_id,
@@ -5185,7 +5265,7 @@ class DefaultApi:
     @validate_call
     def get_an_account_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5201,9 +5281,7 @@ class DefaultApi:
     ) -> ApiResponse[AccountResult]:
         """Get an Account
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5225,6 +5303,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_an_account_serialize(
             account_id=account_id,
@@ -5251,7 +5330,7 @@ class DefaultApi:
     @validate_call
     def get_an_account_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5267,9 +5346,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get an Account
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5291,6 +5368,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_an_account_serialize(
             account_id=account_id,
@@ -5377,8 +5455,9 @@ class DefaultApi:
     @validate_call
     def get_an_application(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         application_id: Annotated[StrictStr, Field(description="A string that uniquely identifies this application resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5394,11 +5473,10 @@ class DefaultApi:
     ) -> ApplicationResult:
         """Get an Application
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param application_id: A string that uniquely identifies this application resource. (required)
         :type application_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5420,6 +5498,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_an_application_serialize(
             account_id=account_id,
@@ -5447,8 +5526,9 @@ class DefaultApi:
     @validate_call
     def get_an_application_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         application_id: Annotated[StrictStr, Field(description="A string that uniquely identifies this application resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5464,11 +5544,10 @@ class DefaultApi:
     ) -> ApiResponse[ApplicationResult]:
         """Get an Application
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param application_id: A string that uniquely identifies this application resource. (required)
         :type application_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5490,6 +5569,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_an_application_serialize(
             account_id=account_id,
@@ -5517,8 +5597,9 @@ class DefaultApi:
     @validate_call
     def get_an_application_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         application_id: Annotated[StrictStr, Field(description="A string that uniquely identifies this application resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5534,11 +5615,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get an Application
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param application_id: A string that uniquely identifies this application resource. (required)
         :type application_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5560,6 +5640,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_an_application_serialize(
             account_id=account_id,
@@ -5650,8 +5731,9 @@ class DefaultApi:
     @validate_call
     def get_an_incoming_number(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         phone_number_id: Annotated[StrictStr, Field(description="String that uniquely identifies this phone number resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5667,11 +5749,10 @@ class DefaultApi:
     ) -> IncomingNumberResult:
         """Get an Incoming Number
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param phone_number_id: String that uniquely identifies this phone number resource. (required)
         :type phone_number_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5693,6 +5774,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_an_incoming_number_serialize(
             account_id=account_id,
@@ -5720,8 +5802,9 @@ class DefaultApi:
     @validate_call
     def get_an_incoming_number_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         phone_number_id: Annotated[StrictStr, Field(description="String that uniquely identifies this phone number resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5737,11 +5820,10 @@ class DefaultApi:
     ) -> ApiResponse[IncomingNumberResult]:
         """Get an Incoming Number
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param phone_number_id: String that uniquely identifies this phone number resource. (required)
         :type phone_number_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5763,6 +5845,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_an_incoming_number_serialize(
             account_id=account_id,
@@ -5790,8 +5873,9 @@ class DefaultApi:
     @validate_call
     def get_an_incoming_number_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         phone_number_id: Annotated[StrictStr, Field(description="String that uniquely identifies this phone number resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5807,11 +5891,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get an Incoming Number
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param phone_number_id: String that uniquely identifies this phone number resource. (required)
         :type phone_number_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5833,6 +5916,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_an_incoming_number_serialize(
             account_id=account_id,
@@ -5923,8 +6007,9 @@ class DefaultApi:
     @validate_call
     def get_an_sms_message(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         message_id: Annotated[StrictStr, Field(description="String that uniquely identifies this Message resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5940,11 +6025,10 @@ class DefaultApi:
     ) -> MessageResult:
         """Get an SMS Message
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param message_id: String that uniquely identifies this Message resource. (required)
         :type message_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5966,6 +6050,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_an_sms_message_serialize(
             account_id=account_id,
@@ -5993,8 +6078,9 @@ class DefaultApi:
     @validate_call
     def get_an_sms_message_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         message_id: Annotated[StrictStr, Field(description="String that uniquely identifies this Message resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6010,11 +6096,10 @@ class DefaultApi:
     ) -> ApiResponse[MessageResult]:
         """Get an SMS Message
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param message_id: String that uniquely identifies this Message resource. (required)
         :type message_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6036,6 +6121,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_an_sms_message_serialize(
             account_id=account_id,
@@ -6063,8 +6149,9 @@ class DefaultApi:
     @validate_call
     def get_an_sms_message_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         message_id: Annotated[StrictStr, Field(description="String that uniquely identifies this Message resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6080,11 +6167,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get an SMS Message
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param message_id: String that uniquely identifies this Message resource. (required)
         :type message_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6106,6 +6192,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_an_sms_message_serialize(
             account_id=account_id,
@@ -6196,8 +6283,9 @@ class DefaultApi:
     @validate_call
     def get_head_member(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="String that uniquely identifies the Queue that the Member belongs to.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6213,11 +6301,10 @@ class DefaultApi:
     ) -> QueueMember:
         """Get Head Member
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :type queue_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6239,6 +6326,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_head_member_serialize(
             account_id=account_id,
@@ -6266,8 +6354,9 @@ class DefaultApi:
     @validate_call
     def get_head_member_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="String that uniquely identifies the Queue that the Member belongs to.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6283,11 +6372,10 @@ class DefaultApi:
     ) -> ApiResponse[QueueMember]:
         """Get Head Member
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :type queue_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6309,6 +6397,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_head_member_serialize(
             account_id=account_id,
@@ -6336,8 +6425,9 @@ class DefaultApi:
     @validate_call
     def get_head_member_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="String that uniquely identifies the Queue that the Member belongs to.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6353,11 +6443,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get Head Member
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :type queue_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6379,6 +6468,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_head_member_serialize(
             account_id=account_id,
@@ -6469,8 +6559,9 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_brand(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         brand_id: Annotated[StrictStr, Field(description="String that uniquely identifies this brand resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6486,11 +6577,10 @@ class DefaultApi:
     ) -> SMSTenDLCBrand:
         """Get a 10DLC SMS Brand
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param brand_id: String that uniquely identifies this brand resource. (required)
         :type brand_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6512,6 +6602,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_brand_serialize(
             account_id=account_id,
@@ -6539,8 +6630,9 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_brand_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         brand_id: Annotated[StrictStr, Field(description="String that uniquely identifies this brand resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6556,11 +6648,10 @@ class DefaultApi:
     ) -> ApiResponse[SMSTenDLCBrand]:
         """Get a 10DLC SMS Brand
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param brand_id: String that uniquely identifies this brand resource. (required)
         :type brand_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6582,6 +6673,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_brand_serialize(
             account_id=account_id,
@@ -6609,8 +6701,9 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_brand_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         brand_id: Annotated[StrictStr, Field(description="String that uniquely identifies this brand resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6626,11 +6719,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get a 10DLC SMS Brand
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param brand_id: String that uniquely identifies this brand resource. (required)
         :type brand_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6652,6 +6744,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_brand_serialize(
             account_id=account_id,
@@ -6742,7 +6835,7 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_brands(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6758,9 +6851,7 @@ class DefaultApi:
     ) -> SMSTenDLCBrandsListResult:
         """Get list of SMS 10DLC Brands
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6782,6 +6873,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_brands_serialize(
             account_id=account_id,
@@ -6808,7 +6900,7 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_brands_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6824,9 +6916,7 @@ class DefaultApi:
     ) -> ApiResponse[SMSTenDLCBrandsListResult]:
         """Get list of SMS 10DLC Brands
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6848,6 +6938,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_brands_serialize(
             account_id=account_id,
@@ -6874,7 +6965,7 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_brands_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6890,9 +6981,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get list of SMS 10DLC Brands
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6914,6 +7003,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_brands_serialize(
             account_id=account_id,
@@ -7000,8 +7090,9 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_campaign(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         campaign_id: Annotated[StrictStr, Field(description="String that uniquely identifies this campaign resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7017,11 +7108,10 @@ class DefaultApi:
     ) -> SMSTenDLCCampaign:
         """Get a 10DLC SMS Campaign
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param campaign_id: String that uniquely identifies this campaign resource. (required)
         :type campaign_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7043,6 +7133,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_campaign_serialize(
             account_id=account_id,
@@ -7070,8 +7161,9 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_campaign_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         campaign_id: Annotated[StrictStr, Field(description="String that uniquely identifies this campaign resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7087,11 +7179,10 @@ class DefaultApi:
     ) -> ApiResponse[SMSTenDLCCampaign]:
         """Get a 10DLC SMS Campaign
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param campaign_id: String that uniquely identifies this campaign resource. (required)
         :type campaign_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7113,6 +7204,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_campaign_serialize(
             account_id=account_id,
@@ -7140,8 +7232,9 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_campaign_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         campaign_id: Annotated[StrictStr, Field(description="String that uniquely identifies this campaign resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7157,11 +7250,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get a 10DLC SMS Campaign
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param campaign_id: String that uniquely identifies this campaign resource. (required)
         :type campaign_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7183,6 +7275,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_campaign_serialize(
             account_id=account_id,
@@ -7273,8 +7366,9 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_campaigns(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         brand_id: Annotated[Optional[StrictStr], Field(description="The unique identifier for a brand")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7290,11 +7384,10 @@ class DefaultApi:
     ) -> SMSTenDLCCampaignsListResult:
         """Get list of SMS 10DLC Campaigns
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param brand_id: The unique identifier for a brand
         :type brand_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7316,6 +7409,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_campaigns_serialize(
             account_id=account_id,
@@ -7343,8 +7437,9 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_campaigns_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         brand_id: Annotated[Optional[StrictStr], Field(description="The unique identifier for a brand")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7360,11 +7455,10 @@ class DefaultApi:
     ) -> ApiResponse[SMSTenDLCCampaignsListResult]:
         """Get list of SMS 10DLC Campaigns
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param brand_id: The unique identifier for a brand
         :type brand_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7386,6 +7480,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_campaigns_serialize(
             account_id=account_id,
@@ -7413,8 +7508,9 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_campaigns_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         brand_id: Annotated[Optional[StrictStr], Field(description="The unique identifier for a brand")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7430,11 +7526,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get list of SMS 10DLC Campaigns
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param brand_id: The unique identifier for a brand
         :type brand_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7456,6 +7551,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_campaigns_serialize(
             account_id=account_id,
@@ -7548,8 +7644,9 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_partner_campaign(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         campaign_id: Annotated[StrictStr, Field(description="String that uniquely identifies this campaign resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7565,11 +7662,10 @@ class DefaultApi:
     ) -> SMSTenDLCPartnerCampaign:
         """Get a 10DLC SMS Partner Campaign
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param campaign_id: String that uniquely identifies this campaign resource. (required)
         :type campaign_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7591,6 +7687,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_partner_campaign_serialize(
             account_id=account_id,
@@ -7618,8 +7715,9 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_partner_campaign_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         campaign_id: Annotated[StrictStr, Field(description="String that uniquely identifies this campaign resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7635,11 +7733,10 @@ class DefaultApi:
     ) -> ApiResponse[SMSTenDLCPartnerCampaign]:
         """Get a 10DLC SMS Partner Campaign
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param campaign_id: String that uniquely identifies this campaign resource. (required)
         :type campaign_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7661,6 +7758,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_partner_campaign_serialize(
             account_id=account_id,
@@ -7688,8 +7786,9 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_partner_campaign_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         campaign_id: Annotated[StrictStr, Field(description="String that uniquely identifies this campaign resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7705,11 +7804,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get a 10DLC SMS Partner Campaign
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param campaign_id: String that uniquely identifies this campaign resource. (required)
         :type campaign_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7731,6 +7829,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_partner_campaign_serialize(
             account_id=account_id,
@@ -7821,8 +7920,9 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_partner_campaigns(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         brand_id: Annotated[Optional[StrictStr], Field(description="The unique identifier for a brand")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7838,11 +7938,10 @@ class DefaultApi:
     ) -> SMSTenDLCPartnerCampaignsListResult:
         """Get list of SMS 10DLC Partner Campaigns
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param brand_id: The unique identifier for a brand
         :type brand_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7864,6 +7963,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_partner_campaigns_serialize(
             account_id=account_id,
@@ -7891,8 +7991,9 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_partner_campaigns_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         brand_id: Annotated[Optional[StrictStr], Field(description="The unique identifier for a brand")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7908,11 +8009,10 @@ class DefaultApi:
     ) -> ApiResponse[SMSTenDLCPartnerCampaignsListResult]:
         """Get list of SMS 10DLC Partner Campaigns
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param brand_id: The unique identifier for a brand
         :type brand_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7934,6 +8034,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_partner_campaigns_serialize(
             account_id=account_id,
@@ -7961,8 +8062,9 @@ class DefaultApi:
     @validate_call
     def get_ten_dlc_sms_partner_campaigns_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         brand_id: Annotated[Optional[StrictStr], Field(description="The unique identifier for a brand")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7978,11 +8080,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get list of SMS 10DLC Partner Campaigns
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param brand_id: The unique identifier for a brand
         :type brand_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8004,6 +8105,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_ten_dlc_sms_partner_campaigns_serialize(
             account_id=account_id,
@@ -8096,8 +8198,9 @@ class DefaultApi:
     @validate_call
     def get_toll_free_sms_campaign(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         campaign_id: Annotated[StrictStr, Field(description="String that uniquely identifies this TollFree Campaign resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8113,11 +8216,10 @@ class DefaultApi:
     ) -> SMSTollFreeCampaign:
         """Get a TollFree SMS Campaign
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param campaign_id: String that uniquely identifies this TollFree Campaign resource. (required)
         :type campaign_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8139,6 +8241,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_toll_free_sms_campaign_serialize(
             account_id=account_id,
@@ -8166,8 +8269,9 @@ class DefaultApi:
     @validate_call
     def get_toll_free_sms_campaign_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         campaign_id: Annotated[StrictStr, Field(description="String that uniquely identifies this TollFree Campaign resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8183,11 +8287,10 @@ class DefaultApi:
     ) -> ApiResponse[SMSTollFreeCampaign]:
         """Get a TollFree SMS Campaign
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param campaign_id: String that uniquely identifies this TollFree Campaign resource. (required)
         :type campaign_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8209,6 +8312,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_toll_free_sms_campaign_serialize(
             account_id=account_id,
@@ -8236,8 +8340,9 @@ class DefaultApi:
     @validate_call
     def get_toll_free_sms_campaign_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         campaign_id: Annotated[StrictStr, Field(description="String that uniquely identifies this TollFree Campaign resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8253,11 +8358,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get a TollFree SMS Campaign
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param campaign_id: String that uniquely identifies this TollFree Campaign resource. (required)
         :type campaign_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8279,6 +8383,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_toll_free_sms_campaign_serialize(
             account_id=account_id,
@@ -8369,7 +8474,7 @@ class DefaultApi:
     @validate_call
     def get_toll_free_sms_campaigns(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8385,9 +8490,7 @@ class DefaultApi:
     ) -> SMSTollFreeCampaignsListResult:
         """Get list of TollFree Campaigns
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8409,6 +8512,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_toll_free_sms_campaigns_serialize(
             account_id=account_id,
@@ -8435,7 +8539,7 @@ class DefaultApi:
     @validate_call
     def get_toll_free_sms_campaigns_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8451,9 +8555,7 @@ class DefaultApi:
     ) -> ApiResponse[SMSTollFreeCampaignsListResult]:
         """Get list of TollFree Campaigns
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8475,6 +8577,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_toll_free_sms_campaigns_serialize(
             account_id=account_id,
@@ -8501,7 +8604,7 @@ class DefaultApi:
     @validate_call
     def get_toll_free_sms_campaigns_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8517,9 +8620,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Get list of TollFree Campaigns
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8541,6 +8642,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._get_toll_free_sms_campaigns_serialize(
             account_id=account_id,
@@ -8627,8 +8729,9 @@ class DefaultApi:
     @validate_call
     def list_active_queues(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         alias: Annotated[Optional[StrictStr], Field(description="Return only the Queue resources with aliases that exactly match this name.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8644,11 +8747,10 @@ class DefaultApi:
     ) -> QueueList:
         """List Active Queues
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param alias: Return only the Queue resources with aliases that exactly match this name.
         :type alias: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8670,6 +8772,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_active_queues_serialize(
             account_id=account_id,
@@ -8697,8 +8800,9 @@ class DefaultApi:
     @validate_call
     def list_active_queues_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         alias: Annotated[Optional[StrictStr], Field(description="Return only the Queue resources with aliases that exactly match this name.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8714,11 +8818,10 @@ class DefaultApi:
     ) -> ApiResponse[QueueList]:
         """List Active Queues
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param alias: Return only the Queue resources with aliases that exactly match this name.
         :type alias: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8740,6 +8843,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_active_queues_serialize(
             account_id=account_id,
@@ -8767,8 +8871,9 @@ class DefaultApi:
     @validate_call
     def list_active_queues_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         alias: Annotated[Optional[StrictStr], Field(description="Return only the Queue resources with aliases that exactly match this name.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8784,11 +8889,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """List Active Queues
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param alias: Return only the Queue resources with aliases that exactly match this name.
         :type alias: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8810,6 +8914,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_active_queues_serialize(
             account_id=account_id,
@@ -8902,7 +9007,7 @@ class DefaultApi:
     @validate_call
     def list_all_account_logs(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8918,9 +9023,7 @@ class DefaultApi:
     ) -> LogList:
         """List All Account Logs
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8942,6 +9045,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_all_account_logs_serialize(
             account_id=account_id,
@@ -8968,7 +9072,7 @@ class DefaultApi:
     @validate_call
     def list_all_account_logs_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8984,9 +9088,7 @@ class DefaultApi:
     ) -> ApiResponse[LogList]:
         """List All Account Logs
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9008,6 +9110,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_all_account_logs_serialize(
             account_id=account_id,
@@ -9034,7 +9137,7 @@ class DefaultApi:
     @validate_call
     def list_all_account_logs_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9050,9 +9153,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """List All Account Logs
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9074,6 +9175,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_all_account_logs_serialize(
             account_id=account_id,
@@ -9160,8 +9262,9 @@ class DefaultApi:
     @validate_call
     def list_applications(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         alias: Annotated[Optional[StrictStr], Field(description="Return only applications with aliases that exactly match this value.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9177,11 +9280,10 @@ class DefaultApi:
     ) -> ApplicationList:
         """List applications
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param alias: Return only applications with aliases that exactly match this value.
         :type alias: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9203,6 +9305,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_applications_serialize(
             account_id=account_id,
@@ -9230,8 +9333,9 @@ class DefaultApi:
     @validate_call
     def list_applications_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         alias: Annotated[Optional[StrictStr], Field(description="Return only applications with aliases that exactly match this value.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9247,11 +9351,10 @@ class DefaultApi:
     ) -> ApiResponse[ApplicationList]:
         """List applications
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param alias: Return only applications with aliases that exactly match this value.
         :type alias: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9273,6 +9376,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_applications_serialize(
             account_id=account_id,
@@ -9300,8 +9404,9 @@ class DefaultApi:
     @validate_call
     def list_applications_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         alias: Annotated[Optional[StrictStr], Field(description="Return only applications with aliases that exactly match this value.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9317,11 +9422,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """List applications
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param alias: Return only applications with aliases that exactly match this value.
         :type alias: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9343,6 +9447,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_applications_serialize(
             account_id=account_id,
@@ -9435,16 +9540,27 @@ class DefaultApi:
     @validate_call
     def list_available_numbers(
         self,
+        
         phone_number: Annotated[Optional[StrictStr], Field(description="PCRE-compatible regular expression to filter against `phoneNumber` field, which is in E.164 format.")] = None,
+        
         region: Annotated[Optional[StrictStr], Field(description="State or province of this phone number.")] = None,
+        
         country: Annotated[Optional[StrictStr], Field(description="Country of this phone number.")] = None,
+        
         voice_enabled: Annotated[Optional[StrictBool], Field(description="Indicates whether the phone number can handle Calls. Typically set to true for all numbers.")] = None,
+        
         sms_enabled: Annotated[Optional[StrictBool], Field(description="Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.")] = None,
+        
         capabilities_voice: Optional[StrictBool] = None,
+        
         capabilities_sms: Optional[StrictBool] = None,
+        
         capabilities_toll_free: Optional[StrictBool] = None,
+        
         capabilities_ten_dlc: Optional[StrictBool] = None,
+        
         capabilities_short_code: Optional[StrictBool] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9460,27 +9576,37 @@ class DefaultApi:
     ) -> AvailableNumberList:
         """List available numbers
 
-
+        
         :param phone_number: PCRE-compatible regular expression to filter against `phoneNumber` field, which is in E.164 format.
         :type phone_number: str
+        
         :param region: State or province of this phone number.
         :type region: str
+        
         :param country: Country of this phone number.
         :type country: str
+        
         :param voice_enabled: Indicates whether the phone number can handle Calls. Typically set to true for all numbers.
         :type voice_enabled: bool
+        
         :param sms_enabled: Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.
         :type sms_enabled: bool
+        
         :param capabilities_voice: 
         :type capabilities_voice: bool
+        
         :param capabilities_sms: 
         :type capabilities_sms: bool
+        
         :param capabilities_toll_free: 
         :type capabilities_toll_free: bool
+        
         :param capabilities_ten_dlc: 
         :type capabilities_ten_dlc: bool
+        
         :param capabilities_short_code: 
         :type capabilities_short_code: bool
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9502,6 +9628,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_available_numbers_serialize(
             phone_number=phone_number,
@@ -9537,16 +9664,27 @@ class DefaultApi:
     @validate_call
     def list_available_numbers_with_http_info(
         self,
+        
         phone_number: Annotated[Optional[StrictStr], Field(description="PCRE-compatible regular expression to filter against `phoneNumber` field, which is in E.164 format.")] = None,
+        
         region: Annotated[Optional[StrictStr], Field(description="State or province of this phone number.")] = None,
+        
         country: Annotated[Optional[StrictStr], Field(description="Country of this phone number.")] = None,
+        
         voice_enabled: Annotated[Optional[StrictBool], Field(description="Indicates whether the phone number can handle Calls. Typically set to true for all numbers.")] = None,
+        
         sms_enabled: Annotated[Optional[StrictBool], Field(description="Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.")] = None,
+        
         capabilities_voice: Optional[StrictBool] = None,
+        
         capabilities_sms: Optional[StrictBool] = None,
+        
         capabilities_toll_free: Optional[StrictBool] = None,
+        
         capabilities_ten_dlc: Optional[StrictBool] = None,
+        
         capabilities_short_code: Optional[StrictBool] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9562,27 +9700,37 @@ class DefaultApi:
     ) -> ApiResponse[AvailableNumberList]:
         """List available numbers
 
-
+        
         :param phone_number: PCRE-compatible regular expression to filter against `phoneNumber` field, which is in E.164 format.
         :type phone_number: str
+        
         :param region: State or province of this phone number.
         :type region: str
+        
         :param country: Country of this phone number.
         :type country: str
+        
         :param voice_enabled: Indicates whether the phone number can handle Calls. Typically set to true for all numbers.
         :type voice_enabled: bool
+        
         :param sms_enabled: Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.
         :type sms_enabled: bool
+        
         :param capabilities_voice: 
         :type capabilities_voice: bool
+        
         :param capabilities_sms: 
         :type capabilities_sms: bool
+        
         :param capabilities_toll_free: 
         :type capabilities_toll_free: bool
+        
         :param capabilities_ten_dlc: 
         :type capabilities_ten_dlc: bool
+        
         :param capabilities_short_code: 
         :type capabilities_short_code: bool
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9604,6 +9752,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_available_numbers_serialize(
             phone_number=phone_number,
@@ -9639,16 +9788,27 @@ class DefaultApi:
     @validate_call
     def list_available_numbers_without_preload_content(
         self,
+        
         phone_number: Annotated[Optional[StrictStr], Field(description="PCRE-compatible regular expression to filter against `phoneNumber` field, which is in E.164 format.")] = None,
+        
         region: Annotated[Optional[StrictStr], Field(description="State or province of this phone number.")] = None,
+        
         country: Annotated[Optional[StrictStr], Field(description="Country of this phone number.")] = None,
+        
         voice_enabled: Annotated[Optional[StrictBool], Field(description="Indicates whether the phone number can handle Calls. Typically set to true for all numbers.")] = None,
+        
         sms_enabled: Annotated[Optional[StrictBool], Field(description="Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.")] = None,
+        
         capabilities_voice: Optional[StrictBool] = None,
+        
         capabilities_sms: Optional[StrictBool] = None,
+        
         capabilities_toll_free: Optional[StrictBool] = None,
+        
         capabilities_ten_dlc: Optional[StrictBool] = None,
+        
         capabilities_short_code: Optional[StrictBool] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9664,27 +9824,37 @@ class DefaultApi:
     ) -> RESTResponseType:
         """List available numbers
 
-
+        
         :param phone_number: PCRE-compatible regular expression to filter against `phoneNumber` field, which is in E.164 format.
         :type phone_number: str
+        
         :param region: State or province of this phone number.
         :type region: str
+        
         :param country: Country of this phone number.
         :type country: str
+        
         :param voice_enabled: Indicates whether the phone number can handle Calls. Typically set to true for all numbers.
         :type voice_enabled: bool
+        
         :param sms_enabled: Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.
         :type sms_enabled: bool
+        
         :param capabilities_voice: 
         :type capabilities_voice: bool
+        
         :param capabilities_sms: 
         :type capabilities_sms: bool
+        
         :param capabilities_toll_free: 
         :type capabilities_toll_free: bool
+        
         :param capabilities_ten_dlc: 
         :type capabilities_ten_dlc: bool
+        
         :param capabilities_short_code: 
         :type capabilities_short_code: bool
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9706,6 +9876,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_available_numbers_serialize(
             phone_number=phone_number,
@@ -9848,8 +10019,9 @@ class DefaultApi:
     @validate_call
     def list_call_logs(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         call_id: Annotated[StrictStr, Field(description="String that uniquely identifies this call resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9865,11 +10037,10 @@ class DefaultApi:
     ) -> LogList:
         """List Call Logs
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param call_id: String that uniquely identifies this call resource. (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9891,6 +10062,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_call_logs_serialize(
             account_id=account_id,
@@ -9918,8 +10090,9 @@ class DefaultApi:
     @validate_call
     def list_call_logs_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         call_id: Annotated[StrictStr, Field(description="String that uniquely identifies this call resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9935,11 +10108,10 @@ class DefaultApi:
     ) -> ApiResponse[LogList]:
         """List Call Logs
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param call_id: String that uniquely identifies this call resource. (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9961,6 +10133,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_call_logs_serialize(
             account_id=account_id,
@@ -9988,8 +10161,9 @@ class DefaultApi:
     @validate_call
     def list_call_logs_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         call_id: Annotated[StrictStr, Field(description="String that uniquely identifies this call resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10005,11 +10179,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """List Call Logs
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param call_id: String that uniquely identifies this call resource. (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10031,6 +10204,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_call_logs_serialize(
             account_id=account_id,
@@ -10121,9 +10295,11 @@ class DefaultApi:
     @validate_call
     def list_call_recordings(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         call_id: Annotated[StrictStr, Field(description="String that uniquely identifies this call resource.")],
+        
         date_created: Annotated[Optional[StrictStr], Field(description="Only show recordings created on the specified date, in the form *YYYY-MM-DD*.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10139,13 +10315,13 @@ class DefaultApi:
     ) -> RecordingList:
         """List Call Recordings
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param call_id: String that uniquely identifies this call resource. (required)
         :type call_id: str
+        
         :param date_created: Only show recordings created on the specified date, in the form *YYYY-MM-DD*.
         :type date_created: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10167,6 +10343,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_call_recordings_serialize(
             account_id=account_id,
@@ -10195,9 +10372,11 @@ class DefaultApi:
     @validate_call
     def list_call_recordings_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         call_id: Annotated[StrictStr, Field(description="String that uniquely identifies this call resource.")],
+        
         date_created: Annotated[Optional[StrictStr], Field(description="Only show recordings created on the specified date, in the form *YYYY-MM-DD*.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10213,13 +10392,13 @@ class DefaultApi:
     ) -> ApiResponse[RecordingList]:
         """List Call Recordings
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param call_id: String that uniquely identifies this call resource. (required)
         :type call_id: str
+        
         :param date_created: Only show recordings created on the specified date, in the form *YYYY-MM-DD*.
         :type date_created: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10241,6 +10420,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_call_recordings_serialize(
             account_id=account_id,
@@ -10269,9 +10449,11 @@ class DefaultApi:
     @validate_call
     def list_call_recordings_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         call_id: Annotated[StrictStr, Field(description="String that uniquely identifies this call resource.")],
+        
         date_created: Annotated[Optional[StrictStr], Field(description="Only show recordings created on the specified date, in the form *YYYY-MM-DD*.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10287,13 +10469,13 @@ class DefaultApi:
     ) -> RESTResponseType:
         """List Call Recordings
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param call_id: String that uniquely identifies this call resource. (required)
         :type call_id: str
+        
         :param date_created: Only show recordings created on the specified date, in the form *YYYY-MM-DD*.
         :type date_created: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10315,6 +10497,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_call_recordings_serialize(
             account_id=account_id,
@@ -10411,15 +10594,23 @@ class DefaultApi:
     @validate_call
     def list_calls(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         active: Annotated[Optional[StrictBool], Field(description="If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.")] = None,
+        
         to: Annotated[Optional[StrictStr], Field(description="Only show Calls to this phone number.")] = None,
+        
         var_from: Annotated[Optional[StrictStr], Field(description="Only show Calls from this phone number.")] = None,
+        
         status: Annotated[Optional[CallStatus], Field(description="Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`.")] = None,
+        
         start_time: Annotated[Optional[StrictStr], Field(description="Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss.")] = None,
+        
         end_time: Annotated[Optional[StrictStr], Field(description="Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss.")] = None,
+        
         parent_call_id: Annotated[Optional[StrictStr], Field(description="Only show Calls spawned by the call with this ID.")] = None,
+        
         application_id: Annotated[Optional[Annotated[List[Annotated[str, Field(strict=True)]], Field(max_length=16)]], Field(description="Only show calls belonging to the given applicationId. This parameter can be repeated to return calls from multiple Applications.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10435,25 +10626,31 @@ class DefaultApi:
     ) -> CallList:
         """List Calls
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param active: If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.
         :type active: bool
+        
         :param to: Only show Calls to this phone number.
         :type to: str
+        
         :param var_from: Only show Calls from this phone number.
         :type var_from: str
+        
         :param status: Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`.
         :type status: CallStatus
+        
         :param start_time: Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss.
         :type start_time: str
+        
         :param end_time: Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss.
         :type end_time: str
+        
         :param parent_call_id: Only show Calls spawned by the call with this ID.
         :type parent_call_id: str
+        
         :param application_id: Only show calls belonging to the given applicationId. This parameter can be repeated to return calls from multiple Applications.
         :type application_id: List[str]
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10475,6 +10672,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_calls_serialize(
             account_id=account_id,
@@ -10509,15 +10707,23 @@ class DefaultApi:
     @validate_call
     def list_calls_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         active: Annotated[Optional[StrictBool], Field(description="If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.")] = None,
+        
         to: Annotated[Optional[StrictStr], Field(description="Only show Calls to this phone number.")] = None,
+        
         var_from: Annotated[Optional[StrictStr], Field(description="Only show Calls from this phone number.")] = None,
+        
         status: Annotated[Optional[CallStatus], Field(description="Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`.")] = None,
+        
         start_time: Annotated[Optional[StrictStr], Field(description="Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss.")] = None,
+        
         end_time: Annotated[Optional[StrictStr], Field(description="Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss.")] = None,
+        
         parent_call_id: Annotated[Optional[StrictStr], Field(description="Only show Calls spawned by the call with this ID.")] = None,
+        
         application_id: Annotated[Optional[Annotated[List[Annotated[str, Field(strict=True)]], Field(max_length=16)]], Field(description="Only show calls belonging to the given applicationId. This parameter can be repeated to return calls from multiple Applications.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10533,25 +10739,31 @@ class DefaultApi:
     ) -> ApiResponse[CallList]:
         """List Calls
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param active: If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.
         :type active: bool
+        
         :param to: Only show Calls to this phone number.
         :type to: str
+        
         :param var_from: Only show Calls from this phone number.
         :type var_from: str
+        
         :param status: Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`.
         :type status: CallStatus
+        
         :param start_time: Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss.
         :type start_time: str
+        
         :param end_time: Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss.
         :type end_time: str
+        
         :param parent_call_id: Only show Calls spawned by the call with this ID.
         :type parent_call_id: str
+        
         :param application_id: Only show calls belonging to the given applicationId. This parameter can be repeated to return calls from multiple Applications.
         :type application_id: List[str]
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10573,6 +10785,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_calls_serialize(
             account_id=account_id,
@@ -10607,15 +10820,23 @@ class DefaultApi:
     @validate_call
     def list_calls_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         active: Annotated[Optional[StrictBool], Field(description="If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.")] = None,
+        
         to: Annotated[Optional[StrictStr], Field(description="Only show Calls to this phone number.")] = None,
+        
         var_from: Annotated[Optional[StrictStr], Field(description="Only show Calls from this phone number.")] = None,
+        
         status: Annotated[Optional[CallStatus], Field(description="Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`.")] = None,
+        
         start_time: Annotated[Optional[StrictStr], Field(description="Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss.")] = None,
+        
         end_time: Annotated[Optional[StrictStr], Field(description="Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss.")] = None,
+        
         parent_call_id: Annotated[Optional[StrictStr], Field(description="Only show Calls spawned by the call with this ID.")] = None,
+        
         application_id: Annotated[Optional[Annotated[List[Annotated[str, Field(strict=True)]], Field(max_length=16)]], Field(description="Only show calls belonging to the given applicationId. This parameter can be repeated to return calls from multiple Applications.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10631,25 +10852,31 @@ class DefaultApi:
     ) -> RESTResponseType:
         """List Calls
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param active: If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.
         :type active: bool
+        
         :param to: Only show Calls to this phone number.
         :type to: str
+        
         :param var_from: Only show Calls from this phone number.
         :type var_from: str
+        
         :param status: Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`.
         :type status: CallStatus
+        
         :param start_time: Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss.
         :type start_time: str
+        
         :param end_time: Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss.
         :type end_time: str
+        
         :param parent_call_id: Only show Calls spawned by the call with this ID.
         :type parent_call_id: str
+        
         :param application_id: Only show calls belonging to the given applicationId. This parameter can be repeated to return calls from multiple Applications.
         :type application_id: List[str]
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10671,6 +10898,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_calls_serialize(
             account_id=account_id,
@@ -10806,10 +11034,13 @@ class DefaultApi:
     @validate_call
     def list_conference_recordings(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="Show only Recordings made during the conference with this ID.")],
+        
         call_id: Annotated[Optional[StrictStr], Field(description="Show only Recordings made during the Call with this ID.")] = None,
+        
         date_created: Annotated[Optional[StrictStr], Field(description="Only show Recordings created on this date, formatted as *YYYY-MM-DD*.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10825,15 +11056,16 @@ class DefaultApi:
     ) -> RecordingList:
         """List Conference Recordings
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: Show only Recordings made during the conference with this ID. (required)
         :type conference_id: str
+        
         :param call_id: Show only Recordings made during the Call with this ID.
         :type call_id: str
+        
         :param date_created: Only show Recordings created on this date, formatted as *YYYY-MM-DD*.
         :type date_created: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10855,6 +11087,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_conference_recordings_serialize(
             account_id=account_id,
@@ -10884,10 +11117,13 @@ class DefaultApi:
     @validate_call
     def list_conference_recordings_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="Show only Recordings made during the conference with this ID.")],
+        
         call_id: Annotated[Optional[StrictStr], Field(description="Show only Recordings made during the Call with this ID.")] = None,
+        
         date_created: Annotated[Optional[StrictStr], Field(description="Only show Recordings created on this date, formatted as *YYYY-MM-DD*.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10903,15 +11139,16 @@ class DefaultApi:
     ) -> ApiResponse[RecordingList]:
         """List Conference Recordings
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: Show only Recordings made during the conference with this ID. (required)
         :type conference_id: str
+        
         :param call_id: Show only Recordings made during the Call with this ID.
         :type call_id: str
+        
         :param date_created: Only show Recordings created on this date, formatted as *YYYY-MM-DD*.
         :type date_created: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10933,6 +11170,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_conference_recordings_serialize(
             account_id=account_id,
@@ -10962,10 +11200,13 @@ class DefaultApi:
     @validate_call
     def list_conference_recordings_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="Show only Recordings made during the conference with this ID.")],
+        
         call_id: Annotated[Optional[StrictStr], Field(description="Show only Recordings made during the Call with this ID.")] = None,
+        
         date_created: Annotated[Optional[StrictStr], Field(description="Only show Recordings created on this date, formatted as *YYYY-MM-DD*.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10981,15 +11222,16 @@ class DefaultApi:
     ) -> RESTResponseType:
         """List Conference Recordings
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: Show only Recordings made during the conference with this ID. (required)
         :type conference_id: str
+        
         :param call_id: Show only Recordings made during the Call with this ID.
         :type call_id: str
+        
         :param date_created: Only show Recordings created on this date, formatted as *YYYY-MM-DD*.
         :type date_created: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11011,6 +11253,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_conference_recordings_serialize(
             account_id=account_id,
@@ -11113,11 +11356,15 @@ class DefaultApi:
     @validate_call
     def list_conferences(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         status: Annotated[Optional[StrictStr], Field(description="Only show conferences that currently have the specified status. Valid values: `empty`, `populated`, `inProgress`, or `terminated`.")] = None,
+        
         alias: Annotated[Optional[StrictStr], Field(description="List Conferences whose alias exactly matches this string.")] = None,
+        
         date_created: Annotated[Optional[StrictStr], Field(description="Only show Conferences that were created on the specified date, in the form *YYYY-MM-DD*.")] = None,
+        
         date_updated: Annotated[Optional[StrictStr], Field(description="Only show Conferences that were last updated on the specified date, in the form *YYYY-MM-DD*.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11133,17 +11380,19 @@ class DefaultApi:
     ) -> ConferenceList:
         """List Conferences
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param status: Only show conferences that currently have the specified status. Valid values: `empty`, `populated`, `inProgress`, or `terminated`.
         :type status: str
+        
         :param alias: List Conferences whose alias exactly matches this string.
         :type alias: str
+        
         :param date_created: Only show Conferences that were created on the specified date, in the form *YYYY-MM-DD*.
         :type date_created: str
+        
         :param date_updated: Only show Conferences that were last updated on the specified date, in the form *YYYY-MM-DD*.
         :type date_updated: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11165,6 +11414,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_conferences_serialize(
             account_id=account_id,
@@ -11195,11 +11445,15 @@ class DefaultApi:
     @validate_call
     def list_conferences_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         status: Annotated[Optional[StrictStr], Field(description="Only show conferences that currently have the specified status. Valid values: `empty`, `populated`, `inProgress`, or `terminated`.")] = None,
+        
         alias: Annotated[Optional[StrictStr], Field(description="List Conferences whose alias exactly matches this string.")] = None,
+        
         date_created: Annotated[Optional[StrictStr], Field(description="Only show Conferences that were created on the specified date, in the form *YYYY-MM-DD*.")] = None,
+        
         date_updated: Annotated[Optional[StrictStr], Field(description="Only show Conferences that were last updated on the specified date, in the form *YYYY-MM-DD*.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11215,17 +11469,19 @@ class DefaultApi:
     ) -> ApiResponse[ConferenceList]:
         """List Conferences
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param status: Only show conferences that currently have the specified status. Valid values: `empty`, `populated`, `inProgress`, or `terminated`.
         :type status: str
+        
         :param alias: List Conferences whose alias exactly matches this string.
         :type alias: str
+        
         :param date_created: Only show Conferences that were created on the specified date, in the form *YYYY-MM-DD*.
         :type date_created: str
+        
         :param date_updated: Only show Conferences that were last updated on the specified date, in the form *YYYY-MM-DD*.
         :type date_updated: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11247,6 +11503,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_conferences_serialize(
             account_id=account_id,
@@ -11277,11 +11534,15 @@ class DefaultApi:
     @validate_call
     def list_conferences_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         status: Annotated[Optional[StrictStr], Field(description="Only show conferences that currently have the specified status. Valid values: `empty`, `populated`, `inProgress`, or `terminated`.")] = None,
+        
         alias: Annotated[Optional[StrictStr], Field(description="List Conferences whose alias exactly matches this string.")] = None,
+        
         date_created: Annotated[Optional[StrictStr], Field(description="Only show Conferences that were created on the specified date, in the form *YYYY-MM-DD*.")] = None,
+        
         date_updated: Annotated[Optional[StrictStr], Field(description="Only show Conferences that were last updated on the specified date, in the form *YYYY-MM-DD*.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11297,17 +11558,19 @@ class DefaultApi:
     ) -> RESTResponseType:
         """List Conferences
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param status: Only show conferences that currently have the specified status. Valid values: `empty`, `populated`, `inProgress`, or `terminated`.
         :type status: str
+        
         :param alias: List Conferences whose alias exactly matches this string.
         :type alias: str
+        
         :param date_created: Only show Conferences that were created on the specified date, in the form *YYYY-MM-DD*.
         :type date_created: str
+        
         :param date_updated: Only show Conferences that were last updated on the specified date, in the form *YYYY-MM-DD*.
         :type date_updated: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11329,6 +11592,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_conferences_serialize(
             account_id=account_id,
@@ -11439,23 +11703,39 @@ class DefaultApi:
     @validate_call
     def list_incoming_numbers(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         phone_number: Annotated[Optional[StrictStr], Field(description="Only show incoming phone number resources that match this PCRE-compatible regular expression.")] = None,
+        
         alias: Annotated[Optional[StrictStr], Field(description="Only show incoming phone numbers with aliases that exactly match this value.")] = None,
+        
         region: Annotated[Optional[StrictStr], Field(description="State or province of this phone number.")] = None,
+        
         country: Annotated[Optional[StrictStr], Field(description="Country of this phone number.")] = None,
+        
         application_id: Annotated[Optional[StrictStr], Field(description="ID of the Application that FreeClimb should contact if a Call or SMS arrives for this phone number or a Call from this number is placed. An incoming phone number is not useful until associated with an applicationId.")] = None,
+        
         has_application: Annotated[Optional[StrictBool], Field(description="Indication of whether the phone number has an application linked to it.")] = None,
+        
         voice_enabled: Annotated[Optional[StrictBool], Field(description="Indicates whether the phone number can handle Calls. Typically set to true for all numbers.")] = None,
+        
         sms_enabled: Annotated[Optional[StrictBool], Field(description="Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.")] = None,
+        
         has_campaign: Annotated[Optional[StrictBool], Field(description="Indication of whether the phone number has a campaign associated with it")] = None,
+        
         capabilities_voice: Optional[StrictBool] = None,
+        
         capabilities_sms: Optional[StrictBool] = None,
+        
         capabilities_toll_free: Optional[StrictBool] = None,
+        
         capabilities_ten_dlc: Optional[StrictBool] = None,
+        
         capabilities_short_code: Optional[StrictBool] = None,
+        
         tfn_campaign_id: Annotated[Optional[StrictStr], Field(description="Only show incoming phone number resources that have been assigned to the provided TFNCampaign ID.")] = None,
+        
         offnet: Annotated[Optional[StrictBool], Field(description="Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11471,41 +11751,55 @@ class DefaultApi:
     ) -> IncomingNumberList:
         """List Incoming Numbers
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param phone_number: Only show incoming phone number resources that match this PCRE-compatible regular expression.
         :type phone_number: str
+        
         :param alias: Only show incoming phone numbers with aliases that exactly match this value.
         :type alias: str
+        
         :param region: State or province of this phone number.
         :type region: str
+        
         :param country: Country of this phone number.
         :type country: str
+        
         :param application_id: ID of the Application that FreeClimb should contact if a Call or SMS arrives for this phone number or a Call from this number is placed. An incoming phone number is not useful until associated with an applicationId.
         :type application_id: str
+        
         :param has_application: Indication of whether the phone number has an application linked to it.
         :type has_application: bool
+        
         :param voice_enabled: Indicates whether the phone number can handle Calls. Typically set to true for all numbers.
         :type voice_enabled: bool
+        
         :param sms_enabled: Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.
         :type sms_enabled: bool
+        
         :param has_campaign: Indication of whether the phone number has a campaign associated with it
         :type has_campaign: bool
+        
         :param capabilities_voice: 
         :type capabilities_voice: bool
+        
         :param capabilities_sms: 
         :type capabilities_sms: bool
+        
         :param capabilities_toll_free: 
         :type capabilities_toll_free: bool
+        
         :param capabilities_ten_dlc: 
         :type capabilities_ten_dlc: bool
+        
         :param capabilities_short_code: 
         :type capabilities_short_code: bool
+        
         :param tfn_campaign_id: Only show incoming phone number resources that have been assigned to the provided TFNCampaign ID.
         :type tfn_campaign_id: str
+        
         :param offnet: Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource.
         :type offnet: bool
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11527,6 +11821,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_incoming_numbers_serialize(
             account_id=account_id,
@@ -11569,23 +11864,39 @@ class DefaultApi:
     @validate_call
     def list_incoming_numbers_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         phone_number: Annotated[Optional[StrictStr], Field(description="Only show incoming phone number resources that match this PCRE-compatible regular expression.")] = None,
+        
         alias: Annotated[Optional[StrictStr], Field(description="Only show incoming phone numbers with aliases that exactly match this value.")] = None,
+        
         region: Annotated[Optional[StrictStr], Field(description="State or province of this phone number.")] = None,
+        
         country: Annotated[Optional[StrictStr], Field(description="Country of this phone number.")] = None,
+        
         application_id: Annotated[Optional[StrictStr], Field(description="ID of the Application that FreeClimb should contact if a Call or SMS arrives for this phone number or a Call from this number is placed. An incoming phone number is not useful until associated with an applicationId.")] = None,
+        
         has_application: Annotated[Optional[StrictBool], Field(description="Indication of whether the phone number has an application linked to it.")] = None,
+        
         voice_enabled: Annotated[Optional[StrictBool], Field(description="Indicates whether the phone number can handle Calls. Typically set to true for all numbers.")] = None,
+        
         sms_enabled: Annotated[Optional[StrictBool], Field(description="Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.")] = None,
+        
         has_campaign: Annotated[Optional[StrictBool], Field(description="Indication of whether the phone number has a campaign associated with it")] = None,
+        
         capabilities_voice: Optional[StrictBool] = None,
+        
         capabilities_sms: Optional[StrictBool] = None,
+        
         capabilities_toll_free: Optional[StrictBool] = None,
+        
         capabilities_ten_dlc: Optional[StrictBool] = None,
+        
         capabilities_short_code: Optional[StrictBool] = None,
+        
         tfn_campaign_id: Annotated[Optional[StrictStr], Field(description="Only show incoming phone number resources that have been assigned to the provided TFNCampaign ID.")] = None,
+        
         offnet: Annotated[Optional[StrictBool], Field(description="Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11601,41 +11912,55 @@ class DefaultApi:
     ) -> ApiResponse[IncomingNumberList]:
         """List Incoming Numbers
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param phone_number: Only show incoming phone number resources that match this PCRE-compatible regular expression.
         :type phone_number: str
+        
         :param alias: Only show incoming phone numbers with aliases that exactly match this value.
         :type alias: str
+        
         :param region: State or province of this phone number.
         :type region: str
+        
         :param country: Country of this phone number.
         :type country: str
+        
         :param application_id: ID of the Application that FreeClimb should contact if a Call or SMS arrives for this phone number or a Call from this number is placed. An incoming phone number is not useful until associated with an applicationId.
         :type application_id: str
+        
         :param has_application: Indication of whether the phone number has an application linked to it.
         :type has_application: bool
+        
         :param voice_enabled: Indicates whether the phone number can handle Calls. Typically set to true for all numbers.
         :type voice_enabled: bool
+        
         :param sms_enabled: Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.
         :type sms_enabled: bool
+        
         :param has_campaign: Indication of whether the phone number has a campaign associated with it
         :type has_campaign: bool
+        
         :param capabilities_voice: 
         :type capabilities_voice: bool
+        
         :param capabilities_sms: 
         :type capabilities_sms: bool
+        
         :param capabilities_toll_free: 
         :type capabilities_toll_free: bool
+        
         :param capabilities_ten_dlc: 
         :type capabilities_ten_dlc: bool
+        
         :param capabilities_short_code: 
         :type capabilities_short_code: bool
+        
         :param tfn_campaign_id: Only show incoming phone number resources that have been assigned to the provided TFNCampaign ID.
         :type tfn_campaign_id: str
+        
         :param offnet: Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource.
         :type offnet: bool
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11657,6 +11982,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_incoming_numbers_serialize(
             account_id=account_id,
@@ -11699,23 +12025,39 @@ class DefaultApi:
     @validate_call
     def list_incoming_numbers_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         phone_number: Annotated[Optional[StrictStr], Field(description="Only show incoming phone number resources that match this PCRE-compatible regular expression.")] = None,
+        
         alias: Annotated[Optional[StrictStr], Field(description="Only show incoming phone numbers with aliases that exactly match this value.")] = None,
+        
         region: Annotated[Optional[StrictStr], Field(description="State or province of this phone number.")] = None,
+        
         country: Annotated[Optional[StrictStr], Field(description="Country of this phone number.")] = None,
+        
         application_id: Annotated[Optional[StrictStr], Field(description="ID of the Application that FreeClimb should contact if a Call or SMS arrives for this phone number or a Call from this number is placed. An incoming phone number is not useful until associated with an applicationId.")] = None,
+        
         has_application: Annotated[Optional[StrictBool], Field(description="Indication of whether the phone number has an application linked to it.")] = None,
+        
         voice_enabled: Annotated[Optional[StrictBool], Field(description="Indicates whether the phone number can handle Calls. Typically set to true for all numbers.")] = None,
+        
         sms_enabled: Annotated[Optional[StrictBool], Field(description="Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.")] = None,
+        
         has_campaign: Annotated[Optional[StrictBool], Field(description="Indication of whether the phone number has a campaign associated with it")] = None,
+        
         capabilities_voice: Optional[StrictBool] = None,
+        
         capabilities_sms: Optional[StrictBool] = None,
+        
         capabilities_toll_free: Optional[StrictBool] = None,
+        
         capabilities_ten_dlc: Optional[StrictBool] = None,
+        
         capabilities_short_code: Optional[StrictBool] = None,
+        
         tfn_campaign_id: Annotated[Optional[StrictStr], Field(description="Only show incoming phone number resources that have been assigned to the provided TFNCampaign ID.")] = None,
+        
         offnet: Annotated[Optional[StrictBool], Field(description="Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11731,41 +12073,55 @@ class DefaultApi:
     ) -> RESTResponseType:
         """List Incoming Numbers
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param phone_number: Only show incoming phone number resources that match this PCRE-compatible regular expression.
         :type phone_number: str
+        
         :param alias: Only show incoming phone numbers with aliases that exactly match this value.
         :type alias: str
+        
         :param region: State or province of this phone number.
         :type region: str
+        
         :param country: Country of this phone number.
         :type country: str
+        
         :param application_id: ID of the Application that FreeClimb should contact if a Call or SMS arrives for this phone number or a Call from this number is placed. An incoming phone number is not useful until associated with an applicationId.
         :type application_id: str
+        
         :param has_application: Indication of whether the phone number has an application linked to it.
         :type has_application: bool
+        
         :param voice_enabled: Indicates whether the phone number can handle Calls. Typically set to true for all numbers.
         :type voice_enabled: bool
+        
         :param sms_enabled: Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.
         :type sms_enabled: bool
+        
         :param has_campaign: Indication of whether the phone number has a campaign associated with it
         :type has_campaign: bool
+        
         :param capabilities_voice: 
         :type capabilities_voice: bool
+        
         :param capabilities_sms: 
         :type capabilities_sms: bool
+        
         :param capabilities_toll_free: 
         :type capabilities_toll_free: bool
+        
         :param capabilities_ten_dlc: 
         :type capabilities_ten_dlc: bool
+        
         :param capabilities_short_code: 
         :type capabilities_short_code: bool
+        
         :param tfn_campaign_id: Only show incoming phone number resources that have been assigned to the provided TFNCampaign ID.
         :type tfn_campaign_id: str
+        
         :param offnet: Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource.
         :type offnet: bool
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11787,6 +12143,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_incoming_numbers_serialize(
             account_id=account_id,
@@ -11969,8 +12326,9 @@ class DefaultApi:
     @validate_call
     def list_members(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="String that uniquely identifies the Queue that the Member belongs to.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11986,11 +12344,10 @@ class DefaultApi:
     ) -> QueueMemberList:
         """List Members
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :type queue_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12012,6 +12369,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_members_serialize(
             account_id=account_id,
@@ -12039,8 +12397,9 @@ class DefaultApi:
     @validate_call
     def list_members_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="String that uniquely identifies the Queue that the Member belongs to.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12056,11 +12415,10 @@ class DefaultApi:
     ) -> ApiResponse[QueueMemberList]:
         """List Members
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :type queue_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12082,6 +12440,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_members_serialize(
             account_id=account_id,
@@ -12109,8 +12468,9 @@ class DefaultApi:
     @validate_call
     def list_members_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="String that uniquely identifies the Queue that the Member belongs to.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12126,11 +12486,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """List Members
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :type queue_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12152,6 +12511,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_members_serialize(
             account_id=account_id,
@@ -12242,10 +12602,13 @@ class DefaultApi:
     @validate_call
     def list_participants(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="ID of the conference this participant is in.")],
+        
         talk: Annotated[Optional[StrictBool], Field(description="Only show Participants with the talk privilege.")] = None,
+        
         listen: Annotated[Optional[StrictBool], Field(description="Only show Participants with the listen privilege.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12261,15 +12624,16 @@ class DefaultApi:
     ) -> ConferenceParticipantList:
         """List Participants
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: ID of the conference this participant is in. (required)
         :type conference_id: str
+        
         :param talk: Only show Participants with the talk privilege.
         :type talk: bool
+        
         :param listen: Only show Participants with the listen privilege.
         :type listen: bool
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12291,6 +12655,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_participants_serialize(
             account_id=account_id,
@@ -12320,10 +12685,13 @@ class DefaultApi:
     @validate_call
     def list_participants_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="ID of the conference this participant is in.")],
+        
         talk: Annotated[Optional[StrictBool], Field(description="Only show Participants with the talk privilege.")] = None,
+        
         listen: Annotated[Optional[StrictBool], Field(description="Only show Participants with the listen privilege.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12339,15 +12707,16 @@ class DefaultApi:
     ) -> ApiResponse[ConferenceParticipantList]:
         """List Participants
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: ID of the conference this participant is in. (required)
         :type conference_id: str
+        
         :param talk: Only show Participants with the talk privilege.
         :type talk: bool
+        
         :param listen: Only show Participants with the listen privilege.
         :type listen: bool
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12369,6 +12738,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_participants_serialize(
             account_id=account_id,
@@ -12398,10 +12768,13 @@ class DefaultApi:
     @validate_call
     def list_participants_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="ID of the conference this participant is in.")],
+        
         talk: Annotated[Optional[StrictBool], Field(description="Only show Participants with the talk privilege.")] = None,
+        
         listen: Annotated[Optional[StrictBool], Field(description="Only show Participants with the listen privilege.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12417,15 +12790,16 @@ class DefaultApi:
     ) -> RESTResponseType:
         """List Participants
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: ID of the conference this participant is in. (required)
         :type conference_id: str
+        
         :param talk: Only show Participants with the talk privilege.
         :type talk: bool
+        
         :param listen: Only show Participants with the listen privilege.
         :type listen: bool
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12447,6 +12821,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_participants_serialize(
             account_id=account_id,
@@ -12549,10 +12924,13 @@ class DefaultApi:
     @validate_call
     def list_recordings(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         call_id: Annotated[Optional[StrictStr], Field(description="Show only Recordings made during the Call with this ID.")] = None,
+        
         conference_id: Annotated[Optional[StrictStr], Field(description="Show only Recordings made during the conference with this ID.")] = None,
+        
         date_created: Annotated[Optional[StrictStr], Field(description="Only show Recordings created on this date, formatted as *YYYY-MM-DD*.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12568,15 +12946,16 @@ class DefaultApi:
     ) -> RecordingList:
         """List Recordings
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param call_id: Show only Recordings made during the Call with this ID.
         :type call_id: str
+        
         :param conference_id: Show only Recordings made during the conference with this ID.
         :type conference_id: str
+        
         :param date_created: Only show Recordings created on this date, formatted as *YYYY-MM-DD*.
         :type date_created: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12598,6 +12977,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_recordings_serialize(
             account_id=account_id,
@@ -12627,10 +13007,13 @@ class DefaultApi:
     @validate_call
     def list_recordings_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         call_id: Annotated[Optional[StrictStr], Field(description="Show only Recordings made during the Call with this ID.")] = None,
+        
         conference_id: Annotated[Optional[StrictStr], Field(description="Show only Recordings made during the conference with this ID.")] = None,
+        
         date_created: Annotated[Optional[StrictStr], Field(description="Only show Recordings created on this date, formatted as *YYYY-MM-DD*.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12646,15 +13029,16 @@ class DefaultApi:
     ) -> ApiResponse[RecordingList]:
         """List Recordings
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param call_id: Show only Recordings made during the Call with this ID.
         :type call_id: str
+        
         :param conference_id: Show only Recordings made during the conference with this ID.
         :type conference_id: str
+        
         :param date_created: Only show Recordings created on this date, formatted as *YYYY-MM-DD*.
         :type date_created: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12676,6 +13060,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_recordings_serialize(
             account_id=account_id,
@@ -12705,10 +13090,13 @@ class DefaultApi:
     @validate_call
     def list_recordings_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         call_id: Annotated[Optional[StrictStr], Field(description="Show only Recordings made during the Call with this ID.")] = None,
+        
         conference_id: Annotated[Optional[StrictStr], Field(description="Show only Recordings made during the conference with this ID.")] = None,
+        
         date_created: Annotated[Optional[StrictStr], Field(description="Only show Recordings created on this date, formatted as *YYYY-MM-DD*.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12724,15 +13112,16 @@ class DefaultApi:
     ) -> RESTResponseType:
         """List Recordings
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param call_id: Show only Recordings made during the Call with this ID.
         :type call_id: str
+        
         :param conference_id: Show only Recordings made during the conference with this ID.
         :type conference_id: str
+        
         :param date_created: Only show Recordings created on this date, formatted as *YYYY-MM-DD*.
         :type date_created: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12754,6 +13143,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_recordings_serialize(
             account_id=account_id,
@@ -12858,15 +13248,23 @@ class DefaultApi:
     @validate_call
     def list_sms_messages(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         to: Annotated[Optional[StrictStr], Field(description="Only show Messages to this phone number.")] = None,
+        
         var_from: Annotated[Optional[StrictStr], Field(description="Only show Messages from this phone number.")] = None,
+        
         begin_time: Annotated[Optional[StrictStr], Field(description="Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*.")] = None,
+        
         end_time: Annotated[Optional[StrictStr], Field(description="Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*..")] = None,
+        
         direction: Annotated[Optional[MessageDirection], Field(description="Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb.")] = None,
+        
         campaign_id: Annotated[Optional[StrictStr], Field(description="Only show messages associated with this campaign ID.")] = None,
+        
         brand_id: Annotated[Optional[StrictStr], Field(description="Only show messages associated with this brand ID")] = None,
+        
         is10_dlc: Annotated[Optional[StrictBool], Field(description="Only show messages that were sent as part of a 10DLC campaign.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12882,25 +13280,31 @@ class DefaultApi:
     ) -> MessagesList:
         """List SMS Messages
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param to: Only show Messages to this phone number.
         :type to: str
+        
         :param var_from: Only show Messages from this phone number.
         :type var_from: str
+        
         :param begin_time: Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*.
         :type begin_time: str
+        
         :param end_time: Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*..
         :type end_time: str
+        
         :param direction: Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb.
         :type direction: MessageDirection
+        
         :param campaign_id: Only show messages associated with this campaign ID.
         :type campaign_id: str
+        
         :param brand_id: Only show messages associated with this brand ID
         :type brand_id: str
+        
         :param is10_dlc: Only show messages that were sent as part of a 10DLC campaign.
         :type is10_dlc: bool
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12922,6 +13326,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_sms_messages_serialize(
             account_id=account_id,
@@ -12956,15 +13361,23 @@ class DefaultApi:
     @validate_call
     def list_sms_messages_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         to: Annotated[Optional[StrictStr], Field(description="Only show Messages to this phone number.")] = None,
+        
         var_from: Annotated[Optional[StrictStr], Field(description="Only show Messages from this phone number.")] = None,
+        
         begin_time: Annotated[Optional[StrictStr], Field(description="Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*.")] = None,
+        
         end_time: Annotated[Optional[StrictStr], Field(description="Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*..")] = None,
+        
         direction: Annotated[Optional[MessageDirection], Field(description="Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb.")] = None,
+        
         campaign_id: Annotated[Optional[StrictStr], Field(description="Only show messages associated with this campaign ID.")] = None,
+        
         brand_id: Annotated[Optional[StrictStr], Field(description="Only show messages associated with this brand ID")] = None,
+        
         is10_dlc: Annotated[Optional[StrictBool], Field(description="Only show messages that were sent as part of a 10DLC campaign.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12980,25 +13393,31 @@ class DefaultApi:
     ) -> ApiResponse[MessagesList]:
         """List SMS Messages
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param to: Only show Messages to this phone number.
         :type to: str
+        
         :param var_from: Only show Messages from this phone number.
         :type var_from: str
+        
         :param begin_time: Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*.
         :type begin_time: str
+        
         :param end_time: Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*..
         :type end_time: str
+        
         :param direction: Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb.
         :type direction: MessageDirection
+        
         :param campaign_id: Only show messages associated with this campaign ID.
         :type campaign_id: str
+        
         :param brand_id: Only show messages associated with this brand ID
         :type brand_id: str
+        
         :param is10_dlc: Only show messages that were sent as part of a 10DLC campaign.
         :type is10_dlc: bool
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13020,6 +13439,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_sms_messages_serialize(
             account_id=account_id,
@@ -13054,15 +13474,23 @@ class DefaultApi:
     @validate_call
     def list_sms_messages_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         to: Annotated[Optional[StrictStr], Field(description="Only show Messages to this phone number.")] = None,
+        
         var_from: Annotated[Optional[StrictStr], Field(description="Only show Messages from this phone number.")] = None,
+        
         begin_time: Annotated[Optional[StrictStr], Field(description="Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*.")] = None,
+        
         end_time: Annotated[Optional[StrictStr], Field(description="Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*..")] = None,
+        
         direction: Annotated[Optional[MessageDirection], Field(description="Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb.")] = None,
+        
         campaign_id: Annotated[Optional[StrictStr], Field(description="Only show messages associated with this campaign ID.")] = None,
+        
         brand_id: Annotated[Optional[StrictStr], Field(description="Only show messages associated with this brand ID")] = None,
+        
         is10_dlc: Annotated[Optional[StrictBool], Field(description="Only show messages that were sent as part of a 10DLC campaign.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13078,25 +13506,31 @@ class DefaultApi:
     ) -> RESTResponseType:
         """List SMS Messages
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param to: Only show Messages to this phone number.
         :type to: str
+        
         :param var_from: Only show Messages from this phone number.
         :type var_from: str
+        
         :param begin_time: Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*.
         :type begin_time: str
+        
         :param end_time: Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*..
         :type end_time: str
+        
         :param direction: Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb.
         :type direction: MessageDirection
+        
         :param campaign_id: Only show messages associated with this campaign ID.
         :type campaign_id: str
+        
         :param brand_id: Only show messages associated with this brand ID
         :type brand_id: str
+        
         :param is10_dlc: Only show messages that were sent as part of a 10DLC campaign.
         :type is10_dlc: bool
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13118,6 +13552,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._list_sms_messages_serialize(
             account_id=account_id,
@@ -13252,8 +13687,9 @@ class DefaultApi:
     @validate_call
     def make_a_call(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         make_call_request: Annotated[Optional[MakeCallRequest], Field(description="Call details for making a call")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13269,11 +13705,10 @@ class DefaultApi:
     ) -> CallResult:
         """Make a Call
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param make_call_request: Call details for making a call
         :type make_call_request: MakeCallRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13295,6 +13730,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._make_a_call_serialize(
             account_id=account_id,
@@ -13322,8 +13758,9 @@ class DefaultApi:
     @validate_call
     def make_a_call_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         make_call_request: Annotated[Optional[MakeCallRequest], Field(description="Call details for making a call")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13339,11 +13776,10 @@ class DefaultApi:
     ) -> ApiResponse[CallResult]:
         """Make a Call
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param make_call_request: Call details for making a call
         :type make_call_request: MakeCallRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13365,6 +13801,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._make_a_call_serialize(
             account_id=account_id,
@@ -13392,8 +13829,9 @@ class DefaultApi:
     @validate_call
     def make_a_call_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         make_call_request: Annotated[Optional[MakeCallRequest], Field(description="Call details for making a call")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13409,11 +13847,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Make a Call
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param make_call_request: Call details for making a call
         :type make_call_request: MakeCallRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13435,6 +13872,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._make_a_call_serialize(
             account_id=account_id,
@@ -13538,8 +13976,9 @@ class DefaultApi:
     @validate_call
     def make_a_webrtc_jwt(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         create_web_rtc_token: Annotated[CreateWebRTCToken, Field(description="Information needed to craft a JWT compatible with the platforms WebRTC APIs")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13555,11 +13994,10 @@ class DefaultApi:
     ) -> str:
         """Make a JWT for WebRTC calling
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param create_web_rtc_token: Information needed to craft a JWT compatible with the platforms WebRTC APIs (required)
         :type create_web_rtc_token: CreateWebRTCToken
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13581,6 +14019,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._make_a_webrtc_jwt_serialize(
             account_id=account_id,
@@ -13608,8 +14047,9 @@ class DefaultApi:
     @validate_call
     def make_a_webrtc_jwt_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         create_web_rtc_token: Annotated[CreateWebRTCToken, Field(description="Information needed to craft a JWT compatible with the platforms WebRTC APIs")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13625,11 +14065,10 @@ class DefaultApi:
     ) -> ApiResponse[str]:
         """Make a JWT for WebRTC calling
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param create_web_rtc_token: Information needed to craft a JWT compatible with the platforms WebRTC APIs (required)
         :type create_web_rtc_token: CreateWebRTCToken
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13651,6 +14090,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._make_a_webrtc_jwt_serialize(
             account_id=account_id,
@@ -13678,8 +14118,9 @@ class DefaultApi:
     @validate_call
     def make_a_webrtc_jwt_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         create_web_rtc_token: Annotated[CreateWebRTCToken, Field(description="Information needed to craft a JWT compatible with the platforms WebRTC APIs")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13695,11 +14136,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Make a JWT for WebRTC calling
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param create_web_rtc_token: Information needed to craft a JWT compatible with the platforms WebRTC APIs (required)
         :type create_web_rtc_token: CreateWebRTCToken
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13721,6 +14161,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._make_a_webrtc_jwt_serialize(
             account_id=account_id,
@@ -13824,9 +14265,11 @@ class DefaultApi:
     @validate_call
     def remove_a_participant(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="ID of the conference this participant is in.")],
+        
         call_id: Annotated[StrictStr, Field(description="ID of the Call associated with this participant.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13842,13 +14285,13 @@ class DefaultApi:
     ) -> None:
         """Remove a Participant
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: ID of the conference this participant is in. (required)
         :type conference_id: str
+        
         :param call_id: ID of the Call associated with this participant. (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13870,6 +14313,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._remove_a_participant_serialize(
             account_id=account_id,
@@ -13898,9 +14342,11 @@ class DefaultApi:
     @validate_call
     def remove_a_participant_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="ID of the conference this participant is in.")],
+        
         call_id: Annotated[StrictStr, Field(description="ID of the Call associated with this participant.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13916,13 +14362,13 @@ class DefaultApi:
     ) -> ApiResponse[None]:
         """Remove a Participant
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: ID of the conference this participant is in. (required)
         :type conference_id: str
+        
         :param call_id: ID of the Call associated with this participant. (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13944,6 +14390,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._remove_a_participant_serialize(
             account_id=account_id,
@@ -13972,9 +14419,11 @@ class DefaultApi:
     @validate_call
     def remove_a_participant_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="ID of the conference this participant is in.")],
+        
         call_id: Annotated[StrictStr, Field(description="ID of the Call associated with this participant.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13990,13 +14439,13 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Remove a Participant
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: ID of the conference this participant is in. (required)
         :type conference_id: str
+        
         :param call_id: ID of the Call associated with this participant. (required)
         :type call_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14018,6 +14467,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._remove_a_participant_serialize(
             account_id=account_id,
@@ -14105,8 +14555,9 @@ class DefaultApi:
     @validate_call
     def send_an_sms_message(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         message_request: Annotated[MessageRequest, Field(description="Details to create a message")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14122,11 +14573,10 @@ class DefaultApi:
     ) -> MessageResult:
         """Send an SMS Message
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param message_request: Details to create a message (required)
         :type message_request: MessageRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14148,6 +14598,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._send_an_sms_message_serialize(
             account_id=account_id,
@@ -14175,8 +14626,9 @@ class DefaultApi:
     @validate_call
     def send_an_sms_message_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         message_request: Annotated[MessageRequest, Field(description="Details to create a message")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14192,11 +14644,10 @@ class DefaultApi:
     ) -> ApiResponse[MessageResult]:
         """Send an SMS Message
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param message_request: Details to create a message (required)
         :type message_request: MessageRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14218,6 +14669,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._send_an_sms_message_serialize(
             account_id=account_id,
@@ -14245,8 +14697,9 @@ class DefaultApi:
     @validate_call
     def send_an_sms_message_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         message_request: Annotated[MessageRequest, Field(description="Details to create a message")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14262,11 +14715,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Send an SMS Message
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param message_request: Details to create a message (required)
         :type message_request: MessageRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14288,6 +14740,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._send_an_sms_message_serialize(
             account_id=account_id,
@@ -14391,8 +14844,9 @@ class DefaultApi:
     @validate_call
     def stream_a_recording_file(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         recording_id: Annotated[StrictStr, Field(description="String that uniquely identifies this recording resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14408,11 +14862,10 @@ class DefaultApi:
     ) -> bytearray:
         """Stream a Recording File
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param recording_id: String that uniquely identifies this recording resource. (required)
         :type recording_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14434,6 +14887,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._stream_a_recording_file_serialize(
             account_id=account_id,
@@ -14461,8 +14915,9 @@ class DefaultApi:
     @validate_call
     def stream_a_recording_file_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         recording_id: Annotated[StrictStr, Field(description="String that uniquely identifies this recording resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14478,11 +14933,10 @@ class DefaultApi:
     ) -> ApiResponse[bytearray]:
         """Stream a Recording File
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param recording_id: String that uniquely identifies this recording resource. (required)
         :type recording_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14504,6 +14958,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._stream_a_recording_file_serialize(
             account_id=account_id,
@@ -14531,8 +14986,9 @@ class DefaultApi:
     @validate_call
     def stream_a_recording_file_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         recording_id: Annotated[StrictStr, Field(description="String that uniquely identifies this recording resource.")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14548,11 +15004,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Stream a Recording File
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param recording_id: String that uniquely identifies this recording resource. (required)
         :type recording_id: str
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14574,6 +15029,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._stream_a_recording_file_serialize(
             account_id=account_id,
@@ -14664,9 +15120,11 @@ class DefaultApi:
     @validate_call
     def update_a_conference(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="String that uniquely identifies this conference resource.")],
+        
         update_conference_request: Annotated[Optional[UpdateConferenceRequest], Field(description="Conference Details to update")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14682,13 +15140,13 @@ class DefaultApi:
     ) -> None:
         """Update a Conference
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: String that uniquely identifies this conference resource. (required)
         :type conference_id: str
+        
         :param update_conference_request: Conference Details to update
         :type update_conference_request: UpdateConferenceRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14710,6 +15168,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_a_conference_serialize(
             account_id=account_id,
@@ -14738,9 +15197,11 @@ class DefaultApi:
     @validate_call
     def update_a_conference_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="String that uniquely identifies this conference resource.")],
+        
         update_conference_request: Annotated[Optional[UpdateConferenceRequest], Field(description="Conference Details to update")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14756,13 +15217,13 @@ class DefaultApi:
     ) -> ApiResponse[None]:
         """Update a Conference
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: String that uniquely identifies this conference resource. (required)
         :type conference_id: str
+        
         :param update_conference_request: Conference Details to update
         :type update_conference_request: UpdateConferenceRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14784,6 +15245,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_a_conference_serialize(
             account_id=account_id,
@@ -14812,9 +15274,11 @@ class DefaultApi:
     @validate_call
     def update_a_conference_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="String that uniquely identifies this conference resource.")],
+        
         update_conference_request: Annotated[Optional[UpdateConferenceRequest], Field(description="Conference Details to update")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14830,13 +15294,13 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Update a Conference
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: String that uniquely identifies this conference resource. (required)
         :type conference_id: str
+        
         :param update_conference_request: Conference Details to update
         :type update_conference_request: UpdateConferenceRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14858,6 +15322,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_a_conference_serialize(
             account_id=account_id,
@@ -14958,9 +15423,11 @@ class DefaultApi:
     @validate_call
     def update_a_live_call(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         call_id: Annotated[StrictStr, Field(description="String that uniquely identifies this call resource.")],
+        
         update_call_request: Annotated[UpdateCallRequest, Field(description="Call details to update")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14976,13 +15443,13 @@ class DefaultApi:
     ) -> None:
         """Update a Live Call
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param call_id: String that uniquely identifies this call resource. (required)
         :type call_id: str
+        
         :param update_call_request: Call details to update (required)
         :type update_call_request: UpdateCallRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15004,6 +15471,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_a_live_call_serialize(
             account_id=account_id,
@@ -15032,9 +15500,11 @@ class DefaultApi:
     @validate_call
     def update_a_live_call_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         call_id: Annotated[StrictStr, Field(description="String that uniquely identifies this call resource.")],
+        
         update_call_request: Annotated[UpdateCallRequest, Field(description="Call details to update")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15050,13 +15520,13 @@ class DefaultApi:
     ) -> ApiResponse[None]:
         """Update a Live Call
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param call_id: String that uniquely identifies this call resource. (required)
         :type call_id: str
+        
         :param update_call_request: Call details to update (required)
         :type update_call_request: UpdateCallRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15078,6 +15548,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_a_live_call_serialize(
             account_id=account_id,
@@ -15106,9 +15577,11 @@ class DefaultApi:
     @validate_call
     def update_a_live_call_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         call_id: Annotated[StrictStr, Field(description="String that uniquely identifies this call resource.")],
+        
         update_call_request: Annotated[UpdateCallRequest, Field(description="Call details to update")],
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15124,13 +15597,13 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Update a Live Call
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param call_id: String that uniquely identifies this call resource. (required)
         :type call_id: str
+        
         :param update_call_request: Call details to update (required)
         :type update_call_request: UpdateCallRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15152,6 +15625,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_a_live_call_serialize(
             account_id=account_id,
@@ -15252,10 +15726,13 @@ class DefaultApi:
     @validate_call
     def update_a_participant(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="ID of the conference this participant is in.")],
+        
         call_id: Annotated[StrictStr, Field(description="ID of the Call associated with this participant.")],
+        
         update_conference_participant_request: Annotated[Optional[UpdateConferenceParticipantRequest], Field(description="Conference participant details to update")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15271,15 +15748,16 @@ class DefaultApi:
     ) -> ConferenceParticipantResult:
         """Update a Participant
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: ID of the conference this participant is in. (required)
         :type conference_id: str
+        
         :param call_id: ID of the Call associated with this participant. (required)
         :type call_id: str
+        
         :param update_conference_participant_request: Conference participant details to update
         :type update_conference_participant_request: UpdateConferenceParticipantRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15301,6 +15779,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_a_participant_serialize(
             account_id=account_id,
@@ -15330,10 +15809,13 @@ class DefaultApi:
     @validate_call
     def update_a_participant_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="ID of the conference this participant is in.")],
+        
         call_id: Annotated[StrictStr, Field(description="ID of the Call associated with this participant.")],
+        
         update_conference_participant_request: Annotated[Optional[UpdateConferenceParticipantRequest], Field(description="Conference participant details to update")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15349,15 +15831,16 @@ class DefaultApi:
     ) -> ApiResponse[ConferenceParticipantResult]:
         """Update a Participant
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: ID of the conference this participant is in. (required)
         :type conference_id: str
+        
         :param call_id: ID of the Call associated with this participant. (required)
         :type call_id: str
+        
         :param update_conference_participant_request: Conference participant details to update
         :type update_conference_participant_request: UpdateConferenceParticipantRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15379,6 +15862,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_a_participant_serialize(
             account_id=account_id,
@@ -15408,10 +15892,13 @@ class DefaultApi:
     @validate_call
     def update_a_participant_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         conference_id: Annotated[StrictStr, Field(description="ID of the conference this participant is in.")],
+        
         call_id: Annotated[StrictStr, Field(description="ID of the Call associated with this participant.")],
+        
         update_conference_participant_request: Annotated[Optional[UpdateConferenceParticipantRequest], Field(description="Conference participant details to update")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15427,15 +15914,16 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Update a Participant
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param conference_id: ID of the conference this participant is in. (required)
         :type conference_id: str
+        
         :param call_id: ID of the Call associated with this participant. (required)
         :type call_id: str
+        
         :param update_conference_participant_request: Conference participant details to update
         :type update_conference_participant_request: UpdateConferenceParticipantRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15457,6 +15945,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_a_participant_serialize(
             account_id=account_id,
@@ -15568,9 +16057,11 @@ class DefaultApi:
     @validate_call
     def update_a_queue(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="A string that uniquely identifies this Queue resource.")],
+        
         queue_request: Annotated[Optional[QueueRequest], Field(description="Queue Details to update")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15586,13 +16077,13 @@ class DefaultApi:
     ) -> QueueResult:
         """Update a Queue
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: A string that uniquely identifies this Queue resource. (required)
         :type queue_id: str
+        
         :param queue_request: Queue Details to update
         :type queue_request: QueueRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15614,6 +16105,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_a_queue_serialize(
             account_id=account_id,
@@ -15642,9 +16134,11 @@ class DefaultApi:
     @validate_call
     def update_a_queue_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="A string that uniquely identifies this Queue resource.")],
+        
         queue_request: Annotated[Optional[QueueRequest], Field(description="Queue Details to update")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15660,13 +16154,13 @@ class DefaultApi:
     ) -> ApiResponse[QueueResult]:
         """Update a Queue
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: A string that uniquely identifies this Queue resource. (required)
         :type queue_id: str
+        
         :param queue_request: Queue Details to update
         :type queue_request: QueueRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15688,6 +16182,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_a_queue_serialize(
             account_id=account_id,
@@ -15716,9 +16211,11 @@ class DefaultApi:
     @validate_call
     def update_a_queue_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         queue_id: Annotated[StrictStr, Field(description="A string that uniquely identifies this Queue resource.")],
+        
         queue_request: Annotated[Optional[QueueRequest], Field(description="Queue Details to update")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15734,13 +16231,13 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Update a Queue
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param queue_id: A string that uniquely identifies this Queue resource. (required)
         :type queue_id: str
+        
         :param queue_request: Queue Details to update
         :type queue_request: QueueRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15762,6 +16259,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_a_queue_serialize(
             account_id=account_id,
@@ -15869,8 +16367,9 @@ class DefaultApi:
     @validate_call
     def update_an_account(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         account_request: Annotated[Optional[AccountRequest], Field(description="Account details to update")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15886,11 +16385,10 @@ class DefaultApi:
     ) -> None:
         """Manage an account
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param account_request: Account details to update
         :type account_request: AccountRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15912,6 +16410,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_an_account_serialize(
             account_id=account_id,
@@ -15939,8 +16438,9 @@ class DefaultApi:
     @validate_call
     def update_an_account_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         account_request: Annotated[Optional[AccountRequest], Field(description="Account details to update")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15956,11 +16456,10 @@ class DefaultApi:
     ) -> ApiResponse[None]:
         """Manage an account
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param account_request: Account details to update
         :type account_request: AccountRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15982,6 +16481,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_an_account_serialize(
             account_id=account_id,
@@ -16009,8 +16509,9 @@ class DefaultApi:
     @validate_call
     def update_an_account_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         account_request: Annotated[Optional[AccountRequest], Field(description="Account details to update")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16026,11 +16527,10 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Manage an account
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param account_request: Account details to update
         :type account_request: AccountRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16052,6 +16552,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_an_account_serialize(
             account_id=account_id,
@@ -16148,9 +16649,11 @@ class DefaultApi:
     @validate_call
     def update_an_application(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         application_id: Annotated[StrictStr, Field(description="A string that uniquely identifies this application resource.")],
+        
         application_request: Annotated[Optional[ApplicationRequest], Field(description="Application details to update.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16166,13 +16669,13 @@ class DefaultApi:
     ) -> ApplicationResult:
         """Update an application
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param application_id: A string that uniquely identifies this application resource. (required)
         :type application_id: str
+        
         :param application_request: Application details to update.
         :type application_request: ApplicationRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16194,6 +16697,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_an_application_serialize(
             account_id=account_id,
@@ -16222,9 +16726,11 @@ class DefaultApi:
     @validate_call
     def update_an_application_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         application_id: Annotated[StrictStr, Field(description="A string that uniquely identifies this application resource.")],
+        
         application_request: Annotated[Optional[ApplicationRequest], Field(description="Application details to update.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16240,13 +16746,13 @@ class DefaultApi:
     ) -> ApiResponse[ApplicationResult]:
         """Update an application
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param application_id: A string that uniquely identifies this application resource. (required)
         :type application_id: str
+        
         :param application_request: Application details to update.
         :type application_request: ApplicationRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16268,6 +16774,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_an_application_serialize(
             account_id=account_id,
@@ -16296,9 +16803,11 @@ class DefaultApi:
     @validate_call
     def update_an_application_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         application_id: Annotated[StrictStr, Field(description="A string that uniquely identifies this application resource.")],
+        
         application_request: Annotated[Optional[ApplicationRequest], Field(description="Application details to update.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16314,13 +16823,13 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Update an application
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param application_id: A string that uniquely identifies this application resource. (required)
         :type application_id: str
+        
         :param application_request: Application details to update.
         :type application_request: ApplicationRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16342,6 +16851,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_an_application_serialize(
             account_id=account_id,
@@ -16449,9 +16959,11 @@ class DefaultApi:
     @validate_call
     def update_an_incoming_number(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         phone_number_id: Annotated[StrictStr, Field(description="String that uniquely identifies this phone number resource.")],
+        
         incoming_number_request: Annotated[Optional[IncomingNumberRequest], Field(description="Incoming Number details to update")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16467,13 +16979,13 @@ class DefaultApi:
     ) -> IncomingNumberResult:
         """Update an Incoming Number
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param phone_number_id: String that uniquely identifies this phone number resource. (required)
         :type phone_number_id: str
+        
         :param incoming_number_request: Incoming Number details to update
         :type incoming_number_request: IncomingNumberRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16495,6 +17007,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_an_incoming_number_serialize(
             account_id=account_id,
@@ -16523,9 +17036,11 @@ class DefaultApi:
     @validate_call
     def update_an_incoming_number_with_http_info(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         phone_number_id: Annotated[StrictStr, Field(description="String that uniquely identifies this phone number resource.")],
+        
         incoming_number_request: Annotated[Optional[IncomingNumberRequest], Field(description="Incoming Number details to update")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16541,13 +17056,13 @@ class DefaultApi:
     ) -> ApiResponse[IncomingNumberResult]:
         """Update an Incoming Number
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param phone_number_id: String that uniquely identifies this phone number resource. (required)
         :type phone_number_id: str
+        
         :param incoming_number_request: Incoming Number details to update
         :type incoming_number_request: IncomingNumberRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16569,6 +17084,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_an_incoming_number_serialize(
             account_id=account_id,
@@ -16597,9 +17113,11 @@ class DefaultApi:
     @validate_call
     def update_an_incoming_number_without_preload_content(
         self,
-        account_id: Annotated[StrictStr, Field(description="ID of the account")],
+        
         phone_number_id: Annotated[StrictStr, Field(description="String that uniquely identifies this phone number resource.")],
+        
         incoming_number_request: Annotated[Optional[IncomingNumberRequest], Field(description="Incoming Number details to update")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16615,13 +17133,13 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Update an Incoming Number
 
-
-        :param account_id: ID of the account (required)
-        :type account_id: str
+        
         :param phone_number_id: String that uniquely identifies this phone number resource. (required)
         :type phone_number_id: str
+        
         :param incoming_number_request: Incoming Number details to update
         :type incoming_number_request: IncomingNumberRequest
+        
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16643,6 +17161,7 @@ class DefaultApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        account_id = self.account_id
 
         _param = self._update_an_incoming_number_serialize(
             account_id=account_id,

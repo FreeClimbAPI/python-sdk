@@ -92,8 +92,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -172,8 +172,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -252,8 +252,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -332,8 +332,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -412,8 +412,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -492,8 +492,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -568,8 +568,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -644,8 +644,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -721,8 +721,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -802,8 +802,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -880,8 +880,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -960,8 +960,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -1039,8 +1039,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -1118,8 +1118,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -1197,8 +1197,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -1278,8 +1278,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -1359,8 +1359,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -1438,8 +1438,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -1517,8 +1517,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -1594,8 +1594,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -1673,8 +1673,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -1752,8 +1752,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -1831,8 +1831,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -1910,8 +1910,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -1989,8 +1989,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -2066,8 +2066,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -2145,8 +2145,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -2224,8 +2224,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -2303,8 +2303,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -2382,8 +2382,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -2461,8 +2461,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -2538,8 +2538,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -2617,8 +2617,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -2694,8 +2694,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -2773,8 +2773,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -2868,8 +2868,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -2947,8 +2947,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -3029,8 +3029,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -3122,8 +3122,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -3205,8 +3205,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -3290,8 +3290,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -3399,8 +3399,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -3478,8 +3478,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -3561,8 +3561,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -3645,8 +3645,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -3739,8 +3739,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -3818,8 +3818,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -3896,8 +3896,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -3976,8 +3976,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -4054,8 +4054,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -4133,8 +4133,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -4212,8 +4212,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -4292,8 +4292,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -4376,8 +4376,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -4457,8 +4457,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -4535,8 +4535,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client
@@ -4617,8 +4617,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 # Enter a context with an instance of the API client

@@ -69,8 +69,8 @@ configuration = freeclimb.Configuration(
 
 # Configure HTTP basic authorization: fc
 configuration = freeclimb.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
 )
 
 
@@ -78,12 +78,13 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    
     buy_incoming_number_request = freeclimb.BuyIncomingNumberRequest() # BuyIncomingNumberRequest | Incoming Number transaction details
+        
 
     try:
         # Buy a Phone Number
-        api_response = api_instance.buy_a_phone_number(account_id, buy_incoming_number_request)
+        api_response = api_instance.buy_a_phone_number(buy_incoming_number_request)
         print("The response of DefaultApi->buy_a_phone_number:\n")
         pprint(api_response)
     except ApiException as e:
