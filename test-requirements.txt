@@ -3,7 +3,6 @@ pytest-cov>=2.8.1
 pytest-randomly==1.2.3 # needed for python 2.7+3.4
 jaraco.path==3.7.1
 path==17.0.0
-test==0.0.0
 jaraco.envs>=2.6.0
 filelock>=3.16.0
 ini2toml>=0.15
