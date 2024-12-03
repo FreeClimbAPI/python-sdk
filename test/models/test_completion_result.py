@@ -14,42 +14,33 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.completion_result import CompletionResult
 
 class TestCompletionResult(unittest.TestCase):
     """CompletionResult unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> CompletionResult:
-        """Test CompletionResult
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `CompletionResult`
-        """
-        model = CompletionResult()
-        if include_optional:
-            return CompletionResult(
-                response = '',
-                status = 'success'
-            )
-        else:
-            return CompletionResult(
-                response = '',
-                status = 'success',
+        self.model = CompletionResult(
+            response="",
+            status= CompletionResultStatus.SUCCESS,
         )
-        """
 
-    def testCompletionResult(self):
-        """Test CompletionResult"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_response(self):
+        """Test CompletionResult.response"""
+        self.model.response = "TEST_STRING"
+        assert self.model.response == "TEST_STRING"
+    def test_status(self):
+        """Test CompletionResult.status"""
+        self.model.status = CompletionResultStatus.SUCCESS
+        assert self.model.status == CompletionResultStatus.SUCCESS
+        self.model.status = CompletionResultStatus.NO_CONTEXT
+        assert self.model.status == CompletionResultStatus.NO_CONTEXT
+
+
 
 if __name__ == '__main__':
     unittest.main()

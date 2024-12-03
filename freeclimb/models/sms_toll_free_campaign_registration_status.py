@@ -27,11 +27,17 @@ class SMSTollFreeCampaignRegistrationStatus(str, Enum):
     """
     allowed enum values
     """
+    
     UNREGISTERED = 'UNREGISTERED'
+    
     INITIATED = 'INITIATED'
+    
     PENDING = 'PENDING'
+    
     DECLINED = 'DECLINED'
+    
     REGISTERED = 'REGISTERED'
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

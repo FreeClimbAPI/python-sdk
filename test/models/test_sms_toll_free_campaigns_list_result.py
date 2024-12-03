@@ -14,55 +14,54 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.sms_toll_free_campaigns_list_result import SMSTollFreeCampaignsListResult
 
 class TestSMSTollFreeCampaignsListResult(unittest.TestCase):
     """SMSTollFreeCampaignsListResult unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> SMSTollFreeCampaignsListResult:
-        """Test SMSTollFreeCampaignsListResult
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `SMSTollFreeCampaignsListResult`
-        """
-        model = SMSTollFreeCampaignsListResult()
-        if include_optional:
-            return SMSTollFreeCampaignsListResult(
-                total = 56,
-                start = 56,
-                end = 56,
-                page = 56,
-                num_pages = 56,
-                page_size = 56,
-                next_page_uri = '',
-                brands = [
-                    freeclimb.models.sms_toll_free_campaign.SMSTollFreeCampaign(
-                        account_id = '', 
-                        campaign_id = '', 
-                        use_case = '', 
-                        registration_status = 'UNREGISTERED', 
-                        date_created = '', 
-                        date_updated = '', 
-                        revision = 56, )
-                    ]
-            )
-        else:
-            return SMSTollFreeCampaignsListResult(
+        self.model = SMSTollFreeCampaignsListResult(
         )
-        """
 
-    def testSMSTollFreeCampaignsListResult(self):
-        """Test SMSTollFreeCampaignsListResult"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_total(self):
+        """Test SMSTollFreeCampaignsListResult.total"""
+        self.model.total = 1
+        assert self.model.total == 1
+    def test_start(self):
+        """Test SMSTollFreeCampaignsListResult.start"""
+        self.model.start = 1
+        assert self.model.start == 1
+    def test_end(self):
+        """Test SMSTollFreeCampaignsListResult.end"""
+        self.model.end = 1
+        assert self.model.end == 1
+    def test_page(self):
+        """Test SMSTollFreeCampaignsListResult.page"""
+        self.model.page = 1
+        assert self.model.page == 1
+    def test_num_pages(self):
+        """Test SMSTollFreeCampaignsListResult.num_pages"""
+        self.model.num_pages = 1
+        assert self.model.num_pages == 1
+    def test_page_size(self):
+        """Test SMSTollFreeCampaignsListResult.page_size"""
+        self.model.page_size = 1
+        assert self.model.page_size == 1
+    def test_next_page_uri(self):
+        """Test SMSTollFreeCampaignsListResult.next_page_uri"""
+        self.model.next_page_uri = "TEST_STRING"
+        assert self.model.next_page_uri == "TEST_STRING"
+    def test_brands(self):
+        """Test SMSTollFreeCampaignsListResult.brands"""
+        testList = []
+        self.model.brands = testList
+        assert self.model.brands == testList
+
+
 
 if __name__ == '__main__':
     unittest.main()

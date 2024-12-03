@@ -14,46 +14,50 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.record_utterance import RecordUtterance
 
 class TestRecordUtterance(unittest.TestCase):
     """RecordUtterance unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> RecordUtterance:
-        """Test RecordUtterance
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `RecordUtterance`
-        """
-        model = RecordUtterance()
-        if include_optional:
-            return RecordUtterance(
-                action_url = '',
-                silence_timeout_ms = 56,
-                finish_on_key = '',
-                max_length_sec = 56,
-                play_beep = True,
-                auto_start = True,
-                privacy_mode = True
-            )
-        else:
-            return RecordUtterance(
-                action_url = '',
+        self.model = RecordUtterance(
+            action_url="",
         )
-        """
 
-    def testRecordUtterance(self):
-        """Test RecordUtterance"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_action_url(self):
+        """Test RecordUtterance.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.action_url == "TEST_STRING"
+    def test_silence_timeout_ms(self):
+        """Test RecordUtterance.silence_timeout_ms"""
+        self.model.silence_timeout_ms = 1
+        assert self.model.silence_timeout_ms == 1
+    def test_finish_on_key(self):
+        """Test RecordUtterance.finish_on_key"""
+        self.model.finish_on_key = "TEST_STRING"
+        assert self.model.finish_on_key == "TEST_STRING"
+    def test_max_length_sec(self):
+        """Test RecordUtterance.max_length_sec"""
+        self.model.max_length_sec = 1
+        assert self.model.max_length_sec == 1
+    def test_play_beep(self):
+        """Test RecordUtterance.play_beep"""
+        self.model.play_beep = False
+        assert self.model.play_beep == False
+    def test_auto_start(self):
+        """Test RecordUtterance.auto_start"""
+        self.model.auto_start = False
+        assert self.model.auto_start == False
+    def test_privacy_mode(self):
+        """Test RecordUtterance.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.privacy_mode == False
+
+
 
 if __name__ == '__main__':
     unittest.main()

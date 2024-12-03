@@ -21,29 +21,23 @@ import json
 from pydantic import ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Play(PerclCommand):
+class Play(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `Play` command plays an audio file back to the caller. The audio file may be located at any location accessible via a URL. `Play` can exist as a stand-alone command or as a nested command. It does not allow barge-in unless nested within a `GetSpeech` command. The file will always be played to completion unless nested.
     """ # noqa: E501
-        
     file: StrictStr = Field(description="RL of the audio file to be played to the caller. The URL can be the `recordingUrl` generated from the `RecordUtterance` or `StartRecordCall` PerCL commands. ")
-
-        
     loop: Optional[StrictInt] = Field(default=None, description="Number of times the audio file is played. Specifying '0' causes the Play action to loop until the Call is hung up.")
-
-        
     privacy_mode: Optional[StrictBool] = Field(default=None, description="Parameter `privacyMode` will not log the `text` as required by PCI compliance.", alias="privacyMode")
+    command: StrictStr = "Play"
 
     __properties: ClassVar[List[str]] = ["command", "file", "loop", "privacyMode"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

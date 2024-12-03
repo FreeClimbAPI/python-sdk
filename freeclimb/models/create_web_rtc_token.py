@@ -21,29 +21,22 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CreateWebRTCToken(BaseModel):
+class CreateWebRTCToken(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     CreateWebRTCToken
     """ # noqa: E501
-        
     to: StrictStr = Field(description="E.164 formatted phone number to which calls using this token will be made.")
-
-        
     var_from: StrictStr = Field(description="E.164 formatted phone number owned by the reqeusting account from which calls using this token will be made.", alias="from")
-
-        
     uses: Annotated[int, Field(strict=True, ge=1)] = Field(description="number of times this token may be used for a WebRTC call")
 
     __properties: ClassVar[List[str]] = ["to", "from", "uses"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

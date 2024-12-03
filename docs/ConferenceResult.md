@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **conference_id** | **str** | A string that uniquely identifies this Conference resource. | [optional] 
 **account_id** | **str** | ID of the account that created this Conference. | [optional] 
 **alias** | **str** | A description for this Conference. | [optional] 
-**play_beep** | [**PlayBeep**](PlayBeep.md) |  | [optional] [default to PlayBeep.NUMBER_ALWAYS]
+**play_beep** | [**PlayBeep**](PlayBeep.md) |  | [optional] 
 **record** | **bool** | Flag indicating whether recording is enabled for this Conference. | [optional] 
 **status** | [**ConferenceStatus**](ConferenceStatus.md) |  | [optional] 
 **wait_url** | **str** | URL referencing the audio file to be used as default wait music for the Conference when it is in the populated state. | [optional] 

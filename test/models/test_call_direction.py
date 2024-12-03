@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.call_direction import CallDirection
 
 class TestCallDirection(unittest.TestCase):
     """CallDirection unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testCallDirection(self):
-        """Test CallDirection"""
-        # inst = CallDirection()
+
 
 if __name__ == '__main__':
     unittest.main()

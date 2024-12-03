@@ -27,9 +27,13 @@ class AccountStatus(str, Enum):
     """
     allowed enum values
     """
+    
     CLOSED = 'closed'
+    
     SUSPENDED = 'suspended'
+    
     ACTIVE = 'active'
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

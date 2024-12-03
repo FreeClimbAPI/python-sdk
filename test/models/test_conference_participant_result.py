@@ -14,48 +14,61 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.conference_participant_result import ConferenceParticipantResult
 
 class TestConferenceParticipantResult(unittest.TestCase):
     """ConferenceParticipantResult unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> ConferenceParticipantResult:
-        """Test ConferenceParticipantResult
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `ConferenceParticipantResult`
-        """
-        model = ConferenceParticipantResult()
-        if include_optional:
-            return ConferenceParticipantResult(
-                uri = '',
-                date_created = '',
-                date_updated = '',
-                revision = 56,
-                account_id = '',
-                conference_id = '',
-                call_id = '',
-                talk = True,
-                listen = True,
-                start_conf_on_enter = True
-            )
-        else:
-            return ConferenceParticipantResult(
+        self.model = ConferenceParticipantResult(
         )
-        """
 
-    def testConferenceParticipantResult(self):
-        """Test ConferenceParticipantResult"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_uri(self):
+        """Test ConferenceParticipantResult.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.uri == "TEST_STRING"
+    def test_date_created(self):
+        """Test ConferenceParticipantResult.date_created"""
+        self.model.date_created = "TEST_STRING"
+        assert self.model.date_created == "TEST_STRING"
+    def test_date_updated(self):
+        """Test ConferenceParticipantResult.date_updated"""
+        self.model.date_updated = "TEST_STRING"
+        assert self.model.date_updated == "TEST_STRING"
+    def test_revision(self):
+        """Test ConferenceParticipantResult.revision"""
+        self.model.revision = 1
+        assert self.model.revision == 1
+    def test_account_id(self):
+        """Test ConferenceParticipantResult.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_conference_id(self):
+        """Test ConferenceParticipantResult.conference_id"""
+        self.model.conference_id = "TEST_STRING"
+        assert self.model.conference_id == "TEST_STRING"
+    def test_call_id(self):
+        """Test ConferenceParticipantResult.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.call_id == "TEST_STRING"
+    def test_talk(self):
+        """Test ConferenceParticipantResult.talk"""
+        self.model.talk = False
+        assert self.model.talk == False
+    def test_listen(self):
+        """Test ConferenceParticipantResult.listen"""
+        self.model.listen = False
+        assert self.model.listen == False
+    def test_start_conf_on_enter(self):
+        """Test ConferenceParticipantResult.start_conf_on_enter"""
+        self.model.start_conf_on_enter = False
+        assert self.model.start_conf_on_enter == False
+
+
 
 if __name__ == '__main__':
     unittest.main()

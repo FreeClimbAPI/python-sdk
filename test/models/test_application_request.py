@@ -14,45 +14,49 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.application_request import ApplicationRequest
 
 class TestApplicationRequest(unittest.TestCase):
     """ApplicationRequest unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> ApplicationRequest:
-        """Test ApplicationRequest
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `ApplicationRequest`
-        """
-        model = ApplicationRequest()
-        if include_optional:
-            return ApplicationRequest(
-                alias = '',
-                voice_url = '',
-                voice_fallback_url = '',
-                call_connect_url = '',
-                status_callback_url = '',
-                sms_url = '',
-                sms_fallback_url = ''
-            )
-        else:
-            return ApplicationRequest(
+        self.model = ApplicationRequest(
         )
-        """
 
-    def testApplicationRequest(self):
-        """Test ApplicationRequest"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_alias(self):
+        """Test ApplicationRequest.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.alias == "TEST_STRING"
+    def test_voice_url(self):
+        """Test ApplicationRequest.voice_url"""
+        self.model.voice_url = "TEST_STRING"
+        assert self.model.voice_url == "TEST_STRING"
+    def test_voice_fallback_url(self):
+        """Test ApplicationRequest.voice_fallback_url"""
+        self.model.voice_fallback_url = "TEST_STRING"
+        assert self.model.voice_fallback_url == "TEST_STRING"
+    def test_call_connect_url(self):
+        """Test ApplicationRequest.call_connect_url"""
+        self.model.call_connect_url = "TEST_STRING"
+        assert self.model.call_connect_url == "TEST_STRING"
+    def test_status_callback_url(self):
+        """Test ApplicationRequest.status_callback_url"""
+        self.model.status_callback_url = "TEST_STRING"
+        assert self.model.status_callback_url == "TEST_STRING"
+    def test_sms_url(self):
+        """Test ApplicationRequest.sms_url"""
+        self.model.sms_url = "TEST_STRING"
+        assert self.model.sms_url == "TEST_STRING"
+    def test_sms_fallback_url(self):
+        """Test ApplicationRequest.sms_fallback_url"""
+        self.model.sms_fallback_url = "TEST_STRING"
+        assert self.model.sms_fallback_url == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

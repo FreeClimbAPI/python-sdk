@@ -20,47 +20,28 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class MessageRequest(BaseModel):
+class MessageRequest(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     MessageRequest
     """ # noqa: E501
-        
     uri: Optional[StrictStr] = Field(default=None, description="The URI for this resource, relative to /apiserver.")
-
-        
     date_created: Optional[StrictStr] = Field(default=None, description="The date that this resource was created (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT).", alias="dateCreated")
-
-        
     date_updated: Optional[StrictStr] = Field(default=None, description="The date that this resource was last updated (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT).", alias="dateUpdated")
-
-        
     revision: Optional[StrictInt] = Field(default=None, description="Revision count for the resource. This count is set to 1 on creation and is incremented every time it is updated.")
-
-        
     var_from: StrictStr = Field(description="Phone number to use as the sender. This must be an incoming phone number that you have purchased from FreeClimb.", alias="from")
-
-        
     to: StrictStr = Field(description="Phone number to receive the message. Must be within FreeClimb's service area.")
-
-        
     text: StrictStr = Field(description="Text contained in the message (maximum 160 characters).   **Note:** For text, only ASCII characters are supported.")
-
-        
     notification_url: Optional[StrictStr] = Field(default=None, description="When the Message changes status, this URL is invoked using HTTP POST with the messageStatus parameters.  **Note:** This is a notification only; any PerCL returned is ignored.", alias="notificationUrl")
-
-        
     media_urls: Optional[List[StrictStr]] = Field(default=None, description="an array of HTTP URLs which are to be used as attachments to the message. This will force the message into being an MMS message and must be done using a from number which is MMS capabile.", alias="mediaUrls")
 
     __properties: ClassVar[List[str]] = ["uri", "dateCreated", "dateUpdated", "revision", "from", "to", "text", "notificationUrl", "mediaUrls"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

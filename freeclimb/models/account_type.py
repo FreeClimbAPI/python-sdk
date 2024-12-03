@@ -27,8 +27,11 @@ class AccountType(str, Enum):
     """
     allowed enum values
     """
+    
     TRIAL = 'trial'
+    
     FULL = 'full'
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -14,50 +14,51 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.transcribe_utterance import TranscribeUtterance
 
 class TestTranscribeUtterance(unittest.TestCase):
     """TranscribeUtterance unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = TranscribeUtterance(
+            action_url="",
+        )
 
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> TranscribeUtterance:
-        """Test TranscribeUtterance
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `TranscribeUtterance`
-        """
-        model = TranscribeUtterance()
-        if include_optional:
-            return TranscribeUtterance(
-                action_url = '',
-                play_beep = True,
-                record = freeclimb.models.transcribe_utterance_all_of_record.TranscribeUtterance_allOf_record(
+    def test_action_url(self):
+        """Test TranscribeUtterance.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.action_url == "TEST_STRING"
+    def test_play_beep(self):
+        """Test TranscribeUtterance.play_beep"""
+        self.model.play_beep = False
+        assert self.model.play_beep == False
+    def test_record(self):
+        """Test TranscribeUtterance.record"""
+        object = freeclimb.models.transcribe_utterance_record.TranscribeUtteranceRecord(
                     save_recording = True, 
                     max_length_sec = 1, 
-                    rcrd_termination_silence_time_ms = 0, ),
-                privacy_for_logging = True,
-                privacy_for_recording = True,
-                prompts = [
-                    null
-                    ]
-            )
-        else:
-            return TranscribeUtterance(
-                action_url = '',
-        )
-        """
+                    rcrd_termination_silence_time_ms = 1, )
+        self.model.record = object
+        assert self.model.record == object
+    def test_privacy_for_logging(self):
+        """Test TranscribeUtterance.privacy_for_logging"""
+        self.model.privacy_for_logging = False
+        assert self.model.privacy_for_logging == False
+    def test_privacy_for_recording(self):
+        """Test TranscribeUtterance.privacy_for_recording"""
+        self.model.privacy_for_recording = False
+        assert self.model.privacy_for_recording == False
+    def test_prompts(self):
+        """Test TranscribeUtterance.prompts"""
+        testList = []
+        self.model.prompts = testList
+        assert self.model.prompts == testList
 
-    def testTranscribeUtterance(self):
-        """Test TranscribeUtterance"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+
 
 if __name__ == '__main__':
     unittest.main()

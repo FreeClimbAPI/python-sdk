@@ -14,42 +14,34 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.buy_incoming_number_request import BuyIncomingNumberRequest
 
 class TestBuyIncomingNumberRequest(unittest.TestCase):
     """BuyIncomingNumberRequest unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> BuyIncomingNumberRequest:
-        """Test BuyIncomingNumberRequest
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `BuyIncomingNumberRequest`
-        """
-        model = BuyIncomingNumberRequest()
-        if include_optional:
-            return BuyIncomingNumberRequest(
-                phone_number = '',
-                alias = '',
-                application_id = ''
-            )
-        else:
-            return BuyIncomingNumberRequest(
-                phone_number = '',
+        self.model = BuyIncomingNumberRequest(
+            phone_number="",
         )
-        """
 
-    def testBuyIncomingNumberRequest(self):
-        """Test BuyIncomingNumberRequest"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_phone_number(self):
+        """Test BuyIncomingNumberRequest.phone_number"""
+        self.model.phone_number = "TEST_STRING"
+        assert self.model.phone_number == "TEST_STRING"
+    def test_alias(self):
+        """Test BuyIncomingNumberRequest.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.alias == "TEST_STRING"
+    def test_application_id(self):
+        """Test BuyIncomingNumberRequest.application_id"""
+        self.model.application_id = "TEST_STRING"
+        assert self.model.application_id == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

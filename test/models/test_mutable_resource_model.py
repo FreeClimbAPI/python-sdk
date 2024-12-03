@@ -14,42 +14,37 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.mutable_resource_model import MutableResourceModel
 
 class TestMutableResourceModel(unittest.TestCase):
     """MutableResourceModel unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> MutableResourceModel:
-        """Test MutableResourceModel
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `MutableResourceModel`
-        """
-        model = MutableResourceModel()
-        if include_optional:
-            return MutableResourceModel(
-                uri = '',
-                date_created = '',
-                date_updated = '',
-                revision = 56
-            )
-        else:
-            return MutableResourceModel(
+        self.model = MutableResourceModel(
         )
-        """
 
-    def testMutableResourceModel(self):
-        """Test MutableResourceModel"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_uri(self):
+        """Test MutableResourceModel.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.uri == "TEST_STRING"
+    def test_date_created(self):
+        """Test MutableResourceModel.date_created"""
+        self.model.date_created = "TEST_STRING"
+        assert self.model.date_created == "TEST_STRING"
+    def test_date_updated(self):
+        """Test MutableResourceModel.date_updated"""
+        self.model.date_updated = "TEST_STRING"
+        assert self.model.date_updated == "TEST_STRING"
+    def test_revision(self):
+        """Test MutableResourceModel.revision"""
+        self.model.revision = 1
+        assert self.model.revision == 1
+
+
 
 if __name__ == '__main__':
     unittest.main()

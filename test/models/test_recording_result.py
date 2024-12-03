@@ -14,47 +14,57 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.recording_result import RecordingResult
 
 class TestRecordingResult(unittest.TestCase):
     """RecordingResult unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> RecordingResult:
-        """Test RecordingResult
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `RecordingResult`
-        """
-        model = RecordingResult()
-        if include_optional:
-            return RecordingResult(
-                uri = '',
-                date_created = '',
-                date_updated = '',
-                revision = 56,
-                recording_id = '',
-                account_id = '',
-                call_id = '',
-                duration_sec = 56,
-                conference_id = ''
-            )
-        else:
-            return RecordingResult(
+        self.model = RecordingResult(
         )
-        """
 
-    def testRecordingResult(self):
-        """Test RecordingResult"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_uri(self):
+        """Test RecordingResult.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.uri == "TEST_STRING"
+    def test_date_created(self):
+        """Test RecordingResult.date_created"""
+        self.model.date_created = "TEST_STRING"
+        assert self.model.date_created == "TEST_STRING"
+    def test_date_updated(self):
+        """Test RecordingResult.date_updated"""
+        self.model.date_updated = "TEST_STRING"
+        assert self.model.date_updated == "TEST_STRING"
+    def test_revision(self):
+        """Test RecordingResult.revision"""
+        self.model.revision = 1
+        assert self.model.revision == 1
+    def test_recording_id(self):
+        """Test RecordingResult.recording_id"""
+        self.model.recording_id = "TEST_STRING"
+        assert self.model.recording_id == "TEST_STRING"
+    def test_account_id(self):
+        """Test RecordingResult.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_call_id(self):
+        """Test RecordingResult.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.call_id == "TEST_STRING"
+    def test_duration_sec(self):
+        """Test RecordingResult.duration_sec"""
+        self.model.duration_sec = 1
+        assert self.model.duration_sec == 1
+    def test_conference_id(self):
+        """Test RecordingResult.conference_id"""
+        self.model.conference_id = "TEST_STRING"
+        assert self.model.conference_id == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

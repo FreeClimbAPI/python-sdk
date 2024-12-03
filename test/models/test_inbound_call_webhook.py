@@ -14,48 +14,75 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.inbound_call_webhook import InboundCallWebhook
 
 class TestInboundCallWebhook(unittest.TestCase):
     """InboundCallWebhook unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> InboundCallWebhook:
-        """Test InboundCallWebhook
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `InboundCallWebhook`
-        """
-        model = InboundCallWebhook()
-        if include_optional:
-            return InboundCallWebhook(
-                request_type = '',
-                call_id = '',
-                account_id = '',
-                var_from = '',
-                to = '',
-                call_status = 'queued',
-                direction = 'inbound',
-                conference_id = '',
-                queue_id = '',
-                parent_call_id = None
-            )
-        else:
-            return InboundCallWebhook(
+        self.model = InboundCallWebhook(
         )
-        """
 
-    def testInboundCallWebhook(self):
-        """Test InboundCallWebhook"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_request_type(self):
+        """Test InboundCallWebhook.request_type"""
+    def test_call_id(self):
+        """Test InboundCallWebhook.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.call_id == "TEST_STRING"
+    def test_account_id(self):
+        """Test InboundCallWebhook.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_var_from(self):
+        """Test InboundCallWebhook.var_from"""
+        self.model.var_from = "TEST_STRING"
+        assert self.model.var_from == "TEST_STRING"
+    def test_to(self):
+        """Test InboundCallWebhook.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.to == "TEST_STRING"
+    def test_call_status(self):
+        """Test InboundCallWebhook.call_status"""
+        self.model.call_status = CallStatus.QUEUED
+        assert self.model.call_status == CallStatus.QUEUED
+        self.model.call_status = CallStatus.RINGING
+        assert self.model.call_status == CallStatus.RINGING
+        self.model.call_status = CallStatus.IN_PROGRESS
+        assert self.model.call_status == CallStatus.IN_PROGRESS
+        self.model.call_status = CallStatus.CANCELED
+        assert self.model.call_status == CallStatus.CANCELED
+        self.model.call_status = CallStatus.COMPLETED
+        assert self.model.call_status == CallStatus.COMPLETED
+        self.model.call_status = CallStatus.FAILED
+        assert self.model.call_status == CallStatus.FAILED
+        self.model.call_status = CallStatus.BUSY
+        assert self.model.call_status == CallStatus.BUSY
+        self.model.call_status = CallStatus.NO_ANSWER
+        assert self.model.call_status == CallStatus.NO_ANSWER
+    def test_direction(self):
+        """Test InboundCallWebhook.direction"""
+        self.model.direction = CallDirection.INBOUND
+        assert self.model.direction == CallDirection.INBOUND
+        self.model.direction = CallDirection.OUTBOUND_API
+        assert self.model.direction == CallDirection.OUTBOUND_API
+        self.model.direction = CallDirection.OUTBOUND_DIAL
+        assert self.model.direction == CallDirection.OUTBOUND_DIAL
+    def test_conference_id(self):
+        """Test InboundCallWebhook.conference_id"""
+        self.model.conference_id = "TEST_STRING"
+        assert self.model.conference_id == "TEST_STRING"
+    def test_queue_id(self):
+        """Test InboundCallWebhook.queue_id"""
+        self.model.queue_id = "TEST_STRING"
+        assert self.model.queue_id == "TEST_STRING"
+    def test_parent_call_id(self):
+        """Test InboundCallWebhook.parent_call_id"""
+
+
 
 if __name__ == '__main__':
     unittest.main()

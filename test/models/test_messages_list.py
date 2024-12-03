@@ -14,48 +14,54 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.messages_list import MessagesList
 
 class TestMessagesList(unittest.TestCase):
     """MessagesList unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> MessagesList:
-        """Test MessagesList
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `MessagesList`
-        """
-        model = MessagesList()
-        if include_optional:
-            return MessagesList(
-                total = 56,
-                start = 56,
-                end = 56,
-                page = 56,
-                num_pages = 56,
-                page_size = 56,
-                next_page_uri = '',
-                messages = [
-                    null
-                    ]
-            )
-        else:
-            return MessagesList(
+        self.model = MessagesList(
         )
-        """
 
-    def testMessagesList(self):
-        """Test MessagesList"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_total(self):
+        """Test MessagesList.total"""
+        self.model.total = 1
+        assert self.model.total == 1
+    def test_start(self):
+        """Test MessagesList.start"""
+        self.model.start = 1
+        assert self.model.start == 1
+    def test_end(self):
+        """Test MessagesList.end"""
+        self.model.end = 1
+        assert self.model.end == 1
+    def test_page(self):
+        """Test MessagesList.page"""
+        self.model.page = 1
+        assert self.model.page == 1
+    def test_num_pages(self):
+        """Test MessagesList.num_pages"""
+        self.model.num_pages = 1
+        assert self.model.num_pages == 1
+    def test_page_size(self):
+        """Test MessagesList.page_size"""
+        self.model.page_size = 1
+        assert self.model.page_size == 1
+    def test_next_page_uri(self):
+        """Test MessagesList.next_page_uri"""
+        self.model.next_page_uri = "TEST_STRING"
+        assert self.model.next_page_uri == "TEST_STRING"
+    def test_messages(self):
+        """Test MessagesList.messages"""
+        testList = []
+        self.model.messages = testList
+        assert self.model.messages == testList
+
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -20,41 +20,26 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ApplicationRequest(BaseModel):
+class ApplicationRequest(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     ApplicationRequest
     """ # noqa: E501
-        
     alias: Optional[StrictStr] = Field(default=None, description="A human readable description of the application, with maximum length 64 characters.")
-
-        
     voice_url: Optional[StrictStr] = Field(default=None, description="The URL that FreeClimb will request when an inbound call arrives on a phone number assigned to this application. Used only for inbound calls.", alias="voiceUrl")
-
-        
     voice_fallback_url: Optional[StrictStr] = Field(default=None, description="The URL that FreeClimb will request if it times out waiting for a response from the voiceUrl. Used for inbound calls only. Note: A PerCL response is expected to control the inbound call.", alias="voiceFallbackUrl")
-
-        
     call_connect_url: Optional[StrictStr] = Field(default=None, description="The URL that FreeClimb will request when an outbound call request is complete. Used for outbound calls only.  Note: A PerCL response is expected if the outbound call is connected (status=InProgress) to control the call.", alias="callConnectUrl")
-
-        
     status_callback_url: Optional[StrictStr] = Field(default=None, description="The URL that FreeClimb will request to pass call status (such as call ended) to the application.  Note: This is a notification only; any PerCL returned will be ignored.", alias="statusCallbackUrl")
-
-        
     sms_url: Optional[StrictStr] = Field(default=None, description="The URL that FreeClimb will request when a phone number assigned to this application receives an incoming SMS message. Used for inbound SMS only.  Note: Any PerCL returned will be ignored.", alias="smsUrl")
-
-        
     sms_fallback_url: Optional[StrictStr] = Field(default=None, description="The URL that FreeClimb will request if it times out waiting for a response from the smsUrl. Used for inbound SMS only.  Note: Any PerCL returned will be ignored.", alias="smsFallbackUrl")
 
     __properties: ClassVar[List[str]] = ["alias", "voiceUrl", "voiceFallbackUrl", "callConnectUrl", "statusCallbackUrl", "smsUrl", "smsFallbackUrl"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

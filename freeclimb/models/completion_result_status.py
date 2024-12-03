@@ -27,8 +27,9 @@ class CompletionResultStatus(str, Enum):
     """
     allowed enum values
     """
-    SUCCESS = 'success'
-    NO_CONTEXT = 'no_context'
+    SUCCESS = "success"
+    NO_CONTEXT = "no_context"
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

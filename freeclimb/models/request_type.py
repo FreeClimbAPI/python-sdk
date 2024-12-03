@@ -27,29 +27,30 @@ class RequestType(str, Enum):
     """
     allowed enum values
     """
-    INBOUNDCALL = 'inboundCall'
-    RECORD = 'record'
-    GETDIGITS = 'getDigits'
-    GETSPEECH = 'getSpeech'
-    REDIRECT = 'redirect'
-    PAUSE = 'pause'
-    OUTDIALSTART = 'outDialStart'
-    OUTDIALCONNECT = 'outDialConnect'
-    OUTDIALAPICONNECT = 'outDialApiConnect'
-    MACHINEDETECTED = 'machineDetected'
-    DEQUEUE = 'dequeue'
-    QUEUEWAIT = 'queueWait'
-    ADDTOQUEUENOTIFICATION = 'addToQueueNotification'
-    REMOVEFROMQUEUENOTIFICATION = 'removeFromQueueNotification'
-    CALLSTATUS = 'callStatus'
-    CREATECONFERENCE = 'createConference'
-    CONFERENCESTATUS = 'conferenceStatus'
-    LEAVECONFERENCE = 'leaveConference'
-    ADDTOCONFERENCENOTIFICATION = 'addToConferenceNotification'
-    CONFERENCERECORDINGSTATUS = 'conferenceRecordingStatus'
-    CONFERENCECALLCONTROL = 'conferenceCallControl'
-    MESSAGEDELIVERY = 'messageDelivery'
-    MESSAGESTATUS = 'messageStatus'
+    INBOUND_CALL = "inboundCall"
+    RECORD = "record"
+    GET_DIGITS = "getDigits"
+    GET_SPEECH = "getSpeech"
+    REDIRECT = "redirect"
+    PAUSE = "pause"
+    OUT_DIAL_START = "outDialStart"
+    OUT_DIAL_CONNECT = "outDialConnect"
+    OUT_DIAL_API_CONNECT = "outDialApiConnect"
+    MACHINE_DETECTED = "machineDetected"
+    DEQUEUE = "dequeue"
+    QUEUE_WAIT = "queueWait"
+    ADD_TO_QUEUE_NOTIFICATION = "addToQueueNotification"
+    REMOVE_FROM_QUEUE_NOTIFICATION = "removeFromQueueNotification"
+    CALL_STATUS = "callStatus"
+    CREATE_CONFERENCE = "createConference"
+    CONFERENCE_STATUS = "conferenceStatus"
+    LEAVE_CONFERENCE = "leaveConference"
+    ADD_TO_CONFERENCE_NOTIFICATION = "addToConferenceNotification"
+    CONFERENCE_RECORDING_STATUS = "conferenceRecordingStatus"
+    CONFERENCE_CALL_CONTROL = "conferenceCallControl"
+    MESSAGE_DELIVERY = "messageDelivery"
+    MESSAGE_STATUS = "messageStatus"
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

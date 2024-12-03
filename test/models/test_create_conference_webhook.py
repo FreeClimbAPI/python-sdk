@@ -14,51 +14,95 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.create_conference_webhook import CreateConferenceWebhook
 
 class TestCreateConferenceWebhook(unittest.TestCase):
     """CreateConferenceWebhook unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> CreateConferenceWebhook:
-        """Test CreateConferenceWebhook
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `CreateConferenceWebhook`
-        """
-        model = CreateConferenceWebhook()
-        if include_optional:
-            return CreateConferenceWebhook(
-                request_type = '',
-                call_id = '',
-                account_id = '',
-                var_from = '',
-                to = '',
-                call_status = 'queued',
-                direction = 'inbound',
-                conference_id = '',
-                queue_id = '',
-                status = 'empty',
-                recording_url = '',
-                recording_id = '',
-                recording_duration_sec = 56
-            )
-        else:
-            return CreateConferenceWebhook(
+        self.model = CreateConferenceWebhook(
         )
-        """
 
-    def testCreateConferenceWebhook(self):
-        """Test CreateConferenceWebhook"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_request_type(self):
+        """Test CreateConferenceWebhook.request_type"""
+    def test_call_id(self):
+        """Test CreateConferenceWebhook.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.call_id == "TEST_STRING"
+    def test_account_id(self):
+        """Test CreateConferenceWebhook.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_var_from(self):
+        """Test CreateConferenceWebhook.var_from"""
+        self.model.var_from = "TEST_STRING"
+        assert self.model.var_from == "TEST_STRING"
+    def test_to(self):
+        """Test CreateConferenceWebhook.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.to == "TEST_STRING"
+    def test_call_status(self):
+        """Test CreateConferenceWebhook.call_status"""
+        self.model.call_status = CallStatus.QUEUED
+        assert self.model.call_status == CallStatus.QUEUED
+        self.model.call_status = CallStatus.RINGING
+        assert self.model.call_status == CallStatus.RINGING
+        self.model.call_status = CallStatus.IN_PROGRESS
+        assert self.model.call_status == CallStatus.IN_PROGRESS
+        self.model.call_status = CallStatus.CANCELED
+        assert self.model.call_status == CallStatus.CANCELED
+        self.model.call_status = CallStatus.COMPLETED
+        assert self.model.call_status == CallStatus.COMPLETED
+        self.model.call_status = CallStatus.FAILED
+        assert self.model.call_status == CallStatus.FAILED
+        self.model.call_status = CallStatus.BUSY
+        assert self.model.call_status == CallStatus.BUSY
+        self.model.call_status = CallStatus.NO_ANSWER
+        assert self.model.call_status == CallStatus.NO_ANSWER
+    def test_direction(self):
+        """Test CreateConferenceWebhook.direction"""
+        self.model.direction = CallDirection.INBOUND
+        assert self.model.direction == CallDirection.INBOUND
+        self.model.direction = CallDirection.OUTBOUND_API
+        assert self.model.direction == CallDirection.OUTBOUND_API
+        self.model.direction = CallDirection.OUTBOUND_DIAL
+        assert self.model.direction == CallDirection.OUTBOUND_DIAL
+    def test_conference_id(self):
+        """Test CreateConferenceWebhook.conference_id"""
+        self.model.conference_id = "TEST_STRING"
+        assert self.model.conference_id == "TEST_STRING"
+    def test_queue_id(self):
+        """Test CreateConferenceWebhook.queue_id"""
+        self.model.queue_id = "TEST_STRING"
+        assert self.model.queue_id == "TEST_STRING"
+    def test_status(self):
+        """Test CreateConferenceWebhook.status"""
+        self.model.status = ConferenceStatus.EMPTY
+        assert self.model.status == ConferenceStatus.EMPTY
+        self.model.status = ConferenceStatus.POPULATED
+        assert self.model.status == ConferenceStatus.POPULATED
+        self.model.status = ConferenceStatus.IN_PROGRESS
+        assert self.model.status == ConferenceStatus.IN_PROGRESS
+        self.model.status = ConferenceStatus.TERMINATED
+        assert self.model.status == ConferenceStatus.TERMINATED
+    def test_recording_url(self):
+        """Test CreateConferenceWebhook.recording_url"""
+        self.model.recording_url = "TEST_STRING"
+        assert self.model.recording_url == "TEST_STRING"
+    def test_recording_id(self):
+        """Test CreateConferenceWebhook.recording_id"""
+        self.model.recording_id = "TEST_STRING"
+        assert self.model.recording_id == "TEST_STRING"
+    def test_recording_duration_sec(self):
+        """Test CreateConferenceWebhook.recording_duration_sec"""
+        self.model.recording_duration_sec = 1
+        assert self.model.recording_duration_sec == 1
+
+
 
 if __name__ == '__main__':
     unittest.main()

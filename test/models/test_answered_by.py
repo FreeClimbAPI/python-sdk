@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.answered_by import AnsweredBy
 
 class TestAnsweredBy(unittest.TestCase):
     """AnsweredBy unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testAnsweredBy(self):
-        """Test AnsweredBy"""
-        # inst = AnsweredBy()
+
 
 if __name__ == '__main__':
     unittest.main()

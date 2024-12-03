@@ -14,39 +14,25 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.set_talk import SetTalk
 
 class TestSetTalk(unittest.TestCase):
     """SetTalk unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> SetTalk:
-        """Test SetTalk
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `SetTalk`
-        """
-        model = SetTalk()
-        if include_optional:
-            return SetTalk(
-                talk = True
-            )
-        else:
-            return SetTalk(
+        self.model = SetTalk(
         )
-        """
 
-    def testSetTalk(self):
-        """Test SetTalk"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_talk(self):
+        """Test SetTalk.talk"""
+        self.model.talk = False
+        assert self.model.talk == False
+
+
 
 if __name__ == '__main__':
     unittest.main()

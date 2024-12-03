@@ -22,51 +22,30 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.account_status import AccountStatus
 from freeclimb.models.account_type import AccountType
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AccountResult(BaseModel):
+class AccountResult(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     AccountResult
     """ # noqa: E501
-        
     uri: Optional[StrictStr] = Field(default=None, description="The URI for this resource, relative to /apiserver.")
-
-        
     date_created: Optional[StrictStr] = Field(default=None, description="The date that this resource was created (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT).", alias="dateCreated")
-
-        
     date_updated: Optional[StrictStr] = Field(default=None, description="The date that this resource was last updated (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT).", alias="dateUpdated")
-
-        
     revision: Optional[StrictInt] = Field(default=None, description="Revision count for the resource. This count is set to 1 on creation and is incremented every time it is updated.")
-
-        
     account_id: Optional[StrictStr] = Field(default=None, description="String that uniquely identifies this account resource.", alias="accountId")
-
-        
     api_key: Optional[StrictStr] = Field(default=None, description="The API key assigned to this account. This key must be kept a secret by the customer.", alias="apiKey")
-
-        
     alias: Optional[StrictStr] = Field(default=None, description="A description for this account.")
-
-        
     label: Optional[StrictStr] = Field(default=None, description="A string that identifies a category or group to which the account belongs.")
-
-        
-
-        
-
-        
+    type: Optional[AccountType] = None
+    status: Optional[AccountStatus] = None
     subresource_uris: Optional[Dict[str, Any]] = Field(default=None, description="The list of subresources for this account.", alias="subresourceUris")
 
     __properties: ClassVar[List[str]] = ["uri", "dateCreated", "dateUpdated", "revision", "accountId", "apiKey", "alias", "label", "type", "status", "subresourceUris"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

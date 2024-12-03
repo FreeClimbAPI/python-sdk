@@ -14,40 +14,29 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.update_conference_participant_request import UpdateConferenceParticipantRequest
 
 class TestUpdateConferenceParticipantRequest(unittest.TestCase):
     """UpdateConferenceParticipantRequest unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> UpdateConferenceParticipantRequest:
-        """Test UpdateConferenceParticipantRequest
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `UpdateConferenceParticipantRequest`
-        """
-        model = UpdateConferenceParticipantRequest()
-        if include_optional:
-            return UpdateConferenceParticipantRequest(
-                talk = True,
-                listen = True
-            )
-        else:
-            return UpdateConferenceParticipantRequest(
+        self.model = UpdateConferenceParticipantRequest(
         )
-        """
 
-    def testUpdateConferenceParticipantRequest(self):
-        """Test UpdateConferenceParticipantRequest"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_talk(self):
+        """Test UpdateConferenceParticipantRequest.talk"""
+        self.model.talk = False
+        assert self.model.talk == False
+    def test_listen(self):
+        """Test UpdateConferenceParticipantRequest.listen"""
+        self.model.listen = False
+        assert self.model.listen == False
+
+
 
 if __name__ == '__main__':
     unittest.main()

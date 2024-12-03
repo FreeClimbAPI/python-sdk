@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.call_ended_reason import CallEndedReason
 
 class TestCallEndedReason(unittest.TestCase):
     """CallEndedReason unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testCallEndedReason(self):
-        """Test CallEndedReason"""
-        # inst = CallEndedReason()
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -21,41 +21,27 @@ import json
 from pydantic import ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class RecordUtterance(PerclCommand):
+class RecordUtterance(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `RecordUtterance` command records the caller's voice and returns the URL of a file containing the audio recording. `RecordUtterance` is blocking and is a terminal command. As such, the `actionUrl` property is required, and control of the Call picks up using the PerCL returned in response to the `actionUrl`. Recording information is returned in the `actionUrl` request.
     """ # noqa: E501
-        
     action_url: StrictStr = Field(description="URL to which information on the completed recording is submitted. The PerCL received in response is then used to continue with Call processing.", alias="actionUrl")
-
-        
     silence_timeout_ms: Optional[StrictInt] = Field(default=None, description="Interval of silence that should elapse before ending the recording.", alias="silenceTimeoutMs")
-
-        
     finish_on_key: Optional[StrictStr] = Field(default=None, description="Key that triggers the end of the recording. any digit, '#', or '*'", alias="finishOnKey")
-
-        
     max_length_sec: Optional[StrictInt] = Field(default=None, description="Maximum length for the command execution in seconds.", alias="maxLengthSec")
-
-        
     play_beep: Optional[StrictBool] = Field(default=None, description="Indicates whether to play a beep sound before the start of the recording. If set to `false`, no beep is played.", alias="playBeep")
-
-        
     auto_start: Optional[StrictBool] = Field(default=None, description="If `false`, recording begins immediately after the RecordUtterance command is processed. If `true`, recording begins when audio is present and if audio begins before the `maxLengthSec` timeout. If no audio begins before `maxLengthSec`, no recording is generated.", alias="autoStart")
-
-        
     privacy_mode: Optional[StrictBool] = Field(default=None, description="Parameter `privacyMode` will not log the `text` as required by PCI compliance.", alias="privacyMode")
+    command: StrictStr = "RecordUtterance"
 
     __properties: ClassVar[List[str]] = ["command", "actionUrl", "silenceTimeoutMs", "finishOnKey", "maxLengthSec", "playBeep", "autoStart", "privacyMode"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

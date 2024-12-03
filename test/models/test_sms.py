@@ -14,45 +14,40 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.sms import Sms
 
 class TestSms(unittest.TestCase):
     """Sms unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> Sms:
-        """Test Sms
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `Sms`
-        """
-        model = Sms()
-        if include_optional:
-            return Sms(
-                to = '',
-                var_from = '',
-                text = '',
-                notification_url = ''
-            )
-        else:
-            return Sms(
-                to = '',
-                var_from = '',
-                text = '',
+        self.model = Sms(
+            to="",
+            var_from="",
+            text="",
         )
-        """
 
-    def testSms(self):
-        """Test Sms"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_to(self):
+        """Test Sms.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.to == "TEST_STRING"
+    def test_var_from(self):
+        """Test Sms.var_from"""
+        self.model.var_from = "TEST_STRING"
+        assert self.model.var_from == "TEST_STRING"
+    def test_text(self):
+        """Test Sms.text"""
+        self.model.text = "TEST_STRING"
+        assert self.model.text == "TEST_STRING"
+    def test_notification_url(self):
+        """Test Sms.notification_url"""
+        self.model.notification_url = "TEST_STRING"
+        assert self.model.notification_url == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

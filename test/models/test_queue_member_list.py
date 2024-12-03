@@ -14,53 +14,54 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.queue_member_list import QueueMemberList
 
 class TestQueueMemberList(unittest.TestCase):
     """QueueMemberList unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> QueueMemberList:
-        """Test QueueMemberList
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `QueueMemberList`
-        """
-        model = QueueMemberList()
-        if include_optional:
-            return QueueMemberList(
-                total = 56,
-                start = 56,
-                end = 56,
-                page = 56,
-                num_pages = 56,
-                page_size = 56,
-                next_page_uri = '',
-                queue_members = [
-                    freeclimb.models.queue_member.QueueMember(
-                        uri = '', 
-                        call_id = '', 
-                        wait_time = 56, 
-                        position = 56, 
-                        date_enqueued = '', )
-                    ]
-            )
-        else:
-            return QueueMemberList(
+        self.model = QueueMemberList(
         )
-        """
 
-    def testQueueMemberList(self):
-        """Test QueueMemberList"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_total(self):
+        """Test QueueMemberList.total"""
+        self.model.total = 1
+        assert self.model.total == 1
+    def test_start(self):
+        """Test QueueMemberList.start"""
+        self.model.start = 1
+        assert self.model.start == 1
+    def test_end(self):
+        """Test QueueMemberList.end"""
+        self.model.end = 1
+        assert self.model.end == 1
+    def test_page(self):
+        """Test QueueMemberList.page"""
+        self.model.page = 1
+        assert self.model.page == 1
+    def test_num_pages(self):
+        """Test QueueMemberList.num_pages"""
+        self.model.num_pages = 1
+        assert self.model.num_pages == 1
+    def test_page_size(self):
+        """Test QueueMemberList.page_size"""
+        self.model.page_size = 1
+        assert self.model.page_size == 1
+    def test_next_page_uri(self):
+        """Test QueueMemberList.next_page_uri"""
+        self.model.next_page_uri = "TEST_STRING"
+        assert self.model.next_page_uri == "TEST_STRING"
+    def test_queue_members(self):
+        """Test QueueMemberList.queue_members"""
+        testList = []
+        self.model.queue_members = testList
+        assert self.model.queue_members == testList
+
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -27,12 +27,13 @@ class GetSpeechReason(str, Enum):
     """
     allowed enum values
     """
-    ERROR = 'error'
-    HANGUP = 'hangup'
-    DIGIT = 'digit'
-    NOINPUT = 'noInput'
-    NOMATCH = 'noMatch'
-    RECOGNITION = 'recognition'
+    ERROR = "error"
+    HANGUP = "hangup"
+    DIGIT = "digit"
+    NO_INPUT = "noInput"
+    NO_MATCH = "noMatch"
+    RECOGNITION = "recognition"
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

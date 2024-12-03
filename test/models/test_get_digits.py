@@ -14,50 +14,59 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.get_digits import GetDigits
 
 class TestGetDigits(unittest.TestCase):
     """GetDigits unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> GetDigits:
-        """Test GetDigits
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `GetDigits`
-        """
-        model = GetDigits()
-        if include_optional:
-            return GetDigits(
-                action_url = '',
-                digit_timeout_ms = 56,
-                finish_on_key = '',
-                flush_buffer = True,
-                initial_timeout_ms = 56,
-                max_digits = 56,
-                min_digits = 56,
-                prompts = [
-                    freeclimb.models.percl_command.PerclCommand()
-                    ],
-                privacy_mode = True
-            )
-        else:
-            return GetDigits(
-                action_url = '',
+        self.model = GetDigits(
+            action_url="",
         )
-        """
 
-    def testGetDigits(self):
-        """Test GetDigits"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_action_url(self):
+        """Test GetDigits.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.action_url == "TEST_STRING"
+    def test_digit_timeout_ms(self):
+        """Test GetDigits.digit_timeout_ms"""
+        self.model.digit_timeout_ms = 1
+        assert self.model.digit_timeout_ms == 1
+    def test_finish_on_key(self):
+        """Test GetDigits.finish_on_key"""
+        self.model.finish_on_key = "TEST_STRING"
+        assert self.model.finish_on_key == "TEST_STRING"
+    def test_flush_buffer(self):
+        """Test GetDigits.flush_buffer"""
+        self.model.flush_buffer = False
+        assert self.model.flush_buffer == False
+    def test_initial_timeout_ms(self):
+        """Test GetDigits.initial_timeout_ms"""
+        self.model.initial_timeout_ms = 1
+        assert self.model.initial_timeout_ms == 1
+    def test_max_digits(self):
+        """Test GetDigits.max_digits"""
+        self.model.max_digits = 1
+        assert self.model.max_digits == 1
+    def test_min_digits(self):
+        """Test GetDigits.min_digits"""
+        self.model.min_digits = 1
+        assert self.model.min_digits == 1
+    def test_prompts(self):
+        """Test GetDigits.prompts"""
+        testList = []
+        self.model.prompts = testList
+        assert self.model.prompts == testList
+    def test_privacy_mode(self):
+        """Test GetDigits.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.privacy_mode == False
+
+
 
 if __name__ == '__main__':
     unittest.main()

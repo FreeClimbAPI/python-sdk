@@ -20,53 +20,30 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class QueueResult(BaseModel):
+class QueueResult(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     QueueResult
     """ # noqa: E501
-        
     uri: Optional[StrictStr] = Field(default=None, description="The URI for this resource, relative to /apiserver.")
-
-        
     date_created: Optional[StrictStr] = Field(default=None, description="The date that this resource was created (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT).", alias="dateCreated")
-
-        
     date_updated: Optional[StrictStr] = Field(default=None, description="The date that this resource was last updated (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT).", alias="dateUpdated")
-
-        
     revision: Optional[StrictInt] = Field(default=None, description="Revision count for the resource. This count is set to 1 on creation and is incremented every time it is updated.")
-
-        
     account_id: Optional[StrictStr] = Field(default=None, description="ID of the account that created this Queue.", alias="accountId")
-
-        
     queue_id: Optional[StrictStr] = Field(default=None, description="A string that uniquely identifies this Queue resource.", alias="queueId")
-
-        
     alias: Optional[StrictStr] = Field(default=None, description="A description for this Queue.")
-
-        
     max_size: Optional[StrictInt] = Field(default=None, description="The maximum number of Calls permitted in the Queue. Default is 100. Maximum is 1000.", alias="maxSize")
-
-        
     current_size: Optional[StrictInt] = Field(default=None, description="Count of Calls currently in the Queue.", alias="currentSize")
-
-        
     average_queue_removal_time: Optional[StrictInt] = Field(default=None, description="The average amount of time (in seconds) for a call to be removed from the queue.", alias="averageQueueRemovalTime")
-
-        
     subresource_uris: Optional[Dict[str, Any]] = Field(default=None, description="List of subresources for this Queue (which includes Queue members).", alias="subresourceUris")
 
     __properties: ClassVar[List[str]] = ["uri", "dateCreated", "dateUpdated", "revision", "accountId", "queueId", "alias", "maxSize", "currentSize", "averageQueueRemovalTime", "subresourceUris"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

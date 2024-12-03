@@ -14,50 +14,63 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.make_call_request import MakeCallRequest
 
 class TestMakeCallRequest(unittest.TestCase):
     """MakeCallRequest unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> MakeCallRequest:
-        """Test MakeCallRequest
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `MakeCallRequest`
-        """
-        model = MakeCallRequest()
-        if include_optional:
-            return MakeCallRequest(
-                var_from = '',
-                to = '',
-                application_id = '',
-                send_digits = '',
-                if_machine = '',
-                if_machine_url = '',
-                timeout = 56,
-                parent_call_id = '',
-                privacy_mode = True,
-                call_connect_url = ''
-            )
-        else:
-            return MakeCallRequest(
-                var_from = '',
-                to = '',
+        self.model = MakeCallRequest(
+            var_from="",
+            to="",
         )
-        """
 
-    def testMakeCallRequest(self):
-        """Test MakeCallRequest"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_var_from(self):
+        """Test MakeCallRequest.var_from"""
+        self.model.var_from = "TEST_STRING"
+        assert self.model.var_from == "TEST_STRING"
+    def test_to(self):
+        """Test MakeCallRequest.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.to == "TEST_STRING"
+    def test_application_id(self):
+        """Test MakeCallRequest.application_id"""
+        self.model.application_id = "TEST_STRING"
+        assert self.model.application_id == "TEST_STRING"
+    def test_send_digits(self):
+        """Test MakeCallRequest.send_digits"""
+        self.model.send_digits = "TEST_STRING"
+        assert self.model.send_digits == "TEST_STRING"
+    def test_if_machine(self):
+        """Test MakeCallRequest.if_machine"""
+        self.model.if_machine = "TEST_STRING"
+        assert self.model.if_machine == "TEST_STRING"
+    def test_if_machine_url(self):
+        """Test MakeCallRequest.if_machine_url"""
+        self.model.if_machine_url = "TEST_STRING"
+        assert self.model.if_machine_url == "TEST_STRING"
+    def test_timeout(self):
+        """Test MakeCallRequest.timeout"""
+        self.model.timeout = 1
+        assert self.model.timeout == 1
+    def test_parent_call_id(self):
+        """Test MakeCallRequest.parent_call_id"""
+        self.model.parent_call_id = "TEST_STRING"
+        assert self.model.parent_call_id == "TEST_STRING"
+    def test_privacy_mode(self):
+        """Test MakeCallRequest.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.privacy_mode == False
+    def test_call_connect_url(self):
+        """Test MakeCallRequest.call_connect_url"""
+        self.model.call_connect_url = "TEST_STRING"
+        assert self.model.call_connect_url == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

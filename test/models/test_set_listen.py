@@ -14,39 +14,25 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.set_listen import SetListen
 
 class TestSetListen(unittest.TestCase):
     """SetListen unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> SetListen:
-        """Test SetListen
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `SetListen`
-        """
-        model = SetListen()
-        if include_optional:
-            return SetListen(
-                listen = True
-            )
-        else:
-            return SetListen(
+        self.model = SetListen(
         )
-        """
 
-    def testSetListen(self):
-        """Test SetListen"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_listen(self):
+        """Test SetListen.listen"""
+        self.model.listen = False
+        assert self.model.listen == False
+
+
 
 if __name__ == '__main__':
     unittest.main()

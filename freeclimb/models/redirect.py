@@ -21,23 +21,21 @@ import json
 from pydantic import ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Redirect(PerclCommand):
+class Redirect(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `Redirect` command transfers control of a Call to the PerCL at a different URL. `Redirect` is a terminal command, so any actions following it are never executed. The maximum number of redirections allowed during the life time of a Call is 256. This is intended to prevent a Call from possibly looping infinitely due to errors in PerCL being generated.
     """ # noqa: E501
-        
     action_url: StrictStr = Field(description="URL to request a new PerCL script to continue with the current Call's processing. When `Redirect` invokes the `actionUrl`, an `inbound` Webhook is sent. This request therefore looks identical to the initial request (made to the `voiceUrl` of the number that was called) for an inbound Call.", alias="actionUrl")
+    command: StrictStr = "Redirect"
 
     __properties: ClassVar[List[str]] = ["command", "actionUrl"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.machine_type import MachineType
 
 class TestMachineType(unittest.TestCase):
     """MachineType unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testMachineType(self):
-        """Test MachineType"""
-        # inst = MachineType()
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -14,39 +14,25 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.reject import Reject
 
 class TestReject(unittest.TestCase):
     """Reject unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> Reject:
-        """Test Reject
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `Reject`
-        """
-        model = Reject()
-        if include_optional:
-            return Reject(
-                reason = ''
-            )
-        else:
-            return Reject(
+        self.model = Reject(
         )
-        """
 
-    def testReject(self):
-        """Test Reject"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_reason(self):
+        """Test Reject.reason"""
+        self.model.reason = "TEST_STRING"
+        assert self.model.reason == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

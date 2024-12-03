@@ -21,23 +21,21 @@ import json
 from pydantic import ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Pause(PerclCommand):
+class Pause(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `Pause` command halts execution of the current PerCL script for a specified number of milliseconds. If `Pause` is the first command in a PerCL document, FreeClimb will wait for the specified time to elapse before picking up the call.
     """ # noqa: E501
-        
     length: StrictInt = Field(description="Length in milliseconds. FreeClimb will wait silently before continuing on.")
+    command: StrictStr = "Pause"
 
     __properties: ClassVar[List[str]] = ["command", "length"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

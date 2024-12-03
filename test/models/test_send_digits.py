@@ -14,42 +14,34 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.send_digits import SendDigits
 
 class TestSendDigits(unittest.TestCase):
     """SendDigits unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> SendDigits:
-        """Test SendDigits
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `SendDigits`
-        """
-        model = SendDigits()
-        if include_optional:
-            return SendDigits(
-                digits = '',
-                pause_ms = 56,
-                privacy_mode = True
-            )
-        else:
-            return SendDigits(
-                digits = '',
+        self.model = SendDigits(
+            digits="",
         )
-        """
 
-    def testSendDigits(self):
-        """Test SendDigits"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_digits(self):
+        """Test SendDigits.digits"""
+        self.model.digits = "TEST_STRING"
+        assert self.model.digits == "TEST_STRING"
+    def test_pause_ms(self):
+        """Test SendDigits.pause_ms"""
+        self.model.pause_ms = 1
+        assert self.model.pause_ms == 1
+    def test_privacy_mode(self):
+        """Test SendDigits.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.privacy_mode == False
+
+
 
 if __name__ == '__main__':
     unittest.main()

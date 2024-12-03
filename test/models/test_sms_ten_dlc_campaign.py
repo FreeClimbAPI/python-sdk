@@ -14,85 +14,226 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.sms_ten_dlc_campaign import SMSTenDLCCampaign
 
 class TestSMSTenDLCCampaign(unittest.TestCase):
     """SMSTenDLCCampaign unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> SMSTenDLCCampaign:
-        """Test SMSTenDLCCampaign
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `SMSTenDLCCampaign`
-        """
-        model = SMSTenDLCCampaign()
-        if include_optional:
-            return SMSTenDLCCampaign(
-                account_id = '',
-                campaign_id = '',
-                csp_id = '',
-                reseller_id = '',
-                status = 'ACTIVE',
-                create_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                auto_renewal = True,
-                billed_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                brand_id = '',
-                usecase = '',
-                sub_usecases = [
-                    ''
-                    ],
-                description = '',
-                embedded_link = True,
-                embedded_phone = True,
-                affiliate_marketing = True,
-                number_pool = True,
-                age_gated = True,
-                direct_lending = True,
-                subscriber_optin = True,
-                subscriber_optout = True,
-                subscriber_help = True,
-                sample1 = '',
-                sample2 = '',
-                sample3 = '',
-                sample4 = '',
-                sample5 = '',
-                message_flow = '',
-                help_message = '',
-                optin_keywords = '',
-                optout_keywords = '',
-                help_keywords = '',
-                optin_message = '',
-                optout_message = '',
-                reference_id = '',
-                mock = True,
-                next_renewal_or_expiration_date = 'Fri Dec 31 19:00:00 EST 1999'
-            )
-        else:
-            return SMSTenDLCCampaign(
-                campaign_id = '',
-                csp_id = '',
-                brand_id = '',
-                usecase = '',
-                sub_usecases = [
-                    ''
-                    ],
-                description = '',
-                mock = True,
+        self.model = SMSTenDLCCampaign(
+            campaign_id="",
+            csp_id="",
+            brand_id="",
+            usecase="",
+            sub_usecases=[],
+            description="",
+            mock=True,
         )
-        """
 
-    def testSMSTenDLCCampaign(self):
-        """Test SMSTenDLCCampaign"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_account_id(self):
+        """Test SMSTenDLCCampaign.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_campaign_id(self):
+        """Test SMSTenDLCCampaign.campaign_id"""
+        self.model.campaign_id = "TEST_STRING"
+        assert self.model.campaign_id == "TEST_STRING"
+    def test_csp_id(self):
+        """Test SMSTenDLCCampaign.csp_id"""
+        self.model.csp_id = "TEST_STRING"
+        assert self.model.csp_id == "TEST_STRING"
+    def test_reseller_id(self):
+        """Test SMSTenDLCCampaign.reseller_id"""
+        self.model.reseller_id = "T" * 8
+        assert self.model.reseller_id == "T" * 8
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.reseller_id = "T" * (8 + 1)
+    def test_status(self):
+        """Test SMSTenDLCCampaign.status"""
+        self.model.status = SMSTenDLCCampaignStatus.ACTIVE
+        assert self.model.status == SMSTenDLCCampaignStatus.ACTIVE
+        self.model.status = SMSTenDLCCampaignStatus.EXPIRED
+        assert self.model.status == SMSTenDLCCampaignStatus.EXPIRED
+    def test_create_date(self):
+        """Test SMSTenDLCCampaign.create_date"""
+        self.model.create_date = datetime.fromtimestamp(1691592436)
+        assert self.model.create_date == datetime.fromtimestamp(1691592436)
+    def test_auto_renewal(self):
+        """Test SMSTenDLCCampaign.auto_renewal"""
+        self.model.auto_renewal = False
+        assert self.model.auto_renewal == False
+    def test_billed_date(self):
+        """Test SMSTenDLCCampaign.billed_date"""
+        self.model.billed_date = datetime.fromtimestamp(1691592436)
+        assert self.model.billed_date == datetime.fromtimestamp(1691592436)
+    def test_brand_id(self):
+        """Test SMSTenDLCCampaign.brand_id"""
+        self.model.brand_id = "T" * 8
+        assert self.model.brand_id == "T" * 8
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.brand_id = "T" * (8 + 1)
+    def test_usecase(self):
+        """Test SMSTenDLCCampaign.usecase"""
+        self.model.usecase = "T" * 20
+        assert self.model.usecase == "T" * 20
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.usecase = "T" * (20 + 1)
+    def test_sub_usecases(self):
+        """Test SMSTenDLCCampaign.sub_usecases"""
+        testSet = [] 
+        self.model.sub_usecases = testSet
+        assert self.model.sub_usecases == testSet
+    def test_description(self):
+        """Test SMSTenDLCCampaign.description"""
+        self.model.description = "T" * 4096
+        assert self.model.description == "T" * 4096
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.description = "T" * (4096 + 1)
+    def test_embedded_link(self):
+        """Test SMSTenDLCCampaign.embedded_link"""
+        self.model.embedded_link = False
+        assert self.model.embedded_link == False
+    def test_embedded_phone(self):
+        """Test SMSTenDLCCampaign.embedded_phone"""
+        self.model.embedded_phone = False
+        assert self.model.embedded_phone == False
+    def test_affiliate_marketing(self):
+        """Test SMSTenDLCCampaign.affiliate_marketing"""
+        self.model.affiliate_marketing = False
+        assert self.model.affiliate_marketing == False
+    def test_number_pool(self):
+        """Test SMSTenDLCCampaign.number_pool"""
+        self.model.number_pool = False
+        assert self.model.number_pool == False
+    def test_age_gated(self):
+        """Test SMSTenDLCCampaign.age_gated"""
+        self.model.age_gated = False
+        assert self.model.age_gated == False
+    def test_direct_lending(self):
+        """Test SMSTenDLCCampaign.direct_lending"""
+        self.model.direct_lending = False
+        assert self.model.direct_lending == False
+    def test_subscriber_optin(self):
+        """Test SMSTenDLCCampaign.subscriber_optin"""
+        self.model.subscriber_optin = False
+        assert self.model.subscriber_optin == False
+    def test_subscriber_optout(self):
+        """Test SMSTenDLCCampaign.subscriber_optout"""
+        self.model.subscriber_optout = False
+        assert self.model.subscriber_optout == False
+    def test_subscriber_help(self):
+        """Test SMSTenDLCCampaign.subscriber_help"""
+        self.model.subscriber_help = False
+        assert self.model.subscriber_help == False
+    def test_sample1(self):
+        """Test SMSTenDLCCampaign.sample1"""
+        self.model.sample1 = "T" * 1024
+        assert self.model.sample1 == "T" * 1024
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.sample1 = "T" * (1024 + 1)
+    def test_sample2(self):
+        """Test SMSTenDLCCampaign.sample2"""
+        self.model.sample2 = "T" * 1024
+        assert self.model.sample2 == "T" * 1024
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.sample2 = "T" * (1024 + 1)
+    def test_sample3(self):
+        """Test SMSTenDLCCampaign.sample3"""
+        self.model.sample3 = "T" * 1024
+        assert self.model.sample3 == "T" * 1024
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.sample3 = "T" * (1024 + 1)
+    def test_sample4(self):
+        """Test SMSTenDLCCampaign.sample4"""
+        self.model.sample4 = "T" * 1024
+        assert self.model.sample4 == "T" * 1024
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.sample4 = "T" * (1024 + 1)
+    def test_sample5(self):
+        """Test SMSTenDLCCampaign.sample5"""
+        self.model.sample5 = "T" * 1024
+        assert self.model.sample5 == "T" * 1024
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.sample5 = "T" * (1024 + 1)
+    def test_message_flow(self):
+        """Test SMSTenDLCCampaign.message_flow"""
+        self.model.message_flow = "T" * 2048
+        assert self.model.message_flow == "T" * 2048
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.message_flow = "T" * (2048 + 1)
+    def test_help_message(self):
+        """Test SMSTenDLCCampaign.help_message"""
+        self.model.help_message = "T" * 255
+        assert self.model.help_message == "T" * 255
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.help_message = "T" * (255 + 1)
+    def test_optin_keywords(self):
+        """Test SMSTenDLCCampaign.optin_keywords"""
+        self.model.optin_keywords = "T" * 255
+        assert self.model.optin_keywords == "T" * 255
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.optin_keywords = "T" * (255 + 1)
+    def test_optout_keywords(self):
+        """Test SMSTenDLCCampaign.optout_keywords"""
+        self.model.optout_keywords = "T" * 255
+        assert self.model.optout_keywords == "T" * 255
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.optout_keywords = "T" * (255 + 1)
+    def test_help_keywords(self):
+        """Test SMSTenDLCCampaign.help_keywords"""
+        self.model.help_keywords = "T" * 255
+        assert self.model.help_keywords == "T" * 255
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.help_keywords = "T" * (255 + 1)
+    def test_optin_message(self):
+        """Test SMSTenDLCCampaign.optin_message"""
+        self.model.optin_message = "T" * 255
+        assert self.model.optin_message == "T" * 255
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.optin_message = "T" * (255 + 1)
+    def test_optout_message(self):
+        """Test SMSTenDLCCampaign.optout_message"""
+        self.model.optout_message = "T" * 255
+        assert self.model.optout_message == "T" * 255
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.optout_message = "T" * (255 + 1)
+    def test_reference_id(self):
+        """Test SMSTenDLCCampaign.reference_id"""
+        self.model.reference_id = "T" * 50
+        assert self.model.reference_id == "T" * 50
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.reference_id = "T" * (50 + 1)
+    def test_mock(self):
+        """Test SMSTenDLCCampaign.mock"""
+        self.model.mock = False
+        assert self.model.mock == False
+    def test_next_renewal_or_expiration_date(self):
+        """Test SMSTenDLCCampaign.next_renewal_or_expiration_date"""
+        self.model.next_renewal_or_expiration_date = datetime.fromtimestamp(1691592436).date()
+        assert self.model.next_renewal_or_expiration_date == datetime.fromtimestamp(1691592436).date()
+
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -20,26 +20,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AccountRequest(BaseModel):
+class AccountRequest(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     AccountRequest
     """ # noqa: E501
-        
     alias: Optional[StrictStr] = Field(default=None, description="Description for this account.")
-
-        
     label: Optional[StrictStr] = Field(default=None, description="Group to which this account belongs.")
 
     __properties: ClassVar[List[str]] = ["alias", "label"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

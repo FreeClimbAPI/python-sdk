@@ -18,32 +18,27 @@ import pydantic_core
 from datetime import datetime
 import freeclimb
 from freeclimb import *
-from freeclimb.models.say import Say
+from freeclimb.models.transcribe_utterance_record import TranscribeUtteranceRecord
 
-class TestSay(unittest.TestCase):
-    """Say unit test stubs"""
+class TestTranscribeUtteranceRecord(unittest.TestCase):
+    """TranscribeUtteranceRecord unit test stubs"""
 
     def setUp(self):
-        self.model = Say(
-            text="",
+        self.model = TranscribeUtteranceRecord(
         )
 
-    def test_text(self):
-        """Test Say.text"""
-        self.model.text = "TEST_STRING"
-        assert self.model.text == "TEST_STRING"
-    def test_language(self):
-        """Test Say.language"""
-        self.model.language = "TEST_STRING"
-        assert self.model.language == "TEST_STRING"
-    def test_loop(self):
-        """Test Say.loop"""
-        self.model.loop = 1
-        assert self.model.loop == 1
-    def test_privacy_mode(self):
-        """Test Say.privacy_mode"""
-        self.model.privacy_mode = False
-        assert self.model.privacy_mode == False
+    def test_save_recording(self):
+        """Test TranscribeUtteranceRecord.save_recording"""
+        self.model.save_recording = False
+        assert self.model.save_recording == False
+    def test_max_length_sec(self):
+        """Test TranscribeUtteranceRecord.max_length_sec"""
+        self.model.max_length_sec = 1
+        assert self.model.max_length_sec == 1
+    def test_rcrd_termination_silence_time_ms(self):
+        """Test TranscribeUtteranceRecord.rcrd_termination_silence_time_ms"""
+        self.model.rcrd_termination_silence_time_ms = 1
+        assert self.model.rcrd_termination_silence_time_ms == 1
 
 
 

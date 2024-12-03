@@ -20,26 +20,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UpdateConferenceParticipantRequest(BaseModel):
+class UpdateConferenceParticipantRequest(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     UpdateConferenceParticipantRequest
     """ # noqa: E501
-        
     talk: Optional[StrictBool] = Field(default=None, description="(Optional) Default is `true`. Setting to `false` mutes the Participant. FreeClimb returns an error and ignores any other value.")
-
-        
     listen: Optional[StrictBool] = Field(default=None, description="(Optional) Default is `true`. Setting to `false` silences the Conference for this Participant. FreeClimb returns an error and ignores any other value.")
 
     __properties: ClassVar[List[str]] = ["talk", "listen"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

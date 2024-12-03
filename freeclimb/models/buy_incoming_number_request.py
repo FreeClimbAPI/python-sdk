@@ -20,29 +20,22 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BuyIncomingNumberRequest(BaseModel):
+class BuyIncomingNumberRequest(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     BuyIncomingNumberRequest
     """ # noqa: E501
-        
     phone_number: StrictStr = Field(description="Phone number to purchase in E.164 format (as returned in the list of Available Phone Numbers).", alias="phoneNumber")
-
-        
     alias: Optional[StrictStr] = Field(default=None, description="Description for this new incoming phone number (max 64 characters).")
-
-        
     application_id: Optional[StrictStr] = Field(default=None, description="ID of the application that should handle phone calls to the number.", alias="applicationId")
 
     __properties: ClassVar[List[str]] = ["phoneNumber", "alias", "applicationId"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

@@ -21,33 +21,50 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PerclScript(BaseModel):
+class PerclScript(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     A PerCL script to be returned to the FreeClimb servers in FreeClimb applications
     """ # noqa: E501
-        
     commands: Optional[List[PerclCommand]] = Field(default=None, description="A JSON array of PerCL commands")
 
     __properties: ClassVar[List[str]] = ["commands"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
         return pprint.pformat(self.model_dump(by_alias=True))
 
-    def to_json(self) -> str:
-        """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+    def to_percl_dict(self, instance_dict):
+        if "command" in instance_dict == False:
+            raise AttributeError("{0} has no attribute '{1}'".format(instance_dict, 'command'))
+        command = instance_dict.get("command")
+        attribute_map = {}
+        for key,value in instance_dict.items():
+            if key == "command":
+                continue
+            if value is None:
+                continue
+            if isinstance(value, dict) and "command" in value:
+                attribute_map[key] = self.to_percl_dict(value)
+                continue
+            if isinstance(value, list):
+                attribute_map[key] = [self.to_percl_dict(item) for item in value]
+                continue
+            attribute_map[key] = value
+        percl_dict = {
+            command: attribute_map
+        }
+        return percl_dict
+
+    def to_json(self):
+        return json.dumps([self.to_percl_dict(command.to_dict()) for command in self.commands])
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

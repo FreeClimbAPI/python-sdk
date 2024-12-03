@@ -27,10 +27,11 @@ class GetDigitsReason(str, Enum):
     """
     allowed enum values
     """
-    FINISHKEY = 'finishKey'
-    TIMEOUT = 'timeout'
-    MAXDIGITS = 'maxDigits'
-    TONE = 'tone'
+    FINISH_KEY = "finishKey"
+    TIMEOUT = "timeout"
+    MAX_DIGITS = "maxDigits"
+    TONE = "tone"
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

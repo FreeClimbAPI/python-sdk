@@ -20,32 +20,23 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class MutableResourceModel(BaseModel):
+class MutableResourceModel(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     MutableResourceModel
     """ # noqa: E501
-        
     uri: Optional[StrictStr] = Field(default=None, description="The URI for this resource, relative to /apiserver.")
-
-        
     date_created: Optional[StrictStr] = Field(default=None, description="The date that this resource was created (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT).", alias="dateCreated")
-
-        
     date_updated: Optional[StrictStr] = Field(default=None, description="The date that this resource was last updated (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT).", alias="dateUpdated")
-
-        
     revision: Optional[StrictInt] = Field(default=None, description="Revision count for the resource. This count is set to 1 on creation and is incremented every time it is updated.")
 
     __properties: ClassVar[List[str]] = ["uri", "dateCreated", "dateUpdated", "revision"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

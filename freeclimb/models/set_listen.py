@@ -21,23 +21,21 @@ import json
 from pydantic import ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SetListen(PerclCommand):
+class SetListen(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `SetListen` command enables or disables the listen privilege for a Conference Participant provided both calls are in the same conference. The Participant can hear what the other participants are saying only if this privilege is enabled.
     """ # noqa: E501
-        
     listen: Optional[StrictBool] = Field(default=None, description="Specifying `false` will silence the Conference for this Participant.")
+    command: StrictStr = "SetListen"
 
     __properties: ClassVar[List[str]] = ["command", "listen"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

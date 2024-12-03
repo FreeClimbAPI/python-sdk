@@ -21,47 +21,29 @@ import json
 from pydantic import ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AddToConference(PerclCommand):
+class AddToConference(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `AddToConference` command adds a Participant to a Conference. Two Call legs can be bridged together by creating a Conference and adding both Call legs to it via `AddToConference`.
     """ # noqa: E501
-        
     allow_call_control: Optional[StrictBool] = Field(default=None, description="If `true`, Call control will be enabled for this Participant's Call leg.", alias="allowCallControl")
-
-        
     call_control_sequence: Optional[StrictStr] = Field(default=None, description="Defines a sequence of digits that, when entered by this caller, invokes the `callControlUrl`. Only digits plus '*', and '#' may be used.", alias="callControlSequence")
-
-        
     call_control_url: Optional[StrictStr] = Field(default=None, description="URL to be invoked when this Participant enters the digit sequence defined in the `callControlSequence` attribute.", alias="callControlUrl")
-
-        
     conference_id: StrictStr = Field(description="ID of the Conference to which to add the Participant (Call leg). Conference must exist or an error will result.", alias="conferenceId")
-
-        
     leave_conference_url: Optional[StrictStr] = Field(default=None, description="URL to be invoked when the Participant leaves the Conference. ", alias="leaveConferenceUrl")
-
-        
     listen: Optional[StrictBool] = Field(default=None, description="If `true`, the Participant joins the Conference with listen privileges. This may be modified later via the REST API or `SetListen` PerCL command.")
-
-        
     notification_url: Optional[StrictStr] = Field(default=None, description="When the Participant enters the Conference, this URL will be invoked using an HTTP POST request with the standard request parameters.", alias="notificationUrl")
-
-        
     start_conf_on_enter: Optional[StrictBool] = Field(default=None, description="Flag that indicates whether a Conference starts upon entry of this particular Participant. This is usually set to `true` for moderators and `false` for all other Participants.", alias="startConfOnEnter")
-
-        
     talk: Optional[StrictBool] = Field(default=None, description="If `true`, the Participant joins the Conference with talk privileges. This may be modified later via the REST API or `SetTalk` PerCL command. ")
+    command: StrictStr = "AddToConference"
 
     __properties: ClassVar[List[str]] = ["command", "allowCallControl", "callControlSequence", "callControlUrl", "conferenceId", "leaveConferenceUrl", "listen", "notificationUrl", "startConfOnEnter", "talk"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

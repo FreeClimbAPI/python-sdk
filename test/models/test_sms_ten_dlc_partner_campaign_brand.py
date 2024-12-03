@@ -14,53 +14,88 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.sms_ten_dlc_partner_campaign_brand import SMSTenDLCPartnerCampaignBrand
 
 class TestSMSTenDLCPartnerCampaignBrand(unittest.TestCase):
     """SMSTenDLCPartnerCampaignBrand unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> SMSTenDLCPartnerCampaignBrand:
-        """Test SMSTenDLCPartnerCampaignBrand
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `SMSTenDLCPartnerCampaignBrand`
-        """
-        model = SMSTenDLCPartnerCampaignBrand()
-        if include_optional:
-            return SMSTenDLCPartnerCampaignBrand(
-                account_id = '',
-                brand_id = '',
-                first_name = 'John',
-                last_name = 'Doe',
-                display_name = 'ABC Mobile',
-                company_name = 'ABC Inc.',
-                phone = '+12024567890',
-                email = '',
-                website = 'http://www.abcmobile.com',
-                optional_attributes = {
-                    'key' : None
-                    },
-                evp_vetting_score = 56
-            )
-        else:
-            return SMSTenDLCPartnerCampaignBrand(
-                phone = '+12024567890',
-                email = '',
+        self.model = SMSTenDLCPartnerCampaignBrand(
+            phone="",
+            email="",
         )
-        """
 
-    def testSMSTenDLCPartnerCampaignBrand(self):
-        """Test SMSTenDLCPartnerCampaignBrand"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_account_id(self):
+        """Test SMSTenDLCPartnerCampaignBrand.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_brand_id(self):
+        """Test SMSTenDLCPartnerCampaignBrand.brand_id"""
+        self.model.brand_id = "TEST_STRING"
+        assert self.model.brand_id == "TEST_STRING"
+    def test_first_name(self):
+        """Test SMSTenDLCPartnerCampaignBrand.first_name"""
+        self.model.first_name = "T" * 100
+        assert self.model.first_name == "T" * 100
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.first_name = "T" * (100 + 1)
+    def test_last_name(self):
+        """Test SMSTenDLCPartnerCampaignBrand.last_name"""
+        self.model.last_name = "T" * 100
+        assert self.model.last_name == "T" * 100
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.last_name = "T" * (100 + 1)
+    def test_display_name(self):
+        """Test SMSTenDLCPartnerCampaignBrand.display_name"""
+        self.model.display_name = "T" * 255
+        assert self.model.display_name == "T" * 255
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.display_name = "T" * (255 + 1)
+    def test_company_name(self):
+        """Test SMSTenDLCPartnerCampaignBrand.company_name"""
+        self.model.company_name = "T" * 255
+        assert self.model.company_name == "T" * 255
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.company_name = "T" * (255 + 1)
+    def test_phone(self):
+        """Test SMSTenDLCPartnerCampaignBrand.phone"""
+        self.model.phone = "T" * 20
+        assert self.model.phone == "T" * 20
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.phone = "T" * (20 + 1)
+    def test_email(self):
+        """Test SMSTenDLCPartnerCampaignBrand.email"""
+        self.model.email = "T" * 100
+        assert self.model.email == "T" * 100
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.email = "T" * (100 + 1)
+    def test_website(self):
+        """Test SMSTenDLCPartnerCampaignBrand.website"""
+        self.model.website = "T" * 100
+        assert self.model.website == "T" * 100
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.website = "T" * (100 + 1)
+    def test_optional_attributes(self):
+        """Test SMSTenDLCPartnerCampaignBrand.optional_attributes"""
+        self.model.optional_attributes = {}
+        assert self.model.optional_attributes == {}
+    def test_evp_vetting_score(self):
+        """Test SMSTenDLCPartnerCampaignBrand.evp_vetting_score"""
+        self.model.evp_vetting_score = 1
+        assert self.model.evp_vetting_score == 1
+
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -22,49 +22,30 @@ from pydantic import ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.if_machine import IfMachine
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class OutDial(PerclCommand):
+class OutDial(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The OutDial command is used to call a phone number
     """ # noqa: E501
-        
     action_url: StrictStr = Field(description="URL to which FreeClimb sends an HTTP POST request. ", alias="actionUrl")
-
-        
     call_connect_url: StrictStr = Field(description="URL to which FreeClimb makes an HTTP POST request informing the result of the OutDial.", alias="callConnectUrl")
-
-        
     calling_number: StrictStr = Field(description="he caller ID to show to the called party when FreeClimb calls. This can be one of the following: The To or From number provided in the first Webhook to your webserver. Any phone number you have purchased from FreeClimb.", alias="callingNumber")
-
-        
     destination: StrictStr = Field(description="E.164 representation of the phone number to Call. ")
-
-        
-
-        
+    if_machine: Optional[IfMachine] = Field(default=None, alias="ifMachine")
     if_machine_url: Optional[StrictStr] = Field(default=None, description="When the `ifMachine` flag is set to `redirect`, this attribute specifies a URL to which FreeClimb makes a POST request when an answering machine or a fax machine is detected. This URL is required if the `ifMachine` flag is set to `redirect`. Otherwise, it should not be included.", alias="ifMachineUrl")
-
-        
     send_digits: Optional[StrictStr] = Field(default=None, description="DTMF tones to play to the outdialed Call. This is typically used to dial a number and then dial an extension.", alias="sendDigits")
-
-        
     status_callback_url: Optional[StrictStr] = Field(default=None, description="When the outdialed Call leg terminates, FreeClimb sends a `callStatus` Webhook to the `statusCallbackUrl`. This is a notification only; any PerCL command returned is ignored.", alias="statusCallbackUrl")
-
-        
     timeout: Optional[StrictInt] = Field(default=None, description="Maximum time in seconds the `OutDial` command waits for the called party to answer the Call. When a timeout occurs, FreeClimb invokes the `callConnectUrl` Webhook to report that the out-dialed Call has ended with a status of `noAnswer`.")
-
-        
     privacy_mode: Optional[StrictBool] = Field(default=None, description="Parameter `privacyMode` will not log the `text` as required by PCI compliance.", alias="privacyMode")
+    command: StrictStr = "OutDial"
 
     __properties: ClassVar[List[str]] = ["command", "actionUrl", "callConnectUrl", "callingNumber", "destination", "ifMachine", "ifMachineUrl", "sendDigits", "statusCallbackUrl", "timeout", "privacyMode"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

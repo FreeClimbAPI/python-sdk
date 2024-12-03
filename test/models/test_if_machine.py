@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.if_machine import IfMachine
 
 class TestIfMachine(unittest.TestCase):
     """IfMachine unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testIfMachine(self):
-        """Test IfMachine"""
-        # inst = IfMachine()
+
 
 if __name__ == '__main__':
     unittest.main()

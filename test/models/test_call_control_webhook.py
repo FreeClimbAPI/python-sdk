@@ -14,43 +14,39 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.call_control_webhook import CallControlWebhook
 
 class TestCallControlWebhook(unittest.TestCase):
     """CallControlWebhook unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> CallControlWebhook:
-        """Test CallControlWebhook
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `CallControlWebhook`
-        """
-        model = CallControlWebhook()
-        if include_optional:
-            return CallControlWebhook(
-                request_type = '',
-                call_id = '',
-                account_id = '',
-                conference_id = '',
-                digits = ''
-            )
-        else:
-            return CallControlWebhook(
+        self.model = CallControlWebhook(
         )
-        """
 
-    def testCallControlWebhook(self):
-        """Test CallControlWebhook"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_request_type(self):
+        """Test CallControlWebhook.request_type"""
+    def test_call_id(self):
+        """Test CallControlWebhook.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.call_id == "TEST_STRING"
+    def test_account_id(self):
+        """Test CallControlWebhook.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_conference_id(self):
+        """Test CallControlWebhook.conference_id"""
+        self.model.conference_id = "TEST_STRING"
+        assert self.model.conference_id == "TEST_STRING"
+    def test_digits(self):
+        """Test CallControlWebhook.digits"""
+        self.model.digits = "TEST_STRING"
+        assert self.model.digits == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

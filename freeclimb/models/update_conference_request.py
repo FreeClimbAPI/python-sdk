@@ -22,29 +22,22 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.play_beep import PlayBeep
 from freeclimb.models.update_conference_request_status import UpdateConferenceRequestStatus
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UpdateConferenceRequest(BaseModel):
+class UpdateConferenceRequest(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     UpdateConferenceRequest
     """ # noqa: E501
-        
     alias: Optional[StrictStr] = Field(default=None, description="Description for this conference. Maximum 64 characters.")
-
-        
-    play_beep: Optional[PlayBeep] = Field(default=PlayBeep.ALWAYS)
-    
-
-        
+    play_beep: Optional[PlayBeep] = Field(default=None, alias="playBeep")
+    status: Optional[UpdateConferenceRequestStatus] = None
 
     __properties: ClassVar[List[str]] = ["alias", "playBeep", "status"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:
@@ -97,7 +90,7 @@ class UpdateConferenceRequest(BaseModel):
 
         _obj = cls.model_validate({
             "alias": obj.get("alias"),
-            "playBeep": obj.get("playBeep") if obj.get("playBeep") is not None else PlayBeep.NUMBER_ALWAYS,
+            "playBeep": obj.get("playBeep"),
             "status": obj.get("status")
         })
         return _obj

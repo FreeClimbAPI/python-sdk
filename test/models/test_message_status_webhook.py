@@ -14,49 +14,83 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.message_status_webhook import MessageStatusWebhook
 
 class TestMessageStatusWebhook(unittest.TestCase):
     """MessageStatusWebhook unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> MessageStatusWebhook:
-        """Test MessageStatusWebhook
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `MessageStatusWebhook`
-        """
-        model = MessageStatusWebhook()
-        if include_optional:
-            return MessageStatusWebhook(
-                request_type = '',
-                account_id = '',
-                message_id = '',
-                call_id = '',
-                var_from = '',
-                to = '',
-                text = '',
-                direction = '',
-                application_id = '',
-                status = 'new',
-                phone_number_id = ''
-            )
-        else:
-            return MessageStatusWebhook(
+        self.model = MessageStatusWebhook(
         )
-        """
 
-    def testMessageStatusWebhook(self):
-        """Test MessageStatusWebhook"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_request_type(self):
+        """Test MessageStatusWebhook.request_type"""
+    def test_account_id(self):
+        """Test MessageStatusWebhook.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_message_id(self):
+        """Test MessageStatusWebhook.message_id"""
+        self.model.message_id = "TEST_STRING"
+        assert self.model.message_id == "TEST_STRING"
+    def test_call_id(self):
+        """Test MessageStatusWebhook.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.call_id == "TEST_STRING"
+    def test_var_from(self):
+        """Test MessageStatusWebhook.var_from"""
+        self.model.var_from = "TEST_STRING"
+        assert self.model.var_from == "TEST_STRING"
+    def test_to(self):
+        """Test MessageStatusWebhook.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.to == "TEST_STRING"
+    def test_text(self):
+        """Test MessageStatusWebhook.text"""
+        self.model.text = "TEST_STRING"
+        assert self.model.text == "TEST_STRING"
+    def test_direction(self):
+        """Test MessageStatusWebhook.direction"""
+        self.model.direction = "TEST_STRING"
+        assert self.model.direction == "TEST_STRING"
+    def test_application_id(self):
+        """Test MessageStatusWebhook.application_id"""
+        self.model.application_id = "TEST_STRING"
+        assert self.model.application_id == "TEST_STRING"
+    def test_status(self):
+        """Test MessageStatusWebhook.status"""
+        self.model.status = MessageStatus.NEW
+        assert self.model.status == MessageStatus.NEW
+        self.model.status = MessageStatus.QUEUED
+        assert self.model.status == MessageStatus.QUEUED
+        self.model.status = MessageStatus.REJECTED
+        assert self.model.status == MessageStatus.REJECTED
+        self.model.status = MessageStatus.SENDING
+        assert self.model.status == MessageStatus.SENDING
+        self.model.status = MessageStatus.SENT
+        assert self.model.status == MessageStatus.SENT
+        self.model.status = MessageStatus.FAILED
+        assert self.model.status == MessageStatus.FAILED
+        self.model.status = MessageStatus.RECEIVED
+        assert self.model.status == MessageStatus.RECEIVED
+        self.model.status = MessageStatus.UNDELIVERED
+        assert self.model.status == MessageStatus.UNDELIVERED
+        self.model.status = MessageStatus.EXPIRED
+        assert self.model.status == MessageStatus.EXPIRED
+        self.model.status = MessageStatus.DELETED
+        assert self.model.status == MessageStatus.DELETED
+        self.model.status = MessageStatus.UNKNOWN
+        assert self.model.status == MessageStatus.UNKNOWN
+    def test_phone_number_id(self):
+        """Test MessageStatusWebhook.phone_number_id"""
+        self.model.phone_number_id = "TEST_STRING"
+        assert self.model.phone_number_id == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

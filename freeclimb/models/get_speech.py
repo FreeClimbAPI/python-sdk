@@ -22,58 +22,33 @@ from pydantic import ConfigDict, Field, StrictBool, StrictFloat, StrictInt, Stri
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from freeclimb.models.grammar_type import GrammarType
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetSpeech(PerclCommand):
+class GetSpeech(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `GetSpeech` command enables the Caller to respond to the application using a supported language. Unlike DTMF entry, which implicitly restricts the user to using the available buttons on the phone key pad, speech input allows for flexible audio inputs based on grammar. FreeClimb supports grammars written using GRXML compatible with the Microsoft Speech Platform. `GetSpeech` is only supported on a single call leg. It is not supported when there are two or more call legs connected (as in within a Conference).
     """ # noqa: E501
-        
     action_url: StrictStr = Field(description="When the caller has finished speaking or the command has timed out, FreeClimb will make a POST request to this URL. A PerCL response is expected to continue handling the call.", alias="actionUrl")
-
-        
-
-        
+    grammar_type: Optional[GrammarType] = Field(default=None, alias="grammarType")
     grammar_file: StrictStr = Field(description="The grammar file to use for speech recognition. If grammarType is set to URL, this attribute is specified as a download URL.", alias="grammarFile")
-
-        
     grammar_rule: Optional[StrictStr] = Field(default=None, description="The grammar rule within the specified grammar file to use for speech recognition. This attribute is optional if `grammarType` is `URL` and ignored if `grammarType` is `BUILTIN`.", alias="grammarRule")
-
-        
     play_beep: Optional[StrictBool] = Field(default=None, description="Indicates whether a beep should be played just before speech recognition is initiated so that the speaker can start to speak.", alias="playBeep")
-
-        
     prompts: Optional[List[PerclCommand]] = Field(default=None, description="The JSON array of PerCL commands to nest within the `GetSpeech` command. The `Say`, `Play`, and `Pause` commands can be used. The nested actions are executed while FreeClimb is waiting for input from the caller. This allows for playing menu options to the caller and to prompt for the expected input. These commands stop executing when the caller begins to input speech.")
-
-        
     no_input_timeout_ms: Optional[StrictInt] = Field(default=None, description="When recognition is started and there is no speech detected for `noInputTimeoutMs` milliseconds, the recognizer will terminate the recognition operation.", alias="noInputTimeoutMs")
-
-        
     recognition_timeout_ms: Optional[StrictInt] = Field(default=None, description="When playback of prompts ends and there is no match for `recognitionTimeoutMs` milliseconds, the recognizer will terminate the recognition operation.", alias="recognitionTimeoutMs")
-
-        
     confidence_threshold: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="When a recognition resource recognizes a spoken phrase, it associates a confidence level with that match. Parameter `confidenceThreshold` specifies what confidence level is considered a successful match. Values are between 0.0 and 1.0.", alias="confidenceThreshold")
-
-        
     sensitivity_level: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The speech recognizer supports a variable level of sound sensitivity. The sensitivityLevel attribute allows for filtering out background noise, so it is not mistaken for speech. Values are between 0.0 and 1.0 ", alias="sensitivityLevel")
-
-        
     speech_complete_timeout_ms: Optional[StrictInt] = Field(default=None, description="Parameter `speechCompleteTimeoutMs` specifies the length of silence required following user speech before the speech recognizer finalizes a result. This timeout applies when the recognizer currently has a complete match against an active grammar. Reasonable speech complete timeout values are typically in the range of 0.3 seconds to 1.0 seconds.", alias="speechCompleteTimeoutMs")
-
-        
     speech_incomplete_timeout_ms: Optional[StrictInt] = Field(default=None, description="Parameter `speechIncompleteTimeoutMs` specifies the length of silence following user speech after which a recognizer finalizes a result. This timeout applies when the speech prior to the silence is an incomplete match of all active grammars. Timeout `speechIncompleteTimeoutMs` is usually longer than `speechCompleteTimeoutMs` to allow users to pause mid-utterance.", alias="speechIncompleteTimeoutMs")
-
-        
     privacy_mode: Optional[StrictBool] = Field(default=None, description="Parameter privacyMode will not log the `text` as required by PCI compliance.", alias="privacyMode")
+    command: StrictStr = "GetSpeech"
 
     __properties: ClassVar[List[str]] = ["command", "actionUrl", "grammarType", "grammarFile", "grammarRule", "playBeep", "prompts", "noInputTimeoutMs", "recognitionTimeoutMs", "confidenceThreshold", "sensitivityLevel", "speechCompleteTimeoutMs", "speechIncompleteTimeoutMs", "privacyMode"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

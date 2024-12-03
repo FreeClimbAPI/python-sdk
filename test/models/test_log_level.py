@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.log_level import LogLevel
 
 class TestLogLevel(unittest.TestCase):
     """LogLevel unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testLogLevel(self):
-        """Test LogLevel"""
-        # inst = LogLevel()
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -14,40 +14,29 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.queue_request import QueueRequest
 
 class TestQueueRequest(unittest.TestCase):
     """QueueRequest unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> QueueRequest:
-        """Test QueueRequest
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `QueueRequest`
-        """
-        model = QueueRequest()
-        if include_optional:
-            return QueueRequest(
-                alias = '',
-                max_size = 56
-            )
-        else:
-            return QueueRequest(
+        self.model = QueueRequest(
         )
-        """
 
-    def testQueueRequest(self):
-        """Test QueueRequest"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_alias(self):
+        """Test QueueRequest.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.alias == "TEST_STRING"
+    def test_max_size(self):
+        """Test QueueRequest.max_size"""
+        self.model.max_size = 1
+        assert self.model.max_size == 1
+
+
 
 if __name__ == '__main__':
     unittest.main()

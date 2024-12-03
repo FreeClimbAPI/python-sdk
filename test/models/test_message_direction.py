@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.message_direction import MessageDirection
 
 class TestMessageDirection(unittest.TestCase):
     """MessageDirection unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testMessageDirection(self):
-        """Test MessageDirection"""
-        # inst = MessageDirection()
+
 
 if __name__ == '__main__':
     unittest.main()

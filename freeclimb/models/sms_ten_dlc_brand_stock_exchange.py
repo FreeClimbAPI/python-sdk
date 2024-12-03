@@ -27,33 +27,61 @@ class SMSTenDLCBrandStockExchange(str, Enum):
     """
     allowed enum values
     """
+    
     NONE = 'NONE'
+    
     NASDAQ = 'NASDAQ'
+    
     NYSE = 'NYSE'
+    
     AMEX = 'AMEX'
+    
     AMX = 'AMX'
+    
     ASX = 'ASX'
+    
     B3 = 'B3'
+    
     BME = 'BME'
+    
     BSE = 'BSE'
+    
     FRA = 'FRA'
+    
     ICEX = 'ICEX'
+    
     JPX = 'JPX'
+    
     JSE = 'JSE'
+    
     KRX = 'KRX'
+    
     LON = 'LON'
+    
     NSE = 'NSE'
+    
     OMX = 'OMX'
+    
     SEHK = 'SEHK'
+    
     SGX = 'SGX'
+    
     SSE = 'SSE'
+    
     STO = 'STO'
+    
     SWX = 'SWX'
+    
     SZSE = 'SZSE'
+    
     TSX = 'TSX'
+    
     TWSE = 'TWSE'
+    
     VSE = 'VSE'
+    
     OTHER = 'OTHER'
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

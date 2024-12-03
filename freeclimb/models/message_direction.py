@@ -27,8 +27,11 @@ class MessageDirection(str, Enum):
     """
     allowed enum values
     """
+    
     INBOUND = 'inbound'
+    
     OUTBOUND = 'outbound'
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

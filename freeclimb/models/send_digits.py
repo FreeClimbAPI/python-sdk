@@ -21,29 +21,23 @@ import json
 from pydantic import ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SendDigits(PerclCommand):
+class SendDigits(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `SendDigits` command plays DTMF tones on a live Call. This is useful for navigating through IVR menus or dialing extensions.
     """ # noqa: E501
-        
     digits: StrictStr = Field(description="String containing the digits to be played. The string cannot be empty and can include any digit, plus `#`, or `*`, and allows embedding specification for delay or pause between the output of individual digits.")
-
-        
     pause_ms: Optional[StrictInt] = Field(default=None, description="Pause between digits in milliseconds. Valid values are 100-1000 milliseconds and will be adjusted by FreeClimb to satisfy the constraint.", alias="pauseMs")
-
-        
     privacy_mode: Optional[StrictBool] = Field(default=None, description="Parameter `privacyMode` will not log the `text` as required by PCI compliance.", alias="privacyMode")
+    command: StrictStr = "SendDigits"
 
     __properties: ClassVar[List[str]] = ["command", "digits", "pauseMs", "privacyMode"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

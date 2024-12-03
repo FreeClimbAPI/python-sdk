@@ -20,35 +20,24 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class QueueMember(BaseModel):
+class QueueMember(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     QueueMember
     """ # noqa: E501
-        
     uri: Optional[StrictStr] = Field(default=None, description="URI for this Queue Member resource, relative to the API base URL.")
-
-        
     call_id: Optional[StrictStr] = Field(default=None, description="ID of the Call associated with this Queue Member.", alias="callId")
-
-        
     wait_time: Optional[StrictInt] = Field(default=None, description="Number of seconds the Member has been in the queue.", alias="waitTime")
-
-        
     position: Optional[StrictInt] = Field(default=None, description="Member's current position in the Queue, 1 indexed.")
-
-        
     date_enqueued: Optional[StrictStr] = Field(default=None, description="Date that the Member was enqueued (GMT), given in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT).", alias="dateEnqueued")
 
     __properties: ClassVar[List[str]] = ["uri", "callId", "waitTime", "position", "dateEnqueued"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

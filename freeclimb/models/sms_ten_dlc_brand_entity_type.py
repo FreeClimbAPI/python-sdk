@@ -27,11 +27,17 @@ class SMSTenDLCBrandEntityType(str, Enum):
     """
     allowed enum values
     """
+    
     PRIVATE_PROFIT = 'PRIVATE_PROFIT'
+    
     PUBLIC_PROFIT = 'PUBLIC_PROFIT'
+    
     NON_PROFIT = 'NON_PROFIT'
+    
     GOVERNMENT = 'GOVERNMENT'
+    
     SOLE_PROPRIETOR = 'SOLE_PROPRIETOR'
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

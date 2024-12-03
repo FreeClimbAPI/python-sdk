@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.get_speech_reason import GetSpeechReason
 
 class TestGetSpeechReason(unittest.TestCase):
     """GetSpeechReason unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testGetSpeechReason(self):
-        """Test GetSpeechReason"""
-        # inst = GetSpeechReason()
+
 
 if __name__ == '__main__':
     unittest.main()

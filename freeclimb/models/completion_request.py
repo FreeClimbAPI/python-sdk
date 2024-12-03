@@ -21,23 +21,20 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CompletionRequest(BaseModel):
+class CompletionRequest(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     CompletionRequest
     """ # noqa: E501
-        
     query: Annotated[str, Field(strict=True, max_length=2000)] = Field(description="Question to ask the Knowledge Base")
 
     __properties: ClassVar[List[str]] = ["query"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

@@ -288,7 +288,7 @@ Class | Method | HTTP request | Description
  - [TranscribeReason](docs/TranscribeReason.md)
  - [TranscribeTermReason](docs/TranscribeTermReason.md)
  - [TranscribeUtterance](docs/TranscribeUtterance.md)
- - [TranscribeUtteranceAllOfRecord](docs/TranscribeUtteranceAllOfRecord.md)
+ - [TranscribeUtteranceRecord](docs/TranscribeUtteranceRecord.md)
  - [TranscribeWebhook](docs/TranscribeWebhook.md)
  - [Unpark](docs/Unpark.md)
  - [UpdateCallRequest](docs/UpdateCallRequest.md)

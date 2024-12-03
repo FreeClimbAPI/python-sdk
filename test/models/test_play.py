@@ -14,42 +14,34 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.play import Play
 
 class TestPlay(unittest.TestCase):
     """Play unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> Play:
-        """Test Play
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `Play`
-        """
-        model = Play()
-        if include_optional:
-            return Play(
-                file = '',
-                loop = 56,
-                privacy_mode = True
-            )
-        else:
-            return Play(
-                file = '',
+        self.model = Play(
+            file="",
         )
-        """
 
-    def testPlay(self):
-        """Test Play"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_file(self):
+        """Test Play.file"""
+        self.model.file = "TEST_STRING"
+        assert self.model.file == "TEST_STRING"
+    def test_loop(self):
+        """Test Play.loop"""
+        self.model.loop = 1
+        assert self.model.loop == 1
+    def test_privacy_mode(self):
+        """Test Play.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.privacy_mode == False
+
+
 
 if __name__ == '__main__':
     unittest.main()

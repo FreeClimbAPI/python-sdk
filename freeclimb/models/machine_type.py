@@ -27,8 +27,11 @@ class MachineType(str, Enum):
     """
     allowed enum values
     """
+    
     ANSWERING_MACHINE = 'answering machine'
+    
     FAX_MODEM = 'fax modem'
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

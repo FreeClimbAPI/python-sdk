@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action_url** | **str** |  | 
 **play_beep** | **bool** |  | [optional] [default to False]
-**record** | [**TranscribeUtteranceAllOfRecord**](TranscribeUtteranceAllOfRecord.md) |  | [optional] 
+**record** | [**TranscribeUtteranceRecord**](TranscribeUtteranceRecord.md) |  | [optional] 
 **privacy_for_logging** | **bool** |  | [optional] [default to False]
 **privacy_for_recording** | **bool** |  | [optional] [default to False]
 **prompts** | **List[object]** |  | [optional] 

@@ -14,40 +14,28 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.update_call_request import UpdateCallRequest
 
 class TestUpdateCallRequest(unittest.TestCase):
     """UpdateCallRequest unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> UpdateCallRequest:
-        """Test UpdateCallRequest
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `UpdateCallRequest`
-        """
-        model = UpdateCallRequest()
-        if include_optional:
-            return UpdateCallRequest(
-                status = 'canceled'
-            )
-        else:
-            return UpdateCallRequest(
-                status = 'canceled',
+        self.model = UpdateCallRequest(
+            status= UpdateCallRequestStatus.CANCELED,
         )
-        """
 
-    def testUpdateCallRequest(self):
-        """Test UpdateCallRequest"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_status(self):
+        """Test UpdateCallRequest.status"""
+        self.model.status = UpdateCallRequestStatus.CANCELED
+        assert self.model.status == UpdateCallRequestStatus.CANCELED
+        self.model.status = UpdateCallRequestStatus.COMPLETED
+        assert self.model.status == UpdateCallRequestStatus.COMPLETED
+
+
 
 if __name__ == '__main__':
     unittest.main()

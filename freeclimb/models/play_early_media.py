@@ -21,23 +21,21 @@ import json
 from pydantic import ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PlayEarlyMedia(PerclCommand):
+class PlayEarlyMedia(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     `PlayEarlyMedia` is relevant only when present as the very first command in the PerCL script returned for an incoming Call. In such cases, the command is executed before FreeClimb attempts to connect the call. The audio file it uses can be stored in any location that is accessible via URL.
     """ # noqa: E501
-        
     file: StrictStr = Field(description="RL of the audio file to be played to the caller. The URL can be the `recordingUrl` generated from the `RecordUtterance` or `StartRecordCall` PerCL commands or any accessible URL. FreeClimb will respect Cache-Control headers for this file. Use these to limit repeated requests for unchanged audio. If no Cache-Control header is provided, the file will be cached for seven days by default.")
+    command: StrictStr = "PlayEarlyMedia"
 
     __properties: ClassVar[List[str]] = ["command", "file"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

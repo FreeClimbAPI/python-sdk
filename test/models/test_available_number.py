@@ -14,50 +14,55 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.available_number import AvailableNumber
 
 class TestAvailableNumber(unittest.TestCase):
     """AvailableNumber unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = AvailableNumber(
+        )
 
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> AvailableNumber:
-        """Test AvailableNumber
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `AvailableNumber`
-        """
-        model = AvailableNumber()
-        if include_optional:
-            return AvailableNumber(
-                capabilities = freeclimb.models.capabilities.Capabilities(
+    def test_capabilities(self):
+        """Test AvailableNumber.capabilities"""
+        object = freeclimb.models.capabilities.Capabilities(
                     voice = True, 
                     sms = True, 
                     toll_free = True, 
                     ten_dlc = True, 
-                    short_code = True, ),
-                campaign_id = '',
-                phone_number = '',
-                voice_enabled = True,
-                sms_enabled = True,
-                region = '',
-                country = ''
-            )
-        else:
-            return AvailableNumber(
-        )
-        """
+                    short_code = True, )
+        self.model.capabilities = object
+        assert self.model.capabilities == object
+    def test_campaign_id(self):
+        """Test AvailableNumber.campaign_id"""
+        self.model.campaign_id = "TEST_STRING"
+        assert self.model.campaign_id == "TEST_STRING"
+    def test_phone_number(self):
+        """Test AvailableNumber.phone_number"""
+        self.model.phone_number = "TEST_STRING"
+        assert self.model.phone_number == "TEST_STRING"
+    def test_voice_enabled(self):
+        """Test AvailableNumber.voice_enabled"""
+        self.model.voice_enabled = False
+        assert self.model.voice_enabled == False
+    def test_sms_enabled(self):
+        """Test AvailableNumber.sms_enabled"""
+        self.model.sms_enabled = False
+        assert self.model.sms_enabled == False
+    def test_region(self):
+        """Test AvailableNumber.region"""
+        self.model.region = "TEST_STRING"
+        assert self.model.region == "TEST_STRING"
+    def test_country(self):
+        """Test AvailableNumber.country"""
+        self.model.country = "TEST_STRING"
+        assert self.model.country == "TEST_STRING"
 
-    def testAvailableNumber(self):
-        """Test AvailableNumber"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+
 
 if __name__ == '__main__':
     unittest.main()

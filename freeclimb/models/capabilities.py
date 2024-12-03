@@ -20,35 +20,24 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Capabilities(BaseModel):
+class Capabilities(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     Details for which features this number may be used.
     """ # noqa: E501
-        
     voice: Optional[StrictBool] = Field(description="Indicates whether a number can be used for voice calls. Replaces voiceEnabled.")
-
-        
     sms: Optional[StrictBool] = Field(description="Indicates whether a number can be used SMS messaging. Replaces smsEnabled.")
-
-        
     toll_free: Optional[StrictBool] = Field(description="Indicates that a number is toll-free and will make toll-free calls, and when enabled, toll-free messages.", alias="tollFree")
-
-        
     ten_dlc: Optional[StrictBool] = Field(description="Indicates that a number, if sms is true, will be used for 10DLC messaging", alias="tenDLC")
-
-        
     short_code: Optional[StrictBool] = Field(description="Indicates that a number is a short code and can be used for short code messaging", alias="shortCode")
 
     __properties: ClassVar[List[str]] = ["voice", "sms", "tollFree", "tenDLC", "shortCode"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

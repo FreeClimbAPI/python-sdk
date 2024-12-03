@@ -27,8 +27,11 @@ class UpdateConferenceRequestStatus(str, Enum):
     """
     allowed enum values
     """
+    
     EMPTY = 'empty'
+    
     TERMINATED = 'terminated'
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

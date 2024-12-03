@@ -21,6 +21,7 @@ import json
 from importlib import import_module
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -52,20 +53,16 @@ if TYPE_CHECKING:
     from freeclimb.models.transcribe_utterance import TranscribeUtterance
     from freeclimb.models.unpark import Unpark
 
-class PerclCommand(BaseModel):
+class PerclCommand(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     An individual command used in a PerCLScript.
     """ # noqa: E501
-        
     command: Optional[StrictStr] = Field(default=None, description="Name of PerCL Command (this is automatically derived from mapping configuration and should not be manually supplied in any arguments)")
 
     __properties: ClassVar[List[str]] = ["command"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     # JSON field name that stores the object type

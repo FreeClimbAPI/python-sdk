@@ -14,40 +14,26 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.filter_logs_request import FilterLogsRequest
 
 class TestFilterLogsRequest(unittest.TestCase):
     """FilterLogsRequest unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> FilterLogsRequest:
-        """Test FilterLogsRequest
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `FilterLogsRequest`
-        """
-        model = FilterLogsRequest()
-        if include_optional:
-            return FilterLogsRequest(
-                pql = ''
-            )
-        else:
-            return FilterLogsRequest(
-                pql = '',
+        self.model = FilterLogsRequest(
+            pql="",
         )
-        """
 
-    def testFilterLogsRequest(self):
-        """Test FilterLogsRequest"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_pql(self):
+        """Test FilterLogsRequest.pql"""
+        self.model.pql = "TEST_STRING"
+        assert self.model.pql == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -14,41 +14,26 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.percl_script import PerclScript
 
 class TestPerclScript(unittest.TestCase):
     """PerclScript unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> PerclScript:
-        """Test PerclScript
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `PerclScript`
-        """
-        model = PerclScript()
-        if include_optional:
-            return PerclScript(
-                commands = [
-                    freeclimb.models.percl_command.PerclCommand()
-                    ]
-            )
-        else:
-            return PerclScript(
+        self.model = PerclScript(
         )
-        """
 
-    def testPerclScript(self):
-        """Test PerclScript"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_commands(self):
+        """Test PerclScript.commands"""
+        testList = []
+        self.model.commands = testList
+        assert self.model.commands == testList
+
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -27,10 +27,11 @@ class PlayBeep(str, Enum):
     """
     allowed enum values
     """
-    ALWAYS = 'always'
-    NEVER = 'never'
-    ENTRYONLY = 'entryOnly'
-    EXITONLY = 'exitOnly'
+    ALWAYS = "always"
+    NEVER = "never"
+    ENTRY_ONLY = "entryOnly"
+    EXIT_ONLY = "exitOnly"
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

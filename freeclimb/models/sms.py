@@ -21,32 +21,24 @@ import json
 from pydantic import ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Sms(PerclCommand):
+class Sms(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `Sms` command can be used to send an SMS message to a phone number during a phone call. International SMS is disabled by default.
     """ # noqa: E501
-        
     to: StrictStr = Field(description="E.164 representation of the phone number to which the message will be sent. Must be within FreeClimb's service area and E.164 formatting (e.g., +18003608245).")
-
-        
     var_from: StrictStr = Field(description="E.164 representation of the phone number to use as the sender. This must be an incoming phone number you have purchased from FreeClimb.", alias="from")
-
-        
     text: StrictStr = Field(description="Text contained in the message (maximum 160 characters).")
-
-        
     notification_url: Optional[StrictStr] = Field(default=None, description="When the message changes status, this URL will be invoked using HTTP POST with the messageStatus parameters. This is a notification only; any PerCL returned will be ignored.", alias="notificationUrl")
+    command: StrictStr = "Sms"
 
     __properties: ClassVar[List[str]] = ["command", "to", "from", "text", "notificationUrl"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

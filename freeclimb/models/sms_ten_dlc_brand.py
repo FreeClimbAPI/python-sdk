@@ -27,108 +27,50 @@ from freeclimb.models.sms_ten_dlc_brand_entity_type import SMSTenDLCBrandEntityT
 from freeclimb.models.sms_ten_dlc_brand_identity_status import SMSTenDLCBrandIdentityStatus
 from freeclimb.models.sms_ten_dlc_brand_relationship import SMSTenDLCBrandRelationship
 from freeclimb.models.sms_ten_dlc_brand_stock_exchange import SMSTenDLCBrandStockExchange
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SMSTenDLCBrand(BaseModel):
+class SMSTenDLCBrand(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     A brand is a business identity behind the campaign.
     """ # noqa: E501
-        
     account_id: Optional[StrictStr] = Field(default=None, description="ID of the account that created this Queue.", alias="accountId")
-
-        
-
-        
+    entity_type: SMSTenDLCBrandEntityType = Field(alias="entityType")
     csp_id: Optional[StrictStr] = Field(default=None, description="Unique identifier assigned to the csp by the registry.", alias="cspId")
-
-        
     brand_id: Optional[StrictStr] = Field(default=None, description="Unique identifier assigned to the brand by the registry.", alias="brandId")
-
-        
     first_name: Optional[Annotated[str, Field(strict=True, max_length=100)]] = Field(default=None, description="First or given name. ", alias="firstName")
-
-        
     last_name: Optional[Annotated[str, Field(strict=True, max_length=100)]] = Field(default=None, description="Last or Surname.", alias="lastName")
-
-        
     display_name: Annotated[str, Field(strict=True, max_length=255)] = Field(description="Display or marketing name of the brand.", alias="displayName")
-
-        
     company_name: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="(Required for Non-profit/private/public) Legal company name.", alias="companyName")
-
-        
     ein: Optional[Annotated[str, Field(strict=True, max_length=21)]] = Field(default=None, description="(Required for Non-profit) Government assigned corporate tax ID. EIN is 9-digits in U.S.")
-
-        
     ein_issuing_country: Optional[Annotated[str, Field(strict=True, max_length=2)]] = Field(default=None, description="ISO2 2 characters country code. Example: US - United States", alias="einIssuingCountry")
-
-        
     phone: Annotated[str, Field(strict=True, max_length=20)] = Field(description="Valid phone number in e.164 international format.")
-
-        
     street: Optional[Annotated[str, Field(strict=True, max_length=100)]] = Field(default=None, description="Street number and name.")
-
-        
     city: Optional[Annotated[str, Field(strict=True, max_length=100)]] = Field(default=None, description="City name")
-
-        
     state: Optional[Annotated[str, Field(strict=True, max_length=20)]] = Field(default=None, description="State. Must be 2 letters code for United States.")
-
-        
     postal_code: Optional[Annotated[str, Field(strict=True, max_length=10)]] = Field(default=None, description="Postal codes. Use 5 digit zipcode for United States", alias="postalCode")
-
-        
     country: Annotated[str, Field(strict=True, max_length=2)] = Field(description="ISO2 2 characters country code. Example: US - United States")
-
-        
     email: Annotated[str, Field(strict=True, max_length=100)] = Field(description="Valid email address of brand support contact.")
-
-        
     stock_symbol: Optional[Annotated[str, Field(strict=True, max_length=10)]] = Field(default=None, description="(Required for public company) stock symbol.", alias="stockSymbol")
-
-        
-
-        
+    stock_exchange: Optional[SMSTenDLCBrandStockExchange] = Field(default=None, alias="stockExchange")
     ip_address: Optional[Annotated[str, Field(strict=True, max_length=50)]] = Field(default=None, description="IP address of the browser requesting to create brand identity.", alias="ipAddress")
-
-        
     website: Optional[Annotated[str, Field(strict=True, max_length=100)]] = Field(default=None, description="Brand website URL.")
-
-        
-
-        
+    brand_relationship: SMSTenDLCBrandRelationship = Field(alias="brandRelationship")
     vertical: Annotated[str, Field(strict=True, max_length=50)] = Field(description="Vertical or industry segment of the brand.")
-
-        
     alt_business_id: Optional[Annotated[str, Field(strict=True, max_length=50)]] = Field(default=None, description="Alternate business identifier such as DUNS, LEI, or GIIN", alias="altBusinessId")
-
-        
-
-        
+    alt_business_id_type: Optional[SMSTenDLCBrandAltBusinessIdType] = Field(default=None, alias="altBusinessIdType")
     universal_ein: Optional[StrictStr] = Field(default=None, description="Universal EIN of Brand, Read Only.", alias="universalEin")
-
-        
     reference_id: Optional[Annotated[str, Field(strict=True, max_length=50)]] = Field(default=None, description="Caller supplied brand reference ID. If supplied, the value must be unique across all submitted brands. Can be used to prevent duplicate brand registrations.", alias="referenceId")
-
-        
-    optional_attributes: Optional[Dict[str, Dict[str, Any]]] = Field(default=None, description="Optional brand attributes. Please refer to GET /enum/optionalAttributeNames for dictionary of optional attribute names.", alias="optionalAttributes")
-
-        
+    optional_attributes: Optional[Dict[str, Any]] = Field(default=None, description="Optional brand attributes. Please refer to GET /enum/optionalAttributeNames for dictionary of optional attribute names.", alias="optionalAttributes")
     mock: StrictBool = Field(description="Test brand.")
-
-        
-
-        
+    identity_status: SMSTenDLCBrandIdentityStatus = Field(alias="identityStatus")
     create_date: Optional[datetime] = Field(default=None, description="Unix timestamp when brand was created.", alias="createDate")
 
     __properties: ClassVar[List[str]] = ["accountId", "entityType", "cspId", "brandId", "firstName", "lastName", "displayName", "companyName", "ein", "einIssuingCountry", "phone", "street", "city", "state", "postalCode", "country", "email", "stockSymbol", "stockExchange", "ipAddress", "website", "brandRelationship", "vertical", "altBusinessId", "altBusinessIdType", "universalEin", "referenceId", "optionalAttributes", "mock", "identityStatus", "createDate"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

@@ -14,41 +14,33 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.incoming_number_request import IncomingNumberRequest
 
 class TestIncomingNumberRequest(unittest.TestCase):
     """IncomingNumberRequest unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> IncomingNumberRequest:
-        """Test IncomingNumberRequest
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `IncomingNumberRequest`
-        """
-        model = IncomingNumberRequest()
-        if include_optional:
-            return IncomingNumberRequest(
-                application_id = '',
-                alias = '',
-                campaign_id = ''
-            )
-        else:
-            return IncomingNumberRequest(
+        self.model = IncomingNumberRequest(
         )
-        """
 
-    def testIncomingNumberRequest(self):
-        """Test IncomingNumberRequest"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_application_id(self):
+        """Test IncomingNumberRequest.application_id"""
+        self.model.application_id = "TEST_STRING"
+        assert self.model.application_id == "TEST_STRING"
+    def test_alias(self):
+        """Test IncomingNumberRequest.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.alias == "TEST_STRING"
+    def test_campaign_id(self):
+        """Test IncomingNumberRequest.campaign_id"""
+        self.model.campaign_id = "TEST_STRING"
+        assert self.model.campaign_id == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

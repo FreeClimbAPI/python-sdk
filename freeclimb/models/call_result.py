@@ -23,74 +23,38 @@ from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.answered_by import AnsweredBy
 from freeclimb.models.call_direction import CallDirection
 from freeclimb.models.call_status import CallStatus
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CallResult(BaseModel):
+class CallResult(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     CallResult
     """ # noqa: E501
-        
     uri: Optional[StrictStr] = Field(default=None, description="The URI for this resource, relative to /apiserver.")
-
-        
     date_created: Optional[StrictStr] = Field(default=None, description="The date that this resource was created (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT).", alias="dateCreated")
-
-        
     date_updated: Optional[StrictStr] = Field(default=None, description="The date that this resource was last updated (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT).", alias="dateUpdated")
-
-        
     revision: Optional[StrictInt] = Field(default=None, description="Revision count for the resource. This count is set to 1 on creation and is incremented every time it is updated.")
-
-        
     call_id: Optional[StrictStr] = Field(default=None, description="String that uniquely identifies this Call resource.", alias="callId")
-
-        
     parent_call_id: Optional[StrictStr] = Field(default=None, description="ID of the Call that created this leg (child Call).", alias="parentCallId")
-
-        
     account_id: Optional[StrictStr] = Field(default=None, description="ID of the account that owns this Call.", alias="accountId")
-
-        
     var_from: Optional[StrictStr] = Field(default=None, description="Phone number that initiated this Call.", alias="from")
-
-        
     to: Optional[StrictStr] = Field(default=None, description="Phone number that received this Call.")
-
-        
     phone_number_id: Optional[StrictStr] = Field(default=None, description="If the Call was inbound, this is the ID of the IncomingPhoneNumber that received the Call (DNIS). If the Call was outbound, this is the ID of the phone number from which the Call was placed (ANI).", alias="phoneNumberId")
-
-        
-
-        
+    call_status: Optional[CallStatus] = Field(default=None, alias="callStatus")
     start_time: Optional[StrictStr] = Field(default=None, description="Start time of the Call (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT). Empty if the Call has not yet been dialed.", alias="startTime")
-
-        
     connect_time: Optional[StrictStr] = Field(default=None, description="Time the Call was answered (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT). Empty if the Call has not yet been dialed.", alias="connectTime")
-
-        
     end_time: Optional[StrictStr] = Field(default=None, description="End time of the Call (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT). Empty if the Call did not complete successfully.", alias="endTime")
-
-        
     duration: Optional[StrictInt] = Field(default=None, description="Total length of the Call in seconds. Measures time between startTime and endTime. This value is empty for busy, failed, unanswered or ongoing Calls.")
-
-        
     connect_duration: Optional[StrictInt] = Field(default=None, description="Length of time that the Call was connected in seconds. Measures time between connectTime and endTime. This value is empty for busy, failed, unanswered or ongoing Calls.", alias="connectDuration")
-
-        
-
-        
-
-        
+    direction: Optional[CallDirection] = None
+    answered_by: Optional[AnsweredBy] = Field(default=None, alias="answeredBy")
     subresource_uris: Optional[Dict[str, Any]] = Field(default=None, description="The list of subresources for this Call. These include things like logs and recordings associated with the Call.", alias="subresourceUris")
 
     __properties: ClassVar[List[str]] = ["uri", "dateCreated", "dateUpdated", "revision", "callId", "parentCallId", "accountId", "from", "to", "phoneNumberId", "callStatus", "startTime", "connectTime", "endTime", "duration", "connectDuration", "direction", "answeredBy", "subresourceUris"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

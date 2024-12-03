@@ -14,55 +14,84 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.get_speech import GetSpeech
 
 class TestGetSpeech(unittest.TestCase):
     """GetSpeech unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> GetSpeech:
-        """Test GetSpeech
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `GetSpeech`
-        """
-        model = GetSpeech()
-        if include_optional:
-            return GetSpeech(
-                action_url = '',
-                grammar_type = 'URL',
-                grammar_file = '',
-                grammar_rule = '',
-                play_beep = True,
-                prompts = [
-                    freeclimb.models.percl_command.PerclCommand()
-                    ],
-                no_input_timeout_ms = 56,
-                recognition_timeout_ms = 56,
-                confidence_threshold = 1.337,
-                sensitivity_level = 1.337,
-                speech_complete_timeout_ms = 56,
-                speech_incomplete_timeout_ms = 56,
-                privacy_mode = True
-            )
-        else:
-            return GetSpeech(
-                action_url = '',
-                grammar_file = '',
+        self.model = GetSpeech(
+            action_url="",
+            grammar_file="",
         )
-        """
 
-    def testGetSpeech(self):
-        """Test GetSpeech"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_action_url(self):
+        """Test GetSpeech.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.action_url == "TEST_STRING"
+    def test_grammar_type(self):
+        """Test GetSpeech.grammar_type"""
+        self.model.grammar_type = GrammarType.URL
+        assert self.model.grammar_type == GrammarType.URL
+        self.model.grammar_type = GrammarType.BUILT_IN
+        assert self.model.grammar_type == GrammarType.BUILT_IN
+    def test_grammar_file(self):
+        """Test GetSpeech.grammar_file"""
+        self.model.grammar_file = "TEST_STRING"
+        assert self.model.grammar_file == "TEST_STRING"
+    def test_grammar_rule(self):
+        """Test GetSpeech.grammar_rule"""
+        self.model.grammar_rule = "TEST_STRING"
+        assert self.model.grammar_rule == "TEST_STRING"
+    def test_play_beep(self):
+        """Test GetSpeech.play_beep"""
+        self.model.play_beep = False
+        assert self.model.play_beep == False
+    def test_prompts(self):
+        """Test GetSpeech.prompts"""
+        testList = []
+        self.model.prompts = testList
+        assert self.model.prompts == testList
+    def test_no_input_timeout_ms(self):
+        """Test GetSpeech.no_input_timeout_ms"""
+        self.model.no_input_timeout_ms = 1
+        assert self.model.no_input_timeout_ms == 1
+    def test_recognition_timeout_ms(self):
+        """Test GetSpeech.recognition_timeout_ms"""
+        self.model.recognition_timeout_ms = 1
+        assert self.model.recognition_timeout_ms == 1
+    def test_confidence_threshold(self):
+        """Test GetSpeech.confidence_threshold"""
+        
+        
+        self.model.confidence_threshold = float(1) 
+        assert self.model.confidence_threshold == float(1)
+        
+    def test_sensitivity_level(self):
+        """Test GetSpeech.sensitivity_level"""
+        
+        
+        self.model.sensitivity_level = float(1) 
+        assert self.model.sensitivity_level == float(1)
+        
+    def test_speech_complete_timeout_ms(self):
+        """Test GetSpeech.speech_complete_timeout_ms"""
+        self.model.speech_complete_timeout_ms = 1
+        assert self.model.speech_complete_timeout_ms == 1
+    def test_speech_incomplete_timeout_ms(self):
+        """Test GetSpeech.speech_incomplete_timeout_ms"""
+        self.model.speech_incomplete_timeout_ms = 1
+        assert self.model.speech_incomplete_timeout_ms == 1
+    def test_privacy_mode(self):
+        """Test GetSpeech.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.privacy_mode == False
+
+
 
 if __name__ == '__main__':
     unittest.main()

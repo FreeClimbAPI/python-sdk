@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.sms_ten_dlc_brand_entity_type import SMSTenDLCBrandEntityType
 
 class TestSMSTenDLCBrandEntityType(unittest.TestCase):
     """SMSTenDLCBrandEntityType unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testSMSTenDLCBrandEntityType(self):
-        """Test SMSTenDLCBrandEntityType"""
-        # inst = SMSTenDLCBrandEntityType()
+
 
 if __name__ == '__main__':
     unittest.main()

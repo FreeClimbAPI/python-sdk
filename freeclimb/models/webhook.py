@@ -21,6 +21,7 @@ import json
 from importlib import import_module
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -50,20 +51,16 @@ if TYPE_CHECKING:
     from freeclimb.models.remove_from_queue_notification_webhook import RemoveFromQueueNotificationWebhook
     from freeclimb.models.transcribe_webhook import TranscribeWebhook
 
-class Webhook(BaseModel):
+class Webhook(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     Webhook
     """ # noqa: E501
-        
     request_type: Optional[StrictStr] = Field(default=None, description="Type of webhook request", alias="requestType")
 
     __properties: ClassVar[List[str]] = ["requestType"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     # JSON field name that stores the object type

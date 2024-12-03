@@ -14,48 +14,58 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.add_to_conference import AddToConference
 
 class TestAddToConference(unittest.TestCase):
     """AddToConference unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> AddToConference:
-        """Test AddToConference
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `AddToConference`
-        """
-        model = AddToConference()
-        if include_optional:
-            return AddToConference(
-                allow_call_control = True,
-                call_control_sequence = '',
-                call_control_url = '',
-                conference_id = '',
-                leave_conference_url = '',
-                listen = True,
-                notification_url = '',
-                start_conf_on_enter = True,
-                talk = True
-            )
-        else:
-            return AddToConference(
-                conference_id = '',
+        self.model = AddToConference(
+            conference_id="",
         )
-        """
 
-    def testAddToConference(self):
-        """Test AddToConference"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_allow_call_control(self):
+        """Test AddToConference.allow_call_control"""
+        self.model.allow_call_control = False
+        assert self.model.allow_call_control == False
+    def test_call_control_sequence(self):
+        """Test AddToConference.call_control_sequence"""
+        self.model.call_control_sequence = "TEST_STRING"
+        assert self.model.call_control_sequence == "TEST_STRING"
+    def test_call_control_url(self):
+        """Test AddToConference.call_control_url"""
+        self.model.call_control_url = "TEST_STRING"
+        assert self.model.call_control_url == "TEST_STRING"
+    def test_conference_id(self):
+        """Test AddToConference.conference_id"""
+        self.model.conference_id = "TEST_STRING"
+        assert self.model.conference_id == "TEST_STRING"
+    def test_leave_conference_url(self):
+        """Test AddToConference.leave_conference_url"""
+        self.model.leave_conference_url = "TEST_STRING"
+        assert self.model.leave_conference_url == "TEST_STRING"
+    def test_listen(self):
+        """Test AddToConference.listen"""
+        self.model.listen = False
+        assert self.model.listen == False
+    def test_notification_url(self):
+        """Test AddToConference.notification_url"""
+        self.model.notification_url = "TEST_STRING"
+        assert self.model.notification_url == "TEST_STRING"
+    def test_start_conf_on_enter(self):
+        """Test AddToConference.start_conf_on_enter"""
+        self.model.start_conf_on_enter = False
+        assert self.model.start_conf_on_enter == False
+    def test_talk(self):
+        """Test AddToConference.talk"""
+        self.model.talk = False
+        assert self.model.talk == False
+
+
 
 if __name__ == '__main__':
     unittest.main()

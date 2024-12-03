@@ -144,7 +144,7 @@ from freeclimb.models.terminate_conference import TerminateConference
 from freeclimb.models.transcribe_reason import TranscribeReason
 from freeclimb.models.transcribe_term_reason import TranscribeTermReason
 from freeclimb.models.transcribe_utterance import TranscribeUtterance
-from freeclimb.models.transcribe_utterance_all_of_record import TranscribeUtteranceAllOfRecord
+from freeclimb.models.transcribe_utterance_record import TranscribeUtteranceRecord
 from freeclimb.models.transcribe_webhook import TranscribeWebhook
 from freeclimb.models.unpark import Unpark
 from freeclimb.models.update_call_request import UpdateCallRequest

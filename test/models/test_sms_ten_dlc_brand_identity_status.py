@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.sms_ten_dlc_brand_identity_status import SMSTenDLCBrandIdentityStatus
 
 class TestSMSTenDLCBrandIdentityStatus(unittest.TestCase):
     """SMSTenDLCBrandIdentityStatus unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testSMSTenDLCBrandIdentityStatus(self):
-        """Test SMSTenDLCBrandIdentityStatus"""
-        # inst = SMSTenDLCBrandIdentityStatus()
+
 
 if __name__ == '__main__':
     unittest.main()

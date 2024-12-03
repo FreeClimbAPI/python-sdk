@@ -22,62 +22,33 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.conference_status import ConferenceStatus
 from freeclimb.models.play_beep import PlayBeep
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ConferenceResult(BaseModel):
+class ConferenceResult(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     ConferenceResult
     """ # noqa: E501
-        
     uri: Optional[StrictStr] = Field(default=None, description="The URI for this resource, relative to /apiserver.")
-
-        
     date_created: Optional[StrictStr] = Field(default=None, description="The date that this resource was created (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT).", alias="dateCreated")
-
-        
     date_updated: Optional[StrictStr] = Field(default=None, description="The date that this resource was last updated (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT).", alias="dateUpdated")
-
-        
     revision: Optional[StrictInt] = Field(default=None, description="Revision count for the resource. This count is set to 1 on creation and is incremented every time it is updated.")
-
-        
     conference_id: Optional[StrictStr] = Field(default=None, description="A string that uniquely identifies this Conference resource.", alias="conferenceId")
-
-        
     account_id: Optional[StrictStr] = Field(default=None, description="ID of the account that created this Conference.", alias="accountId")
-
-        
     alias: Optional[StrictStr] = Field(default=None, description="A description for this Conference.")
-
-        
-    play_beep: Optional[PlayBeep] = Field(default=PlayBeep.ALWAYS)
-    
-
-        
+    play_beep: Optional[PlayBeep] = Field(default=None, alias="playBeep")
     record: Optional[StrictBool] = Field(default=None, description="Flag indicating whether recording is enabled for this Conference.")
-
-        
-
-        
+    status: Optional[ConferenceStatus] = None
     wait_url: Optional[StrictStr] = Field(default=None, description="URL referencing the audio file to be used as default wait music for the Conference when it is in the populated state.", alias="waitUrl")
-
-        
     action_url: Optional[StrictStr] = Field(default=None, description="URL invoked once the Conference is successfully created.", alias="actionUrl")
-
-        
     status_callback_url: Optional[StrictStr] = Field(default=None, description="URL to inform that the Conference status has changed.", alias="statusCallbackUrl")
-
-        
     subresource_uris: Optional[Dict[str, Any]] = Field(default=None, description="The list of subresources for this Conference. This includes participants and/or recordings.", alias="subresourceUris")
 
     __properties: ClassVar[List[str]] = ["uri", "dateCreated", "dateUpdated", "revision", "conferenceId", "accountId", "alias", "playBeep", "record", "status", "waitUrl", "actionUrl", "statusCallbackUrl", "subresourceUris"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:
@@ -181,7 +152,7 @@ class ConferenceResult(BaseModel):
             "conferenceId": obj.get("conferenceId"),
             "accountId": obj.get("accountId"),
             "alias": obj.get("alias"),
-            "playBeep": obj.get("playBeep") if obj.get("playBeep") is not None else PlayBeep.NUMBER_ALWAYS,
+            "playBeep": obj.get("playBeep"),
             "record": obj.get("record"),
             "status": obj.get("status"),
             "waitUrl": obj.get("waitUrl"),

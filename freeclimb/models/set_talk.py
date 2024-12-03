@@ -21,23 +21,21 @@ import json
 from pydantic import ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SetTalk(PerclCommand):
+class SetTalk(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `SetTalk` command enables or disables the talk privilege for a Participant in a Conference provided both calls are in the same conference. If 'true', no audio from that Participant is shared with the other Participants of the Conference.
     """ # noqa: E501
-        
     talk: Optional[StrictBool] = Field(default=None, description="Specifying `false` mutes the Participant.")
+    command: StrictStr = "SetTalk"
 
     __properties: ClassVar[List[str]] = ["command", "talk"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

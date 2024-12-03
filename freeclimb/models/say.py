@@ -21,32 +21,24 @@ import json
 from pydantic import ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Say(PerclCommand):
+class Say(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `Say` command provides Text-To-Speech (TTS) support. It converts text to speech and then renders it in a female voice back to the caller. `Say` is useful in cases where it's difficult to pre-record a prompt for any reason. `Say` does not allow barge-in unless nested within a `GetSpeech` command. The file will always be played to completion unless nested.
     """ # noqa: E501
-        
     text: StrictStr = Field(description="The message to be played to the caller using TTS. The size of the string is limited to 4 KB (or 4,096 bytes). An empty string will cause the command to be skipped.")
-
-        
     language: Optional[StrictStr] = Field(default=None, description="Language and (by implication) the locale to use. This implies the accent and pronunciations to be usde for the TTS. The complete list of valid values for the language attribute is shown below.")
-
-        
     loop: Optional[StrictInt] = Field(default=1, description="Number of times the text is said. Specifying '0' causes the `Say` action to loop until the Call is hung up.")
-
-        
     privacy_mode: Optional[StrictBool] = Field(default=None, description="Parameter `privacyMode` will not log the `text` as required by PCI compliance.", alias="privacyMode")
+    command: StrictStr = "Say"
 
     __properties: ClassVar[List[str]] = ["command", "text", "language", "loop", "privacyMode"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

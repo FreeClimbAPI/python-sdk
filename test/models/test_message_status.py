@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.message_status import MessageStatus
 
 class TestMessageStatus(unittest.TestCase):
     """MessageStatus unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testMessageStatus(self):
-        """Test MessageStatus"""
-        # inst = MessageStatus()
+
 
 if __name__ == '__main__':
     unittest.main()

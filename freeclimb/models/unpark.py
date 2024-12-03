@@ -21,20 +21,20 @@ import json
 from pydantic import ConfigDict
 from typing import Any, ClassVar, Dict, List
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Unpark(PerclCommand):
+class Unpark(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `Unpark` command resumes a parked call.  Execution continues with the first command in the PerCL scripted returned by the actionUrl specified in the Park command as long as the call is still in progress.  If the call is no longer in progress, any returned PerCL will not be executed. Unpark is a terminal command -- any commands following it in the same script are not executed.
     """ # noqa: E501
+    command: StrictStr = "Unpark"
+
     __properties: ClassVar[List[str]] = ["command"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

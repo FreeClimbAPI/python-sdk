@@ -27,10 +27,15 @@ class SMSTenDLCBrandIdentityStatus(str, Enum):
     """
     allowed enum values
     """
+    
     SELF_DECLARED = 'SELF_DECLARED'
+    
     UNVERIFIED = 'UNVERIFIED'
+    
     VERIFIED = 'VERIFIED'
+    
     VETTED_VERIFIED = 'VETTED_VERIFIED'
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

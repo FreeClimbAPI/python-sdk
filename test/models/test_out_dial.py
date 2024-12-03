@@ -14,52 +14,67 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.out_dial import OutDial
 
 class TestOutDial(unittest.TestCase):
     """OutDial unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> OutDial:
-        """Test OutDial
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `OutDial`
-        """
-        model = OutDial()
-        if include_optional:
-            return OutDial(
-                action_url = '',
-                call_connect_url = '',
-                calling_number = '',
-                destination = '',
-                if_machine = 'redirect',
-                if_machine_url = '',
-                send_digits = '',
-                status_callback_url = '',
-                timeout = 56,
-                privacy_mode = True
-            )
-        else:
-            return OutDial(
-                action_url = '',
-                call_connect_url = '',
-                calling_number = '',
-                destination = '',
+        self.model = OutDial(
+            action_url="",
+            call_connect_url="",
+            calling_number="",
+            destination="",
         )
-        """
 
-    def testOutDial(self):
-        """Test OutDial"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_action_url(self):
+        """Test OutDial.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.action_url == "TEST_STRING"
+    def test_call_connect_url(self):
+        """Test OutDial.call_connect_url"""
+        self.model.call_connect_url = "TEST_STRING"
+        assert self.model.call_connect_url == "TEST_STRING"
+    def test_calling_number(self):
+        """Test OutDial.calling_number"""
+        self.model.calling_number = "TEST_STRING"
+        assert self.model.calling_number == "TEST_STRING"
+    def test_destination(self):
+        """Test OutDial.destination"""
+        self.model.destination = "TEST_STRING"
+        assert self.model.destination == "TEST_STRING"
+    def test_if_machine(self):
+        """Test OutDial.if_machine"""
+        self.model.if_machine = IfMachine.REDIRECT
+        assert self.model.if_machine == IfMachine.REDIRECT
+        self.model.if_machine = IfMachine.HANGUP
+        assert self.model.if_machine == IfMachine.HANGUP
+    def test_if_machine_url(self):
+        """Test OutDial.if_machine_url"""
+        self.model.if_machine_url = "TEST_STRING"
+        assert self.model.if_machine_url == "TEST_STRING"
+    def test_send_digits(self):
+        """Test OutDial.send_digits"""
+        self.model.send_digits = "TEST_STRING"
+        assert self.model.send_digits == "TEST_STRING"
+    def test_status_callback_url(self):
+        """Test OutDial.status_callback_url"""
+        self.model.status_callback_url = "TEST_STRING"
+        assert self.model.status_callback_url == "TEST_STRING"
+    def test_timeout(self):
+        """Test OutDial.timeout"""
+        self.model.timeout = 1
+        assert self.model.timeout == 1
+    def test_privacy_mode(self):
+        """Test OutDial.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.privacy_mode == False
+
+
 
 if __name__ == '__main__':
     unittest.main()

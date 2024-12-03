@@ -14,49 +14,66 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.queue_result import QueueResult
 
 class TestQueueResult(unittest.TestCase):
     """QueueResult unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> QueueResult:
-        """Test QueueResult
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `QueueResult`
-        """
-        model = QueueResult()
-        if include_optional:
-            return QueueResult(
-                uri = '',
-                date_created = '',
-                date_updated = '',
-                revision = 56,
-                account_id = '',
-                queue_id = '',
-                alias = '',
-                max_size = 56,
-                current_size = 56,
-                average_queue_removal_time = 56,
-                subresource_uris = None
-            )
-        else:
-            return QueueResult(
+        self.model = QueueResult(
         )
-        """
 
-    def testQueueResult(self):
-        """Test QueueResult"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_uri(self):
+        """Test QueueResult.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.uri == "TEST_STRING"
+    def test_date_created(self):
+        """Test QueueResult.date_created"""
+        self.model.date_created = "TEST_STRING"
+        assert self.model.date_created == "TEST_STRING"
+    def test_date_updated(self):
+        """Test QueueResult.date_updated"""
+        self.model.date_updated = "TEST_STRING"
+        assert self.model.date_updated == "TEST_STRING"
+    def test_revision(self):
+        """Test QueueResult.revision"""
+        self.model.revision = 1
+        assert self.model.revision == 1
+    def test_account_id(self):
+        """Test QueueResult.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_queue_id(self):
+        """Test QueueResult.queue_id"""
+        self.model.queue_id = "TEST_STRING"
+        assert self.model.queue_id == "TEST_STRING"
+    def test_alias(self):
+        """Test QueueResult.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.alias == "TEST_STRING"
+    def test_max_size(self):
+        """Test QueueResult.max_size"""
+        self.model.max_size = 1
+        assert self.model.max_size == 1
+    def test_current_size(self):
+        """Test QueueResult.current_size"""
+        self.model.current_size = 1
+        assert self.model.current_size == 1
+    def test_average_queue_removal_time(self):
+        """Test QueueResult.average_queue_removal_time"""
+        self.model.average_queue_removal_time = 1
+        assert self.model.average_queue_removal_time == 1
+    def test_subresource_uris(self):
+        """Test QueueResult.subresource_uris"""
+        testObject = {}
+        self.model.subresource_uris = testObject
+        assert self.model.subresource_uris == testObject
+
+
 
 if __name__ == '__main__':
     unittest.main()

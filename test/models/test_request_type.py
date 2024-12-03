@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.request_type import RequestType
 
 class TestRequestType(unittest.TestCase):
     """RequestType unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testRequestType(self):
-        """Test RequestType"""
-        # inst = RequestType()
+
 
 if __name__ == '__main__':
     unittest.main()

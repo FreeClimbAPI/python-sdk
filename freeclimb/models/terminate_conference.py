@@ -21,20 +21,20 @@ import json
 from pydantic import ConfigDict
 from typing import Any, ClassVar, Dict, List
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TerminateConference(PerclCommand):
+class TerminateConference(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `TerminateConference` command terminates an existing Conference. Any active participants are hung up on by FreeClimb. If this is not the desired behavior, use the `RemoveFromConference` command to unbridge Calls that should not be hung up. Note: The Call requesting TerminateConference must be on the same Conference for this command to execute.
     """ # noqa: E501
+    command: StrictStr = "TerminateConference"
+
     __properties: ClassVar[List[str]] = ["command"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

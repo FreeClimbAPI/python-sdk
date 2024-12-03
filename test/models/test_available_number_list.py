@@ -14,60 +14,54 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.available_number_list import AvailableNumberList
 
 class TestAvailableNumberList(unittest.TestCase):
     """AvailableNumberList unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> AvailableNumberList:
-        """Test AvailableNumberList
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `AvailableNumberList`
-        """
-        model = AvailableNumberList()
-        if include_optional:
-            return AvailableNumberList(
-                total = 56,
-                start = 56,
-                end = 56,
-                page = 56,
-                num_pages = 56,
-                page_size = 56,
-                next_page_uri = '',
-                available_phone_numbers = [
-                    freeclimb.models.available_number.AvailableNumber(
-                        capabilities = freeclimb.models.capabilities.Capabilities(
-                            voice = True, 
-                            sms = True, 
-                            toll_free = True, 
-                            ten_dlc = True, 
-                            short_code = True, ), 
-                        campaign_id = '', 
-                        phone_number = '', 
-                        voice_enabled = True, 
-                        sms_enabled = True, 
-                        region = '', 
-                        country = '', )
-                    ]
-            )
-        else:
-            return AvailableNumberList(
+        self.model = AvailableNumberList(
         )
-        """
 
-    def testAvailableNumberList(self):
-        """Test AvailableNumberList"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_total(self):
+        """Test AvailableNumberList.total"""
+        self.model.total = 1
+        assert self.model.total == 1
+    def test_start(self):
+        """Test AvailableNumberList.start"""
+        self.model.start = 1
+        assert self.model.start == 1
+    def test_end(self):
+        """Test AvailableNumberList.end"""
+        self.model.end = 1
+        assert self.model.end == 1
+    def test_page(self):
+        """Test AvailableNumberList.page"""
+        self.model.page = 1
+        assert self.model.page == 1
+    def test_num_pages(self):
+        """Test AvailableNumberList.num_pages"""
+        self.model.num_pages = 1
+        assert self.model.num_pages == 1
+    def test_page_size(self):
+        """Test AvailableNumberList.page_size"""
+        self.model.page_size = 1
+        assert self.model.page_size == 1
+    def test_next_page_uri(self):
+        """Test AvailableNumberList.next_page_uri"""
+        self.model.next_page_uri = "TEST_STRING"
+        assert self.model.next_page_uri == "TEST_STRING"
+    def test_available_phone_numbers(self):
+        """Test AvailableNumberList.available_phone_numbers"""
+        testList = []
+        self.model.available_phone_numbers = testList
+        assert self.model.available_phone_numbers == testList
+
+
 
 if __name__ == '__main__':
     unittest.main()

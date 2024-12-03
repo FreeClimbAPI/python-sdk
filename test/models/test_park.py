@@ -14,43 +14,35 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.park import Park
 
 class TestPark(unittest.TestCase):
     """Park unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> Park:
-        """Test Park
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `Park`
-        """
-        model = Park()
-        if include_optional:
-            return Park(
-                wait_url = '',
-                action_url = '',
-                notification_url = ''
-            )
-        else:
-            return Park(
-                wait_url = '',
-                action_url = '',
+        self.model = Park(
+            wait_url="",
+            action_url="",
         )
-        """
 
-    def testPark(self):
-        """Test Park"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_wait_url(self):
+        """Test Park.wait_url"""
+        self.model.wait_url = "TEST_STRING"
+        assert self.model.wait_url == "TEST_STRING"
+    def test_action_url(self):
+        """Test Park.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.action_url == "TEST_STRING"
+    def test_notification_url(self):
+        """Test Park.notification_url"""
+        self.model.notification_url = "TEST_STRING"
+        assert self.model.notification_url == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

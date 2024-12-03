@@ -14,61 +14,97 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.incoming_number_result import IncomingNumberResult
 
 class TestIncomingNumberResult(unittest.TestCase):
     """IncomingNumberResult unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = IncomingNumberResult(
+        )
 
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> IncomingNumberResult:
-        """Test IncomingNumberResult
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `IncomingNumberResult`
-        """
-        model = IncomingNumberResult()
-        if include_optional:
-            return IncomingNumberResult(
-                uri = '',
-                date_created = '',
-                date_updated = '',
-                revision = 56,
-                capabilities = freeclimb.models.capabilities.Capabilities(
+    def test_uri(self):
+        """Test IncomingNumberResult.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.uri == "TEST_STRING"
+    def test_date_created(self):
+        """Test IncomingNumberResult.date_created"""
+        self.model.date_created = "TEST_STRING"
+        assert self.model.date_created == "TEST_STRING"
+    def test_date_updated(self):
+        """Test IncomingNumberResult.date_updated"""
+        self.model.date_updated = "TEST_STRING"
+        assert self.model.date_updated == "TEST_STRING"
+    def test_revision(self):
+        """Test IncomingNumberResult.revision"""
+        self.model.revision = 1
+        assert self.model.revision == 1
+    def test_capabilities(self):
+        """Test IncomingNumberResult.capabilities"""
+        object = freeclimb.models.capabilities.Capabilities(
                     voice = True, 
                     sms = True, 
                     toll_free = True, 
                     ten_dlc = True, 
-                    short_code = True, ),
-                campaign_id = '',
-                phone_number_id = '',
-                account_id = '',
-                application_id = '',
-                phone_number = '',
-                alias = '',
-                region = '',
-                country = '',
-                voice_enabled = True,
-                sms_enabled = True,
-                offnet = True,
-                tfn = freeclimb.models.tfn.TFN(
+                    short_code = True, )
+        self.model.capabilities = object
+        assert self.model.capabilities == object
+    def test_campaign_id(self):
+        """Test IncomingNumberResult.campaign_id"""
+        self.model.campaign_id = "TEST_STRING"
+        assert self.model.campaign_id == "TEST_STRING"
+    def test_phone_number_id(self):
+        """Test IncomingNumberResult.phone_number_id"""
+        self.model.phone_number_id = "TEST_STRING"
+        assert self.model.phone_number_id == "TEST_STRING"
+    def test_account_id(self):
+        """Test IncomingNumberResult.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_application_id(self):
+        """Test IncomingNumberResult.application_id"""
+        self.model.application_id = "TEST_STRING"
+        assert self.model.application_id == "TEST_STRING"
+    def test_phone_number(self):
+        """Test IncomingNumberResult.phone_number"""
+        self.model.phone_number = "TEST_STRING"
+        assert self.model.phone_number == "TEST_STRING"
+    def test_alias(self):
+        """Test IncomingNumberResult.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.alias == "TEST_STRING"
+    def test_region(self):
+        """Test IncomingNumberResult.region"""
+        self.model.region = "TEST_STRING"
+        assert self.model.region == "TEST_STRING"
+    def test_country(self):
+        """Test IncomingNumberResult.country"""
+        self.model.country = "TEST_STRING"
+        assert self.model.country == "TEST_STRING"
+    def test_voice_enabled(self):
+        """Test IncomingNumberResult.voice_enabled"""
+        self.model.voice_enabled = False
+        assert self.model.voice_enabled == False
+    def test_sms_enabled(self):
+        """Test IncomingNumberResult.sms_enabled"""
+        self.model.sms_enabled = False
+        assert self.model.sms_enabled == False
+    def test_offnet(self):
+        """Test IncomingNumberResult.offnet"""
+        self.model.offnet = False
+        assert self.model.offnet == False
+    def test_tfn(self):
+        """Test IncomingNumberResult.tfn"""
+        object = freeclimb.models.tfn.TFN(
                     campaign_id = '', )
-            )
-        else:
-            return IncomingNumberResult(
-        )
-        """
+        self.model.tfn = object
+        assert self.model.tfn == object
 
-    def testIncomingNumberResult(self):
-        """Test IncomingNumberResult"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+
 
 if __name__ == '__main__':
     unittest.main()

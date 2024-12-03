@@ -21,67 +21,35 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from freeclimb.models.message_status import MessageStatus
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class MessageResult(BaseModel):
+class MessageResult(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     MessageResult
     """ # noqa: E501
-        
     uri: Optional[StrictStr] = Field(default=None, description="The URI for this resource, relative to /apiserver.")
-
-        
     date_created: Optional[StrictStr] = Field(default=None, description="The date that this resource was created (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT).", alias="dateCreated")
-
-        
     date_updated: Optional[StrictStr] = Field(default=None, description="The date that this resource was last updated (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT).", alias="dateUpdated")
-
-        
     revision: Optional[StrictInt] = Field(default=None, description="Revision count for the resource. This count is set to 1 on creation and is incremented every time it is updated.")
-
-        
     account_id: Optional[StrictStr] = Field(default=None, description="String that uniquely identifies this account resource.", alias="accountId")
-
-        
     message_id: Optional[StrictStr] = Field(default=None, description="String that uniquely identifies this message resource", alias="messageId")
-
-        
-
-        
+    status: Optional[MessageStatus] = None
     var_from: Optional[StrictStr] = Field(default=None, description="Phone number in E.164 format that sent the message.", alias="from")
-
-        
     to: Optional[StrictStr] = Field(default=None, description="Phone number in E.164 format that received the message.")
-
-        
     text: Optional[StrictStr] = Field(default=None, description="Message contents")
-
-        
     direction: Optional[StrictStr] = Field(default=None, description="Noting whether the message was inbound or outbound")
-
-        
     notification_url: Optional[StrictStr] = Field(default=None, description="URL invoked when message sent", alias="notificationUrl")
-
-        
     brand_id: Optional[StrictStr] = Field(default=None, description="The unique identifier for the brand associated with the message", alias="brandId")
-
-        
     campaign_id: Optional[StrictStr] = Field(default=None, description="The unique identifier for the campaign associated with the message", alias="campaignId")
-
-        
     segment_count: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The number of segments into which the message was split", alias="segmentCount")
-
-        
     media_urls: Optional[List[StrictStr]] = Field(default=None, description="an array of HTTP URLs which were attached this this message", alias="mediaUrls")
 
     __properties: ClassVar[List[str]] = ["uri", "dateCreated", "dateUpdated", "revision", "accountId", "messageId", "status", "from", "to", "text", "direction", "notificationUrl", "brandId", "campaignId", "segmentCount", "mediaUrls"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

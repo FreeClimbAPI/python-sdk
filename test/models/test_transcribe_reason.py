@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.transcribe_reason import TranscribeReason
 
 class TestTranscribeReason(unittest.TestCase):
     """TranscribeReason unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testTranscribeReason(self):
-        """Test TranscribeReason"""
-        # inst = TranscribeReason()
+
 
 if __name__ == '__main__':
     unittest.main()

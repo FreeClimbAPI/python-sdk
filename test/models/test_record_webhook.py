@@ -14,55 +14,111 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.record_webhook import RecordWebhook
 
 class TestRecordWebhook(unittest.TestCase):
     """RecordWebhook unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> RecordWebhook:
-        """Test RecordWebhook
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `RecordWebhook`
-        """
-        model = RecordWebhook()
-        if include_optional:
-            return RecordWebhook(
-                request_type = '',
-                account_id = '',
-                call_id = '',
-                var_from = '',
-                to = '',
-                call_status = 'queued',
-                direction = 'inbound',
-                conference_id = '',
-                queue_id = '',
-                recording_id = '',
-                recording_url = '',
-                recording_size = '',
-                recording_format = '',
-                recording_duration_sec = 56,
-                term_reason = 'finishKey',
-                parent_call_id = '',
-                privacy_mode = True
-            )
-        else:
-            return RecordWebhook(
+        self.model = RecordWebhook(
         )
-        """
 
-    def testRecordWebhook(self):
-        """Test RecordWebhook"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_request_type(self):
+        """Test RecordWebhook.request_type"""
+    def test_account_id(self):
+        """Test RecordWebhook.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_call_id(self):
+        """Test RecordWebhook.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.call_id == "TEST_STRING"
+    def test_var_from(self):
+        """Test RecordWebhook.var_from"""
+        self.model.var_from = "TEST_STRING"
+        assert self.model.var_from == "TEST_STRING"
+    def test_to(self):
+        """Test RecordWebhook.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.to == "TEST_STRING"
+    def test_call_status(self):
+        """Test RecordWebhook.call_status"""
+        self.model.call_status = CallStatus.QUEUED
+        assert self.model.call_status == CallStatus.QUEUED
+        self.model.call_status = CallStatus.RINGING
+        assert self.model.call_status == CallStatus.RINGING
+        self.model.call_status = CallStatus.IN_PROGRESS
+        assert self.model.call_status == CallStatus.IN_PROGRESS
+        self.model.call_status = CallStatus.CANCELED
+        assert self.model.call_status == CallStatus.CANCELED
+        self.model.call_status = CallStatus.COMPLETED
+        assert self.model.call_status == CallStatus.COMPLETED
+        self.model.call_status = CallStatus.FAILED
+        assert self.model.call_status == CallStatus.FAILED
+        self.model.call_status = CallStatus.BUSY
+        assert self.model.call_status == CallStatus.BUSY
+        self.model.call_status = CallStatus.NO_ANSWER
+        assert self.model.call_status == CallStatus.NO_ANSWER
+    def test_direction(self):
+        """Test RecordWebhook.direction"""
+        self.model.direction = CallDirection.INBOUND
+        assert self.model.direction == CallDirection.INBOUND
+        self.model.direction = CallDirection.OUTBOUND_API
+        assert self.model.direction == CallDirection.OUTBOUND_API
+        self.model.direction = CallDirection.OUTBOUND_DIAL
+        assert self.model.direction == CallDirection.OUTBOUND_DIAL
+    def test_conference_id(self):
+        """Test RecordWebhook.conference_id"""
+        self.model.conference_id = "TEST_STRING"
+        assert self.model.conference_id == "TEST_STRING"
+    def test_queue_id(self):
+        """Test RecordWebhook.queue_id"""
+        self.model.queue_id = "TEST_STRING"
+        assert self.model.queue_id == "TEST_STRING"
+    def test_recording_id(self):
+        """Test RecordWebhook.recording_id"""
+        self.model.recording_id = "TEST_STRING"
+        assert self.model.recording_id == "TEST_STRING"
+    def test_recording_url(self):
+        """Test RecordWebhook.recording_url"""
+        self.model.recording_url = "TEST_STRING"
+        assert self.model.recording_url == "TEST_STRING"
+    def test_recording_size(self):
+        """Test RecordWebhook.recording_size"""
+        self.model.recording_size = "TEST_STRING"
+        assert self.model.recording_size == "TEST_STRING"
+    def test_recording_format(self):
+        """Test RecordWebhook.recording_format"""
+        self.model.recording_format = "TEST_STRING"
+        assert self.model.recording_format == "TEST_STRING"
+    def test_recording_duration_sec(self):
+        """Test RecordWebhook.recording_duration_sec"""
+        self.model.recording_duration_sec = 1
+        assert self.model.recording_duration_sec == 1
+    def test_term_reason(self):
+        """Test RecordWebhook.term_reason"""
+        self.model.term_reason = RecordUtteranceTermReason.FINISH_KEY
+        assert self.model.term_reason == RecordUtteranceTermReason.FINISH_KEY
+        self.model.term_reason = RecordUtteranceTermReason.TIMEOUT
+        assert self.model.term_reason == RecordUtteranceTermReason.TIMEOUT
+        self.model.term_reason = RecordUtteranceTermReason.HANGUP
+        assert self.model.term_reason == RecordUtteranceTermReason.HANGUP
+        self.model.term_reason = RecordUtteranceTermReason.MAX_LENGTH
+        assert self.model.term_reason == RecordUtteranceTermReason.MAX_LENGTH
+    def test_parent_call_id(self):
+        """Test RecordWebhook.parent_call_id"""
+        self.model.parent_call_id = "TEST_STRING"
+        assert self.model.parent_call_id == "TEST_STRING"
+    def test_privacy_mode(self):
+        """Test RecordWebhook.privacy_mode"""
+        self.model.privacy_mode = False
+        assert self.model.privacy_mode == False
+
+
 
 if __name__ == '__main__':
     unittest.main()

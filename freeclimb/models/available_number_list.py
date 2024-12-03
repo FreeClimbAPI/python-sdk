@@ -21,44 +21,27 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.available_number import AvailableNumber
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AvailableNumberList(BaseModel):
+class AvailableNumberList(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     AvailableNumberList
     """ # noqa: E501
-        
     total: Optional[StrictInt] = Field(default=None, description="Total amount of requested resource.")
-
-        
     start: Optional[StrictInt] = Field(default=None, description="Resource index at start of current page")
-
-        
     end: Optional[StrictInt] = Field(default=None, description="Resource index at end of current page")
-
-        
     page: Optional[StrictInt] = Field(default=None, description="Current page")
-
-        
     num_pages: Optional[StrictInt] = Field(default=None, description="Total number of pages", alias="numPages")
-
-        
     page_size: Optional[StrictInt] = Field(default=None, description="Number of items per page", alias="pageSize")
-
-        
     next_page_uri: Optional[StrictStr] = Field(default=None, description="Uri to retrieve the next page of items", alias="nextPageUri")
-
-        
     available_phone_numbers: Optional[List[AvailableNumber]] = Field(default=None, alias="availablePhoneNumbers")
 
     __properties: ClassVar[List[str]] = ["total", "start", "end", "page", "numPages", "pageSize", "nextPageUri", "availablePhoneNumbers"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

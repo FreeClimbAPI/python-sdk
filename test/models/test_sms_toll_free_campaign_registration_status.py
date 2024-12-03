@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.sms_toll_free_campaign_registration_status import SMSTollFreeCampaignRegistrationStatus
 
 class TestSMSTollFreeCampaignRegistrationStatus(unittest.TestCase):
     """SMSTollFreeCampaignRegistrationStatus unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testSMSTollFreeCampaignRegistrationStatus(self):
-        """Test SMSTollFreeCampaignRegistrationStatus"""
-        # inst = SMSTollFreeCampaignRegistrationStatus()
+
 
 if __name__ == '__main__':
     unittest.main()

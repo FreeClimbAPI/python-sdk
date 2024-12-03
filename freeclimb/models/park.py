@@ -21,29 +21,23 @@ import json
 from pydantic import ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Park(PerclCommand):
+class Park(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `Park` command allows a caller to be put on hold.  You can provide hold music,messages,etc until ready to resume the call. Park is a terminal command.  Actions performed on the Call while on hold are provided in a PerCL script in response to the waitUrl property. Actions performed on the Call after it has been unparked (resumed) will be provided in a PerCL script in response to the actionUrl provided. A Call can be resumed in two ways -- REST API invocation or the Unpark percl command. No actions can be nested within Park and Park cannot be nested in any other actions. 
     """ # noqa: E501
-        
     wait_url: StrictStr = Field(description="Specifies a URL pointing to a PerCL script containing actions to be executed while the caller is Parked. Once the script returned by the waitUrl runs out of commands to execute, FreeClimb will re-request the waitUrl and start over, essentially looping the script requests indefinitely.", alias="waitUrl")
-
-        
     action_url: StrictStr = Field(description="A request is made to this URL when the Call is resumed, which can occur if the Call is resumed via the Unpark command, the REST API (POST to Call resource), or the caller hangs up. The PerCL script returned in response to the actionUrl will be executed on the resumed call.", alias="actionUrl")
-
-        
     notification_url: Optional[StrictStr] = Field(default=None, description="URL to be invoked when the Call is parked. The request to the URL contains the standard request parameters.", alias="notificationUrl")
+    command: StrictStr = "Park"
 
     __properties: ClassVar[List[str]] = ["command", "waitUrl", "actionUrl", "notificationUrl"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

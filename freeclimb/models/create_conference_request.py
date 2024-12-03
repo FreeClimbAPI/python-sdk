@@ -21,36 +21,24 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.play_beep import PlayBeep
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CreateConferenceRequest(BaseModel):
+class CreateConferenceRequest(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     CreateConferenceRequest
     """ # noqa: E501
-        
     alias: Optional[StrictStr] = Field(default=None, description="A description for this Conference. Maximum 64 characters.")
-
-        
-    play_beep: Optional[PlayBeep] = Field(default=PlayBeep.ALWAYS)
-    
-
-        
+    play_beep: Optional[PlayBeep] = Field(default=None, alias="playBeep")
     record: Optional[StrictBool] = Field(default=None, description="Setting to `true` records the entire Conference.")
-
-        
     wait_url: Optional[StrictStr] = Field(default=None, description="If specified, a URL for the audio file that provides custom hold music for the Conference when it is in the populated state. Otherwise, FreeClimb uses a system default audio file. This is always fetched using HTTP GET and is fetched just once &mdash; when the Conference is created.", alias="waitUrl")
-
-        
     status_callback_url: Optional[StrictStr] = Field(default=None, description="This URL is invoked when the status of the Conference changes. For more information, see **statusCallbackUrl** (below).", alias="statusCallbackUrl")
 
     __properties: ClassVar[List[str]] = ["alias", "playBeep", "record", "waitUrl", "statusCallbackUrl"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:
@@ -103,7 +91,7 @@ class CreateConferenceRequest(BaseModel):
 
         _obj = cls.model_validate({
             "alias": obj.get("alias"),
-            "playBeep": obj.get("playBeep") if obj.get("playBeep") is not None else PlayBeep.NUMBER_ALWAYS,
+            "playBeep": obj.get("playBeep"),
             "record": obj.get("record"),
             "waitUrl": obj.get("waitUrl"),
             "statusCallbackUrl": obj.get("statusCallbackUrl")

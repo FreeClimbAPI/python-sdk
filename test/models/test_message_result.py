@@ -14,56 +14,109 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.message_result import MessageResult
 
 class TestMessageResult(unittest.TestCase):
     """MessageResult unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> MessageResult:
-        """Test MessageResult
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `MessageResult`
-        """
-        model = MessageResult()
-        if include_optional:
-            return MessageResult(
-                uri = '',
-                date_created = '',
-                date_updated = '',
-                revision = 56,
-                account_id = '',
-                message_id = '',
-                status = 'new',
-                var_from = '',
-                to = '',
-                text = '',
-                direction = '',
-                notification_url = '',
-                brand_id = '',
-                campaign_id = '',
-                segment_count = 1.337,
-                media_urls = [
-                    ''
-                    ]
-            )
-        else:
-            return MessageResult(
+        self.model = MessageResult(
         )
-        """
 
-    def testMessageResult(self):
-        """Test MessageResult"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_uri(self):
+        """Test MessageResult.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.uri == "TEST_STRING"
+    def test_date_created(self):
+        """Test MessageResult.date_created"""
+        self.model.date_created = "TEST_STRING"
+        assert self.model.date_created == "TEST_STRING"
+    def test_date_updated(self):
+        """Test MessageResult.date_updated"""
+        self.model.date_updated = "TEST_STRING"
+        assert self.model.date_updated == "TEST_STRING"
+    def test_revision(self):
+        """Test MessageResult.revision"""
+        self.model.revision = 1
+        assert self.model.revision == 1
+    def test_account_id(self):
+        """Test MessageResult.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_message_id(self):
+        """Test MessageResult.message_id"""
+        self.model.message_id = "TEST_STRING"
+        assert self.model.message_id == "TEST_STRING"
+    def test_status(self):
+        """Test MessageResult.status"""
+        self.model.status = MessageStatus.NEW
+        assert self.model.status == MessageStatus.NEW
+        self.model.status = MessageStatus.QUEUED
+        assert self.model.status == MessageStatus.QUEUED
+        self.model.status = MessageStatus.REJECTED
+        assert self.model.status == MessageStatus.REJECTED
+        self.model.status = MessageStatus.SENDING
+        assert self.model.status == MessageStatus.SENDING
+        self.model.status = MessageStatus.SENT
+        assert self.model.status == MessageStatus.SENT
+        self.model.status = MessageStatus.FAILED
+        assert self.model.status == MessageStatus.FAILED
+        self.model.status = MessageStatus.RECEIVED
+        assert self.model.status == MessageStatus.RECEIVED
+        self.model.status = MessageStatus.UNDELIVERED
+        assert self.model.status == MessageStatus.UNDELIVERED
+        self.model.status = MessageStatus.EXPIRED
+        assert self.model.status == MessageStatus.EXPIRED
+        self.model.status = MessageStatus.DELETED
+        assert self.model.status == MessageStatus.DELETED
+        self.model.status = MessageStatus.UNKNOWN
+        assert self.model.status == MessageStatus.UNKNOWN
+    def test_var_from(self):
+        """Test MessageResult.var_from"""
+        self.model.var_from = "TEST_STRING"
+        assert self.model.var_from == "TEST_STRING"
+    def test_to(self):
+        """Test MessageResult.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.to == "TEST_STRING"
+    def test_text(self):
+        """Test MessageResult.text"""
+        self.model.text = "TEST_STRING"
+        assert self.model.text == "TEST_STRING"
+    def test_direction(self):
+        """Test MessageResult.direction"""
+        self.model.direction = "TEST_STRING"
+        assert self.model.direction == "TEST_STRING"
+    def test_notification_url(self):
+        """Test MessageResult.notification_url"""
+        self.model.notification_url = "TEST_STRING"
+        assert self.model.notification_url == "TEST_STRING"
+    def test_brand_id(self):
+        """Test MessageResult.brand_id"""
+        self.model.brand_id = "TEST_STRING"
+        assert self.model.brand_id == "TEST_STRING"
+    def test_campaign_id(self):
+        """Test MessageResult.campaign_id"""
+        self.model.campaign_id = "TEST_STRING"
+        assert self.model.campaign_id == "TEST_STRING"
+    def test_segment_count(self):
+        """Test MessageResult.segment_count"""
+        
+        
+        self.model.segment_count = float(1) 
+        assert self.model.segment_count == float(1)
+        
+    def test_media_urls(self):
+        """Test MessageResult.media_urls"""
+        testList = []
+        self.model.media_urls = testList
+        assert self.model.media_urls == testList
+
+
 
 if __name__ == '__main__':
     unittest.main()

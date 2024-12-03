@@ -27,9 +27,10 @@ class CallDirection(str, Enum):
     """
     allowed enum values
     """
-    INBOUND = 'inbound'
-    OUTBOUNDAPI = 'outboundAPI'
-    OUTBOUNDDIAL = 'outboundDial'
+    INBOUND = "inbound"
+    OUTBOUND_API = "outboundAPI"
+    OUTBOUND_DIAL = "outboundDial"
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -14,48 +14,54 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.sms_ten_dlc_campaigns_list_result import SMSTenDLCCampaignsListResult
 
 class TestSMSTenDLCCampaignsListResult(unittest.TestCase):
     """SMSTenDLCCampaignsListResult unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> SMSTenDLCCampaignsListResult:
-        """Test SMSTenDLCCampaignsListResult
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `SMSTenDLCCampaignsListResult`
-        """
-        model = SMSTenDLCCampaignsListResult()
-        if include_optional:
-            return SMSTenDLCCampaignsListResult(
-                total = 56,
-                start = 56,
-                end = 56,
-                page = 56,
-                num_pages = 56,
-                page_size = 56,
-                next_page_uri = '',
-                campaigns = [
-                    {"campaignId":"CX56XX4","accountId":"ACe39970fb7c31c747c67148900b4d9da60a41e532","cspId":"SX56XX4","brandId":"BX56XX4","usecase":"2FA","description":"mock campaign.","subUsecases":[],"resellerId":null,"sample1":"Your verification code from FreeClimb is 000000. It expires in 10 minutes.","sample2":null,"sample3":null,"sample4":null,"sample5":null,"messageFlow":null,"helpMessage":null,"referenceId":null,"status":"EXPIRED","mock":true,"autoRenewal":false,"embeddedLink":false,"embeddedPhone":false,"affiliateMarketing":false,"numberPool":false,"ageGated":false,"directLending":false,"subscriberOptin":true,"subscriberOptout":false,"subscriberHelp":true,"createDate":"2022-07-05T15:17:05Z","billedDate":"2022-07-05T00:00:00Z","nextRenewalOrExpirationDate":null}
-                    ]
-            )
-        else:
-            return SMSTenDLCCampaignsListResult(
+        self.model = SMSTenDLCCampaignsListResult(
         )
-        """
 
-    def testSMSTenDLCCampaignsListResult(self):
-        """Test SMSTenDLCCampaignsListResult"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_total(self):
+        """Test SMSTenDLCCampaignsListResult.total"""
+        self.model.total = 1
+        assert self.model.total == 1
+    def test_start(self):
+        """Test SMSTenDLCCampaignsListResult.start"""
+        self.model.start = 1
+        assert self.model.start == 1
+    def test_end(self):
+        """Test SMSTenDLCCampaignsListResult.end"""
+        self.model.end = 1
+        assert self.model.end == 1
+    def test_page(self):
+        """Test SMSTenDLCCampaignsListResult.page"""
+        self.model.page = 1
+        assert self.model.page == 1
+    def test_num_pages(self):
+        """Test SMSTenDLCCampaignsListResult.num_pages"""
+        self.model.num_pages = 1
+        assert self.model.num_pages == 1
+    def test_page_size(self):
+        """Test SMSTenDLCCampaignsListResult.page_size"""
+        self.model.page_size = 1
+        assert self.model.page_size == 1
+    def test_next_page_uri(self):
+        """Test SMSTenDLCCampaignsListResult.next_page_uri"""
+        self.model.next_page_uri = "TEST_STRING"
+        assert self.model.next_page_uri == "TEST_STRING"
+    def test_campaigns(self):
+        """Test SMSTenDLCCampaignsListResult.campaigns"""
+        testList = []
+        self.model.campaigns = testList
+        assert self.model.campaigns == testList
+
+
 
 if __name__ == '__main__':
     unittest.main()

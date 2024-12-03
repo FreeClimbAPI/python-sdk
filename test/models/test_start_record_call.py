@@ -14,38 +14,21 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.start_record_call import StartRecordCall
 
 class TestStartRecordCall(unittest.TestCase):
     """StartRecordCall unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> StartRecordCall:
-        """Test StartRecordCall
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `StartRecordCall`
-        """
-        model = StartRecordCall()
-        if include_optional:
-            return StartRecordCall(
-            )
-        else:
-            return StartRecordCall(
+        self.model = StartRecordCall(
         )
-        """
 
-    def testStartRecordCall(self):
-        """Test StartRecordCall"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+
+
 
 if __name__ == '__main__':
     unittest.main()

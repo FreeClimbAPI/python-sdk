@@ -14,40 +14,26 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.redirect import Redirect
 
 class TestRedirect(unittest.TestCase):
     """Redirect unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> Redirect:
-        """Test Redirect
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `Redirect`
-        """
-        model = Redirect()
-        if include_optional:
-            return Redirect(
-                action_url = ''
-            )
-        else:
-            return Redirect(
-                action_url = '',
+        self.model = Redirect(
+            action_url="",
         )
-        """
 
-    def testRedirect(self):
-        """Test Redirect"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_action_url(self):
+        """Test Redirect.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.action_url == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

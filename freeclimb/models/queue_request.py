@@ -20,26 +20,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class QueueRequest(BaseModel):
+class QueueRequest(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     QueueRequest
     """ # noqa: E501
-        
     alias: Optional[StrictStr] = Field(default=None, description="Description for this Queue. Max length is 64 characters.")
-
-        
     max_size: Optional[StrictInt] = Field(default=100, description="Maximum number of calls this queue can hold. Default is 100. Maximum is 1000. **Note:** Reducing the maxSize of a Queue causes the Queue to reject incoming requests until it shrinks below the new value of maxSize.", alias="maxSize")
 
     __properties: ClassVar[List[str]] = ["alias", "maxSize"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

@@ -14,41 +14,41 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.update_conference_request import UpdateConferenceRequest
 
 class TestUpdateConferenceRequest(unittest.TestCase):
     """UpdateConferenceRequest unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> UpdateConferenceRequest:
-        """Test UpdateConferenceRequest
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `UpdateConferenceRequest`
-        """
-        model = UpdateConferenceRequest()
-        if include_optional:
-            return UpdateConferenceRequest(
-                alias = '',
-                play_beep = 'always',
-                status = 'empty'
-            )
-        else:
-            return UpdateConferenceRequest(
+        self.model = UpdateConferenceRequest(
         )
-        """
 
-    def testUpdateConferenceRequest(self):
-        """Test UpdateConferenceRequest"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_alias(self):
+        """Test UpdateConferenceRequest.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.alias == "TEST_STRING"
+    def test_play_beep(self):
+        """Test UpdateConferenceRequest.play_beep"""
+        self.model.play_beep = PlayBeep.ALWAYS
+        assert self.model.play_beep == PlayBeep.ALWAYS
+        self.model.play_beep = PlayBeep.NEVER
+        assert self.model.play_beep == PlayBeep.NEVER
+        self.model.play_beep = PlayBeep.ENTRY_ONLY
+        assert self.model.play_beep == PlayBeep.ENTRY_ONLY
+        self.model.play_beep = PlayBeep.EXIT_ONLY
+        assert self.model.play_beep == PlayBeep.EXIT_ONLY
+    def test_status(self):
+        """Test UpdateConferenceRequest.status"""
+        self.model.status = UpdateConferenceRequestStatus.EMPTY
+        assert self.model.status == UpdateConferenceRequestStatus.EMPTY
+        self.model.status = UpdateConferenceRequestStatus.TERMINATED
+        assert self.model.status == UpdateConferenceRequestStatus.TERMINATED
+
+
 
 if __name__ == '__main__':
     unittest.main()

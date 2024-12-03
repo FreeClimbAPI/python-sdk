@@ -22,39 +22,26 @@ from pydantic import ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.percl_command import PerclCommand
 from freeclimb.models.play_beep import PlayBeep
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CreateConference(PerclCommand):
+class CreateConference(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `CreateConference` command does exactly what its name implies — it creates an unpopulated Conference (one without any Participants). Once created, a Conference remains in FreeClimb until explicitly terminated by a customer. Once a Conference has been terminated, it can no longer be used.
     """ # noqa: E501
-        
     action_url: StrictStr = Field(description=" This URL is invoked once the Conference is successfully created. Actions on the Conference, such as adding Participants, can be performed via the PerCL script returned in the response. ", alias="actionUrl")
-
-        
     alias: Optional[StrictBool] = Field(default=None, description="Descriptive name for the Conference. ")
-
-        
-    play_beep: Optional[PlayBeep] = Field(default=PlayBeep.ALWAYS)
-    
-
-        
+    play_beep: Optional[PlayBeep] = Field(default=None, alias="playBeep")
     record: Optional[StrictBool] = Field(default=None, description="When set to `true`, the entire Conference is recorded. The `statusCallbackUrl` of the Conference will receive a `conferenceRecordingEnded` Webhook when the Conference transitions from the `inProgress` to empty state.")
-
-        
     status_callback_url: Optional[StrictStr] = Field(default=None, description="This URL is invoked when the status of the Conference changes or when a recording of the Conference has become available.", alias="statusCallbackUrl")
-
-        
     wait_url: Optional[StrictStr] = Field(default=None, description="If specified, this URL provides the custom hold music for the Conference when it is in the populated state. This attribute is always fetched using HTTP GET and is fetched just once – when the Conference is created. The URL must be an audio file that is reachable and readable by FreeClimb.", alias="waitUrl")
+    command: StrictStr = "CreateConference"
 
     __properties: ClassVar[List[str]] = ["command", "actionUrl", "alias", "playBeep", "record", "statusCallbackUrl", "waitUrl"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:
@@ -109,7 +96,7 @@ class CreateConference(PerclCommand):
             "command": obj.get("command"),
             "actionUrl": obj.get("actionUrl"),
             "alias": obj.get("alias"),
-            "playBeep": obj.get("playBeep") if obj.get("playBeep") is not None else PlayBeep.NUMBER_ALWAYS,
+            "playBeep": obj.get("playBeep"),
             "record": obj.get("record"),
             "statusCallbackUrl": obj.get("statusCallbackUrl"),
             "waitUrl": obj.get("waitUrl")

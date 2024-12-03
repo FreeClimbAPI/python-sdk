@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.barge_in_reason import BargeInReason
 
 class TestBargeInReason(unittest.TestCase):
     """BargeInReason unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testBargeInReason(self):
-        """Test BargeInReason"""
-        # inst = BargeInReason()
+
 
 if __name__ == '__main__':
     unittest.main()

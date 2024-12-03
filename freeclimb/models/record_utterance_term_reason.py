@@ -27,10 +27,11 @@ class RecordUtteranceTermReason(str, Enum):
     """
     allowed enum values
     """
-    FINISHKEY = 'finishKey'
-    TIMEOUT = 'timeout'
-    HANGUP = 'hangup'
-    MAXLENGTH = 'maxLength'
+    FINISH_KEY = "finishKey"
+    TIMEOUT = "timeout"
+    HANGUP = "hangup"
+    MAX_LENGTH = "maxLength"
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -14,40 +14,26 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.pause import Pause
 
 class TestPause(unittest.TestCase):
     """Pause unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> Pause:
-        """Test Pause
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `Pause`
-        """
-        model = Pause()
-        if include_optional:
-            return Pause(
-                length = 56
-            )
-        else:
-            return Pause(
-                length = 56,
+        self.model = Pause(
+            length=1,
         )
-        """
 
-    def testPause(self):
-        """Test Pause"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_length(self):
+        """Test Pause.length"""
+        self.model.length = 1
+        assert self.model.length == 1
+
+
 
 if __name__ == '__main__':
     unittest.main()

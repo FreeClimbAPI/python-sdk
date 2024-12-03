@@ -14,49 +14,72 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.account_result import AccountResult
 
 class TestAccountResult(unittest.TestCase):
     """AccountResult unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> AccountResult:
-        """Test AccountResult
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `AccountResult`
-        """
-        model = AccountResult()
-        if include_optional:
-            return AccountResult(
-                uri = '',
-                date_created = '',
-                date_updated = '',
-                revision = 56,
-                account_id = '',
-                api_key = '',
-                alias = '',
-                label = '',
-                type = 'trial',
-                status = 'closed',
-                subresource_uris = None
-            )
-        else:
-            return AccountResult(
+        self.model = AccountResult(
         )
-        """
 
-    def testAccountResult(self):
-        """Test AccountResult"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_uri(self):
+        """Test AccountResult.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.uri == "TEST_STRING"
+    def test_date_created(self):
+        """Test AccountResult.date_created"""
+        self.model.date_created = "TEST_STRING"
+        assert self.model.date_created == "TEST_STRING"
+    def test_date_updated(self):
+        """Test AccountResult.date_updated"""
+        self.model.date_updated = "TEST_STRING"
+        assert self.model.date_updated == "TEST_STRING"
+    def test_revision(self):
+        """Test AccountResult.revision"""
+        self.model.revision = 1
+        assert self.model.revision == 1
+    def test_account_id(self):
+        """Test AccountResult.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_api_key(self):
+        """Test AccountResult.api_key"""
+        self.model.api_key = "TEST_STRING"
+        assert self.model.api_key == "TEST_STRING"
+    def test_alias(self):
+        """Test AccountResult.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.alias == "TEST_STRING"
+    def test_label(self):
+        """Test AccountResult.label"""
+        self.model.label = "TEST_STRING"
+        assert self.model.label == "TEST_STRING"
+    def test_type(self):
+        """Test AccountResult.type"""
+        self.model.type = AccountType.TRIAL
+        assert self.model.type == AccountType.TRIAL
+        self.model.type = AccountType.FULL
+        assert self.model.type == AccountType.FULL
+    def test_status(self):
+        """Test AccountResult.status"""
+        self.model.status = AccountStatus.CLOSED
+        assert self.model.status == AccountStatus.CLOSED
+        self.model.status = AccountStatus.SUSPENDED
+        assert self.model.status == AccountStatus.SUSPENDED
+        self.model.status = AccountStatus.ACTIVE
+        assert self.model.status == AccountStatus.ACTIVE
+    def test_subresource_uris(self):
+        """Test AccountResult.subresource_uris"""
+        testObject = {}
+        self.model.subresource_uris = testObject
+        assert self.model.subresource_uris == testObject
+
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -20,23 +20,20 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TFN(BaseModel):
+class TFN(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     TollFree Campaign details for this number
     """ # noqa: E501
-        
     campaign_id: StrictStr = Field(description="alphanumeric identifier for the TollFree campaign associated with this number", alias="campaignId")
 
     __properties: ClassVar[List[str]] = ["campaignId"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

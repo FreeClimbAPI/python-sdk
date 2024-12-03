@@ -21,29 +21,22 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TranscribeUtteranceAllOfRecord(BaseModel):
+class TranscribeUtteranceRecord(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
-    TranscribeUtteranceAllOfRecord
+    TranscribeUtteranceRecord
     """ # noqa: E501
-        
     save_recording: Optional[StrictBool] = Field(default=False, alias="saveRecording")
-
-        
     max_length_sec: Optional[Annotated[int, Field(le=60, strict=True, ge=1)]] = Field(default=60, alias="maxLengthSec")
-
-        
-    rcrd_termination_silence_time_ms: Optional[Annotated[int, Field(le=3000, strict=True, gt=0)]] = Field(default=None, alias="rcrdTerminationSilenceTimeMs")
+    rcrd_termination_silence_time_ms: Optional[Annotated[int, Field(le=3000, strict=True, ge=1)]] = Field(default=None, alias="rcrdTerminationSilenceTimeMs")
 
     __properties: ClassVar[List[str]] = ["saveRecording", "maxLengthSec", "rcrdTerminationSilenceTimeMs"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:
@@ -57,7 +50,7 @@ class TranscribeUtteranceAllOfRecord(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TranscribeUtteranceAllOfRecord from a JSON string"""
+        """Create an instance of TranscribeUtteranceRecord from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -82,7 +75,7 @@ class TranscribeUtteranceAllOfRecord(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TranscribeUtteranceAllOfRecord from a dict"""
+        """Create an instance of TranscribeUtteranceRecord from a dict"""
         if obj is None:
             return None
 

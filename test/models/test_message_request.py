@@ -14,52 +14,61 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.message_request import MessageRequest
 
 class TestMessageRequest(unittest.TestCase):
     """MessageRequest unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> MessageRequest:
-        """Test MessageRequest
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `MessageRequest`
-        """
-        model = MessageRequest()
-        if include_optional:
-            return MessageRequest(
-                uri = '',
-                date_created = '',
-                date_updated = '',
-                revision = 56,
-                var_from = '',
-                to = '',
-                text = '',
-                notification_url = '',
-                media_urls = [
-                    ''
-                    ]
-            )
-        else:
-            return MessageRequest(
-                var_from = '',
-                to = '',
-                text = '',
+        self.model = MessageRequest(
+            var_from="",
+            to="",
+            text="",
         )
-        """
 
-    def testMessageRequest(self):
-        """Test MessageRequest"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_uri(self):
+        """Test MessageRequest.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.uri == "TEST_STRING"
+    def test_date_created(self):
+        """Test MessageRequest.date_created"""
+        self.model.date_created = "TEST_STRING"
+        assert self.model.date_created == "TEST_STRING"
+    def test_date_updated(self):
+        """Test MessageRequest.date_updated"""
+        self.model.date_updated = "TEST_STRING"
+        assert self.model.date_updated == "TEST_STRING"
+    def test_revision(self):
+        """Test MessageRequest.revision"""
+        self.model.revision = 1
+        assert self.model.revision == 1
+    def test_var_from(self):
+        """Test MessageRequest.var_from"""
+        self.model.var_from = "TEST_STRING"
+        assert self.model.var_from == "TEST_STRING"
+    def test_to(self):
+        """Test MessageRequest.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.to == "TEST_STRING"
+    def test_text(self):
+        """Test MessageRequest.text"""
+        self.model.text = "TEST_STRING"
+        assert self.model.text == "TEST_STRING"
+    def test_notification_url(self):
+        """Test MessageRequest.notification_url"""
+        self.model.notification_url = "TEST_STRING"
+        assert self.model.notification_url == "TEST_STRING"
+    def test_media_urls(self):
+        """Test MessageRequest.media_urls"""
+        testList = []
+        self.model.media_urls = testList
+        assert self.model.media_urls == testList
+
+
 
 if __name__ == '__main__':
     unittest.main()

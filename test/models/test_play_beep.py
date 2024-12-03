@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.play_beep import PlayBeep
 
 class TestPlayBeep(unittest.TestCase):
     """PlayBeep unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testPlayBeep(self):
-        """Test PlayBeep"""
-        # inst = PlayBeep()
+
 
 if __name__ == '__main__':
     unittest.main()

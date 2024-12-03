@@ -27,32 +27,33 @@ class Language(str, Enum):
     """
     allowed enum values
     """
-    CA_MINUS_ES = 'ca-ES'
-    DA_MINUS_DK = 'da-DK'
-    DE_MINUS_DE = 'de-DE'
-    EN_MINUS_AU = 'en-AU'
-    EN_MINUS_CA = 'en-CA'
-    EN_MINUS_GB = 'en-GB'
-    EN_MINUS_IN = 'en-IN'
-    EN_MINUS_US = 'en-US'
-    ES_MINUS_ES = 'es-ES'
-    ES_MINUS_MX = 'es-MX'
-    FI_MINUS_FI = 'fi-FI'
-    FR_MINUS_CA = 'fr-CA'
-    FR_MINUS_FR = 'fr-FR'
-    IT_MINUS_IT = 'it-IT'
-    JA_MINUS_JP = 'ja-JP'
-    KO_MINUS_KR = 'ko-KR'
-    NB_MINUS_NO = 'nb-NO'
-    NL_MINUS_NL = 'nl-NL'
-    PL_MINUS_PL = 'pl-PL'
-    PT_MINUS_BR = 'pt-BR'
-    PT_MINUS_PT = 'pt-PT'
-    RU_MINUS_RU = 'ru-RU'
-    SV_MINUS_SE = 'sv-SE'
-    ZH_MINUS_CN = 'zh-CN'
-    ZH_MINUS_HK = 'zh-HK'
-    ZH_MINUS_TW = 'zh-TW'
+    CATALAN = "ca-ES"
+    DANISH = "da-DK"
+    GERMAN = "de-DE"
+    ENGLISH_AU = "en-AU"
+    ENGLISH_CA = "en-CA"
+    ENGLISH_UK = "en-GB"
+    ENGLISH_IN = "en-IN"
+    ENGLISH_US = "en-US"
+    ENGLISH_ES = "es-ES"
+    ENGLISH_MX = "es-MX"
+    FINNISH = "fi-FI"
+    FRENCH_CA = "fr-CA"
+    FRENCH_FR = "fr-FR"
+    ITALIAN = "it-IT"
+    JAPANESE = "ja-JP"
+    KOREAN = "ko-KR"
+    NORWEGIAN = "nb-NO"
+    DUTCH = "nl-NL"
+    POLISH = "pl-PL"
+    PORTUGESE_BR = "pt-BR"
+    PORTUGESE_PT = "pt-PT"
+    RUSSIAN = "ru-RU"
+    SWEDISH = "sv-SE"
+    CHINESE_CN = "zh-CN"
+    CHINESE_HK = "zh-HK"
+    CHINESE_TW = "zh-TW"
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

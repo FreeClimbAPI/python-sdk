@@ -27,8 +27,11 @@ class SMSTenDLCCampaignStatus(str, Enum):
     """
     allowed enum values
     """
+    
     ACTIVE = 'ACTIVE'
+    
     EXPIRED = 'EXPIRED'
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

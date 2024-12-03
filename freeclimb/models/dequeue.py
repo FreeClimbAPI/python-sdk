@@ -21,20 +21,20 @@ import json
 from pydantic import ConfigDict
 from typing import Any, ClassVar, Dict, List
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Dequeue(PerclCommand):
+class Dequeue(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `Dequeue` command transfers control of a Call that is in a Queue so that the waiting caller exits the Queue. Execution continues with the first command in the PerCL script returned by the `actionUrl` specified in the `Enqueue` command.
     """ # noqa: E501
+    command: StrictStr = "Dequeue"
+
     __properties: ClassVar[List[str]] = ["command"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

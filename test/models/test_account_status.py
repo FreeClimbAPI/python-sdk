@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.account_status import AccountStatus
 
 class TestAccountStatus(unittest.TestCase):
     """AccountStatus unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testAccountStatus(self):
-        """Test AccountStatus"""
-        # inst = AccountStatus()
+
 
 if __name__ == '__main__':
     unittest.main()

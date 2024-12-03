@@ -27,9 +27,13 @@ class LogLevel(str, Enum):
     """
     allowed enum values
     """
+    
     INFO = 'info'
+    
     WARNING = 'warning'
+    
     ERROR = 'error'
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -14,48 +14,46 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.capabilities import Capabilities
 
 class TestCapabilities(unittest.TestCase):
     """Capabilities unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> Capabilities:
-        """Test Capabilities
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `Capabilities`
-        """
-        model = Capabilities()
-        if include_optional:
-            return Capabilities(
-                voice = True,
-                sms = True,
-                toll_free = True,
-                ten_dlc = True,
-                short_code = True
-            )
-        else:
-            return Capabilities(
-                voice = True,
-                sms = True,
-                toll_free = True,
-                ten_dlc = True,
-                short_code = True,
+        self.model = Capabilities(
+            voice=True,
+            sms=True,
+            toll_free=True,
+            ten_dlc=True,
+            short_code=True,
         )
-        """
 
-    def testCapabilities(self):
-        """Test Capabilities"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_voice(self):
+        """Test Capabilities.voice"""
+        self.model.voice = False
+        assert self.model.voice == False
+    def test_sms(self):
+        """Test Capabilities.sms"""
+        self.model.sms = False
+        assert self.model.sms == False
+    def test_toll_free(self):
+        """Test Capabilities.toll_free"""
+        self.model.toll_free = False
+        assert self.model.toll_free == False
+    def test_ten_dlc(self):
+        """Test Capabilities.ten_dlc"""
+        self.model.ten_dlc = False
+        assert self.model.ten_dlc == False
+    def test_short_code(self):
+        """Test Capabilities.short_code"""
+        self.model.short_code = False
+        assert self.model.short_code == False
+
+
 
 if __name__ == '__main__':
     unittest.main()

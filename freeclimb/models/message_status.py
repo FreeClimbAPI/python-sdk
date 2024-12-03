@@ -27,17 +27,29 @@ class MessageStatus(str, Enum):
     """
     allowed enum values
     """
+    
     NEW = 'new'
+    
     QUEUED = 'queued'
+    
     REJECTED = 'rejected'
+    
     SENDING = 'sending'
+    
     SENT = 'sent'
+    
     FAILED = 'failed'
+    
     RECEIVED = 'received'
+    
     UNDELIVERED = 'undelivered'
+    
     EXPIRED = 'expired'
+    
     DELETED = 'deleted'
+    
     UNKNOWN = 'unknown'
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

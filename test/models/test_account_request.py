@@ -14,40 +14,29 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.account_request import AccountRequest
 
 class TestAccountRequest(unittest.TestCase):
     """AccountRequest unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> AccountRequest:
-        """Test AccountRequest
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `AccountRequest`
-        """
-        model = AccountRequest()
-        if include_optional:
-            return AccountRequest(
-                alias = '',
-                label = ''
-            )
-        else:
-            return AccountRequest(
+        self.model = AccountRequest(
         )
-        """
 
-    def testAccountRequest(self):
-        """Test AccountRequest"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_alias(self):
+        """Test AccountRequest.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.alias == "TEST_STRING"
+    def test_label(self):
+        """Test AccountRequest.label"""
+        self.model.label = "TEST_STRING"
+        assert self.model.label == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

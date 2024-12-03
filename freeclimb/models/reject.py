@@ -21,23 +21,21 @@ import json
 from pydantic import ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Reject(PerclCommand):
+class Reject(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `Reject` command blocks an incoming Call. Using `Reject` is the only way to prevent FreeClimb from answering a Call. Any other response will result in an answered Call and your account will be billed.
     """ # noqa: E501
-        
     reason: Optional[StrictStr] = Field(default=None, description="Reason for the rejection. This can be any string value. In general, applications should use a set of enumerated values that are predefined to cover all exit points of the call flows for the given application.")
+    command: StrictStr = "Reject"
 
     __properties: ClassVar[List[str]] = ["command", "reason"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

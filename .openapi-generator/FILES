@@ -130,7 +130,7 @@ docs/TerminateConference.md
 docs/TranscribeReason.md
 docs/TranscribeTermReason.md
 docs/TranscribeUtterance.md
-docs/TranscribeUtteranceAllOfRecord.md
+docs/TranscribeUtteranceRecord.md
 docs/TranscribeWebhook.md
 docs/Unpark.md
 docs/UpdateCallRequest.md
@@ -276,7 +276,7 @@ freeclimb/models/tfn.py
 freeclimb/models/transcribe_reason.py
 freeclimb/models/transcribe_term_reason.py
 freeclimb/models/transcribe_utterance.py
-freeclimb/models/transcribe_utterance_all_of_record.py
+freeclimb/models/transcribe_utterance_record.py
 freeclimb/models/transcribe_webhook.py
 freeclimb/models/unpark.py
 freeclimb/models/update_call_request.py
@@ -422,7 +422,7 @@ test/test_tfn.py
 test/test_transcribe_reason.py
 test/test_transcribe_term_reason.py
 test/test_transcribe_utterance.py
-test/test_transcribe_utterance_all_of_record.py
+test/test_transcribe_utterance_record.py
 test/test_transcribe_webhook.py
 test/test_unpark.py
 test/test_update_call_request.py

@@ -14,48 +14,54 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.conference_participant_list import ConferenceParticipantList
 
 class TestConferenceParticipantList(unittest.TestCase):
     """ConferenceParticipantList unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> ConferenceParticipantList:
-        """Test ConferenceParticipantList
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `ConferenceParticipantList`
-        """
-        model = ConferenceParticipantList()
-        if include_optional:
-            return ConferenceParticipantList(
-                total = 56,
-                start = 56,
-                end = 56,
-                page = 56,
-                num_pages = 56,
-                page_size = 56,
-                next_page_uri = '',
-                participants = [
-                    null
-                    ]
-            )
-        else:
-            return ConferenceParticipantList(
+        self.model = ConferenceParticipantList(
         )
-        """
 
-    def testConferenceParticipantList(self):
-        """Test ConferenceParticipantList"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_total(self):
+        """Test ConferenceParticipantList.total"""
+        self.model.total = 1
+        assert self.model.total == 1
+    def test_start(self):
+        """Test ConferenceParticipantList.start"""
+        self.model.start = 1
+        assert self.model.start == 1
+    def test_end(self):
+        """Test ConferenceParticipantList.end"""
+        self.model.end = 1
+        assert self.model.end == 1
+    def test_page(self):
+        """Test ConferenceParticipantList.page"""
+        self.model.page = 1
+        assert self.model.page == 1
+    def test_num_pages(self):
+        """Test ConferenceParticipantList.num_pages"""
+        self.model.num_pages = 1
+        assert self.model.num_pages == 1
+    def test_page_size(self):
+        """Test ConferenceParticipantList.page_size"""
+        self.model.page_size = 1
+        assert self.model.page_size == 1
+    def test_next_page_uri(self):
+        """Test ConferenceParticipantList.next_page_uri"""
+        self.model.next_page_uri = "TEST_STRING"
+        assert self.model.next_page_uri == "TEST_STRING"
+    def test_participants(self):
+        """Test ConferenceParticipantList.participants"""
+        testList = []
+        self.model.participants = testList
+        assert self.model.participants == testList
+
+
 
 if __name__ == '__main__':
     unittest.main()

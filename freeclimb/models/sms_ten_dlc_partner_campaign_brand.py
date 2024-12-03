@@ -21,53 +21,30 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SMSTenDLCPartnerCampaignBrand(BaseModel):
+class SMSTenDLCPartnerCampaignBrand(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     SMSTenDLCPartnerCampaignBrand
     """ # noqa: E501
-        
     account_id: Optional[StrictStr] = Field(default=None, description="ID of the account that created this Queue.", alias="accountId")
-
-        
     brand_id: Optional[StrictStr] = Field(default=None, description="Unique identifier assigned to the brand by the registry.", alias="brandId")
-
-        
     first_name: Optional[Annotated[str, Field(strict=True, max_length=100)]] = Field(default=None, description="First or given name. ", alias="firstName")
-
-        
     last_name: Optional[Annotated[str, Field(strict=True, max_length=100)]] = Field(default=None, description="Last or Surname.", alias="lastName")
-
-        
     display_name: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="Display or marketing name of the brand.", alias="displayName")
-
-        
     company_name: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="(Required for Non-profit/private/public) Legal company name.", alias="companyName")
-
-        
     phone: Annotated[str, Field(strict=True, max_length=20)] = Field(description="Valid phone number in e.164 international format.")
-
-        
     email: Annotated[str, Field(strict=True, max_length=100)] = Field(description="Valid email address of brand support contact.")
-
-        
     website: Optional[Annotated[str, Field(strict=True, max_length=100)]] = Field(default=None, description="Brand website URL.")
-
-        
-    optional_attributes: Optional[Dict[str, Dict[str, Any]]] = Field(default=None, description="Optional brand attributes. Please refer to GET /enum/optionalAttributeNames for dictionary of optional attribute names.", alias="optionalAttributes")
-
-        
+    optional_attributes: Optional[Dict[str, Any]] = Field(default=None, description="Optional brand attributes. Please refer to GET /enum/optionalAttributeNames for dictionary of optional attribute names.", alias="optionalAttributes")
     evp_vetting_score: Optional[StrictInt] = Field(default=None, description="External vetting score.", alias="evpVettingScore")
 
     __properties: ClassVar[List[str]] = ["accountId", "brandId", "firstName", "lastName", "displayName", "companyName", "phone", "email", "website", "optionalAttributes", "evpVettingScore"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

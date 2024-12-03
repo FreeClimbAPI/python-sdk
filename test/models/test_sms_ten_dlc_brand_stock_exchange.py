@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.sms_ten_dlc_brand_stock_exchange import SMSTenDLCBrandStockExchange
 
 class TestSMSTenDLCBrandStockExchange(unittest.TestCase):
     """SMSTenDLCBrandStockExchange unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testSMSTenDLCBrandStockExchange(self):
-        """Test SMSTenDLCBrandStockExchange"""
-        # inst = SMSTenDLCBrandStockExchange()
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -14,55 +14,115 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.get_speech_webhook import GetSpeechWebhook
 
 class TestGetSpeechWebhook(unittest.TestCase):
     """GetSpeechWebhook unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> GetSpeechWebhook:
-        """Test GetSpeechWebhook
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `GetSpeechWebhook`
-        """
-        model = GetSpeechWebhook()
-        if include_optional:
-            return GetSpeechWebhook(
-                request_type = '',
-                call_id = '',
-                account_id = '',
-                var_from = '',
-                to = '',
-                call_status = 'queued',
-                direction = 'inbound',
-                conference_id = '',
-                queue_id = '',
-                reason = 'error',
-                recognition_result = '',
-                confidence = 56,
-                parent_call_id = '',
-                completion_reason = '',
-                completion_cause = '',
-                mrcp_code = 56,
-                mrcp_diagnostic = ''
-            )
-        else:
-            return GetSpeechWebhook(
+        self.model = GetSpeechWebhook(
         )
-        """
 
-    def testGetSpeechWebhook(self):
-        """Test GetSpeechWebhook"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_request_type(self):
+        """Test GetSpeechWebhook.request_type"""
+    def test_call_id(self):
+        """Test GetSpeechWebhook.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.call_id == "TEST_STRING"
+    def test_account_id(self):
+        """Test GetSpeechWebhook.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_var_from(self):
+        """Test GetSpeechWebhook.var_from"""
+        self.model.var_from = "TEST_STRING"
+        assert self.model.var_from == "TEST_STRING"
+    def test_to(self):
+        """Test GetSpeechWebhook.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.to == "TEST_STRING"
+    def test_call_status(self):
+        """Test GetSpeechWebhook.call_status"""
+        self.model.call_status = CallStatus.QUEUED
+        assert self.model.call_status == CallStatus.QUEUED
+        self.model.call_status = CallStatus.RINGING
+        assert self.model.call_status == CallStatus.RINGING
+        self.model.call_status = CallStatus.IN_PROGRESS
+        assert self.model.call_status == CallStatus.IN_PROGRESS
+        self.model.call_status = CallStatus.CANCELED
+        assert self.model.call_status == CallStatus.CANCELED
+        self.model.call_status = CallStatus.COMPLETED
+        assert self.model.call_status == CallStatus.COMPLETED
+        self.model.call_status = CallStatus.FAILED
+        assert self.model.call_status == CallStatus.FAILED
+        self.model.call_status = CallStatus.BUSY
+        assert self.model.call_status == CallStatus.BUSY
+        self.model.call_status = CallStatus.NO_ANSWER
+        assert self.model.call_status == CallStatus.NO_ANSWER
+    def test_direction(self):
+        """Test GetSpeechWebhook.direction"""
+        self.model.direction = CallDirection.INBOUND
+        assert self.model.direction == CallDirection.INBOUND
+        self.model.direction = CallDirection.OUTBOUND_API
+        assert self.model.direction == CallDirection.OUTBOUND_API
+        self.model.direction = CallDirection.OUTBOUND_DIAL
+        assert self.model.direction == CallDirection.OUTBOUND_DIAL
+    def test_conference_id(self):
+        """Test GetSpeechWebhook.conference_id"""
+        self.model.conference_id = "TEST_STRING"
+        assert self.model.conference_id == "TEST_STRING"
+    def test_queue_id(self):
+        """Test GetSpeechWebhook.queue_id"""
+        self.model.queue_id = "TEST_STRING"
+        assert self.model.queue_id == "TEST_STRING"
+    def test_reason(self):
+        """Test GetSpeechWebhook.reason"""
+        self.model.reason = GetSpeechReason.ERROR
+        assert self.model.reason == GetSpeechReason.ERROR
+        self.model.reason = GetSpeechReason.HANGUP
+        assert self.model.reason == GetSpeechReason.HANGUP
+        self.model.reason = GetSpeechReason.DIGIT
+        assert self.model.reason == GetSpeechReason.DIGIT
+        self.model.reason = GetSpeechReason.NO_INPUT
+        assert self.model.reason == GetSpeechReason.NO_INPUT
+        self.model.reason = GetSpeechReason.NO_MATCH
+        assert self.model.reason == GetSpeechReason.NO_MATCH
+        self.model.reason = GetSpeechReason.RECOGNITION
+        assert self.model.reason == GetSpeechReason.RECOGNITION
+    def test_recognition_result(self):
+        """Test GetSpeechWebhook.recognition_result"""
+        self.model.recognition_result = "TEST_STRING"
+        assert self.model.recognition_result == "TEST_STRING"
+    def test_confidence(self):
+        """Test GetSpeechWebhook.confidence"""
+        self.model.confidence = 1
+        assert self.model.confidence == 1
+    def test_parent_call_id(self):
+        """Test GetSpeechWebhook.parent_call_id"""
+        self.model.parent_call_id = "TEST_STRING"
+        assert self.model.parent_call_id == "TEST_STRING"
+    def test_completion_reason(self):
+        """Test GetSpeechWebhook.completion_reason"""
+        self.model.completion_reason = "TEST_STRING"
+        assert self.model.completion_reason == "TEST_STRING"
+    def test_completion_cause(self):
+        """Test GetSpeechWebhook.completion_cause"""
+        self.model.completion_cause = "TEST_STRING"
+        assert self.model.completion_cause == "TEST_STRING"
+    def test_mrcp_code(self):
+        """Test GetSpeechWebhook.mrcp_code"""
+        self.model.mrcp_code = 1
+        assert self.model.mrcp_code == 1
+    def test_mrcp_diagnostic(self):
+        """Test GetSpeechWebhook.mrcp_diagnostic"""
+        self.model.mrcp_diagnostic = "TEST_STRING"
+        assert self.model.mrcp_diagnostic == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

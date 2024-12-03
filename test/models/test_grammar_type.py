@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.grammar_type import GrammarType
 
 class TestGrammarType(unittest.TestCase):
     """GrammarType unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testGrammarType(self):
-        """Test GrammarType"""
-        # inst = GrammarType()
+
 
 if __name__ == '__main__':
     unittest.main()

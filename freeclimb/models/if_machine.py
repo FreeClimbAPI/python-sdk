@@ -27,8 +27,11 @@ class IfMachine(str, Enum):
     """
     allowed enum values
     """
+    
     REDIRECT = 'redirect'
+    
     HANGUP = 'hangup'
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

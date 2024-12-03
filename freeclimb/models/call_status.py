@@ -27,14 +27,15 @@ class CallStatus(str, Enum):
     """
     allowed enum values
     """
-    QUEUED = 'queued'
-    RINGING = 'ringing'
-    INPROGRESS = 'inProgress'
-    CANCELED = 'canceled'
-    COMPLETED = 'completed'
-    FAILED = 'failed'
-    BUSY = 'busy'
-    NOANSWER = 'noAnswer'
+    QUEUED = "queued"
+    RINGING = "ringing"
+    IN_PROGRESS = "inProgress"
+    CANCELED = "canceled"
+    COMPLETED = "completed"
+    FAILED = "failed"
+    BUSY = "busy"
+    NO_ANSWER = "noAnswer"
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

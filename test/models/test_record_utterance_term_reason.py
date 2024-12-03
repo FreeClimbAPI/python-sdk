@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.record_utterance_term_reason import RecordUtteranceTermReason
 
 class TestRecordUtteranceTermReason(unittest.TestCase):
     """RecordUtteranceTermReason unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testRecordUtteranceTermReason(self):
-        """Test RecordUtteranceTermReason"""
-        # inst = RecordUtteranceTermReason()
+
 
 if __name__ == '__main__':
     unittest.main()

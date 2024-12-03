@@ -14,55 +14,54 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.log_list import LogList
 
 class TestLogList(unittest.TestCase):
     """LogList unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> LogList:
-        """Test LogList
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `LogList`
-        """
-        model = LogList()
-        if include_optional:
-            return LogList(
-                total = 56,
-                start = 56,
-                end = 56,
-                page = 56,
-                num_pages = 56,
-                page_size = 56,
-                next_page_uri = '',
-                logs = [
-                    freeclimb.models.log_result.LogResult(
-                        timestamp = 56, 
-                        level = 'info', 
-                        request_id = '', 
-                        account_id = '', 
-                        call_id = '', 
-                        message = '', 
-                        metadata = freeclimb.models.metadata.metadata(), )
-                    ]
-            )
-        else:
-            return LogList(
+        self.model = LogList(
         )
-        """
 
-    def testLogList(self):
-        """Test LogList"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_total(self):
+        """Test LogList.total"""
+        self.model.total = 1
+        assert self.model.total == 1
+    def test_start(self):
+        """Test LogList.start"""
+        self.model.start = 1
+        assert self.model.start == 1
+    def test_end(self):
+        """Test LogList.end"""
+        self.model.end = 1
+        assert self.model.end == 1
+    def test_page(self):
+        """Test LogList.page"""
+        self.model.page = 1
+        assert self.model.page == 1
+    def test_num_pages(self):
+        """Test LogList.num_pages"""
+        self.model.num_pages = 1
+        assert self.model.num_pages == 1
+    def test_page_size(self):
+        """Test LogList.page_size"""
+        self.model.page_size = 1
+        assert self.model.page_size == 1
+    def test_next_page_uri(self):
+        """Test LogList.next_page_uri"""
+        self.model.next_page_uri = "TEST_STRING"
+        assert self.model.next_page_uri == "TEST_STRING"
+    def test_logs(self):
+        """Test LogList.logs"""
+        testList = []
+        self.model.logs = testList
+        assert self.model.logs == testList
+
+
 
 if __name__ == '__main__':
     unittest.main()

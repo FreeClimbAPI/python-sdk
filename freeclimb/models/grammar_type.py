@@ -27,8 +27,9 @@ class GrammarType(str, Enum):
     """
     allowed enum values
     """
-    URL = 'URL'
-    BUILTIN = 'BUILTIN'
+    URL = "URL"
+    BUILT_IN = "BUILTIN"
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -21,20 +21,20 @@ import json
 from pydantic import ConfigDict
 from typing import Any, ClassVar, Dict, List
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class RemoveFromConference(PerclCommand):
+class RemoveFromConference(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `RemoveFromConference` command removes a Participant from a Conference but does not hang up. Instead, the Call is simply unbridged and what happens next with the Call is determined by the PerCL returned in response to the `leaveConferenceUrl` attribute.
     """ # noqa: E501
+    command: StrictStr = "RemoveFromConference"
+
     __properties: ClassVar[List[str]] = ["command"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

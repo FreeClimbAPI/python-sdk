@@ -21,40 +21,26 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.sms_toll_free_campaign_registration_status import SMSTollFreeCampaignRegistrationStatus
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SMSTollFreeCampaign(BaseModel):
+class SMSTollFreeCampaign(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     SMSTollFreeCampaign
     """ # noqa: E501
-        
     account_id: Optional[StrictStr] = Field(description="ID of the account that created this toll-free campaign", alias="accountId")
-
-        
     campaign_id: StrictStr = Field(description="Alphanumeric identifier used by the platform to identify this toll-free campaign", alias="campaignId")
-
-        
     use_case: StrictStr = Field(alias="useCase")
-
-        
-
-        
+    registration_status: SMSTollFreeCampaignRegistrationStatus = Field(alias="registrationStatus")
     date_created: StrictStr = Field(alias="dateCreated")
-
-        
     date_updated: StrictStr = Field(alias="dateUpdated")
-
-        
     revision: StrictInt
 
     __properties: ClassVar[List[str]] = ["accountId", "campaignId", "useCase", "registrationStatus", "dateCreated", "dateUpdated", "revision"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

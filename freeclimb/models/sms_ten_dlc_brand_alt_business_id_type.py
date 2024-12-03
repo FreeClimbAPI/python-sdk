@@ -27,10 +27,15 @@ class SMSTenDLCBrandAltBusinessIdType(str, Enum):
     """
     allowed enum values
     """
+    
     NONE = 'NONE'
+    
     DUNS = 'DUNS'
+    
     GIIN = 'GIIN'
+    
     LEI = 'LEI'
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

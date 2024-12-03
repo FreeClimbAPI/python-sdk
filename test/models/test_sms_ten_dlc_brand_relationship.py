@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.sms_ten_dlc_brand_relationship import SMSTenDLCBrandRelationship
 
 class TestSMSTenDLCBrandRelationship(unittest.TestCase):
     """SMSTenDLCBrandRelationship unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testSMSTenDLCBrandRelationship(self):
-        """Test SMSTenDLCBrandRelationship"""
-        # inst = SMSTenDLCBrandRelationship()
+
 
 if __name__ == '__main__':
     unittest.main()

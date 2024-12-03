@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.update_conference_request_status import UpdateConferenceRequestStatus
 
 class TestUpdateConferenceRequestStatus(unittest.TestCase):
     """UpdateConferenceRequestStatus unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testUpdateConferenceRequestStatus(self):
-        """Test UpdateConferenceRequestStatus"""
-        # inst = UpdateConferenceRequestStatus()
+
 
 if __name__ == '__main__':
     unittest.main()

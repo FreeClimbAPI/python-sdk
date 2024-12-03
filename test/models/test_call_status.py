@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.call_status import CallStatus
 
 class TestCallStatus(unittest.TestCase):
     """CallStatus unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testCallStatus(self):
-        """Test CallStatus"""
-        # inst = CallStatus()
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -14,52 +14,90 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.conference_result import ConferenceResult
 
 class TestConferenceResult(unittest.TestCase):
     """ConferenceResult unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> ConferenceResult:
-        """Test ConferenceResult
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `ConferenceResult`
-        """
-        model = ConferenceResult()
-        if include_optional:
-            return ConferenceResult(
-                uri = '',
-                date_created = '',
-                date_updated = '',
-                revision = 56,
-                conference_id = '',
-                account_id = '',
-                alias = '',
-                play_beep = 'always',
-                record = True,
-                status = 'empty',
-                wait_url = '',
-                action_url = '',
-                status_callback_url = '',
-                subresource_uris = None
-            )
-        else:
-            return ConferenceResult(
+        self.model = ConferenceResult(
         )
-        """
 
-    def testConferenceResult(self):
-        """Test ConferenceResult"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_uri(self):
+        """Test ConferenceResult.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.uri == "TEST_STRING"
+    def test_date_created(self):
+        """Test ConferenceResult.date_created"""
+        self.model.date_created = "TEST_STRING"
+        assert self.model.date_created == "TEST_STRING"
+    def test_date_updated(self):
+        """Test ConferenceResult.date_updated"""
+        self.model.date_updated = "TEST_STRING"
+        assert self.model.date_updated == "TEST_STRING"
+    def test_revision(self):
+        """Test ConferenceResult.revision"""
+        self.model.revision = 1
+        assert self.model.revision == 1
+    def test_conference_id(self):
+        """Test ConferenceResult.conference_id"""
+        self.model.conference_id = "TEST_STRING"
+        assert self.model.conference_id == "TEST_STRING"
+    def test_account_id(self):
+        """Test ConferenceResult.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_alias(self):
+        """Test ConferenceResult.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.alias == "TEST_STRING"
+    def test_play_beep(self):
+        """Test ConferenceResult.play_beep"""
+        self.model.play_beep = PlayBeep.ALWAYS
+        assert self.model.play_beep == PlayBeep.ALWAYS
+        self.model.play_beep = PlayBeep.NEVER
+        assert self.model.play_beep == PlayBeep.NEVER
+        self.model.play_beep = PlayBeep.ENTRY_ONLY
+        assert self.model.play_beep == PlayBeep.ENTRY_ONLY
+        self.model.play_beep = PlayBeep.EXIT_ONLY
+        assert self.model.play_beep == PlayBeep.EXIT_ONLY
+    def test_record(self):
+        """Test ConferenceResult.record"""
+        self.model.record = False
+        assert self.model.record == False
+    def test_status(self):
+        """Test ConferenceResult.status"""
+        self.model.status = ConferenceStatus.EMPTY
+        assert self.model.status == ConferenceStatus.EMPTY
+        self.model.status = ConferenceStatus.POPULATED
+        assert self.model.status == ConferenceStatus.POPULATED
+        self.model.status = ConferenceStatus.IN_PROGRESS
+        assert self.model.status == ConferenceStatus.IN_PROGRESS
+        self.model.status = ConferenceStatus.TERMINATED
+        assert self.model.status == ConferenceStatus.TERMINATED
+    def test_wait_url(self):
+        """Test ConferenceResult.wait_url"""
+        self.model.wait_url = "TEST_STRING"
+        assert self.model.wait_url == "TEST_STRING"
+    def test_action_url(self):
+        """Test ConferenceResult.action_url"""
+        self.model.action_url = "TEST_STRING"
+        assert self.model.action_url == "TEST_STRING"
+    def test_status_callback_url(self):
+        """Test ConferenceResult.status_callback_url"""
+        self.model.status_callback_url = "TEST_STRING"
+        assert self.model.status_callback_url == "TEST_STRING"
+    def test_subresource_uris(self):
+        """Test ConferenceResult.subresource_uris"""
+        testObject = {}
+        self.model.subresource_uris = testObject
+        assert self.model.subresource_uris == testObject
+
+
 
 if __name__ == '__main__':
     unittest.main()

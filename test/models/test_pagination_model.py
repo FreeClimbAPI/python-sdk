@@ -14,45 +14,49 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.pagination_model import PaginationModel
 
 class TestPaginationModel(unittest.TestCase):
     """PaginationModel unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> PaginationModel:
-        """Test PaginationModel
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `PaginationModel`
-        """
-        model = PaginationModel()
-        if include_optional:
-            return PaginationModel(
-                total = 56,
-                start = 56,
-                end = 56,
-                page = 56,
-                num_pages = 56,
-                page_size = 56,
-                next_page_uri = ''
-            )
-        else:
-            return PaginationModel(
+        self.model = PaginationModel(
         )
-        """
 
-    def testPaginationModel(self):
-        """Test PaginationModel"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_total(self):
+        """Test PaginationModel.total"""
+        self.model.total = 1
+        assert self.model.total == 1
+    def test_start(self):
+        """Test PaginationModel.start"""
+        self.model.start = 1
+        assert self.model.start == 1
+    def test_end(self):
+        """Test PaginationModel.end"""
+        self.model.end = 1
+        assert self.model.end == 1
+    def test_page(self):
+        """Test PaginationModel.page"""
+        self.model.page = 1
+        assert self.model.page == 1
+    def test_num_pages(self):
+        """Test PaginationModel.num_pages"""
+        self.model.num_pages = 1
+        assert self.model.num_pages == 1
+    def test_page_size(self):
+        """Test PaginationModel.page_size"""
+        self.model.page_size = 1
+        assert self.model.page_size == 1
+    def test_next_page_uri(self):
+        """Test PaginationModel.next_page_uri"""
+        self.model.next_page_uri = "TEST_STRING"
+        assert self.model.next_page_uri == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

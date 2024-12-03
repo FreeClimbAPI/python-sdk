@@ -21,23 +21,21 @@ import json
 from pydantic import ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.percl_command import PerclCommand
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Hangup(PerclCommand):
+class Hangup(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     The `Hangup` command terminates a Call. If `Hangup` is used as the first action in a PerCL response, it does not prevent FreeClimb from answering the Call and billing your account. See the `Reject` command to hang up at no charge.
     """ # noqa: E501
-        
     reason: Optional[StrictStr] = Field(default=None, description="The user defined reason for the hangup. In general, applications should use a set of enumerated values that are predefined to cover all exit points of the Call flows for the given application.")
+    command: StrictStr = "Hangup"
 
     __properties: ClassVar[List[str]] = ["command", "reason"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

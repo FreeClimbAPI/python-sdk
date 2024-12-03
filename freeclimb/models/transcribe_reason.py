@@ -27,11 +27,12 @@ class TranscribeReason(str, Enum):
     """
     allowed enum values
     """
-    INTERNALERROR = 'internalError'
-    HANGUP = 'hangup'
-    MAXLENGTH = 'maxLength'
-    DIGIT = 'digit'
-    NOINPUT = 'noInput'
+    INTERNAL_ERROR = "internalError"
+    HANGUP = "hangup"
+    MAX_LENGTH = "maxLength"
+    DIGIT = "digit"
+    NO_INPUT = "noInput"
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

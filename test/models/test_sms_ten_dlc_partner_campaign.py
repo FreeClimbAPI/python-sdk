@@ -14,57 +14,185 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.sms_ten_dlc_partner_campaign import SMSTenDLCPartnerCampaign
 
 class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
     """SMSTenDLCPartnerCampaign unit test stubs"""
 
     def setUp(self):
-        pass
+        self.model = SMSTenDLCPartnerCampaign(
+            campaign_id="",
+            brand_id="",
+            usecase="",
+            description="",
+        )
 
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> SMSTenDLCPartnerCampaign:
-        """Test SMSTenDLCPartnerCampaign
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `SMSTenDLCPartnerCampaign`
-        """
-        model = SMSTenDLCPartnerCampaign()
-        if include_optional:
-            return SMSTenDLCPartnerCampaign(
-                account_id = '',
-                campaign_id = '',
-                status = 'ACTIVE',
-                create_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                brand_id = '',
-                usecase = '',
-                description = '',
-                embedded_link = True,
-                embedded_phone = True,
-                affiliate_marketing = True,
-                number_pool = True,
-                age_gated = True,
-                direct_lending = True,
-                subscriber_optin = True,
-                subscriber_optout = True,
-                subscriber_help = True,
-                sample1 = '',
-                sample2 = '',
-                sample3 = '',
-                sample4 = '',
-                sample5 = '',
-                message_flow = '',
-                help_message = '',
-                optin_keywords = '',
-                optout_keywords = '',
-                help_keywords = '',
-                optin_message = '',
-                optout_message = '',
-                brand = freeclimb.models.sms_ten_dlc_partner_campaign_brand.SMSTenDLCPartnerCampaignBrand(
+    def test_account_id(self):
+        """Test SMSTenDLCPartnerCampaign.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_campaign_id(self):
+        """Test SMSTenDLCPartnerCampaign.campaign_id"""
+        self.model.campaign_id = "TEST_STRING"
+        assert self.model.campaign_id == "TEST_STRING"
+    def test_status(self):
+        """Test SMSTenDLCPartnerCampaign.status"""
+        self.model.status = SMSTenDLCPartnerCampaignStatus.ACTIVE
+        assert self.model.status == SMSTenDLCPartnerCampaignStatus.ACTIVE
+        self.model.status = SMSTenDLCPartnerCampaignStatus.EXPIRED
+        assert self.model.status == SMSTenDLCPartnerCampaignStatus.EXPIRED
+    def test_create_date(self):
+        """Test SMSTenDLCPartnerCampaign.create_date"""
+        self.model.create_date = datetime.fromtimestamp(1691592436)
+        assert self.model.create_date == datetime.fromtimestamp(1691592436)
+    def test_brand_id(self):
+        """Test SMSTenDLCPartnerCampaign.brand_id"""
+        self.model.brand_id = "T" * 8
+        assert self.model.brand_id == "T" * 8
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.brand_id = "T" * (8 + 1)
+    def test_usecase(self):
+        """Test SMSTenDLCPartnerCampaign.usecase"""
+        self.model.usecase = "T" * 20
+        assert self.model.usecase == "T" * 20
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.usecase = "T" * (20 + 1)
+    def test_description(self):
+        """Test SMSTenDLCPartnerCampaign.description"""
+        self.model.description = "T" * 4096
+        assert self.model.description == "T" * 4096
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.description = "T" * (4096 + 1)
+    def test_embedded_link(self):
+        """Test SMSTenDLCPartnerCampaign.embedded_link"""
+        self.model.embedded_link = False
+        assert self.model.embedded_link == False
+    def test_embedded_phone(self):
+        """Test SMSTenDLCPartnerCampaign.embedded_phone"""
+        self.model.embedded_phone = False
+        assert self.model.embedded_phone == False
+    def test_affiliate_marketing(self):
+        """Test SMSTenDLCPartnerCampaign.affiliate_marketing"""
+        self.model.affiliate_marketing = False
+        assert self.model.affiliate_marketing == False
+    def test_number_pool(self):
+        """Test SMSTenDLCPartnerCampaign.number_pool"""
+        self.model.number_pool = False
+        assert self.model.number_pool == False
+    def test_age_gated(self):
+        """Test SMSTenDLCPartnerCampaign.age_gated"""
+        self.model.age_gated = False
+        assert self.model.age_gated == False
+    def test_direct_lending(self):
+        """Test SMSTenDLCPartnerCampaign.direct_lending"""
+        self.model.direct_lending = False
+        assert self.model.direct_lending == False
+    def test_subscriber_optin(self):
+        """Test SMSTenDLCPartnerCampaign.subscriber_optin"""
+        self.model.subscriber_optin = False
+        assert self.model.subscriber_optin == False
+    def test_subscriber_optout(self):
+        """Test SMSTenDLCPartnerCampaign.subscriber_optout"""
+        self.model.subscriber_optout = False
+        assert self.model.subscriber_optout == False
+    def test_subscriber_help(self):
+        """Test SMSTenDLCPartnerCampaign.subscriber_help"""
+        self.model.subscriber_help = False
+        assert self.model.subscriber_help == False
+    def test_sample1(self):
+        """Test SMSTenDLCPartnerCampaign.sample1"""
+        self.model.sample1 = "T" * 1024
+        assert self.model.sample1 == "T" * 1024
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.sample1 = "T" * (1024 + 1)
+    def test_sample2(self):
+        """Test SMSTenDLCPartnerCampaign.sample2"""
+        self.model.sample2 = "T" * 1024
+        assert self.model.sample2 == "T" * 1024
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.sample2 = "T" * (1024 + 1)
+    def test_sample3(self):
+        """Test SMSTenDLCPartnerCampaign.sample3"""
+        self.model.sample3 = "T" * 1024
+        assert self.model.sample3 == "T" * 1024
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.sample3 = "T" * (1024 + 1)
+    def test_sample4(self):
+        """Test SMSTenDLCPartnerCampaign.sample4"""
+        self.model.sample4 = "T" * 1024
+        assert self.model.sample4 == "T" * 1024
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.sample4 = "T" * (1024 + 1)
+    def test_sample5(self):
+        """Test SMSTenDLCPartnerCampaign.sample5"""
+        self.model.sample5 = "T" * 1024
+        assert self.model.sample5 == "T" * 1024
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.sample5 = "T" * (1024 + 1)
+    def test_message_flow(self):
+        """Test SMSTenDLCPartnerCampaign.message_flow"""
+        self.model.message_flow = "T" * 2048
+        assert self.model.message_flow == "T" * 2048
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.message_flow = "T" * (2048 + 1)
+    def test_help_message(self):
+        """Test SMSTenDLCPartnerCampaign.help_message"""
+        self.model.help_message = "T" * 255
+        assert self.model.help_message == "T" * 255
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.help_message = "T" * (255 + 1)
+    def test_optin_keywords(self):
+        """Test SMSTenDLCPartnerCampaign.optin_keywords"""
+        self.model.optin_keywords = "T" * 255
+        assert self.model.optin_keywords == "T" * 255
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.optin_keywords = "T" * (255 + 1)
+    def test_optout_keywords(self):
+        """Test SMSTenDLCPartnerCampaign.optout_keywords"""
+        self.model.optout_keywords = "T" * 255
+        assert self.model.optout_keywords == "T" * 255
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.optout_keywords = "T" * (255 + 1)
+    def test_help_keywords(self):
+        """Test SMSTenDLCPartnerCampaign.help_keywords"""
+        self.model.help_keywords = "T" * 255
+        assert self.model.help_keywords == "T" * 255
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.help_keywords = "T" * (255 + 1)
+    def test_optin_message(self):
+        """Test SMSTenDLCPartnerCampaign.optin_message"""
+        self.model.optin_message = "T" * 255
+        assert self.model.optin_message == "T" * 255
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.optin_message = "T" * (255 + 1)
+    def test_optout_message(self):
+        """Test SMSTenDLCPartnerCampaign.optout_message"""
+        self.model.optout_message = "T" * 255
+        assert self.model.optout_message == "T" * 255
+        
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.optout_message = "T" * (255 + 1)
+    def test_brand(self):
+        """Test SMSTenDLCPartnerCampaign.brand"""
+        object = freeclimb.models.sms_ten_dlc_partner_campaign_brand.SMSTenDLCPartnerCampaignBrand(
                     account_id = '', 
                     brand_id = '', 
                     first_name = 'John', 
@@ -74,24 +202,12 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
                     phone = '+12024567890', 
                     email = '', 
                     website = 'http://www.abcmobile.com', 
-                    optional_attributes = {
-                        'key' : None
-                        }, 
+                    optional_attributes = { }, 
                     evp_vetting_score = 56, )
-            )
-        else:
-            return SMSTenDLCPartnerCampaign(
-                campaign_id = '',
-                brand_id = '',
-                usecase = '',
-                description = '',
-        )
-        """
+        self.model.brand = object
+        assert self.model.brand == object
 
-    def testSMSTenDLCPartnerCampaign(self):
-        """Test SMSTenDLCPartnerCampaign"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+
 
 if __name__ == '__main__':
     unittest.main()

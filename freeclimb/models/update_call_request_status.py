@@ -27,8 +27,11 @@ class UpdateCallRequestStatus(str, Enum):
     """
     allowed enum values
     """
+    
     CANCELED = 'canceled'
+    
     COMPLETED = 'completed'
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

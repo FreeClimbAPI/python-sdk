@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.account_type import AccountType
 
 class TestAccountType(unittest.TestCase):
     """AccountType unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testAccountType(self):
-        """Test AccountType"""
-        # inst = AccountType()
+
 
 if __name__ == '__main__':
     unittest.main()

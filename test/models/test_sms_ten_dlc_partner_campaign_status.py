@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.sms_ten_dlc_partner_campaign_status import SMSTenDLCPartnerCampaignStatus
 
 class TestSMSTenDLCPartnerCampaignStatus(unittest.TestCase):
     """SMSTenDLCPartnerCampaignStatus unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testSMSTenDLCPartnerCampaignStatus(self):
-        """Test SMSTenDLCPartnerCampaignStatus"""
-        # inst = SMSTenDLCPartnerCampaignStatus()
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -27,10 +27,11 @@ class QueueResultStatus(str, Enum):
     """
     allowed enum values
     """
-    QUEUEFULL = 'queueFull'
-    DEQUEUED = 'dequeued'
-    HANGUP = 'hangup'
-    SYSTEMERROR = 'systemError'
+    QUEUE_FULL = "queueFull"
+    DEQUEUED = "dequeued"
+    HANGUP = "hangup"
+    SYSTEM_ERROR = "systemError"
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

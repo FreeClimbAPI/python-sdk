@@ -27,29 +27,30 @@ class CallEndedReason(str, Enum):
     """
     allowed enum values
     """
-    BUSY = 'busy'
-    FAILED = 'failed'
-    NOANSWER = 'noAnswer'
-    CALLCANCELED = 'callCanceled'
-    FARENDHANGUP = 'farEndHangup'
-    APPHANGUP = 'appHangup'
-    APPREJECT = 'appReject'
-    APPNOPERCL = 'appNoPercl'
-    APPINVALIDPERCL = 'appInvalidPercl'
-    CONFERENCETERMINATED = 'conferenceTerminated'
-    CONFERENCEEMPTIED = 'conferenceEmptied'
-    REMOVEDFROMCONFERENCE = 'removedFromConference'
-    MACHINEDETECTED = 'machineDetected'
-    WEBHOOKFAILED = 'webhookFailed'
-    WEBHOOKINVALIDRESPONSE = 'webhookInvalidResponse'
-    VOICEDISABLED = 'voiceDisabled'
-    CONFIGERRORNOAPPLICATION = 'configErrorNoApplication'
-    CONFIGERRORNOVOICEURL = 'configErrorNoVoiceUrl'
-    MAXREDIRECTSERROR = 'maxRedirectsError'
-    PERCLPROCESSINGERROR = 'perclProcessingError'
-    INTERNALERROR = 'internalError'
-    GRPCHANGUP = 'grpcHangup'
-    MAXDURATION = 'maxDuration'
+    BUSY = "busy"
+    FAILED = "failed"
+    NO_ANSWER = "noAnswer"
+    CALL_CANCELED = "callCanceled"
+    FAR_END_HANGUP = "farEndHangup"
+    APP_HANGUP = "appHangup"
+    APP_REJECT = "appReject"
+    APP_NO_PERCL = "appNoPercl"
+    APP_INVALID_PERCL = "appInvalidPercl"
+    CONFERENCE_TERMINATED = "conferenceTerminated"
+    CONFERENCE_EMPTIED = "conferenceEmptied"
+    REMOVED_FROM_CONFERENCE = "removedFromConference"
+    MACHINE_DETECTED = "machineDetected"
+    WEBHOOK_FAILED = "webhookFailed"
+    WEBHOOK_INVALID_RESPONSE = "webhookInvalidResponse"
+    VOICE_DISABLED = "voiceDisabled"
+    CONFIG_ERROR_NO_APPLICATION = "configErrorNoApplication"
+    CONFIG_ERROR_NO_VOICE_URL = "configErrorNoVoiceUrl"
+    MAX_REDIRECTS_ERROR = "maxRedirectsError"
+    PERCL_PROCESSING_ERROR = "perclProcessingError"
+    INTERNAL_ERROR = "internalError"
+    GRPC_HANGUP = "grpcHangup"
+    MAX_DURATION = "maxDuration"
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

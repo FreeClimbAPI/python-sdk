@@ -14,48 +14,54 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.sms_ten_dlc_brands_list_result import SMSTenDLCBrandsListResult
 
 class TestSMSTenDLCBrandsListResult(unittest.TestCase):
     """SMSTenDLCBrandsListResult unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> SMSTenDLCBrandsListResult:
-        """Test SMSTenDLCBrandsListResult
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `SMSTenDLCBrandsListResult`
-        """
-        model = SMSTenDLCBrandsListResult()
-        if include_optional:
-            return SMSTenDLCBrandsListResult(
-                total = 56,
-                start = 56,
-                end = 56,
-                page = 56,
-                num_pages = 56,
-                page_size = 56,
-                next_page_uri = '',
-                brands = [
-                    {"mock":true,"optionalAttributes":{},"accountId":"AC1234512345123451234512345123451234512345","brandId":"BVCEBIJ","cspId":"SKGC6G0","firstName":"","lastName":"","displayName":"FreeClimb LLC(mock)","companyName":"FreeClimb LLC","ein":"843793747","einIssuingCountry":"US","phone":"+18475722071","street":"570 Lake Cook Rd Ste 400","city":"Deerfield","state":"IL","postalCode":"60015","country":"US","email":"bmabry@vailsys.com","stockSymbol":"","stockExchange":"NASDAQ","ipAddress":"127.0.0.1","website":"https://www.freeclimb.com/","vertical":"TECHNOLOGY","universalEin":"US_843793747","referenceId":"ACdeadbeef","entityType":"PRIVATE_PROFIT","brandRelationship":"SMALL_ACCOUNT","identityStatus":"VERIFIED","createDate":"2022-07-01T20:29:23Z"}
-                    ]
-            )
-        else:
-            return SMSTenDLCBrandsListResult(
+        self.model = SMSTenDLCBrandsListResult(
         )
-        """
 
-    def testSMSTenDLCBrandsListResult(self):
-        """Test SMSTenDLCBrandsListResult"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_total(self):
+        """Test SMSTenDLCBrandsListResult.total"""
+        self.model.total = 1
+        assert self.model.total == 1
+    def test_start(self):
+        """Test SMSTenDLCBrandsListResult.start"""
+        self.model.start = 1
+        assert self.model.start == 1
+    def test_end(self):
+        """Test SMSTenDLCBrandsListResult.end"""
+        self.model.end = 1
+        assert self.model.end == 1
+    def test_page(self):
+        """Test SMSTenDLCBrandsListResult.page"""
+        self.model.page = 1
+        assert self.model.page == 1
+    def test_num_pages(self):
+        """Test SMSTenDLCBrandsListResult.num_pages"""
+        self.model.num_pages = 1
+        assert self.model.num_pages == 1
+    def test_page_size(self):
+        """Test SMSTenDLCBrandsListResult.page_size"""
+        self.model.page_size = 1
+        assert self.model.page_size == 1
+    def test_next_page_uri(self):
+        """Test SMSTenDLCBrandsListResult.next_page_uri"""
+        self.model.next_page_uri = "TEST_STRING"
+        assert self.model.next_page_uri == "TEST_STRING"
+    def test_brands(self):
+        """Test SMSTenDLCBrandsListResult.brands"""
+        testList = []
+        self.model.brands = testList
+        assert self.model.brands == testList
+
+
 
 if __name__ == '__main__':
     unittest.main()

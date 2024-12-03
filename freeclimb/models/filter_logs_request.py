@@ -20,23 +20,20 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class FilterLogsRequest(BaseModel):
+class FilterLogsRequest(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     FilterLogsRequest
     """ # noqa: E501
-        
     pql: StrictStr = Field(description="The filter query for retrieving logs. See **Performance Query Language** below.")
 
     __properties: ClassVar[List[str]] = ["pql"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

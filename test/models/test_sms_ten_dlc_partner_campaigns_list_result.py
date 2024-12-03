@@ -14,48 +14,54 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.sms_ten_dlc_partner_campaigns_list_result import SMSTenDLCPartnerCampaignsListResult
 
 class TestSMSTenDLCPartnerCampaignsListResult(unittest.TestCase):
     """SMSTenDLCPartnerCampaignsListResult unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> SMSTenDLCPartnerCampaignsListResult:
-        """Test SMSTenDLCPartnerCampaignsListResult
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `SMSTenDLCPartnerCampaignsListResult`
-        """
-        model = SMSTenDLCPartnerCampaignsListResult()
-        if include_optional:
-            return SMSTenDLCPartnerCampaignsListResult(
-                total = 56,
-                start = 56,
-                end = 56,
-                page = 56,
-                num_pages = 56,
-                page_size = 56,
-                next_page_uri = '',
-                partner_campaigns = [
-                    {"campaignId":"CX56XX4","accountId":"ACe39970fb7c31c747c67148900b4d9da60a41e532","brandId":"BX56XX4","usecase":"2FA","description":"mock campaign.","sample1":"Your verification code from FreeClimb is 000000. It expires in 10 minutes.","sample2":null,"sample3":null,"sample4":null,"sample5":null,"messageFlow":null,"helpMessage":null,"status":"EXPIRED","embeddedLink":false,"embeddedPhone":false,"affiliateMarketing":false,"numberPool":false,"ageGated":false,"directLending":false,"subscriberOptin":true,"subscriberOptout":false,"subscriberHelp":true,"createDate":"2022-07-05T15:17:05Z","optinKeywords":"START","optoutKeywords":"STOP","helpKeywords":"HELP","optinMessage":"","optoutMessage":"","brand":{"optionalAttributes":{},"brandId":"BVCEBIJ","firstName":"","lastName":"","displayName":"FreeClimb LLC(mock)","companyName":"FreeClimb LLC","phone":"+18475722071","email":"bmabry@vailsys.com","website":"https://www.freeclimb.com/","evpVettingScore":22}}
-                    ]
-            )
-        else:
-            return SMSTenDLCPartnerCampaignsListResult(
+        self.model = SMSTenDLCPartnerCampaignsListResult(
         )
-        """
 
-    def testSMSTenDLCPartnerCampaignsListResult(self):
-        """Test SMSTenDLCPartnerCampaignsListResult"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_total(self):
+        """Test SMSTenDLCPartnerCampaignsListResult.total"""
+        self.model.total = 1
+        assert self.model.total == 1
+    def test_start(self):
+        """Test SMSTenDLCPartnerCampaignsListResult.start"""
+        self.model.start = 1
+        assert self.model.start == 1
+    def test_end(self):
+        """Test SMSTenDLCPartnerCampaignsListResult.end"""
+        self.model.end = 1
+        assert self.model.end == 1
+    def test_page(self):
+        """Test SMSTenDLCPartnerCampaignsListResult.page"""
+        self.model.page = 1
+        assert self.model.page == 1
+    def test_num_pages(self):
+        """Test SMSTenDLCPartnerCampaignsListResult.num_pages"""
+        self.model.num_pages = 1
+        assert self.model.num_pages == 1
+    def test_page_size(self):
+        """Test SMSTenDLCPartnerCampaignsListResult.page_size"""
+        self.model.page_size = 1
+        assert self.model.page_size == 1
+    def test_next_page_uri(self):
+        """Test SMSTenDLCPartnerCampaignsListResult.next_page_uri"""
+        self.model.next_page_uri = "TEST_STRING"
+        assert self.model.next_page_uri == "TEST_STRING"
+    def test_partner_campaigns(self):
+        """Test SMSTenDLCPartnerCampaignsListResult.partner_campaigns"""
+        testList = []
+        self.model.partner_campaigns = testList
+        assert self.model.partner_campaigns == testList
+
+
 
 if __name__ == '__main__':
     unittest.main()

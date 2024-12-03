@@ -14,51 +14,73 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.application_result import ApplicationResult
 
 class TestApplicationResult(unittest.TestCase):
     """ApplicationResult unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> ApplicationResult:
-        """Test ApplicationResult
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `ApplicationResult`
-        """
-        model = ApplicationResult()
-        if include_optional:
-            return ApplicationResult(
-                uri = '',
-                date_created = '',
-                date_updated = '',
-                revision = 56,
-                account_id = '',
-                application_id = '',
-                alias = '',
-                voice_url = '',
-                voice_fallback_url = '',
-                call_connect_url = '',
-                status_callback_url = '',
-                sms_url = '',
-                sms_fallback_url = ''
-            )
-        else:
-            return ApplicationResult(
+        self.model = ApplicationResult(
         )
-        """
 
-    def testApplicationResult(self):
-        """Test ApplicationResult"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_uri(self):
+        """Test ApplicationResult.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.uri == "TEST_STRING"
+    def test_date_created(self):
+        """Test ApplicationResult.date_created"""
+        self.model.date_created = "TEST_STRING"
+        assert self.model.date_created == "TEST_STRING"
+    def test_date_updated(self):
+        """Test ApplicationResult.date_updated"""
+        self.model.date_updated = "TEST_STRING"
+        assert self.model.date_updated == "TEST_STRING"
+    def test_revision(self):
+        """Test ApplicationResult.revision"""
+        self.model.revision = 1
+        assert self.model.revision == 1
+    def test_account_id(self):
+        """Test ApplicationResult.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_application_id(self):
+        """Test ApplicationResult.application_id"""
+        self.model.application_id = "TEST_STRING"
+        assert self.model.application_id == "TEST_STRING"
+    def test_alias(self):
+        """Test ApplicationResult.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.alias == "TEST_STRING"
+    def test_voice_url(self):
+        """Test ApplicationResult.voice_url"""
+        self.model.voice_url = "TEST_STRING"
+        assert self.model.voice_url == "TEST_STRING"
+    def test_voice_fallback_url(self):
+        """Test ApplicationResult.voice_fallback_url"""
+        self.model.voice_fallback_url = "TEST_STRING"
+        assert self.model.voice_fallback_url == "TEST_STRING"
+    def test_call_connect_url(self):
+        """Test ApplicationResult.call_connect_url"""
+        self.model.call_connect_url = "TEST_STRING"
+        assert self.model.call_connect_url == "TEST_STRING"
+    def test_status_callback_url(self):
+        """Test ApplicationResult.status_callback_url"""
+        self.model.status_callback_url = "TEST_STRING"
+        assert self.model.status_callback_url == "TEST_STRING"
+    def test_sms_url(self):
+        """Test ApplicationResult.sms_url"""
+        self.model.sms_url = "TEST_STRING"
+        assert self.model.sms_url == "TEST_STRING"
+    def test_sms_fallback_url(self):
+        """Test ApplicationResult.sms_fallback_url"""
+        self.model.sms_fallback_url = "TEST_STRING"
+        assert self.model.sms_fallback_url == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

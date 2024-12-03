@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.get_digits_reason import GetDigitsReason
 
 class TestGetDigitsReason(unittest.TestCase):
     """GetDigitsReason unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testGetDigitsReason(self):
-        """Test GetDigitsReason"""
-        # inst = GetDigitsReason()
+
 
 if __name__ == '__main__':
     unittest.main()

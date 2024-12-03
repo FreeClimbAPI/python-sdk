@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.completion_result_status import CompletionResultStatus
 
 class TestCompletionResultStatus(unittest.TestCase):
     """CompletionResultStatus unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testCompletionResultStatus(self):
-        """Test CompletionResultStatus"""
-        # inst = CompletionResultStatus()
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -14,45 +14,54 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.log_result import LogResult
 
 class TestLogResult(unittest.TestCase):
     """LogResult unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> LogResult:
-        """Test LogResult
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `LogResult`
-        """
-        model = LogResult()
-        if include_optional:
-            return LogResult(
-                timestamp = 56,
-                level = 'info',
-                request_id = '',
-                account_id = '',
-                call_id = '',
-                message = '',
-                metadata = None
-            )
-        else:
-            return LogResult(
+        self.model = LogResult(
         )
-        """
 
-    def testLogResult(self):
-        """Test LogResult"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_timestamp(self):
+        """Test LogResult.timestamp"""
+        self.model.timestamp = 1
+        assert self.model.timestamp == 1
+    def test_level(self):
+        """Test LogResult.level"""
+        self.model.level = LogLevel.INFO
+        assert self.model.level == LogLevel.INFO
+        self.model.level = LogLevel.WARNING
+        assert self.model.level == LogLevel.WARNING
+        self.model.level = LogLevel.ERROR
+        assert self.model.level == LogLevel.ERROR
+    def test_request_id(self):
+        """Test LogResult.request_id"""
+        self.model.request_id = "TEST_STRING"
+        assert self.model.request_id == "TEST_STRING"
+    def test_account_id(self):
+        """Test LogResult.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_call_id(self):
+        """Test LogResult.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.call_id == "TEST_STRING"
+    def test_message(self):
+        """Test LogResult.message"""
+        self.model.message = "TEST_STRING"
+        assert self.model.message == "TEST_STRING"
+    def test_metadata(self):
+        """Test LogResult.metadata"""
+        testObject = {}
+        self.model.metadata = testObject
+        assert self.model.metadata == testObject
+
+
 
 if __name__ == '__main__':
     unittest.main()

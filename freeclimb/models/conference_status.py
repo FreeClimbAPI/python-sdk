@@ -27,10 +27,11 @@ class ConferenceStatus(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = 'empty'
-    POPULATED = 'populated'
-    INPROGRESS = 'inProgress'
-    TERMINATED = 'terminated'
+    EMPTY = "empty"
+    POPULATED = "populated"
+    IN_PROGRESS = "inProgress"
+    TERMINATED = "terminated"
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -27,9 +27,10 @@ class BargeInReason(str, Enum):
     """
     allowed enum values
     """
-    NOBARGEIN = 'noBargeIn'
-    BARGEINBYDTMF = 'bargeInByDTMF'
-    BARGEINBYENERGY = 'bargeInByEnergy'
+    NO_BARGE_IN = "noBargeIn"
+    BARGE_IN_BY_DTMF = "bargeInByDTMF"
+    BARGE_IN_BY_ENERGY = "bargeInByEnergy"
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

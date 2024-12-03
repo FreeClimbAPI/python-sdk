@@ -14,40 +14,26 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.play_early_media import PlayEarlyMedia
 
 class TestPlayEarlyMedia(unittest.TestCase):
     """PlayEarlyMedia unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> PlayEarlyMedia:
-        """Test PlayEarlyMedia
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `PlayEarlyMedia`
-        """
-        model = PlayEarlyMedia()
-        if include_optional:
-            return PlayEarlyMedia(
-                file = ''
-            )
-        else:
-            return PlayEarlyMedia(
-                file = '',
+        self.model = PlayEarlyMedia(
+            file="",
         )
-        """
 
-    def testPlayEarlyMedia(self):
-        """Test PlayEarlyMedia"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_file(self):
+        """Test PlayEarlyMedia.file"""
+        self.model.file = "TEST_STRING"
+        assert self.model.file == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

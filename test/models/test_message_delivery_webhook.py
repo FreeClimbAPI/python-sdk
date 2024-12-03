@@ -14,48 +14,59 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.message_delivery_webhook import MessageDeliveryWebhook
 
 class TestMessageDeliveryWebhook(unittest.TestCase):
     """MessageDeliveryWebhook unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> MessageDeliveryWebhook:
-        """Test MessageDeliveryWebhook
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `MessageDeliveryWebhook`
-        """
-        model = MessageDeliveryWebhook()
-        if include_optional:
-            return MessageDeliveryWebhook(
-                request_type = '',
-                account_id = '',
-                var_from = '',
-                to = '',
-                text = '',
-                direction = '',
-                application_id = '',
-                status = '',
-                phone_number_id = '',
-                uri = ''
-            )
-        else:
-            return MessageDeliveryWebhook(
+        self.model = MessageDeliveryWebhook(
         )
-        """
 
-    def testMessageDeliveryWebhook(self):
-        """Test MessageDeliveryWebhook"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_request_type(self):
+        """Test MessageDeliveryWebhook.request_type"""
+    def test_account_id(self):
+        """Test MessageDeliveryWebhook.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_var_from(self):
+        """Test MessageDeliveryWebhook.var_from"""
+        self.model.var_from = "TEST_STRING"
+        assert self.model.var_from == "TEST_STRING"
+    def test_to(self):
+        """Test MessageDeliveryWebhook.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.to == "TEST_STRING"
+    def test_text(self):
+        """Test MessageDeliveryWebhook.text"""
+        self.model.text = "TEST_STRING"
+        assert self.model.text == "TEST_STRING"
+    def test_direction(self):
+        """Test MessageDeliveryWebhook.direction"""
+        self.model.direction = "TEST_STRING"
+        assert self.model.direction == "TEST_STRING"
+    def test_application_id(self):
+        """Test MessageDeliveryWebhook.application_id"""
+        self.model.application_id = "TEST_STRING"
+        assert self.model.application_id == "TEST_STRING"
+    def test_status(self):
+        """Test MessageDeliveryWebhook.status"""
+        self.model.status = "TEST_STRING"
+        assert self.model.status == "TEST_STRING"
+    def test_phone_number_id(self):
+        """Test MessageDeliveryWebhook.phone_number_id"""
+        self.model.phone_number_id = "TEST_STRING"
+        assert self.model.phone_number_id == "TEST_STRING"
+    def test_uri(self):
+        """Test MessageDeliveryWebhook.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.uri == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -14,61 +14,131 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.transcribe_webhook import TranscribeWebhook
 
 class TestTranscribeWebhook(unittest.TestCase):
     """TranscribeWebhook unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> TranscribeWebhook:
-        """Test TranscribeWebhook
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `TranscribeWebhook`
-        """
-        model = TranscribeWebhook()
-        if include_optional:
-            return TranscribeWebhook(
-                request_type = '',
-                account_id = '',
-                call_id = '',
-                var_from = '',
-                to = '',
-                recording_id = '',
-                recording_url = '',
-                recording_size = 56,
-                recording_format = '',
-                recording_duration_ms = 56,
-                term_reason = 'error',
-                record_term_reason = 'finishKey',
-                digit = '',
-                privacy_for_logging = True,
-                privacy_for_recording = True,
-                barge_in_reason = 'noBargeIn',
-                barged_in_prompt_no = 56,
-                barged_in_prompt_ms = 56,
-                barged_in_prompt_loop_no = 56,
-                barge_in_time_ms = 56,
-                transcript = '',
-                transcribe_reason = 'internalError',
-                transcription_duration_ms = 56
-            )
-        else:
-            return TranscribeWebhook(
+        self.model = TranscribeWebhook(
         )
-        """
 
-    def testTranscribeWebhook(self):
-        """Test TranscribeWebhook"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_request_type(self):
+        """Test TranscribeWebhook.request_type"""
+    def test_account_id(self):
+        """Test TranscribeWebhook.account_id"""
+        self.model.account_id = "TEST_STRING"
+        assert self.model.account_id == "TEST_STRING"
+    def test_call_id(self):
+        """Test TranscribeWebhook.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.call_id == "TEST_STRING"
+    def test_var_from(self):
+        """Test TranscribeWebhook.var_from"""
+        self.model.var_from = "TEST_STRING"
+        assert self.model.var_from == "TEST_STRING"
+    def test_to(self):
+        """Test TranscribeWebhook.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.to == "TEST_STRING"
+    def test_recording_id(self):
+        """Test TranscribeWebhook.recording_id"""
+        self.model.recording_id = "TEST_STRING"
+        assert self.model.recording_id == "TEST_STRING"
+    def test_recording_url(self):
+        """Test TranscribeWebhook.recording_url"""
+        self.model.recording_url = "TEST_STRING"
+        assert self.model.recording_url == "TEST_STRING"
+    def test_recording_size(self):
+        """Test TranscribeWebhook.recording_size"""
+        self.model.recording_size = 1
+        assert self.model.recording_size == 1
+    def test_recording_format(self):
+        """Test TranscribeWebhook.recording_format"""
+        self.model.recording_format = "TEST_STRING"
+        assert self.model.recording_format == "TEST_STRING"
+    def test_recording_duration_ms(self):
+        """Test TranscribeWebhook.recording_duration_ms"""
+        self.model.recording_duration_ms = 1
+        assert self.model.recording_duration_ms == 1
+    def test_term_reason(self):
+        """Test TranscribeWebhook.term_reason"""
+        self.model.term_reason = TranscribeTermReason.ERROR
+        assert self.model.term_reason == TranscribeTermReason.ERROR
+        self.model.term_reason = TranscribeTermReason.COMPLETED
+        assert self.model.term_reason == TranscribeTermReason.COMPLETED
+    def test_record_term_reason(self):
+        """Test TranscribeWebhook.record_term_reason"""
+        self.model.record_term_reason = RecordUtteranceTermReason.FINISH_KEY
+        assert self.model.record_term_reason == RecordUtteranceTermReason.FINISH_KEY
+        self.model.record_term_reason = RecordUtteranceTermReason.TIMEOUT
+        assert self.model.record_term_reason == RecordUtteranceTermReason.TIMEOUT
+        self.model.record_term_reason = RecordUtteranceTermReason.HANGUP
+        assert self.model.record_term_reason == RecordUtteranceTermReason.HANGUP
+        self.model.record_term_reason = RecordUtteranceTermReason.MAX_LENGTH
+        assert self.model.record_term_reason == RecordUtteranceTermReason.MAX_LENGTH
+    def test_digit(self):
+        """Test TranscribeWebhook.digit"""
+        self.model.digit = "TEST_STRING"
+        assert self.model.digit == "TEST_STRING"
+    def test_privacy_for_logging(self):
+        """Test TranscribeWebhook.privacy_for_logging"""
+        self.model.privacy_for_logging = False
+        assert self.model.privacy_for_logging == False
+    def test_privacy_for_recording(self):
+        """Test TranscribeWebhook.privacy_for_recording"""
+        self.model.privacy_for_recording = False
+        assert self.model.privacy_for_recording == False
+    def test_barge_in_reason(self):
+        """Test TranscribeWebhook.barge_in_reason"""
+        self.model.barge_in_reason = BargeInReason.NO_BARGE_IN
+        assert self.model.barge_in_reason == BargeInReason.NO_BARGE_IN
+        self.model.barge_in_reason = BargeInReason.BARGE_IN_BY_DTMF
+        assert self.model.barge_in_reason == BargeInReason.BARGE_IN_BY_DTMF
+        self.model.barge_in_reason = BargeInReason.BARGE_IN_BY_ENERGY
+        assert self.model.barge_in_reason == BargeInReason.BARGE_IN_BY_ENERGY
+    def test_barged_in_prompt_no(self):
+        """Test TranscribeWebhook.barged_in_prompt_no"""
+        self.model.barged_in_prompt_no = 1
+        assert self.model.barged_in_prompt_no == 1
+    def test_barged_in_prompt_ms(self):
+        """Test TranscribeWebhook.barged_in_prompt_ms"""
+        self.model.barged_in_prompt_ms = 1
+        assert self.model.barged_in_prompt_ms == 1
+    def test_barged_in_prompt_loop_no(self):
+        """Test TranscribeWebhook.barged_in_prompt_loop_no"""
+        self.model.barged_in_prompt_loop_no = 1
+        assert self.model.barged_in_prompt_loop_no == 1
+    def test_barge_in_time_ms(self):
+        """Test TranscribeWebhook.barge_in_time_ms"""
+        self.model.barge_in_time_ms = 1
+        assert self.model.barge_in_time_ms == 1
+    def test_transcript(self):
+        """Test TranscribeWebhook.transcript"""
+        self.model.transcript = "TEST_STRING"
+        assert self.model.transcript == "TEST_STRING"
+    def test_transcribe_reason(self):
+        """Test TranscribeWebhook.transcribe_reason"""
+        self.model.transcribe_reason = TranscribeReason.INTERNAL_ERROR
+        assert self.model.transcribe_reason == TranscribeReason.INTERNAL_ERROR
+        self.model.transcribe_reason = TranscribeReason.HANGUP
+        assert self.model.transcribe_reason == TranscribeReason.HANGUP
+        self.model.transcribe_reason = TranscribeReason.MAX_LENGTH
+        assert self.model.transcribe_reason == TranscribeReason.MAX_LENGTH
+        self.model.transcribe_reason = TranscribeReason.DIGIT
+        assert self.model.transcribe_reason == TranscribeReason.DIGIT
+        self.model.transcribe_reason = TranscribeReason.NO_INPUT
+        assert self.model.transcribe_reason == TranscribeReason.NO_INPUT
+    def test_transcription_duration_ms(self):
+        """Test TranscribeWebhook.transcription_duration_ms"""
+        self.model.transcription_duration_ms = 1
+        assert self.model.transcription_duration_ms == 1
+
+
 
 if __name__ == '__main__':
     unittest.main()

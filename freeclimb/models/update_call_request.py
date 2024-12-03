@@ -21,22 +21,20 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
 from freeclimb.models.update_call_request_status import UpdateCallRequestStatus
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UpdateCallRequest(BaseModel):
+class UpdateCallRequest(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     UpdateCallRequest
     """ # noqa: E501
-        
+    status: UpdateCallRequestStatus
 
     __properties: ClassVar[List[str]] = ["status"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

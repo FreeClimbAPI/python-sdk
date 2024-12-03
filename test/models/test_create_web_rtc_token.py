@@ -14,44 +14,36 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.create_web_rtc_token import CreateWebRTCToken
 
 class TestCreateWebRTCToken(unittest.TestCase):
     """CreateWebRTCToken unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> CreateWebRTCToken:
-        """Test CreateWebRTCToken
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `CreateWebRTCToken`
-        """
-        model = CreateWebRTCToken()
-        if include_optional:
-            return CreateWebRTCToken(
-                to = '',
-                var_from = '',
-                uses = 1
-            )
-        else:
-            return CreateWebRTCToken(
-                to = '',
-                var_from = '',
-                uses = 1,
+        self.model = CreateWebRTCToken(
+            to="",
+            var_from="",
+            uses = 1,
         )
-        """
 
-    def testCreateWebRTCToken(self):
-        """Test CreateWebRTCToken"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_to(self):
+        """Test CreateWebRTCToken.to"""
+        self.model.to = "TEST_STRING"
+        assert self.model.to == "TEST_STRING"
+    def test_var_from(self):
+        """Test CreateWebRTCToken.var_from"""
+        self.model.var_from = "TEST_STRING"
+        assert self.model.var_from == "TEST_STRING"
+    def test_uses(self):
+        """Test CreateWebRTCToken.uses"""
+        self.model.uses = 1
+        assert self.model.uses == 1
+
+
 
 if __name__ == '__main__':
     unittest.main()

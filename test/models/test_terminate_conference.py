@@ -14,38 +14,21 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.terminate_conference import TerminateConference
 
 class TestTerminateConference(unittest.TestCase):
     """TerminateConference unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> TerminateConference:
-        """Test TerminateConference
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `TerminateConference`
-        """
-        model = TerminateConference()
-        if include_optional:
-            return TerminateConference(
-            )
-        else:
-            return TerminateConference(
+        self.model = TerminateConference(
         )
-        """
 
-    def testTerminateConference(self):
-        """Test TerminateConference"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+
+
 
 if __name__ == '__main__':
     unittest.main()

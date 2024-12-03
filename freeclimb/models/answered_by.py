@@ -27,8 +27,11 @@ class AnsweredBy(str, Enum):
     """
     allowed enum values
     """
+    
     HUMAN = 'human'
+    
     MACHINE = 'machine'
+    
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

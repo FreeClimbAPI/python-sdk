@@ -21,25 +21,21 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from freeclimb.models.completion_result_status import CompletionResultStatus
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CompletionResult(BaseModel):
+class CompletionResult(BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     CompletionResult
     """ # noqa: E501
-        
     response: StrictStr = Field(description="The generative response from the KnowledgeBase")
-
-        
+    status: CompletionResultStatus
 
     __properties: ClassVar[List[str]] = ["response", "status"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:

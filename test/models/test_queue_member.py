@@ -14,43 +14,41 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.queue_member import QueueMember
 
 class TestQueueMember(unittest.TestCase):
     """QueueMember unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> QueueMember:
-        """Test QueueMember
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `QueueMember`
-        """
-        model = QueueMember()
-        if include_optional:
-            return QueueMember(
-                uri = '',
-                call_id = '',
-                wait_time = 56,
-                position = 56,
-                date_enqueued = ''
-            )
-        else:
-            return QueueMember(
+        self.model = QueueMember(
         )
-        """
 
-    def testQueueMember(self):
-        """Test QueueMember"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_uri(self):
+        """Test QueueMember.uri"""
+        self.model.uri = "TEST_STRING"
+        assert self.model.uri == "TEST_STRING"
+    def test_call_id(self):
+        """Test QueueMember.call_id"""
+        self.model.call_id = "TEST_STRING"
+        assert self.model.call_id == "TEST_STRING"
+    def test_wait_time(self):
+        """Test QueueMember.wait_time"""
+        self.model.wait_time = 1
+        assert self.model.wait_time == 1
+    def test_position(self):
+        """Test QueueMember.position"""
+        self.model.position = 1
+        assert self.model.position == 1
+    def test_date_enqueued(self):
+        """Test QueueMember.date_enqueued"""
+        self.model.date_enqueued = "TEST_STRING"
+        assert self.model.date_enqueued == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

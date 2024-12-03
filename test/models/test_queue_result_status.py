@@ -14,21 +14,18 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.queue_result_status import QueueResultStatus
 
 class TestQueueResultStatus(unittest.TestCase):
     """QueueResultStatus unit test stubs"""
 
-    def setUp(self):
-        pass
 
-    def tearDown(self):
-        pass
 
-    def testQueueResultStatus(self):
-        """Test QueueResultStatus"""
-        # inst = QueueResultStatus()
+
 
 if __name__ == '__main__':
     unittest.main()

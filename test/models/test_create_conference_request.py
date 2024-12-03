@@ -14,43 +14,47 @@
 
 
 import unittest
-
+import pydantic_core
+from datetime import datetime
+import freeclimb
+from freeclimb import *
 from freeclimb.models.create_conference_request import CreateConferenceRequest
 
 class TestCreateConferenceRequest(unittest.TestCase):
     """CreateConferenceRequest unit test stubs"""
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def make_instance(self, include_optional) -> CreateConferenceRequest:
-        """Test CreateConferenceRequest
-            include_optional is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # uncomment below to create an instance of `CreateConferenceRequest`
-        """
-        model = CreateConferenceRequest()
-        if include_optional:
-            return CreateConferenceRequest(
-                alias = '',
-                play_beep = 'always',
-                record = True,
-                wait_url = '',
-                status_callback_url = ''
-            )
-        else:
-            return CreateConferenceRequest(
+        self.model = CreateConferenceRequest(
         )
-        """
 
-    def testCreateConferenceRequest(self):
-        """Test CreateConferenceRequest"""
-        # inst_req_only = self.make_instance(include_optional=False)
-        # inst_req_and_optional = self.make_instance(include_optional=True)
+    def test_alias(self):
+        """Test CreateConferenceRequest.alias"""
+        self.model.alias = "TEST_STRING"
+        assert self.model.alias == "TEST_STRING"
+    def test_play_beep(self):
+        """Test CreateConferenceRequest.play_beep"""
+        self.model.play_beep = PlayBeep.ALWAYS
+        assert self.model.play_beep == PlayBeep.ALWAYS
+        self.model.play_beep = PlayBeep.NEVER
+        assert self.model.play_beep == PlayBeep.NEVER
+        self.model.play_beep = PlayBeep.ENTRY_ONLY
+        assert self.model.play_beep == PlayBeep.ENTRY_ONLY
+        self.model.play_beep = PlayBeep.EXIT_ONLY
+        assert self.model.play_beep == PlayBeep.EXIT_ONLY
+    def test_record(self):
+        """Test CreateConferenceRequest.record"""
+        self.model.record = False
+        assert self.model.record == False
+    def test_wait_url(self):
+        """Test CreateConferenceRequest.wait_url"""
+        self.model.wait_url = "TEST_STRING"
+        assert self.model.wait_url == "TEST_STRING"
+    def test_status_callback_url(self):
+        """Test CreateConferenceRequest.status_callback_url"""
+        self.model.status_callback_url = "TEST_STRING"
+        assert self.model.status_callback_url == "TEST_STRING"
+
+
 
 if __name__ == '__main__':
     unittest.main()

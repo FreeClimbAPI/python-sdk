@@ -21,50 +21,29 @@ import json
 from pydantic import ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.webhook import Webhook
+from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class MessageDeliveryWebhook(Webhook):
+class MessageDeliveryWebhook(Webhook, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
     An SMS has been received by the platform and is being delivered to the smsUrl of the customer application that is associated with the destination number. A PerCL response will be ignored.
     """ # noqa: E501
-        
     request_type: Optional[StrictStr] = Field(default=None, description="Value will be messageDelivery - An SMS message has been received by the platform and is being delivered to the customer application associated with the destination number.", alias="requestType")
-
-        
     account_id: Optional[StrictStr] = Field(default=None, description="Account ID associated with your account.", alias="accountId")
-
-        
     var_from: Optional[StrictStr] = Field(default=None, description="Phone number of the party that initiated the Call (in E.164 format).", alias="from")
-
-        
     to: Optional[StrictStr] = Field(default=None, description="Phone number provisioned to you and to which this Call is directed (in E.164 format).")
-
-        
     text: Optional[StrictStr] = Field(default=None, description="Body of the SMS message.")
-
-        
     direction: Optional[StrictStr] = Field(default=None, description="Value will be inbound to indicate the receipt of a message into the FreeClimb platform.")
-
-        
     application_id: Optional[StrictStr] = Field(default=None, description="ID of the application to which the destination number is assigned.", alias="applicationId")
-
-        
     status: Optional[StrictStr] = Field(default=None, description="Value will be received to indicate that the platform has successfully received the incoming message.")
-
-        
     phone_number_id: Optional[StrictStr] = Field(default=None, description="ID of the destination phone number.", alias="phoneNumberId")
-
-        
     uri: Optional[StrictStr] = Field(default=None, description="The URI for this resource, relative to the API base URL")
 
     __properties: ClassVar[List[str]] = ["requestType", "accountId", "from", "to", "text", "direction", "applicationId", "status", "phoneNumberId", "uri"]
 
-    model_config = ConfigDict(
-        populate_by_name=True,
-        validate_assignment=True,
-        protected_namespaces=(),
-    )
+
+
 
 
     def to_str(self) -> str:
