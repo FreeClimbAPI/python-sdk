@@ -6,4 +6,4 @@ path==17.0.0
 jaraco.envs>=2.6.0
 filelock>=3.16.0
 ini2toml>=0.15
-tomli_w>=1.1.0
+tomli_w>=1.0.0
