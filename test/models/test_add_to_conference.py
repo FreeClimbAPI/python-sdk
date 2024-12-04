@@ -64,6 +64,10 @@ class TestAddToConference(unittest.TestCase):
         """Test AddToConference.talk"""
         self.model.talk = False
         assert self.model.talk == False
+    def test_dtmf_pass_through(self):
+        """Test AddToConference.dtmf_pass_through"""
+        self.model.dtmf_pass_through = False
+        assert self.model.dtmf_pass_through == False
 
 
 

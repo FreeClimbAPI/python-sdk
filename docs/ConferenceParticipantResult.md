@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **call_id** | **str** | ID of the Call associated with this Participant. | [optional] 
 **talk** | **bool** | True if this Participant has talk privileges in the Conference. False otherwise. | [optional] 
 **listen** | **bool** | True if this Participant has listen privileges in the Conference. False otherwise. | [optional] 
+**dtmf_pass_through** | **bool** | True if this Participant had dtmfPassThrough privileges in the Conference. False otherwise. | [optional] 
 **start_conf_on_enter** | **bool** | True if this Participant joining the Conference caused the Conference to start (status &#x3D; inProgress). False otherwise. | [optional] 
 
 ## Example

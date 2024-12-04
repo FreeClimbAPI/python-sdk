@@ -716,8 +716,10 @@ class TestDefaultApi(unittest.TestCase):
         
         listen = listen_list_participants_test_value
         
+        dtmf_pass_through = dtmf_pass_through_list_participants_test_value
+        
 
-        api_response = self.api.list_participants(conference_id=conference_id,talk=talk,listen=listen)
+        api_response = self.api.list_participants(conference_id=conference_id,talk=talk,listen=listen,dtmf_pass_through=dtmf_pass_through)
         
         assert isinstance(api_response, ConferenceParticipantList)
 
@@ -1191,8 +1193,9 @@ class TestDefaultApi(unittest.TestCase):
         conference_id = conference_id_list_participants_test_value
         talk = talk_list_participants_test_value
         listen = listen_list_participants_test_value
+        dtmf_pass_through = dtmf_pass_through_list_participants_test_value
         
-        api_response = self.api.list_participants(conference_id=conference_id,talk=talk,listen=listen)
+        api_response = self.api.list_participants(conference_id=conference_id,talk=talk,listen=listen,dtmf_pass_through=dtmf_pass_through)
         api_response.next_page_uri = "/Accounts/{accountId}/Conferences/{conferenceId}/Participants?cursor=1"
         next_page_api_response = self.api.get_next_page(api_response)
 

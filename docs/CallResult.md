@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **direction** | [**CallDirection**](CallDirection.md) |  | [optional] 
 **answered_by** | [**AnsweredBy**](AnsweredBy.md) |  | [optional] 
 **subresource_uris** | **object** | The list of subresources for this Call. These include things like logs and recordings associated with the Call. | [optional] 
+**application_id** | **str** | ApplicationId associated with the Call. | [optional] 
 
 ## Example
 

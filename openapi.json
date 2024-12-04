@@ -879,6 +879,7 @@
             "SendDigits": "#/components/schemas/SendDigits",
             "SetListen": "#/components/schemas/SetListen",
             "SetTalk": "#/components/schemas/SetTalk",
+            "SetDTMFPassThrough": "#/components/schemas/SetDTMFPassThrough",
             "Sms": "#/components/schemas/Sms",
             "StartRecordCall": "#/components/schemas/StartRecordCall",
             "TerminateConference": "#/components/schemas/TerminateConference",
@@ -2383,6 +2384,10 @@
               "talk": {
                 "description": "If `true`, the Participant joins the Conference with talk privileges. This may be modified later via the REST API or `SetTalk` PerCL command. ",
                 "type": "boolean"
+              },
+              "dtmfPassThrough": {
+                "description": "If `true`, the Participant joins the Conference with dtmfPassThrough privileges. This may be modified later via the REST API or `SetDTMFPassThrough` PerCL command. ",
+                "type": "boolean"
               }
             }
           }
@@ -3022,7 +3027,7 @@
         ]
       },
       "SetListen": {
-        "description": "The `SetListen` command enables or disables the listen privilege for a Conference Participant provided both calls are in the same conference. The Participant can hear what the other participants are saying only if this privilege is enabled.",
+        "description": "The `SetListen` command enables or disables the listen privilege for this Conference Participant. The Participant can hear what the other participants are saying only if this privilege is enabled.",
         "x-percl-command": "SetListen",
         "x-ref-properties": ["false"],
         "allOf": [
@@ -3042,7 +3047,7 @@
         ]
       },
       "SetTalk": {
-        "description": "The `SetTalk` command enables or disables the talk privilege for a Participant in a Conference provided both calls are in the same conference. If 'true', no audio from that Participant is shared with the other Participants of the Conference.",
+        "description": "The `SetTalk` command enables or disables the talk privilege for this Conference Participant. If 'true', no audio from that Participant is shared with the other Participants of the Conference.",
         "x-percl-command": "SetTalk",
         "x-ref-properties": ["false"],
         "allOf": [
@@ -3055,6 +3060,26 @@
             "properties": {
               "talk": {
                 "description": "Specifying `false` mutes the Participant.",
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "SetDTMFPassThrough": {
+        "description": "The `SetDTMFPassThrough` command enables or disables the dtmfPassThrough privilege for this Conference Participant. If 'true', DTMFs will be passed through from this Participant to all other Participants in the Conference",
+        "x-percl-command": true,
+        "x-ref-properties": ["false"],
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PerclCommand"
+          },
+          {
+            "required": [],
+            "type": "object",
+            "properties": {
+              "dtmfPassThrough": {
+                "description": "Specifying `false` mutes the Participant's dtmf audio.",
                 "type": "boolean"
               }
             }
@@ -3689,7 +3714,12 @@
                 "type": "object",
                 "description": "The list of subresources for this Call. These include things like logs and recordings associated with the Call.",
                 "nullable": true
-              }
+              },
+              "applicationId": {
+                "type": "string",
+                "description": "ApplicationId associated with the Call.",
+                "nullable": true
+              } 
             }
           }
         ]
@@ -4200,6 +4230,11 @@
                 "description": "True if this Participant has listen privileges in the Conference. False otherwise.",
                 "nullable": true
               },
+              "dtmfPassThrough": {
+                "type": "boolean",
+                "description": "True if this Participant had dtmfPassThrough privileges in the Conference. False otherwise.",
+                "nullable": true
+              },
               "startConfOnEnter": {
                 "type": "boolean",
                 "description": "True if this Participant joining the Conference caused the Conference to start (status = inProgress). False otherwise.",
@@ -4219,6 +4254,10 @@
           "listen": {
             "type": "boolean",
             "description": "(Optional) Default is `true`. Setting to `false` silences the Conference for this Participant. FreeClimb returns an error and ignores any other value."
+          },
+          "dtmfPassThrough": {
+            "type": "boolean",
+            "description": "(Optional) Default is `true`. Setting to `false` mutes dtmf audio for this Participant. FreeClimb returns an error and ignores any other value."
           }
         }
       },
@@ -5289,7 +5328,9 @@
               "prompts": {
                 "type": "array",
                 "x-is-list": true,
-                "items": {}
+                "items": {
+                  "$ref": "#/components/schemas/PerclCommand"
+                }
               }
             }
           }
@@ -6607,6 +6648,15 @@
             "name": "listen",
             "in": "query",
             "description": "Only show Participants with the listen privilege.",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "dtmfPassThrough",
+            "in": "query",
+            "description": "Only show Participants with the dtmfPassThrough privilege.",
             "required": false,
             "schema": {
               "type": "boolean"

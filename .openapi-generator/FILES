@@ -121,6 +121,7 @@ docs/SMSTollFreeCampaignRegistrationStatus.md
 docs/SMSTollFreeCampaignsListResult.md
 docs/Say.md
 docs/SendDigits.md
+docs/SetDTMFPassThrough.md
 docs/SetListen.md
 docs/SetTalk.md
 docs/Sms.md
@@ -250,6 +251,7 @@ freeclimb/models/remove_from_queue_notification_webhook.py
 freeclimb/models/request_type.py
 freeclimb/models/say.py
 freeclimb/models/send_digits.py
+freeclimb/models/set_dtmf_pass_through.py
 freeclimb/models/set_listen.py
 freeclimb/models/set_talk.py
 freeclimb/models/sms.py
@@ -396,6 +398,7 @@ test/test_remove_from_queue_notification_webhook.py
 test/test_request_type.py
 test/test_say.py
 test/test_send_digits.py
+test/test_set_dtmf_pass_through.py
 test/test_set_listen.py
 test/test_set_talk.py
 test/test_sms.py

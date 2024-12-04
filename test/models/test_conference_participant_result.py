@@ -63,6 +63,10 @@ class TestConferenceParticipantResult(unittest.TestCase):
         """Test ConferenceParticipantResult.listen"""
         self.model.listen = False
         assert self.model.listen == False
+    def test_dtmf_pass_through(self):
+        """Test ConferenceParticipantResult.dtmf_pass_through"""
+        self.model.dtmf_pass_through = False
+        assert self.model.dtmf_pass_through == False
     def test_start_conf_on_enter(self):
         """Test ConferenceParticipantResult.start_conf_on_enter"""
         self.model.start_conf_on_enter = False

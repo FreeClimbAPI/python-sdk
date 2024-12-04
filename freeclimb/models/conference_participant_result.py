@@ -37,9 +37,10 @@ class ConferenceParticipantResult(BaseModel, populate_by_name=True, validate_ass
     call_id: Optional[StrictStr] = Field(default=None, description="ID of the Call associated with this Participant.", alias="callId")
     talk: Optional[StrictBool] = Field(default=None, description="True if this Participant has talk privileges in the Conference. False otherwise.")
     listen: Optional[StrictBool] = Field(default=None, description="True if this Participant has listen privileges in the Conference. False otherwise.")
+    dtmf_pass_through: Optional[StrictBool] = Field(default=None, description="True if this Participant had dtmfPassThrough privileges in the Conference. False otherwise.", alias="dtmfPassThrough")
     start_conf_on_enter: Optional[StrictBool] = Field(default=None, description="True if this Participant joining the Conference caused the Conference to start (status = inProgress). False otherwise.", alias="startConfOnEnter")
 
-    __properties: ClassVar[List[str]] = ["uri", "dateCreated", "dateUpdated", "revision", "accountId", "conferenceId", "callId", "talk", "listen", "startConfOnEnter"]
+    __properties: ClassVar[List[str]] = ["uri", "dateCreated", "dateUpdated", "revision", "accountId", "conferenceId", "callId", "talk", "listen", "dtmfPassThrough", "startConfOnEnter"]
 
 
 
@@ -102,6 +103,11 @@ class ConferenceParticipantResult(BaseModel, populate_by_name=True, validate_ass
         if self.listen is None and "listen" in self.model_fields_set:
             _dict['listen'] = None
 
+        # set to None if dtmf_pass_through (nullable) is None
+        # and model_fields_set contains the field
+        if self.dtmf_pass_through is None and "dtmf_pass_through" in self.model_fields_set:
+            _dict['dtmfPassThrough'] = None
+
         # set to None if start_conf_on_enter (nullable) is None
         # and model_fields_set contains the field
         if self.start_conf_on_enter is None and "start_conf_on_enter" in self.model_fields_set:
@@ -128,6 +134,7 @@ class ConferenceParticipantResult(BaseModel, populate_by_name=True, validate_ass
             "callId": obj.get("callId"),
             "talk": obj.get("talk"),
             "listen": obj.get("listen"),
+            "dtmfPassThrough": obj.get("dtmfPassThrough"),
             "startConfOnEnter": obj.get("startConfOnEnter")
         })
         return _obj

@@ -18,25 +18,17 @@ import pydantic_core
 from datetime import datetime
 import freeclimb
 from freeclimb import *
-from freeclimb.models.update_conference_participant_request import UpdateConferenceParticipantRequest
+from freeclimb.models.set_dtmf_pass_through import SetDTMFPassThrough
 
-class TestUpdateConferenceParticipantRequest(unittest.TestCase):
-    """UpdateConferenceParticipantRequest unit test stubs"""
+class TestSetDTMFPassThrough(unittest.TestCase):
+    """SetDTMFPassThrough unit test stubs"""
 
     def setUp(self):
-        self.model = UpdateConferenceParticipantRequest(
+        self.model = SetDTMFPassThrough(
         )
 
-    def test_talk(self):
-        """Test UpdateConferenceParticipantRequest.talk"""
-        self.model.talk = False
-        assert self.model.talk == False
-    def test_listen(self):
-        """Test UpdateConferenceParticipantRequest.listen"""
-        self.model.listen = False
-        assert self.model.listen == False
     def test_dtmf_pass_through(self):
-        """Test UpdateConferenceParticipantRequest.dtmf_pass_through"""
+        """Test SetDTMFPassThrough.dtmf_pass_through"""
         self.model.dtmf_pass_through = False
         assert self.model.dtmf_pass_through == False
 

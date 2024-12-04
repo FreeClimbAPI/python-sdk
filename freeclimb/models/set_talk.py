@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class SetTalk(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
-    The `SetTalk` command enables or disables the talk privilege for a Participant in a Conference provided both calls are in the same conference. If 'true', no audio from that Participant is shared with the other Participants of the Conference.
+    The `SetTalk` command enables or disables the talk privilege for this Conference Participant. If 'true', no audio from that Participant is shared with the other Participants of the Conference.
     """ # noqa: E501
     talk: Optional[StrictBool] = Field(default=None, description="Specifying `false` mutes the Participant.")
     command: StrictStr = "SetTalk"

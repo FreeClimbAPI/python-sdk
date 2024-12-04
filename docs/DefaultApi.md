@@ -3451,7 +3451,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_participants**
-> ConferenceParticipantList list_participants(account_id, conference_id, talk=talk, listen=listen)
+> ConferenceParticipantList list_participants(account_id, conference_id, talk=talk, listen=listen, dtmf_pass_through=dtmf_pass_through)
 
 List Participants
 
@@ -3490,10 +3490,11 @@ with freeclimb.ApiClient(configuration) as api_client:
     conference_id = 'conference_id_example' # str | ID of the conference this participant is in.
     talk = True # bool | Only show Participants with the talk privilege. (optional)
     listen = True # bool | Only show Participants with the listen privilege. (optional)
+    dtmf_pass_through = True # bool | Only show Participants with the dtmfPassThrough privilege. (optional)
 
     try:
         # List Participants
-        api_response = api_instance.list_participants(account_id, conference_id, talk=talk, listen=listen)
+        api_response = api_instance.list_participants(account_id, conference_id, talk=talk, listen=listen, dtmf_pass_through=dtmf_pass_through)
         print("The response of DefaultApi->list_participants:\n")
         pprint(api_response)
     except Exception as e:
@@ -3511,6 +3512,7 @@ Name | Type | Description  | Notes
  **conference_id** | **str**| ID of the conference this participant is in. | 
  **talk** | **bool**| Only show Participants with the talk privilege. | [optional] 
  **listen** | **bool**| Only show Participants with the listen privilege. | [optional] 
+ **dtmf_pass_through** | **bool**| Only show Participants with the dtmfPassThrough privilege. | [optional] 
 
 ### Return type
 

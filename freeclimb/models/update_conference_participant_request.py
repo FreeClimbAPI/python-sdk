@@ -30,8 +30,9 @@ class UpdateConferenceParticipantRequest(BaseModel, populate_by_name=True, valid
     """ # noqa: E501
     talk: Optional[StrictBool] = Field(default=None, description="(Optional) Default is `true`. Setting to `false` mutes the Participant. FreeClimb returns an error and ignores any other value.")
     listen: Optional[StrictBool] = Field(default=None, description="(Optional) Default is `true`. Setting to `false` silences the Conference for this Participant. FreeClimb returns an error and ignores any other value.")
+    dtmf_pass_through: Optional[StrictBool] = Field(default=None, description="(Optional) Default is `true`. Setting to `false` mutes dtmf audio for this Participant. FreeClimb returns an error and ignores any other value.", alias="dtmfPassThrough")
 
-    __properties: ClassVar[List[str]] = ["talk", "listen"]
+    __properties: ClassVar[List[str]] = ["talk", "listen", "dtmfPassThrough"]
 
 
 
@@ -82,7 +83,8 @@ class UpdateConferenceParticipantRequest(BaseModel, populate_by_name=True, valid
 
         _obj = cls.model_validate({
             "talk": obj.get("talk"),
-            "listen": obj.get("listen")
+            "listen": obj.get("listen"),
+            "dtmfPassThrough": obj.get("dtmfPassThrough")
         })
         return _obj
 

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **record** | [**TranscribeUtteranceRecord**](TranscribeUtteranceRecord.md) |  | [optional] 
 **privacy_for_logging** | **bool** |  | [optional] [default to False]
 **privacy_for_recording** | **bool** |  | [optional] [default to False]
-**prompts** | **List[object]** |  | [optional] 
+**prompts** | [**List[PerclCommand]**](PerclCommand.md) |  | [optional] 
 
 ## Example
 

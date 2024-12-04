@@ -38,9 +38,10 @@ class AddToConference(PerclCommand, populate_by_name=True, validate_assignment=T
     notification_url: Optional[StrictStr] = Field(default=None, description="When the Participant enters the Conference, this URL will be invoked using an HTTP POST request with the standard request parameters.", alias="notificationUrl")
     start_conf_on_enter: Optional[StrictBool] = Field(default=None, description="Flag that indicates whether a Conference starts upon entry of this particular Participant. This is usually set to `true` for moderators and `false` for all other Participants.", alias="startConfOnEnter")
     talk: Optional[StrictBool] = Field(default=None, description="If `true`, the Participant joins the Conference with talk privileges. This may be modified later via the REST API or `SetTalk` PerCL command. ")
+    dtmf_pass_through: Optional[StrictBool] = Field(default=None, description="If `true`, the Participant joins the Conference with dtmfPassThrough privileges. This may be modified later via the REST API or `SetDTMFPassThrough` PerCL command. ", alias="dtmfPassThrough")
     command: StrictStr = "AddToConference"
 
-    __properties: ClassVar[List[str]] = ["command", "allowCallControl", "callControlSequence", "callControlUrl", "conferenceId", "leaveConferenceUrl", "listen", "notificationUrl", "startConfOnEnter", "talk"]
+    __properties: ClassVar[List[str]] = ["command", "allowCallControl", "callControlSequence", "callControlUrl", "conferenceId", "leaveConferenceUrl", "listen", "notificationUrl", "startConfOnEnter", "talk", "dtmfPassThrough"]
 
 
 
@@ -99,7 +100,8 @@ class AddToConference(PerclCommand, populate_by_name=True, validate_assignment=T
             "listen": obj.get("listen"),
             "notificationUrl": obj.get("notificationUrl"),
             "startConfOnEnter": obj.get("startConfOnEnter"),
-            "talk": obj.get("talk")
+            "talk": obj.get("talk"),
+            "dtmfPassThrough": obj.get("dtmfPassThrough")
         })
         return _obj
 

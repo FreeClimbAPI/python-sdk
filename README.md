@@ -297,6 +297,7 @@ Class | Method | HTTP request | Description
  - [SMSTollFreeCampaignsListResult](docs/SMSTollFreeCampaignsListResult.md)
  - [Say](docs/Say.md)
  - [SendDigits](docs/SendDigits.md)
+ - [SetDTMFPassThrough](docs/SetDTMFPassThrough.md)
  - [SetListen](docs/SetListen.md)
  - [SetTalk](docs/SetTalk.md)
  - [Sms](docs/Sms.md)

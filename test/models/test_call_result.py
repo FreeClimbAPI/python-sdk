@@ -124,6 +124,10 @@ class TestCallResult(unittest.TestCase):
         testObject = {}
         self.model.subresource_uris = testObject
         assert self.model.subresource_uris == testObject
+    def test_application_id(self):
+        """Test CallResult.application_id"""
+        self.model.application_id = "TEST_STRING"
+        assert self.model.application_id == "TEST_STRING"
 
 
 

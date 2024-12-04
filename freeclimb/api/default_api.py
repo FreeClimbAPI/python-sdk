@@ -12710,6 +12710,8 @@ class DefaultApi:
         
         listen: Annotated[Optional[StrictBool], Field(description="Only show Participants with the listen privilege.")] = None,
         
+        dtmf_pass_through: Annotated[Optional[StrictBool], Field(description="Only show Participants with the dtmfPassThrough privilege.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12734,6 +12736,9 @@ class DefaultApi:
         
         :param listen: Only show Participants with the listen privilege.
         :type listen: bool
+        
+        :param dtmf_pass_through: Only show Participants with the dtmfPassThrough privilege.
+        :type dtmf_pass_through: bool
         
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -12763,6 +12768,7 @@ class DefaultApi:
             conference_id=conference_id,
             talk=talk,
             listen=listen,
+            dtmf_pass_through=dtmf_pass_through,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12793,6 +12799,8 @@ class DefaultApi:
         
         listen: Annotated[Optional[StrictBool], Field(description="Only show Participants with the listen privilege.")] = None,
         
+        dtmf_pass_through: Annotated[Optional[StrictBool], Field(description="Only show Participants with the dtmfPassThrough privilege.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12817,6 +12825,9 @@ class DefaultApi:
         
         :param listen: Only show Participants with the listen privilege.
         :type listen: bool
+        
+        :param dtmf_pass_through: Only show Participants with the dtmfPassThrough privilege.
+        :type dtmf_pass_through: bool
         
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -12846,6 +12857,7 @@ class DefaultApi:
             conference_id=conference_id,
             talk=talk,
             listen=listen,
+            dtmf_pass_through=dtmf_pass_through,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12876,6 +12888,8 @@ class DefaultApi:
         
         listen: Annotated[Optional[StrictBool], Field(description="Only show Participants with the listen privilege.")] = None,
         
+        dtmf_pass_through: Annotated[Optional[StrictBool], Field(description="Only show Participants with the dtmfPassThrough privilege.")] = None,
+        
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12900,6 +12914,9 @@ class DefaultApi:
         
         :param listen: Only show Participants with the listen privilege.
         :type listen: bool
+        
+        :param dtmf_pass_through: Only show Participants with the dtmfPassThrough privilege.
+        :type dtmf_pass_through: bool
         
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -12929,6 +12946,7 @@ class DefaultApi:
             conference_id=conference_id,
             talk=talk,
             listen=listen,
+            dtmf_pass_through=dtmf_pass_through,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12951,6 +12969,7 @@ class DefaultApi:
         conference_id,
         talk,
         listen,
+        dtmf_pass_through,
         _request_auth,
         _content_type,
         _headers,
@@ -12984,6 +13003,10 @@ class DefaultApi:
         if listen is not None:
             
             _query_params.append(('listen', listen))
+            
+        if dtmf_pass_through is not None:
+            
+            _query_params.append(('dtmfPassThrough', dtmf_pass_through))
             
         # process the header parameters
         # process the form parameters

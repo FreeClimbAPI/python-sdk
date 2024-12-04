@@ -50,8 +50,9 @@ class CallResult(BaseModel, populate_by_name=True, validate_assignment=True, pro
     direction: Optional[CallDirection] = None
     answered_by: Optional[AnsweredBy] = Field(default=None, alias="answeredBy")
     subresource_uris: Optional[Dict[str, Any]] = Field(default=None, description="The list of subresources for this Call. These include things like logs and recordings associated with the Call.", alias="subresourceUris")
+    application_id: Optional[StrictStr] = Field(default=None, description="ApplicationId associated with the Call.", alias="applicationId")
 
-    __properties: ClassVar[List[str]] = ["uri", "dateCreated", "dateUpdated", "revision", "callId", "parentCallId", "accountId", "from", "to", "phoneNumberId", "callStatus", "startTime", "connectTime", "endTime", "duration", "connectDuration", "direction", "answeredBy", "subresourceUris"]
+    __properties: ClassVar[List[str]] = ["uri", "dateCreated", "dateUpdated", "revision", "callId", "parentCallId", "accountId", "from", "to", "phoneNumberId", "callStatus", "startTime", "connectTime", "endTime", "duration", "connectDuration", "direction", "answeredBy", "subresourceUris", "applicationId"]
 
 
 
@@ -164,6 +165,11 @@ class CallResult(BaseModel, populate_by_name=True, validate_assignment=True, pro
         if self.subresource_uris is None and "subresource_uris" in self.model_fields_set:
             _dict['subresourceUris'] = None
 
+        # set to None if application_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.application_id is None and "application_id" in self.model_fields_set:
+            _dict['applicationId'] = None
+
         return _dict
 
     @classmethod
@@ -194,7 +200,8 @@ class CallResult(BaseModel, populate_by_name=True, validate_assignment=True, pro
             "connectDuration": obj.get("connectDuration"),
             "direction": obj.get("direction"),
             "answeredBy": obj.get("answeredBy"),
-            "subresourceUris": obj.get("subresourceUris")
+            "subresourceUris": obj.get("subresourceUris"),
+            "applicationId": obj.get("applicationId")
         })
         return _obj
 

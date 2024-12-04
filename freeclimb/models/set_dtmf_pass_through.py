@@ -25,14 +25,14 @@ from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SetListen(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
+class SetDTMFPassThrough(PerclCommand, populate_by_name=True, validate_assignment=True, protected_namespaces=()):
     """
-    The `SetListen` command enables or disables the listen privilege for this Conference Participant. The Participant can hear what the other participants are saying only if this privilege is enabled.
+    The `SetDTMFPassThrough` command enables or disables the dtmfPassThrough privilege for this Conference Participant. If 'true', DTMFs will be passed through from this Participant to all other Participants in the Conference
     """ # noqa: E501
-    listen: Optional[StrictBool] = Field(default=None, description="Specifying `false` will silence the Conference for this Participant.")
-    command: StrictStr = "SetListen"
+    dtmf_pass_through: Optional[StrictBool] = Field(default=None, description="Specifying `false` mutes the Participant's dtmf audio.", alias="dtmfPassThrough")
+    command: StrictStr = "true"
 
-    __properties: ClassVar[List[str]] = ["command", "listen"]
+    __properties: ClassVar[List[str]] = ["command", "dtmfPassThrough"]
 
 
 
@@ -49,7 +49,7 @@ class SetListen(PerclCommand, populate_by_name=True, validate_assignment=True, p
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SetListen from a JSON string"""
+        """Create an instance of SetDTMFPassThrough from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,7 +74,7 @@ class SetListen(PerclCommand, populate_by_name=True, validate_assignment=True, p
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SetListen from a dict"""
+        """Create an instance of SetDTMFPassThrough from a dict"""
         if obj is None:
             return None
 
@@ -83,7 +83,7 @@ class SetListen(PerclCommand, populate_by_name=True, validate_assignment=True, p
 
         _obj = cls.model_validate({
             "command": obj.get("command"),
-            "listen": obj.get("listen")
+            "dtmfPassThrough": obj.get("dtmfPassThrough")
         })
         return _obj
 

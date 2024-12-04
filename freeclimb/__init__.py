@@ -152,6 +152,7 @@ from freeclimb.models.sms_toll_free_campaign_registration_status import SMSTollF
 from freeclimb.models.sms_toll_free_campaigns_list_result import SMSTollFreeCampaignsListResult
 from freeclimb.models.say import Say
 from freeclimb.models.send_digits import SendDigits
+from freeclimb.models.set_dtmf_pass_through import SetDTMFPassThrough
 from freeclimb.models.set_listen import SetListen
 from freeclimb.models.set_talk import SetTalk
 from freeclimb.models.sms import Sms

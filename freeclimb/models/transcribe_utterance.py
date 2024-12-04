@@ -35,7 +35,7 @@ class TranscribeUtterance(PerclCommand, populate_by_name=True, validate_assignme
     record: Optional[TranscribeUtteranceRecord] = None
     privacy_for_logging: Optional[StrictBool] = Field(default=False, alias="privacyForLogging")
     privacy_for_recording: Optional[StrictBool] = Field(default=False, alias="privacyForRecording")
-    prompts: Optional[List[Any]] = None
+    prompts: Optional[List[PerclCommand]] = None
     command: StrictStr = "TranscribeUtterance"
 
     __properties: ClassVar[List[str]] = ["command", "actionUrl", "playBeep", "record", "privacyForLogging", "privacyForRecording", "prompts"]
@@ -79,6 +79,13 @@ class TranscribeUtterance(PerclCommand, populate_by_name=True, validate_assignme
         # override the default output from pydantic by calling `to_dict()` of record
         if self.record:
             _dict['record'] = self.record.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in prompts (list)
+        _items = []
+        if self.prompts:
+            for _item_prompts in self.prompts:
+                if _item_prompts:
+                    _items.append(_item_prompts.to_dict())
+            _dict['prompts'] = _items
         return _dict
 
     @classmethod
@@ -97,7 +104,7 @@ class TranscribeUtterance(PerclCommand, populate_by_name=True, validate_assignme
             "record": TranscribeUtteranceRecord.from_dict(obj["record"]) if obj.get("record") is not None else None,
             "privacyForLogging": obj.get("privacyForLogging") if obj.get("privacyForLogging") is not None else False,
             "privacyForRecording": obj.get("privacyForRecording") if obj.get("privacyForRecording") is not None else False,
-            "prompts": obj.get("prompts")
+            "prompts": [PerclCommand.from_dict(_item) for _item in obj["prompts"]] if obj.get("prompts") is not None else None
         })
         return _obj
 

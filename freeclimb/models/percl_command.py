@@ -45,6 +45,7 @@ if TYPE_CHECKING:
     from freeclimb.models.remove_from_conference import RemoveFromConference
     from freeclimb.models.say import Say
     from freeclimb.models.send_digits import SendDigits
+    from freeclimb.models.set_dtmf_pass_through import SetDTMFPassThrough
     from freeclimb.models.set_listen import SetListen
     from freeclimb.models.set_talk import SetTalk
     from freeclimb.models.sms import Sms
@@ -70,7 +71,7 @@ class PerclCommand(BaseModel, populate_by_name=True, validate_assignment=True, p
 
     # discriminator mappings
     __discriminator_value_class_map: ClassVar[Dict[str, str]] = {
-        'AddToConference': 'AddToConference','CreateConference': 'CreateConference','Dequeue': 'Dequeue','Enqueue': 'Enqueue','GetDigits': 'GetDigits','GetSpeech': 'GetSpeech','Hangup': 'Hangup','OutDial': 'OutDial','Park': 'Park','Pause': 'Pause','Play': 'Play','PlayEarlyMedia': 'PlayEarlyMedia','RecordUtterance': 'RecordUtterance','Redirect': 'Redirect','Reject': 'Reject','RemoveFromConference': 'RemoveFromConference','Say': 'Say','SendDigits': 'SendDigits','SetListen': 'SetListen','SetTalk': 'SetTalk','Sms': 'Sms','StartRecordCall': 'StartRecordCall','TerminateConference': 'TerminateConference','TranscribeUtterance': 'TranscribeUtterance','Unpark': 'Unpark'
+        'AddToConference': 'AddToConference','CreateConference': 'CreateConference','Dequeue': 'Dequeue','Enqueue': 'Enqueue','GetDigits': 'GetDigits','GetSpeech': 'GetSpeech','Hangup': 'Hangup','OutDial': 'OutDial','Park': 'Park','Pause': 'Pause','Play': 'Play','PlayEarlyMedia': 'PlayEarlyMedia','RecordUtterance': 'RecordUtterance','Redirect': 'Redirect','Reject': 'Reject','RemoveFromConference': 'RemoveFromConference','Say': 'Say','SendDigits': 'SendDigits','SetDTMFPassThrough': 'SetDTMFPassThrough','SetListen': 'SetListen','SetTalk': 'SetTalk','Sms': 'Sms','StartRecordCall': 'StartRecordCall','TerminateConference': 'TerminateConference','TranscribeUtterance': 'TranscribeUtterance','Unpark': 'Unpark'
     }
 
     @classmethod
@@ -92,7 +93,7 @@ class PerclCommand(BaseModel, populate_by_name=True, validate_assignment=True, p
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Union[AddToConference, CreateConference, Dequeue, Enqueue, GetDigits, GetSpeech, Hangup, OutDial, Park, Pause, Play, PlayEarlyMedia, RecordUtterance, Redirect, Reject, RemoveFromConference, Say, SendDigits, SetListen, SetTalk, Sms, StartRecordCall, TerminateConference, TranscribeUtterance, Unpark]]:
+    def from_json(cls, json_str: str) -> Optional[Union[AddToConference, CreateConference, Dequeue, Enqueue, GetDigits, GetSpeech, Hangup, OutDial, Park, Pause, Play, PlayEarlyMedia, RecordUtterance, Redirect, Reject, RemoveFromConference, Say, SendDigits, SetDTMFPassThrough, SetListen, SetTalk, Sms, StartRecordCall, TerminateConference, TranscribeUtterance, Unpark]]:
         """Create an instance of PerclCommand from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -117,7 +118,7 @@ class PerclCommand(BaseModel, populate_by_name=True, validate_assignment=True, p
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Union[AddToConference, CreateConference, Dequeue, Enqueue, GetDigits, GetSpeech, Hangup, OutDial, Park, Pause, Play, PlayEarlyMedia, RecordUtterance, Redirect, Reject, RemoveFromConference, Say, SendDigits, SetListen, SetTalk, Sms, StartRecordCall, TerminateConference, TranscribeUtterance, Unpark]]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Union[AddToConference, CreateConference, Dequeue, Enqueue, GetDigits, GetSpeech, Hangup, OutDial, Park, Pause, Play, PlayEarlyMedia, RecordUtterance, Redirect, Reject, RemoveFromConference, Say, SendDigits, SetDTMFPassThrough, SetListen, SetTalk, Sms, StartRecordCall, TerminateConference, TranscribeUtterance, Unpark]]:
         """Create an instance of PerclCommand from a dict"""
         # look up the object type based on discriminator mapping
         object_type = cls.get_discriminator_value(obj)
@@ -157,6 +158,8 @@ class PerclCommand(BaseModel, populate_by_name=True, validate_assignment=True, p
             return import_module("freeclimb.models.say").Say.from_dict(obj)
         if object_type ==  'SendDigits':
             return import_module("freeclimb.models.send_digits").SendDigits.from_dict(obj)
+        if object_type ==  'SetDTMFPassThrough':
+            return import_module("freeclimb.models.set_dtmf_pass_through").SetDTMFPassThrough.from_dict(obj)
         if object_type ==  'SetListen':
             return import_module("freeclimb.models.set_listen").SetListen.from_dict(obj)
         if object_type ==  'SetTalk':
