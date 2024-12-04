@@ -38,6 +38,10 @@ class CallControlWebhook(Webhook, populate_by_name=True, validate_assignment=Tru
     __properties: ClassVar[List[str]] = ["requestType", "callId", "accountId", "conferenceId", "digits"]
 
 
+    @classmethod
+    def deserialize(cls, payload: str) -> Optional[Self]:
+        return cls.from_json(payload)
+
 
 
 

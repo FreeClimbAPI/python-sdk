@@ -138,6 +138,9 @@ class TestTranscribeWebhook(unittest.TestCase):
         self.model.transcription_duration_ms = 1
         assert self.model.transcription_duration_ms == 1
 
+    def test_deserialize(self):
+        payload = '{ "requestType": "transcribe" }'
+        assert isinstance(TranscribeWebhook.deserialize(payload), TranscribeWebhook)
 
 
 if __name__ == '__main__':

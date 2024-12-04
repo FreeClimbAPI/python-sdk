@@ -48,6 +48,10 @@ class GetDigitsWebhook(Webhook, populate_by_name=True, validate_assignment=True,
     __properties: ClassVar[List[str]] = ["requestType", "callId", "accountId", "from", "to", "callStatus", "direction", "conferenceId", "queueId", "digits", "reason", "parentCallId"]
 
 
+    @classmethod
+    def deserialize(cls, payload: str) -> Optional[Self]:
+        return cls.from_json(payload)
+
 
 
 

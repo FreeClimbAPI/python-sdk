@@ -90,6 +90,9 @@ class TestMachineDetectedWebhook(unittest.TestCase):
         self.model.machine_type = MachineType.FAX_MODEM
         assert self.model.machine_type == MachineType.FAX_MODEM
 
+    def test_deserialize(self):
+        payload = '{ "requestType": "machineDetected" }'
+        assert isinstance(MachineDetectedWebhook.deserialize(payload), MachineDetectedWebhook)
 
 
 if __name__ == '__main__':

@@ -82,6 +82,9 @@ class TestInboundCallWebhook(unittest.TestCase):
     def test_parent_call_id(self):
         """Test InboundCallWebhook.parent_call_id"""
 
+    def test_deserialize(self):
+        payload = '{ "requestType": "inboundCall" }'
+        assert isinstance(InboundCallWebhook.deserialize(payload), InboundCallWebhook)
 
 
 if __name__ == '__main__':

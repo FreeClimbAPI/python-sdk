@@ -118,6 +118,9 @@ class TestRecordWebhook(unittest.TestCase):
         self.model.privacy_mode = False
         assert self.model.privacy_mode == False
 
+    def test_deserialize(self):
+        payload = '{ "requestType": "record" }'
+        assert isinstance(RecordWebhook.deserialize(payload), RecordWebhook)
 
 
 if __name__ == '__main__':

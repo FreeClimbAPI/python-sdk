@@ -80,6 +80,9 @@ class TestLeaveConferenceWebhook(unittest.TestCase):
         self.model.queue_id = "TEST_STRING"
         assert self.model.queue_id == "TEST_STRING"
 
+    def test_deserialize(self):
+        payload = '{ "requestType": "leaveConference" }'
+        assert isinstance(LeaveConferenceWebhook.deserialize(payload), LeaveConferenceWebhook)
 
 
 if __name__ == '__main__':

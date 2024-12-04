@@ -47,6 +47,10 @@ class RemoveFromQueueNotificationWebhook(Webhook, populate_by_name=True, validat
     __properties: ClassVar[List[str]] = ["requestType", "accountId", "callId", "from", "to", "callStatus", "direction", "conferenceId", "queueId", "queueResult", "queueTime"]
 
 
+    @classmethod
+    def deserialize(cls, payload: str) -> Optional[Self]:
+        return cls.from_json(payload)
+
 
 
 

@@ -53,6 +53,10 @@ class GetSpeechWebhook(Webhook, populate_by_name=True, validate_assignment=True,
     __properties: ClassVar[List[str]] = ["requestType", "callId", "accountId", "from", "to", "callStatus", "direction", "conferenceId", "queueId", "reason", "recognitionResult", "confidence", "parentCallId", "completionReason", "completionCause", "mrcpCode", "mrcpDiagnostic"]
 
 
+    @classmethod
+    def deserialize(cls, payload: str) -> Optional[Self]:
+        return cls.from_json(payload)
+
 
 
 

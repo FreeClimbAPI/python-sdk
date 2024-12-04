@@ -92,6 +92,9 @@ class TestQueueWaitWebhook(unittest.TestCase):
         self.model.current_queue_size = 1
         assert self.model.current_queue_size == 1
 
+    def test_deserialize(self):
+        payload = '{ "requestType": "queueWait" }'
+        assert isinstance(QueueWaitWebhook.deserialize(payload), QueueWaitWebhook)
 
 
 if __name__ == '__main__':

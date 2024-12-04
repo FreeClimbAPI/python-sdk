@@ -98,6 +98,9 @@ class TestGetDigitsWebhook(unittest.TestCase):
         self.model.parent_call_id = "TEST_STRING"
         assert self.model.parent_call_id == "TEST_STRING"
 
+    def test_deserialize(self):
+        payload = '{ "requestType": "getDigits" }'
+        assert isinstance(GetDigitsWebhook.deserialize(payload), GetDigitsWebhook)
 
 
 if __name__ == '__main__':

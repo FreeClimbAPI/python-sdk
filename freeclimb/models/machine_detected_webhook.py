@@ -47,6 +47,10 @@ class MachineDetectedWebhook(Webhook, populate_by_name=True, validate_assignment
     __properties: ClassVar[List[str]] = ["requestType", "callId", "accountId", "from", "to", "callStatus", "direction", "conferenceId", "queueId", "parentCallId", "machineType"]
 
 
+    @classmethod
+    def deserialize(cls, payload: str) -> Optional[Self]:
+        return cls.from_json(payload)
+
 
 
 

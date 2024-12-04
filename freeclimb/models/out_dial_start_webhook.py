@@ -46,6 +46,10 @@ class OutDialStartWebhook(Webhook, populate_by_name=True, validate_assignment=Tr
     __properties: ClassVar[List[str]] = ["requestType", "accountId", "callId", "from", "to", "callStatus", "direction", "conferenceId", "queueId", "dialCallId", "parentCallId"]
 
 
+    @classmethod
+    def deserialize(cls, payload: str) -> Optional[Self]:
+        return cls.from_json(payload)
+
 
 
 

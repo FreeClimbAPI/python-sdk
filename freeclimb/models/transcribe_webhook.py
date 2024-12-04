@@ -60,6 +60,10 @@ class TranscribeWebhook(Webhook, populate_by_name=True, validate_assignment=True
     __properties: ClassVar[List[str]] = ["requestType", "accountId", "callId", "from", "to", "recordingId", "recordingUrl", "recordingSize", "recordingFormat", "recordingDurationMs", "termReason", "recordTermReason", "digit", "privacyForLogging", "privacyForRecording", "bargeInReason", "bargedInPromptNo", "bargedInPromptMs", "bargedInPromptLoopNo", "bargeInTimeMs", "transcript", "transcribeReason", "transcriptionDurationMs"]
 
 
+    @classmethod
+    def deserialize(cls, payload: str) -> Optional[Self]:
+        return cls.from_json(payload)
+
 
 
 

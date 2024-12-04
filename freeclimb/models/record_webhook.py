@@ -53,6 +53,10 @@ class RecordWebhook(Webhook, populate_by_name=True, validate_assignment=True, pr
     __properties: ClassVar[List[str]] = ["requestType", "accountId", "callId", "from", "to", "callStatus", "direction", "conferenceId", "queueId", "recordingId", "recordingUrl", "recordingSize", "recordingFormat", "recordingDurationSec", "termReason", "parentCallId", "privacyMode"]
 
 
+    @classmethod
+    def deserialize(cls, payload: str) -> Optional[Self]:
+        return cls.from_json(payload)
+
 
 
 

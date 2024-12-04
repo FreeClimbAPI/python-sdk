@@ -90,6 +90,9 @@ class TestMessageStatusWebhook(unittest.TestCase):
         self.model.phone_number_id = "TEST_STRING"
         assert self.model.phone_number_id == "TEST_STRING"
 
+    def test_deserialize(self):
+        payload = '{ "requestType": "messageStatus" }'
+        assert isinstance(MessageStatusWebhook.deserialize(payload), MessageStatusWebhook)
 
 
 if __name__ == '__main__':

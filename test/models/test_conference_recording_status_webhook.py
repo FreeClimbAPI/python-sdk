@@ -102,6 +102,9 @@ class TestConferenceRecordingStatusWebhook(unittest.TestCase):
         self.model.recording_duration_sec = 1
         assert self.model.recording_duration_sec == 1
 
+    def test_deserialize(self):
+        payload = '{ "requestType": "conferenceRecordingStatus" }'
+        assert isinstance(ConferenceRecordingStatusWebhook.deserialize(payload), ConferenceRecordingStatusWebhook)
 
 
 if __name__ == '__main__':

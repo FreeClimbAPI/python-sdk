@@ -66,6 +66,9 @@ class TestMessageDeliveryWebhook(unittest.TestCase):
         self.model.uri = "TEST_STRING"
         assert self.model.uri == "TEST_STRING"
 
+    def test_deserialize(self):
+        payload = '{ "requestType": "messageDelivery" }'
+        assert isinstance(MessageDeliveryWebhook.deserialize(payload), MessageDeliveryWebhook)
 
 
 if __name__ == '__main__':

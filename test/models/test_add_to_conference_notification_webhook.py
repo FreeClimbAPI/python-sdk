@@ -102,6 +102,9 @@ class TestAddToConferenceNotificationWebhook(unittest.TestCase):
         self.model.recording_duration_sec = 1
         assert self.model.recording_duration_sec == 1
 
+    def test_deserialize(self):
+        payload = '{ "requestType": "addToConferenceNotification" }'
+        assert isinstance(AddToConferenceNotificationWebhook.deserialize(payload), AddToConferenceNotificationWebhook)
 
 
 if __name__ == '__main__':

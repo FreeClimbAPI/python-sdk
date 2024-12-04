@@ -46,6 +46,9 @@ class TestCallControlWebhook(unittest.TestCase):
         self.model.digits = "TEST_STRING"
         assert self.model.digits == "TEST_STRING"
 
+    def test_deserialize(self):
+        payload = '{ "requestType": "callControl" }'
+        assert isinstance(CallControlWebhook.deserialize(payload), CallControlWebhook)
 
 
 if __name__ == '__main__':

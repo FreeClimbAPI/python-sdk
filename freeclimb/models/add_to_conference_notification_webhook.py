@@ -49,6 +49,10 @@ class AddToConferenceNotificationWebhook(Webhook, populate_by_name=True, validat
     __properties: ClassVar[List[str]] = ["requestType", "callId", "accountId", "from", "to", "callStatus", "direction", "conferenceId", "queueId", "status", "recordingUrl", "recordingId", "recordingDurationSec"]
 
 
+    @classmethod
+    def deserialize(cls, payload: str) -> Optional[Self]:
+        return cls.from_json(payload)
+
 
 
 

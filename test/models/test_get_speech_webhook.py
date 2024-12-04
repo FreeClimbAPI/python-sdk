@@ -122,6 +122,9 @@ class TestGetSpeechWebhook(unittest.TestCase):
         self.model.mrcp_diagnostic = "TEST_STRING"
         assert self.model.mrcp_diagnostic == "TEST_STRING"
 
+    def test_deserialize(self):
+        payload = '{ "requestType": "getSpeech" }'
+        assert isinstance(GetSpeechWebhook.deserialize(payload), GetSpeechWebhook)
 
 
 if __name__ == '__main__':

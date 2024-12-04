@@ -45,6 +45,10 @@ class MessageStatusWebhook(Webhook, populate_by_name=True, validate_assignment=T
     __properties: ClassVar[List[str]] = ["requestType", "accountId", "messageId", "callId", "from", "to", "text", "direction", "applicationId", "status", "phoneNumberId"]
 
 
+    @classmethod
+    def deserialize(cls, payload: str) -> Optional[Self]:
+        return cls.from_json(payload)
+
 
 
 

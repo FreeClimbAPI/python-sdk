@@ -84,6 +84,9 @@ class TestOutDialConnectWebhook(unittest.TestCase):
         self.model.parent_call_id = "TEST_STRING"
         assert self.model.parent_call_id == "TEST_STRING"
 
+    def test_deserialize(self):
+        payload = '{ "requestType": "outDialConnect" }'
+        assert isinstance(OutDialConnectWebhook.deserialize(payload), OutDialConnectWebhook)
 
 
 if __name__ == '__main__':

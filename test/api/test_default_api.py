@@ -1529,5 +1529,7 @@ knowledge_base_id_create_knowledge_base_completion_test_value = "knowledge_base_
 
 completion_request_create_knowledge_base_completion_test_value = CompletionRequest(query="query_example")
 
+dtmf_pass_through_list_participants_test_value = True
+
 if __name__ == '__main__':
     unittest.main()

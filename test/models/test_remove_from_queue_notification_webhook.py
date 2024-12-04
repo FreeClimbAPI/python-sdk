@@ -94,6 +94,9 @@ class TestRemoveFromQueueNotificationWebhook(unittest.TestCase):
         self.model.queue_time = 1
         assert self.model.queue_time == 1
 
+    def test_deserialize(self):
+        payload = '{ "requestType": "removeFromQueueNotification" }'
+        assert isinstance(RemoveFromQueueNotificationWebhook.deserialize(payload), RemoveFromQueueNotificationWebhook)
 
 
 if __name__ == '__main__':
