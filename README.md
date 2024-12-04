@@ -91,6 +91,23 @@ with freeclimb.ApiClient(configuration) as api_client:
         print("Exception when calling DefaultApi->buy_a_phone_number: %s\n" % e)
 
 ```
+## Documentation for PerCL
+
+The Performance Command Language (PerCL) defines a set of instructions, written in JSON format, that express telephony actions to be performed in response to an event on the FreeClimb platform. FreeClimb communicates with the application server when events associated with the application occur, so the webserver can instruct FreeClimb how to handle such events using PerCL scripts.
+PerCL commands are a part of the model schema and can be serialized into JSON like so:
+
+```python
+import freeclimb
+
+say = freeclimb.Say(text='Hello, World')
+play = freeclimb.Play(file='Example File')
+get_digits = freeclimb.GetDigits(
+    action_url='Example Action URL', prompts=[play, say])
+percl_script = freeclimb.PerclScript(commands=[get_digits])
+
+print(percl_script.to_json())
+```
+
 
 ## Documentation for API Endpoints
 
@@ -156,6 +173,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**update_an_application**](docs/DefaultApi.md#update_an_application) | **POST** /Accounts/{accountId}/Applications/{applicationId} | Update an application
 *DefaultApi* | [**update_an_incoming_number**](docs/DefaultApi.md#update_an_incoming_number) | **POST** /Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId} | Update an Incoming Number
 
+*DefaultApi* | [get_next_page](docs/DefaultApi.md#get_next_page) | **GET** | Get Next Page of Paginated List Resource
 
 ## Documentation For Models
 
@@ -308,6 +326,34 @@ Authentication schemes defined for the API:
 ### fc
 
 - **Type**: HTTP basic authentication
+
+
+<a name="documentation-for-verify-request-signature"></a>
+
+## Documentation for verifying request signature
+
+- To verify the request signature, we will need to use the verify_request_signature method within the Request Verifier class
+
+  RequestVerifier.verify_request_signature(requestBody, requestHeader, signingSecret, tolerance)
+
+  This is a method that you can call directly from the request verifier class, it will throw exceptions depending on whether all parts of the request signature is valid otherwise it will throw a specific error message depending on which request signature part is causing issues
+
+  This method requires a requestBody of type string, a requestHeader of type string, a signingSecret of type string, and a tolerance value of type int
+
+  Example code down below
+
+  ```python
+  from freeclimb.utils.request_verifier import RequestVerifier
+
+  class RequestVerifierExample():
+        def verify_request_signature_example():
+            request_body = "{\"accountId\":\"AC1334ffb694cd8d969f51cddf5f7c9b478546d50c\",\"callId\":\"CAccb0b00506553cda09b51c5477f672a49e0b2213\",\"callStatus\":\"ringing\",\"conferenceId\":null,\"direction\":\"inbound\",\"from\":\"+13121000109\",\"parentCallId\":null,\"queueId\":null,\"requestType\":\"inboundCall\",\"to\":\"+13121000096\"}"
+            signing_secret = "sigsec_ead6d3b6904196c60835d039e91b3341c77a7793"
+            tolerance = 5 * 60
+            request_header = "t=1679944186,v1=c3957749baf61df4b1506802579cc69a74c77a1ae21447b930e5a704f9ec4120,v1=1ba18712726898fbbe48cd862dd096a709f7ad761a5bab14bda9ac24d963a6a8"
+            RequestVerifier.verify_request_signature(request_body, request_header, signing_secret, tolerance)
+  ```
+
 
 
 ## Author
