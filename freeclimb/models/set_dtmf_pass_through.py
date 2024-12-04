@@ -30,7 +30,7 @@ class SetDTMFPassThrough(PerclCommand, populate_by_name=True, validate_assignmen
     The `SetDTMFPassThrough` command enables or disables the dtmfPassThrough privilege for this Conference Participant. If 'true', DTMFs will be passed through from this Participant to all other Participants in the Conference
     """ # noqa: E501
     dtmf_pass_through: Optional[StrictBool] = Field(default=None, description="Specifying `false` mutes the Participant's dtmf audio.", alias="dtmfPassThrough")
-    command: StrictStr = "true"
+    command: StrictStr = "SetDTMFPassThrough"
 
     __properties: ClassVar[List[str]] = ["command", "dtmfPassThrough"]
 
