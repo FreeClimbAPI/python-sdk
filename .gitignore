@@ -70,3 +70,6 @@ target/
 freeclimb/.DS_Store
 git_push.sh
 /node_modules
+
+pyvenv.cfg
+bin

@@ -1,34 +1,59 @@
 # Language
 
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-| **CATALAN** | **Language** |  | Represented in Python as "ca-ES" |
-| **DANISH** | **Language** |  | Represented in Python as "da-DK" |
-| **GERMAN** | **Language** |  | Represented in Python as "de-DE" |
-| **ENGLISH_AU** | **Language** |  | Represented in Python as "en-AU" |
-| **ENGLISH_CA** | **Language** |  | Represented in Python as "en-CA" |
-| **ENGLISH_UK** | **Language** |  | Represented in Python as "en-GB" |
-| **ENGLISH_IN** | **Language** |  | Represented in Python as "en-IN" |
-| **ENGLISH_US** | **Language** |  | Represented in Python as "en-US" |
-| **ENGLISH_ES** | **Language** |  | Represented in Python as "es-ES" |
-| **ENGLISH_MX** | **Language** |  | Represented in Python as "es-MX" |
-| **FINNISH** | **Language** |  | Represented in Python as "fi-FI" |
-| **FRENCH_CA** | **Language** |  | Represented in Python as "fr-CA" |
-| **FRENCH_FR** | **Language** |  | Represented in Python as "fr-FR" |
-| **ITALIAN** | **Language** |  | Represented in Python as "it-IT" |
-| **JAPANESE** | **Language** |  | Represented in Python as "ja-JP" |
-| **KOREAN** | **Language** |  | Represented in Python as "ko-KR" |
-| **NORWEGIAN** | **Language** |  | Represented in Python as "nb-NO" |
-| **DUTCH** | **Language** |  | Represented in Python as "nl-NL" |
-| **POLISH** | **Language** |  | Represented in Python as "pl-PL" |
-| **PORTUGESE_BR** | **Language** |  | Represented in Python as "pt-BR" |
-| **PORTUGESE_PT** | **Language** |  | Represented in Python as "pt-PT" |
-| **RUSSIAN** | **Language** |  | Represented in Python as "ru-RU" |
-| **SWEDISH** | **Language** |  | Represented in Python as "sv-SE" |
-| **CHINESE_CN** | **Language** |  | Represented in Python as "zh-CN" |
-| **CHINESE_HK** | **Language** |  | Represented in Python as "zh-HK" |
-| **CHINESE_TW** | **Language** |  | Represented in Python as "zh-TW" |
+
+## Enum
+
+* `CA_MINUS_ES` (value: `'ca-ES'`)
+
+* `DA_MINUS_DK` (value: `'da-DK'`)
+
+* `DE_MINUS_DE` (value: `'de-DE'`)
+
+* `EN_MINUS_AU` (value: `'en-AU'`)
+
+* `EN_MINUS_CA` (value: `'en-CA'`)
+
+* `EN_MINUS_GB` (value: `'en-GB'`)
+
+* `EN_MINUS_IN` (value: `'en-IN'`)
+
+* `EN_MINUS_US` (value: `'en-US'`)
+
+* `ES_MINUS_ES` (value: `'es-ES'`)
+
+* `ES_MINUS_MX` (value: `'es-MX'`)
+
+* `FI_MINUS_FI` (value: `'fi-FI'`)
+
+* `FR_MINUS_CA` (value: `'fr-CA'`)
+
+* `FR_MINUS_FR` (value: `'fr-FR'`)
+
+* `IT_MINUS_IT` (value: `'it-IT'`)
+
+* `JA_MINUS_JP` (value: `'ja-JP'`)
+
+* `KO_MINUS_KR` (value: `'ko-KR'`)
+
+* `NB_MINUS_NO` (value: `'nb-NO'`)
+
+* `NL_MINUS_NL` (value: `'nl-NL'`)
+
+* `PL_MINUS_PL` (value: `'pl-PL'`)
+
+* `PT_MINUS_BR` (value: `'pt-BR'`)
+
+* `PT_MINUS_PT` (value: `'pt-PT'`)
+
+* `RU_MINUS_RU` (value: `'ru-RU'`)
+
+* `SV_MINUS_SE` (value: `'sv-SE'`)
+
+* `ZH_MINUS_CN` (value: `'zh-CN'`)
+
+* `ZH_MINUS_HK` (value: `'zh-HK'`)
+
+* `ZH_MINUS_TW` (value: `'zh-TW'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
