@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **direction** | [**CallDirection**](CallDirection.md) |  | [optional] 
 **conference_id** | **str** | This is only populated if request pertains to a Conference. Otherwise, it is set to null. | [optional] 
 **queue_id** | **str** | This is only populated if the request pertains to a Queue. Otherwise, it is set to null. | [optional] 
-**parent_call_id** | **object** |  | [optional] 
+**parent_call_id** | **str** |  | [optional] 
 
 ## Example
 

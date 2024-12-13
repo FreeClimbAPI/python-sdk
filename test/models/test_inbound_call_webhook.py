@@ -81,6 +81,8 @@ class TestInboundCallWebhook(unittest.TestCase):
         assert self.model.queue_id == "TEST_STRING"
     def test_parent_call_id(self):
         """Test InboundCallWebhook.parent_call_id"""
+        self.model.parent_call_id = "TEST_STRING"
+        assert self.model.parent_call_id == "TEST_STRING"
 
     def test_deserialize(self):
         payload = '{ "requestType": "inboundCall" }'

@@ -40,7 +40,7 @@ class InboundCallWebhook(Webhook, populate_by_name=True, validate_assignment=Tru
     direction: Optional[CallDirection] = None
     conference_id: Optional[StrictStr] = Field(default=None, description="This is only populated if request pertains to a Conference. Otherwise, it is set to null.", alias="conferenceId")
     queue_id: Optional[StrictStr] = Field(default=None, description="This is only populated if the request pertains to a Queue. Otherwise, it is set to null.", alias="queueId")
-    parent_call_id: Optional[Any] = Field(default=None, alias="parentCallId")
+    parent_call_id: Optional[StrictStr] = Field(default=None, alias="parentCallId")
 
     __properties: ClassVar[List[str]] = ["requestType", "callId", "accountId", "from", "to", "callStatus", "direction", "conferenceId", "queueId", "parentCallId"]
 
