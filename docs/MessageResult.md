@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **brand_id** | **str, none_type** | The unique identifier for the brand associated with the message | [optional] 
 **campaign_id** | **str, none_type** | The unique identifier for the campaign associated with the message | [optional] 
 **segment_count** | **float, none_type** | The number of segments into which the message was split | [optional] 
-**media_urls** | **[str]** | an array of HTTP URLs which were attached this this message | [optional] 
+**media_urls** | **[str], none_type** | an array of HTTP URLs which were attached this this message | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

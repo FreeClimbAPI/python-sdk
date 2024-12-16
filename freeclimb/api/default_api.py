@@ -2667,6 +2667,7 @@ class DefaultApi(object):
                     'conference_id',
                     'talk',
                     'listen',
+                    'dtmf_pass_through',
                 ],
                 'required': [
                     'account_id',
@@ -2693,18 +2694,22 @@ class DefaultApi(object):
                         (bool,),
                     'listen':
                         (bool,),
+                    'dtmf_pass_through':
+                        (bool,),
                 },
                 'attribute_map': {
                     'account_id': 'accountId',
                     'conference_id': 'conferenceId',
                     'talk': 'talk',
                     'listen': 'listen',
+                    'dtmf_pass_through': 'dtmfPassThrough',
                 },
                 'location_map': {
                     'account_id': 'path',
                     'conference_id': 'path',
                     'talk': 'query',
                     'listen': 'query',
+                    'dtmf_pass_through': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -7229,6 +7234,7 @@ class DefaultApi(object):
         Keyword Args:
             talk (bool): Only show Participants with the talk privilege.. [optional]
             listen (bool): Only show Participants with the listen privilege.. [optional]
+            dtmf_pass_through (bool): Only show Participants with the dtmfPassThrough privilege.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

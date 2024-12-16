@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **direction** | [**CallDirection**](CallDirection.md) |  | [optional] 
 **answered_by** | [**AnsweredBy**](AnsweredBy.md) |  | [optional] 
 **subresource_uris** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** | The list of subresources for this Call. These include things like logs and recordings associated with the Call. | [optional] 
+**application_id** | **str, none_type** | ApplicationId associated with the Call. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -87,7 +87,7 @@ class MessageRequestAllOf(ModelNormal):
             'to': (str,),  # noqa: E501
             'text': (str,),  # noqa: E501
             'notification_url': (str,),  # noqa: E501
-            'media_urls': ([str],),  # noqa: E501
+            'media_urls': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -150,7 +150,7 @@ class MessageRequestAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             notification_url (str): When the Message changes status, this URL is invoked using HTTP POST with the messageStatus parameters.  **Note:** This is a notification only; any PerCL returned is ignored.. [optional]  # noqa: E501
-            media_urls ([str]): an array of HTTP URLs which are to be used as attachments to the message. This will force the message into being an MMS message and must be done using a from number which is MMS capabile.. [optional]  # noqa: E501
+            media_urls ([str], none_type): an array of HTTP URLs which are to be used as attachments to the message. This will force the message into being an MMS message and must be done using a from number which is MMS capabile.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -241,7 +241,7 @@ class MessageRequestAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             notification_url (str): When the Message changes status, this URL is invoked using HTTP POST with the messageStatus parameters.  **Note:** This is a notification only; any PerCL returned is ignored.. [optional]  # noqa: E501
-            media_urls ([str]): an array of HTTP URLs which are to be used as attachments to the message. This will force the message into being an MMS message and must be done using a from number which is MMS capabile.. [optional]  # noqa: E501
+            media_urls ([str], none_type): an array of HTTP URLs which are to be used as attachments to the message. This will force the message into being an MMS message and must be done using a from number which is MMS capabile.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

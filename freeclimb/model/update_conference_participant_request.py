@@ -85,6 +85,7 @@ class UpdateConferenceParticipantRequest(ModelNormal):
         return {
             'talk': (bool,),  # noqa: E501
             'listen': (bool,),  # noqa: E501
+            'dtmf_pass_through': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -95,6 +96,7 @@ class UpdateConferenceParticipantRequest(ModelNormal):
     attribute_map = {
         'talk': 'talk',  # noqa: E501
         'listen': 'listen',  # noqa: E501
+        'dtmf_pass_through': 'dtmfPassThrough',  # noqa: E501
     }
 
     read_only_vars = {
@@ -140,6 +142,7 @@ class UpdateConferenceParticipantRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             talk (bool): (Optional) Default is `true`. Setting to `false` mutes the Participant. FreeClimb returns an error and ignores any other value.. [optional]  # noqa: E501
             listen (bool): (Optional) Default is `true`. Setting to `false` silences the Conference for this Participant. FreeClimb returns an error and ignores any other value.. [optional]  # noqa: E501
+            dtmf_pass_through (bool): (Optional) Default is `true`. Setting to `false` mutes dtmf audio for this Participant. FreeClimb returns an error and ignores any other value.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,6 +226,7 @@ class UpdateConferenceParticipantRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             talk (bool): (Optional) Default is `true`. Setting to `false` mutes the Participant. FreeClimb returns an error and ignores any other value.. [optional]  # noqa: E501
             listen (bool): (Optional) Default is `true`. Setting to `false` silences the Conference for this Participant. FreeClimb returns an error and ignores any other value.. [optional]  # noqa: E501
+            dtmf_pass_through (bool): (Optional) Default is `true`. Setting to `false` mutes dtmf audio for this Participant. FreeClimb returns an error and ignores any other value.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

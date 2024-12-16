@@ -127,6 +127,8 @@ docs/Say.md
 docs/SayAllOf.md
 docs/SendDigits.md
 docs/SendDigitsAllOf.md
+docs/SetDTMFPassThrough.md
+docs/SetDTMFPassThroughAllOf.md
 docs/SetListen.md
 docs/SetListenAllOf.md
 docs/SetTalk.md
@@ -267,6 +269,8 @@ freeclimb/model/say.py
 freeclimb/model/say_all_of.py
 freeclimb/model/send_digits.py
 freeclimb/model/send_digits_all_of.py
+freeclimb/model/set_dtmf_pass_through.py
+freeclimb/model/set_dtmf_pass_through_all_of.py
 freeclimb/model/set_listen.py
 freeclimb/model/set_listen_all_of.py
 freeclimb/model/set_talk.py
@@ -305,4 +309,6 @@ requirements.txt
 setup.cfg
 setup.py
 test/__init__.py
+test/test_set_dtmf_pass_through.py
+test/test_set_dtmf_pass_through_all_of.py
 tox.ini
