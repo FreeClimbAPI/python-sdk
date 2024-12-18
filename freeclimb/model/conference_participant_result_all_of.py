@@ -88,6 +88,7 @@ class ConferenceParticipantResultAllOf(ModelNormal):
             'call_id': (str, none_type,),  # noqa: E501
             'talk': (bool, none_type,),  # noqa: E501
             'listen': (bool, none_type,),  # noqa: E501
+            'dtmf_pass_through': (bool, none_type,),  # noqa: E501
             'start_conf_on_enter': (bool, none_type,),  # noqa: E501
         }
 
@@ -102,6 +103,7 @@ class ConferenceParticipantResultAllOf(ModelNormal):
         'call_id': 'callId',  # noqa: E501
         'talk': 'talk',  # noqa: E501
         'listen': 'listen',  # noqa: E501
+        'dtmf_pass_through': 'dtmfPassThrough',  # noqa: E501
         'start_conf_on_enter': 'startConfOnEnter',  # noqa: E501
     }
 
@@ -151,6 +153,7 @@ class ConferenceParticipantResultAllOf(ModelNormal):
             call_id (str, none_type): ID of the Call associated with this Participant.. [optional]  # noqa: E501
             talk (bool, none_type): True if this Participant has talk privileges in the Conference. False otherwise.. [optional]  # noqa: E501
             listen (bool, none_type): True if this Participant has listen privileges in the Conference. False otherwise.. [optional]  # noqa: E501
+            dtmf_pass_through (bool, none_type): True if this Participant had dtmfPassThrough privileges in the Conference. False otherwise.. [optional]  # noqa: E501
             start_conf_on_enter (bool, none_type): True if this Participant joining the Conference caused the Conference to start (status = inProgress). False otherwise.. [optional]  # noqa: E501
         """
 
@@ -238,6 +241,7 @@ class ConferenceParticipantResultAllOf(ModelNormal):
             call_id (str, none_type): ID of the Call associated with this Participant.. [optional]  # noqa: E501
             talk (bool, none_type): True if this Participant has talk privileges in the Conference. False otherwise.. [optional]  # noqa: E501
             listen (bool, none_type): True if this Participant has listen privileges in the Conference. False otherwise.. [optional]  # noqa: E501
+            dtmf_pass_through (bool, none_type): True if this Participant had dtmfPassThrough privileges in the Conference. False otherwise.. [optional]  # noqa: E501
             start_conf_on_enter (bool, none_type): True if this Participant joining the Conference caused the Conference to start (status = inProgress). False otherwise.. [optional]  # noqa: E501
         """
 

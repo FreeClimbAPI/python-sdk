@@ -51,6 +51,7 @@ def lazy_import():
     from freeclimb.model.remove_from_conference import RemoveFromConference
     from freeclimb.model.say import Say
     from freeclimb.model.send_digits import SendDigits
+    from freeclimb.model.set_dtmf_pass_through import SetDTMFPassThrough
     from freeclimb.model.set_listen import SetListen
     from freeclimb.model.set_talk import SetTalk
     from freeclimb.model.sms import Sms
@@ -79,6 +80,7 @@ def lazy_import():
     globals()['RemoveFromConference'] = RemoveFromConference
     globals()['Say'] = Say
     globals()['SendDigits'] = SendDigits
+    globals()['SetDTMFPassThrough'] = SetDTMFPassThrough
     globals()['SetListen'] = SetListen
     globals()['SetTalk'] = SetTalk
     globals()['Sms'] = Sms

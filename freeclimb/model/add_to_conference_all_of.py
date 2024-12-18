@@ -92,6 +92,7 @@ class AddToConferenceAllOf(ModelNormal):
             'notification_url': (str,),  # noqa: E501
             'start_conf_on_enter': (bool,),  # noqa: E501
             'talk': (bool,),  # noqa: E501
+            'dtmf_pass_through': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -109,6 +110,7 @@ class AddToConferenceAllOf(ModelNormal):
         'notification_url': 'notificationUrl',  # noqa: E501
         'start_conf_on_enter': 'startConfOnEnter',  # noqa: E501
         'talk': 'talk',  # noqa: E501
+        'dtmf_pass_through': 'dtmfPassThrough',  # noqa: E501
     }
 
     read_only_vars = {
@@ -163,6 +165,7 @@ class AddToConferenceAllOf(ModelNormal):
             notification_url (str): When the Participant enters the Conference, this URL will be invoked using an HTTP POST request with the standard request parameters.. [optional]  # noqa: E501
             start_conf_on_enter (bool): Flag that indicates whether a Conference starts upon entry of this particular Participant. This is usually set to `true` for moderators and `false` for all other Participants.. [optional]  # noqa: E501
             talk (bool): If `true`, the Participant joins the Conference with talk privileges. This may be modified later via the REST API or `SetTalk` PerCL command. . [optional]  # noqa: E501
+            dtmf_pass_through (bool): If `true`, the Participant joins the Conference with dtmfPassThrough privileges. This may be modified later via the REST API or `SetDTMFPassThrough` PerCL command. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -256,6 +259,7 @@ class AddToConferenceAllOf(ModelNormal):
             notification_url (str): When the Participant enters the Conference, this URL will be invoked using an HTTP POST request with the standard request parameters.. [optional]  # noqa: E501
             start_conf_on_enter (bool): Flag that indicates whether a Conference starts upon entry of this particular Participant. This is usually set to `true` for moderators and `false` for all other Participants.. [optional]  # noqa: E501
             talk (bool): If `true`, the Participant joins the Conference with talk privileges. This may be modified later via the REST API or `SetTalk` PerCL command. . [optional]  # noqa: E501
+            dtmf_pass_through (bool): If `true`, the Participant joins the Conference with dtmfPassThrough privileges. This may be modified later via the REST API or `SetDTMFPassThrough` PerCL command. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

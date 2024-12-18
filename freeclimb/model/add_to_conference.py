@@ -52,6 +52,7 @@ def lazy_import():
     from freeclimb.model.remove_from_conference import RemoveFromConference
     from freeclimb.model.say import Say
     from freeclimb.model.send_digits import SendDigits
+    from freeclimb.model.set_dtmf_pass_through import SetDTMFPassThrough
     from freeclimb.model.set_listen import SetListen
     from freeclimb.model.set_talk import SetTalk
     from freeclimb.model.sms import Sms
@@ -79,6 +80,7 @@ def lazy_import():
     globals()['RemoveFromConference'] = RemoveFromConference
     globals()['Say'] = Say
     globals()['SendDigits'] = SendDigits
+    globals()['SetDTMFPassThrough'] = SetDTMFPassThrough
     globals()['SetListen'] = SetListen
     globals()['SetTalk'] = SetTalk
     globals()['Sms'] = Sms
@@ -149,6 +151,7 @@ class AddToConference(ModelComposed):
             'notification_url': (str,),  # noqa: E501
             'start_conf_on_enter': (bool,),  # noqa: E501
             'talk': (bool,),  # noqa: E501
+            'dtmf_pass_through': (bool,),  # noqa: E501
             'command': (str,),  # noqa: E501
         }
 
@@ -167,6 +170,7 @@ class AddToConference(ModelComposed):
         'notification_url': 'notificationUrl',  # noqa: E501
         'start_conf_on_enter': 'startConfOnEnter',  # noqa: E501
         'talk': 'talk',  # noqa: E501
+        'dtmf_pass_through': 'dtmfPassThrough',  # noqa: E501
         'command': 'command',  # noqa: E501
     }
 
@@ -218,6 +222,7 @@ class AddToConference(ModelComposed):
             notification_url (str): When the Participant enters the Conference, this URL will be invoked using an HTTP POST request with the standard request parameters.. [optional]  # noqa: E501
             start_conf_on_enter (bool): Flag that indicates whether a Conference starts upon entry of this particular Participant. This is usually set to `true` for moderators and `false` for all other Participants.. [optional]  # noqa: E501
             talk (bool): If `true`, the Participant joins the Conference with talk privileges. This may be modified later via the REST API or `SetTalk` PerCL command. . [optional]  # noqa: E501
+            dtmf_pass_through (bool): If `true`, the Participant joins the Conference with dtmfPassThrough privileges. This may be modified later via the REST API or `SetDTMFPassThrough` PerCL command. . [optional]  # noqa: E501
             command (str): Name of PerCL Command (this is automatically derived from mapping configuration and should not be manually supplied in any arguments). [optional]  # noqa: E501
         """
 
@@ -327,6 +332,7 @@ class AddToConference(ModelComposed):
             notification_url (str): When the Participant enters the Conference, this URL will be invoked using an HTTP POST request with the standard request parameters.. [optional]  # noqa: E501
             start_conf_on_enter (bool): Flag that indicates whether a Conference starts upon entry of this particular Participant. This is usually set to `true` for moderators and `false` for all other Participants.. [optional]  # noqa: E501
             talk (bool): If `true`, the Participant joins the Conference with talk privileges. This may be modified later via the REST API or `SetTalk` PerCL command. . [optional]  # noqa: E501
+            dtmf_pass_through (bool): If `true`, the Participant joins the Conference with dtmfPassThrough privileges. This may be modified later via the REST API or `SetDTMFPassThrough` PerCL command. . [optional]  # noqa: E501
             command (str): Name of PerCL Command (this is automatically derived from mapping configuration and should not be manually supplied in any arguments). [optional]  # noqa: E501
         """
 

@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "4.8.0"
+__version__ = "4.9.0"
 
 # import ApiClient
 from freeclimb.api_client import ApiClient
@@ -157,6 +157,8 @@ from freeclimb.model.say import Say
 from freeclimb.model.say_all_of import SayAllOf
 from freeclimb.model.send_digits import SendDigits
 from freeclimb.model.send_digits_all_of import SendDigitsAllOf
+from freeclimb.model.set_dtmf_pass_through import SetDTMFPassThrough
+from freeclimb.model.set_dtmf_pass_through_all_of import SetDTMFPassThroughAllOf
 from freeclimb.model.set_listen import SetListen
 from freeclimb.model.set_listen_all_of import SetListenAllOf
 from freeclimb.model.set_talk import SetTalk

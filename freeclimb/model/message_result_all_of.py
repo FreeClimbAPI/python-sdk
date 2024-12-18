@@ -100,7 +100,7 @@ class MessageResultAllOf(ModelNormal):
             'brand_id': (str, none_type,),  # noqa: E501
             'campaign_id': (str, none_type,),  # noqa: E501
             'segment_count': (float, none_type,),  # noqa: E501
-            'media_urls': ([str],),  # noqa: E501
+            'media_urls': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -175,7 +175,7 @@ class MessageResultAllOf(ModelNormal):
             brand_id (str, none_type): The unique identifier for the brand associated with the message. [optional]  # noqa: E501
             campaign_id (str, none_type): The unique identifier for the campaign associated with the message. [optional]  # noqa: E501
             segment_count (float, none_type): The number of segments into which the message was split. [optional]  # noqa: E501
-            media_urls ([str]): an array of HTTP URLs which were attached this this message. [optional]  # noqa: E501
+            media_urls ([str], none_type): an array of HTTP URLs which were attached this this message. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -268,7 +268,7 @@ class MessageResultAllOf(ModelNormal):
             brand_id (str, none_type): The unique identifier for the brand associated with the message. [optional]  # noqa: E501
             campaign_id (str, none_type): The unique identifier for the campaign associated with the message. [optional]  # noqa: E501
             segment_count (float, none_type): The number of segments into which the message was split. [optional]  # noqa: E501
-            media_urls ([str]): an array of HTTP URLs which were attached this this message. [optional]  # noqa: E501
+            media_urls ([str], none_type): an array of HTTP URLs which were attached this this message. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

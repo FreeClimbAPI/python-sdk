@@ -52,6 +52,7 @@ def lazy_import():
     from freeclimb.model.say import Say
     from freeclimb.model.say_all_of import SayAllOf
     from freeclimb.model.send_digits import SendDigits
+    from freeclimb.model.set_dtmf_pass_through import SetDTMFPassThrough
     from freeclimb.model.set_listen import SetListen
     from freeclimb.model.set_talk import SetTalk
     from freeclimb.model.sms import Sms
@@ -79,6 +80,7 @@ def lazy_import():
     globals()['Say'] = Say
     globals()['SayAllOf'] = SayAllOf
     globals()['SendDigits'] = SendDigits
+    globals()['SetDTMFPassThrough'] = SetDTMFPassThrough
     globals()['SetListen'] = SetListen
     globals()['SetTalk'] = SetTalk
     globals()['Sms'] = Sms

@@ -108,6 +108,7 @@ class CallResultAllOf(ModelNormal):
             'direction': (CallDirection,),  # noqa: E501
             'answered_by': (AnsweredBy,),  # noqa: E501
             'subresource_uris': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'application_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -131,6 +132,7 @@ class CallResultAllOf(ModelNormal):
         'direction': 'direction',  # noqa: E501
         'answered_by': 'answeredBy',  # noqa: E501
         'subresource_uris': 'subresourceUris',  # noqa: E501
+        'application_id': 'applicationId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -189,6 +191,7 @@ class CallResultAllOf(ModelNormal):
             direction (CallDirection): [optional]  # noqa: E501
             answered_by (AnsweredBy): [optional]  # noqa: E501
             subresource_uris ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): The list of subresources for this Call. These include things like logs and recordings associated with the Call.. [optional]  # noqa: E501
+            application_id (str, none_type): ApplicationId associated with the Call.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -285,6 +288,7 @@ class CallResultAllOf(ModelNormal):
             direction (CallDirection): [optional]  # noqa: E501
             answered_by (AnsweredBy): [optional]  # noqa: E501
             subresource_uris ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): The list of subresources for this Call. These include things like logs and recordings associated with the Call.. [optional]  # noqa: E501
+            application_id (str, none_type): ApplicationId associated with the Call.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

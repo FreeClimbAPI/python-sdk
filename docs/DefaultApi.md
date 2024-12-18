@@ -3555,6 +3555,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     conference_id = "conferenceId_example" # str | ID of the conference this participant is in.
     talk = True # bool | Only show Participants with the talk privilege. (optional)
     listen = True # bool | Only show Participants with the listen privilege. (optional)
+    dtmf_pass_through = True # bool | Only show Participants with the dtmfPassThrough privilege. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -3568,7 +3569,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Participants
-        api_response = api_instance.list_participants(conference_id, talk=talk, listen=listen)
+        api_response = api_instance.list_participants(conference_id, talk=talk, listen=listen, dtmf_pass_through=dtmf_pass_through)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_participants: %s\n" % e)
@@ -3582,6 +3583,7 @@ Name | Type | Description  | Notes
  **conference_id** | **str**| ID of the conference this participant is in. |
  **talk** | **bool**| Only show Participants with the talk privilege. | [optional]
  **listen** | **bool**| Only show Participants with the listen privilege. | [optional]
+ **dtmf_pass_through** | **bool**| Only show Participants with the dtmfPassThrough privilege. | [optional]
 
 ### Return type
 
@@ -4419,6 +4421,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     update_conference_participant_request = UpdateConferenceParticipantRequest(
         talk=True,
         listen=True,
+        dtmf_pass_through=True,
     ) # UpdateConferenceParticipantRequest | Conference participant details to update (optional)
 
     # example passing only required values which don't have defaults set
