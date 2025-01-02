@@ -1,158 +1,262 @@
+# coding: utf-8
+
 # flake8: noqa
+"""
+    FreeClimb API
 
-# import all models into this package
-# if you have many models here with many references from one model to another this may
-# raise a RecursionError
-# to avoid this, import only the models that you directly need like:
-# from from freeclimb.model.pet import Pet
-# or import this package, but before doing it, use:
-# import sys
-# sys.setrecursionlimit(n)
+    FreeClimb is a cloud-based application programming interface (API) that puts the power of the Vail platform in your hands. FreeClimb simplifies the process of creating applications that can use a full range of telephony features without requiring specialized or on-site telephony equipment. Using the FreeClimb REST API to write applications is easy! You have the option to use the language of your choice or hit the API directly. Your application can execute a command by issuing a RESTful request to the FreeClimb API. The base URL to send HTTP requests to the FreeClimb REST API is: /apiserver. FreeClimb authenticates and processes your request.
 
-from freeclimb.model.account_request import AccountRequest
-from freeclimb.model.account_result import AccountResult
-from freeclimb.model.account_result_all_of import AccountResultAllOf
-from freeclimb.model.account_status import AccountStatus
-from freeclimb.model.account_type import AccountType
-from freeclimb.model.add_to_conference import AddToConference
-from freeclimb.model.add_to_conference_all_of import AddToConferenceAllOf
-from freeclimb.model.answered_by import AnsweredBy
-from freeclimb.model.application_list import ApplicationList
-from freeclimb.model.application_list_all_of import ApplicationListAllOf
-from freeclimb.model.application_request import ApplicationRequest
-from freeclimb.model.application_result import ApplicationResult
-from freeclimb.model.application_result_all_of import ApplicationResultAllOf
-from freeclimb.model.available_number import AvailableNumber
-from freeclimb.model.available_number_list import AvailableNumberList
-from freeclimb.model.available_number_list_all_of import AvailableNumberListAllOf
-from freeclimb.model.buy_incoming_number_request import BuyIncomingNumberRequest
-from freeclimb.model.call_direction import CallDirection
-from freeclimb.model.call_list import CallList
-from freeclimb.model.call_list_all_of import CallListAllOf
-from freeclimb.model.call_result import CallResult
-from freeclimb.model.call_result_all_of import CallResultAllOf
-from freeclimb.model.call_status import CallStatus
-from freeclimb.model.capabilities import Capabilities
-from freeclimb.model.completion_request import CompletionRequest
-from freeclimb.model.completion_result import CompletionResult
-from freeclimb.model.conference_list import ConferenceList
-from freeclimb.model.conference_list_all_of import ConferenceListAllOf
-from freeclimb.model.conference_participant_list import ConferenceParticipantList
-from freeclimb.model.conference_participant_list_all_of import ConferenceParticipantListAllOf
-from freeclimb.model.conference_participant_result import ConferenceParticipantResult
-from freeclimb.model.conference_participant_result_all_of import ConferenceParticipantResultAllOf
-from freeclimb.model.conference_result import ConferenceResult
-from freeclimb.model.conference_result_all_of import ConferenceResultAllOf
-from freeclimb.model.conference_status import ConferenceStatus
-from freeclimb.model.create_conference import CreateConference
-from freeclimb.model.create_conference_all_of import CreateConferenceAllOf
-from freeclimb.model.create_conference_request import CreateConferenceRequest
-from freeclimb.model.create_web_rtc_token import CreateWebRTCToken
-from freeclimb.model.dequeue import Dequeue
-from freeclimb.model.enqueue import Enqueue
-from freeclimb.model.enqueue_all_of import EnqueueAllOf
-from freeclimb.model.filter_logs_request import FilterLogsRequest
-from freeclimb.model.get_digits import GetDigits
-from freeclimb.model.get_digits_all_of import GetDigitsAllOf
-from freeclimb.model.get_speech import GetSpeech
-from freeclimb.model.get_speech_all_of import GetSpeechAllOf
-from freeclimb.model.get_speech_reason import GetSpeechReason
-from freeclimb.model.grammar_file_built_in import GrammarFileBuiltIn
-from freeclimb.model.grammar_type import GrammarType
-from freeclimb.model.hangup import Hangup
-from freeclimb.model.hangup_all_of import HangupAllOf
-from freeclimb.model.if_machine import IfMachine
-from freeclimb.model.incoming_number_list import IncomingNumberList
-from freeclimb.model.incoming_number_list_all_of import IncomingNumberListAllOf
-from freeclimb.model.incoming_number_request import IncomingNumberRequest
-from freeclimb.model.incoming_number_result import IncomingNumberResult
-from freeclimb.model.incoming_number_result_all_of import IncomingNumberResultAllOf
-from freeclimb.model.language import Language
-from freeclimb.model.log_level import LogLevel
-from freeclimb.model.log_list import LogList
-from freeclimb.model.log_list_all_of import LogListAllOf
-from freeclimb.model.log_result import LogResult
-from freeclimb.model.machine_type import MachineType
-from freeclimb.model.make_call_request import MakeCallRequest
-from freeclimb.model.message_direction import MessageDirection
-from freeclimb.model.message_request import MessageRequest
-from freeclimb.model.message_request_all_of import MessageRequestAllOf
-from freeclimb.model.message_result import MessageResult
-from freeclimb.model.message_result_all_of import MessageResultAllOf
-from freeclimb.model.message_status import MessageStatus
-from freeclimb.model.messages_list import MessagesList
-from freeclimb.model.messages_list_all_of import MessagesListAllOf
-from freeclimb.model.mutable_resource_model import MutableResourceModel
-from freeclimb.model.out_dial import OutDial
-from freeclimb.model.out_dial_all_of import OutDialAllOf
-from freeclimb.model.pagination_model import PaginationModel
-from freeclimb.model.park import Park
-from freeclimb.model.park_all_of import ParkAllOf
-from freeclimb.model.pause import Pause
-from freeclimb.model.pause_all_of import PauseAllOf
-from freeclimb.model.percl_command import PerclCommand
-from freeclimb.model.percl_script import PerclScript
-from freeclimb.model.play import Play
-from freeclimb.model.play_all_of import PlayAllOf
-from freeclimb.model.play_beep import PlayBeep
-from freeclimb.model.play_early_media import PlayEarlyMedia
-from freeclimb.model.play_early_media_all_of import PlayEarlyMediaAllOf
-from freeclimb.model.queue_list import QueueList
-from freeclimb.model.queue_list_all_of import QueueListAllOf
-from freeclimb.model.queue_member import QueueMember
-from freeclimb.model.queue_member_list import QueueMemberList
-from freeclimb.model.queue_member_list_all_of import QueueMemberListAllOf
-from freeclimb.model.queue_request import QueueRequest
-from freeclimb.model.queue_result import QueueResult
-from freeclimb.model.queue_result_all_of import QueueResultAllOf
-from freeclimb.model.queue_result_status import QueueResultStatus
-from freeclimb.model.record_utterance import RecordUtterance
-from freeclimb.model.record_utterance_all_of import RecordUtteranceAllOf
-from freeclimb.model.record_utterance_term_reason import RecordUtteranceTermReason
-from freeclimb.model.recording_list import RecordingList
-from freeclimb.model.recording_list_all_of import RecordingListAllOf
-from freeclimb.model.recording_result import RecordingResult
-from freeclimb.model.recording_result_all_of import RecordingResultAllOf
-from freeclimb.model.redirect import Redirect
-from freeclimb.model.redirect_all_of import RedirectAllOf
-from freeclimb.model.reject import Reject
-from freeclimb.model.reject_all_of import RejectAllOf
-from freeclimb.model.remove_from_conference import RemoveFromConference
-from freeclimb.model.request_type import RequestType
-from freeclimb.model.sms_ten_dlc_brand import SMSTenDLCBrand
-from freeclimb.model.sms_ten_dlc_brands_list_result import SMSTenDLCBrandsListResult
-from freeclimb.model.sms_ten_dlc_brands_list_result_all_of import SMSTenDLCBrandsListResultAllOf
-from freeclimb.model.sms_ten_dlc_campaign import SMSTenDLCCampaign
-from freeclimb.model.sms_ten_dlc_campaigns_list_result import SMSTenDLCCampaignsListResult
-from freeclimb.model.sms_ten_dlc_campaigns_list_result_all_of import SMSTenDLCCampaignsListResultAllOf
-from freeclimb.model.sms_ten_dlc_partner_campaign import SMSTenDLCPartnerCampaign
-from freeclimb.model.sms_ten_dlc_partner_campaign_brand import SMSTenDLCPartnerCampaignBrand
-from freeclimb.model.sms_ten_dlc_partner_campaigns_list_result import SMSTenDLCPartnerCampaignsListResult
-from freeclimb.model.sms_ten_dlc_partner_campaigns_list_result_all_of import SMSTenDLCPartnerCampaignsListResultAllOf
-from freeclimb.model.sms_toll_free_campaign import SMSTollFreeCampaign
-from freeclimb.model.sms_toll_free_campaigns_list_result import SMSTollFreeCampaignsListResult
-from freeclimb.model.sms_toll_free_campaigns_list_result_all_of import SMSTollFreeCampaignsListResultAllOf
-from freeclimb.model.say import Say
-from freeclimb.model.say_all_of import SayAllOf
-from freeclimb.model.send_digits import SendDigits
-from freeclimb.model.send_digits_all_of import SendDigitsAllOf
-from freeclimb.model.set_dtmf_pass_through import SetDTMFPassThrough
-from freeclimb.model.set_dtmf_pass_through_all_of import SetDTMFPassThroughAllOf
-from freeclimb.model.set_listen import SetListen
-from freeclimb.model.set_listen_all_of import SetListenAllOf
-from freeclimb.model.set_talk import SetTalk
-from freeclimb.model.set_talk_all_of import SetTalkAllOf
-from freeclimb.model.sms import Sms
-from freeclimb.model.sms_all_of import SmsAllOf
-from freeclimb.model.start_record_call import StartRecordCall
-from freeclimb.model.tfn import TFN
-from freeclimb.model.terminate_conference import TerminateConference
-from freeclimb.model.transcribe_utterance import TranscribeUtterance
-from freeclimb.model.transcribe_utterance_all_of import TranscribeUtteranceAllOf
-from freeclimb.model.transcribe_utterance_all_of_record import TranscribeUtteranceAllOfRecord
-from freeclimb.model.unpark import Unpark
-from freeclimb.model.update_call_request import UpdateCallRequest
-from freeclimb.model.update_call_request_status import UpdateCallRequestStatus
-from freeclimb.model.update_conference_participant_request import UpdateConferenceParticipantRequest
-from freeclimb.model.update_conference_request import UpdateConferenceRequest
-from freeclimb.model.update_conference_request_status import UpdateConferenceRequestStatus
+    The version of the OpenAPI document: 1.0.0
+    Contact: support@freeclimb.com
+    Generated by OpenAPI Generator (https://openapi-generator.tech)
+
+    Do not edit the class manually.
+"""  # noqa: E501
+
+
+# import models into model package
+from freeclimb.models.account_request import AccountRequest as AccountRequest
+from freeclimb.models.account_result import AccountResult as AccountResult
+from freeclimb.models.account_status import AccountStatus as AccountStatus
+from freeclimb.models.account_type import AccountType as AccountType
+from freeclimb.models.add_to_conference import AddToConference as AddToConference
+from freeclimb.models.add_to_conference_notification_webhook import (
+    AddToConferenceNotificationWebhook as AddToConferenceNotificationWebhook,
+)
+from freeclimb.models.add_to_queue_notification_webhook import (
+    AddToQueueNotificationWebhook as AddToQueueNotificationWebhook,
+)
+from freeclimb.models.answered_by import AnsweredBy as AnsweredBy
+from freeclimb.models.application_list import ApplicationList as ApplicationList
+from freeclimb.models.application_request import (
+    ApplicationRequest as ApplicationRequest,
+)
+from freeclimb.models.application_result import ApplicationResult as ApplicationResult
+from freeclimb.models.available_number import AvailableNumber as AvailableNumber
+from freeclimb.models.available_number_list import (
+    AvailableNumberList as AvailableNumberList,
+)
+from freeclimb.models.barge_in_reason import BargeInReason as BargeInReason
+from freeclimb.models.buy_incoming_number_request import (
+    BuyIncomingNumberRequest as BuyIncomingNumberRequest,
+)
+from freeclimb.models.call_control_webhook import (
+    CallControlWebhook as CallControlWebhook,
+)
+from freeclimb.models.call_direction import CallDirection as CallDirection
+from freeclimb.models.call_ended_reason import CallEndedReason as CallEndedReason
+from freeclimb.models.call_list import CallList as CallList
+from freeclimb.models.call_result import CallResult as CallResult
+from freeclimb.models.call_status import CallStatus as CallStatus
+from freeclimb.models.call_status_webhook import CallStatusWebhook as CallStatusWebhook
+from freeclimb.models.capabilities import Capabilities as Capabilities
+from freeclimb.models.completion_request import CompletionRequest as CompletionRequest
+from freeclimb.models.completion_result import CompletionResult as CompletionResult
+from freeclimb.models.completion_result_status import (
+    CompletionResultStatus as CompletionResultStatus,
+)
+from freeclimb.models.conference_list import ConferenceList as ConferenceList
+from freeclimb.models.conference_participant_list import (
+    ConferenceParticipantList as ConferenceParticipantList,
+)
+from freeclimb.models.conference_participant_result import (
+    ConferenceParticipantResult as ConferenceParticipantResult,
+)
+from freeclimb.models.conference_recording_status_webhook import (
+    ConferenceRecordingStatusWebhook as ConferenceRecordingStatusWebhook,
+)
+from freeclimb.models.conference_result import ConferenceResult as ConferenceResult
+from freeclimb.models.conference_status import ConferenceStatus as ConferenceStatus
+from freeclimb.models.conference_status_webhook import (
+    ConferenceStatusWebhook as ConferenceStatusWebhook,
+)
+from freeclimb.models.create_conference import CreateConference as CreateConference
+from freeclimb.models.create_conference_request import (
+    CreateConferenceRequest as CreateConferenceRequest,
+)
+from freeclimb.models.create_conference_webhook import (
+    CreateConferenceWebhook as CreateConferenceWebhook,
+)
+from freeclimb.models.create_web_rtc_token import CreateWebRTCToken as CreateWebRTCToken
+from freeclimb.models.dequeue import Dequeue as Dequeue
+from freeclimb.models.dequeue_webhook import DequeueWebhook as DequeueWebhook
+from freeclimb.models.enqueue import Enqueue as Enqueue
+from freeclimb.models.filter_logs_request import FilterLogsRequest as FilterLogsRequest
+from freeclimb.models.get_digits import GetDigits as GetDigits
+from freeclimb.models.get_digits_reason import GetDigitsReason as GetDigitsReason
+from freeclimb.models.get_digits_webhook import GetDigitsWebhook as GetDigitsWebhook
+from freeclimb.models.get_speech import GetSpeech as GetSpeech
+from freeclimb.models.get_speech_reason import GetSpeechReason as GetSpeechReason
+from freeclimb.models.get_speech_webhook import GetSpeechWebhook as GetSpeechWebhook
+from freeclimb.models.grammar_file_built_in import (
+    GrammarFileBuiltIn as GrammarFileBuiltIn,
+)
+from freeclimb.models.grammar_type import GrammarType as GrammarType
+from freeclimb.models.hangup import Hangup as Hangup
+from freeclimb.models.if_machine import IfMachine as IfMachine
+from freeclimb.models.inbound_call_webhook import (
+    InboundCallWebhook as InboundCallWebhook,
+)
+from freeclimb.models.incoming_number_list import (
+    IncomingNumberList as IncomingNumberList,
+)
+from freeclimb.models.incoming_number_request import (
+    IncomingNumberRequest as IncomingNumberRequest,
+)
+from freeclimb.models.incoming_number_result import (
+    IncomingNumberResult as IncomingNumberResult,
+)
+from freeclimb.models.language import Language as Language
+from freeclimb.models.leave_conference_webhook import (
+    LeaveConferenceWebhook as LeaveConferenceWebhook,
+)
+from freeclimb.models.log_level import LogLevel as LogLevel
+from freeclimb.models.log_list import LogList as LogList
+from freeclimb.models.log_result import LogResult as LogResult
+from freeclimb.models.machine_detected_webhook import (
+    MachineDetectedWebhook as MachineDetectedWebhook,
+)
+from freeclimb.models.machine_type import MachineType as MachineType
+from freeclimb.models.make_call_request import MakeCallRequest as MakeCallRequest
+from freeclimb.models.message_delivery_webhook import (
+    MessageDeliveryWebhook as MessageDeliveryWebhook,
+)
+from freeclimb.models.message_direction import MessageDirection as MessageDirection
+from freeclimb.models.message_request import MessageRequest as MessageRequest
+from freeclimb.models.message_result import MessageResult as MessageResult
+from freeclimb.models.message_status import MessageStatus as MessageStatus
+from freeclimb.models.message_status_webhook import (
+    MessageStatusWebhook as MessageStatusWebhook,
+)
+from freeclimb.models.messages_list import MessagesList as MessagesList
+from freeclimb.models.mutable_resource_model import (
+    MutableResourceModel as MutableResourceModel,
+)
+from freeclimb.models.out_dial import OutDial as OutDial
+from freeclimb.models.out_dial_api_connect_webhook import (
+    OutDialApiConnectWebhook as OutDialApiConnectWebhook,
+)
+from freeclimb.models.out_dial_connect_webhook import (
+    OutDialConnectWebhook as OutDialConnectWebhook,
+)
+from freeclimb.models.out_dial_start_webhook import (
+    OutDialStartWebhook as OutDialStartWebhook,
+)
+from freeclimb.models.pagination_model import PaginationModel as PaginationModel
+from freeclimb.models.park import Park as Park
+from freeclimb.models.pause import Pause as Pause
+from freeclimb.models.percl_command import PerclCommand as PerclCommand
+from freeclimb.models.percl_script import PerclScript as PerclScript
+from freeclimb.models.play import Play as Play
+from freeclimb.models.play_beep import PlayBeep as PlayBeep
+from freeclimb.models.play_early_media import PlayEarlyMedia as PlayEarlyMedia
+from freeclimb.models.queue_list import QueueList as QueueList
+from freeclimb.models.queue_member import QueueMember as QueueMember
+from freeclimb.models.queue_member_list import QueueMemberList as QueueMemberList
+from freeclimb.models.queue_request import QueueRequest as QueueRequest
+from freeclimb.models.queue_result import QueueResult as QueueResult
+from freeclimb.models.queue_result_status import QueueResultStatus as QueueResultStatus
+from freeclimb.models.queue_wait_webhook import QueueWaitWebhook as QueueWaitWebhook
+from freeclimb.models.record_utterance import RecordUtterance as RecordUtterance
+from freeclimb.models.record_utterance_term_reason import (
+    RecordUtteranceTermReason as RecordUtteranceTermReason,
+)
+from freeclimb.models.record_webhook import RecordWebhook as RecordWebhook
+from freeclimb.models.recording_list import RecordingList as RecordingList
+from freeclimb.models.recording_result import RecordingResult as RecordingResult
+from freeclimb.models.redirect import Redirect as Redirect
+from freeclimb.models.redirect_webhook import RedirectWebhook as RedirectWebhook
+from freeclimb.models.reject import Reject as Reject
+from freeclimb.models.remove_from_conference import (
+    RemoveFromConference as RemoveFromConference,
+)
+from freeclimb.models.remove_from_queue_notification_webhook import (
+    RemoveFromQueueNotificationWebhook as RemoveFromQueueNotificationWebhook,
+)
+from freeclimb.models.request_type import RequestType as RequestType
+from freeclimb.models.sms_ten_dlc_brand import SMSTenDLCBrand as SMSTenDLCBrand
+from freeclimb.models.sms_ten_dlc_brand_alt_business_id_type import (
+    SMSTenDLCBrandAltBusinessIdType as SMSTenDLCBrandAltBusinessIdType,
+)
+from freeclimb.models.sms_ten_dlc_brand_entity_type import (
+    SMSTenDLCBrandEntityType as SMSTenDLCBrandEntityType,
+)
+from freeclimb.models.sms_ten_dlc_brand_identity_status import (
+    SMSTenDLCBrandIdentityStatus as SMSTenDLCBrandIdentityStatus,
+)
+from freeclimb.models.sms_ten_dlc_brand_relationship import (
+    SMSTenDLCBrandRelationship as SMSTenDLCBrandRelationship,
+)
+from freeclimb.models.sms_ten_dlc_brand_stock_exchange import (
+    SMSTenDLCBrandStockExchange as SMSTenDLCBrandStockExchange,
+)
+from freeclimb.models.sms_ten_dlc_brands_list_result import (
+    SMSTenDLCBrandsListResult as SMSTenDLCBrandsListResult,
+)
+from freeclimb.models.sms_ten_dlc_campaign import SMSTenDLCCampaign as SMSTenDLCCampaign
+from freeclimb.models.sms_ten_dlc_campaign_status import (
+    SMSTenDLCCampaignStatus as SMSTenDLCCampaignStatus,
+)
+from freeclimb.models.sms_ten_dlc_campaigns_list_result import (
+    SMSTenDLCCampaignsListResult as SMSTenDLCCampaignsListResult,
+)
+from freeclimb.models.sms_ten_dlc_partner_campaign import (
+    SMSTenDLCPartnerCampaign as SMSTenDLCPartnerCampaign,
+)
+from freeclimb.models.sms_ten_dlc_partner_campaign_brand import (
+    SMSTenDLCPartnerCampaignBrand as SMSTenDLCPartnerCampaignBrand,
+)
+from freeclimb.models.sms_ten_dlc_partner_campaign_status import (
+    SMSTenDLCPartnerCampaignStatus as SMSTenDLCPartnerCampaignStatus,
+)
+from freeclimb.models.sms_ten_dlc_partner_campaigns_list_result import (
+    SMSTenDLCPartnerCampaignsListResult as SMSTenDLCPartnerCampaignsListResult,
+)
+from freeclimb.models.sms_toll_free_campaign import (
+    SMSTollFreeCampaign as SMSTollFreeCampaign,
+)
+from freeclimb.models.sms_toll_free_campaign_registration_status import (
+    SMSTollFreeCampaignRegistrationStatus as SMSTollFreeCampaignRegistrationStatus,
+)
+from freeclimb.models.sms_toll_free_campaigns_list_result import (
+    SMSTollFreeCampaignsListResult as SMSTollFreeCampaignsListResult,
+)
+from freeclimb.models.say import Say as Say
+from freeclimb.models.send_digits import SendDigits as SendDigits
+from freeclimb.models.set_dtmf_pass_through import (
+    SetDTMFPassThrough as SetDTMFPassThrough,
+)
+from freeclimb.models.set_listen import SetListen as SetListen
+from freeclimb.models.set_talk import SetTalk as SetTalk
+from freeclimb.models.sms import Sms as Sms
+from freeclimb.models.start_record_call import StartRecordCall as StartRecordCall
+from freeclimb.models.tfn import TFN as TFN
+from freeclimb.models.terminate_conference import (
+    TerminateConference as TerminateConference,
+)
+from freeclimb.models.transcribe_reason import TranscribeReason as TranscribeReason
+from freeclimb.models.transcribe_term_reason import (
+    TranscribeTermReason as TranscribeTermReason,
+)
+from freeclimb.models.transcribe_utterance import (
+    TranscribeUtterance as TranscribeUtterance,
+)
+from freeclimb.models.transcribe_utterance_record import (
+    TranscribeUtteranceRecord as TranscribeUtteranceRecord,
+)
+from freeclimb.models.transcribe_webhook import TranscribeWebhook as TranscribeWebhook
+from freeclimb.models.unpark import Unpark as Unpark
+from freeclimb.models.update_call_request import UpdateCallRequest as UpdateCallRequest
+from freeclimb.models.update_call_request_status import (
+    UpdateCallRequestStatus as UpdateCallRequestStatus,
+)
+from freeclimb.models.update_conference_participant_request import (
+    UpdateConferenceParticipantRequest as UpdateConferenceParticipantRequest,
+)
+from freeclimb.models.update_conference_request import (
+    UpdateConferenceRequest as UpdateConferenceRequest,
+)
+from freeclimb.models.update_conference_request_status import (
+    UpdateConferenceRequestStatus as UpdateConferenceRequestStatus,
+)
+from freeclimb.models.webhook import Webhook as Webhook

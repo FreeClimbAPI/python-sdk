@@ -1,7 +1,9 @@
 # OutDial
 
 The OutDial command is used to call a phone number
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action_url** | **str** | URL to which FreeClimb sends an HTTP POST request.  | 
@@ -14,8 +16,24 @@ Name | Type | Description | Notes
 **status_callback_url** | **str** | When the outdialed Call leg terminates, FreeClimb sends a &#x60;callStatus&#x60; Webhook to the &#x60;statusCallbackUrl&#x60;. This is a notification only; any PerCL command returned is ignored. | [optional] 
 **timeout** | **int** | Maximum time in seconds the &#x60;OutDial&#x60; command waits for the called party to answer the Call. When a timeout occurs, FreeClimb invokes the &#x60;callConnectUrl&#x60; Webhook to report that the out-dialed Call has ended with a status of &#x60;noAnswer&#x60;. | [optional] 
 **privacy_mode** | **bool** | Parameter &#x60;privacyMode&#x60; will not log the &#x60;text&#x60; as required by PCI compliance. | [optional] 
-**command** | **str** | Name of PerCL Command (this is automatically derived from mapping configuration and should not be manually supplied in any arguments) | [optional] 
 
+## Example
+
+```python
+from freeclimb.models.out_dial import OutDial
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of OutDial from a JSON string
+out_dial_instance = OutDial.from_json(json)
+# print the JSON string representation of the object
+print(OutDial.to_json())
+
+# convert the object into a dict
+out_dial_dict = out_dial_instance.to_dict()
+# create an instance of OutDial from a dict
+out_dial_from_dict = OutDial.from_dict(out_dial_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 
