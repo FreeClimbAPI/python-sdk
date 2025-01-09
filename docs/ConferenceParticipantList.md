@@ -1,17 +1,36 @@
 # ConferenceParticipantList
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **int, none_type** | Total amount of requested resource. | [optional] 
-**start** | **int, none_type** | Resource index at start of current page | [optional] 
-**end** | **int, none_type** | Resource index at end of current page | [optional] 
-**page** | **int, none_type** | Current page | [optional] 
-**num_pages** | **int, none_type** | Total number of pages | [optional] 
-**page_size** | **int, none_type** | Number of items per page | [optional] 
-**next_page_uri** | **str, none_type** | Uri to retrieve the next page of items | [optional] 
-**participants** | [**[ConferenceParticipantResult], none_type**](ConferenceParticipantResult.md) |  | [optional] 
+**total** | **int** | Total amount of requested resource. | [optional] 
+**start** | **int** | Resource index at start of current page | [optional] 
+**end** | **int** | Resource index at end of current page | [optional] 
+**page** | **int** | Current page | [optional] 
+**num_pages** | **int** | Total number of pages | [optional] 
+**page_size** | **int** | Number of items per page | [optional] 
+**next_page_uri** | **str** | Uri to retrieve the next page of items | [optional] 
+**participants** | [**List[ConferenceParticipantResult]**](ConferenceParticipantResult.md) |  | [optional] 
 
+## Example
+
+```python
+from freeclimb.models.conference_participant_list import ConferenceParticipantList
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ConferenceParticipantList from a JSON string
+conference_participant_list_instance = ConferenceParticipantList.from_json(json)
+# print the JSON string representation of the object
+print(ConferenceParticipantList.to_json())
+
+# convert the object into a dict
+conference_participant_list_dict = conference_participant_list_instance.to_dict()
+# create an instance of ConferenceParticipantList from a dict
+conference_participant_list_from_dict = ConferenceParticipantList.from_dict(conference_participant_list_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 
