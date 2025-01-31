@@ -31,6 +31,7 @@ class TestSendDigits(unittest.TestCase):
 
     def test_digits(self):
         """Test SendDigits.digits"""
+
         self.model.digits = "TEST_STRING"
         assert self.model.digits == "TEST_STRING"
 

@@ -31,16 +31,19 @@ class TestBuyIncomingNumberRequest(unittest.TestCase):
 
     def test_phone_number(self):
         """Test BuyIncomingNumberRequest.phone_number"""
+
         self.model.phone_number = "TEST_STRING"
         assert self.model.phone_number == "TEST_STRING"
 
     def test_alias(self):
         """Test BuyIncomingNumberRequest.alias"""
+
         self.model.alias = "TEST_STRING"
         assert self.model.alias == "TEST_STRING"
 
     def test_application_id(self):
         """Test BuyIncomingNumberRequest.application_id"""
+
         self.model.application_id = "TEST_STRING"
         assert self.model.application_id == "TEST_STRING"
 

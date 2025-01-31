@@ -32,26 +32,31 @@ class TestMakeCallRequest(unittest.TestCase):
 
     def test_var_from(self):
         """Test MakeCallRequest.var_from"""
+
         self.model.var_from = "TEST_STRING"
         assert self.model.var_from == "TEST_STRING"
 
     def test_to(self):
         """Test MakeCallRequest.to"""
+
         self.model.to = "TEST_STRING"
         assert self.model.to == "TEST_STRING"
 
     def test_application_id(self):
         """Test MakeCallRequest.application_id"""
+
         self.model.application_id = "TEST_STRING"
         assert self.model.application_id == "TEST_STRING"
 
     def test_send_digits(self):
         """Test MakeCallRequest.send_digits"""
+
         self.model.send_digits = "TEST_STRING"
         assert self.model.send_digits == "TEST_STRING"
 
     def test_if_machine(self):
         """Test MakeCallRequest.if_machine"""
+
         self.model.if_machine = "TEST_STRING"
         assert self.model.if_machine == "TEST_STRING"
 
@@ -67,6 +72,7 @@ class TestMakeCallRequest(unittest.TestCase):
 
     def test_parent_call_id(self):
         """Test MakeCallRequest.parent_call_id"""
+
         self.model.parent_call_id = "TEST_STRING"
         assert self.model.parent_call_id == "TEST_STRING"
 

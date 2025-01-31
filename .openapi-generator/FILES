@@ -127,6 +127,7 @@ docs/SetTalk.md
 docs/Sms.md
 docs/StartRecordCall.md
 docs/TFN.md
+docs/TFNCampaign.md
 docs/TerminateConference.md
 docs/TranscribeReason.md
 docs/TranscribeTermReason.md
@@ -275,6 +276,7 @@ freeclimb/models/sms_toll_free_campaigns_list_result.py
 freeclimb/models/start_record_call.py
 freeclimb/models/terminate_conference.py
 freeclimb/models/tfn.py
+freeclimb/models/tfn_campaign.py
 freeclimb/models/transcribe_reason.py
 freeclimb/models/transcribe_term_reason.py
 freeclimb/models/transcribe_utterance.py
@@ -422,6 +424,7 @@ test/test_sms_toll_free_campaigns_list_result.py
 test/test_start_record_call.py
 test/test_terminate_conference.py
 test/test_tfn.py
+test/test_tfn_campaign.py
 test/test_transcribe_reason.py
 test/test_transcribe_term_reason.py
 test/test_transcribe_utterance.py

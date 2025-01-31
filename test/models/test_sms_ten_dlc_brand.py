@@ -27,9 +27,9 @@ class TestSMSTenDLCBrand(unittest.TestCase):
     def setUp(self):
         self.model = SMSTenDLCBrand(
             entity_type=SMSTenDLCBrandEntityType.PRIVATE_PROFIT,
-            display_name="",
-            phone="",
-            country="",
+            display_name="ABC Mobile",
+            phone="+12024567890",
+            country="US",
             email="",
             brand_relationship=SMSTenDLCBrandRelationship.BASIC_ACCOUNT,
             vertical="",
@@ -39,6 +39,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
 
     def test_account_id(self):
         """Test SMSTenDLCBrand.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
@@ -57,11 +58,13 @@ class TestSMSTenDLCBrand(unittest.TestCase):
 
     def test_csp_id(self):
         """Test SMSTenDLCBrand.csp_id"""
+
         self.model.csp_id = "TEST_STRING"
         assert self.model.csp_id == "TEST_STRING"
 
     def test_brand_id(self):
         """Test SMSTenDLCBrand.brand_id"""
+
         self.model.brand_id = "TEST_STRING"
         assert self.model.brand_id == "TEST_STRING"
 
@@ -294,6 +297,7 @@ class TestSMSTenDLCBrand(unittest.TestCase):
 
     def test_universal_ein(self):
         """Test SMSTenDLCBrand.universal_ein"""
+
         self.model.universal_ein = "TEST_STRING"
         assert self.model.universal_ein == "TEST_STRING"
 
@@ -307,8 +311,9 @@ class TestSMSTenDLCBrand(unittest.TestCase):
 
     def test_optional_attributes(self):
         """Test SMSTenDLCBrand.optional_attributes"""
-        self.model.optional_attributes = {}
-        assert self.model.optional_attributes == {}
+        object = {}
+        self.model.optional_attributes = object
+        assert self.model.optional_attributes == object
 
     def test_mock(self):
         """Test SMSTenDLCBrand.mock"""

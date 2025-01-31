@@ -29,6 +29,7 @@ class TestHangup(unittest.TestCase):
 
     def test_reason(self):
         """Test Hangup.reason"""
+
         self.model.reason = "TEST_STRING"
         assert self.model.reason == "TEST_STRING"
 

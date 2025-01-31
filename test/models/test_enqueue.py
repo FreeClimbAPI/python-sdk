@@ -43,6 +43,7 @@ class TestEnqueue(unittest.TestCase):
 
     def test_queue_id(self):
         """Test Enqueue.queue_id"""
+
         self.model.queue_id = "TEST_STRING"
         assert self.model.queue_id == "TEST_STRING"
 

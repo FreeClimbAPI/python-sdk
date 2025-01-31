@@ -29,11 +29,13 @@ class TestAccountRequest(unittest.TestCase):
 
     def test_alias(self):
         """Test AccountRequest.alias"""
+
         self.model.alias = "TEST_STRING"
         assert self.model.alias == "TEST_STRING"
 
     def test_label(self):
         """Test AccountRequest.label"""
+
         self.model.label = "TEST_STRING"
         assert self.model.label == "TEST_STRING"
 

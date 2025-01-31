@@ -41,6 +41,7 @@ class TestRecordUtterance(unittest.TestCase):
 
     def test_finish_on_key(self):
         """Test RecordUtterance.finish_on_key"""
+
         self.model.finish_on_key = "TEST_STRING"
         assert self.model.finish_on_key == "TEST_STRING"
 

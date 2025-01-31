@@ -31,6 +31,7 @@ class TestPlay(unittest.TestCase):
 
     def test_file(self):
         """Test Play.file"""
+
         self.model.file = "TEST_STRING"
         assert self.model.file == "TEST_STRING"
 

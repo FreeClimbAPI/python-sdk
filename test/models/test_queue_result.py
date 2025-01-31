@@ -29,16 +29,19 @@ class TestQueueResult(unittest.TestCase):
 
     def test_uri(self):
         """Test QueueResult.uri"""
+
         self.model.uri = "TEST_STRING"
         assert self.model.uri == "TEST_STRING"
 
     def test_date_created(self):
         """Test QueueResult.date_created"""
+
         self.model.date_created = "TEST_STRING"
         assert self.model.date_created == "TEST_STRING"
 
     def test_date_updated(self):
         """Test QueueResult.date_updated"""
+
         self.model.date_updated = "TEST_STRING"
         assert self.model.date_updated == "TEST_STRING"
 
@@ -49,16 +52,19 @@ class TestQueueResult(unittest.TestCase):
 
     def test_account_id(self):
         """Test QueueResult.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_queue_id(self):
         """Test QueueResult.queue_id"""
+
         self.model.queue_id = "TEST_STRING"
         assert self.model.queue_id == "TEST_STRING"
 
     def test_alias(self):
         """Test QueueResult.alias"""
+
         self.model.alias = "TEST_STRING"
         assert self.model.alias == "TEST_STRING"
 
@@ -79,9 +85,9 @@ class TestQueueResult(unittest.TestCase):
 
     def test_subresource_uris(self):
         """Test QueueResult.subresource_uris"""
-        testObject = {}
-        self.model.subresource_uris = testObject
-        assert self.model.subresource_uris == testObject
+        object = None
+        self.model.subresource_uris = object
+        assert self.model.subresource_uris == object
 
 
 if __name__ == "__main__":

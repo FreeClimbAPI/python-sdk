@@ -32,26 +32,31 @@ class TestTranscribeWebhook(unittest.TestCase):
 
     def test_account_id(self):
         """Test TranscribeWebhook.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_call_id(self):
         """Test TranscribeWebhook.call_id"""
+
         self.model.call_id = "TEST_STRING"
         assert self.model.call_id == "TEST_STRING"
 
     def test_var_from(self):
         """Test TranscribeWebhook.var_from"""
+
         self.model.var_from = "TEST_STRING"
         assert self.model.var_from == "TEST_STRING"
 
     def test_to(self):
         """Test TranscribeWebhook.to"""
+
         self.model.to = "TEST_STRING"
         assert self.model.to == "TEST_STRING"
 
     def test_recording_id(self):
         """Test TranscribeWebhook.recording_id"""
+
         self.model.recording_id = "TEST_STRING"
         assert self.model.recording_id == "TEST_STRING"
 
@@ -67,6 +72,7 @@ class TestTranscribeWebhook(unittest.TestCase):
 
     def test_recording_format(self):
         """Test TranscribeWebhook.recording_format"""
+
         self.model.recording_format = "TEST_STRING"
         assert self.model.recording_format == "TEST_STRING"
 
@@ -95,6 +101,7 @@ class TestTranscribeWebhook(unittest.TestCase):
 
     def test_digit(self):
         """Test TranscribeWebhook.digit"""
+
         self.model.digit = "TEST_STRING"
         assert self.model.digit == "TEST_STRING"
 
@@ -139,6 +146,7 @@ class TestTranscribeWebhook(unittest.TestCase):
 
     def test_transcript(self):
         """Test TranscribeWebhook.transcript"""
+
         self.model.transcript = "TEST_STRING"
         assert self.model.transcript == "TEST_STRING"
 

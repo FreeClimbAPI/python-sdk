@@ -31,6 +31,7 @@ class TestFilterLogsRequest(unittest.TestCase):
 
     def test_pql(self):
         """Test FilterLogsRequest.pql"""
+
         self.model.pql = "TEST_STRING"
         assert self.model.pql == "TEST_STRING"
 

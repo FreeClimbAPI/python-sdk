@@ -303,6 +303,7 @@ Class | Method | HTTP request | Description
  - [Sms](docs/Sms.md)
  - [StartRecordCall](docs/StartRecordCall.md)
  - [TFN](docs/TFN.md)
+ - [TFNCampaign](docs/TFNCampaign.md)
  - [TerminateConference](docs/TerminateConference.md)
  - [TranscribeReason](docs/TranscribeReason.md)
  - [TranscribeTermReason](docs/TranscribeTermReason.md)

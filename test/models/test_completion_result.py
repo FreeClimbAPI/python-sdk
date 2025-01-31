@@ -32,6 +32,7 @@ class TestCompletionResult(unittest.TestCase):
 
     def test_response(self):
         """Test CompletionResult.response"""
+
         self.model.response = "TEST_STRING"
         assert self.model.response == "TEST_STRING"
 

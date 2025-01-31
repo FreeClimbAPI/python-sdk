@@ -18,43 +18,47 @@ import pydantic_core
 from datetime import datetime
 import freeclimb
 from freeclimb import *
-from freeclimb.models.sms_toll_free_campaign import SMSTollFreeCampaign
+from freeclimb.models.tfn_campaign import TFNCampaign
 
 
-class TestSMSTollFreeCampaign(unittest.TestCase):
-    """SMSTollFreeCampaign unit test stubs"""
+class TestTFNCampaign(unittest.TestCase):
+    """TFNCampaign unit test stubs"""
 
     def setUp(self):
-        self.model = SMSTollFreeCampaign(
+        self.model = TFNCampaign(
             account_id="",
-            campaign_id="",
+            campaign_id="cmptfn_387ec3f6e03b340553f35f29c8f118cdf3eae08a",
             use_case="",
             registration_status=SMSTollFreeCampaignRegistrationStatus.UNREGISTERED,
             date_created="",
             date_updated="",
+            date_created_iso="",
+            date_updated_iso="",
             revision=1,
         )
 
     def test_account_id(self):
-        """Test SMSTollFreeCampaign.account_id"""
+        """Test TFNCampaign.account_id"""
 
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_campaign_id(self):
-        """Test SMSTollFreeCampaign.campaign_id"""
+        """Test TFNCampaign.campaign_id"""
 
-        self.model.campaign_id = "TEST_STRING"
-        assert self.model.campaign_id == "TEST_STRING"
+        self.model.campaign_id = "cmptfn_387ec3f6e03b340553f35f29c8f118cdf3eae08a"
+        assert (
+            self.model.campaign_id == "cmptfn_387ec3f6e03b340553f35f29c8f118cdf3eae08a"
+        )
 
     def test_use_case(self):
-        """Test SMSTollFreeCampaign.use_case"""
+        """Test TFNCampaign.use_case"""
 
         self.model.use_case = "TEST_STRING"
         assert self.model.use_case == "TEST_STRING"
 
     def test_registration_status(self):
-        """Test SMSTollFreeCampaign.registration_status"""
+        """Test TFNCampaign.registration_status"""
         self.model.registration_status = (
             SMSTollFreeCampaignRegistrationStatus.UNREGISTERED
         )
@@ -86,19 +90,31 @@ class TestSMSTollFreeCampaign(unittest.TestCase):
         )
 
     def test_date_created(self):
-        """Test SMSTollFreeCampaign.date_created"""
+        """Test TFNCampaign.date_created"""
 
         self.model.date_created = "TEST_STRING"
         assert self.model.date_created == "TEST_STRING"
 
     def test_date_updated(self):
-        """Test SMSTollFreeCampaign.date_updated"""
+        """Test TFNCampaign.date_updated"""
 
         self.model.date_updated = "TEST_STRING"
         assert self.model.date_updated == "TEST_STRING"
 
+    def test_date_created_iso(self):
+        """Test TFNCampaign.date_created_iso"""
+
+        self.model.date_created_iso = "TEST_STRING"
+        assert self.model.date_created_iso == "TEST_STRING"
+
+    def test_date_updated_iso(self):
+        """Test TFNCampaign.date_updated_iso"""
+
+        self.model.date_updated_iso = "TEST_STRING"
+        assert self.model.date_updated_iso == "TEST_STRING"
+
     def test_revision(self):
-        """Test SMSTollFreeCampaign.revision"""
+        """Test TFNCampaign.revision"""
         self.model.revision = 1
         assert self.model.revision == 1
 

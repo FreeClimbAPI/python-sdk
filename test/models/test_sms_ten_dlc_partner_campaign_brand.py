@@ -28,17 +28,19 @@ class TestSMSTenDLCPartnerCampaignBrand(unittest.TestCase):
 
     def setUp(self):
         self.model = SMSTenDLCPartnerCampaignBrand(
-            phone="",
+            phone="+12024567890",
             email="",
         )
 
     def test_account_id(self):
         """Test SMSTenDLCPartnerCampaignBrand.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_brand_id(self):
         """Test SMSTenDLCPartnerCampaignBrand.brand_id"""
+
         self.model.brand_id = "TEST_STRING"
         assert self.model.brand_id == "TEST_STRING"
 
@@ -100,8 +102,9 @@ class TestSMSTenDLCPartnerCampaignBrand(unittest.TestCase):
 
     def test_optional_attributes(self):
         """Test SMSTenDLCPartnerCampaignBrand.optional_attributes"""
-        self.model.optional_attributes = {}
-        assert self.model.optional_attributes == {}
+        object = {}
+        self.model.optional_attributes = object
+        assert self.model.optional_attributes == object
 
     def test_evp_vetting_score(self):
         """Test SMSTenDLCPartnerCampaignBrand.evp_vetting_score"""

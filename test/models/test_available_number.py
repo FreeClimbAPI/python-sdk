@@ -41,11 +41,13 @@ class TestAvailableNumber(unittest.TestCase):
 
     def test_campaign_id(self):
         """Test AvailableNumber.campaign_id"""
+
         self.model.campaign_id = "TEST_STRING"
         assert self.model.campaign_id == "TEST_STRING"
 
     def test_phone_number(self):
         """Test AvailableNumber.phone_number"""
+
         self.model.phone_number = "TEST_STRING"
         assert self.model.phone_number == "TEST_STRING"
 
@@ -61,11 +63,13 @@ class TestAvailableNumber(unittest.TestCase):
 
     def test_region(self):
         """Test AvailableNumber.region"""
+
         self.model.region = "TEST_STRING"
         assert self.model.region == "TEST_STRING"
 
     def test_country(self):
         """Test AvailableNumber.country"""
+
         self.model.country = "TEST_STRING"
         assert self.model.country == "TEST_STRING"
 

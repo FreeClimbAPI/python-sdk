@@ -29,16 +29,19 @@ class TestMessageResult(unittest.TestCase):
 
     def test_uri(self):
         """Test MessageResult.uri"""
+
         self.model.uri = "TEST_STRING"
         assert self.model.uri == "TEST_STRING"
 
     def test_date_created(self):
         """Test MessageResult.date_created"""
+
         self.model.date_created = "TEST_STRING"
         assert self.model.date_created == "TEST_STRING"
 
     def test_date_updated(self):
         """Test MessageResult.date_updated"""
+
         self.model.date_updated = "TEST_STRING"
         assert self.model.date_updated == "TEST_STRING"
 
@@ -49,11 +52,13 @@ class TestMessageResult(unittest.TestCase):
 
     def test_account_id(self):
         """Test MessageResult.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_message_id(self):
         """Test MessageResult.message_id"""
+
         self.model.message_id = "TEST_STRING"
         assert self.model.message_id == "TEST_STRING"
 
@@ -84,21 +89,25 @@ class TestMessageResult(unittest.TestCase):
 
     def test_var_from(self):
         """Test MessageResult.var_from"""
+
         self.model.var_from = "TEST_STRING"
         assert self.model.var_from == "TEST_STRING"
 
     def test_to(self):
         """Test MessageResult.to"""
+
         self.model.to = "TEST_STRING"
         assert self.model.to == "TEST_STRING"
 
     def test_text(self):
         """Test MessageResult.text"""
+
         self.model.text = "TEST_STRING"
         assert self.model.text == "TEST_STRING"
 
     def test_direction(self):
         """Test MessageResult.direction"""
+
         self.model.direction = "TEST_STRING"
         assert self.model.direction == "TEST_STRING"
 
@@ -109,11 +118,13 @@ class TestMessageResult(unittest.TestCase):
 
     def test_brand_id(self):
         """Test MessageResult.brand_id"""
+
         self.model.brand_id = "TEST_STRING"
         assert self.model.brand_id == "TEST_STRING"
 
     def test_campaign_id(self):
         """Test MessageResult.campaign_id"""
+
         self.model.campaign_id = "TEST_STRING"
         assert self.model.campaign_id == "TEST_STRING"
 
@@ -128,6 +139,26 @@ class TestMessageResult(unittest.TestCase):
         testList = []
         self.model.media_urls = testList
         assert self.model.media_urls == testList
+
+    def test_tfn(self):
+        """Test MessageResult.tfn"""
+        object = freeclimb.models.tfn.TFN(
+            campaign_id="",
+        )
+        self.model.tfn = object
+        assert self.model.tfn == object
+
+    def test_phone_number_id(self):
+        """Test MessageResult.phone_number_id"""
+
+        self.model.phone_number_id = "TEST_STRING"
+        assert self.model.phone_number_id == "TEST_STRING"
+
+    def test_application_id(self):
+        """Test MessageResult.application_id"""
+
+        self.model.application_id = "TEST_STRING"
+        assert self.model.application_id == "TEST_STRING"
 
 
 if __name__ == "__main__":

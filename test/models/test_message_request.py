@@ -33,16 +33,19 @@ class TestMessageRequest(unittest.TestCase):
 
     def test_uri(self):
         """Test MessageRequest.uri"""
+
         self.model.uri = "TEST_STRING"
         assert self.model.uri == "TEST_STRING"
 
     def test_date_created(self):
         """Test MessageRequest.date_created"""
+
         self.model.date_created = "TEST_STRING"
         assert self.model.date_created == "TEST_STRING"
 
     def test_date_updated(self):
         """Test MessageRequest.date_updated"""
+
         self.model.date_updated = "TEST_STRING"
         assert self.model.date_updated == "TEST_STRING"
 
@@ -53,16 +56,19 @@ class TestMessageRequest(unittest.TestCase):
 
     def test_var_from(self):
         """Test MessageRequest.var_from"""
+
         self.model.var_from = "TEST_STRING"
         assert self.model.var_from == "TEST_STRING"
 
     def test_to(self):
         """Test MessageRequest.to"""
+
         self.model.to = "TEST_STRING"
         assert self.model.to == "TEST_STRING"
 
     def test_text(self):
         """Test MessageRequest.text"""
+
         self.model.text = "TEST_STRING"
         assert self.model.text == "TEST_STRING"
 

@@ -31,6 +31,7 @@ class TestPlayEarlyMedia(unittest.TestCase):
 
     def test_file(self):
         """Test PlayEarlyMedia.file"""
+
         self.model.file = "TEST_STRING"
         assert self.model.file == "TEST_STRING"
 

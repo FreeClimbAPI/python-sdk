@@ -29,6 +29,7 @@ class TestApplicationRequest(unittest.TestCase):
 
     def test_alias(self):
         """Test ApplicationRequest.alias"""
+
         self.model.alias = "TEST_STRING"
         assert self.model.alias == "TEST_STRING"
 

@@ -29,16 +29,19 @@ class TestCallResult(unittest.TestCase):
 
     def test_uri(self):
         """Test CallResult.uri"""
+
         self.model.uri = "TEST_STRING"
         assert self.model.uri == "TEST_STRING"
 
     def test_date_created(self):
         """Test CallResult.date_created"""
+
         self.model.date_created = "TEST_STRING"
         assert self.model.date_created == "TEST_STRING"
 
     def test_date_updated(self):
         """Test CallResult.date_updated"""
+
         self.model.date_updated = "TEST_STRING"
         assert self.model.date_updated == "TEST_STRING"
 
@@ -49,31 +52,37 @@ class TestCallResult(unittest.TestCase):
 
     def test_call_id(self):
         """Test CallResult.call_id"""
+
         self.model.call_id = "TEST_STRING"
         assert self.model.call_id == "TEST_STRING"
 
     def test_parent_call_id(self):
         """Test CallResult.parent_call_id"""
+
         self.model.parent_call_id = "TEST_STRING"
         assert self.model.parent_call_id == "TEST_STRING"
 
     def test_account_id(self):
         """Test CallResult.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_var_from(self):
         """Test CallResult.var_from"""
+
         self.model.var_from = "TEST_STRING"
         assert self.model.var_from == "TEST_STRING"
 
     def test_to(self):
         """Test CallResult.to"""
+
         self.model.to = "TEST_STRING"
         assert self.model.to == "TEST_STRING"
 
     def test_phone_number_id(self):
         """Test CallResult.phone_number_id"""
+
         self.model.phone_number_id = "TEST_STRING"
         assert self.model.phone_number_id == "TEST_STRING"
 
@@ -98,16 +107,19 @@ class TestCallResult(unittest.TestCase):
 
     def test_start_time(self):
         """Test CallResult.start_time"""
+
         self.model.start_time = "TEST_STRING"
         assert self.model.start_time == "TEST_STRING"
 
     def test_connect_time(self):
         """Test CallResult.connect_time"""
+
         self.model.connect_time = "TEST_STRING"
         assert self.model.connect_time == "TEST_STRING"
 
     def test_end_time(self):
         """Test CallResult.end_time"""
+
         self.model.end_time = "TEST_STRING"
         assert self.model.end_time == "TEST_STRING"
 
@@ -139,12 +151,13 @@ class TestCallResult(unittest.TestCase):
 
     def test_subresource_uris(self):
         """Test CallResult.subresource_uris"""
-        testObject = {}
-        self.model.subresource_uris = testObject
-        assert self.model.subresource_uris == testObject
+        object = None
+        self.model.subresource_uris = object
+        assert self.model.subresource_uris == object
 
     def test_application_id(self):
         """Test CallResult.application_id"""
+
         self.model.application_id = "TEST_STRING"
         assert self.model.application_id == "TEST_STRING"
 

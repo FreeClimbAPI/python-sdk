@@ -29,16 +29,19 @@ class TestApplicationResult(unittest.TestCase):
 
     def test_uri(self):
         """Test ApplicationResult.uri"""
+
         self.model.uri = "TEST_STRING"
         assert self.model.uri == "TEST_STRING"
 
     def test_date_created(self):
         """Test ApplicationResult.date_created"""
+
         self.model.date_created = "TEST_STRING"
         assert self.model.date_created == "TEST_STRING"
 
     def test_date_updated(self):
         """Test ApplicationResult.date_updated"""
+
         self.model.date_updated = "TEST_STRING"
         assert self.model.date_updated == "TEST_STRING"
 
@@ -49,16 +52,19 @@ class TestApplicationResult(unittest.TestCase):
 
     def test_account_id(self):
         """Test ApplicationResult.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_application_id(self):
         """Test ApplicationResult.application_id"""
+
         self.model.application_id = "TEST_STRING"
         assert self.model.application_id == "TEST_STRING"
 
     def test_alias(self):
         """Test ApplicationResult.alias"""
+
         self.model.alias = "TEST_STRING"
         assert self.model.alias == "TEST_STRING"
 

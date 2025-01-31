@@ -36,6 +36,7 @@ class TestAddToConference(unittest.TestCase):
 
     def test_call_control_sequence(self):
         """Test AddToConference.call_control_sequence"""
+
         self.model.call_control_sequence = "TEST_STRING"
         assert self.model.call_control_sequence == "TEST_STRING"
 
@@ -46,6 +47,7 @@ class TestAddToConference(unittest.TestCase):
 
     def test_conference_id(self):
         """Test AddToConference.conference_id"""
+
         self.model.conference_id = "TEST_STRING"
         assert self.model.conference_id == "TEST_STRING"
 

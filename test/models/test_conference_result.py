@@ -29,16 +29,19 @@ class TestConferenceResult(unittest.TestCase):
 
     def test_uri(self):
         """Test ConferenceResult.uri"""
+
         self.model.uri = "TEST_STRING"
         assert self.model.uri == "TEST_STRING"
 
     def test_date_created(self):
         """Test ConferenceResult.date_created"""
+
         self.model.date_created = "TEST_STRING"
         assert self.model.date_created == "TEST_STRING"
 
     def test_date_updated(self):
         """Test ConferenceResult.date_updated"""
+
         self.model.date_updated = "TEST_STRING"
         assert self.model.date_updated == "TEST_STRING"
 
@@ -49,16 +52,19 @@ class TestConferenceResult(unittest.TestCase):
 
     def test_conference_id(self):
         """Test ConferenceResult.conference_id"""
+
         self.model.conference_id = "TEST_STRING"
         assert self.model.conference_id == "TEST_STRING"
 
     def test_account_id(self):
         """Test ConferenceResult.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_alias(self):
         """Test ConferenceResult.alias"""
+
         self.model.alias = "TEST_STRING"
         assert self.model.alias == "TEST_STRING"
 
@@ -106,9 +112,9 @@ class TestConferenceResult(unittest.TestCase):
 
     def test_subresource_uris(self):
         """Test ConferenceResult.subresource_uris"""
-        testObject = {}
-        self.model.subresource_uris = testObject
-        assert self.model.subresource_uris == testObject
+        object = None
+        self.model.subresource_uris = object
+        assert self.model.subresource_uris == object
 
 
 if __name__ == "__main__":

@@ -29,16 +29,19 @@ class TestIncomingNumberResult(unittest.TestCase):
 
     def test_uri(self):
         """Test IncomingNumberResult.uri"""
+
         self.model.uri = "TEST_STRING"
         assert self.model.uri == "TEST_STRING"
 
     def test_date_created(self):
         """Test IncomingNumberResult.date_created"""
+
         self.model.date_created = "TEST_STRING"
         assert self.model.date_created == "TEST_STRING"
 
     def test_date_updated(self):
         """Test IncomingNumberResult.date_updated"""
+
         self.model.date_updated = "TEST_STRING"
         assert self.model.date_updated == "TEST_STRING"
 
@@ -61,41 +64,49 @@ class TestIncomingNumberResult(unittest.TestCase):
 
     def test_campaign_id(self):
         """Test IncomingNumberResult.campaign_id"""
+
         self.model.campaign_id = "TEST_STRING"
         assert self.model.campaign_id == "TEST_STRING"
 
     def test_phone_number_id(self):
         """Test IncomingNumberResult.phone_number_id"""
+
         self.model.phone_number_id = "TEST_STRING"
         assert self.model.phone_number_id == "TEST_STRING"
 
     def test_account_id(self):
         """Test IncomingNumberResult.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_application_id(self):
         """Test IncomingNumberResult.application_id"""
+
         self.model.application_id = "TEST_STRING"
         assert self.model.application_id == "TEST_STRING"
 
     def test_phone_number(self):
         """Test IncomingNumberResult.phone_number"""
+
         self.model.phone_number = "TEST_STRING"
         assert self.model.phone_number == "TEST_STRING"
 
     def test_alias(self):
         """Test IncomingNumberResult.alias"""
+
         self.model.alias = "TEST_STRING"
         assert self.model.alias == "TEST_STRING"
 
     def test_region(self):
         """Test IncomingNumberResult.region"""
+
         self.model.region = "TEST_STRING"
         assert self.model.region == "TEST_STRING"
 
     def test_country(self):
         """Test IncomingNumberResult.country"""
+
         self.model.country = "TEST_STRING"
         assert self.model.country == "TEST_STRING"
 

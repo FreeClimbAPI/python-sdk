@@ -248,6 +248,7 @@ from freeclimb.models.set_talk import SetTalk as SetTalk
 from freeclimb.models.sms import Sms as Sms
 from freeclimb.models.start_record_call import StartRecordCall as StartRecordCall
 from freeclimb.models.tfn import TFN as TFN
+from freeclimb.models.tfn_campaign import TFNCampaign as TFNCampaign
 from freeclimb.models.terminate_conference import (
     TerminateConference as TerminateConference,
 )

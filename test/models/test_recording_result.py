@@ -29,16 +29,19 @@ class TestRecordingResult(unittest.TestCase):
 
     def test_uri(self):
         """Test RecordingResult.uri"""
+
         self.model.uri = "TEST_STRING"
         assert self.model.uri == "TEST_STRING"
 
     def test_date_created(self):
         """Test RecordingResult.date_created"""
+
         self.model.date_created = "TEST_STRING"
         assert self.model.date_created == "TEST_STRING"
 
     def test_date_updated(self):
         """Test RecordingResult.date_updated"""
+
         self.model.date_updated = "TEST_STRING"
         assert self.model.date_updated == "TEST_STRING"
 
@@ -49,16 +52,19 @@ class TestRecordingResult(unittest.TestCase):
 
     def test_recording_id(self):
         """Test RecordingResult.recording_id"""
+
         self.model.recording_id = "TEST_STRING"
         assert self.model.recording_id == "TEST_STRING"
 
     def test_account_id(self):
         """Test RecordingResult.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_call_id(self):
         """Test RecordingResult.call_id"""
+
         self.model.call_id = "TEST_STRING"
         assert self.model.call_id == "TEST_STRING"
 
@@ -69,6 +75,7 @@ class TestRecordingResult(unittest.TestCase):
 
     def test_conference_id(self):
         """Test RecordingResult.conference_id"""
+
         self.model.conference_id = "TEST_STRING"
         assert self.model.conference_id == "TEST_STRING"
 

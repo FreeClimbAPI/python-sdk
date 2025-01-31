@@ -33,11 +33,13 @@ class TestCreateWebRTCToken(unittest.TestCase):
 
     def test_to(self):
         """Test CreateWebRTCToken.to"""
+
         self.model.to = "TEST_STRING"
         assert self.model.to == "TEST_STRING"
 
     def test_var_from(self):
         """Test CreateWebRTCToken.var_from"""
+
         self.model.var_from = "TEST_STRING"
         assert self.model.var_from == "TEST_STRING"
 

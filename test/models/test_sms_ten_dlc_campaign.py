@@ -37,16 +37,19 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
 
     def test_account_id(self):
         """Test SMSTenDLCCampaign.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_campaign_id(self):
         """Test SMSTenDLCCampaign.campaign_id"""
+
         self.model.campaign_id = "TEST_STRING"
         assert self.model.campaign_id == "TEST_STRING"
 
     def test_csp_id(self):
         """Test SMSTenDLCCampaign.csp_id"""
+
         self.model.csp_id = "TEST_STRING"
         assert self.model.csp_id == "TEST_STRING"
 

@@ -21,6 +21,9 @@ Name | Type | Description | Notes
 **campaign_id** | **str** | The unique identifier for the campaign associated with the message | [optional] 
 **segment_count** | **float** | The number of segments into which the message was split | [optional] 
 **media_urls** | **List[str]** | an array of HTTP URLs which were attached this this message | [optional] 
+**tfn** | [**TFN**](TFN.md) |  | [optional] 
+**phone_number_id** | **str** | String that uniquely identifies the phoneNumber resource used to send this Message | [optional] 
+**application_id** | **str** | String that uniquely identifies the Application resource used to send this Message | [optional] 
 
 ## Example
 

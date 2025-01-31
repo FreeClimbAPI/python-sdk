@@ -31,6 +31,7 @@ class TestTFN(unittest.TestCase):
 
     def test_campaign_id(self):
         """Test TFN.campaign_id"""
+
         self.model.campaign_id = "TEST_STRING"
         assert self.model.campaign_id == "TEST_STRING"
 

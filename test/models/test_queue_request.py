@@ -29,6 +29,7 @@ class TestQueueRequest(unittest.TestCase):
 
     def test_alias(self):
         """Test QueueRequest.alias"""
+
         self.model.alias = "TEST_STRING"
         assert self.model.alias == "TEST_STRING"
 
