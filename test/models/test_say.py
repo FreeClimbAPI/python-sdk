@@ -26,7 +26,7 @@ class TestSay(unittest.TestCase):
 
     def setUp(self):
         self.model = Say(
-            text="",
+            text="TS",
         )
 
     def test_text(self):

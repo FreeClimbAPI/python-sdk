@@ -27,12 +27,12 @@ class TestSMSTenDLCBrand(unittest.TestCase):
     def setUp(self):
         self.model = SMSTenDLCBrand(
             entity_type=SMSTenDLCBrandEntityType.PRIVATE_PROFIT,
-            display_name="ABC Mobile",
-            phone="+12024567890",
-            country="US",
-            email="",
+            display_name="TS",
+            phone="TS",
+            country="TS",
+            email="TS",
             brand_relationship=SMSTenDLCBrandRelationship.BASIC_ACCOUNT,
-            vertical="",
+            vertical="TS",
             mock=True,
             identity_status=SMSTenDLCBrandIdentityStatus.SELF_DECLARED,
         )

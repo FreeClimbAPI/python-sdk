@@ -26,7 +26,7 @@ class TestCompletionResult(unittest.TestCase):
 
     def setUp(self):
         self.model = CompletionResult(
-            response="",
+            response="TS",
             status=CompletionResultStatus.SUCCESS,
         )
 

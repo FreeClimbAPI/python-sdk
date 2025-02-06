@@ -26,8 +26,8 @@ class TestCreateWebRTCToken(unittest.TestCase):
 
     def setUp(self):
         self.model = CreateWebRTCToken(
-            to="",
-            var_from="",
+            to="TS",
+            var_from="TS",
             uses=1,
         )
 

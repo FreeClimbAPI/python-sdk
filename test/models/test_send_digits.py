@@ -26,7 +26,7 @@ class TestSendDigits(unittest.TestCase):
 
     def setUp(self):
         self.model = SendDigits(
-            digits="",
+            digits="TS",
         )
 
     def test_digits(self):

@@ -26,12 +26,12 @@ class TestSMSTenDLCCampaign(unittest.TestCase):
 
     def setUp(self):
         self.model = SMSTenDLCCampaign(
-            campaign_id="",
-            csp_id="",
-            brand_id="",
-            usecase="",
+            campaign_id="TS",
+            csp_id="TS",
+            brand_id="TS",
+            usecase="TS",
             sub_usecases=[],
-            description="",
+            description="TS",
             mock=True,
         )
 

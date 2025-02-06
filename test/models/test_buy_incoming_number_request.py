@@ -26,7 +26,7 @@ class TestBuyIncomingNumberRequest(unittest.TestCase):
 
     def setUp(self):
         self.model = BuyIncomingNumberRequest(
-            phone_number="",
+            phone_number="TS",
         )
 
     def test_phone_number(self):

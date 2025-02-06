@@ -26,7 +26,7 @@ class TestCompletionRequest(unittest.TestCase):
 
     def setUp(self):
         self.model = CompletionRequest(
-            query="",
+            query="TS",
         )
 
     def test_query(self):

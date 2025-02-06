@@ -26,8 +26,8 @@ class TestGetSpeech(unittest.TestCase):
 
     def setUp(self):
         self.model = GetSpeech(
-            action_url="",
-            grammar_file="",
+            action_url="TS",
+            grammar_file="TS",
         )
 
     def test_action_url(self):

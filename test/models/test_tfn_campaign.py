@@ -26,14 +26,14 @@ class TestTFNCampaign(unittest.TestCase):
 
     def setUp(self):
         self.model = TFNCampaign(
-            account_id="",
+            account_id="TS",
             campaign_id="cmptfn_387ec3f6e03b340553f35f29c8f118cdf3eae08a",
-            use_case="",
+            use_case="TS",
             registration_status=SMSTollFreeCampaignRegistrationStatus.UNREGISTERED,
-            date_created="",
-            date_updated="",
-            date_created_iso="",
-            date_updated_iso="",
+            date_created="TS",
+            date_updated="TS",
+            date_created_iso="TS",
+            date_updated_iso="TS",
             revision=1,
         )
 

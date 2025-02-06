@@ -26,12 +26,12 @@ class TestSMSTollFreeCampaign(unittest.TestCase):
 
     def setUp(self):
         self.model = SMSTollFreeCampaign(
-            account_id="",
-            campaign_id="",
-            use_case="",
+            account_id="TS",
+            campaign_id="TS",
+            use_case="TS",
             registration_status=SMSTollFreeCampaignRegistrationStatus.UNREGISTERED,
-            date_created="",
-            date_updated="",
+            date_created="TS",
+            date_updated="TS",
             revision=1,
         )
 

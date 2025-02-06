@@ -26,7 +26,7 @@ class TestAddToConference(unittest.TestCase):
 
     def setUp(self):
         self.model = AddToConference(
-            conference_id="",
+            conference_id="TS",
         )
 
     def test_allow_call_control(self):

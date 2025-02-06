@@ -26,8 +26,8 @@ class TestPark(unittest.TestCase):
 
     def setUp(self):
         self.model = Park(
-            wait_url="",
-            action_url="",
+            wait_url="TS",
+            action_url="TS",
         )
 
     def test_wait_url(self):

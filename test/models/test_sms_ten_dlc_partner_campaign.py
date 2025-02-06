@@ -26,10 +26,10 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
 
     def setUp(self):
         self.model = SMSTenDLCPartnerCampaign(
-            campaign_id="",
-            brand_id="",
-            usecase="",
-            description="",
+            campaign_id="TS",
+            brand_id="TS",
+            usecase="TS",
+            description="TS",
         )
 
     def test_account_id(self):

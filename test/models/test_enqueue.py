@@ -26,9 +26,9 @@ class TestEnqueue(unittest.TestCase):
 
     def setUp(self):
         self.model = Enqueue(
-            action_url="",
-            queue_id="",
-            wait_url="",
+            action_url="TS",
+            queue_id="TS",
+            wait_url="TS",
         )
 
     def test_action_url(self):

@@ -28,8 +28,8 @@ class TestSMSTenDLCPartnerCampaignBrand(unittest.TestCase):
 
     def setUp(self):
         self.model = SMSTenDLCPartnerCampaignBrand(
-            phone="+12024567890",
-            email="",
+            phone="TS",
+            email="TS",
         )
 
     def test_account_id(self):

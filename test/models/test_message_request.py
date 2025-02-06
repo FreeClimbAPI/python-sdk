@@ -26,9 +26,9 @@ class TestMessageRequest(unittest.TestCase):
 
     def setUp(self):
         self.model = MessageRequest(
-            var_from="",
-            to="",
-            text="",
+            var_from="TS",
+            to="TS",
+            text="TS",
         )
 
     def test_uri(self):

@@ -26,7 +26,7 @@ class TestPlay(unittest.TestCase):
 
     def setUp(self):
         self.model = Play(
-            file="",
+            file="TS",
         )
 
     def test_file(self):

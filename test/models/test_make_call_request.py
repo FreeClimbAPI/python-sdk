@@ -26,8 +26,8 @@ class TestMakeCallRequest(unittest.TestCase):
 
     def setUp(self):
         self.model = MakeCallRequest(
-            var_from="",
-            to="",
+            var_from="TS",
+            to="TS",
         )
 
     def test_var_from(self):

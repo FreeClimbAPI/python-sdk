@@ -26,10 +26,10 @@ class TestOutDial(unittest.TestCase):
 
     def setUp(self):
         self.model = OutDial(
-            action_url="",
-            call_connect_url="",
-            calling_number="",
-            destination="",
+            action_url="TS",
+            call_connect_url="TS",
+            calling_number="TS",
+            destination="TS",
         )
 
     def test_action_url(self):

@@ -26,9 +26,9 @@ class TestSms(unittest.TestCase):
 
     def setUp(self):
         self.model = Sms(
-            to="",
-            var_from="",
-            text="",
+            to="TS",
+            var_from="TS",
+            text="TS",
         )
 
     def test_to(self):

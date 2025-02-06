@@ -26,7 +26,7 @@ class TestGetDigits(unittest.TestCase):
 
     def setUp(self):
         self.model = GetDigits(
-            action_url="",
+            action_url="TS",
         )
 
     def test_action_url(self):
