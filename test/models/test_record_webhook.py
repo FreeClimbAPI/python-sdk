@@ -32,21 +32,25 @@ class TestRecordWebhook(unittest.TestCase):
 
     def test_account_id(self):
         """Test RecordWebhook.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_call_id(self):
         """Test RecordWebhook.call_id"""
+
         self.model.call_id = "TEST_STRING"
         assert self.model.call_id == "TEST_STRING"
 
     def test_var_from(self):
         """Test RecordWebhook.var_from"""
+
         self.model.var_from = "TEST_STRING"
         assert self.model.var_from == "TEST_STRING"
 
     def test_to(self):
         """Test RecordWebhook.to"""
+
         self.model.to = "TEST_STRING"
         assert self.model.to == "TEST_STRING"
 
@@ -80,16 +84,19 @@ class TestRecordWebhook(unittest.TestCase):
 
     def test_conference_id(self):
         """Test RecordWebhook.conference_id"""
+
         self.model.conference_id = "TEST_STRING"
         assert self.model.conference_id == "TEST_STRING"
 
     def test_queue_id(self):
         """Test RecordWebhook.queue_id"""
+
         self.model.queue_id = "TEST_STRING"
         assert self.model.queue_id == "TEST_STRING"
 
     def test_recording_id(self):
         """Test RecordWebhook.recording_id"""
+
         self.model.recording_id = "TEST_STRING"
         assert self.model.recording_id == "TEST_STRING"
 
@@ -100,11 +107,13 @@ class TestRecordWebhook(unittest.TestCase):
 
     def test_recording_size(self):
         """Test RecordWebhook.recording_size"""
+
         self.model.recording_size = "TEST_STRING"
         assert self.model.recording_size == "TEST_STRING"
 
     def test_recording_format(self):
         """Test RecordWebhook.recording_format"""
+
         self.model.recording_format = "TEST_STRING"
         assert self.model.recording_format == "TEST_STRING"
 
@@ -126,6 +135,7 @@ class TestRecordWebhook(unittest.TestCase):
 
     def test_parent_call_id(self):
         """Test RecordWebhook.parent_call_id"""
+
         self.model.parent_call_id = "TEST_STRING"
         assert self.model.parent_call_id == "TEST_STRING"
 

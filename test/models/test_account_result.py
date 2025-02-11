@@ -29,16 +29,19 @@ class TestAccountResult(unittest.TestCase):
 
     def test_uri(self):
         """Test AccountResult.uri"""
+
         self.model.uri = "TEST_STRING"
         assert self.model.uri == "TEST_STRING"
 
     def test_date_created(self):
         """Test AccountResult.date_created"""
+
         self.model.date_created = "TEST_STRING"
         assert self.model.date_created == "TEST_STRING"
 
     def test_date_updated(self):
         """Test AccountResult.date_updated"""
+
         self.model.date_updated = "TEST_STRING"
         assert self.model.date_updated == "TEST_STRING"
 
@@ -49,21 +52,25 @@ class TestAccountResult(unittest.TestCase):
 
     def test_account_id(self):
         """Test AccountResult.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_api_key(self):
         """Test AccountResult.api_key"""
+
         self.model.api_key = "TEST_STRING"
         assert self.model.api_key == "TEST_STRING"
 
     def test_alias(self):
         """Test AccountResult.alias"""
+
         self.model.alias = "TEST_STRING"
         assert self.model.alias == "TEST_STRING"
 
     def test_label(self):
         """Test AccountResult.label"""
+
         self.model.label = "TEST_STRING"
         assert self.model.label == "TEST_STRING"
 
@@ -85,9 +92,9 @@ class TestAccountResult(unittest.TestCase):
 
     def test_subresource_uris(self):
         """Test AccountResult.subresource_uris"""
-        testObject = {}
-        self.model.subresource_uris = testObject
-        assert self.model.subresource_uris == testObject
+        object = None
+        self.model.subresource_uris = object
+        assert self.model.subresource_uris == object
 
 
 if __name__ == "__main__":

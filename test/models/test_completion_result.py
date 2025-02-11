@@ -26,12 +26,13 @@ class TestCompletionResult(unittest.TestCase):
 
     def setUp(self):
         self.model = CompletionResult(
-            response="",
+            response="TS",
             status=CompletionResultStatus.SUCCESS,
         )
 
     def test_response(self):
         """Test CompletionResult.response"""
+
         self.model.response = "TEST_STRING"
         assert self.model.response == "TEST_STRING"
 

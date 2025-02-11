@@ -29,16 +29,19 @@ class TestMutableResourceModel(unittest.TestCase):
 
     def test_uri(self):
         """Test MutableResourceModel.uri"""
+
         self.model.uri = "TEST_STRING"
         assert self.model.uri == "TEST_STRING"
 
     def test_date_created(self):
         """Test MutableResourceModel.date_created"""
+
         self.model.date_created = "TEST_STRING"
         assert self.model.date_created == "TEST_STRING"
 
     def test_date_updated(self):
         """Test MutableResourceModel.date_updated"""
+
         self.model.date_updated = "TEST_STRING"
         assert self.model.date_updated == "TEST_STRING"
 

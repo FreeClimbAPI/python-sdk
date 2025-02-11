@@ -59,6 +59,7 @@ class TestCallList(unittest.TestCase):
 
     def test_next_page_uri(self):
         """Test CallList.next_page_uri"""
+
         self.model.next_page_uri = "TEST_STRING"
         assert self.model.next_page_uri == "TEST_STRING"
 

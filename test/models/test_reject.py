@@ -29,6 +29,7 @@ class TestReject(unittest.TestCase):
 
     def test_reason(self):
         """Test Reject.reason"""
+
         self.model.reason = "TEST_STRING"
         assert self.model.reason == "TEST_STRING"
 

@@ -26,7 +26,7 @@ class TestCreateConference(unittest.TestCase):
 
     def setUp(self):
         self.model = CreateConference(
-            action_url="",
+            action_url="TS",
         )
 
     def test_action_url(self):

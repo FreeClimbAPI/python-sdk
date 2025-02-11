@@ -32,21 +32,25 @@ class TestInboundCallWebhook(unittest.TestCase):
 
     def test_call_id(self):
         """Test InboundCallWebhook.call_id"""
+
         self.model.call_id = "TEST_STRING"
         assert self.model.call_id == "TEST_STRING"
 
     def test_account_id(self):
         """Test InboundCallWebhook.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_var_from(self):
         """Test InboundCallWebhook.var_from"""
+
         self.model.var_from = "TEST_STRING"
         assert self.model.var_from == "TEST_STRING"
 
     def test_to(self):
         """Test InboundCallWebhook.to"""
+
         self.model.to = "TEST_STRING"
         assert self.model.to == "TEST_STRING"
 
@@ -80,16 +84,19 @@ class TestInboundCallWebhook(unittest.TestCase):
 
     def test_conference_id(self):
         """Test InboundCallWebhook.conference_id"""
+
         self.model.conference_id = "TEST_STRING"
         assert self.model.conference_id == "TEST_STRING"
 
     def test_queue_id(self):
         """Test InboundCallWebhook.queue_id"""
+
         self.model.queue_id = "TEST_STRING"
         assert self.model.queue_id == "TEST_STRING"
 
     def test_parent_call_id(self):
         """Test InboundCallWebhook.parent_call_id"""
+
         self.model.parent_call_id = "TEST_STRING"
         assert self.model.parent_call_id == "TEST_STRING"
 

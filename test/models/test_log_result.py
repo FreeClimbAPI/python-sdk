@@ -43,29 +43,33 @@ class TestLogResult(unittest.TestCase):
 
     def test_request_id(self):
         """Test LogResult.request_id"""
+
         self.model.request_id = "TEST_STRING"
         assert self.model.request_id == "TEST_STRING"
 
     def test_account_id(self):
         """Test LogResult.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_call_id(self):
         """Test LogResult.call_id"""
+
         self.model.call_id = "TEST_STRING"
         assert self.model.call_id == "TEST_STRING"
 
     def test_message(self):
         """Test LogResult.message"""
+
         self.model.message = "TEST_STRING"
         assert self.model.message == "TEST_STRING"
 
     def test_metadata(self):
         """Test LogResult.metadata"""
-        testObject = {}
-        self.model.metadata = testObject
-        assert self.model.metadata == testObject
+        object = None
+        self.model.metadata = object
+        assert self.model.metadata == object
 
 
 if __name__ == "__main__":

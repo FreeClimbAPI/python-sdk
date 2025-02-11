@@ -26,11 +26,12 @@ class TestPlay(unittest.TestCase):
 
     def setUp(self):
         self.model = Play(
-            file="",
+            file="TS",
         )
 
     def test_file(self):
         """Test Play.file"""
+
         self.model.file = "TEST_STRING"
         assert self.model.file == "TEST_STRING"
 

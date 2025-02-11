@@ -34,21 +34,25 @@ class TestAddToQueueNotificationWebhook(unittest.TestCase):
 
     def test_call_id(self):
         """Test AddToQueueNotificationWebhook.call_id"""
+
         self.model.call_id = "TEST_STRING"
         assert self.model.call_id == "TEST_STRING"
 
     def test_account_id(self):
         """Test AddToQueueNotificationWebhook.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_var_from(self):
         """Test AddToQueueNotificationWebhook.var_from"""
+
         self.model.var_from = "TEST_STRING"
         assert self.model.var_from == "TEST_STRING"
 
     def test_to(self):
         """Test AddToQueueNotificationWebhook.to"""
+
         self.model.to = "TEST_STRING"
         assert self.model.to == "TEST_STRING"
 
@@ -82,11 +86,13 @@ class TestAddToQueueNotificationWebhook(unittest.TestCase):
 
     def test_conference_id(self):
         """Test AddToQueueNotificationWebhook.conference_id"""
+
         self.model.conference_id = "TEST_STRING"
         assert self.model.conference_id == "TEST_STRING"
 
     def test_queue_id(self):
         """Test AddToQueueNotificationWebhook.queue_id"""
+
         self.model.queue_id = "TEST_STRING"
         assert self.model.queue_id == "TEST_STRING"
 

@@ -26,10 +26,10 @@ class TestOutDial(unittest.TestCase):
 
     def setUp(self):
         self.model = OutDial(
-            action_url="",
-            call_connect_url="",
-            calling_number="",
-            destination="",
+            action_url="TS",
+            call_connect_url="TS",
+            calling_number="TS",
+            destination="TS",
         )
 
     def test_action_url(self):
@@ -44,11 +44,13 @@ class TestOutDial(unittest.TestCase):
 
     def test_calling_number(self):
         """Test OutDial.calling_number"""
+
         self.model.calling_number = "TEST_STRING"
         assert self.model.calling_number == "TEST_STRING"
 
     def test_destination(self):
         """Test OutDial.destination"""
+
         self.model.destination = "TEST_STRING"
         assert self.model.destination == "TEST_STRING"
 
@@ -66,6 +68,7 @@ class TestOutDial(unittest.TestCase):
 
     def test_send_digits(self):
         """Test OutDial.send_digits"""
+
         self.model.send_digits = "TEST_STRING"
         assert self.model.send_digits == "TEST_STRING"
 

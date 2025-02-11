@@ -32,21 +32,25 @@ class TestCallControlWebhook(unittest.TestCase):
 
     def test_call_id(self):
         """Test CallControlWebhook.call_id"""
+
         self.model.call_id = "TEST_STRING"
         assert self.model.call_id == "TEST_STRING"
 
     def test_account_id(self):
         """Test CallControlWebhook.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_conference_id(self):
         """Test CallControlWebhook.conference_id"""
+
         self.model.conference_id = "TEST_STRING"
         assert self.model.conference_id == "TEST_STRING"
 
     def test_digits(self):
         """Test CallControlWebhook.digits"""
+
         self.model.digits = "TEST_STRING"
         assert self.model.digits == "TEST_STRING"
 

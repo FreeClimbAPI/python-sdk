@@ -29,16 +29,19 @@ class TestIncomingNumberRequest(unittest.TestCase):
 
     def test_application_id(self):
         """Test IncomingNumberRequest.application_id"""
+
         self.model.application_id = "TEST_STRING"
         assert self.model.application_id == "TEST_STRING"
 
     def test_alias(self):
         """Test IncomingNumberRequest.alias"""
+
         self.model.alias = "TEST_STRING"
         assert self.model.alias == "TEST_STRING"
 
     def test_campaign_id(self):
         """Test IncomingNumberRequest.campaign_id"""
+
         self.model.campaign_id = "TEST_STRING"
         assert self.model.campaign_id == "TEST_STRING"
 

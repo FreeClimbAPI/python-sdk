@@ -26,19 +26,21 @@ class TestSMSTenDLCPartnerCampaign(unittest.TestCase):
 
     def setUp(self):
         self.model = SMSTenDLCPartnerCampaign(
-            campaign_id="",
-            brand_id="",
-            usecase="",
-            description="",
+            campaign_id="TS",
+            brand_id="TS",
+            usecase="TS",
+            description="TS",
         )
 
     def test_account_id(self):
         """Test SMSTenDLCPartnerCampaign.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_campaign_id(self):
         """Test SMSTenDLCPartnerCampaign.campaign_id"""
+
         self.model.campaign_id = "TEST_STRING"
         assert self.model.campaign_id == "TEST_STRING"
 

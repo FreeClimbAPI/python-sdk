@@ -29,11 +29,13 @@ class TestQueueMember(unittest.TestCase):
 
     def test_uri(self):
         """Test QueueMember.uri"""
+
         self.model.uri = "TEST_STRING"
         assert self.model.uri == "TEST_STRING"
 
     def test_call_id(self):
         """Test QueueMember.call_id"""
+
         self.model.call_id = "TEST_STRING"
         assert self.model.call_id == "TEST_STRING"
 
@@ -49,6 +51,7 @@ class TestQueueMember(unittest.TestCase):
 
     def test_date_enqueued(self):
         """Test QueueMember.date_enqueued"""
+
         self.model.date_enqueued = "TEST_STRING"
         assert self.model.date_enqueued == "TEST_STRING"
 

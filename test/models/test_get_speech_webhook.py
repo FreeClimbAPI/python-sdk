@@ -32,21 +32,25 @@ class TestGetSpeechWebhook(unittest.TestCase):
 
     def test_call_id(self):
         """Test GetSpeechWebhook.call_id"""
+
         self.model.call_id = "TEST_STRING"
         assert self.model.call_id == "TEST_STRING"
 
     def test_account_id(self):
         """Test GetSpeechWebhook.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_var_from(self):
         """Test GetSpeechWebhook.var_from"""
+
         self.model.var_from = "TEST_STRING"
         assert self.model.var_from == "TEST_STRING"
 
     def test_to(self):
         """Test GetSpeechWebhook.to"""
+
         self.model.to = "TEST_STRING"
         assert self.model.to == "TEST_STRING"
 
@@ -80,11 +84,13 @@ class TestGetSpeechWebhook(unittest.TestCase):
 
     def test_conference_id(self):
         """Test GetSpeechWebhook.conference_id"""
+
         self.model.conference_id = "TEST_STRING"
         assert self.model.conference_id == "TEST_STRING"
 
     def test_queue_id(self):
         """Test GetSpeechWebhook.queue_id"""
+
         self.model.queue_id = "TEST_STRING"
         assert self.model.queue_id == "TEST_STRING"
 
@@ -105,6 +111,7 @@ class TestGetSpeechWebhook(unittest.TestCase):
 
     def test_recognition_result(self):
         """Test GetSpeechWebhook.recognition_result"""
+
         self.model.recognition_result = "TEST_STRING"
         assert self.model.recognition_result == "TEST_STRING"
 
@@ -115,16 +122,19 @@ class TestGetSpeechWebhook(unittest.TestCase):
 
     def test_parent_call_id(self):
         """Test GetSpeechWebhook.parent_call_id"""
+
         self.model.parent_call_id = "TEST_STRING"
         assert self.model.parent_call_id == "TEST_STRING"
 
     def test_completion_reason(self):
         """Test GetSpeechWebhook.completion_reason"""
+
         self.model.completion_reason = "TEST_STRING"
         assert self.model.completion_reason == "TEST_STRING"
 
     def test_completion_cause(self):
         """Test GetSpeechWebhook.completion_cause"""
+
         self.model.completion_cause = "TEST_STRING"
         assert self.model.completion_cause == "TEST_STRING"
 
@@ -135,6 +145,7 @@ class TestGetSpeechWebhook(unittest.TestCase):
 
     def test_mrcp_diagnostic(self):
         """Test GetSpeechWebhook.mrcp_diagnostic"""
+
         self.model.mrcp_diagnostic = "TEST_STRING"
         assert self.model.mrcp_diagnostic == "TEST_STRING"
 

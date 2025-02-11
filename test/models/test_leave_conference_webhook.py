@@ -32,21 +32,25 @@ class TestLeaveConferenceWebhook(unittest.TestCase):
 
     def test_call_id(self):
         """Test LeaveConferenceWebhook.call_id"""
+
         self.model.call_id = "TEST_STRING"
         assert self.model.call_id == "TEST_STRING"
 
     def test_account_id(self):
         """Test LeaveConferenceWebhook.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_var_from(self):
         """Test LeaveConferenceWebhook.var_from"""
+
         self.model.var_from = "TEST_STRING"
         assert self.model.var_from == "TEST_STRING"
 
     def test_to(self):
         """Test LeaveConferenceWebhook.to"""
+
         self.model.to = "TEST_STRING"
         assert self.model.to == "TEST_STRING"
 
@@ -80,11 +84,13 @@ class TestLeaveConferenceWebhook(unittest.TestCase):
 
     def test_conference_id(self):
         """Test LeaveConferenceWebhook.conference_id"""
+
         self.model.conference_id = "TEST_STRING"
         assert self.model.conference_id == "TEST_STRING"
 
     def test_queue_id(self):
         """Test LeaveConferenceWebhook.queue_id"""
+
         self.model.queue_id = "TEST_STRING"
         assert self.model.queue_id == "TEST_STRING"
 

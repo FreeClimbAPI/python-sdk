@@ -26,7 +26,7 @@ class TestRecordUtterance(unittest.TestCase):
 
     def setUp(self):
         self.model = RecordUtterance(
-            action_url="",
+            action_url="TS",
         )
 
     def test_action_url(self):
@@ -41,6 +41,7 @@ class TestRecordUtterance(unittest.TestCase):
 
     def test_finish_on_key(self):
         """Test RecordUtterance.finish_on_key"""
+
         self.model.finish_on_key = "TEST_STRING"
         assert self.model.finish_on_key == "TEST_STRING"
 

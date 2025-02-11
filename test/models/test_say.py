@@ -26,16 +26,18 @@ class TestSay(unittest.TestCase):
 
     def setUp(self):
         self.model = Say(
-            text="",
+            text="TS",
         )
 
     def test_text(self):
         """Test Say.text"""
+
         self.model.text = "TEST_STRING"
         assert self.model.text == "TEST_STRING"
 
     def test_language(self):
         """Test Say.language"""
+
         self.model.language = "TEST_STRING"
         assert self.model.language == "TEST_STRING"
 

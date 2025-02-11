@@ -26,8 +26,8 @@ class TestGetSpeech(unittest.TestCase):
 
     def setUp(self):
         self.model = GetSpeech(
-            action_url="",
-            grammar_file="",
+            action_url="TS",
+            grammar_file="TS",
         )
 
     def test_action_url(self):
@@ -44,11 +44,13 @@ class TestGetSpeech(unittest.TestCase):
 
     def test_grammar_file(self):
         """Test GetSpeech.grammar_file"""
+
         self.model.grammar_file = "TEST_STRING"
         assert self.model.grammar_file == "TEST_STRING"
 
     def test_grammar_rule(self):
         """Test GetSpeech.grammar_rule"""
+
         self.model.grammar_rule = "TEST_STRING"
         assert self.model.grammar_rule == "TEST_STRING"
 

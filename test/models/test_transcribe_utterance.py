@@ -26,7 +26,7 @@ class TestTranscribeUtterance(unittest.TestCase):
 
     def setUp(self):
         self.model = TranscribeUtterance(
-            action_url="",
+            action_url="TS",
         )
 
     def test_action_url(self):

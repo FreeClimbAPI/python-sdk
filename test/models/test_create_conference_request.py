@@ -29,6 +29,7 @@ class TestCreateConferenceRequest(unittest.TestCase):
 
     def test_alias(self):
         """Test CreateConferenceRequest.alias"""
+
         self.model.alias = "TEST_STRING"
         assert self.model.alias == "TEST_STRING"
 

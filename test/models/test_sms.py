@@ -26,23 +26,26 @@ class TestSms(unittest.TestCase):
 
     def setUp(self):
         self.model = Sms(
-            to="",
-            var_from="",
-            text="",
+            to="TS",
+            var_from="TS",
+            text="TS",
         )
 
     def test_to(self):
         """Test Sms.to"""
+
         self.model.to = "TEST_STRING"
         assert self.model.to == "TEST_STRING"
 
     def test_var_from(self):
         """Test Sms.var_from"""
+
         self.model.var_from = "TEST_STRING"
         assert self.model.var_from == "TEST_STRING"
 
     def test_text(self):
         """Test Sms.text"""
+
         self.model.text = "TEST_STRING"
         assert self.model.text == "TEST_STRING"
 

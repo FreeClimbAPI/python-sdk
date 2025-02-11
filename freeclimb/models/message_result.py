@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from freeclimb.models.message_status import MessageStatus
+from freeclimb.models.tfn import TFN
 from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
@@ -99,6 +100,17 @@ class MessageResult(
         description="an array of HTTP URLs which were attached this this message",
         alias="mediaUrls",
     )
+    tfn: Optional[TFN] = None
+    phone_number_id: Optional[StrictStr] = Field(
+        default=None,
+        description="String that uniquely identifies the phoneNumber resource used to send this Message",
+        alias="phoneNumberId",
+    )
+    application_id: Optional[StrictStr] = Field(
+        default=None,
+        description="String that uniquely identifies the Application resource used to send this Message",
+        alias="applicationId",
+    )
 
     __properties: ClassVar[List[str]] = [
         "uri",
@@ -117,6 +129,9 @@ class MessageResult(
         "campaignId",
         "segmentCount",
         "mediaUrls",
+        "tfn",
+        "phoneNumberId",
+        "applicationId",
     ]
 
     def to_str(self) -> str:
@@ -150,6 +165,9 @@ class MessageResult(
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of tfn
+        if self.tfn:
+            _dict["tfn"] = self.tfn.to_dict()
         # set to None if account_id (nullable) is None
         # and model_fields_set contains the field
         if self.account_id is None and "account_id" in self.model_fields_set:
@@ -213,6 +231,16 @@ class MessageResult(
         if self.media_urls is None and "media_urls" in self.model_fields_set:
             _dict["mediaUrls"] = None
 
+        # set to None if phone_number_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.phone_number_id is None and "phone_number_id" in self.model_fields_set:
+            _dict["phoneNumberId"] = None
+
+        # set to None if application_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.application_id is None and "application_id" in self.model_fields_set:
+            _dict["applicationId"] = None
+
         return _dict
 
     @classmethod
@@ -242,6 +270,11 @@ class MessageResult(
                 "campaignId": obj.get("campaignId"),
                 "segmentCount": obj.get("segmentCount"),
                 "mediaUrls": obj.get("mediaUrls"),
+                "tfn": (
+                    TFN.from_dict(obj["tfn"]) if obj.get("tfn") is not None else None
+                ),
+                "phoneNumberId": obj.get("phoneNumberId"),
+                "applicationId": obj.get("applicationId"),
             }
         )
         return _obj

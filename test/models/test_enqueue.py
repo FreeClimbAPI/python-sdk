@@ -26,9 +26,9 @@ class TestEnqueue(unittest.TestCase):
 
     def setUp(self):
         self.model = Enqueue(
-            action_url="",
-            queue_id="",
-            wait_url="",
+            action_url="TS",
+            queue_id="TS",
+            wait_url="TS",
         )
 
     def test_action_url(self):
@@ -43,6 +43,7 @@ class TestEnqueue(unittest.TestCase):
 
     def test_queue_id(self):
         """Test Enqueue.queue_id"""
+
         self.model.queue_id = "TEST_STRING"
         assert self.model.queue_id == "TEST_STRING"
 

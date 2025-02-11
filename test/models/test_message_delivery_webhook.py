@@ -32,46 +32,55 @@ class TestMessageDeliveryWebhook(unittest.TestCase):
 
     def test_account_id(self):
         """Test MessageDeliveryWebhook.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_var_from(self):
         """Test MessageDeliveryWebhook.var_from"""
+
         self.model.var_from = "TEST_STRING"
         assert self.model.var_from == "TEST_STRING"
 
     def test_to(self):
         """Test MessageDeliveryWebhook.to"""
+
         self.model.to = "TEST_STRING"
         assert self.model.to == "TEST_STRING"
 
     def test_text(self):
         """Test MessageDeliveryWebhook.text"""
+
         self.model.text = "TEST_STRING"
         assert self.model.text == "TEST_STRING"
 
     def test_direction(self):
         """Test MessageDeliveryWebhook.direction"""
+
         self.model.direction = "TEST_STRING"
         assert self.model.direction == "TEST_STRING"
 
     def test_application_id(self):
         """Test MessageDeliveryWebhook.application_id"""
+
         self.model.application_id = "TEST_STRING"
         assert self.model.application_id == "TEST_STRING"
 
     def test_status(self):
         """Test MessageDeliveryWebhook.status"""
+
         self.model.status = "TEST_STRING"
         assert self.model.status == "TEST_STRING"
 
     def test_phone_number_id(self):
         """Test MessageDeliveryWebhook.phone_number_id"""
+
         self.model.phone_number_id = "TEST_STRING"
         assert self.model.phone_number_id == "TEST_STRING"
 
     def test_uri(self):
         """Test MessageDeliveryWebhook.uri"""
+
         self.model.uri = "TEST_STRING"
         assert self.model.uri == "TEST_STRING"
 

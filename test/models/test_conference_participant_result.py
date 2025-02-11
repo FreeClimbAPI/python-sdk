@@ -29,16 +29,19 @@ class TestConferenceParticipantResult(unittest.TestCase):
 
     def test_uri(self):
         """Test ConferenceParticipantResult.uri"""
+
         self.model.uri = "TEST_STRING"
         assert self.model.uri == "TEST_STRING"
 
     def test_date_created(self):
         """Test ConferenceParticipantResult.date_created"""
+
         self.model.date_created = "TEST_STRING"
         assert self.model.date_created == "TEST_STRING"
 
     def test_date_updated(self):
         """Test ConferenceParticipantResult.date_updated"""
+
         self.model.date_updated = "TEST_STRING"
         assert self.model.date_updated == "TEST_STRING"
 
@@ -49,16 +52,19 @@ class TestConferenceParticipantResult(unittest.TestCase):
 
     def test_account_id(self):
         """Test ConferenceParticipantResult.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_conference_id(self):
         """Test ConferenceParticipantResult.conference_id"""
+
         self.model.conference_id = "TEST_STRING"
         assert self.model.conference_id == "TEST_STRING"
 
     def test_call_id(self):
         """Test ConferenceParticipantResult.call_id"""
+
         self.model.call_id = "TEST_STRING"
         assert self.model.call_id == "TEST_STRING"
 

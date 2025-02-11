@@ -32,41 +32,49 @@ class TestMessageStatusWebhook(unittest.TestCase):
 
     def test_account_id(self):
         """Test MessageStatusWebhook.account_id"""
+
         self.model.account_id = "TEST_STRING"
         assert self.model.account_id == "TEST_STRING"
 
     def test_message_id(self):
         """Test MessageStatusWebhook.message_id"""
+
         self.model.message_id = "TEST_STRING"
         assert self.model.message_id == "TEST_STRING"
 
     def test_call_id(self):
         """Test MessageStatusWebhook.call_id"""
+
         self.model.call_id = "TEST_STRING"
         assert self.model.call_id == "TEST_STRING"
 
     def test_var_from(self):
         """Test MessageStatusWebhook.var_from"""
+
         self.model.var_from = "TEST_STRING"
         assert self.model.var_from == "TEST_STRING"
 
     def test_to(self):
         """Test MessageStatusWebhook.to"""
+
         self.model.to = "TEST_STRING"
         assert self.model.to == "TEST_STRING"
 
     def test_text(self):
         """Test MessageStatusWebhook.text"""
+
         self.model.text = "TEST_STRING"
         assert self.model.text == "TEST_STRING"
 
     def test_direction(self):
         """Test MessageStatusWebhook.direction"""
+
         self.model.direction = "TEST_STRING"
         assert self.model.direction == "TEST_STRING"
 
     def test_application_id(self):
         """Test MessageStatusWebhook.application_id"""
+
         self.model.application_id = "TEST_STRING"
         assert self.model.application_id == "TEST_STRING"
 
@@ -97,6 +105,7 @@ class TestMessageStatusWebhook(unittest.TestCase):
 
     def test_phone_number_id(self):
         """Test MessageStatusWebhook.phone_number_id"""
+
         self.model.phone_number_id = "TEST_STRING"
         assert self.model.phone_number_id == "TEST_STRING"
 
