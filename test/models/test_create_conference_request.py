@@ -25,7 +25,9 @@ class TestCreateConferenceRequest(unittest.TestCase):
     """CreateConferenceRequest unit test stubs"""
 
     def setUp(self):
-        self.model = CreateConferenceRequest()
+        self.model = CreateConferenceRequest(
+            status_callback_url="TS",
+        )
 
     def test_alias(self):
         """Test CreateConferenceRequest.alias"""
