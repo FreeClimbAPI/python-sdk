@@ -46,8 +46,7 @@ class CreateConferenceRequest(
         description="If specified, a URL for the audio file that provides custom hold music for the Conference when it is in the populated state. Otherwise, FreeClimb uses a system default audio file. This is always fetched using HTTP GET and is fetched just once &mdash; when the Conference is created.",
         alias="waitUrl",
     )
-    status_callback_url: Optional[StrictStr] = Field(
-        default=None,
+    status_callback_url: StrictStr = Field(
         description="This URL is invoked when the status of the Conference changes. For more information, see **statusCallbackUrl** (below).",
         alias="statusCallbackUrl",
     )

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "freeclimb"
-version = "5.1.0"
+version = "5.1.1"
 description = "FreeClimb API"
 authors = ["FreeClimb API Support <support@freeclimb.com>"]
 license = "NoLicense"
