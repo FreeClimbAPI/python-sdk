@@ -92,7 +92,7 @@ class TestAccountResult(unittest.TestCase):
 
     def test_subresource_uris(self):
         """Test AccountResult.subresource_uris"""
-        object = None
+        object = {}
         self.model.subresource_uris = object
         assert self.model.subresource_uris == object
 

@@ -8,13 +8,16 @@ Method | HTTP request | Description
 [**create_a_conference**](DefaultApi.md#create_a_conference) | **POST** /Accounts/{accountId}/Conferences | Create a Conference
 [**create_a_queue**](DefaultApi.md#create_a_queue) | **POST** /Accounts/{accountId}/Queues | Create a Queue
 [**create_an_application**](DefaultApi.md#create_an_application) | **POST** /Accounts/{accountId}/Applications | Create an application
+[**create_export**](DefaultApi.md#create_export) | **POST** /Accounts/{accountId}/Exports | Create an Export
 [**create_knowledge_base_completion**](DefaultApi.md#create_knowledge_base_completion) | **POST** /Accounts/{accountId}/KnowledgeBases/{knowledgeBaseId}/Completion | Query the knowledge base
 [**delete_a_recording**](DefaultApi.md#delete_a_recording) | **DELETE** /Accounts/{accountId}/Recordings/{recordingId} | Delete a Recording
 [**delete_an_application**](DefaultApi.md#delete_an_application) | **DELETE** /Accounts/{accountId}/Applications/{applicationId} | Delete an application
+[**delete_an_export**](DefaultApi.md#delete_an_export) | **DELETE** /Accounts/{accountId}/Exports/{exportId} | Delete an Export
 [**delete_an_incoming_number**](DefaultApi.md#delete_an_incoming_number) | **DELETE** /Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId} | Delete an Incoming Number
 [**dequeue_a_member**](DefaultApi.md#dequeue_a_member) | **POST** /Accounts/{accountId}/Queues/{queueId}/Members/{callId} | Dequeue a Member
 [**dequeue_head_member**](DefaultApi.md#dequeue_head_member) | **POST** /Accounts/{accountId}/Queues/{queueId}/Members/Front | Dequeue Head Member
 [**download_a_recording_file**](DefaultApi.md#download_a_recording_file) | **GET** /Accounts/{accountId}/Recordings/{recordingId}/Download | Download a Recording File
+[**download_an_export**](DefaultApi.md#download_an_export) | **GET** /Accounts/{accountId}/Exports/{exportId}/Download | Download an Export
 [**filter_logs**](DefaultApi.md#filter_logs) | **POST** /Accounts/{accountId}/Logs | Filter Logs
 [**get_a_call**](DefaultApi.md#get_a_call) | **GET** /Accounts/{accountId}/Calls/{callId} | Get a Call
 [**get_a_conference**](DefaultApi.md#get_a_conference) | **GET** /Accounts/{accountId}/Conferences/{conferenceId} | Get a Conference
@@ -24,6 +27,7 @@ Method | HTTP request | Description
 [**get_a_recording**](DefaultApi.md#get_a_recording) | **GET** /Accounts/{accountId}/Recordings/{recordingId} | Get a Recording
 [**get_an_account**](DefaultApi.md#get_an_account) | **GET** /Accounts/{accountId} | Get an Account
 [**get_an_application**](DefaultApi.md#get_an_application) | **GET** /Accounts/{accountId}/Applications/{applicationId} | Get an Application
+[**get_an_export**](DefaultApi.md#get_an_export) | **GET** /Accounts/{accountId}/Exports/{exportId} | Get an Export
 [**get_an_incoming_number**](DefaultApi.md#get_an_incoming_number) | **GET** /Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId} | Get an Incoming Number
 [**get_an_sms_message**](DefaultApi.md#get_an_sms_message) | **GET** /Accounts/{accountId}/Messages/{messageId} | Get an SMS Message
 [**get_head_member**](DefaultApi.md#get_head_member) | **GET** /Accounts/{accountId}/Queues/{queueId}/Members/Front | Get Head Member
@@ -44,6 +48,7 @@ Method | HTTP request | Description
 [**list_calls**](DefaultApi.md#list_calls) | **GET** /Accounts/{accountId}/Calls | List Calls
 [**list_conference_recordings**](DefaultApi.md#list_conference_recordings) | **GET** /Accounts/{accountId}/Conferences/{conferenceId}/Recordings | List Conference Recordings
 [**list_conferences**](DefaultApi.md#list_conferences) | **GET** /Accounts/{accountId}/Conferences | List Conferences
+[**list_exports**](DefaultApi.md#list_exports) | **GET** /Accounts/{accountId}/Exports | List Exports
 [**list_incoming_numbers**](DefaultApi.md#list_incoming_numbers) | **GET** /Accounts/{accountId}/IncomingPhoneNumbers | List Incoming Numbers
 [**list_members**](DefaultApi.md#list_members) | **GET** /Accounts/{accountId}/Queues/{queueId}/Members | List Members
 [**list_participants**](DefaultApi.md#list_participants) | **GET** /Accounts/{accountId}/Conferences/{conferenceId}/Participants | List Participants
@@ -383,6 +388,86 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_export**
+> ExportResult create_export(account_id, export_request=export_request)
+
+Create an Export
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import freeclimb
+from freeclimb.models.export_request import ExportRequest
+from freeclimb.models.export_result import ExportResult
+from freeclimb.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = freeclimb.DefaultApi(api_client)
+    account_id = 'account_id_example' # str | ID of the account
+    export_request = freeclimb.ExportRequest() # ExportRequest | A JSON object containing export creation parameters (optional)
+
+    try:
+        # Create an Export
+        api_response = api_instance.create_export(account_id, export_request=export_request)
+        print("The response of DefaultApi->create_export:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->create_export: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| ID of the account | 
+ **export_request** | [**ExportRequest**](ExportRequest.md)| A JSON object containing export creation parameters | [optional] 
+
+### Return type
+
+[**ExportResult**](ExportResult.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Export successfully created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **create_knowledge_base_completion**
 > CompletionResult create_knowledge_base_completion(account_id, knowledge_base_id, completion_request=completion_request)
 
@@ -614,6 +699,82 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful application deletion |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_an_export**
+> delete_an_export(account_id, export_id)
+
+Delete an Export
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import freeclimb
+from freeclimb.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = freeclimb.DefaultApi(api_client)
+    account_id = 'account_id_example' # str | ID of the account
+    export_id = 'export_id_example' # str | A string that uniquely identifies this export resource.
+
+    try:
+        # Delete an Export
+        api_instance.delete_an_export(account_id, export_id)
+    except Exception as e:
+        print("Exception when calling DefaultApi->delete_an_export: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| ID of the account | 
+ **export_id** | **str**| A string that uniquely identifies this export resource. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Successful Export deletion |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -928,6 +1089,84 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Download a Recording file represented with audio/x-wav mime-type |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **download_an_export**
+> str download_an_export(account_id, export_id)
+
+Download an Export
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import freeclimb
+from freeclimb.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = freeclimb.DefaultApi(api_client)
+    account_id = 'account_id_example' # str | ID of the account
+    export_id = 'export_id_example' # str | A string that uniquely identifies this export resource.
+
+    try:
+        # Download an Export
+        api_response = api_instance.download_an_export(account_id, export_id)
+        print("The response of DefaultApi->download_an_export:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->download_an_export: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| ID of the account | 
+ **export_id** | **str**| A string that uniquely identifies this export resource. | 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/csv
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Export Details |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1642,6 +1881,85 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Application Details |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_an_export**
+> ExportResult get_an_export(account_id, export_id)
+
+Get an Export
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import freeclimb
+from freeclimb.models.export_result import ExportResult
+from freeclimb.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = freeclimb.DefaultApi(api_client)
+    account_id = 'account_id_example' # str | ID of the account
+    export_id = 'export_id_example' # str | A string that uniquely identifies this export resource.
+
+    try:
+        # Get an Export
+        api_response = api_instance.get_an_export(account_id, export_id)
+        print("The response of DefaultApi->get_an_export:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->get_an_export: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| ID of the account | 
+ **export_id** | **str**| A string that uniquely identifies this export resource. | 
+
+### Return type
+
+[**ExportResult**](ExportResult.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Export Details |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3001,7 +3319,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_calls**
-> CallList list_calls(account_id, active=active, to=to, var_from=var_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id, application_id=application_id)
+> CallList list_calls(account_id, active=active, to=to, var_from=var_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id, application_id=application_id, risk_score_min=risk_score_min, risk_score_max=risk_score_max)
 
 List Calls
 
@@ -3046,10 +3364,12 @@ with freeclimb.ApiClient(configuration) as api_client:
     end_time = 'end_time_example' # str | Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss. (optional)
     parent_call_id = 'parent_call_id_example' # str | Only show Calls spawned by the call with this ID. (optional)
     application_id = ['application_id_example'] # List[str] | Only show calls belonging to the given applicationId. This parameter can be repeated to return calls from multiple Applications. (optional)
+    risk_score_min = 56 # int | The minimum riskScore that should be included in the list. (optional)
+    risk_score_max = 56 # int | The maximum riskScore that should be included in the list. (optional)
 
     try:
         # List Calls
-        api_response = api_instance.list_calls(account_id, active=active, to=to, var_from=var_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id, application_id=application_id)
+        api_response = api_instance.list_calls(account_id, active=active, to=to, var_from=var_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id, application_id=application_id, risk_score_min=risk_score_min, risk_score_max=risk_score_max)
         print("The response of DefaultApi->list_calls:\n")
         pprint(api_response)
     except Exception as e:
@@ -3072,6 +3392,8 @@ Name | Type | Description  | Notes
  **end_time** | **str**| Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss. | [optional] 
  **parent_call_id** | **str**| Only show Calls spawned by the call with this ID. | [optional] 
  **application_id** | [**List[str]**](str.md)| Only show calls belonging to the given applicationId. This parameter can be repeated to return calls from multiple Applications. | [optional] 
+ **risk_score_min** | **int**| The minimum riskScore that should be included in the list. | [optional] 
+ **risk_score_max** | **int**| The maximum riskScore that should be included in the list. | [optional] 
 
 ### Return type
 
@@ -3259,6 +3581,88 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List of Conferences |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_exports**
+> ExportList list_exports(account_id, status=status, cursor=cursor)
+
+List Exports
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import freeclimb
+from freeclimb.models.export_list import ExportList
+from freeclimb.models.export_status import ExportStatus
+from freeclimb.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = freeclimb.DefaultApi(api_client)
+    account_id = 'account_id_example' # str | ID of the account
+    status = freeclimb.ExportStatus() # ExportStatus | Status of export (optional)
+    cursor = 'cursor_example' # str | Used to reference pages of a list of exports (optional)
+
+    try:
+        # List Exports
+        api_response = api_instance.list_exports(account_id, status=status, cursor=cursor)
+        print("The response of DefaultApi->list_exports:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->list_exports: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| ID of the account | 
+ **status** | [**ExportStatus**](.md)| Status of export | [optional] 
+ **cursor** | **str**| Used to reference pages of a list of exports | [optional] 
+
+### Return type
+
+[**ExportList**](ExportList.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful retrieved export list |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

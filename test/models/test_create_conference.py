@@ -36,8 +36,9 @@ class TestCreateConference(unittest.TestCase):
 
     def test_alias(self):
         """Test CreateConference.alias"""
-        self.model.alias = False
-        assert self.model.alias == False
+
+        self.model.alias = "TEST_STRING"
+        assert self.model.alias == "TEST_STRING"
 
     def test_play_beep(self):
         """Test CreateConference.play_beep"""
@@ -64,6 +65,12 @@ class TestCreateConference(unittest.TestCase):
         """Test CreateConference.wait_url"""
         self.model.wait_url = "TEST_STRING"
         assert self.model.wait_url == "TEST_STRING"
+
+    def test_parent_call_id(self):
+        """Test CreateConference.parent_call_id"""
+
+        self.model.parent_call_id = "TEST_STRING"
+        assert self.model.parent_call_id == "TEST_STRING"
 
 
 if __name__ == "__main__":

@@ -73,7 +73,10 @@ from freeclimb.models.update_conference_participant_request import (
     UpdateConferenceParticipantRequest,
 )
 from freeclimb.models.update_conference_request import UpdateConferenceRequest
-
+from freeclimb.models.export_list import ExportList
+from freeclimb.models.export_request import ExportRequest
+from freeclimb.models.export_result import ExportResult
+from freeclimb.models.export_result_output import ExportResultOutput
 import unittest
 
 from freeclimb.api.default_api import DefaultApi
@@ -153,6 +156,18 @@ class TestDefaultApi(unittest.TestCase):
 
         assert isinstance(api_response, ApplicationResult)
 
+    def test_create_export(self) -> None:
+        """Test case for create_export
+
+        Create an Export
+        """
+
+        export_request = export_request_create_export_test_value
+
+        api_response = self.api.create_export(export_request=export_request)
+
+        assert isinstance(api_response, ExportResult)
+
     def test_create_knowledge_base_completion(self) -> None:
         """Test case for create_knowledge_base_completion
 
@@ -192,6 +207,16 @@ class TestDefaultApi(unittest.TestCase):
         application_id = application_id_delete_an_application_test_value
 
         api_response = self.api.delete_an_application(application_id=application_id)
+
+    def test_delete_an_export(self) -> None:
+        """Test case for delete_an_export
+
+        Delete an Export
+        """
+
+        export_id = export_id_delete_an_export_test_value
+
+        api_response = self.api.delete_an_export(export_id=export_id)
 
     def test_delete_an_incoming_number(self) -> None:
         """Test case for delete_an_incoming_number
@@ -242,6 +267,18 @@ class TestDefaultApi(unittest.TestCase):
         api_response = self.api.download_a_recording_file(recording_id=recording_id)
 
         assert isinstance(api_response, bytes)
+
+    def test_download_an_export(self) -> None:
+        """Test case for download_an_export
+
+        Download an Export
+        """
+
+        export_id = export_id_download_an_export_test_value
+
+        api_response = self.api.download_an_export(export_id=export_id)
+
+        assert isinstance(api_response, str)
 
     def test_filter_logs(self) -> None:
         """Test case for filter_logs
@@ -354,6 +391,18 @@ class TestDefaultApi(unittest.TestCase):
         api_response = self.api.get_an_application(application_id=application_id)
 
         assert isinstance(api_response, ApplicationResult)
+
+    def test_get_an_export(self) -> None:
+        """Test case for get_an_export
+
+        Get an Export
+        """
+
+        export_id = export_id_get_an_export_test_value
+
+        api_response = self.api.get_an_export(export_id=export_id)
+
+        assert isinstance(api_response, ExportResult)
 
     def test_get_an_incoming_number(self) -> None:
         """Test case for get_an_incoming_number
@@ -614,6 +663,10 @@ class TestDefaultApi(unittest.TestCase):
 
         application_id = application_id_list_calls_test_value
 
+        risk_score_min = risk_score_min_list_calls_test_value
+
+        risk_score_max = risk_score_max_list_calls_test_value
+
         api_response = self.api.list_calls(
             active=active,
             to=to,
@@ -623,6 +676,8 @@ class TestDefaultApi(unittest.TestCase):
             end_time=end_time,
             parent_call_id=parent_call_id,
             application_id=application_id,
+            risk_score_min=risk_score_min,
+            risk_score_max=risk_score_max,
         )
 
         assert isinstance(api_response, CallList)
@@ -667,6 +722,20 @@ class TestDefaultApi(unittest.TestCase):
         )
 
         assert isinstance(api_response, ConferenceList)
+
+    def test_list_exports(self) -> None:
+        """Test case for list_exports
+
+        List Exports
+        """
+
+        status = status_list_exports_test_value
+
+        cursor = cursor_list_exports_test_value
+
+        api_response = self.api.list_exports(status=status, cursor=cursor)
+
+        assert isinstance(api_response, ExportList)
 
     def test_list_incoming_numbers(self) -> None:
         """Test case for list_incoming_numbers
@@ -1196,6 +1265,8 @@ class TestDefaultApi(unittest.TestCase):
         end_time = end_time_list_calls_test_value
         parent_call_id = parent_call_id_list_calls_test_value
         application_id = application_id_list_calls_test_value
+        risk_score_min = risk_score_min_list_calls_test_value
+        risk_score_max = risk_score_max_list_calls_test_value
 
         api_response = self.api.list_calls(
             active=active,
@@ -1206,6 +1277,8 @@ class TestDefaultApi(unittest.TestCase):
             end_time=end_time,
             parent_call_id=parent_call_id,
             application_id=application_id,
+            risk_score_min=risk_score_min,
+            risk_score_max=risk_score_max,
         )
         api_response.next_page_uri = "/Accounts/{accountId}/Calls?cursor=1"
         next_page_api_response = self.api.get_next_page(api_response)
@@ -1253,6 +1326,21 @@ class TestDefaultApi(unittest.TestCase):
         next_page_api_response = self.api.get_next_page(api_response)
 
         assert isinstance(next_page_api_response, ConferenceList)
+
+    def test_list_exports_get_next_page(self):
+        """Test case for get_next_page using list_exports response
+
+        Get Next Page for List Exports  # noqa: E501
+        """
+
+        status = status_list_exports_test_value
+        cursor = cursor_list_exports_test_value
+
+        api_response = self.api.list_exports(status=status, cursor=cursor)
+        api_response.next_page_uri = "/Accounts/{accountId}/Exports?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, ExportList)
 
     def test_list_incoming_numbers_get_next_page(self):
         """Test case for get_next_page using list_incoming_numbers response
@@ -1695,6 +1783,24 @@ completion_request_create_knowledge_base_completion_test_value = CompletionReque
 )
 
 dtmf_pass_through_list_participants_test_value = True
+
+cursor_list_exports_test_value = "cursor_example"
+
+status_list_exports_test_value = None
+
+risk_score_min_list_calls_test_value = 10
+
+risk_score_max_list_calls_test_value = 90
+
+export_request_create_export_test_value = None
+
+export_id_get_an_export_test_value = "get_export_id_example"
+
+export_id_download_an_export_test_value = "download_export_id_example"
+
+status_list_exports_test_value = None
+
+export_id_delete_an_export_test_value = "delete_export_id_example"
 
 if __name__ == "__main__":
     unittest.main()
