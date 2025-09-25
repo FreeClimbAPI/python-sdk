@@ -78,7 +78,7 @@ class CallResult(
         description="If the Call was inbound, this is the ID of the IncomingPhoneNumber that received the Call (DNIS). If the Call was outbound, this is the ID of the phone number from which the Call was placed (ANI).",
         alias="phoneNumberId",
     )
-    call_status: Optional[CallStatus] = Field(default=None, alias="callStatus")
+    status: Optional[CallStatus] = None
     start_time: Optional[StrictStr] = Field(
         default=None,
         description="Start time of the Call (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT). Empty if the Call has not yet been dialed.",
@@ -127,7 +127,7 @@ class CallResult(
         "from",
         "to",
         "phoneNumberId",
-        "callStatus",
+        "status",
         "startTime",
         "connectTime",
         "endTime",
@@ -200,10 +200,10 @@ class CallResult(
         if self.phone_number_id is None and "phone_number_id" in self.model_fields_set:
             _dict["phoneNumberId"] = None
 
-        # set to None if call_status (nullable) is None
+        # set to None if status (nullable) is None
         # and model_fields_set contains the field
-        if self.call_status is None and "call_status" in self.model_fields_set:
-            _dict["callStatus"] = None
+        if self.status is None and "status" in self.model_fields_set:
+            _dict["status"] = None
 
         # set to None if start_time (nullable) is None
         # and model_fields_set contains the field
@@ -279,7 +279,7 @@ class CallResult(
                 "from": obj.get("from"),
                 "to": obj.get("to"),
                 "phoneNumberId": obj.get("phoneNumberId"),
-                "callStatus": obj.get("callStatus"),
+                "status": obj.get("status"),
                 "startTime": obj.get("startTime"),
                 "connectTime": obj.get("connectTime"),
                 "endTime": obj.get("endTime"),

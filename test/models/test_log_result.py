@@ -67,7 +67,7 @@ class TestLogResult(unittest.TestCase):
 
     def test_metadata(self):
         """Test LogResult.metadata"""
-        object = None
+        object = {}
         self.model.metadata = object
         assert self.model.metadata == object
 

@@ -41,7 +41,7 @@ class CreateConference(
         description=" This URL is invoked once the Conference is successfully created. Actions on the Conference, such as adding Participants, can be performed via the PerCL script returned in the response. ",
         alias="actionUrl",
     )
-    alias: Optional[StrictBool] = Field(
+    alias: Optional[StrictStr] = Field(
         default=None, description="Descriptive name for the Conference. "
     )
     play_beep: Optional[PlayBeep] = Field(default=None, alias="playBeep")
@@ -59,6 +59,11 @@ class CreateConference(
         description="If specified, this URL provides the custom hold music for the Conference when it is in the populated state. This attribute is always fetched using HTTP GET and is fetched just once – when the Conference is created. The URL must be an audio file that is reachable and readable by FreeClimb.",
         alias="waitUrl",
     )
+    parent_call_id: Optional[StrictStr] = Field(
+        default=None,
+        description="ID of the Call that created this leg (child call).",
+        alias="parentCallId",
+    )
     command: StrictStr = "CreateConference"
 
     __properties: ClassVar[List[str]] = [
@@ -69,6 +74,7 @@ class CreateConference(
         "record",
         "statusCallbackUrl",
         "waitUrl",
+        "parentCallId",
     ]
 
     def to_str(self) -> str:
@@ -127,6 +133,7 @@ class CreateConference(
                 "record": obj.get("record"),
                 "statusCallbackUrl": obj.get("statusCallbackUrl"),
                 "waitUrl": obj.get("waitUrl"),
+                "parentCallId": obj.get("parentCallId"),
             }
         )
         return _obj

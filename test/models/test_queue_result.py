@@ -85,7 +85,7 @@ class TestQueueResult(unittest.TestCase):
 
     def test_subresource_uris(self):
         """Test QueueResult.subresource_uris"""
-        object = None
+        object = {}
         self.model.subresource_uris = object
         assert self.model.subresource_uris == object
 

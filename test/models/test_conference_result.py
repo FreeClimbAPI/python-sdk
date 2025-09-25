@@ -112,7 +112,7 @@ class TestConferenceResult(unittest.TestCase):
 
     def test_subresource_uris(self):
         """Test ConferenceResult.subresource_uris"""
-        object = None
+        object = {}
         self.model.subresource_uris = object
         assert self.model.subresource_uris == object
 

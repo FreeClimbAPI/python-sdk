@@ -86,24 +86,24 @@ class TestCallResult(unittest.TestCase):
         self.model.phone_number_id = "TEST_STRING"
         assert self.model.phone_number_id == "TEST_STRING"
 
-    def test_call_status(self):
-        """Test CallResult.call_status"""
-        self.model.call_status = CallStatus.QUEUED
-        assert self.model.call_status == CallStatus.QUEUED
-        self.model.call_status = CallStatus.RINGING
-        assert self.model.call_status == CallStatus.RINGING
-        self.model.call_status = CallStatus.IN_PROGRESS
-        assert self.model.call_status == CallStatus.IN_PROGRESS
-        self.model.call_status = CallStatus.CANCELED
-        assert self.model.call_status == CallStatus.CANCELED
-        self.model.call_status = CallStatus.COMPLETED
-        assert self.model.call_status == CallStatus.COMPLETED
-        self.model.call_status = CallStatus.FAILED
-        assert self.model.call_status == CallStatus.FAILED
-        self.model.call_status = CallStatus.BUSY
-        assert self.model.call_status == CallStatus.BUSY
-        self.model.call_status = CallStatus.NO_ANSWER
-        assert self.model.call_status == CallStatus.NO_ANSWER
+    def test_status(self):
+        """Test CallResult.status"""
+        self.model.status = CallStatus.QUEUED
+        assert self.model.status == CallStatus.QUEUED
+        self.model.status = CallStatus.RINGING
+        assert self.model.status == CallStatus.RINGING
+        self.model.status = CallStatus.IN_PROGRESS
+        assert self.model.status == CallStatus.IN_PROGRESS
+        self.model.status = CallStatus.CANCELED
+        assert self.model.status == CallStatus.CANCELED
+        self.model.status = CallStatus.COMPLETED
+        assert self.model.status == CallStatus.COMPLETED
+        self.model.status = CallStatus.FAILED
+        assert self.model.status == CallStatus.FAILED
+        self.model.status = CallStatus.BUSY
+        assert self.model.status == CallStatus.BUSY
+        self.model.status = CallStatus.NO_ANSWER
+        assert self.model.status == CallStatus.NO_ANSWER
 
     def test_start_time(self):
         """Test CallResult.start_time"""
@@ -151,7 +151,7 @@ class TestCallResult(unittest.TestCase):
 
     def test_subresource_uris(self):
         """Test CallResult.subresource_uris"""
-        object = None
+        object = {}
         self.model.subresource_uris = object
         assert self.model.subresource_uris == object
 
