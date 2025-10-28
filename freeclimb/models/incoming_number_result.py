@@ -85,16 +85,6 @@ class IncomingNumberResult(
     country: Optional[StrictStr] = Field(
         default=None, description="Country of this phone number."
     )
-    voice_enabled: Optional[StrictBool] = Field(
-        default=None,
-        description="Indicates whether the phone number can handle Calls. Typically set to true for all numbers.",
-        alias="voiceEnabled",
-    )
-    sms_enabled: Optional[StrictBool] = Field(
-        default=None,
-        description="Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.",
-        alias="smsEnabled",
-    )
     offnet: Optional[StrictBool] = Field(
         default=None,
         description="The offnet field is a boolean representing whether the number is offnet registered or not. This field will be rendered only for requests to the IncomingPhone number resource.",
@@ -115,8 +105,6 @@ class IncomingNumberResult(
         "alias",
         "region",
         "country",
-        "voiceEnabled",
-        "smsEnabled",
         "offnet",
         "tfn",
     ]
@@ -198,16 +186,6 @@ class IncomingNumberResult(
         if self.country is None and "country" in self.model_fields_set:
             _dict["country"] = None
 
-        # set to None if voice_enabled (nullable) is None
-        # and model_fields_set contains the field
-        if self.voice_enabled is None and "voice_enabled" in self.model_fields_set:
-            _dict["voiceEnabled"] = None
-
-        # set to None if sms_enabled (nullable) is None
-        # and model_fields_set contains the field
-        if self.sms_enabled is None and "sms_enabled" in self.model_fields_set:
-            _dict["smsEnabled"] = None
-
         # set to None if offnet (nullable) is None
         # and model_fields_set contains the field
         if self.offnet is None and "offnet" in self.model_fields_set:
@@ -243,8 +221,6 @@ class IncomingNumberResult(
                 "alias": obj.get("alias"),
                 "region": obj.get("region"),
                 "country": obj.get("country"),
-                "voiceEnabled": obj.get("voiceEnabled"),
-                "smsEnabled": obj.get("smsEnabled"),
                 "offnet": obj.get("offnet"),
                 "tfn": (
                     TFN.from_dict(obj["tfn"]) if obj.get("tfn") is not None else None

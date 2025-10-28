@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.capabilities import Capabilities
 from pydantic import StrictStr
@@ -44,16 +44,6 @@ class AvailableNumber(
         description="The phone number, in E.164 format (+ country code and phone number: +18003608245).",
         alias="phoneNumber",
     )
-    voice_enabled: Optional[StrictBool] = Field(
-        default=None,
-        description="Typically set to true for all numbers.",
-        alias="voiceEnabled",
-    )
-    sms_enabled: Optional[StrictBool] = Field(
-        default=None,
-        description="Indicates whether the phone number can send and receive SMS messages.",
-        alias="smsEnabled",
-    )
     region: Optional[StrictStr] = Field(
         default=None, description="The state or province of this phone number."
     )
@@ -65,8 +55,6 @@ class AvailableNumber(
         "capabilities",
         "campaignId",
         "phoneNumber",
-        "voiceEnabled",
-        "smsEnabled",
         "region",
         "country",
     ]
@@ -115,16 +103,6 @@ class AvailableNumber(
         if self.phone_number is None and "phone_number" in self.model_fields_set:
             _dict["phoneNumber"] = None
 
-        # set to None if voice_enabled (nullable) is None
-        # and model_fields_set contains the field
-        if self.voice_enabled is None and "voice_enabled" in self.model_fields_set:
-            _dict["voiceEnabled"] = None
-
-        # set to None if sms_enabled (nullable) is None
-        # and model_fields_set contains the field
-        if self.sms_enabled is None and "sms_enabled" in self.model_fields_set:
-            _dict["smsEnabled"] = None
-
         # set to None if region (nullable) is None
         # and model_fields_set contains the field
         if self.region is None and "region" in self.model_fields_set:
@@ -155,8 +133,6 @@ class AvailableNumber(
                 ),
                 "campaignId": obj.get("campaignId"),
                 "phoneNumber": obj.get("phoneNumber"),
-                "voiceEnabled": obj.get("voiceEnabled"),
-                "smsEnabled": obj.get("smsEnabled"),
                 "region": obj.get("region"),
                 "country": obj.get("country"),
             }

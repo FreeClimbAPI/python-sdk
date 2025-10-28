@@ -18,47 +18,22 @@ import pydantic_core
 from datetime import datetime
 import freeclimb
 from freeclimb import *
-from freeclimb.models.say import Say
+from freeclimb.models.replace_blob_request import ReplaceBlobRequest
 
 
-class TestSay(unittest.TestCase):
-    """Say unit test stubs"""
+class TestReplaceBlobRequest(unittest.TestCase):
+    """ReplaceBlobRequest unit test stubs"""
 
     def setUp(self):
-        self.model = Say(
-            text="TS",
+        self.model = ReplaceBlobRequest(
+            blob={},
         )
 
-    def test_text(self):
-        """Test Say.text"""
-
-        self.model.text = "TEST_STRING"
-        assert self.model.text == "TEST_STRING"
-
-    def test_language(self):
-        """Test Say.language"""
-
-        self.model.language = "TEST_STRING"
-        assert self.model.language == "TEST_STRING"
-
-    def test_engine(self):
-        """Test Say.engine"""
-        object = freeclimb.models.tts_engine.TTSEngine(
-            name="freeclimb.standard",
-            parameters={},
-        )
-        self.model.engine = object
-        assert self.model.engine == object
-
-    def test_loop(self):
-        """Test Say.loop"""
-        self.model.loop = 1
-        assert self.model.loop == 1
-
-    def test_privacy_mode(self):
-        """Test Say.privacy_mode"""
-        self.model.privacy_mode = False
-        assert self.model.privacy_mode == False
+    def test_blob(self):
+        """Test ReplaceBlobRequest.blob"""
+        object = {}
+        self.model.blob = object
+        assert self.model.blob == object
 
 
 if __name__ == "__main__":

@@ -110,16 +110,6 @@ class TestIncomingNumberResult(unittest.TestCase):
         self.model.country = "TEST_STRING"
         assert self.model.country == "TEST_STRING"
 
-    def test_voice_enabled(self):
-        """Test IncomingNumberResult.voice_enabled"""
-        self.model.voice_enabled = False
-        assert self.model.voice_enabled == False
-
-    def test_sms_enabled(self):
-        """Test IncomingNumberResult.sms_enabled"""
-        self.model.sms_enabled = False
-        assert self.model.sms_enabled == False
-
     def test_offnet(self):
         """Test IncomingNumberResult.offnet"""
         self.model.offnet = False

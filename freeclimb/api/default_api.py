@@ -33,6 +33,8 @@ from freeclimb.models.application_list import ApplicationList
 from freeclimb.models.application_request import ApplicationRequest
 from freeclimb.models.application_result import ApplicationResult
 from freeclimb.models.available_number_list import AvailableNumberList
+from freeclimb.models.blob_list_response import BlobListResponse
+from freeclimb.models.blob_result import BlobResult
 from freeclimb.models.buy_incoming_number_request import BuyIncomingNumberRequest
 from freeclimb.models.call_list import CallList
 from freeclimb.models.call_result import CallResult
@@ -43,6 +45,7 @@ from freeclimb.models.conference_list import ConferenceList
 from freeclimb.models.conference_participant_list import ConferenceParticipantList
 from freeclimb.models.conference_participant_result import ConferenceParticipantResult
 from freeclimb.models.conference_result import ConferenceResult
+from freeclimb.models.create_blob_request import CreateBlobRequest
 from freeclimb.models.create_conference_request import CreateConferenceRequest
 from freeclimb.models.create_web_rtc_token import CreateWebRTCToken
 from freeclimb.models.export_list import ExportList
@@ -59,6 +62,7 @@ from freeclimb.models.message_direction import MessageDirection
 from freeclimb.models.message_request import MessageRequest
 from freeclimb.models.message_result import MessageResult
 from freeclimb.models.messages_list import MessagesList
+from freeclimb.models.modify_blob_request import ModifyBlobRequest
 from freeclimb.models.queue_list import QueueList
 from freeclimb.models.queue_member import QueueMember
 from freeclimb.models.queue_member_list import QueueMemberList
@@ -66,6 +70,7 @@ from freeclimb.models.queue_request import QueueRequest
 from freeclimb.models.queue_result import QueueResult
 from freeclimb.models.recording_list import RecordingList
 from freeclimb.models.recording_result import RecordingResult
+from freeclimb.models.replace_blob_request import ReplaceBlobRequest
 from freeclimb.models.sms_ten_dlc_brand import SMSTenDLCBrand
 from freeclimb.models.sms_ten_dlc_brands_list_result import SMSTenDLCBrandsListResult
 from freeclimb.models.sms_ten_dlc_campaign import SMSTenDLCCampaign
@@ -1263,6 +1268,300 @@ class DefaultApi:
         return self.api_client.param_serialize(
             method="POST",
             resource_path="/Accounts/{accountId}/Applications",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
+    def create_blob(
+        self,
+        create_blob_request: Annotated[
+            CreateBlobRequest,
+            Field(
+                description="An object defining a new blob. A request body must be provided but the blob may be empty."
+            ),
+        ],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> BlobResult:
+        """Create a Blob
+
+        Create a new Blob belonging to the requesting account.
+
+        :param create_blob_request: An object defining a new blob. A request body must be provided but the blob may be empty. (required)
+        :type create_blob_request: CreateBlobRequest
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._create_blob_serialize(
+            account_id=account_id,
+            create_blob_request=create_blob_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "201": "BlobResult",
+            "400": "PlatformError",
+            "409": "PlatformError",
+            "413": "PlatformError",
+            "422": "PlatformError",
+            "500": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    @validate_call
+    def create_blob_with_http_info(
+        self,
+        create_blob_request: Annotated[
+            CreateBlobRequest,
+            Field(
+                description="An object defining a new blob. A request body must be provided but the blob may be empty."
+            ),
+        ],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[BlobResult]:
+        """Create a Blob
+
+        Create a new Blob belonging to the requesting account.
+
+        :param create_blob_request: An object defining a new blob. A request body must be provided but the blob may be empty. (required)
+        :type create_blob_request: CreateBlobRequest
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._create_blob_serialize(
+            account_id=account_id,
+            create_blob_request=create_blob_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "201": "BlobResult",
+            "400": "PlatformError",
+            "409": "PlatformError",
+            "413": "PlatformError",
+            "422": "PlatformError",
+            "500": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+    @validate_call
+    def create_blob_without_preload_content(
+        self,
+        create_blob_request: Annotated[
+            CreateBlobRequest,
+            Field(
+                description="An object defining a new blob. A request body must be provided but the blob may be empty."
+            ),
+        ],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Create a Blob
+
+        Create a new Blob belonging to the requesting account.
+
+        :param create_blob_request: An object defining a new blob. A request body must be provided but the blob may be empty. (required)
+        :type create_blob_request: CreateBlobRequest
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._create_blob_serialize(
+            account_id=account_id,
+            create_blob_request=create_blob_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "201": "BlobResult",
+            "400": "PlatformError",
+            "409": "PlatformError",
+            "413": "PlatformError",
+            "422": "PlatformError",
+            "500": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+    def _create_blob_serialize(
+        self,
+        account_id,
+        create_blob_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if account_id is not None:
+            _path_params["accountId"] = account_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if create_blob_request is not None:
+            _body_params = create_blob_request
+
+        # set the HTTP header `Accept`
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params["Content-Type"] = _content_type
+        else:
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
+            )
+            if _default_content_type is not None:
+                _header_params["Content-Type"] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = ["fc"]
+
+        return self.api_client.param_serialize(
+            method="POST",
+            resource_path="/Accounts/{accountId}/Blobs",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2886,6 +3185,293 @@ class DefaultApi:
         )
 
     @validate_call
+    def delete_blob(
+        self,
+        blob_id: Annotated[
+            str,
+            Field(
+                strict=True,
+                description="String that uniquely identifies this Blob resource.",
+            ),
+        ],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> BlobResult:
+        """Delete Blob
+
+        Deletes a blob or specific keys from a blob. If no keys are specified in the request body, the entire blob is deleted (returns 204). If specific keys are provided, only those keys are removed and the remaining blob is returned (returns 200).
+
+        :param blob_id: String that uniquely identifies this Blob resource. (required)
+        :type blob_id: str
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._delete_blob_serialize(
+            account_id=account_id,
+            blob_id=blob_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "BlobResult",
+            "204": None,
+            "404": "PlatformError",
+            "422": "PlatformError",
+            "500": "PlatformError",
+            "504": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    @validate_call
+    def delete_blob_with_http_info(
+        self,
+        blob_id: Annotated[
+            str,
+            Field(
+                strict=True,
+                description="String that uniquely identifies this Blob resource.",
+            ),
+        ],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[BlobResult]:
+        """Delete Blob
+
+        Deletes a blob or specific keys from a blob. If no keys are specified in the request body, the entire blob is deleted (returns 204). If specific keys are provided, only those keys are removed and the remaining blob is returned (returns 200).
+
+        :param blob_id: String that uniquely identifies this Blob resource. (required)
+        :type blob_id: str
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._delete_blob_serialize(
+            account_id=account_id,
+            blob_id=blob_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "BlobResult",
+            "204": None,
+            "404": "PlatformError",
+            "422": "PlatformError",
+            "500": "PlatformError",
+            "504": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+    @validate_call
+    def delete_blob_without_preload_content(
+        self,
+        blob_id: Annotated[
+            str,
+            Field(
+                strict=True,
+                description="String that uniquely identifies this Blob resource.",
+            ),
+        ],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Delete Blob
+
+        Deletes a blob or specific keys from a blob. If no keys are specified in the request body, the entire blob is deleted (returns 204). If specific keys are provided, only those keys are removed and the remaining blob is returned (returns 200).
+
+        :param blob_id: String that uniquely identifies this Blob resource. (required)
+        :type blob_id: str
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._delete_blob_serialize(
+            account_id=account_id,
+            blob_id=blob_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "BlobResult",
+            "204": None,
+            "404": "PlatformError",
+            "422": "PlatformError",
+            "500": "PlatformError",
+            "504": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+    def _delete_blob_serialize(
+        self,
+        account_id,
+        blob_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if account_id is not None:
+            _path_params["accountId"] = account_id
+        if blob_id is not None:
+            _path_params["blobId"] = blob_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+        # set the HTTP header `Accept`
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
+            )
+
+        # authentication setting
+        _auth_settings: List[str] = ["fc"]
+
+        return self.api_client.param_serialize(
+            method="DELETE",
+            resource_path="/Accounts/{accountId}/Blobs/{blobId}",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
     def dequeue_a_member(
         self,
         queue_id: Annotated[
@@ -3680,7 +4266,7 @@ class DefaultApi:
         # set the HTTP header `Accept`
         if "Accept" not in _header_params:
             _header_params["Accept"] = self.api_client.select_header_accept(
-                ["audio/x-wav"]
+                ["audio/wav"]
             )
 
         # authentication setting
@@ -7139,6 +7725,287 @@ class DefaultApi:
         return self.api_client.param_serialize(
             method="GET",
             resource_path="/Accounts/{accountId}/Messages/{messageId}",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
+    def get_blob(
+        self,
+        blob_id: Annotated[
+            str,
+            Field(
+                strict=True,
+                description="String that uniquely identifies this Blob resource.",
+            ),
+        ],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> BlobResult:
+        """Get Blob
+
+        Retrieves a specified blob
+
+        :param blob_id: String that uniquely identifies this Blob resource. (required)
+        :type blob_id: str
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._get_blob_serialize(
+            account_id=account_id,
+            blob_id=blob_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "BlobResult",
+            "404": "PlatformError",
+            "500": "PlatformError",
+            "504": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    @validate_call
+    def get_blob_with_http_info(
+        self,
+        blob_id: Annotated[
+            str,
+            Field(
+                strict=True,
+                description="String that uniquely identifies this Blob resource.",
+            ),
+        ],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[BlobResult]:
+        """Get Blob
+
+        Retrieves a specified blob
+
+        :param blob_id: String that uniquely identifies this Blob resource. (required)
+        :type blob_id: str
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._get_blob_serialize(
+            account_id=account_id,
+            blob_id=blob_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "BlobResult",
+            "404": "PlatformError",
+            "500": "PlatformError",
+            "504": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+    @validate_call
+    def get_blob_without_preload_content(
+        self,
+        blob_id: Annotated[
+            str,
+            Field(
+                strict=True,
+                description="String that uniquely identifies this Blob resource.",
+            ),
+        ],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get Blob
+
+        Retrieves a specified blob
+
+        :param blob_id: String that uniquely identifies this Blob resource. (required)
+        :type blob_id: str
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._get_blob_serialize(
+            account_id=account_id,
+            blob_id=blob_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "BlobResult",
+            "404": "PlatformError",
+            "500": "PlatformError",
+            "504": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+    def _get_blob_serialize(
+        self,
+        account_id,
+        blob_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if account_id is not None:
+            _path_params["accountId"] = account_id
+        if blob_id is not None:
+            _path_params["blobId"] = blob_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+        # set the HTTP header `Accept`
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
+            )
+
+        # authentication setting
+        _auth_settings: List[str] = ["fc"]
+
+        return self.api_client.param_serialize(
+            method="GET",
+            resource_path="/Accounts/{accountId}/Blobs/{blobId}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -10716,6 +11583,251 @@ class DefaultApi:
         )
 
     @validate_call
+    def list_blobs(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> BlobListResponse:
+        """List Blobs belonging to an account.
+
+        List Blobs belonging to an account. Results are returned in paginated lists mirroring other listing features in the API.
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._list_blobs_serialize(
+            account_id=account_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "BlobListResponse",
+            "400": "PlatformError",
+            "500": "PlatformError",
+            "504": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    @validate_call
+    def list_blobs_with_http_info(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[BlobListResponse]:
+        """List Blobs belonging to an account.
+
+        List Blobs belonging to an account. Results are returned in paginated lists mirroring other listing features in the API.
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._list_blobs_serialize(
+            account_id=account_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "BlobListResponse",
+            "400": "PlatformError",
+            "500": "PlatformError",
+            "504": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+    @validate_call
+    def list_blobs_without_preload_content(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """List Blobs belonging to an account.
+
+        List Blobs belonging to an account. Results are returned in paginated lists mirroring other listing features in the API.
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._list_blobs_serialize(
+            account_id=account_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "BlobListResponse",
+            "400": "PlatformError",
+            "500": "PlatformError",
+            "504": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+    def _list_blobs_serialize(
+        self,
+        account_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if account_id is not None:
+            _path_params["accountId"] = account_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+        # set the HTTP header `Accept`
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
+            )
+
+        # authentication setting
+        _auth_settings: List[str] = ["fc"]
+
+        return self.api_client.param_serialize(
+            method="GET",
+            resource_path="/Accounts/{accountId}/Blobs",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
     def list_call_logs(
         self,
         call_id: Annotated[
@@ -12880,18 +13992,6 @@ class DefaultApi:
                 description="Indication of whether the phone number has an application linked to it."
             ),
         ] = None,
-        voice_enabled: Annotated[
-            Optional[StrictBool],
-            Field(
-                description="Indicates whether the phone number can handle Calls. Typically set to true for all numbers."
-            ),
-        ] = None,
-        sms_enabled: Annotated[
-            Optional[StrictBool],
-            Field(
-                description="Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers."
-            ),
-        ] = None,
         has_campaign: Annotated[
             Optional[StrictBool],
             Field(
@@ -12948,12 +14048,6 @@ class DefaultApi:
         :param has_application: Indication of whether the phone number has an application linked to it.
         :type has_application: bool
 
-        :param voice_enabled: Indicates whether the phone number can handle Calls. Typically set to true for all numbers.
-        :type voice_enabled: bool
-
-        :param sms_enabled: Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.
-        :type sms_enabled: bool
-
         :param has_campaign: Indication of whether the phone number has a campaign associated with it
         :type has_campaign: bool
 
@@ -13009,8 +14103,6 @@ class DefaultApi:
             country=country,
             application_id=application_id,
             has_application=has_application,
-            voice_enabled=voice_enabled,
-            sms_enabled=sms_enabled,
             has_campaign=has_campaign,
             capabilities_voice=capabilities_voice,
             capabilities_sms=capabilities_sms,
@@ -13071,18 +14163,6 @@ class DefaultApi:
                 description="Indication of whether the phone number has an application linked to it."
             ),
         ] = None,
-        voice_enabled: Annotated[
-            Optional[StrictBool],
-            Field(
-                description="Indicates whether the phone number can handle Calls. Typically set to true for all numbers."
-            ),
-        ] = None,
-        sms_enabled: Annotated[
-            Optional[StrictBool],
-            Field(
-                description="Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers."
-            ),
-        ] = None,
         has_campaign: Annotated[
             Optional[StrictBool],
             Field(
@@ -13139,12 +14219,6 @@ class DefaultApi:
         :param has_application: Indication of whether the phone number has an application linked to it.
         :type has_application: bool
 
-        :param voice_enabled: Indicates whether the phone number can handle Calls. Typically set to true for all numbers.
-        :type voice_enabled: bool
-
-        :param sms_enabled: Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.
-        :type sms_enabled: bool
-
         :param has_campaign: Indication of whether the phone number has a campaign associated with it
         :type has_campaign: bool
 
@@ -13200,8 +14274,6 @@ class DefaultApi:
             country=country,
             application_id=application_id,
             has_application=has_application,
-            voice_enabled=voice_enabled,
-            sms_enabled=sms_enabled,
             has_campaign=has_campaign,
             capabilities_voice=capabilities_voice,
             capabilities_sms=capabilities_sms,
@@ -13262,18 +14334,6 @@ class DefaultApi:
                 description="Indication of whether the phone number has an application linked to it."
             ),
         ] = None,
-        voice_enabled: Annotated[
-            Optional[StrictBool],
-            Field(
-                description="Indicates whether the phone number can handle Calls. Typically set to true for all numbers."
-            ),
-        ] = None,
-        sms_enabled: Annotated[
-            Optional[StrictBool],
-            Field(
-                description="Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers."
-            ),
-        ] = None,
         has_campaign: Annotated[
             Optional[StrictBool],
             Field(
@@ -13330,12 +14390,6 @@ class DefaultApi:
         :param has_application: Indication of whether the phone number has an application linked to it.
         :type has_application: bool
 
-        :param voice_enabled: Indicates whether the phone number can handle Calls. Typically set to true for all numbers.
-        :type voice_enabled: bool
-
-        :param sms_enabled: Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.
-        :type sms_enabled: bool
-
         :param has_campaign: Indication of whether the phone number has a campaign associated with it
         :type has_campaign: bool
 
@@ -13391,8 +14445,6 @@ class DefaultApi:
             country=country,
             application_id=application_id,
             has_application=has_application,
-            voice_enabled=voice_enabled,
-            sms_enabled=sms_enabled,
             has_campaign=has_campaign,
             capabilities_voice=capabilities_voice,
             capabilities_sms=capabilities_sms,
@@ -13424,8 +14476,6 @@ class DefaultApi:
         country,
         application_id,
         has_application,
-        voice_enabled,
-        sms_enabled,
         has_campaign,
         capabilities_voice,
         capabilities_sms,
@@ -13480,14 +14530,6 @@ class DefaultApi:
         if has_application is not None:
 
             _query_params.append(("hasApplication", has_application))
-
-        if voice_enabled is not None:
-
-            _query_params.append(("voiceEnabled", voice_enabled))
-
-        if sms_enabled is not None:
-
-            _query_params.append(("smsEnabled", sms_enabled))
 
         if has_campaign is not None:
 
@@ -15539,6 +16581,333 @@ class DefaultApi:
         )
 
     @validate_call
+    def modify_blob(
+        self,
+        blob_id: Annotated[
+            str,
+            Field(
+                strict=True,
+                description="String that uniquely identifies this Blob resource.",
+            ),
+        ],
+        modify_blob_request: Annotated[
+            ModifyBlobRequest,
+            Field(
+                description="Request body to specify keys to modify. Or new keys to add onto the already existing blob"
+            ),
+        ],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> BlobResult:
+        """Modify Blob
+
+        Modifys a pre existing blob by either adding new fields, or modifying existing fields
+
+        :param blob_id: String that uniquely identifies this Blob resource. (required)
+        :type blob_id: str
+
+        :param modify_blob_request: Request body to specify keys to modify. Or new keys to add onto the already existing blob (required)
+        :type modify_blob_request: ModifyBlobRequest
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._modify_blob_serialize(
+            account_id=account_id,
+            blob_id=blob_id,
+            modify_blob_request=modify_blob_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "BlobResult",
+            "404": "PlatformError",
+            "409": "PlatformError",
+            "413": "PlatformError",
+            "500": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    @validate_call
+    def modify_blob_with_http_info(
+        self,
+        blob_id: Annotated[
+            str,
+            Field(
+                strict=True,
+                description="String that uniquely identifies this Blob resource.",
+            ),
+        ],
+        modify_blob_request: Annotated[
+            ModifyBlobRequest,
+            Field(
+                description="Request body to specify keys to modify. Or new keys to add onto the already existing blob"
+            ),
+        ],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[BlobResult]:
+        """Modify Blob
+
+        Modifys a pre existing blob by either adding new fields, or modifying existing fields
+
+        :param blob_id: String that uniquely identifies this Blob resource. (required)
+        :type blob_id: str
+
+        :param modify_blob_request: Request body to specify keys to modify. Or new keys to add onto the already existing blob (required)
+        :type modify_blob_request: ModifyBlobRequest
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._modify_blob_serialize(
+            account_id=account_id,
+            blob_id=blob_id,
+            modify_blob_request=modify_blob_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "BlobResult",
+            "404": "PlatformError",
+            "409": "PlatformError",
+            "413": "PlatformError",
+            "500": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+    @validate_call
+    def modify_blob_without_preload_content(
+        self,
+        blob_id: Annotated[
+            str,
+            Field(
+                strict=True,
+                description="String that uniquely identifies this Blob resource.",
+            ),
+        ],
+        modify_blob_request: Annotated[
+            ModifyBlobRequest,
+            Field(
+                description="Request body to specify keys to modify. Or new keys to add onto the already existing blob"
+            ),
+        ],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Modify Blob
+
+        Modifys a pre existing blob by either adding new fields, or modifying existing fields
+
+        :param blob_id: String that uniquely identifies this Blob resource. (required)
+        :type blob_id: str
+
+        :param modify_blob_request: Request body to specify keys to modify. Or new keys to add onto the already existing blob (required)
+        :type modify_blob_request: ModifyBlobRequest
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._modify_blob_serialize(
+            account_id=account_id,
+            blob_id=blob_id,
+            modify_blob_request=modify_blob_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "BlobResult",
+            "404": "PlatformError",
+            "409": "PlatformError",
+            "413": "PlatformError",
+            "500": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+    def _modify_blob_serialize(
+        self,
+        account_id,
+        blob_id,
+        modify_blob_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if account_id is not None:
+            _path_params["accountId"] = account_id
+        if blob_id is not None:
+            _path_params["blobId"] = blob_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if modify_blob_request is not None:
+            _body_params = modify_blob_request
+
+        # set the HTTP header `Accept`
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params["Content-Type"] = _content_type
+        else:
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
+            )
+            if _default_content_type is not None:
+                _header_params["Content-Type"] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = ["fc"]
+
+        return self.api_client.param_serialize(
+            method="PATCH",
+            resource_path="/Accounts/{accountId}/Blobs/{blobId}",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
     def remove_a_participant(
         self,
         conference_id: Annotated[
@@ -15804,6 +17173,333 @@ class DefaultApi:
         return self.api_client.param_serialize(
             method="DELETE",
             resource_path="/Accounts/{accountId}/Conferences/{conferenceId}/Participants/{callId}",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
+    def replace_blob(
+        self,
+        blob_id: Annotated[
+            str,
+            Field(
+                strict=True,
+                description="String that uniquely identifies this Blob resource.",
+            ),
+        ],
+        replace_blob_request: Annotated[
+            ReplaceBlobRequest,
+            Field(
+                description="JSON object containing blob key the contents of which will be used to override the enitre blob contents."
+            ),
+        ],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> BlobResult:
+        """Replace Blob
+
+        Replaces the blob content with the provided values.
+
+        :param blob_id: String that uniquely identifies this Blob resource. (required)
+        :type blob_id: str
+
+        :param replace_blob_request: JSON object containing blob key the contents of which will be used to override the enitre blob contents. (required)
+        :type replace_blob_request: ReplaceBlobRequest
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._replace_blob_serialize(
+            account_id=account_id,
+            blob_id=blob_id,
+            replace_blob_request=replace_blob_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "BlobResult",
+            "404": "PlatformError",
+            "409": "PlatformError",
+            "413": "PlatformError",
+            "500": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    @validate_call
+    def replace_blob_with_http_info(
+        self,
+        blob_id: Annotated[
+            str,
+            Field(
+                strict=True,
+                description="String that uniquely identifies this Blob resource.",
+            ),
+        ],
+        replace_blob_request: Annotated[
+            ReplaceBlobRequest,
+            Field(
+                description="JSON object containing blob key the contents of which will be used to override the enitre blob contents."
+            ),
+        ],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[BlobResult]:
+        """Replace Blob
+
+        Replaces the blob content with the provided values.
+
+        :param blob_id: String that uniquely identifies this Blob resource. (required)
+        :type blob_id: str
+
+        :param replace_blob_request: JSON object containing blob key the contents of which will be used to override the enitre blob contents. (required)
+        :type replace_blob_request: ReplaceBlobRequest
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._replace_blob_serialize(
+            account_id=account_id,
+            blob_id=blob_id,
+            replace_blob_request=replace_blob_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "BlobResult",
+            "404": "PlatformError",
+            "409": "PlatformError",
+            "413": "PlatformError",
+            "500": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+    @validate_call
+    def replace_blob_without_preload_content(
+        self,
+        blob_id: Annotated[
+            str,
+            Field(
+                strict=True,
+                description="String that uniquely identifies this Blob resource.",
+            ),
+        ],
+        replace_blob_request: Annotated[
+            ReplaceBlobRequest,
+            Field(
+                description="JSON object containing blob key the contents of which will be used to override the enitre blob contents."
+            ),
+        ],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Replace Blob
+
+        Replaces the blob content with the provided values.
+
+        :param blob_id: String that uniquely identifies this Blob resource. (required)
+        :type blob_id: str
+
+        :param replace_blob_request: JSON object containing blob key the contents of which will be used to override the enitre blob contents. (required)
+        :type replace_blob_request: ReplaceBlobRequest
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+        account_id = self.account_id
+
+        _param = self._replace_blob_serialize(
+            account_id=account_id,
+            blob_id=blob_id,
+            replace_blob_request=replace_blob_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "BlobResult",
+            "404": "PlatformError",
+            "409": "PlatformError",
+            "413": "PlatformError",
+            "500": "PlatformError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+    def _replace_blob_serialize(
+        self,
+        account_id,
+        blob_id,
+        replace_blob_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if account_id is not None:
+            _path_params["accountId"] = account_id
+        if blob_id is not None:
+            _path_params["blobId"] = blob_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if replace_blob_request is not None:
+            _body_params = replace_blob_request
+
+        # set the HTTP header `Accept`
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params["Content-Type"] = _content_type
+        else:
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
+            )
+            if _default_content_type is not None:
+                _header_params["Content-Type"] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = ["fc"]
+
+        return self.api_client.param_serialize(
+            method="PUT",
+            resource_path="/Accounts/{accountId}/Blobs/{blobId}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -16328,7 +18024,7 @@ class DefaultApi:
         # set the HTTP header `Accept`
         if "Accept" not in _header_params:
             _header_params["Accept"] = self.api_client.select_header_accept(
-                ["audio/x-wav"]
+                ["audio/wav"]
             )
 
         # authentication setting

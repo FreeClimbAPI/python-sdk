@@ -77,6 +77,11 @@ from freeclimb.models.export_list import ExportList
 from freeclimb.models.export_request import ExportRequest
 from freeclimb.models.export_result import ExportResult
 from freeclimb.models.export_result_output import ExportResultOutput
+from freeclimb.models.create_blob_request import CreateBlobRequest
+from freeclimb.models.modify_blob_request import ModifyBlobRequest
+from freeclimb.models.replace_blob_request import ReplaceBlobRequest
+from freeclimb.models.blob_list_response import BlobListResponse
+from freeclimb.models.blob_result import BlobResult
 import unittest
 
 from freeclimb.api.default_api import DefaultApi
@@ -88,8 +93,8 @@ class TestDefaultApi(unittest.TestCase):
     def setUp(self) -> None:
         configuration = freeclimb.Configuration(
             host="http://127.0.0.1:4010",
-            username="TEST_ACCOUNT_ID",
-            password="TEST_API_KEY",
+            username="AC0123456789abcdefABCDEF0123456789abcdef00",
+            password="APIKEY456789abcdefABCDEF0123456789abcdef00",
         )
 
         api_client = freeclimb.ApiClient(configuration)
@@ -155,6 +160,18 @@ class TestDefaultApi(unittest.TestCase):
         )
 
         assert isinstance(api_response, ApplicationResult)
+
+    def test_create_blob(self) -> None:
+        """Test case for create_blob
+
+        Create a Blob
+        """
+
+        create_blob_request = create_blob_request_create_blob_test_value
+
+        api_response = self.api.create_blob(create_blob_request=create_blob_request)
+
+        assert isinstance(api_response, BlobResult)
 
     def test_create_export(self) -> None:
         """Test case for create_export
@@ -229,6 +246,18 @@ class TestDefaultApi(unittest.TestCase):
         api_response = self.api.delete_an_incoming_number(
             phone_number_id=phone_number_id
         )
+
+    def test_delete_blob(self) -> None:
+        """Test case for delete_blob
+
+        Delete Blob
+        """
+
+        blob_id = blob_id_delete_blob_test_value
+
+        api_response = self.api.delete_blob(blob_id=blob_id)
+
+        assert isinstance(api_response, BlobResult)
 
     def test_dequeue_a_member(self) -> None:
         """Test case for dequeue_a_member
@@ -428,6 +457,18 @@ class TestDefaultApi(unittest.TestCase):
 
         assert isinstance(api_response, MessageResult)
 
+    def test_get_blob(self) -> None:
+        """Test case for get_blob
+
+        Get Blob
+        """
+
+        blob_id = blob_id_get_blob_test_value
+
+        api_response = self.api.get_blob(blob_id=blob_id)
+
+        assert isinstance(api_response, BlobResult)
+
     def test_get_head_member(self) -> None:
         """Test case for get_head_member
 
@@ -613,6 +654,16 @@ class TestDefaultApi(unittest.TestCase):
 
         assert isinstance(api_response, AvailableNumberList)
 
+    def test_list_blobs(self) -> None:
+        """Test case for list_blobs
+
+        List Blobs belonging to an account.
+        """
+
+        api_response = self.api.list_blobs()
+
+        assert isinstance(api_response, BlobListResponse)
+
     def test_list_call_logs(self) -> None:
         """Test case for list_call_logs
 
@@ -755,10 +806,6 @@ class TestDefaultApi(unittest.TestCase):
 
         has_application = has_application_list_incoming_numbers_test_value
 
-        voice_enabled = voice_enabled_list_incoming_numbers_test_value
-
-        sms_enabled = sms_enabled_list_incoming_numbers_test_value
-
         has_campaign = has_campaign_list_incoming_numbers_test_value
 
         capabilities_voice = capabilities_voice_list_incoming_numbers_test_value
@@ -784,8 +831,6 @@ class TestDefaultApi(unittest.TestCase):
             country=country,
             application_id=application_id,
             has_application=has_application,
-            voice_enabled=voice_enabled,
-            sms_enabled=sms_enabled,
             has_campaign=has_campaign,
             capabilities_voice=capabilities_voice,
             capabilities_sms=capabilities_sms,
@@ -912,6 +957,22 @@ class TestDefaultApi(unittest.TestCase):
 
         assert isinstance(api_response, str)
 
+    def test_modify_blob(self) -> None:
+        """Test case for modify_blob
+
+        Modify Blob
+        """
+
+        blob_id = blob_id_modify_blob_test_value
+
+        modify_blob_request = modify_blob_request_modify_blob_test_value
+
+        api_response = self.api.modify_blob(
+            blob_id=blob_id, modify_blob_request=modify_blob_request
+        )
+
+        assert isinstance(api_response, BlobResult)
+
     def test_remove_a_participant(self) -> None:
         """Test case for remove_a_participant
 
@@ -925,6 +986,22 @@ class TestDefaultApi(unittest.TestCase):
         api_response = self.api.remove_a_participant(
             conference_id=conference_id, call_id=call_id
         )
+
+    def test_replace_blob(self) -> None:
+        """Test case for replace_blob
+
+        Replace Blob
+        """
+
+        blob_id = blob_id_replace_blob_test_value
+
+        replace_blob_request = replace_blob_request_replace_blob_test_value
+
+        api_response = self.api.replace_blob(
+            blob_id=blob_id, replace_blob_request=replace_blob_request
+        )
+
+        assert isinstance(api_response, BlobResult)
 
     def test_send_an_sms_message(self) -> None:
         """Test case for send_an_sms_message
@@ -1216,6 +1293,18 @@ class TestDefaultApi(unittest.TestCase):
 
         assert isinstance(next_page_api_response, AvailableNumberList)
 
+    def test_list_blobs_get_next_page(self):
+        """Test case for get_next_page using list_blobs response
+
+        Get Next Page for List Blobs belonging to an account.  # noqa: E501
+        """
+
+        api_response = self.api.list_blobs()
+        api_response.next_page_uri = "/Accounts/{accountId}/Blobs?cursor=1"
+        next_page_api_response = self.api.get_next_page(api_response)
+
+        assert isinstance(next_page_api_response, BlobListResponse)
+
     def test_list_call_logs_get_next_page(self):
         """Test case for get_next_page using list_call_logs response
 
@@ -1354,8 +1443,6 @@ class TestDefaultApi(unittest.TestCase):
         country = country_list_incoming_numbers_test_value
         application_id = application_id_list_incoming_numbers_test_value
         has_application = has_application_list_incoming_numbers_test_value
-        voice_enabled = voice_enabled_list_incoming_numbers_test_value
-        sms_enabled = sms_enabled_list_incoming_numbers_test_value
         has_campaign = has_campaign_list_incoming_numbers_test_value
         capabilities_voice = capabilities_voice_list_incoming_numbers_test_value
         capabilities_sms = capabilities_sms_list_incoming_numbers_test_value
@@ -1374,8 +1461,6 @@ class TestDefaultApi(unittest.TestCase):
             country=country,
             application_id=application_id,
             has_application=has_application,
-            voice_enabled=voice_enabled,
-            sms_enabled=sms_enabled,
             has_campaign=has_campaign,
             capabilities_voice=capabilities_voice,
             capabilities_sms=capabilities_sms,
@@ -1801,6 +1886,34 @@ export_id_download_an_export_test_value = "download_export_id_example"
 status_list_exports_test_value = None
 
 export_id_delete_an_export_test_value = "delete_export_id_example"
+
+alias_list_blobs_test_value = "alias_test_value"
+
+blob_id_replace_blob_test_value = "BL0123456789abcdefABCDEF0123456789abcdef00"
+
+blob_id_get_blob_test_value = "BL0123456789abcdefABCDEF0123456789abcdef00"
+
+create_blob_request_create_blob_test_value = CreateBlobRequest(
+    alias="alias_test_value", expires_at="2025-10-21T12:00:00Z", blob={}
+)
+
+alias_list_blobs_test_value = ["not sure"]
+
+blob_id_delete_blob_test_value = "BL0123456789abcdefABCDEF0123456789abcdef00"
+
+alias_list_blobs_test_value = ["not sure"]
+
+blob_id_modify_blob_test_value = "BL0123456789abcdefABCDEF0123456789abcdef00"
+
+key_delete_blob_test_value = ["not sure"]
+
+cursor_list_blobs_test_value = "cursor_test_value"
+
+modify_blob_request_modify_blob_test_value = ModifyBlobRequest(
+    blob={}, alias="alias_test_value"
+)
+
+replace_blob_request_replace_blob_test_value = ReplaceBlobRequest(blob={})
 
 if __name__ == "__main__":
     unittest.main()

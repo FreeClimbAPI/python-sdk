@@ -18,52 +18,33 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from freeclimb.models.percl_command import PerclCommand
-from freeclimb.models.tts_engine import TTSEngine
+from typing_extensions import Annotated
 from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
 
-class Say(
-    PerclCommand,
-    populate_by_name=True,
-    validate_assignment=True,
-    protected_namespaces=(),
+class CreateBlobRequest(
+    BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()
 ):
     """
-    The `Say` command provides Text-To-Speech (TTS) support. It converts text to speech and then renders it in a female voice back to the caller. `Say` is useful in cases where it's difficult to pre-record a prompt for any reason. `Say` does not allow barge-in unless nested within a `GetSpeech` command. The file will always be played to completion unless nested.
+    CreateBlobRequest
     """  # noqa: E501
 
-    text: StrictStr = Field(
-        description="The message to be played to the caller using TTS. The size of the string is limited to 4 KB (or 4,096 bytes). An empty string will cause the command to be skipped."
-    )
-    language: Optional[StrictStr] = Field(
+    alias: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(
         default=None,
-        description="Language and (by implication) the locale to use. This implies the accent and pronunciations to be usde for the TTS. The complete list of valid values for the language attribute is shown below.",
+        description="Custom identifier for this blob that is unique for the owning account. It will be set to the blobId by default if not provided.",
     )
-    engine: Optional[TTSEngine] = None
-    loop: Optional[StrictInt] = Field(
-        default=1,
-        description="Number of times the text is said. Specifying '0' causes the `Say` action to loop until the Call is hung up.",
-    )
-    privacy_mode: Optional[StrictBool] = Field(
+    expires_at: Optional[StrictStr] = Field(
         default=None,
-        description="Parameter `privacyMode` will not log the `text` as required by PCI compliance.",
-        alias="privacyMode",
+        description="An RFC3339 timestamp with millisecond resolution. This timestamp defines the time at which this blob will delete itself. It must not be more than 48 hours in the future and will default to 9 hours in the future if not provided.",
+        alias="expiresAt",
     )
-    command: StrictStr = "Say"
+    blob: Dict[str, Any]
 
-    __properties: ClassVar[List[str]] = [
-        "command",
-        "text",
-        "language",
-        "engine",
-        "loop",
-        "privacyMode",
-    ]
+    __properties: ClassVar[List[str]] = ["alias", "expiresAt", "blob"]
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -76,7 +57,7 @@ class Say(
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Say from a JSON string"""
+        """Create an instance of CreateBlobRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -96,14 +77,11 @@ class Say(
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of engine
-        if self.engine:
-            _dict["engine"] = self.engine.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Say from a dict"""
+        """Create an instance of CreateBlobRequest from a dict"""
         if obj is None:
             return None
 
@@ -112,16 +90,9 @@ class Say(
 
         _obj = cls.model_validate(
             {
-                "command": obj.get("command"),
-                "text": obj.get("text"),
-                "language": obj.get("language"),
-                "engine": (
-                    TTSEngine.from_dict(obj["engine"])
-                    if obj.get("engine") is not None
-                    else None
-                ),
-                "loop": obj.get("loop") if obj.get("loop") is not None else 1,
-                "privacyMode": obj.get("privacyMode"),
+                "alias": obj.get("alias"),
+                "expiresAt": obj.get("expiresAt"),
+                "blob": obj.get("blob"),
             }
         )
         return _obj

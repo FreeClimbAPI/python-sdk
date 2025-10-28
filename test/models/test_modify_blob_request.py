@@ -18,47 +18,30 @@ import pydantic_core
 from datetime import datetime
 import freeclimb
 from freeclimb import *
-from freeclimb.models.say import Say
+from freeclimb.models.modify_blob_request import ModifyBlobRequest
 
 
-class TestSay(unittest.TestCase):
-    """Say unit test stubs"""
+class TestModifyBlobRequest(unittest.TestCase):
+    """ModifyBlobRequest unit test stubs"""
 
     def setUp(self):
-        self.model = Say(
-            text="TS",
+        self.model = ModifyBlobRequest(
+            blob={},
         )
 
-    def test_text(self):
-        """Test Say.text"""
+    def test_blob(self):
+        """Test ModifyBlobRequest.blob"""
+        object = {}
+        self.model.blob = object
+        assert self.model.blob == object
 
-        self.model.text = "TEST_STRING"
-        assert self.model.text == "TEST_STRING"
+    def test_alias(self):
+        """Test ModifyBlobRequest.alias"""
+        self.model.alias = "T" * 64
+        assert self.model.alias == "T" * 64
 
-    def test_language(self):
-        """Test Say.language"""
-
-        self.model.language = "TEST_STRING"
-        assert self.model.language == "TEST_STRING"
-
-    def test_engine(self):
-        """Test Say.engine"""
-        object = freeclimb.models.tts_engine.TTSEngine(
-            name="freeclimb.standard",
-            parameters={},
-        )
-        self.model.engine = object
-        assert self.model.engine == object
-
-    def test_loop(self):
-        """Test Say.loop"""
-        self.model.loop = 1
-        assert self.model.loop == 1
-
-    def test_privacy_mode(self):
-        """Test Say.privacy_mode"""
-        self.model.privacy_mode = False
-        assert self.model.privacy_mode == False
+        with self.assertRaises(pydantic_core._pydantic_core.ValidationError) as info:
+            self.model.alias = "T" * (64 + 1)
 
 
 if __name__ == "__main__":

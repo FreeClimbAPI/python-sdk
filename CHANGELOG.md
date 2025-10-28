@@ -9,6 +9,15 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 None
 
+<a name="5.3.0"></a>
+
+## [5.3.0] - 2025-10-27
+
+### Added
+
+- Add models for new TTS models and engine setup
+- Add models and default api methods for Blob API
+
 <a name="5.2.0"></a>
 
 ## [5.2.0] - 2025-09-23
