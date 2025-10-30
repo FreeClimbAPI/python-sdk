@@ -18,47 +18,29 @@ import pydantic_core
 from datetime import datetime
 import freeclimb
 from freeclimb import *
-from freeclimb.models.say import Say
+from freeclimb.models.tts_engine import TTSEngine
 
 
-class TestSay(unittest.TestCase):
-    """Say unit test stubs"""
+class TestTTSEngine(unittest.TestCase):
+    """TTSEngine unit test stubs"""
 
     def setUp(self):
-        self.model = Say(
-            text="TS",
-        )
+        self.model = TTSEngine()
 
-    def test_text(self):
-        """Test Say.text"""
+    def test_name(self):
+        """Test TTSEngine.name"""
+        self.model.name = TTSEngineName.FREECLIMB_STANDARD
+        assert self.model.name == TTSEngineName.FREECLIMB_STANDARD
+        self.model.name = TTSEngineName.FREECLIMB_NEURAL
+        assert self.model.name == TTSEngineName.FREECLIMB_NEURAL
+        self.model.name = TTSEngineName.ELEVEN_LABS
+        assert self.model.name == TTSEngineName.ELEVEN_LABS
 
-        self.model.text = "TEST_STRING"
-        assert self.model.text == "TEST_STRING"
-
-    def test_language(self):
-        """Test Say.language"""
-
-        self.model.language = "TEST_STRING"
-        assert self.model.language == "TEST_STRING"
-
-    def test_engine(self):
-        """Test Say.engine"""
-        object = freeclimb.models.tts_engine.TTSEngine(
-            name="freeclimb.standard",
-            parameters={},
-        )
-        self.model.engine = object
-        assert self.model.engine == object
-
-    def test_loop(self):
-        """Test Say.loop"""
-        self.model.loop = 1
-        assert self.model.loop == 1
-
-    def test_privacy_mode(self):
-        """Test Say.privacy_mode"""
-        self.model.privacy_mode = False
-        assert self.model.privacy_mode == False
+    def test_parameters(self):
+        """Test TTSEngine.parameters"""
+        object = {}
+        self.model.parameters = object
+        assert self.model.parameters == object
 
 
 if __name__ == "__main__":

@@ -18,47 +18,37 @@ import pydantic_core
 from datetime import datetime
 import freeclimb
 from freeclimb import *
-from freeclimb.models.say import Say
+from freeclimb.models.platform_error import PlatformError
 
 
-class TestSay(unittest.TestCase):
-    """Say unit test stubs"""
+class TestPlatformError(unittest.TestCase):
+    """PlatformError unit test stubs"""
 
     def setUp(self):
-        self.model = Say(
-            text="TS",
-        )
+        self.model = PlatformError()
 
-    def test_text(self):
-        """Test Say.text"""
+    def test_code(self):
+        """Test PlatformError.code"""
+        self.model.code = 1
+        assert self.model.code == 1
 
-        self.model.text = "TEST_STRING"
-        assert self.model.text == "TEST_STRING"
+    def test_call(self):
+        """Test PlatformError.call"""
 
-    def test_language(self):
-        """Test Say.language"""
+        self.model.call = "TEST_STRING"
+        assert self.model.call == "TEST_STRING"
 
-        self.model.language = "TEST_STRING"
-        assert self.model.language == "TEST_STRING"
+    def test_url(self):
+        """Test PlatformError.url"""
 
-    def test_engine(self):
-        """Test Say.engine"""
-        object = freeclimb.models.tts_engine.TTSEngine(
-            name="freeclimb.standard",
-            parameters={},
-        )
-        self.model.engine = object
-        assert self.model.engine == object
+        self.model.url = "TEST_STRING"
+        assert self.model.url == "TEST_STRING"
 
-    def test_loop(self):
-        """Test Say.loop"""
-        self.model.loop = 1
-        assert self.model.loop == 1
-
-    def test_privacy_mode(self):
-        """Test Say.privacy_mode"""
-        self.model.privacy_mode = False
-        assert self.model.privacy_mode == False
+    def test_details(self):
+        """Test PlatformError.details"""
+        object = {}
+        self.model.details = object
+        assert self.model.details == object
 
 
 if __name__ == "__main__":

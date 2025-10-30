@@ -14,6 +14,8 @@ docs/ApplicationResult.md
 docs/AvailableNumber.md
 docs/AvailableNumberList.md
 docs/BargeInReason.md
+docs/BlobListResponse.md
+docs/BlobResult.md
 docs/BuyIncomingNumberRequest.md
 docs/CallControlWebhook.md
 docs/CallDirection.md
@@ -33,6 +35,7 @@ docs/ConferenceRecordingStatusWebhook.md
 docs/ConferenceResult.md
 docs/ConferenceStatus.md
 docs/ConferenceStatusWebhook.md
+docs/CreateBlobRequest.md
 docs/CreateConference.md
 docs/CreateConferenceRequest.md
 docs/CreateConferenceWebhook.md
@@ -79,6 +82,7 @@ docs/MessageResult.md
 docs/MessageStatus.md
 docs/MessageStatusWebhook.md
 docs/MessagesList.md
+docs/ModifyBlobRequest.md
 docs/MutableResourceModel.md
 docs/OutDial.md
 docs/OutDialApiConnectWebhook.md
@@ -89,6 +93,7 @@ docs/Park.md
 docs/Pause.md
 docs/PerclCommand.md
 docs/PerclScript.md
+docs/PlatformError.md
 docs/Play.md
 docs/PlayBeep.md
 docs/PlayEarlyMedia.md
@@ -109,6 +114,7 @@ docs/RedirectWebhook.md
 docs/Reject.md
 docs/RemoveFromConference.md
 docs/RemoveFromQueueNotificationWebhook.md
+docs/ReplaceBlobRequest.md
 docs/RequestType.md
 docs/SMSTenDLCBrand.md
 docs/SMSTenDLCBrandAltBusinessIdType.md
@@ -136,6 +142,8 @@ docs/Sms.md
 docs/StartRecordCall.md
 docs/TFN.md
 docs/TFNCampaign.md
+docs/TTSEngine.md
+docs/TTSEngineName.md
 docs/TerminateConference.md
 docs/TranscribeReason.md
 docs/TranscribeTermReason.md
@@ -171,6 +179,8 @@ freeclimb/models/application_result.py
 freeclimb/models/available_number.py
 freeclimb/models/available_number_list.py
 freeclimb/models/barge_in_reason.py
+freeclimb/models/blob_list_response.py
+freeclimb/models/blob_result.py
 freeclimb/models/buy_incoming_number_request.py
 freeclimb/models/call_control_webhook.py
 freeclimb/models/call_direction.py
@@ -190,6 +200,7 @@ freeclimb/models/conference_recording_status_webhook.py
 freeclimb/models/conference_result.py
 freeclimb/models/conference_status.py
 freeclimb/models/conference_status_webhook.py
+freeclimb/models/create_blob_request.py
 freeclimb/models/create_conference.py
 freeclimb/models/create_conference_request.py
 freeclimb/models/create_conference_webhook.py
@@ -235,6 +246,7 @@ freeclimb/models/message_result.py
 freeclimb/models/message_status.py
 freeclimb/models/message_status_webhook.py
 freeclimb/models/messages_list.py
+freeclimb/models/modify_blob_request.py
 freeclimb/models/mutable_resource_model.py
 freeclimb/models/out_dial.py
 freeclimb/models/out_dial_api_connect_webhook.py
@@ -245,6 +257,7 @@ freeclimb/models/park.py
 freeclimb/models/pause.py
 freeclimb/models/percl_command.py
 freeclimb/models/percl_script.py
+freeclimb/models/platform_error.py
 freeclimb/models/play.py
 freeclimb/models/play_beep.py
 freeclimb/models/play_early_media.py
@@ -265,6 +278,7 @@ freeclimb/models/redirect_webhook.py
 freeclimb/models/reject.py
 freeclimb/models/remove_from_conference.py
 freeclimb/models/remove_from_queue_notification_webhook.py
+freeclimb/models/replace_blob_request.py
 freeclimb/models/request_type.py
 freeclimb/models/say.py
 freeclimb/models/send_digits.py
@@ -298,6 +312,8 @@ freeclimb/models/transcribe_term_reason.py
 freeclimb/models/transcribe_utterance.py
 freeclimb/models/transcribe_utterance_record.py
 freeclimb/models/transcribe_webhook.py
+freeclimb/models/tts_engine.py
+freeclimb/models/tts_engine_name.py
 freeclimb/models/unpark.py
 freeclimb/models/update_call_request.py
 freeclimb/models/update_call_request_status.py
@@ -326,6 +342,8 @@ test/test_application_result.py
 test/test_available_number.py
 test/test_available_number_list.py
 test/test_barge_in_reason.py
+test/test_blob_list_response.py
+test/test_blob_result.py
 test/test_buy_incoming_number_request.py
 test/test_call_control_webhook.py
 test/test_call_direction.py
@@ -345,6 +363,7 @@ test/test_conference_recording_status_webhook.py
 test/test_conference_result.py
 test/test_conference_status.py
 test/test_conference_status_webhook.py
+test/test_create_blob_request.py
 test/test_create_conference.py
 test/test_create_conference_request.py
 test/test_create_conference_webhook.py
@@ -391,6 +410,7 @@ test/test_message_result.py
 test/test_message_status.py
 test/test_message_status_webhook.py
 test/test_messages_list.py
+test/test_modify_blob_request.py
 test/test_mutable_resource_model.py
 test/test_out_dial.py
 test/test_out_dial_api_connect_webhook.py
@@ -401,6 +421,7 @@ test/test_park.py
 test/test_pause.py
 test/test_percl_command.py
 test/test_percl_script.py
+test/test_platform_error.py
 test/test_play.py
 test/test_play_beep.py
 test/test_play_early_media.py
@@ -421,6 +442,7 @@ test/test_redirect_webhook.py
 test/test_reject.py
 test/test_remove_from_conference.py
 test/test_remove_from_queue_notification_webhook.py
+test/test_replace_blob_request.py
 test/test_request_type.py
 test/test_say.py
 test/test_send_digits.py
@@ -454,6 +476,8 @@ test/test_transcribe_term_reason.py
 test/test_transcribe_utterance.py
 test/test_transcribe_utterance_record.py
 test/test_transcribe_webhook.py
+test/test_tts_engine.py
+test/test_tts_engine_name.py
 test/test_unpark.py
 test/test_update_call_request.py
 test/test_update_call_request_status.py

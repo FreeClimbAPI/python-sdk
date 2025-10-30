@@ -8,12 +8,14 @@ Method | HTTP request | Description
 [**create_a_conference**](DefaultApi.md#create_a_conference) | **POST** /Accounts/{accountId}/Conferences | Create a Conference
 [**create_a_queue**](DefaultApi.md#create_a_queue) | **POST** /Accounts/{accountId}/Queues | Create a Queue
 [**create_an_application**](DefaultApi.md#create_an_application) | **POST** /Accounts/{accountId}/Applications | Create an application
+[**create_blob**](DefaultApi.md#create_blob) | **POST** /Accounts/{accountId}/Blobs | Create a Blob
 [**create_export**](DefaultApi.md#create_export) | **POST** /Accounts/{accountId}/Exports | Create an Export
 [**create_knowledge_base_completion**](DefaultApi.md#create_knowledge_base_completion) | **POST** /Accounts/{accountId}/KnowledgeBases/{knowledgeBaseId}/Completion | Query the knowledge base
 [**delete_a_recording**](DefaultApi.md#delete_a_recording) | **DELETE** /Accounts/{accountId}/Recordings/{recordingId} | Delete a Recording
 [**delete_an_application**](DefaultApi.md#delete_an_application) | **DELETE** /Accounts/{accountId}/Applications/{applicationId} | Delete an application
 [**delete_an_export**](DefaultApi.md#delete_an_export) | **DELETE** /Accounts/{accountId}/Exports/{exportId} | Delete an Export
 [**delete_an_incoming_number**](DefaultApi.md#delete_an_incoming_number) | **DELETE** /Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId} | Delete an Incoming Number
+[**delete_blob**](DefaultApi.md#delete_blob) | **DELETE** /Accounts/{accountId}/Blobs/{blobId} | Delete Blob
 [**dequeue_a_member**](DefaultApi.md#dequeue_a_member) | **POST** /Accounts/{accountId}/Queues/{queueId}/Members/{callId} | Dequeue a Member
 [**dequeue_head_member**](DefaultApi.md#dequeue_head_member) | **POST** /Accounts/{accountId}/Queues/{queueId}/Members/Front | Dequeue Head Member
 [**download_a_recording_file**](DefaultApi.md#download_a_recording_file) | **GET** /Accounts/{accountId}/Recordings/{recordingId}/Download | Download a Recording File
@@ -30,6 +32,7 @@ Method | HTTP request | Description
 [**get_an_export**](DefaultApi.md#get_an_export) | **GET** /Accounts/{accountId}/Exports/{exportId} | Get an Export
 [**get_an_incoming_number**](DefaultApi.md#get_an_incoming_number) | **GET** /Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId} | Get an Incoming Number
 [**get_an_sms_message**](DefaultApi.md#get_an_sms_message) | **GET** /Accounts/{accountId}/Messages/{messageId} | Get an SMS Message
+[**get_blob**](DefaultApi.md#get_blob) | **GET** /Accounts/{accountId}/Blobs/{blobId} | Get Blob
 [**get_head_member**](DefaultApi.md#get_head_member) | **GET** /Accounts/{accountId}/Queues/{queueId}/Members/Front | Get Head Member
 [**get_ten_dlc_sms_brand**](DefaultApi.md#get_ten_dlc_sms_brand) | **GET** /Accounts/{accountId}/Messages/10DLC/Brands/{brandId} | Get a 10DLC SMS Brand
 [**get_ten_dlc_sms_brands**](DefaultApi.md#get_ten_dlc_sms_brands) | **GET** /Accounts/{accountId}/Messages/10DLC/Brands | Get list of SMS 10DLC Brands
@@ -43,6 +46,7 @@ Method | HTTP request | Description
 [**list_all_account_logs**](DefaultApi.md#list_all_account_logs) | **GET** /Accounts/{accountId}/Logs | List All Account Logs
 [**list_applications**](DefaultApi.md#list_applications) | **GET** /Accounts/{accountId}/Applications | List applications
 [**list_available_numbers**](DefaultApi.md#list_available_numbers) | **GET** /AvailablePhoneNumbers | List available numbers
+[**list_blobs**](DefaultApi.md#list_blobs) | **GET** /Accounts/{accountId}/Blobs | List Blobs belonging to an account.
 [**list_call_logs**](DefaultApi.md#list_call_logs) | **GET** /Accounts/{accountId}/Calls/{callId}/Logs | List Call Logs
 [**list_call_recordings**](DefaultApi.md#list_call_recordings) | **GET** /Accounts/{accountId}/Calls/{callId}/Recordings | List Call Recordings
 [**list_calls**](DefaultApi.md#list_calls) | **GET** /Accounts/{accountId}/Calls | List Calls
@@ -56,7 +60,9 @@ Method | HTTP request | Description
 [**list_sms_messages**](DefaultApi.md#list_sms_messages) | **GET** /Accounts/{accountId}/Messages | List SMS Messages
 [**make_a_call**](DefaultApi.md#make_a_call) | **POST** /Accounts/{accountId}/Calls | Make a Call
 [**make_a_webrtc_jwt**](DefaultApi.md#make_a_webrtc_jwt) | **POST** /Accounts/{accountId}/Calls/WebRTC/Token | Make a JWT for WebRTC calling
+[**modify_blob**](DefaultApi.md#modify_blob) | **PATCH** /Accounts/{accountId}/Blobs/{blobId} | Modify Blob
 [**remove_a_participant**](DefaultApi.md#remove_a_participant) | **DELETE** /Accounts/{accountId}/Conferences/{conferenceId}/Participants/{callId} | Remove a Participant
+[**replace_blob**](DefaultApi.md#replace_blob) | **PUT** /Accounts/{accountId}/Blobs/{blobId} | Replace Blob
 [**send_an_sms_message**](DefaultApi.md#send_an_sms_message) | **POST** /Accounts/{accountId}/Messages | Send an SMS Message
 [**stream_a_recording_file**](DefaultApi.md#stream_a_recording_file) | **GET** /Accounts/{accountId}/Recordings/{recordingId}/Stream | Stream a Recording File
 [**update_a_conference**](DefaultApi.md#update_a_conference) | **POST** /Accounts/{accountId}/Conferences/{conferenceId} | Update a Conference
@@ -105,7 +111,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     buy_incoming_number_request = freeclimb.BuyIncomingNumberRequest() # BuyIncomingNumberRequest | Incoming Number transaction details
 
     try:
@@ -185,7 +191,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     create_conference_request = freeclimb.CreateConferenceRequest() # CreateConferenceRequest | Conference to create (optional)
 
     try:
@@ -265,7 +271,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     queue_request = freeclimb.QueueRequest() # QueueRequest | Queue details used to create a queue (optional)
 
     try:
@@ -345,7 +351,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     application_request = freeclimb.ApplicationRequest() # ApplicationRequest | Application Details (optional)
 
     try:
@@ -388,6 +394,93 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_blob**
+> BlobResult create_blob(account_id, create_blob_request)
+
+Create a Blob
+
+Create a new Blob belonging to the requesting account.
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import freeclimb
+from freeclimb.models.blob_result import BlobResult
+from freeclimb.models.create_blob_request import CreateBlobRequest
+from freeclimb.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = freeclimb.DefaultApi(api_client)
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
+    create_blob_request = {"blob":{}} # CreateBlobRequest | An object defining a new blob. A request body must be provided but the blob may be empty.
+
+    try:
+        # Create a Blob
+        api_response = api_instance.create_blob(account_id, create_blob_request)
+        print("The response of DefaultApi->create_blob:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->create_blob: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| ID of the account | 
+ **create_blob_request** | [**CreateBlobRequest**](CreateBlobRequest.md)| An object defining a new blob. A request body must be provided but the blob may be empty. | 
+
+### Return type
+
+[**BlobResult**](BlobResult.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Successful creation of a new blob. |  -  |
+**400** | Generic platform bad request. |  -  |
+**409** | A blob with the provided alias already exists oln the requesting account and so this new blob is rejected as there cannot be duplicate alises. |  -  |
+**413** | The blob exceeded one of the size limits. Either it itself is too large or it would push the total sum of all blobs over the account&#39;s limit. |  -  |
+**422** | Generic platform unprocessible entity response. |  -  |
+**500** | Generic platform internal error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **create_export**
 > ExportResult create_export(account_id, export_request=export_request)
 
@@ -425,7 +518,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     export_request = freeclimb.ExportRequest() # ExportRequest | A JSON object containing export creation parameters (optional)
 
     try:
@@ -505,7 +598,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     knowledge_base_id = 'knowledge_base_id_example' # str | A string that uniquely identifies the KnowledgeBase resource.
     completion_request = freeclimb.CompletionRequest() # CompletionRequest | Completion request details (optional)
 
@@ -585,7 +678,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     recording_id = 'recording_id_example' # str | String that uniquely identifies this recording resource.
 
     try:
@@ -661,7 +754,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     application_id = 'application_id_example' # str | String that uniquely identifies this application resource.
 
     try:
@@ -737,7 +830,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     export_id = 'export_id_example' # str | A string that uniquely identifies this export resource.
 
     try:
@@ -813,7 +906,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     phone_number_id = 'phone_number_id_example' # str | String that uniquely identifies this phone number resource.
 
     try:
@@ -854,6 +947,92 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_blob**
+> BlobResult delete_blob(account_id, blob_id)
+
+Delete Blob
+
+Deletes a blob or specific keys from a blob. If no keys are specified in the request body, the entire blob is deleted (returns 204). If specific keys are provided, only those keys are removed and the remaining blob is returned (returns 200).
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import freeclimb
+from freeclimb.models.blob_result import BlobResult
+from freeclimb.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = freeclimb.DefaultApi(api_client)
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
+    blob_id = 'blob_id_example' # str | String that uniquely identifies this Blob resource.
+
+    try:
+        # Delete Blob
+        api_response = api_instance.delete_blob(account_id, blob_id)
+        print("The response of DefaultApi->delete_blob:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->delete_blob: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| ID of the account | 
+ **blob_id** | **str**| String that uniquely identifies this Blob resource. | 
+
+### Return type
+
+[**BlobResult**](BlobResult.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Blob keys deleted successfully, remaining blob returned. |  -  |
+**204** | Successful operation |  -  |
+**404** | Generic platform not found error. |  -  |
+**422** | Generic platform unprocessible entity response. |  -  |
+**500** | Generic platform internal error. |  -  |
+**504** | gateway timeout error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **dequeue_a_member**
 > QueueMember dequeue_a_member(account_id, queue_id, call_id)
 
@@ -890,7 +1069,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     queue_id = 'queue_id_example' # str | String that uniquely identifies the Queue that the Member belongs to.
     call_id = 'call_id_example' # str | ID if the Call that the Member belongs to
 
@@ -971,7 +1150,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     queue_id = 'queue_id_example' # str | String that uniquely identifies this queue resource.
 
     try:
@@ -1049,7 +1228,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     recording_id = 'recording_id_example' # str | String that uniquely identifies this recording resource.
 
     try:
@@ -1082,13 +1261,13 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: audio/x-wav
+ - **Accept**: audio/wav
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Download a Recording file represented with audio/x-wav mime-type |  -  |
+**200** | Download a Recording file represented with audio/wav mime-type |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1127,7 +1306,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     export_id = 'export_id_example' # str | A string that uniquely identifies this export resource.
 
     try:
@@ -1207,7 +1386,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     filter_logs_request = freeclimb.FilterLogsRequest() # FilterLogsRequest | Filter logs request paramters
 
     try:
@@ -1286,7 +1465,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     call_id = 'call_id_example' # str | String that uniquely identifies this call resource.
 
     try:
@@ -1365,7 +1544,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     conference_id = 'conference_id_example' # str | A string that uniquely identifies this conference resource.
 
     try:
@@ -1444,7 +1623,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     queue_id = 'queue_id_example' # str | String that uniquely identifies the Queue that the Member belongs to.
     call_id = 'call_id_example' # str | ID of the Call that the Member belongs to
 
@@ -1525,7 +1704,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     conference_id = 'conference_id_example' # str | ID of the conference this participant is in.
     call_id = 'call_id_example' # str | ID of the Call associated with this participant.
 
@@ -1606,7 +1785,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     queue_id = 'queue_id_example' # str | A string that uniquely identifies this queue resource.
 
     try:
@@ -1685,7 +1864,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     recording_id = 'recording_id_example' # str | String that uniquely identifies this recording resource.
 
     try:
@@ -1764,7 +1943,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
 
     try:
         # Get an Account
@@ -1841,7 +2020,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     application_id = 'application_id_example' # str | A string that uniquely identifies this application resource.
 
     try:
@@ -1920,7 +2099,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     export_id = 'export_id_example' # str | A string that uniquely identifies this export resource.
 
     try:
@@ -1999,7 +2178,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     phone_number_id = 'phone_number_id_example' # str | String that uniquely identifies this phone number resource.
 
     try:
@@ -2078,7 +2257,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     message_id = 'message_id_example' # str | String that uniquely identifies this Message resource.
 
     try:
@@ -2121,6 +2300,90 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_blob**
+> BlobResult get_blob(account_id, blob_id)
+
+Get Blob
+
+Retrieves a specified blob
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import freeclimb
+from freeclimb.models.blob_result import BlobResult
+from freeclimb.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = freeclimb.DefaultApi(api_client)
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
+    blob_id = 'blob_id_example' # str | String that uniquely identifies this Blob resource.
+
+    try:
+        # Get Blob
+        api_response = api_instance.get_blob(account_id, blob_id)
+        print("The response of DefaultApi->get_blob:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->get_blob: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| ID of the account | 
+ **blob_id** | **str**| String that uniquely identifies this Blob resource. | 
+
+### Return type
+
+[**BlobResult**](BlobResult.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieve a Blob. |  -  |
+**404** | Generic platform not found error. |  -  |
+**500** | Generic platform internal error. |  -  |
+**504** | gateway timeout error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_head_member**
 > QueueMember get_head_member(account_id, queue_id)
 
@@ -2157,7 +2420,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     queue_id = 'queue_id_example' # str | String that uniquely identifies the Queue that the Member belongs to.
 
     try:
@@ -2236,7 +2499,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     brand_id = 'brand_id_example' # str | String that uniquely identifies this brand resource.
 
     try:
@@ -2315,7 +2578,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
 
     try:
         # Get list of SMS 10DLC Brands
@@ -2392,7 +2655,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     campaign_id = 'campaign_id_example' # str | String that uniquely identifies this campaign resource.
 
     try:
@@ -2471,7 +2734,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     brand_id = 'brand_id_example' # str | The unique identifier for a brand (optional)
 
     try:
@@ -2550,7 +2813,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     campaign_id = 'campaign_id_example' # str | String that uniquely identifies this campaign resource.
 
     try:
@@ -2629,7 +2892,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     brand_id = 'brand_id_example' # str | The unique identifier for a brand (optional)
 
     try:
@@ -2708,7 +2971,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     campaign_id = 'campaign_id_example' # str | String that uniquely identifies this TollFree Campaign resource.
 
     try:
@@ -2787,7 +3050,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
 
     try:
         # Get list of TollFree Campaigns
@@ -2864,7 +3127,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     alias = 'alias_example' # str | Return only the Queue resources with aliases that exactly match this name. (optional)
 
     try:
@@ -2943,7 +3206,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
 
     try:
         # List All Account Logs
@@ -3020,7 +3283,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     alias = 'alias_example' # str | Return only applications with aliases that exactly match this value. (optional)
 
     try:
@@ -3158,6 +3421,88 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **list_blobs**
+> BlobListResponse list_blobs(account_id)
+
+List Blobs belonging to an account.
+
+List Blobs belonging to an account. Results are returned in paginated lists mirroring other listing features in the API.
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import freeclimb
+from freeclimb.models.blob_list_response import BlobListResponse
+from freeclimb.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = freeclimb.DefaultApi(api_client)
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
+
+    try:
+        # List Blobs belonging to an account.
+        api_response = api_instance.list_blobs(account_id)
+        print("The response of DefaultApi->list_blobs:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->list_blobs: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| ID of the account | 
+
+### Return type
+
+[**BlobListResponse**](BlobListResponse.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Single page of blob list results. |  -  |
+**400** | Generic platform bad request. |  -  |
+**500** | Generic platform internal error. |  -  |
+**504** | gateway timeout error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_call_logs**
 > LogList list_call_logs(account_id, call_id)
 
@@ -3194,7 +3539,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     call_id = 'call_id_example' # str | String that uniquely identifies this call resource.
 
     try:
@@ -3273,7 +3618,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     call_id = 'call_id_example' # str | String that uniquely identifies this call resource.
     date_created = 'date_created_example' # str | Only show recordings created on the specified date, in the form *YYYY-MM-DD*. (optional)
 
@@ -3355,7 +3700,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     active = False # bool | If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query. (optional) (default to False)
     to = 'to_example' # str | Only show Calls to this phone number. (optional)
     var_from = 'var_from_example' # str | Only show Calls from this phone number. (optional)
@@ -3452,7 +3797,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     conference_id = 'conference_id_example' # str | Show only Recordings made during the conference with this ID.
     call_id = 'call_id_example' # str | Show only Recordings made during the Call with this ID. (optional)
     date_created = 'date_created_example' # str | Only show Recordings created on this date, formatted as *YYYY-MM-DD*. (optional)
@@ -3535,7 +3880,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     status = 'status_example' # str | Only show conferences that currently have the specified status. Valid values: `empty`, `populated`, `inProgress`, or `terminated`. (optional)
     alias = 'alias_example' # str | List Conferences whose alias exactly matches this string. (optional)
     date_created = 'date_created_example' # str | Only show Conferences that were created on the specified date, in the form *YYYY-MM-DD*. (optional)
@@ -3621,7 +3966,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     status = freeclimb.ExportStatus() # ExportStatus | Status of export (optional)
     cursor = 'cursor_example' # str | Used to reference pages of a list of exports (optional)
 
@@ -3667,7 +4012,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_incoming_numbers**
-> IncomingNumberList list_incoming_numbers(account_id, phone_number=phone_number, alias=alias, region=region, country=country, application_id=application_id, has_application=has_application, voice_enabled=voice_enabled, sms_enabled=sms_enabled, has_campaign=has_campaign, capabilities_voice=capabilities_voice, capabilities_sms=capabilities_sms, capabilities_toll_free=capabilities_toll_free, capabilities_ten_dlc=capabilities_ten_dlc, capabilities_short_code=capabilities_short_code, tfn_campaign_id=tfn_campaign_id, offnet=offnet)
+> IncomingNumberList list_incoming_numbers(account_id, phone_number=phone_number, alias=alias, region=region, country=country, application_id=application_id, has_application=has_application, has_campaign=has_campaign, capabilities_voice=capabilities_voice, capabilities_sms=capabilities_sms, capabilities_toll_free=capabilities_toll_free, capabilities_ten_dlc=capabilities_ten_dlc, capabilities_short_code=capabilities_short_code, tfn_campaign_id=tfn_campaign_id, offnet=offnet)
 
 List Incoming Numbers
 
@@ -3702,15 +4047,13 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     phone_number = 'phone_number_example' # str | Only show incoming phone number resources that match this PCRE-compatible regular expression. (optional)
     alias = 'alias_example' # str | Only show incoming phone numbers with aliases that exactly match this value. (optional)
     region = 'region_example' # str | State or province of this phone number. (optional)
     country = 'country_example' # str | Country of this phone number. (optional)
     application_id = 'application_id_example' # str | ID of the Application that FreeClimb should contact if a Call or SMS arrives for this phone number or a Call from this number is placed. An incoming phone number is not useful until associated with an applicationId. (optional)
     has_application = False # bool | Indication of whether the phone number has an application linked to it. (optional) (default to False)
-    voice_enabled = True # bool | Indicates whether the phone number can handle Calls. Typically set to true for all numbers. (optional) (default to True)
-    sms_enabled = True # bool | Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers. (optional) (default to True)
     has_campaign = True # bool | Indication of whether the phone number has a campaign associated with it (optional)
     capabilities_voice = True # bool |  (optional)
     capabilities_sms = True # bool |  (optional)
@@ -3722,7 +4065,7 @@ with freeclimb.ApiClient(configuration) as api_client:
 
     try:
         # List Incoming Numbers
-        api_response = api_instance.list_incoming_numbers(account_id, phone_number=phone_number, alias=alias, region=region, country=country, application_id=application_id, has_application=has_application, voice_enabled=voice_enabled, sms_enabled=sms_enabled, has_campaign=has_campaign, capabilities_voice=capabilities_voice, capabilities_sms=capabilities_sms, capabilities_toll_free=capabilities_toll_free, capabilities_ten_dlc=capabilities_ten_dlc, capabilities_short_code=capabilities_short_code, tfn_campaign_id=tfn_campaign_id, offnet=offnet)
+        api_response = api_instance.list_incoming_numbers(account_id, phone_number=phone_number, alias=alias, region=region, country=country, application_id=application_id, has_application=has_application, has_campaign=has_campaign, capabilities_voice=capabilities_voice, capabilities_sms=capabilities_sms, capabilities_toll_free=capabilities_toll_free, capabilities_ten_dlc=capabilities_ten_dlc, capabilities_short_code=capabilities_short_code, tfn_campaign_id=tfn_campaign_id, offnet=offnet)
         print("The response of DefaultApi->list_incoming_numbers:\n")
         pprint(api_response)
     except Exception as e:
@@ -3743,8 +4086,6 @@ Name | Type | Description  | Notes
  **country** | **str**| Country of this phone number. | [optional] 
  **application_id** | **str**| ID of the Application that FreeClimb should contact if a Call or SMS arrives for this phone number or a Call from this number is placed. An incoming phone number is not useful until associated with an applicationId. | [optional] 
  **has_application** | **bool**| Indication of whether the phone number has an application linked to it. | [optional] [default to False]
- **voice_enabled** | **bool**| Indicates whether the phone number can handle Calls. Typically set to true for all numbers. | [optional] [default to True]
- **sms_enabled** | **bool**| Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers. | [optional] [default to True]
  **has_campaign** | **bool**| Indication of whether the phone number has a campaign associated with it | [optional] 
  **capabilities_voice** | **bool**|  | [optional] 
  **capabilities_sms** | **bool**|  | [optional] 
@@ -3811,7 +4152,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     queue_id = 'queue_id_example' # str | String that uniquely identifies the Queue that the Member belongs to.
 
     try:
@@ -3890,7 +4231,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     conference_id = 'conference_id_example' # str | ID of the conference this participant is in.
     talk = True # bool | Only show Participants with the talk privilege. (optional)
     listen = True # bool | Only show Participants with the listen privilege. (optional)
@@ -3975,7 +4316,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     call_id = 'call_id_example' # str | Show only Recordings made during the Call with this ID. (optional)
     conference_id = 'conference_id_example' # str | Show only Recordings made during the conference with this ID. (optional)
     date_created = 'date_created_example' # str | Only show Recordings created on this date, formatted as *YYYY-MM-DD*. (optional)
@@ -4059,7 +4400,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     to = 'to_example' # str | Only show Messages to this phone number. (optional)
     var_from = 'var_from_example' # str | Only show Messages from this phone number. (optional)
     begin_time = 'begin_time_example' # str | Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*. (optional)
@@ -4153,7 +4494,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     make_call_request = freeclimb.MakeCallRequest() # MakeCallRequest | Call details for making a call (optional)
 
     try:
@@ -4232,7 +4573,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     create_web_rtc_token = freeclimb.CreateWebRTCToken() # CreateWebRTCToken | Information needed to craft a JWT compatible with the platforms WebRTC APIs
 
     try:
@@ -4275,6 +4616,94 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **modify_blob**
+> BlobResult modify_blob(account_id, blob_id, modify_blob_request)
+
+Modify Blob
+
+Modifys a pre existing blob by either adding new fields, or modifying existing fields
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import freeclimb
+from freeclimb.models.blob_result import BlobResult
+from freeclimb.models.modify_blob_request import ModifyBlobRequest
+from freeclimb.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = freeclimb.DefaultApi(api_client)
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
+    blob_id = 'blob_id_example' # str | String that uniquely identifies this Blob resource.
+    modify_blob_request = {"alias":"new_conversation_id","blob":{"field0":"value0_redux","field4":"value4"}} # ModifyBlobRequest | Request body to specify keys to modify. Or new keys to add onto the already existing blob
+
+    try:
+        # Modify Blob
+        api_response = api_instance.modify_blob(account_id, blob_id, modify_blob_request)
+        print("The response of DefaultApi->modify_blob:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->modify_blob: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| ID of the account | 
+ **blob_id** | **str**| String that uniquely identifies this Blob resource. | 
+ **modify_blob_request** | [**ModifyBlobRequest**](ModifyBlobRequest.md)| Request body to specify keys to modify. Or new keys to add onto the already existing blob | 
+
+### Return type
+
+[**BlobResult**](BlobResult.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Blob keys successfully modified, updated blob returned. |  -  |
+**404** | Generic platform not found error. |  -  |
+**409** | Generic platform status conflict error. |  -  |
+**413** | Generic platform status request entity too large. |  -  |
+**500** | Generic platform internal error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **remove_a_participant**
 > remove_a_participant(account_id, conference_id, call_id)
 
@@ -4310,7 +4739,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     conference_id = 'conference_id_example' # str | ID of the conference this participant is in.
     call_id = 'call_id_example' # str | ID of the Call associated with this participant.
 
@@ -4353,6 +4782,94 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **replace_blob**
+> BlobResult replace_blob(account_id, blob_id, replace_blob_request)
+
+Replace Blob
+
+Replaces the blob content with the provided values.
+
+### Example
+
+* Basic Authentication (fc):
+
+```python
+import freeclimb
+from freeclimb.models.blob_result import BlobResult
+from freeclimb.models.replace_blob_request import ReplaceBlobRequest
+from freeclimb.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://www.freeclimb.com/apiserver
+# See configuration.py for a list of all supported configuration parameters.
+configuration = freeclimb.Configuration(
+    host = "https://www.freeclimb.com/apiserver"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: fc
+configuration = freeclimb.Configuration(
+    username = 'ACCOUNT_ID',
+    password = 'API_KEY'
+)
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = freeclimb.DefaultApi(api_client)
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
+    blob_id = 'blob_id_example' # str | String that uniquely identifies this Blob resource.
+    replace_blob_request = {"blob":{"field0":"value0_redux","field4":"value4"}} # ReplaceBlobRequest | JSON object containing blob key the contents of which will be used to override the enitre blob contents.
+
+    try:
+        # Replace Blob
+        api_response = api_instance.replace_blob(account_id, blob_id, replace_blob_request)
+        print("The response of DefaultApi->replace_blob:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->replace_blob: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| ID of the account | 
+ **blob_id** | **str**| String that uniquely identifies this Blob resource. | 
+ **replace_blob_request** | [**ReplaceBlobRequest**](ReplaceBlobRequest.md)| JSON object containing blob key the contents of which will be used to override the enitre blob contents. | 
+
+### Return type
+
+[**BlobResult**](BlobResult.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Replaces all keys in blob with those provided. |  -  |
+**404** | Generic platform not found error. |  -  |
+**409** | Generic platform status conflict error. |  -  |
+**413** | Generic platform status request entity too large. |  -  |
+**500** | Generic platform internal error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **send_an_sms_message**
 > MessageResult send_an_sms_message(account_id, message_request)
 
@@ -4390,7 +4907,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     message_request = freeclimb.MessageRequest() # MessageRequest | Details to create a message
 
     try:
@@ -4468,7 +4985,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     recording_id = 'recording_id_example' # str | String that uniquely identifies this recording resource.
 
     try:
@@ -4501,13 +5018,13 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: audio/x-wav
+ - **Accept**: audio/wav
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Streaming a Recording represented with audio/x-wav mime-type |  -  |
+**200** | Streaming a Recording represented with audio/wav mime-type |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4547,7 +5064,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     conference_id = 'conference_id_example' # str | String that uniquely identifies this conference resource.
     update_conference_request = freeclimb.UpdateConferenceRequest() # UpdateConferenceRequest | Conference Details to update (optional)
 
@@ -4626,7 +5143,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     call_id = 'call_id_example' # str | String that uniquely identifies this call resource.
     update_call_request = freeclimb.UpdateCallRequest() # UpdateCallRequest | Call details to update
 
@@ -4706,7 +5223,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     conference_id = 'conference_id_example' # str | ID of the conference this participant is in.
     call_id = 'call_id_example' # str | ID of the Call associated with this participant.
     update_conference_participant_request = freeclimb.UpdateConferenceParticipantRequest() # UpdateConferenceParticipantRequest | Conference participant details to update (optional)
@@ -4790,7 +5307,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     queue_id = 'queue_id_example' # str | A string that uniquely identifies this Queue resource.
     queue_request = freeclimb.QueueRequest() # QueueRequest | Queue Details to update (optional)
 
@@ -4871,7 +5388,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     account_request = freeclimb.AccountRequest() # AccountRequest | Account details to update (optional)
 
     try:
@@ -4949,7 +5466,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     application_id = 'application_id_example' # str | A string that uniquely identifies this application resource.
     application_request = freeclimb.ApplicationRequest() # ApplicationRequest | Application details to update. (optional)
 
@@ -5031,7 +5548,7 @@ configuration = freeclimb.Configuration(
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | ID of the account
+    account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     phone_number_id = 'phone_number_id_example' # str | String that uniquely identifies this phone number resource.
     incoming_number_request = freeclimb.IncomingNumberRequest() # IncomingNumberRequest | Incoming Number details to update (optional)
 

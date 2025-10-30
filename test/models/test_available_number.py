@@ -51,16 +51,6 @@ class TestAvailableNumber(unittest.TestCase):
         self.model.phone_number = "TEST_STRING"
         assert self.model.phone_number == "TEST_STRING"
 
-    def test_voice_enabled(self):
-        """Test AvailableNumber.voice_enabled"""
-        self.model.voice_enabled = False
-        assert self.model.voice_enabled == False
-
-    def test_sms_enabled(self):
-        """Test AvailableNumber.sms_enabled"""
-        self.model.sms_enabled = False
-        assert self.model.sms_enabled == False
-
     def test_region(self):
         """Test AvailableNumber.region"""
 

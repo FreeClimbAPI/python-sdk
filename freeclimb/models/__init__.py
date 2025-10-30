@@ -37,6 +37,8 @@ from freeclimb.models.available_number_list import (
     AvailableNumberList as AvailableNumberList,
 )
 from freeclimb.models.barge_in_reason import BargeInReason as BargeInReason
+from freeclimb.models.blob_list_response import BlobListResponse as BlobListResponse
+from freeclimb.models.blob_result import BlobResult as BlobResult
 from freeclimb.models.buy_incoming_number_request import (
     BuyIncomingNumberRequest as BuyIncomingNumberRequest,
 )
@@ -70,6 +72,7 @@ from freeclimb.models.conference_status import ConferenceStatus as ConferenceSta
 from freeclimb.models.conference_status_webhook import (
     ConferenceStatusWebhook as ConferenceStatusWebhook,
 )
+from freeclimb.models.create_blob_request import CreateBlobRequest as CreateBlobRequest
 from freeclimb.models.create_conference import CreateConference as CreateConference
 from freeclimb.models.create_conference_request import (
     CreateConferenceRequest as CreateConferenceRequest,
@@ -143,6 +146,7 @@ from freeclimb.models.message_status_webhook import (
     MessageStatusWebhook as MessageStatusWebhook,
 )
 from freeclimb.models.messages_list import MessagesList as MessagesList
+from freeclimb.models.modify_blob_request import ModifyBlobRequest as ModifyBlobRequest
 from freeclimb.models.mutable_resource_model import (
     MutableResourceModel as MutableResourceModel,
 )
@@ -161,6 +165,7 @@ from freeclimb.models.park import Park as Park
 from freeclimb.models.pause import Pause as Pause
 from freeclimb.models.percl_command import PerclCommand as PerclCommand
 from freeclimb.models.percl_script import PerclScript as PerclScript
+from freeclimb.models.platform_error import PlatformError as PlatformError
 from freeclimb.models.play import Play as Play
 from freeclimb.models.play_beep import PlayBeep as PlayBeep
 from freeclimb.models.play_early_media import PlayEarlyMedia as PlayEarlyMedia
@@ -186,6 +191,9 @@ from freeclimb.models.remove_from_conference import (
 )
 from freeclimb.models.remove_from_queue_notification_webhook import (
     RemoveFromQueueNotificationWebhook as RemoveFromQueueNotificationWebhook,
+)
+from freeclimb.models.replace_blob_request import (
+    ReplaceBlobRequest as ReplaceBlobRequest,
 )
 from freeclimb.models.request_type import RequestType as RequestType
 from freeclimb.models.sms_ten_dlc_brand import SMSTenDLCBrand as SMSTenDLCBrand
@@ -246,6 +254,8 @@ from freeclimb.models.sms import Sms as Sms
 from freeclimb.models.start_record_call import StartRecordCall as StartRecordCall
 from freeclimb.models.tfn import TFN as TFN
 from freeclimb.models.tfn_campaign import TFNCampaign as TFNCampaign
+from freeclimb.models.tts_engine import TTSEngine as TTSEngine
+from freeclimb.models.tts_engine_name import TTSEngineName as TTSEngineName
 from freeclimb.models.terminate_conference import (
     TerminateConference as TerminateConference,
 )

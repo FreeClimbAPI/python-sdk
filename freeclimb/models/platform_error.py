@@ -18,52 +18,26 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from freeclimb.models.percl_command import PerclCommand
-from freeclimb.models.tts_engine import TTSEngine
 from pydantic import StrictStr
 from typing import Optional, Set
 from typing_extensions import Self
 
 
-class Say(
-    PerclCommand,
-    populate_by_name=True,
-    validate_assignment=True,
-    protected_namespaces=(),
+class PlatformError(
+    BaseModel, populate_by_name=True, validate_assignment=True, protected_namespaces=()
 ):
     """
-    The `Say` command provides Text-To-Speech (TTS) support. It converts text to speech and then renders it in a female voice back to the caller. `Say` is useful in cases where it's difficult to pre-record a prompt for any reason. `Say` does not allow barge-in unless nested within a `GetSpeech` command. The file will always be played to completion unless nested.
+    Standard error structure returned by platform.
     """  # noqa: E501
 
-    text: StrictStr = Field(
-        description="The message to be played to the caller using TTS. The size of the string is limited to 4 KB (or 4,096 bytes). An empty string will cause the command to be skipped."
-    )
-    language: Optional[StrictStr] = Field(
-        default=None,
-        description="Language and (by implication) the locale to use. This implies the accent and pronunciations to be usde for the TTS. The complete list of valid values for the language attribute is shown below.",
-    )
-    engine: Optional[TTSEngine] = None
-    loop: Optional[StrictInt] = Field(
-        default=1,
-        description="Number of times the text is said. Specifying '0' causes the `Say` action to loop until the Call is hung up.",
-    )
-    privacy_mode: Optional[StrictBool] = Field(
-        default=None,
-        description="Parameter `privacyMode` will not log the `text` as required by PCI compliance.",
-        alias="privacyMode",
-    )
-    command: StrictStr = "Say"
+    code: Optional[StrictInt] = None
+    call: Optional[StrictStr] = None
+    url: Optional[StrictStr] = None
+    details: Optional[Dict[str, Any]] = None
 
-    __properties: ClassVar[List[str]] = [
-        "command",
-        "text",
-        "language",
-        "engine",
-        "loop",
-        "privacyMode",
-    ]
+    __properties: ClassVar[List[str]] = ["code", "call", "url", "details"]
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -76,7 +50,7 @@ class Say(
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Say from a JSON string"""
+        """Create an instance of PlatformError from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -96,14 +70,11 @@ class Say(
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of engine
-        if self.engine:
-            _dict["engine"] = self.engine.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Say from a dict"""
+        """Create an instance of PlatformError from a dict"""
         if obj is None:
             return None
 
@@ -112,16 +83,10 @@ class Say(
 
         _obj = cls.model_validate(
             {
-                "command": obj.get("command"),
-                "text": obj.get("text"),
-                "language": obj.get("language"),
-                "engine": (
-                    TTSEngine.from_dict(obj["engine"])
-                    if obj.get("engine") is not None
-                    else None
-                ),
-                "loop": obj.get("loop") if obj.get("loop") is not None else 1,
-                "privacyMode": obj.get("privacyMode"),
+                "code": obj.get("code"),
+                "call": obj.get("call"),
+                "url": obj.get("url"),
+                "details": obj.get("details"),
             }
         )
         return _obj
