@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "5.3.0"
+__version__ = "5.2.1"
 
 # import apis into sdk package
 from freeclimb.api.default_api import DefaultApi as DefaultApi

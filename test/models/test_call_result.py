@@ -133,6 +133,11 @@ class TestCallResult(unittest.TestCase):
         self.model.connect_duration = 1
         assert self.model.connect_duration == 1
 
+    def test_audio_stream_duration(self):
+        """Test CallResult.audio_stream_duration"""
+        self.model.audio_stream_duration = 1
+        assert self.model.audio_stream_duration == 1
+
     def test_direction(self):
         """Test CallResult.direction"""
         self.model.direction = CallDirection.INBOUND

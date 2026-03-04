@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfuly created queue |  -  |
+**201** | Successfuly created queue |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3583,7 +3583,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_call_recordings**
-> RecordingList list_call_recordings(account_id, call_id, date_created=date_created)
+> RecordingList list_call_recordings(account_id, call_id, date_created=date_created, start_time=start_time, end_time=end_time)
 
 List Call Recordings
 
@@ -3621,10 +3621,12 @@ with freeclimb.ApiClient(configuration) as api_client:
     account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
     call_id = 'call_id_example' # str | String that uniquely identifies this call resource.
     date_created = 'date_created_example' # str | Only show recordings created on the specified date, in the form *YYYY-MM-DD*. (optional)
+    start_time = 'start_time_example' # str | Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss. (optional)
+    end_time = 'end_time_example' # str | Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss. (optional)
 
     try:
         # List Call Recordings
-        api_response = api_instance.list_call_recordings(account_id, call_id, date_created=date_created)
+        api_response = api_instance.list_call_recordings(account_id, call_id, date_created=date_created, start_time=start_time, end_time=end_time)
         print("The response of DefaultApi->list_call_recordings:\n")
         pprint(api_response)
     except Exception as e:
@@ -3641,6 +3643,8 @@ Name | Type | Description  | Notes
  **account_id** | **str**| ID of the account | 
  **call_id** | **str**| String that uniquely identifies this call resource. | 
  **date_created** | **str**| Only show recordings created on the specified date, in the form *YYYY-MM-DD*. | [optional] 
+ **start_time** | **str**| Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss. | [optional] 
+ **end_time** | **str**| Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss. | [optional] 
 
 ### Return type
 
@@ -3664,7 +3668,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_calls**
-> CallList list_calls(account_id, active=active, to=to, var_from=var_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id, application_id=application_id, risk_score_min=risk_score_min, risk_score_max=risk_score_max)
+> CallList list_calls(account_id, used_audio_stream=used_audio_stream, active=active, to=to, var_from=var_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id, application_id=application_id, risk_score_min=risk_score_min, risk_score_max=risk_score_max)
 
 List Calls
 
@@ -3701,6 +3705,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
     account_id = 'AC170e4c66d358aa1755931da0452561933d1b8fd5' # str | ID of the account
+    used_audio_stream = False # bool | If usedAudioStream is set to true then all calls that have a audioStreamDuration > 0 will be returned  (optional) (default to False)
     active = False # bool | If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query. (optional) (default to False)
     to = 'to_example' # str | Only show Calls to this phone number. (optional)
     var_from = 'var_from_example' # str | Only show Calls from this phone number. (optional)
@@ -3714,7 +3719,7 @@ with freeclimb.ApiClient(configuration) as api_client:
 
     try:
         # List Calls
-        api_response = api_instance.list_calls(account_id, active=active, to=to, var_from=var_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id, application_id=application_id, risk_score_min=risk_score_min, risk_score_max=risk_score_max)
+        api_response = api_instance.list_calls(account_id, used_audio_stream=used_audio_stream, active=active, to=to, var_from=var_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id, application_id=application_id, risk_score_min=risk_score_min, risk_score_max=risk_score_max)
         print("The response of DefaultApi->list_calls:\n")
         pprint(api_response)
     except Exception as e:
@@ -3729,6 +3734,7 @@ with freeclimb.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **str**| ID of the account | 
+ **used_audio_stream** | **bool**| If usedAudioStream is set to true then all calls that have a audioStreamDuration &gt; 0 will be returned  | [optional] [default to False]
  **active** | **bool**| If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query. | [optional] [default to False]
  **to** | **str**| Only show Calls to this phone number. | [optional] 
  **var_from** | **str**| Only show Calls from this phone number. | [optional] 
@@ -3762,7 +3768,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_conference_recordings**
-> RecordingList list_conference_recordings(account_id, conference_id, call_id=call_id, date_created=date_created)
+> RecordingList list_conference_recordings(account_id, conference_id, call_id=call_id, date_created=date_created, start_time=start_time, end_time=end_time)
 
 List Conference Recordings
 
@@ -3801,10 +3807,12 @@ with freeclimb.ApiClient(configuration) as api_client:
     conference_id = 'conference_id_example' # str | Show only Recordings made during the conference with this ID.
     call_id = 'call_id_example' # str | Show only Recordings made during the Call with this ID. (optional)
     date_created = 'date_created_example' # str | Only show Recordings created on this date, formatted as *YYYY-MM-DD*. (optional)
+    start_time = 'start_time_example' # str | Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss. (optional)
+    end_time = 'end_time_example' # str | Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss. (optional)
 
     try:
         # List Conference Recordings
-        api_response = api_instance.list_conference_recordings(account_id, conference_id, call_id=call_id, date_created=date_created)
+        api_response = api_instance.list_conference_recordings(account_id, conference_id, call_id=call_id, date_created=date_created, start_time=start_time, end_time=end_time)
         print("The response of DefaultApi->list_conference_recordings:\n")
         pprint(api_response)
     except Exception as e:
@@ -3822,6 +3830,8 @@ Name | Type | Description  | Notes
  **conference_id** | **str**| Show only Recordings made during the conference with this ID. | 
  **call_id** | **str**| Show only Recordings made during the Call with this ID. | [optional] 
  **date_created** | **str**| Only show Recordings created on this date, formatted as *YYYY-MM-DD*. | [optional] 
+ **start_time** | **str**| Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss. | [optional] 
+ **end_time** | **str**| Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss. | [optional] 
 
 ### Return type
 
@@ -4281,7 +4291,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_recordings**
-> RecordingList list_recordings(account_id, call_id=call_id, conference_id=conference_id, date_created=date_created)
+> RecordingList list_recordings(account_id, call_id=call_id, conference_id=conference_id, date_created=date_created, start_time=start_time, end_time=end_time)
 
 List Recordings
 
@@ -4320,10 +4330,12 @@ with freeclimb.ApiClient(configuration) as api_client:
     call_id = 'call_id_example' # str | Show only Recordings made during the Call with this ID. (optional)
     conference_id = 'conference_id_example' # str | Show only Recordings made during the conference with this ID. (optional)
     date_created = 'date_created_example' # str | Only show Recordings created on this date, formatted as *YYYY-MM-DD*. (optional)
+    start_time = 'start_time_example' # str | Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss. (optional)
+    end_time = 'end_time_example' # str | Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss. (optional)
 
     try:
         # List Recordings
-        api_response = api_instance.list_recordings(account_id, call_id=call_id, conference_id=conference_id, date_created=date_created)
+        api_response = api_instance.list_recordings(account_id, call_id=call_id, conference_id=conference_id, date_created=date_created, start_time=start_time, end_time=end_time)
         print("The response of DefaultApi->list_recordings:\n")
         pprint(api_response)
     except Exception as e:
@@ -4341,6 +4353,8 @@ Name | Type | Description  | Notes
  **call_id** | **str**| Show only Recordings made during the Call with this ID. | [optional] 
  **conference_id** | **str**| Show only Recordings made during the conference with this ID. | [optional] 
  **date_created** | **str**| Only show Recordings created on this date, formatted as *YYYY-MM-DD*. | [optional] 
+ **start_time** | **str**| Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss. | [optional] 
+ **end_time** | **str**| Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss. | [optional] 
 
 ### Return type
 

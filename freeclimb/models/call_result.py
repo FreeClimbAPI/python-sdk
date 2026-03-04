@@ -103,6 +103,11 @@ class CallResult(
         description="Length of time that the Call was connected in seconds. Measures time between connectTime and endTime. This value is empty for busy, failed, unanswered or ongoing Calls.",
         alias="connectDuration",
     )
+    audio_stream_duration: Optional[StrictInt] = Field(
+        default=None,
+        description="Length of time that the Call used the audio stream in seconds. This value is empty or zero when the Call did not use the audio stream.",
+        alias="audioStreamDuration",
+    )
     direction: Optional[CallDirection] = None
     answered_by: Optional[AnsweredBy] = Field(default=None, alias="answeredBy")
     subresource_uris: Optional[Dict[str, Any]] = Field(
@@ -133,6 +138,7 @@ class CallResult(
         "endTime",
         "duration",
         "connectDuration",
+        "audioStreamDuration",
         "direction",
         "answeredBy",
         "subresourceUris",
@@ -233,6 +239,14 @@ class CallResult(
         ):
             _dict["connectDuration"] = None
 
+        # set to None if audio_stream_duration (nullable) is None
+        # and model_fields_set contains the field
+        if (
+            self.audio_stream_duration is None
+            and "audio_stream_duration" in self.model_fields_set
+        ):
+            _dict["audioStreamDuration"] = None
+
         # set to None if direction (nullable) is None
         # and model_fields_set contains the field
         if self.direction is None and "direction" in self.model_fields_set:
@@ -285,6 +299,7 @@ class CallResult(
                 "endTime": obj.get("endTime"),
                 "duration": obj.get("duration"),
                 "connectDuration": obj.get("connectDuration"),
+                "audioStreamDuration": obj.get("audioStreamDuration"),
                 "direction": obj.get("direction"),
                 "answeredBy": obj.get("answeredBy"),
                 "subresourceUris": obj.get("subresourceUris"),
