@@ -51,6 +51,12 @@ class TestAvailableNumber(unittest.TestCase):
         self.model.phone_number = "TEST_STRING"
         assert self.model.phone_number == "TEST_STRING"
 
+    def test_alias(self):
+        """Test AvailableNumber.alias"""
+
+        self.model.alias = "TEST_STRING"
+        assert self.model.alias == "TEST_STRING"
+
     def test_region(self):
         """Test AvailableNumber.region"""
 

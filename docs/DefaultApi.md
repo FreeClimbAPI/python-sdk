@@ -3668,7 +3668,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_calls**
-> CallList list_calls(account_id, used_audio_stream=used_audio_stream, active=active, to=to, var_from=var_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id, application_id=application_id, risk_score_min=risk_score_min, risk_score_max=risk_score_max)
+> CallList list_calls(account_id, used_audio_stream=used_audio_stream, active=active, to=to, var_from=var_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id, application_id=application_id, risk_score_min=risk_score_min, risk_score_max=risk_score_max, web_rtc=web_rtc)
 
 List Calls
 
@@ -3716,10 +3716,11 @@ with freeclimb.ApiClient(configuration) as api_client:
     application_id = ['application_id_example'] # List[str] | Only show calls belonging to the given applicationId. This parameter can be repeated to return calls from multiple Applications. (optional)
     risk_score_min = 56 # int | The minimum riskScore that should be included in the list. (optional)
     risk_score_max = 56 # int | The maximum riskScore that should be included in the list. (optional)
+    web_rtc = False # bool | Only show Calls that were originated via WebRTC. (optional) (default to False)
 
     try:
         # List Calls
-        api_response = api_instance.list_calls(account_id, used_audio_stream=used_audio_stream, active=active, to=to, var_from=var_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id, application_id=application_id, risk_score_min=risk_score_min, risk_score_max=risk_score_max)
+        api_response = api_instance.list_calls(account_id, used_audio_stream=used_audio_stream, active=active, to=to, var_from=var_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id, application_id=application_id, risk_score_min=risk_score_min, risk_score_max=risk_score_max, web_rtc=web_rtc)
         print("The response of DefaultApi->list_calls:\n")
         pprint(api_response)
     except Exception as e:
@@ -3745,6 +3746,7 @@ Name | Type | Description  | Notes
  **application_id** | [**List[str]**](str.md)| Only show calls belonging to the given applicationId. This parameter can be repeated to return calls from multiple Applications. | [optional] 
  **risk_score_min** | **int**| The minimum riskScore that should be included in the list. | [optional] 
  **risk_score_max** | **int**| The maximum riskScore that should be included in the list. | [optional] 
+ **web_rtc** | **bool**| Only show Calls that were originated via WebRTC. | [optional] [default to False]
 
 ### Return type
 

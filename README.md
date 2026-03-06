@@ -210,6 +210,7 @@ Class | Method | HTTP request | Description
  - [CallEndedReason](docs/CallEndedReason.md)
  - [CallList](docs/CallList.md)
  - [CallResult](docs/CallResult.md)
+ - [CallResultAllOfSubresourceUris](docs/CallResultAllOfSubresourceUris.md)
  - [CallStatus](docs/CallStatus.md)
  - [CallStatusWebhook](docs/CallStatusWebhook.md)
  - [Capabilities](docs/Capabilities.md)

@@ -44,6 +44,9 @@ class AvailableNumber(
         description="The phone number, in E.164 format (+ country code and phone number: +18003608245).",
         alias="phoneNumber",
     )
+    alias: Optional[StrictStr] = Field(
+        default=None, description="A nicely-formatted version of the phone number."
+    )
     region: Optional[StrictStr] = Field(
         default=None, description="The state or province of this phone number."
     )
@@ -55,6 +58,7 @@ class AvailableNumber(
         "capabilities",
         "campaignId",
         "phoneNumber",
+        "alias",
         "region",
         "country",
     ]
@@ -103,6 +107,11 @@ class AvailableNumber(
         if self.phone_number is None and "phone_number" in self.model_fields_set:
             _dict["phoneNumber"] = None
 
+        # set to None if alias (nullable) is None
+        # and model_fields_set contains the field
+        if self.alias is None and "alias" in self.model_fields_set:
+            _dict["alias"] = None
+
         # set to None if region (nullable) is None
         # and model_fields_set contains the field
         if self.region is None and "region" in self.model_fields_set:
@@ -133,6 +142,7 @@ class AvailableNumber(
                 ),
                 "campaignId": obj.get("campaignId"),
                 "phoneNumber": obj.get("phoneNumber"),
+                "alias": obj.get("alias"),
                 "region": obj.get("region"),
                 "country": obj.get("country"),
             }

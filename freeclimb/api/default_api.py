@@ -12519,6 +12519,10 @@ class DefaultApi:
                 description="The maximum riskScore that should be included in the list."
             ),
         ] = None,
+        web_rtc: Annotated[
+            Optional[StrictBool],
+            Field(description="Only show Calls that were originated via WebRTC."),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12567,6 +12571,9 @@ class DefaultApi:
         :param risk_score_max: The maximum riskScore that should be included in the list.
         :type risk_score_max: int
 
+        :param web_rtc: Only show Calls that were originated via WebRTC.
+        :type web_rtc: bool
+
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12603,6 +12610,7 @@ class DefaultApi:
             application_id=application_id,
             risk_score_min=risk_score_min,
             risk_score_max=risk_score_max,
+            web_rtc=web_rtc,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12688,6 +12696,10 @@ class DefaultApi:
                 description="The maximum riskScore that should be included in the list."
             ),
         ] = None,
+        web_rtc: Annotated[
+            Optional[StrictBool],
+            Field(description="Only show Calls that were originated via WebRTC."),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12736,6 +12748,9 @@ class DefaultApi:
         :param risk_score_max: The maximum riskScore that should be included in the list.
         :type risk_score_max: int
 
+        :param web_rtc: Only show Calls that were originated via WebRTC.
+        :type web_rtc: bool
+
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12772,6 +12787,7 @@ class DefaultApi:
             application_id=application_id,
             risk_score_min=risk_score_min,
             risk_score_max=risk_score_max,
+            web_rtc=web_rtc,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12857,6 +12873,10 @@ class DefaultApi:
                 description="The maximum riskScore that should be included in the list."
             ),
         ] = None,
+        web_rtc: Annotated[
+            Optional[StrictBool],
+            Field(description="Only show Calls that were originated via WebRTC."),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12905,6 +12925,9 @@ class DefaultApi:
         :param risk_score_max: The maximum riskScore that should be included in the list.
         :type risk_score_max: int
 
+        :param web_rtc: Only show Calls that were originated via WebRTC.
+        :type web_rtc: bool
+
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12941,6 +12964,7 @@ class DefaultApi:
             application_id=application_id,
             risk_score_min=risk_score_min,
             risk_score_max=risk_score_max,
+            web_rtc=web_rtc,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12969,6 +12993,7 @@ class DefaultApi:
         application_id,
         risk_score_min,
         risk_score_max,
+        web_rtc,
         _request_auth,
         _content_type,
         _headers,
@@ -13037,6 +13062,10 @@ class DefaultApi:
         if risk_score_max is not None:
 
             _query_params.append(("riskScoreMax", risk_score_max))
+
+        if web_rtc is not None:
+
+            _query_params.append(("webRTC", web_rtc))
 
         # process the header parameters
         # process the form parameters

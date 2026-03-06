@@ -18,10 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from freeclimb.models.answered_by import AnsweredBy
 from freeclimb.models.call_direction import CallDirection
+from freeclimb.models.call_result_all_of_subresource_uris import (
+    CallResultAllOfSubresourceUris,
+)
 from freeclimb.models.call_status import CallStatus
 from pydantic import StrictStr
 from typing import Optional, Set
@@ -51,6 +55,16 @@ class CallResult(
     revision: Optional[StrictInt] = Field(
         default=None,
         description="Revision count for the resource. This count is set to 1 on creation and is incremented every time it is updated.",
+    )
+    date_created_iso: Optional[datetime] = Field(
+        default=None,
+        description="The date that this resource was created in ISO 8601 format (e.g., 2022-01-01T00:00:00.000Z).",
+        alias="dateCreatedISO",
+    )
+    date_updated_iso: Optional[datetime] = Field(
+        default=None,
+        description="The date that this resource was last updated in ISO 8601 format (e.g., 2022-01-01T00:00:00.000Z).",
+        alias="dateUpdatedISO",
     )
     call_id: Optional[StrictStr] = Field(
         default=None,
@@ -84,15 +98,30 @@ class CallResult(
         description="Start time of the Call (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT). Empty if the Call has not yet been dialed.",
         alias="startTime",
     )
+    start_time_iso: Optional[datetime] = Field(
+        default=None,
+        description="Start time of the Call in ISO 8601 format (e.g., 2022-01-01T00:00:00.000Z). Empty if the Call has not yet been dialed.",
+        alias="startTimeISO",
+    )
     connect_time: Optional[StrictStr] = Field(
         default=None,
         description="Time the Call was answered (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT). Empty if the Call has not yet been dialed.",
         alias="connectTime",
     )
+    connect_time_iso: Optional[datetime] = Field(
+        default=None,
+        description="Time the Call was answered in ISO 8601 format (e.g., 2022-01-01T00:00:00.000Z). Empty if the Call has not yet been dialed.",
+        alias="connectTimeISO",
+    )
     end_time: Optional[StrictStr] = Field(
         default=None,
         description="End time of the Call (GMT) in RFC 1123 format (e.g., Mon, 15 Jun 2009 20:45:30 GMT). Empty if the Call did not complete successfully.",
         alias="endTime",
+    )
+    end_time_iso: Optional[datetime] = Field(
+        default=None,
+        description="End time of the Call in ISO 8601 format (e.g., 2022-01-01T00:00:00.000Z). Empty if the Call did not complete successfully.",
+        alias="endTimeISO",
     )
     duration: Optional[StrictInt] = Field(
         default=None,
@@ -110,10 +139,18 @@ class CallResult(
     )
     direction: Optional[CallDirection] = None
     answered_by: Optional[AnsweredBy] = Field(default=None, alias="answeredBy")
-    subresource_uris: Optional[Dict[str, Any]] = Field(
+    caller_name: Optional[StrictStr] = Field(
         default=None,
-        description="The list of subresources for this Call. These include things like logs and recordings associated with the Call.",
-        alias="subresourceUris",
+        description="The caller ID name (CNAM) for this Call. Empty if unavailable.",
+        alias="callerName",
+    )
+    web_rtc: Optional[StrictBool] = Field(
+        default=None,
+        description="Indicates whether this Call was initiated via WebRTC.",
+        alias="webRTC",
+    )
+    subresource_uris: Optional[CallResultAllOfSubresourceUris] = Field(
+        default=None, alias="subresourceUris"
     )
     application_id: Optional[StrictStr] = Field(
         default=None,
@@ -126,6 +163,8 @@ class CallResult(
         "dateCreated",
         "dateUpdated",
         "revision",
+        "dateCreatedISO",
+        "dateUpdatedISO",
         "callId",
         "parentCallId",
         "accountId",
@@ -134,13 +173,18 @@ class CallResult(
         "phoneNumberId",
         "status",
         "startTime",
+        "startTimeISO",
         "connectTime",
+        "connectTimeISO",
         "endTime",
+        "endTimeISO",
         "duration",
         "connectDuration",
         "audioStreamDuration",
         "direction",
         "answeredBy",
+        "callerName",
+        "webRTC",
         "subresourceUris",
         "applicationId",
     ]
@@ -176,6 +220,25 @@ class CallResult(
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of subresource_uris
+        if self.subresource_uris:
+            _dict["subresourceUris"] = self.subresource_uris.to_dict()
+        # set to None if date_created_iso (nullable) is None
+        # and model_fields_set contains the field
+        if (
+            self.date_created_iso is None
+            and "date_created_iso" in self.model_fields_set
+        ):
+            _dict["dateCreatedISO"] = None
+
+        # set to None if date_updated_iso (nullable) is None
+        # and model_fields_set contains the field
+        if (
+            self.date_updated_iso is None
+            and "date_updated_iso" in self.model_fields_set
+        ):
+            _dict["dateUpdatedISO"] = None
+
         # set to None if call_id (nullable) is None
         # and model_fields_set contains the field
         if self.call_id is None and "call_id" in self.model_fields_set:
@@ -216,15 +279,33 @@ class CallResult(
         if self.start_time is None and "start_time" in self.model_fields_set:
             _dict["startTime"] = None
 
+        # set to None if start_time_iso (nullable) is None
+        # and model_fields_set contains the field
+        if self.start_time_iso is None and "start_time_iso" in self.model_fields_set:
+            _dict["startTimeISO"] = None
+
         # set to None if connect_time (nullable) is None
         # and model_fields_set contains the field
         if self.connect_time is None and "connect_time" in self.model_fields_set:
             _dict["connectTime"] = None
 
+        # set to None if connect_time_iso (nullable) is None
+        # and model_fields_set contains the field
+        if (
+            self.connect_time_iso is None
+            and "connect_time_iso" in self.model_fields_set
+        ):
+            _dict["connectTimeISO"] = None
+
         # set to None if end_time (nullable) is None
         # and model_fields_set contains the field
         if self.end_time is None and "end_time" in self.model_fields_set:
             _dict["endTime"] = None
+
+        # set to None if end_time_iso (nullable) is None
+        # and model_fields_set contains the field
+        if self.end_time_iso is None and "end_time_iso" in self.model_fields_set:
+            _dict["endTimeISO"] = None
 
         # set to None if duration (nullable) is None
         # and model_fields_set contains the field
@@ -257,6 +338,16 @@ class CallResult(
         if self.answered_by is None and "answered_by" in self.model_fields_set:
             _dict["answeredBy"] = None
 
+        # set to None if caller_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.caller_name is None and "caller_name" in self.model_fields_set:
+            _dict["callerName"] = None
+
+        # set to None if web_rtc (nullable) is None
+        # and model_fields_set contains the field
+        if self.web_rtc is None and "web_rtc" in self.model_fields_set:
+            _dict["webRTC"] = None
+
         # set to None if subresource_uris (nullable) is None
         # and model_fields_set contains the field
         if (
@@ -287,6 +378,8 @@ class CallResult(
                 "dateCreated": obj.get("dateCreated"),
                 "dateUpdated": obj.get("dateUpdated"),
                 "revision": obj.get("revision"),
+                "dateCreatedISO": obj.get("dateCreatedISO"),
+                "dateUpdatedISO": obj.get("dateUpdatedISO"),
                 "callId": obj.get("callId"),
                 "parentCallId": obj.get("parentCallId"),
                 "accountId": obj.get("accountId"),
@@ -295,14 +388,23 @@ class CallResult(
                 "phoneNumberId": obj.get("phoneNumberId"),
                 "status": obj.get("status"),
                 "startTime": obj.get("startTime"),
+                "startTimeISO": obj.get("startTimeISO"),
                 "connectTime": obj.get("connectTime"),
+                "connectTimeISO": obj.get("connectTimeISO"),
                 "endTime": obj.get("endTime"),
+                "endTimeISO": obj.get("endTimeISO"),
                 "duration": obj.get("duration"),
                 "connectDuration": obj.get("connectDuration"),
                 "audioStreamDuration": obj.get("audioStreamDuration"),
                 "direction": obj.get("direction"),
                 "answeredBy": obj.get("answeredBy"),
-                "subresourceUris": obj.get("subresourceUris"),
+                "callerName": obj.get("callerName"),
+                "webRTC": obj.get("webRTC"),
+                "subresourceUris": (
+                    CallResultAllOfSubresourceUris.from_dict(obj["subresourceUris"])
+                    if obj.get("subresourceUris") is not None
+                    else None
+                ),
                 "applicationId": obj.get("applicationId"),
             }
         )

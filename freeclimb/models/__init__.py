@@ -49,6 +49,9 @@ from freeclimb.models.call_direction import CallDirection as CallDirection
 from freeclimb.models.call_ended_reason import CallEndedReason as CallEndedReason
 from freeclimb.models.call_list import CallList as CallList
 from freeclimb.models.call_result import CallResult as CallResult
+from freeclimb.models.call_result_all_of_subresource_uris import (
+    CallResultAllOfSubresourceUris as CallResultAllOfSubresourceUris,
+)
 from freeclimb.models.call_status import CallStatus as CallStatus
 from freeclimb.models.call_status_webhook import CallStatusWebhook as CallStatusWebhook
 from freeclimb.models.capabilities import Capabilities as Capabilities

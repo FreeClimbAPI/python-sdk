@@ -22,6 +22,7 @@ docs/CallDirection.md
 docs/CallEndedReason.md
 docs/CallList.md
 docs/CallResult.md
+docs/CallResultAllOfSubresourceUris.md
 docs/CallStatus.md
 docs/CallStatusWebhook.md
 docs/Capabilities.md
@@ -187,6 +188,7 @@ freeclimb/models/call_direction.py
 freeclimb/models/call_ended_reason.py
 freeclimb/models/call_list.py
 freeclimb/models/call_result.py
+freeclimb/models/call_result_all_of_subresource_uris.py
 freeclimb/models/call_status.py
 freeclimb/models/call_status_webhook.py
 freeclimb/models/capabilities.py
@@ -350,6 +352,7 @@ test/test_call_direction.py
 test/test_call_ended_reason.py
 test/test_call_list.py
 test/test_call_result.py
+test/test_call_result_all_of_subresource_uris.py
 test/test_call_status.py
 test/test_call_status_webhook.py
 test/test_capabilities.py

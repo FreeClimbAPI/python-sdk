@@ -728,6 +728,8 @@ class TestDefaultApi(unittest.TestCase):
 
         risk_score_max = risk_score_max_list_calls_test_value
 
+        web_rtc = web_rtc_list_calls_test_value
+
         api_response = self.api.list_calls(
             used_audio_stream=used_audio_stream,
             active=active,
@@ -740,6 +742,7 @@ class TestDefaultApi(unittest.TestCase):
             application_id=application_id,
             risk_score_min=risk_score_min,
             risk_score_max=risk_score_max,
+            web_rtc=web_rtc,
         )
 
         assert isinstance(api_response, CallList)
@@ -1389,6 +1392,7 @@ class TestDefaultApi(unittest.TestCase):
         application_id = application_id_list_calls_test_value
         risk_score_min = risk_score_min_list_calls_test_value
         risk_score_max = risk_score_max_list_calls_test_value
+        web_rtc = web_rtc_list_calls_test_value
 
         api_response = self.api.list_calls(
             used_audio_stream=used_audio_stream,
@@ -1402,6 +1406,7 @@ class TestDefaultApi(unittest.TestCase):
             application_id=application_id,
             risk_score_min=risk_score_min,
             risk_score_max=risk_score_max,
+            web_rtc=web_rtc,
         )
         api_response.next_page_uri = "/Accounts/{accountId}/Calls?cursor=1"
         next_page_api_response = self.api.get_next_page(api_response)
@@ -1974,6 +1979,8 @@ end_time_list_conference_recordings_test_value = "end_time_test_value"
 start_time_list_recordings_test_value = "start_time_test_value"
 
 end_time_list_recordings_test_value = "end_time_test_value"
+
+web_rtc_list_calls_test_value = True
 
 if __name__ == "__main__":
     unittest.main()
