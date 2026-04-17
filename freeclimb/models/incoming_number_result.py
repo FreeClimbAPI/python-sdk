@@ -191,6 +191,11 @@ class IncomingNumberResult(
         if self.offnet is None and "offnet" in self.model_fields_set:
             _dict["offnet"] = None
 
+        # set to None if tfn (nullable) is None
+        # and model_fields_set contains the field
+        if self.tfn is None and "tfn" in self.model_fields_set:
+            _dict["tfn"] = None
+
         return _dict
 
     @classmethod

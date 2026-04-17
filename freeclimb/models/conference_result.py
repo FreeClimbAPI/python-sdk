@@ -64,7 +64,11 @@ class ConferenceResult(
     alias: Optional[StrictStr] = Field(
         default=None, description="A description for this Conference."
     )
-    play_beep: Optional[PlayBeep] = Field(default=None, alias="playBeep")
+    play_beep: Optional[PlayBeep] = Field(
+        default=None,
+        description="Setting that controls when a beep is played. One of: always, never, entryOnly, exitOnly. Defaults to always.",
+        alias="playBeep",
+    )
     record: Optional[StrictBool] = Field(
         default=None,
         description="Flag indicating whether recording is enabled for this Conference.",

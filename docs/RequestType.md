@@ -29,6 +29,8 @@
 
 * `ADDTOQUEUENOTIFICATION` (value: `'addToQueueNotification'`)
 
+* `AUDIOSTREAM` (value: `'audioStream'`)
+
 * `REMOVEFROMQUEUENOTIFICATION` (value: `'removeFromQueueNotification'`)
 
 * `CALLSTATUS` (value: `'callStatus'`)

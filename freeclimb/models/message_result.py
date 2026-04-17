@@ -231,6 +231,11 @@ class MessageResult(
         if self.media_urls is None and "media_urls" in self.model_fields_set:
             _dict["mediaUrls"] = None
 
+        # set to None if tfn (nullable) is None
+        # and model_fields_set contains the field
+        if self.tfn is None and "tfn" in self.model_fields_set:
+            _dict["tfn"] = None
+
         # set to None if phone_number_id (nullable) is None
         # and model_fields_set contains the field
         if self.phone_number_id is None and "phone_number_id" in self.model_fields_set:

@@ -11,6 +11,8 @@ docs/AnsweredBy.md
 docs/ApplicationList.md
 docs/ApplicationRequest.md
 docs/ApplicationResult.md
+docs/AudioStream.md
+docs/AudioStreamWebhook.md
 docs/AvailableNumber.md
 docs/AvailableNumberList.md
 docs/BargeInReason.md
@@ -177,6 +179,8 @@ freeclimb/models/answered_by.py
 freeclimb/models/application_list.py
 freeclimb/models/application_request.py
 freeclimb/models/application_result.py
+freeclimb/models/audio_stream.py
+freeclimb/models/audio_stream_webhook.py
 freeclimb/models/available_number.py
 freeclimb/models/available_number_list.py
 freeclimb/models/barge_in_reason.py
@@ -341,6 +345,8 @@ test/test_answered_by.py
 test/test_application_list.py
 test/test_application_request.py
 test/test_application_result.py
+test/test_audio_stream.py
+test/test_audio_stream_webhook.py
 test/test_available_number.py
 test/test_available_number_list.py
 test/test_barge_in_reason.py

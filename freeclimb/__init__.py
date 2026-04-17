@@ -49,6 +49,10 @@ from freeclimb.models.application_request import (
     ApplicationRequest as ApplicationRequest,
 )
 from freeclimb.models.application_result import ApplicationResult as ApplicationResult
+from freeclimb.models.audio_stream import AudioStream as AudioStream
+from freeclimb.models.audio_stream_webhook import (
+    AudioStreamWebhook as AudioStreamWebhook,
+)
 from freeclimb.models.available_number import AvailableNumber as AvailableNumber
 from freeclimb.models.available_number_list import (
     AvailableNumberList as AvailableNumberList,

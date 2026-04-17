@@ -34,6 +34,7 @@ if TYPE_CHECKING:
     from freeclimb.models.add_to_queue_notification_webhook import (
         AddToQueueNotificationWebhook,
     )
+    from freeclimb.models.audio_stream_webhook import AudioStreamWebhook
     from freeclimb.models.call_control_webhook import CallControlWebhook
     from freeclimb.models.call_status_webhook import CallStatusWebhook
     from freeclimb.models.conference_recording_status_webhook import (
@@ -81,6 +82,7 @@ class Webhook(
     __discriminator_value_class_map: ClassVar[Dict[str, str]] = {
         "addToConferenceNotification": "AddToConferenceNotificationWebhook",
         "addToQueueNotification": "AddToQueueNotificationWebhook",
+        "audioStream": "AudioStreamWebhook",
         "callControl": "CallControlWebhook",
         "callStatus": "CallStatusWebhook",
         "conferenceRecordingStatus": "ConferenceRecordingStatusWebhook",
@@ -127,6 +129,7 @@ class Webhook(
         Union[
             AddToConferenceNotificationWebhook,
             AddToQueueNotificationWebhook,
+            AudioStreamWebhook,
             CallControlWebhook,
             CallStatusWebhook,
             ConferenceRecordingStatusWebhook,
@@ -177,6 +180,7 @@ class Webhook(
         Union[
             AddToConferenceNotificationWebhook,
             AddToQueueNotificationWebhook,
+            AudioStreamWebhook,
             CallControlWebhook,
             CallStatusWebhook,
             ConferenceRecordingStatusWebhook,
@@ -211,6 +215,10 @@ class Webhook(
             return import_module(
                 "freeclimb.models.add_to_queue_notification_webhook"
             ).AddToQueueNotificationWebhook.from_dict(obj)
+        if object_type == "AudioStreamWebhook":
+            return import_module(
+                "freeclimb.models.audio_stream_webhook"
+            ).AudioStreamWebhook.from_dict(obj)
         if object_type == "CallControlWebhook":
             return import_module(
                 "freeclimb.models.call_control_webhook"

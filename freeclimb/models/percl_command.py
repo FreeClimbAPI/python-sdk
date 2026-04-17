@@ -29,6 +29,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from freeclimb.models.add_to_conference import AddToConference
+    from freeclimb.models.audio_stream import AudioStream
     from freeclimb.models.create_conference import CreateConference
     from freeclimb.models.dequeue import Dequeue
     from freeclimb.models.enqueue import Enqueue
@@ -76,6 +77,7 @@ class PerclCommand(
     # discriminator mappings
     __discriminator_value_class_map: ClassVar[Dict[str, str]] = {
         "AddToConference": "AddToConference",
+        "AudioStream": "AudioStream",
         "CreateConference": "CreateConference",
         "Dequeue": "Dequeue",
         "Enqueue": "Enqueue",
@@ -125,6 +127,7 @@ class PerclCommand(
     def from_json(cls, json_str: str) -> Optional[
         Union[
             AddToConference,
+            AudioStream,
             CreateConference,
             Dequeue,
             Enqueue,
@@ -178,6 +181,7 @@ class PerclCommand(
     def from_dict(cls, obj: Dict[str, Any]) -> Optional[
         Union[
             AddToConference,
+            AudioStream,
             CreateConference,
             Dequeue,
             Enqueue,
@@ -212,6 +216,10 @@ class PerclCommand(
             return import_module(
                 "freeclimb.models.add_to_conference"
             ).AddToConference.from_dict(obj)
+        if object_type == "AudioStream":
+            return import_module("freeclimb.models.audio_stream").AudioStream.from_dict(
+                obj
+            )
         if object_type == "CreateConference":
             return import_module(
                 "freeclimb.models.create_conference"

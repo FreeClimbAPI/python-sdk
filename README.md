@@ -199,6 +199,8 @@ Class | Method | HTTP request | Description
  - [ApplicationList](docs/ApplicationList.md)
  - [ApplicationRequest](docs/ApplicationRequest.md)
  - [ApplicationResult](docs/ApplicationResult.md)
+ - [AudioStream](docs/AudioStream.md)
+ - [AudioStreamWebhook](docs/AudioStreamWebhook.md)
  - [AvailableNumber](docs/AvailableNumber.md)
  - [AvailableNumberList](docs/AvailableNumberList.md)
  - [BargeInReason](docs/BargeInReason.md)
