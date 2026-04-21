@@ -40,6 +40,7 @@ class RequestType(str, Enum):
     DEQUEUE = "dequeue"
     QUEUE_WAIT = "queueWait"
     ADD_TO_QUEUE_NOTIFICATION = "addToQueueNotification"
+    AUDIO_STREAM = "audioStream"
     REMOVE_FROM_QUEUE_NOTIFICATION = "removeFromQueueNotification"
     CALL_STATUS = "callStatus"
     CREATE_CONFERENCE = "createConference"

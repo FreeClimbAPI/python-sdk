@@ -83,6 +83,11 @@ class TestQueueResult(unittest.TestCase):
         self.model.average_queue_removal_time = 1
         assert self.model.average_queue_removal_time == 1
 
+    def test_average_wait_time(self):
+        """Test QueueResult.average_wait_time"""
+        self.model.average_wait_time = 1
+        assert self.model.average_wait_time == 1
+
     def test_subresource_uris(self):
         """Test QueueResult.subresource_uris"""
         object = {}

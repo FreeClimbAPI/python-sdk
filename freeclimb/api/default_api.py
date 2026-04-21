@@ -801,7 +801,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "QueueResult",
+            "201": "QueueResult",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
@@ -870,7 +870,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "QueueResult",
+            "201": "QueueResult",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
@@ -939,7 +939,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "QueueResult",
+            "201": "QueueResult",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
@@ -12100,6 +12100,18 @@ class DefaultApi:
                 description="Only show recordings created on the specified date, in the form *YYYY-MM-DD*."
             ),
         ] = None,
+        start_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
+        end_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12120,6 +12132,12 @@ class DefaultApi:
 
         :param date_created: Only show recordings created on the specified date, in the form *YYYY-MM-DD*.
         :type date_created: str
+
+        :param start_time: Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss.
+        :type start_time: str
+
+        :param end_time: Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss.
+        :type end_time: str
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -12148,6 +12166,8 @@ class DefaultApi:
             account_id=account_id,
             call_id=call_id,
             date_created=date_created,
+            start_time=start_time,
+            end_time=end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12179,6 +12199,18 @@ class DefaultApi:
                 description="Only show recordings created on the specified date, in the form *YYYY-MM-DD*."
             ),
         ] = None,
+        start_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
+        end_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12199,6 +12231,12 @@ class DefaultApi:
 
         :param date_created: Only show recordings created on the specified date, in the form *YYYY-MM-DD*.
         :type date_created: str
+
+        :param start_time: Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss.
+        :type start_time: str
+
+        :param end_time: Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss.
+        :type end_time: str
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -12227,6 +12265,8 @@ class DefaultApi:
             account_id=account_id,
             call_id=call_id,
             date_created=date_created,
+            start_time=start_time,
+            end_time=end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12258,6 +12298,18 @@ class DefaultApi:
                 description="Only show recordings created on the specified date, in the form *YYYY-MM-DD*."
             ),
         ] = None,
+        start_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
+        end_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12278,6 +12330,12 @@ class DefaultApi:
 
         :param date_created: Only show recordings created on the specified date, in the form *YYYY-MM-DD*.
         :type date_created: str
+
+        :param start_time: Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss.
+        :type start_time: str
+
+        :param end_time: Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss.
+        :type end_time: str
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -12306,6 +12364,8 @@ class DefaultApi:
             account_id=account_id,
             call_id=call_id,
             date_created=date_created,
+            start_time=start_time,
+            end_time=end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12325,6 +12385,8 @@ class DefaultApi:
         account_id,
         call_id,
         date_created,
+        start_time,
+        end_time,
         _request_auth,
         _content_type,
         _headers,
@@ -12353,6 +12415,14 @@ class DefaultApi:
         if date_created is not None:
 
             _query_params.append(("dateCreated", date_created))
+
+        if start_time is not None:
+
+            _query_params.append(("startTime", start_time))
+
+        if end_time is not None:
+
+            _query_params.append(("endTime", end_time))
 
         # process the header parameters
         # process the form parameters
@@ -12385,6 +12455,12 @@ class DefaultApi:
     @validate_call
     def list_calls(
         self,
+        used_audio_stream: Annotated[
+            Optional[StrictBool],
+            Field(
+                description="If usedAudioStream is set to true then all calls that have a audioStreamDuration > 0 will be returned "
+            ),
+        ] = None,
         active: Annotated[
             Optional[StrictBool],
             Field(
@@ -12443,6 +12519,10 @@ class DefaultApi:
                 description="The maximum riskScore that should be included in the list."
             ),
         ] = None,
+        web_rtc: Annotated[
+            Optional[StrictBool],
+            Field(description="Only show Calls that were originated via WebRTC."),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12457,6 +12537,9 @@ class DefaultApi:
     ) -> CallList:
         """List Calls
 
+
+        :param used_audio_stream: If usedAudioStream is set to true then all calls that have a audioStreamDuration > 0 will be returned
+        :type used_audio_stream: bool
 
         :param active: If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.
         :type active: bool
@@ -12488,6 +12571,9 @@ class DefaultApi:
         :param risk_score_max: The maximum riskScore that should be included in the list.
         :type risk_score_max: int
 
+        :param web_rtc: Only show Calls that were originated via WebRTC.
+        :type web_rtc: bool
+
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12513,6 +12599,7 @@ class DefaultApi:
 
         _param = self._list_calls_serialize(
             account_id=account_id,
+            used_audio_stream=used_audio_stream,
             active=active,
             to=to,
             var_from=var_from,
@@ -12523,6 +12610,7 @@ class DefaultApi:
             application_id=application_id,
             risk_score_min=risk_score_min,
             risk_score_max=risk_score_max,
+            web_rtc=web_rtc,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12544,6 +12632,12 @@ class DefaultApi:
     @validate_call
     def list_calls_with_http_info(
         self,
+        used_audio_stream: Annotated[
+            Optional[StrictBool],
+            Field(
+                description="If usedAudioStream is set to true then all calls that have a audioStreamDuration > 0 will be returned "
+            ),
+        ] = None,
         active: Annotated[
             Optional[StrictBool],
             Field(
@@ -12602,6 +12696,10 @@ class DefaultApi:
                 description="The maximum riskScore that should be included in the list."
             ),
         ] = None,
+        web_rtc: Annotated[
+            Optional[StrictBool],
+            Field(description="Only show Calls that were originated via WebRTC."),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12616,6 +12714,9 @@ class DefaultApi:
     ) -> ApiResponse[CallList]:
         """List Calls
 
+
+        :param used_audio_stream: If usedAudioStream is set to true then all calls that have a audioStreamDuration > 0 will be returned
+        :type used_audio_stream: bool
 
         :param active: If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.
         :type active: bool
@@ -12647,6 +12748,9 @@ class DefaultApi:
         :param risk_score_max: The maximum riskScore that should be included in the list.
         :type risk_score_max: int
 
+        :param web_rtc: Only show Calls that were originated via WebRTC.
+        :type web_rtc: bool
+
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12672,6 +12776,7 @@ class DefaultApi:
 
         _param = self._list_calls_serialize(
             account_id=account_id,
+            used_audio_stream=used_audio_stream,
             active=active,
             to=to,
             var_from=var_from,
@@ -12682,6 +12787,7 @@ class DefaultApi:
             application_id=application_id,
             risk_score_min=risk_score_min,
             risk_score_max=risk_score_max,
+            web_rtc=web_rtc,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12703,6 +12809,12 @@ class DefaultApi:
     @validate_call
     def list_calls_without_preload_content(
         self,
+        used_audio_stream: Annotated[
+            Optional[StrictBool],
+            Field(
+                description="If usedAudioStream is set to true then all calls that have a audioStreamDuration > 0 will be returned "
+            ),
+        ] = None,
         active: Annotated[
             Optional[StrictBool],
             Field(
@@ -12761,6 +12873,10 @@ class DefaultApi:
                 description="The maximum riskScore that should be included in the list."
             ),
         ] = None,
+        web_rtc: Annotated[
+            Optional[StrictBool],
+            Field(description="Only show Calls that were originated via WebRTC."),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12775,6 +12891,9 @@ class DefaultApi:
     ) -> RESTResponseType:
         """List Calls
 
+
+        :param used_audio_stream: If usedAudioStream is set to true then all calls that have a audioStreamDuration > 0 will be returned
+        :type used_audio_stream: bool
 
         :param active: If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.
         :type active: bool
@@ -12806,6 +12925,9 @@ class DefaultApi:
         :param risk_score_max: The maximum riskScore that should be included in the list.
         :type risk_score_max: int
 
+        :param web_rtc: Only show Calls that were originated via WebRTC.
+        :type web_rtc: bool
+
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12831,6 +12953,7 @@ class DefaultApi:
 
         _param = self._list_calls_serialize(
             account_id=account_id,
+            used_audio_stream=used_audio_stream,
             active=active,
             to=to,
             var_from=var_from,
@@ -12841,6 +12964,7 @@ class DefaultApi:
             application_id=application_id,
             risk_score_min=risk_score_min,
             risk_score_max=risk_score_max,
+            web_rtc=web_rtc,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12858,6 +12982,7 @@ class DefaultApi:
     def _list_calls_serialize(
         self,
         account_id,
+        used_audio_stream,
         active,
         to,
         var_from,
@@ -12868,6 +12993,7 @@ class DefaultApi:
         application_id,
         risk_score_min,
         risk_score_max,
+        web_rtc,
         _request_auth,
         _content_type,
         _headers,
@@ -12893,6 +13019,10 @@ class DefaultApi:
         if account_id is not None:
             _path_params["accountId"] = account_id
         # process the query parameters
+        if used_audio_stream is not None:
+
+            _query_params.append(("usedAudioStream", used_audio_stream))
+
         if active is not None:
 
             _query_params.append(("active", active))
@@ -12932,6 +13062,10 @@ class DefaultApi:
         if risk_score_max is not None:
 
             _query_params.append(("riskScoreMax", risk_score_max))
+
+        if web_rtc is not None:
+
+            _query_params.append(("webRTC", web_rtc))
 
         # process the header parameters
         # process the form parameters
@@ -12982,6 +13116,18 @@ class DefaultApi:
                 description="Only show Recordings created on this date, formatted as *YYYY-MM-DD*."
             ),
         ] = None,
+        start_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
+        end_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13005,6 +13151,12 @@ class DefaultApi:
 
         :param date_created: Only show Recordings created on this date, formatted as *YYYY-MM-DD*.
         :type date_created: str
+
+        :param start_time: Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss.
+        :type start_time: str
+
+        :param end_time: Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss.
+        :type end_time: str
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -13034,6 +13186,8 @@ class DefaultApi:
             conference_id=conference_id,
             call_id=call_id,
             date_created=date_created,
+            start_time=start_time,
+            end_time=end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13073,6 +13227,18 @@ class DefaultApi:
                 description="Only show Recordings created on this date, formatted as *YYYY-MM-DD*."
             ),
         ] = None,
+        start_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
+        end_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13096,6 +13262,12 @@ class DefaultApi:
 
         :param date_created: Only show Recordings created on this date, formatted as *YYYY-MM-DD*.
         :type date_created: str
+
+        :param start_time: Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss.
+        :type start_time: str
+
+        :param end_time: Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss.
+        :type end_time: str
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -13125,6 +13297,8 @@ class DefaultApi:
             conference_id=conference_id,
             call_id=call_id,
             date_created=date_created,
+            start_time=start_time,
+            end_time=end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13164,6 +13338,18 @@ class DefaultApi:
                 description="Only show Recordings created on this date, formatted as *YYYY-MM-DD*."
             ),
         ] = None,
+        start_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
+        end_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13187,6 +13373,12 @@ class DefaultApi:
 
         :param date_created: Only show Recordings created on this date, formatted as *YYYY-MM-DD*.
         :type date_created: str
+
+        :param start_time: Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss.
+        :type start_time: str
+
+        :param end_time: Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss.
+        :type end_time: str
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -13216,6 +13408,8 @@ class DefaultApi:
             conference_id=conference_id,
             call_id=call_id,
             date_created=date_created,
+            start_time=start_time,
+            end_time=end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13236,6 +13430,8 @@ class DefaultApi:
         conference_id,
         call_id,
         date_created,
+        start_time,
+        end_time,
         _request_auth,
         _content_type,
         _headers,
@@ -13268,6 +13464,14 @@ class DefaultApi:
         if date_created is not None:
 
             _query_params.append(("dateCreated", date_created))
+
+        if start_time is not None:
+
+            _query_params.append(("startTime", start_time))
+
+        if end_time is not None:
+
+            _query_params.append(("endTime", end_time))
 
         # process the header parameters
         # process the form parameters
@@ -15228,6 +15432,18 @@ class DefaultApi:
                 description="Only show Recordings created on this date, formatted as *YYYY-MM-DD*."
             ),
         ] = None,
+        start_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
+        end_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15251,6 +15467,12 @@ class DefaultApi:
 
         :param date_created: Only show Recordings created on this date, formatted as *YYYY-MM-DD*.
         :type date_created: str
+
+        :param start_time: Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss.
+        :type start_time: str
+
+        :param end_time: Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss.
+        :type end_time: str
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -15280,6 +15502,8 @@ class DefaultApi:
             call_id=call_id,
             conference_id=conference_id,
             date_created=date_created,
+            start_time=start_time,
+            end_time=end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15319,6 +15543,18 @@ class DefaultApi:
                 description="Only show Recordings created on this date, formatted as *YYYY-MM-DD*."
             ),
         ] = None,
+        start_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
+        end_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15342,6 +15578,12 @@ class DefaultApi:
 
         :param date_created: Only show Recordings created on this date, formatted as *YYYY-MM-DD*.
         :type date_created: str
+
+        :param start_time: Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss.
+        :type start_time: str
+
+        :param end_time: Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss.
+        :type end_time: str
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -15371,6 +15613,8 @@ class DefaultApi:
             call_id=call_id,
             conference_id=conference_id,
             date_created=date_created,
+            start_time=start_time,
+            end_time=end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15410,6 +15654,18 @@ class DefaultApi:
                 description="Only show Recordings created on this date, formatted as *YYYY-MM-DD*."
             ),
         ] = None,
+        start_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
+        end_time: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15433,6 +15689,12 @@ class DefaultApi:
 
         :param date_created: Only show Recordings created on this date, formatted as *YYYY-MM-DD*.
         :type date_created: str
+
+        :param start_time: Only show Recordings created at or after this time, given as YYYY-MM-DD hh:mm:ss.
+        :type start_time: str
+
+        :param end_time: Only show Recordings created at or before this time, given as YYYY-MM-DD hh:mm:ss.
+        :type end_time: str
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -15462,6 +15724,8 @@ class DefaultApi:
             call_id=call_id,
             conference_id=conference_id,
             date_created=date_created,
+            start_time=start_time,
+            end_time=end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15482,6 +15746,8 @@ class DefaultApi:
         call_id,
         conference_id,
         date_created,
+        start_time,
+        end_time,
         _request_auth,
         _content_type,
         _headers,
@@ -15516,6 +15782,14 @@ class DefaultApi:
         if date_created is not None:
 
             _query_params.append(("dateCreated", date_created))
+
+        if start_time is not None:
+
+            _query_params.append(("startTime", start_time))
+
+        if end_time is not None:
+
+            _query_params.append(("endTime", end_time))
 
         # process the header parameters
         # process the form parameters

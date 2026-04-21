@@ -77,6 +77,11 @@ class QueueResult(
         description="The average amount of time (in seconds) for a call to be removed from the queue.",
         alias="averageQueueRemovalTime",
     )
+    average_wait_time: Optional[StrictInt] = Field(
+        default=None,
+        description="The average wait time (in seconds) of all Calls in the Queue.",
+        alias="averageWaitTime",
+    )
     subresource_uris: Optional[Dict[str, Any]] = Field(
         default=None,
         description="List of subresources for this Queue (which includes Queue members).",
@@ -94,6 +99,7 @@ class QueueResult(
         "maxSize",
         "currentSize",
         "averageQueueRemovalTime",
+        "averageWaitTime",
         "subresourceUris",
     ]
 
@@ -161,6 +167,14 @@ class QueueResult(
         ):
             _dict["averageQueueRemovalTime"] = None
 
+        # set to None if average_wait_time (nullable) is None
+        # and model_fields_set contains the field
+        if (
+            self.average_wait_time is None
+            and "average_wait_time" in self.model_fields_set
+        ):
+            _dict["averageWaitTime"] = None
+
         # set to None if subresource_uris (nullable) is None
         # and model_fields_set contains the field
         if (
@@ -192,6 +206,7 @@ class QueueResult(
                 "maxSize": obj.get("maxSize"),
                 "currentSize": obj.get("currentSize"),
                 "averageQueueRemovalTime": obj.get("averageQueueRemovalTime"),
+                "averageWaitTime": obj.get("averageWaitTime"),
                 "subresourceUris": obj.get("subresourceUris"),
             }
         )

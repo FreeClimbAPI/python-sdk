@@ -50,6 +50,16 @@ class TestCallResult(unittest.TestCase):
         self.model.revision = 1
         assert self.model.revision == 1
 
+    def test_date_created_iso(self):
+        """Test CallResult.date_created_iso"""
+        self.model.date_created_iso = datetime.fromtimestamp(1691592436)
+        assert self.model.date_created_iso == datetime.fromtimestamp(1691592436)
+
+    def test_date_updated_iso(self):
+        """Test CallResult.date_updated_iso"""
+        self.model.date_updated_iso = datetime.fromtimestamp(1691592436)
+        assert self.model.date_updated_iso == datetime.fromtimestamp(1691592436)
+
     def test_call_id(self):
         """Test CallResult.call_id"""
 
@@ -111,17 +121,32 @@ class TestCallResult(unittest.TestCase):
         self.model.start_time = "TEST_STRING"
         assert self.model.start_time == "TEST_STRING"
 
+    def test_start_time_iso(self):
+        """Test CallResult.start_time_iso"""
+        self.model.start_time_iso = datetime.fromtimestamp(1691592436)
+        assert self.model.start_time_iso == datetime.fromtimestamp(1691592436)
+
     def test_connect_time(self):
         """Test CallResult.connect_time"""
 
         self.model.connect_time = "TEST_STRING"
         assert self.model.connect_time == "TEST_STRING"
 
+    def test_connect_time_iso(self):
+        """Test CallResult.connect_time_iso"""
+        self.model.connect_time_iso = datetime.fromtimestamp(1691592436)
+        assert self.model.connect_time_iso == datetime.fromtimestamp(1691592436)
+
     def test_end_time(self):
         """Test CallResult.end_time"""
 
         self.model.end_time = "TEST_STRING"
         assert self.model.end_time == "TEST_STRING"
+
+    def test_end_time_iso(self):
+        """Test CallResult.end_time_iso"""
+        self.model.end_time_iso = datetime.fromtimestamp(1691592436)
+        assert self.model.end_time_iso == datetime.fromtimestamp(1691592436)
 
     def test_duration(self):
         """Test CallResult.duration"""
@@ -132,6 +157,11 @@ class TestCallResult(unittest.TestCase):
         """Test CallResult.connect_duration"""
         self.model.connect_duration = 1
         assert self.model.connect_duration == 1
+
+    def test_audio_stream_duration(self):
+        """Test CallResult.audio_stream_duration"""
+        self.model.audio_stream_duration = 1
+        assert self.model.audio_stream_duration == 1
 
     def test_direction(self):
         """Test CallResult.direction"""
@@ -149,9 +179,23 @@ class TestCallResult(unittest.TestCase):
         self.model.answered_by = AnsweredBy.MACHINE
         assert self.model.answered_by == AnsweredBy.MACHINE
 
+    def test_caller_name(self):
+        """Test CallResult.caller_name"""
+
+        self.model.caller_name = "TEST_STRING"
+        assert self.model.caller_name == "TEST_STRING"
+
+    def test_web_rtc(self):
+        """Test CallResult.web_rtc"""
+        self.model.web_rtc = False
+        assert self.model.web_rtc == False
+
     def test_subresource_uris(self):
         """Test CallResult.subresource_uris"""
-        object = {}
+        object = freeclimb.models.call_result_all_of_subresource_uris.CallResultAllOfSubresourceUris(
+            logs="",
+            recordings="",
+        )
         self.model.subresource_uris = object
         assert self.model.subresource_uris == object
 

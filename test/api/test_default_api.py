@@ -77,6 +77,7 @@ from freeclimb.models.export_list import ExportList
 from freeclimb.models.export_request import ExportRequest
 from freeclimb.models.export_result import ExportResult
 from freeclimb.models.export_result_output import ExportResultOutput
+from freeclimb.models.export_result_output import ExportResultOutput
 from freeclimb.models.create_blob_request import CreateBlobRequest
 from freeclimb.models.modify_blob_request import ModifyBlobRequest
 from freeclimb.models.replace_blob_request import ReplaceBlobRequest
@@ -686,8 +687,15 @@ class TestDefaultApi(unittest.TestCase):
 
         date_created = date_created_list_call_recordings_test_value
 
+        start_time = start_time_list_call_recordings_test_value
+
+        end_time = end_time_list_call_recordings_test_value
+
         api_response = self.api.list_call_recordings(
-            call_id=call_id, date_created=date_created
+            call_id=call_id,
+            date_created=date_created,
+            start_time=start_time,
+            end_time=end_time,
         )
 
         assert isinstance(api_response, RecordingList)
@@ -697,6 +705,8 @@ class TestDefaultApi(unittest.TestCase):
 
         List Calls
         """
+
+        used_audio_stream = used_audio_stream_list_calls_test_value
 
         active = active_list_calls_test_value
 
@@ -718,7 +728,10 @@ class TestDefaultApi(unittest.TestCase):
 
         risk_score_max = risk_score_max_list_calls_test_value
 
+        web_rtc = web_rtc_list_calls_test_value
+
         api_response = self.api.list_calls(
+            used_audio_stream=used_audio_stream,
             active=active,
             to=to,
             var_from=var_from,
@@ -729,6 +742,7 @@ class TestDefaultApi(unittest.TestCase):
             application_id=application_id,
             risk_score_min=risk_score_min,
             risk_score_max=risk_score_max,
+            web_rtc=web_rtc,
         )
 
         assert isinstance(api_response, CallList)
@@ -745,8 +759,16 @@ class TestDefaultApi(unittest.TestCase):
 
         date_created = date_created_list_conference_recordings_test_value
 
+        start_time = start_time_list_conference_recordings_test_value
+
+        end_time = end_time_list_conference_recordings_test_value
+
         api_response = self.api.list_conference_recordings(
-            conference_id=conference_id, call_id=call_id, date_created=date_created
+            conference_id=conference_id,
+            call_id=call_id,
+            date_created=date_created,
+            start_time=start_time,
+            end_time=end_time,
         )
 
         assert isinstance(api_response, RecordingList)
@@ -890,8 +912,16 @@ class TestDefaultApi(unittest.TestCase):
 
         date_created = date_created_list_recordings_test_value
 
+        start_time = start_time_list_recordings_test_value
+
+        end_time = end_time_list_recordings_test_value
+
         api_response = self.api.list_recordings(
-            call_id=call_id, conference_id=conference_id, date_created=date_created
+            call_id=call_id,
+            conference_id=conference_id,
+            date_created=date_created,
+            start_time=start_time,
+            end_time=end_time,
         )
 
         assert isinstance(api_response, RecordingList)
@@ -1329,9 +1359,14 @@ class TestDefaultApi(unittest.TestCase):
 
         call_id = call_id_list_call_recordings_test_value
         date_created = date_created_list_call_recordings_test_value
+        start_time = start_time_list_call_recordings_test_value
+        end_time = end_time_list_call_recordings_test_value
 
         api_response = self.api.list_call_recordings(
-            call_id=call_id, date_created=date_created
+            call_id=call_id,
+            date_created=date_created,
+            start_time=start_time,
+            end_time=end_time,
         )
         api_response.next_page_uri = (
             "/Accounts/{accountId}/Calls/{callId}/Recordings?cursor=1"
@@ -1346,6 +1381,7 @@ class TestDefaultApi(unittest.TestCase):
         Get Next Page for List Calls  # noqa: E501
         """
 
+        used_audio_stream = used_audio_stream_list_calls_test_value
         active = active_list_calls_test_value
         to = to_list_calls_test_value
         var_from = var_from_list_calls_test_value
@@ -1356,8 +1392,10 @@ class TestDefaultApi(unittest.TestCase):
         application_id = application_id_list_calls_test_value
         risk_score_min = risk_score_min_list_calls_test_value
         risk_score_max = risk_score_max_list_calls_test_value
+        web_rtc = web_rtc_list_calls_test_value
 
         api_response = self.api.list_calls(
+            used_audio_stream=used_audio_stream,
             active=active,
             to=to,
             var_from=var_from,
@@ -1368,6 +1406,7 @@ class TestDefaultApi(unittest.TestCase):
             application_id=application_id,
             risk_score_min=risk_score_min,
             risk_score_max=risk_score_max,
+            web_rtc=web_rtc,
         )
         api_response.next_page_uri = "/Accounts/{accountId}/Calls?cursor=1"
         next_page_api_response = self.api.get_next_page(api_response)
@@ -1383,9 +1422,15 @@ class TestDefaultApi(unittest.TestCase):
         conference_id = conference_id_list_conference_recordings_test_value
         call_id = call_id_list_conference_recordings_test_value
         date_created = date_created_list_conference_recordings_test_value
+        start_time = start_time_list_conference_recordings_test_value
+        end_time = end_time_list_conference_recordings_test_value
 
         api_response = self.api.list_conference_recordings(
-            conference_id=conference_id, call_id=call_id, date_created=date_created
+            conference_id=conference_id,
+            call_id=call_id,
+            date_created=date_created,
+            start_time=start_time,
+            end_time=end_time,
         )
         api_response.next_page_uri = (
             "/Accounts/{accountId}/Conferences/{conferenceId}/Recordings?cursor=1"
@@ -1526,9 +1571,15 @@ class TestDefaultApi(unittest.TestCase):
         call_id = call_id_list_recordings_test_value
         conference_id = conference_id_list_recordings_test_value
         date_created = date_created_list_recordings_test_value
+        start_time = start_time_list_recordings_test_value
+        end_time = end_time_list_recordings_test_value
 
         api_response = self.api.list_recordings(
-            call_id=call_id, conference_id=conference_id, date_created=date_created
+            call_id=call_id,
+            conference_id=conference_id,
+            date_created=date_created,
+            start_time=start_time,
+            end_time=end_time,
         )
         api_response.next_page_uri = "/Accounts/{accountId}/Recordings?cursor=1"
         next_page_api_response = self.api.get_next_page(api_response)
@@ -1914,6 +1965,22 @@ modify_blob_request_modify_blob_test_value = ModifyBlobRequest(
 )
 
 replace_blob_request_replace_blob_test_value = ReplaceBlobRequest(blob={})
+
+start_time_list_call_recordings_test_value = "start_time_test_value"
+
+end_time_list_call_recordings_test_value = "end_time_test_value"
+
+used_audio_stream_list_calls_test_value = True
+
+start_time_list_conference_recordings_test_value = "start_time_test_value"
+
+end_time_list_conference_recordings_test_value = "end_time_test_value"
+
+start_time_list_recordings_test_value = "start_time_test_value"
+
+end_time_list_recordings_test_value = "end_time_test_value"
+
+web_rtc_list_calls_test_value = True
 
 if __name__ == "__main__":
     unittest.main()
