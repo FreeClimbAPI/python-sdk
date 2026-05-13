@@ -2,10 +2,19 @@
   "dependencies": {
     "@stoplight/json": "3.21.7",
     "@stoplight/prism-cli": "5.14.2",
-    "fast-xml-parser": "^5.3.8",
+    "fast-xml-parser": "^5.7.0",
     "jsonpath-plus": "^10.3.0"
   },
   "resolutions": {
-    "@stoplight/json": "3.20.0"
+    "@stoplight/json": "3.20.0",
+    "lodash": "^4.18.0",
+    "fast-xml-parser": "^5.7.0",
+    "fast-xml-builder": "^1.1.7",
+    "picomatch": "^4.0.4",
+    "fast-uri": "^3.1.2",
+    "ajv": "^8.18.0",
+    "yaml": "^1.10.3",
+    "js-yaml": "^3.14.2",
+    "@tootallnate/once": "^3.0.1"
   }
 }
