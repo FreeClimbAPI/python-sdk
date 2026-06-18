@@ -13,8 +13,10 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.redirect import Redirect
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "Redirect",
+  "actionUrl": "https://www.example.com"
+}"""
 # create an instance of Redirect from a JSON string
 redirect_instance = Redirect.from_json(json)
 # print the JSON string representation of the object

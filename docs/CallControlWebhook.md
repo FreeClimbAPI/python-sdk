@@ -17,8 +17,13 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.call_control_webhook import CallControlWebhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "callControl",
+  "callId": "string",
+  "accountId": "string",
+  "conferenceId": "string",
+  "digits": "string"
+}"""
 # create an instance of CallControlWebhook from a JSON string
 call_control_webhook_instance = CallControlWebhook.from_json(json)
 # print the JSON string representation of the object

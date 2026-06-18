@@ -21,8 +21,17 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.leave_conference_webhook import LeaveConferenceWebhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "leaveConference",
+  "callId": "string",
+  "accountId": "string",
+  "from": "string",
+  "to": "string",
+  "callStatus": "queued",
+  "direction": "inbound",
+  "conferenceId": "string",
+  "queueId": "string"
+}"""
 # create an instance of LeaveConferenceWebhook from a JSON string
 leave_conference_webhook_instance = LeaveConferenceWebhook.from_json(json)
 # print the JSON string representation of the object

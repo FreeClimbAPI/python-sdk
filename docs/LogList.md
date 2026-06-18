@@ -19,8 +19,25 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.log_list import LogList
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "total": 0,
+  "start": 0,
+  "end": 0,
+  "page": 0,
+  "numPages": 0,
+  "pageSize": 0,
+  "nextPageUri": "string",
+  "logs": [
+    {
+      "timestamp": 0,
+      "level": "info",
+      "requestId": "string",
+      "accountId": "string",
+      "callId": "string",
+      "message": "string"
+    }
+  ]
+}"""
 # create an instance of LogList from a JSON string
 log_list_instance = LogList.from_json(json)
 # print the JSON string representation of the object

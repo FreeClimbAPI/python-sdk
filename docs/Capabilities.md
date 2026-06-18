@@ -17,8 +17,13 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.capabilities import Capabilities
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "voice": false,
+  "sms": false,
+  "tollFree": false,
+  "tenDLC": false,
+  "shortCode": false
+}"""
 # create an instance of Capabilities from a JSON string
 capabilities_instance = Capabilities.from_json(json)
 # print the JSON string representation of the object

@@ -14,8 +14,11 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.create_web_rtc_token import CreateWebRTCToken
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "to": "string",
+  "from": "string",
+  "uses": 0
+}"""
 # create an instance of CreateWebRTCToken from a JSON string
 create_web_rtc_token_instance = CreateWebRTCToken.from_json(json)
 # print the JSON string representation of the object

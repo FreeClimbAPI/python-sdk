@@ -13,8 +13,10 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.queue_request import QueueRequest
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "alias": "Support Queue",
+  "maxSize": 100
+}"""
 # create an instance of QueueRequest from a JSON string
 queue_request_instance = QueueRequest.from_json(json)
 # print the JSON string representation of the object

@@ -19,8 +19,26 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.sms_toll_free_campaigns_list_result import SMSTollFreeCampaignsListResult
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "total": 0,
+  "start": 0,
+  "end": 0,
+  "page": 0,
+  "numPages": 0,
+  "pageSize": 0,
+  "nextPageUri": "string",
+  "brands": [
+    {
+      "accountId": "string",
+      "campaignId": "string",
+      "useCase": "string",
+      "registrationStatus": "UNREGISTERED",
+      "dateCreated": "string",
+      "dateUpdated": "string",
+      "revision": 0
+    }
+  ]
+}"""
 # create an instance of SMSTollFreeCampaignsListResult from a JSON string
 sms_toll_free_campaigns_list_result_instance = SMSTollFreeCampaignsListResult.from_json(json)
 # print the JSON string representation of the object

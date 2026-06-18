@@ -17,8 +17,16 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.audio_stream import AudioStream
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "AudioStream",
+  "location": "https://www.example.com",
+  "actionUrl": "https://www.example.com",
+  "contentType": "string",
+  "metaData": [
+    "string"
+  ],
+  "privacyMode": false
+}"""
 # create an instance of AudioStream from a JSON string
 audio_stream_instance = AudioStream.from_json(json)
 # print the JSON string representation of the object

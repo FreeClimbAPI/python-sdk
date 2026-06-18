@@ -20,8 +20,17 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.recording_result import RecordingResult
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "uri": "string",
+  "dateCreated": "string",
+  "dateUpdated": "string",
+  "revision": 0,
+  "recordingId": "string",
+  "accountId": "string",
+  "callId": "string",
+  "durationSec": 0,
+  "conferenceId": "string"
+}"""
 # create an instance of RecordingResult from a JSON string
 recording_result_instance = RecordingResult.from_json(json)
 # print the JSON string representation of the object

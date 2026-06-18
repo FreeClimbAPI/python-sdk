@@ -25,8 +25,20 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.conference_result import ConferenceResult
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "uri": "string",
+  "dateCreated": "string",
+  "dateUpdated": "string",
+  "revision": 0,
+  "conferenceId": "string",
+  "accountId": "string",
+  "alias": "string",
+  "record": false,
+  "status": "empty",
+  "waitUrl": "https://www.example.com",
+  "actionUrl": "https://www.example.com",
+  "statusCallbackUrl": "https://www.example.com"
+}"""
 # create an instance of ConferenceResult from a JSON string
 conference_result_instance = ConferenceResult.from_json(json)
 # print the JSON string representation of the object

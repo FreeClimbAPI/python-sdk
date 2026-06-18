@@ -23,8 +23,19 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.queue_result import QueueResult
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "uri": "string",
+  "dateCreated": "string",
+  "dateUpdated": "string",
+  "revision": 0,
+  "accountId": "string",
+  "queueId": "string",
+  "alias": "string",
+  "maxSize": 0,
+  "currentSize": 0,
+  "averageQueueRemovalTime": 0,
+  "averageWaitTime": 0
+}"""
 # create an instance of QueueResult from a JSON string
 queue_result_instance = QueueResult.from_json(json)
 # print the JSON string representation of the object

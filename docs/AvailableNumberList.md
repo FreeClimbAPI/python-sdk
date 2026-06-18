@@ -19,8 +19,31 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.available_number_list import AvailableNumberList
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "total": 0,
+  "start": 0,
+  "end": 0,
+  "page": 0,
+  "numPages": 0,
+  "pageSize": 0,
+  "nextPageUri": "string",
+  "availablePhoneNumbers": [
+    {
+      "capabilities": {
+        "voice": false,
+        "sms": false,
+        "tollFree": false,
+        "tenDLC": false,
+        "shortCode": false
+      },
+      "campaignId": "string",
+      "phoneNumber": "string",
+      "alias": "string",
+      "region": "string",
+      "country": "string"
+    }
+  ]
+}"""
 # create an instance of AvailableNumberList from a JSON string
 available_number_list_instance = AvailableNumberList.from_json(json)
 # print the JSON string representation of the object

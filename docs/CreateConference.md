@@ -19,8 +19,16 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.create_conference import CreateConference
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "CreateConference",
+  "actionUrl": "https://www.example.com",
+  "alias": "string",
+  "playBeep": "always",
+  "record": false,
+  "statusCallbackUrl": "https://www.example.com",
+  "waitUrl": "https://www.example.com",
+  "parentCallId": "string"
+}"""
 # create an instance of CreateConference from a JSON string
 create_conference_instance = CreateConference.from_json(json)
 # print the JSON string representation of the object

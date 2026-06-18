@@ -22,8 +22,18 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.message_delivery_webhook import MessageDeliveryWebhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "messageDelivery",
+  "accountId": "string",
+  "from": "string",
+  "to": "string",
+  "text": "string",
+  "direction": "string",
+  "applicationId": "string",
+  "status": "string",
+  "phoneNumberId": "string",
+  "uri": "string"
+}"""
 # create an instance of MessageDeliveryWebhook from a JSON string
 message_delivery_webhook_instance = MessageDeliveryWebhook.from_json(json)
 # print the JSON string representation of the object

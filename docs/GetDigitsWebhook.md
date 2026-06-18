@@ -24,8 +24,20 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.get_digits_webhook import GetDigitsWebhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "getDigits",
+  "callId": "string",
+  "accountId": "string",
+  "from": "string",
+  "to": "string",
+  "callStatus": "queued",
+  "direction": "inbound",
+  "conferenceId": "string",
+  "queueId": "string",
+  "digits": "string",
+  "reason": "finishKey",
+  "parentCallId": "string"
+}"""
 # create an instance of GetDigitsWebhook from a JSON string
 get_digits_webhook_instance = GetDigitsWebhook.from_json(json)
 # print the JSON string representation of the object

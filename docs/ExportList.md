@@ -19,8 +19,40 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.export_list import ExportList
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "total": 0,
+  "start": 0,
+  "end": 0,
+  "page": 0,
+  "numPages": 0,
+  "pageSize": 0,
+  "nextPageUri": "string",
+  "exports": [
+    {
+      "accountId": "AC0123456789abcdefABCDEF0123456789abcdef07",
+      "uri": "/Accounts/AC0123456789abcdefABCDEF0123456789abcdef07/Exports/EX0123456789abcdefABCDEF0123456789abcdef08",
+      "dateCreated": "Wed, 26 Jun 2024 15:45:06 UTC",
+      "dateUpdated": "Wed, 26 Jun 2024 15:45:06 UTC",
+      "revision": 1,
+      "exportId": "EX0123456789abcdefABCDEF0123456789abcdef08",
+      "status": "completed",
+      "size": 12893786,
+      "resourceType": "Messages",
+      "query": {
+        "direction": "inbound"
+      },
+      "format": [
+        "messageId",
+        "dateUpdated",
+        "segmentCount",
+        "status"
+      ],
+      "output": {
+        "type": "csv"
+      }
+    }
+  ]
+}"""
 # create an instance of ExportList from a JSON string
 export_list_instance = ExportList.from_json(json)
 # print the JSON string representation of the object

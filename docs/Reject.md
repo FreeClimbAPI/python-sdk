@@ -13,8 +13,10 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.reject import Reject
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "Reject",
+  "reason": "string"
+}"""
 # create an instance of Reject from a JSON string
 reject_instance = Reject.from_json(json)
 # print the JSON string representation of the object

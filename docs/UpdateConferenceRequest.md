@@ -14,8 +14,11 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.update_conference_request import UpdateConferenceRequest
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "alias": "Customer Conference",
+  "playBeep": "always",
+  "status": "empty"
+}"""
 # create an instance of UpdateConferenceRequest from a JSON string
 update_conference_request_instance = UpdateConferenceRequest.from_json(json)
 # print the JSON string representation of the object

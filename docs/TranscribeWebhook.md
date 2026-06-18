@@ -34,8 +34,31 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.transcribe_webhook import TranscribeWebhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "transcribe",
+  "accountId": "string",
+  "callId": "string",
+  "from": "string",
+  "to": "string",
+  "recordingId": "string",
+  "recordingUrl": "https://www.example.com",
+  "recordingSize": 0,
+  "recordingFormat": "string",
+  "recordingDurationMs": 0,
+  "termReason": "error",
+  "recordTermReason": "finishKey",
+  "digit": "string",
+  "privacyForLogging": false,
+  "privacyForRecording": false,
+  "bargeInReason": "noBargeIn",
+  "bargedInPromptNo": 0,
+  "bargedInPromptMs": 0,
+  "bargedInPromptLoopNo": 0,
+  "bargeInTimeMs": 0,
+  "transcript": "string",
+  "transcribeReason": "internalError",
+  "transcriptionDurationMs": 0
+}"""
 # create an instance of TranscribeWebhook from a JSON string
 transcribe_webhook_instance = TranscribeWebhook.from_json(json)
 # print the JSON string representation of the object

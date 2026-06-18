@@ -22,8 +22,18 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.redirect_webhook import RedirectWebhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "redirect",
+  "accountId": "string",
+  "callId": "string",
+  "from": "string",
+  "to": "string",
+  "callStatus": "queued",
+  "direction": "inbound",
+  "conferenceId": "string",
+  "queueId": "string",
+  "parentCallId": "string"
+}"""
 # create an instance of RedirectWebhook from a JSON string
 redirect_webhook_instance = RedirectWebhook.from_json(json)
 # print the JSON string representation of the object

@@ -13,8 +13,13 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.modify_blob_request import ModifyBlobRequest
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "blob": {
+    "firstName": "John",
+    "lastName": "Doe"
+  },
+  "alias": "customer-profile"
+}"""
 # create an instance of ModifyBlobRequest from a JSON string
 modify_blob_request_instance = ModifyBlobRequest.from_json(json)
 # print the JSON string representation of the object

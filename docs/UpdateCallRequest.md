@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.update_call_request import UpdateCallRequest
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "status": "canceled"
+}"""
 # create an instance of UpdateCallRequest from a JSON string
 update_call_request_instance = UpdateCallRequest.from_json(json)
 # print the JSON string representation of the object

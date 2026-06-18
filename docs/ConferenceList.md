@@ -19,8 +19,31 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.conference_list import ConferenceList
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "total": 0,
+  "start": 0,
+  "end": 0,
+  "page": 0,
+  "numPages": 0,
+  "pageSize": 0,
+  "nextPageUri": "string",
+  "conferences": [
+    {
+      "uri": "string",
+      "dateCreated": "string",
+      "dateUpdated": "string",
+      "revision": 0,
+      "conferenceId": "string",
+      "accountId": "string",
+      "alias": "string",
+      "record": false,
+      "status": "empty",
+      "waitUrl": "https://www.example.com",
+      "actionUrl": "https://www.example.com",
+      "statusCallbackUrl": "https://www.example.com"
+    }
+  ]
+}"""
 # create an instance of ConferenceList from a JSON string
 conference_list_instance = ConferenceList.from_json(json)
 # print the JSON string representation of the object

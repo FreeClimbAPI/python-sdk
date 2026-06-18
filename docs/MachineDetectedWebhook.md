@@ -23,8 +23,19 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.machine_detected_webhook import MachineDetectedWebhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "machineDetected",
+  "callId": "string",
+  "accountId": "string",
+  "from": "string",
+  "to": "string",
+  "callStatus": "queued",
+  "direction": "inbound",
+  "conferenceId": "string",
+  "queueId": "string",
+  "parentCallId": "string",
+  "machineType": "answering machine"
+}"""
 # create an instance of MachineDetectedWebhook from a JSON string
 machine_detected_webhook_instance = MachineDetectedWebhook.from_json(json)
 # print the JSON string representation of the object

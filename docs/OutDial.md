@@ -22,8 +22,19 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.out_dial import OutDial
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "OutDial",
+  "actionUrl": "https://www.example.com",
+  "callConnectUrl": "https://www.example.com",
+  "callingNumber": "string",
+  "destination": "string",
+  "ifMachine": "redirect",
+  "ifMachineUrl": "https://www.example.com",
+  "sendDigits": "string",
+  "statusCallbackUrl": "https://www.example.com",
+  "timeout": 0,
+  "privacyMode": false
+}"""
 # create an instance of OutDial from a JSON string
 out_dial_instance = OutDial.from_json(json)
 # print the JSON string representation of the object

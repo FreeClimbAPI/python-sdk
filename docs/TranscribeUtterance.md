@@ -18,8 +18,23 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.transcribe_utterance import TranscribeUtterance
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "TranscribeUtterance",
+  "actionUrl": "https://www.example.com",
+  "playBeep": false,
+  "record": {
+    "saveRecording": false,
+    "maxLengthSec": 60,
+    "rcrdTerminationSilenceTimeMs": 0
+  },
+  "privacyForLogging": false,
+  "privacyForRecording": false,
+  "prompts": [
+    {
+      "command": "string"
+    }
+  ]
+}"""
 # create an instance of TranscribeUtterance from a JSON string
 transcribe_utterance_instance = TranscribeUtterance.from_json(json)
 # print the JSON string representation of the object

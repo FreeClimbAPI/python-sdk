@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.remove_from_conference import RemoveFromConference
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "RemoveFromConference"
+}"""
 # create an instance of RemoveFromConference from a JSON string
 remove_from_conference_instance = RemoveFromConference.from_json(json)
 # print the JSON string representation of the object

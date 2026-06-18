@@ -18,8 +18,15 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.sms_toll_free_campaign import SMSTollFreeCampaign
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "accountId": "string",
+  "campaignId": "string",
+  "useCase": "string",
+  "registrationStatus": "UNREGISTERED",
+  "dateCreated": "string",
+  "dateUpdated": "string",
+  "revision": 0
+}"""
 # create an instance of SMSTollFreeCampaign from a JSON string
 sms_toll_free_campaign_instance = SMSTollFreeCampaign.from_json(json)
 # print the JSON string representation of the object

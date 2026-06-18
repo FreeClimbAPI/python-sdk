@@ -22,8 +22,18 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.call_status_webhook import CallStatusWebhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "callStatus",
+  "callId": "string",
+  "accountId": "string",
+  "from": "string",
+  "to": "string",
+  "callStatus": "queued",
+  "callEndedReason": "busy",
+  "direction": "inbound",
+  "conferenceId": "string",
+  "queueId": "string"
+}"""
 # create an instance of CallStatusWebhook from a JSON string
 call_status_webhook_instance = CallStatusWebhook.from_json(json)
 # print the JSON string representation of the object

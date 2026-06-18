@@ -13,8 +13,10 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.set_dtmf_pass_through import SetDTMFPassThrough
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "SetDTMFPassThrough",
+  "dtmfPassThrough": false
+}"""
 # create an instance of SetDTMFPassThrough from a JSON string
 set_dtmf_pass_through_instance = SetDTMFPassThrough.from_json(json)
 # print the JSON string representation of the object

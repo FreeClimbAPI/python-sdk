@@ -15,8 +15,12 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.play import Play
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "Play",
+  "file": "string",
+  "loop": 0,
+  "privacyMode": false
+}"""
 # create an instance of Play from a JSON string
 play_instance = Play.from_json(json)
 # print the JSON string representation of the object

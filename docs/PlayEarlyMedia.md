@@ -13,8 +13,10 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.play_early_media import PlayEarlyMedia
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "PlayEarlyMedia",
+  "file": "string"
+}"""
 # create an instance of PlayEarlyMedia from a JSON string
 play_early_media_instance = PlayEarlyMedia.from_json(json)
 # print the JSON string representation of the object

@@ -13,8 +13,9 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.tts_engine import TTSEngine
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "name": "freeclimb.standard"
+}"""
 # create an instance of TTSEngine from a JSON string
 tts_engine_instance = TTSEngine.from_json(json)
 # print the JSON string representation of the object

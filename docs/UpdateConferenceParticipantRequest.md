@@ -14,8 +14,11 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.update_conference_participant_request import UpdateConferenceParticipantRequest
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "talk": true,
+  "listen": true,
+  "dtmfPassThrough": true
+}"""
 # create an instance of UpdateConferenceParticipantRequest from a JSON string
 update_conference_participant_request_instance = UpdateConferenceParticipantRequest.from_json(json)
 # print the JSON string representation of the object

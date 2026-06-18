@@ -25,8 +25,21 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.add_to_conference_notification_webhook import AddToConferenceNotificationWebhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "addToConferenceNotification",
+  "callId": "string",
+  "accountId": "string",
+  "from": "string",
+  "to": "string",
+  "callStatus": "queued",
+  "direction": "inbound",
+  "conferenceId": "string",
+  "queueId": "string",
+  "status": "empty",
+  "recordingUrl": "https://www.example.com",
+  "recordingId": "string",
+  "recordingDurationSec": 0
+}"""
 # create an instance of AddToConferenceNotificationWebhook from a JSON string
 add_to_conference_notification_webhook_instance = AddToConferenceNotificationWebhook.from_json(json)
 # print the JSON string representation of the object

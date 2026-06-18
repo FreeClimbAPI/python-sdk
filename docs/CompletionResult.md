@@ -13,8 +13,10 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.completion_result import CompletionResult
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "response": "string",
+  "status": "success"
+}"""
 # create an instance of CompletionResult from a JSON string
 completion_result_instance = CompletionResult.from_json(json)
 # print the JSON string representation of the object

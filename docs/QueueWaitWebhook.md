@@ -24,8 +24,20 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.queue_wait_webhook import QueueWaitWebhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "queueWait",
+  "accountId": "string",
+  "callId": "string",
+  "from": "string",
+  "to": "string",
+  "callStatus": "queued",
+  "direction": "inbound",
+  "conferenceId": "string",
+  "queueId": "string",
+  "queuePosition": "string",
+  "queueTime": 0,
+  "currentQueueSize": 0
+}"""
 # create an instance of QueueWaitWebhook from a JSON string
 queue_wait_webhook_instance = QueueWaitWebhook.from_json(json)
 # print the JSON string representation of the object

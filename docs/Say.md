@@ -17,8 +17,16 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.say import Say
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "Say",
+  "text": "string",
+  "language": "string",
+  "engine": {
+    "name": "freeclimb.standard"
+  },
+  "loop": 1,
+  "privacyMode": false
+}"""
 # create an instance of Say from a JSON string
 say_instance = Say.from_json(json)
 # print the JSON string representation of the object

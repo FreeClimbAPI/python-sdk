@@ -20,8 +20,19 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.message_request import MessageRequest
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "uri": "string",
+  "dateCreated": "string",
+  "dateUpdated": "string",
+  "revision": 0,
+  "from": "+12025551234",
+  "to": "+13035559876",
+  "text": "Hello from FreeClimb!",
+  "notificationUrl": "https://www.myapp.com/messageStatus",
+  "mediaUrls": [
+    "https://www.myapp.com/image.jpg"
+  ]
+}"""
 # create an instance of MessageRequest from a JSON string
 message_request_instance = MessageRequest.from_json(json)
 # print the JSON string representation of the object

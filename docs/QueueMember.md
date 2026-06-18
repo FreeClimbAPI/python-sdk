@@ -16,8 +16,13 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.queue_member import QueueMember
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "uri": "string",
+  "callId": "string",
+  "waitTime": 0,
+  "position": 0,
+  "dateEnqueued": "string"
+}"""
 # create an instance of QueueMember from a JSON string
 queue_member_instance = QueueMember.from_json(json)
 # print the JSON string representation of the object

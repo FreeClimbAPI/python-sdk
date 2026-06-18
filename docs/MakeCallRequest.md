@@ -21,8 +21,18 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.make_call_request import MakeCallRequest
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "from": "+12025551234",
+  "to": "+13035559876",
+  "applicationId": "AP0123456789abcdefABCDEF0123456789abcdef03",
+  "sendDigits": "1234#",
+  "ifMachine": "redirect",
+  "ifMachineUrl": "https://www.myapp.com/ifMachine",
+  "timeout": 30,
+  "parentCallId": "CA0123456789abcdefABCDEF0123456789abcdef04",
+  "privacyMode": false,
+  "callConnectUrl": "https://www.myapp.com/callConnect"
+}"""
 # create an instance of MakeCallRequest from a JSON string
 make_call_request_instance = MakeCallRequest.from_json(json)
 # print the JSON string representation of the object
