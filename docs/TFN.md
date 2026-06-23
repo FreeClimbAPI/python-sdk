@@ -13,8 +13,9 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.tfn import TFN
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "campaignId": "string"
+}"""
 # create an instance of TFN from a JSON string
 tfn_instance = TFN.from_json(json)
 # print the JSON string representation of the object

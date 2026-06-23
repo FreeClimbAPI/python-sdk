@@ -15,8 +15,20 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.export_request import ExportRequest
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "resourceType": "Messages",
+  "format": [
+    "messageId",
+    "dateUpdated",
+    "status"
+  ],
+  "output": {
+    "type": "csv"
+  },
+  "query": {
+    "direction": "inbound"
+  }
+}"""
 # create an instance of ExportRequest from a JSON string
 export_request_instance = ExportRequest.from_json(json)
 # print the JSON string representation of the object

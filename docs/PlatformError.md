@@ -16,8 +16,11 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.platform_error import PlatformError
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "code": 0,
+  "call": "Internal Failure",
+  "url": "https://docs.freeclimb.com/reference/error-and-warning-dictionary#0"
+}"""
 # create an instance of PlatformError from a JSON string
 platform_error_instance = PlatformError.from_json(json)
 # print the JSON string representation of the object

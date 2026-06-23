@@ -26,8 +26,31 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.incoming_number_result import IncomingNumberResult
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "uri": "string",
+  "dateCreated": "string",
+  "dateUpdated": "string",
+  "revision": 0,
+  "capabilities": {
+    "voice": false,
+    "sms": false,
+    "tollFree": false,
+    "tenDLC": false,
+    "shortCode": false
+  },
+  "campaignId": "string",
+  "phoneNumberId": "string",
+  "accountId": "string",
+  "applicationId": "string",
+  "phoneNumber": "string",
+  "alias": "string",
+  "region": "string",
+  "country": "string",
+  "offnet": false,
+  "tfn": {
+    "campaignId": "string"
+  }
+}"""
 # create an instance of IncomingNumberResult from a JSON string
 incoming_number_result_instance = IncomingNumberResult.from_json(json)
 # print the JSON string representation of the object

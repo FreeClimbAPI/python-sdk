@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.unpark import Unpark
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "Unpark"
+}"""
 # create an instance of Unpark from a JSON string
 unpark_instance = Unpark.from_json(json)
 # print the JSON string representation of the object

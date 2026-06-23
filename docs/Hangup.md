@@ -13,8 +13,10 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.hangup import Hangup
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "Hangup",
+  "reason": "string"
+}"""
 # create an instance of Hangup from a JSON string
 hangup_instance = Hangup.from_json(json)
 # print the JSON string representation of the object

@@ -19,8 +19,28 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.recording_list import RecordingList
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "total": 0,
+  "start": 0,
+  "end": 0,
+  "page": 0,
+  "numPages": 0,
+  "pageSize": 0,
+  "nextPageUri": "string",
+  "recordings": [
+    {
+      "uri": "string",
+      "dateCreated": "string",
+      "dateUpdated": "string",
+      "revision": 0,
+      "recordingId": "string",
+      "accountId": "string",
+      "callId": "string",
+      "durationSec": 0,
+      "conferenceId": "string"
+    }
+  ]
+}"""
 # create an instance of RecordingList from a JSON string
 recording_list_instance = RecordingList.from_json(json)
 # print the JSON string representation of the object

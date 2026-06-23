@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.completion_request import CompletionRequest
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "query": "What are your business hours?"
+}"""
 # create an instance of CompletionRequest from a JSON string
 completion_request_instance = CompletionRequest.from_json(json)
 # print the JSON string representation of the object

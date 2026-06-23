@@ -13,8 +13,10 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.pause import Pause
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "Pause",
+  "length": 0
+}"""
 # create an instance of Pause from a JSON string
 pause_instance = Pause.from_json(json)
 # print the JSON string representation of the object

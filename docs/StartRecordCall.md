@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.start_record_call import StartRecordCall
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "StartRecordCall"
+}"""
 # create an instance of StartRecordCall from a JSON string
 start_record_call_instance = StartRecordCall.from_json(json)
 # print the JSON string representation of the object

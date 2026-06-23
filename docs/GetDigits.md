@@ -21,8 +21,22 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.get_digits import GetDigits
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "GetDigits",
+  "actionUrl": "https://www.example.com",
+  "digitTimeoutMs": 0,
+  "finishOnKey": "string",
+  "flushBuffer": false,
+  "initialTimeoutMs": 0,
+  "maxDigits": 0,
+  "minDigits": 0,
+  "prompts": [
+    {
+      "command": "string"
+    }
+  ],
+  "privacyMode": false
+}"""
 # create an instance of GetDigits from a JSON string
 get_digits_instance = GetDigits.from_json(json)
 # print the JSON string representation of the object

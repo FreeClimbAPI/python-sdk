@@ -29,8 +29,25 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.record_webhook import RecordWebhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "record",
+  "accountId": "string",
+  "callId": "string",
+  "from": "string",
+  "to": "string",
+  "callStatus": "queued",
+  "direction": "inbound",
+  "conferenceId": "string",
+  "queueId": "string",
+  "recordingId": "string",
+  "recordingUrl": "https://www.example.com",
+  "recordingSize": "string",
+  "recordingFormat": "string",
+  "recordingDurationSec": 0,
+  "termReason": "finishKey",
+  "parentCallId": "string",
+  "privacyMode": false
+}"""
 # create an instance of RecordWebhook from a JSON string
 record_webhook_instance = RecordWebhook.from_json(json)
 # print the JSON string representation of the object

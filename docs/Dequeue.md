@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.dequeue import Dequeue
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "Dequeue"
+}"""
 # create an instance of Dequeue from a JSON string
 dequeue_instance = Dequeue.from_json(json)
 # print the JSON string representation of the object

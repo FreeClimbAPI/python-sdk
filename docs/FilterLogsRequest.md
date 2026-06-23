@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.filter_logs_request import FilterLogsRequest
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "pql": "2020-06-22T19:42:53.376Z < timestamp < 2020-06-23T19:42:53.376Z"
+}"""
 # create an instance of FilterLogsRequest from a JSON string
 filter_logs_request_instance = FilterLogsRequest.from_json(json)
 # print the JSON string representation of the object

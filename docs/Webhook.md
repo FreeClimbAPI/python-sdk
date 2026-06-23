@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.webhook import Webhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "string"
+}"""
 # create an instance of Webhook from a JSON string
 webhook_instance = Webhook.from_json(json)
 # print the JSON string representation of the object

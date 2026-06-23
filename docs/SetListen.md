@@ -13,8 +13,10 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.set_listen import SetListen
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "SetListen",
+  "listen": false
+}"""
 # create an instance of SetListen from a JSON string
 set_listen_instance = SetListen.from_json(json)
 # print the JSON string representation of the object

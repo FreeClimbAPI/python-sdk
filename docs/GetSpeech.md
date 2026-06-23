@@ -25,8 +25,26 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.get_speech import GetSpeech
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "GetSpeech",
+  "actionUrl": "https://www.example.com",
+  "grammarType": "URL",
+  "grammarFile": "string",
+  "grammarRule": "string",
+  "playBeep": false,
+  "prompts": [
+    {
+      "command": "string"
+    }
+  ],
+  "noInputTimeoutMs": 0,
+  "recognitionTimeoutMs": 0,
+  "confidenceThreshold": 0,
+  "sensitivityLevel": 0,
+  "speechCompleteTimeoutMs": 0,
+  "speechIncompleteTimeoutMs": 0,
+  "privacyMode": false
+}"""
 # create an instance of GetSpeech from a JSON string
 get_speech_instance = GetSpeech.from_json(json)
 # print the JSON string representation of the object

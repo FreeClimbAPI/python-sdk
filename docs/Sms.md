@@ -16,8 +16,13 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.sms import Sms
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "Sms",
+  "to": "string",
+  "from": "string",
+  "text": "string",
+  "notificationUrl": "https://www.example.com"
+}"""
 # create an instance of Sms from a JSON string
 sms_instance = Sms.from_json(json)
 # print the JSON string representation of the object

@@ -15,8 +15,12 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.send_digits import SendDigits
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "SendDigits",
+  "digits": "string",
+  "pauseMs": 0,
+  "privacyMode": false
+}"""
 # create an instance of SendDigits from a JSON string
 send_digits_instance = SendDigits.from_json(json)
 # print the JSON string representation of the object

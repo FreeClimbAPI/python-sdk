@@ -18,8 +18,14 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.log_result import LogResult
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "timestamp": 0,
+  "level": "info",
+  "requestId": "string",
+  "accountId": "string",
+  "callId": "string",
+  "message": "string"
+}"""
 # create an instance of LogResult from a JSON string
 log_result_instance = LogResult.from_json(json)
 # print the JSON string representation of the object

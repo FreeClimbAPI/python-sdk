@@ -21,8 +21,17 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.audio_stream_webhook import AudioStreamWebhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "audioStream",
+  "callId": "string",
+  "accountId": "string",
+  "from": "string",
+  "to": "string",
+  "callStatus": "queued",
+  "direction": "inbound",
+  "conferenceId": "string",
+  "queueId": "string"
+}"""
 # create an instance of AudioStreamWebhook from a JSON string
 audio_stream_webhook_instance = AudioStreamWebhook.from_json(json)
 # print the JSON string representation of the object

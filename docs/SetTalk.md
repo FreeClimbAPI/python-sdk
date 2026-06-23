@@ -13,8 +13,10 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.set_talk import SetTalk
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "SetTalk",
+  "talk": false
+}"""
 # create an instance of SetTalk from a JSON string
 set_talk_instance = SetTalk.from_json(json)
 # print the JSON string representation of the object

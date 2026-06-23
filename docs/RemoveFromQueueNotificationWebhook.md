@@ -23,8 +23,19 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.remove_from_queue_notification_webhook import RemoveFromQueueNotificationWebhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "removeFromQueueNotification",
+  "accountId": "string",
+  "callId": "string",
+  "from": "string",
+  "to": "string",
+  "callStatus": "queued",
+  "direction": "inbound",
+  "conferenceId": "string",
+  "queueId": "string",
+  "queueResult": "queueFull",
+  "queueTime": 0
+}"""
 # create an instance of RemoveFromQueueNotificationWebhook from a JSON string
 remove_from_queue_notification_webhook_instance = RemoveFromQueueNotificationWebhook.from_json(json)
 # print the JSON string representation of the object

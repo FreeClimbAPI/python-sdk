@@ -18,8 +18,15 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.pagination_model import PaginationModel
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "total": 0,
+  "start": 0,
+  "end": 0,
+  "page": 0,
+  "numPages": 0,
+  "pageSize": 0,
+  "nextPageUri": "string"
+}"""
 # create an instance of PaginationModel from a JSON string
 pagination_model_instance = PaginationModel.from_json(json)
 # print the JSON string representation of the object

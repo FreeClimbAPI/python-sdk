@@ -13,8 +13,13 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.percl_script import PerclScript
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "commands": [
+    {
+      "command": "string"
+    }
+  ]
+}"""
 # create an instance of PerclScript from a JSON string
 percl_script_instance = PerclScript.from_json(json)
 # print the JSON string representation of the object

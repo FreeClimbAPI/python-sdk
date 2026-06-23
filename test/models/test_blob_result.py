@@ -30,14 +30,14 @@ class TestBlobResult(unittest.TestCase):
     def test_blob_id(self):
         """Test BlobResult.blob_id"""
 
-        self.model.blob_id = "BL88615a9b4ca7e9aad57d9057773fc74268b9caf7"
-        assert self.model.blob_id == "BL88615a9b4ca7e9aad57d9057773fc74268b9caf7"
+        self.model.blob_id = "BL0123456789abcdefABCDEF0123456789abcdef02"
+        assert self.model.blob_id == "BL0123456789abcdefABCDEF0123456789abcdef02"
 
     def test_account_id(self):
         """Test BlobResult.account_id"""
 
-        self.model.account_id = "AC0534faec6b32da45f36166674d65b3903f784141"
-        assert self.model.account_id == "AC0534faec6b32da45f36166674d65b3903f784141"
+        self.model.account_id = "AC0123456789abcdefABCDEF0123456789abcdef01"
+        assert self.model.account_id == "AC0123456789abcdefABCDEF0123456789abcdef01"
 
     def test_alias(self):
         """Test BlobResult.alias"""

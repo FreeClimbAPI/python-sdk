@@ -14,8 +14,10 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.call_result_all_of_subresource_uris import CallResultAllOfSubresourceUris
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "logs": "string",
+  "recordings": "string"
+}"""
 # create an instance of CallResultAllOfSubresourceUris from a JSON string
 call_result_all_of_subresource_uris_instance = CallResultAllOfSubresourceUris.from_json(json)
 # print the JSON string representation of the object

@@ -22,8 +22,18 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.inbound_call_webhook import InboundCallWebhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "inboundCall",
+  "callId": "string",
+  "accountId": "string",
+  "from": "string",
+  "to": "string",
+  "callStatus": "queued",
+  "direction": "inbound",
+  "conferenceId": "string",
+  "queueId": "string",
+  "parentCallId": "string"
+}"""
 # create an instance of InboundCallWebhook from a JSON string
 inbound_call_webhook_instance = InboundCallWebhook.from_json(json)
 # print the JSON string representation of the object

@@ -29,8 +29,25 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.get_speech_webhook import GetSpeechWebhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "getSpeech",
+  "callId": "string",
+  "accountId": "string",
+  "from": "string",
+  "to": "string",
+  "callStatus": "queued",
+  "direction": "inbound",
+  "conferenceId": "string",
+  "queueId": "string",
+  "reason": "error",
+  "recognitionResult": "string",
+  "confidence": 0,
+  "parentCallId": "string",
+  "completionReason": "string",
+  "completionCause": "string",
+  "mrcpCode": 0,
+  "mrcpDiagnostic": "string"
+}"""
 # create an instance of GetSpeechWebhook from a JSON string
 get_speech_webhook_instance = GetSpeechWebhook.from_json(json)
 # print the JSON string representation of the object

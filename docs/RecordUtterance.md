@@ -19,8 +19,16 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.record_utterance import RecordUtterance
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "RecordUtterance",
+  "actionUrl": "https://www.example.com",
+  "silenceTimeoutMs": 0,
+  "finishOnKey": "string",
+  "maxLengthSec": 0,
+  "playBeep": false,
+  "autoStart": false,
+  "privacyMode": false
+}"""
 # create an instance of RecordUtterance from a JSON string
 record_utterance_instance = RecordUtterance.from_json(json)
 # print the JSON string representation of the object

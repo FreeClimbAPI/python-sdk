@@ -22,8 +22,19 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.add_to_conference import AddToConference
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "AddToConference",
+  "allowCallControl": false,
+  "callControlSequence": "string",
+  "callControlUrl": "https://www.example.com",
+  "conferenceId": "string",
+  "leaveConferenceUrl": "https://www.example.com",
+  "listen": false,
+  "notificationUrl": "https://www.example.com",
+  "startConfOnEnter": false,
+  "talk": false,
+  "dtmfPassThrough": false
+}"""
 # create an instance of AddToConference from a JSON string
 add_to_conference_instance = AddToConference.from_json(json)
 # print the JSON string representation of the object

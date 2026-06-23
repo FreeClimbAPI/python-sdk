@@ -20,8 +20,17 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.tfn_campaign import TFNCampaign
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "accountId": "string",
+  "campaignId": "cmptfn_387ec3f6e03b340553f35f29c8f118cdf3eae08a",
+  "useCase": "string",
+  "registrationStatus": "UNREGISTERED",
+  "dateCreated": "string",
+  "dateUpdated": "string",
+  "dateCreatedISO": "string",
+  "dateUpdatedISO": "string",
+  "revision": 0
+}"""
 # create an instance of TFNCampaign from a JSON string
 tfn_campaign_instance = TFNCampaign.from_json(json)
 # print the JSON string representation of the object

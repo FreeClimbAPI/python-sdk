@@ -23,8 +23,19 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.out_dial_start_webhook import OutDialStartWebhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "outDialStart",
+  "accountId": "string",
+  "callId": "string",
+  "from": "string",
+  "to": "string",
+  "callStatus": "queued",
+  "direction": "inbound",
+  "conferenceId": "string",
+  "queueId": "string",
+  "dialCallId": "string",
+  "parentCallId": "string"
+}"""
 # create an instance of OutDialStartWebhook from a JSON string
 out_dial_start_webhook_instance = OutDialStartWebhook.from_json(json)
 # print the JSON string representation of the object

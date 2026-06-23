@@ -23,8 +23,19 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.dequeue_webhook import DequeueWebhook
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "requestType": "dequeue",
+  "callId": "string",
+  "accountId": "string",
+  "from": "string",
+  "to": "string",
+  "callStatus": "queued",
+  "direction": "inbound",
+  "conferenceId": "string",
+  "queueId": "string",
+  "queueResult": "string",
+  "queueTime": 0
+}"""
 # create an instance of DequeueWebhook from a JSON string
 dequeue_webhook_instance = DequeueWebhook.from_json(json)
 # print the JSON string representation of the object

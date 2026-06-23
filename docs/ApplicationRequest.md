@@ -18,8 +18,15 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.application_request import ApplicationRequest
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "alias": "Customer Support Line",
+  "voiceUrl": "https://www.myapp.com/voice",
+  "voiceFallbackUrl": "https://www.myapp.com/voiceFallback",
+  "callConnectUrl": "https://www.myapp.com/callConnect",
+  "statusCallbackUrl": "https://www.myapp.com/status",
+  "smsUrl": "https://www.myapp.com/sms",
+  "smsFallbackUrl": "https://www.myapp.com/smsFallback"
+}"""
 # create an instance of ApplicationRequest from a JSON string
 application_request_instance = ApplicationRequest.from_json(json)
 # print the JSON string representation of the object

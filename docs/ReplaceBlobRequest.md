@@ -12,8 +12,12 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.replace_blob_request import ReplaceBlobRequest
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "blob": {
+    "firstName": "John",
+    "lastName": "Doe"
+  }
+}"""
 # create an instance of ReplaceBlobRequest from a JSON string
 replace_blob_request_instance = ReplaceBlobRequest.from_json(json)
 # print the JSON string representation of the object

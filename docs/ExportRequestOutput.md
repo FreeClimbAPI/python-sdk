@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.export_request_output import ExportRequestOutput
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "type": "csv"
+}"""
 # create an instance of ExportRequestOutput from a JSON string
 export_request_output_instance = ExportRequestOutput.from_json(json)
 # print the JSON string representation of the object

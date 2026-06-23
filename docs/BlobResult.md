@@ -19,8 +19,15 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.blob_result import BlobResult
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "blobId": "BL0123456789abcdefABCDEF0123456789abcdef02",
+  "accountId": "AC0123456789abcdefABCDEF0123456789abcdef01",
+  "alias": "string",
+  "revision": 0,
+  "dateCreated": "2022-01-01T00:00:00Z",
+  "dateUpdated": "2022-01-01T00:00:00Z",
+  "expiresAt": "2022-01-01T00:00:00Z"
+}"""
 # create an instance of BlobResult from a JSON string
 blob_result_instance = BlobResult.from_json(json)
 # print the JSON string representation of the object

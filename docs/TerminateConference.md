@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.terminate_conference import TerminateConference
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "command": "TerminateConference"
+}"""
 # create an instance of TerminateConference from a JSON string
 terminate_conference_instance = TerminateConference.from_json(json)
 # print the JSON string representation of the object

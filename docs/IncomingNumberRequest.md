@@ -14,8 +14,11 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.incoming_number_request import IncomingNumberRequest
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "applicationId": "AP0123456789abcdefABCDEF0123456789abcdef03",
+  "alias": "Main Office Line",
+  "campaignId": "CX56XX4"
+}"""
 # create an instance of IncomingNumberRequest from a JSON string
 incoming_number_request_instance = IncomingNumberRequest.from_json(json)
 # print the JSON string representation of the object

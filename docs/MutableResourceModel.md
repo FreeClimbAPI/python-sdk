@@ -15,8 +15,12 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.mutable_resource_model import MutableResourceModel
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "uri": "string",
+  "dateCreated": "string",
+  "dateUpdated": "string",
+  "revision": 0
+}"""
 # create an instance of MutableResourceModel from a JSON string
 mutable_resource_model_instance = MutableResourceModel.from_json(json)
 # print the JSON string representation of the object

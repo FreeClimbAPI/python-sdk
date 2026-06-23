@@ -14,8 +14,14 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.create_blob_request import CreateBlobRequest
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "alias": "customer-profile",
+  "expiresAt": "2006-01-02T15:04:05.000Z",
+  "blob": {
+    "firstName": "John",
+    "lastName": "Doe"
+  }
+}"""
 # create an instance of CreateBlobRequest from a JSON string
 create_blob_request_instance = CreateBlobRequest.from_json(json)
 # print the JSON string representation of the object

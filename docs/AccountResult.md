@@ -22,8 +22,18 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.account_result import AccountResult
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "uri": "string",
+  "dateCreated": "string",
+  "dateUpdated": "string",
+  "revision": 0,
+  "accountId": "string",
+  "apiKey": "string",
+  "alias": "string",
+  "label": "string",
+  "type": "trial",
+  "status": "closed"
+}"""
 # create an instance of AccountResult from a JSON string
 account_result_instance = AccountResult.from_json(json)
 # print the JSON string representation of the object

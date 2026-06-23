@@ -13,8 +13,10 @@ Name | Type | Description | Notes
 ```python
 from freeclimb.models.account_request import AccountRequest
 
-# TODO update the JSON string below
-json = "{}"
+json = """{
+  "alias": "My Account",
+  "label": "My Label"
+}"""
 # create an instance of AccountRequest from a JSON string
 account_request_instance = AccountRequest.from_json(json)
 # print the JSON string representation of the object
